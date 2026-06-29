@@ -1,0 +1,51 @@
+{
+  "algorithms": [
+    {
+      "name": "cholesky_block",
+      "family": "cholesky",
+      "variant": "block",
+      "trace_path": "result_new/cholesky/block/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    },
+    {
+      "name": "cholesky_noblock",
+      "family": "cholesky",
+      "variant": "noblock",
+      "trace_path": "result_new/cholesky/noblock/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    },
+    {
+      "name": "ldl_block",
+      "family": "ldl",
+      "variant": "block",
+      "trace_path": "result_new/ldl/block/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    },
+    {
+      "name": "ldl_noblock",
+      "family": "ldl",
+      "variant": "noblock",
+      "trace_path": "result_new/ldl/noblock/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    },
+    {
+      "name": "jacobi_block_weighted",
+      "family": "block_jacobi",
+      "variant": "block",
+      "formula_role": "jacobi_block",
+      "trace_path": "result_new/block_jacobi_weighted/operator/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median",
+      "simulate_cmd": "mkdir -p result_new/block_jacobi_weighted/operator && ONNXIM_TRACE_CSV=result_new/block_jacobi_weighted/operator/trace.csv ./build/bin/Simulator --config configs/ascend_910b_quiet.json --models_list example/block_jacobi_weighted_64x16.json --mode block_jacobi_test --log_level info > result_new/block_jacobi_weighted/operator/run.log 2>&1"
+    }
+  ]
+}

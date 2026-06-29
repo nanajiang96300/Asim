@@ -1,0 +1,21 @@
+{
+    "models": [{
+        "name": "bri_256x64_b32_opt",
+        "batch_size": 96,
+        "matrix_m": 256,
+        "matrix_k": 64,
+        "attributes": {
+            "layers": "4",
+            "block_size": "32",
+            "group_sync": "16",
+            "adaptive_bounds": "1",
+            "iter_weight": "1",
+            "omega_relaxed": "1",
+            "fused_by_gemm": "1",
+            "by_preload_period": "16",
+            "fuse_residual_update": "1",
+            "by_kernel_fuse_factor": "4",
+            "precond_solver": "cholesky"
+        }
+    }]
+}

@@ -1,0 +1,13 @@
+{
+    "models": [
+        {
+            "name": "mmse_baseline_128x16",
+            "batch_size": 96,
+            "matrix_m": 128,
+            "matrix_k": 16,
+            "attributes": {
+                "strict_iso_lowering": "1"
+            }
+        }
+    ]
+}

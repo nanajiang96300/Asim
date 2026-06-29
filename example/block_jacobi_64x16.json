@@ -1,0 +1,16 @@
+{
+    "models": [
+        {
+            "name": "block_jacobi_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16,
+            "attributes": {
+                "layers": "16",
+                "block_size": "2",
+                "group_sync": "2",
+                "adaptive_bounds": "1"
+            }
+        }
+    ]
+}

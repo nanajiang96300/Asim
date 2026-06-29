@@ -1,0 +1,103 @@
+{
+  "_comment": "算子注册表 — 新增算子只需在此添加一条记录即可接入 /eval-patch 和 /opt-round",
+  "operators": {
+    "cholesky_block": {
+      "config": "example/cholesky_test.json",
+      "mode": "cholesky_test",
+      "source": "src/operations/CholeskyInvOp.cc",
+      "header": "src/operations/CholeskyInvOp.h",
+      "nr": 64, "nt": 16,
+      "dimensions": [
+        {"nr": 64, "nt": 16, "label": "U=16 (64x16)"},
+        {"nr": 128, "nt": 32, "label": "U=32 (128x32)"},
+        {"nr": 256, "nt": 64, "label": "U=64 (256x64)"}
+      ],
+      "attributes": ["block_size"],
+      "description": "Cholesky 分块分解求逆（基线），B=2 分块，POTRF/TRSM/RK_UPDATE/SOLVE 四阶段"
+    },
+    "cholesky_noblock": {
+      "config": "example/cholesky_noblock_test.json",
+      "mode": "cholesky_noblock_test",
+      "source": "src/operations/CholeskyInvNoBlockOp.cc",
+      "header": "src/operations/CholeskyInvNoBlockOp.h",
+      "nr": 64, "nt": 16,
+      "dimensions": [
+        {"nr": 64, "nt": 16, "label": "U=16 (64x16)"},
+        {"nr": 128, "nt": 32, "label": "U=32 (128x32)"},
+        {"nr": 256, "nt": 64, "label": "U=64 (256x64)"}
+      ],
+      "attributes": [],
+      "description": "Cholesky 逐列分解求逆（无分块），SQRT/DIV 串行依赖显著"
+    },
+    "ldl_block": {
+      "config": "example/ldl_test_moderate3.json",
+      "mode": "ldl_test",
+      "source": "src/operations/LDLDecompOp.cc",
+      "header": "src/operations/LDLDecompOp.h",
+      "nr": 64, "nt": 16,
+      "dimensions": [
+        {"nr": 64, "nt": 16, "label": "U=16 (64x16)"},
+        {"nr": 128, "nt": 32, "label": "U=32 (128x32)"},
+        {"nr": 256, "nt": 64, "label": "U=64 (256x64)"}
+      ],
+      "attributes": ["block_size", "bwd_steps", "pack_blocks"],
+      "description": "LDL 分块分解求逆，避免 SQRT，2x2→16x16 拼接优化"
+    },
+    "ldl_noblock": {
+      "config": "example/ldl_noblock_test.json",
+      "mode": "ldl_noblock_test",
+      "source": "src/operations/LDLDecompNoBlockOp.cc",
+      "header": "src/operations/LDLDecompNoBlockOp.h",
+      "nr": 64, "nt": 16,
+      "dimensions": [
+        {"nr": 64, "nt": 16, "label": "U=16 (64x16)"},
+        {"nr": 128, "nt": 32, "label": "U=32 (128x32)"},
+        {"nr": 256, "nt": 64, "label": "U=64 (256x64)"}
+      ],
+      "attributes": [],
+      "description": "LDL 逐列分解求逆（无分块），Vector MUL 替代 SQRT/DIV"
+    },
+    "block_richardson": {
+      "config": "example/block_richardson_test.json",
+      "mode": "block_richardson_test",
+      "source": "src/operations/BlockRichardsonOp.cc",
+      "header": "src/operations/BlockRichardsonOp.h",
+      "nr": 64, "nt": 16,
+      "dimensions": [
+        {"nr": 64, "nt": 16, "label": "U=16 (64x16)"},
+        {"nr": 128, "nt": 32, "label": "U=32 (128x32)"},
+        {"nr": 256, "nt": 64, "label": "U=64 (256x64)"}
+      ],
+      "attributes": ["layers", "block_size", "group_sync", "adaptive_bounds", "iter_weight", "fused_by_gemm", "by_preload_period"],
+      "description": "Block-Richardson 预条件迭代求逆，Chebyshev 加速，周期最优方案"
+    },
+    "newton_schulz": {
+      "config": "example/newton_schulz_opt_test.json",
+      "mode": "newton_schulz_opt_test",
+      "source": "src/operations/NewtonSchulzOptOp.cc",
+      "header": "src/operations/NewtonSchulzOptOp.h",
+      "nr": 32, "nt": 32,
+      "dimensions": [
+        {"nr": 16, "nt": 16, "label": "N=16 (16x16)"},
+        {"nr": 32, "nt": 32, "label": "N=32 (32x32)"},
+        {"nr": 64, "nt": 64, "label": "N=64 (64x64)"}
+      ],
+      "attributes": ["iterations"],
+      "description": "Newton-Schulz 二阶迭代求逆，X_{k+1}=X_k(2I-AX_k)"
+    }
+  },
+  "_new_operator_template": {
+    "config": "example/MY_OPERATOR_test.json",
+    "mode": "MY_OPERATOR_test",
+    "source": "src/operations/MyNewOperator.cc",
+    "header": "src/operations/MyNewOperator.h",
+    "nr": 64, "nt": 16,
+    "dimensions": [
+      {"nr": 64, "nt": 16, "label": "U=16"},
+      {"nr": 128, "nt": 32, "label": "U=32"},
+      {"nr": 256, "nt": 64, "label": "U=64"}
+    ],
+    "attributes": ["param1", "param2"],
+    "description": "算子描述，一句话说明算法类型和优化特点"
+  }
+}

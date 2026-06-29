@@ -1,0 +1,15 @@
+{
+    "models": [
+        {
+            "name": "mmse_cholesky_baseline_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16,
+            "attributes": {
+                "block_size": "1",
+                "solve_steps": "1",
+                "strict_iso_lowering": "1"
+            }
+        }
+    ]
+}

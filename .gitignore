@@ -1,0 +1,32 @@
+# Build
+build/
+build_asim/
+*.o
+*.a
+*.so
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Conan
+.conan/
+
+# Results (tracked separately with metadata)
+results/**
+
+# Backup files
+*.bak
+*.orig
+*.old
+
+# OS
+.DS_Store
+Thumbs.db
+results/

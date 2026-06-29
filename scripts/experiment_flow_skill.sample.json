@@ -1,0 +1,49 @@
+{
+  "algorithms": [
+    {
+      "name": "cholesky_block",
+      "family": "cholesky",
+      "variant": "block",
+      "trace_path": "result_new/cholesky/block/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    },
+    {
+      "name": "cholesky_noblock",
+      "family": "cholesky",
+      "variant": "noblock",
+      "trace_path": "result_new/cholesky/noblock/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    },
+    {
+      "name": "ldl_block",
+      "family": "ldl",
+      "variant": "block",
+      "trace_path": "result_new/ldl/block/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    },
+    {
+      "name": "ldl_noblock",
+      "family": "ldl",
+      "variant": "noblock",
+      "trace_path": "result_new/ldl/noblock/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    },
+    {
+      "name": "jacobi_block",
+      "family": "block_jacobi",
+      "variant": "block",
+      "trace_path": "result_new/block_jacobi/operator/trace.csv",
+      "matrix_m": 64,
+      "matrix_u": 16,
+      "reducer": "median"
+    }
+  ]
+}

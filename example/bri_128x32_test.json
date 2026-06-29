@@ -1,0 +1,17 @@
+{
+    "models": [{
+        "name": "bri_128x32",
+        "batch_size": 96,
+        "matrix_m": 128,
+        "matrix_k": 32,
+        "attributes": {
+            "layers": "8",
+            "block_size": "2",
+            "group_sync": "2",
+            "adaptive_bounds": "1",
+            "iter_weight": "1",
+            "fused_by_gemm": "1",
+            "by_preload_period": "4"
+        }
+    }]
+}

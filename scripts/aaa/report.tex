@@ -1,0 +1,360 @@
+\documentclass[11pt,a4paper]{ctexart}
+
+% ── page & font ──
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+
+% ── metadata ──
+\title{\textbf{矩阵求逆算法静态指标对比分析}}
+\author{AlgorithmInfo 项目}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+本文对六种 $16\times16$ 对称正定矩阵求逆算法进行静态指标分析。
+指标包括：总 FLOPs 及其在矩阵运算单元（Cube）、向量运算单元（Vector）、标量单元上的分布；
+操作（指令）数量按 BLAS 等级的分类；以及关键路径长度与平均并发度。
+分析基于自主开发的符号执行框架 \texttt{algolib}，通过对算法代码进行 trace 模式执行自动收集各项指标。
+不依赖任何硬件实测数据。
+\end{abstract}
+
+\section{算法流程}
+
+\subsection{直接 Cholesky 求逆}
+
+算法基于 Cholesky 分解 $A = LL^{\mathsf T}$，求逆公式为 $A^{-1} = L^{-{\mathsf T}}L^{-1}$。
+
+\begin{algorithm}[H]
+\caption{直接 Cholesky 求逆}
+\begin{algorithmic}[1]
+\State $L \gets \text{cholesky\_decomp}(A)$ \Comment{左看式标量 Cholesky，$O(n^3/3)$}
+\State $L^{-1} \gets \text{tril\_inv}(L)$ \Comment{标量前向代换，$O(n^3/3)$}
+\State \Return $L^{-{\mathsf T}} \! \mathbin{@} L^{-1}$ \Comment{1 次矩阵乘，$2n^3$ FLOPs}
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{直接 LDL\textsuperscript{T} 求逆}
+
+算法基于 LDL\textsuperscript{T} 分解 $A = LDL^{\mathsf T}$（$L$ 单位下三角，$D$ 对角），求逆公式为 $A^{-1} = L^{-{\mathsf T}} D^{-1} L^{-1}$。
+
+\begin{algorithm}[H]
+\caption{直接 LDL\textsuperscript{T} 求逆}
+\begin{algorithmic}[1]
+\State $L, D \gets \text{ldl\_decomp}(A)$ \Comment{标量 LDL\textsuperscript{T}，无开方，$O(n^3/3)$}
+\State $L^{-1} \gets \text{tril\_inv}(L, \text{unit\_diag}{=}\text{True})$
+\State $D^{-1} \gets \text{diag\_inv}(D)$ \Comment{逐元素倒数，$O(n)$}
+\State \Return $L^{-{\mathsf T}} \! \mathbin{@} D^{-1} \! \mathbin{@} L^{-1}$ \Comment{2 次矩阵乘}
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{分块 Cholesky 求逆}
+
+通过递归分块将标量三角求解替换为矩阵乘操作。
+
+\begin{algorithm}[H]
+\caption{分块 Cholesky 求逆（递归核心）}
+\begin{algorithmic}[1]
+\Function{block\_chol\_core}{$A$, $n$, $b$}
+    \If{$n \le b$}
+        \State $L \gets \text{cholesky\_decomp}(A, n)$ \Comment{叶子：标量 Cholesky}
+        \State \Return $L,\; \text{tril\_inv}(L, n)$
+    \EndIf
+    \State $m \gets n/2$
+    \State $L_{11}, L_{11}^{-1} \gets \text{block\_chol\_core}(A_{11}, m, b)$
+    \State $L_{21} \gets A_{21} \mathbin{@} L_{11}^{-{\mathsf T}}$ \Comment{矩阵乘（替代三角求解）}
+    \State $S \gets A_{22} - L_{21} \mathbin{@} L_{21}^{\mathsf T}$ \Comment{Schur 补}
+    \State $L_{22}, L_{22}^{-1} \gets \text{block\_chol\_core}(S, m, b)$
+    \State $L^{-1}_{21} \gets -L_{22}^{-1} \mathbin{@} L_{21} \mathbin{@} L_{11}^{-1}$ \Comment{组装}
+    \State \Return $L,\; L^{-1}$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{分块 LDL\textsuperscript{T} 求逆}
+
+与分块 Cholesky 结构相同，差异在于每一步引入 $D^{-1}$ 的缩放。
+
+\begin{algorithm}[H]
+\caption{分块 LDL\textsuperscript{T} 求逆（递归核心）}
+\begin{algorithmic}[1]
+\State \textbf{叶子：} $L, D \gets \text{ldl\_decomp}(A, n)$, $L^{-1} \! \gets \text{tril\_inv}(L, \text{unit=True})$
+\State \textbf{递归：} $L_{21} \gets A_{21} \mathbin{@} L_{11}^{-{\mathsf T}} \mathbin{@} D_{11}^{-1}$,
+     $S \gets A_{22} - L_{21} \mathbin{@} D_{11} \mathbin{@} L_{21}^{\mathsf T}$
+\State \textbf{组装：} $L^{-1}_{21} \gets -L_{22}^{-1} \mathbin{@} L_{21} \mathbin{@} L_{11}^{-1}$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Newton-Schulz 迭代求逆}
+
+基于 Newton 迭代 $X_{k+1} = 2X_k - X_k A X_k$，从初始猜测 $X_0 = A^{\mathsf T}/\|A\|_F^2$ 开始。
+
+\begin{algorithm}[H]
+\caption{Newton-Schulz 迭代求逆}
+\begin{algorithmic}[1]
+\State $X \gets A^{\mathsf T} / \|A\|_F^2$ \Comment{初始猜测：$O(n^2)$ 向量操作}
+\For{$k = 1$ \textbf{to} $K$} \Comment{$K=10$}
+    \State $T \gets A \mathbin{@} X$ \Comment{1 次矩阵乘}
+    \State $X \gets 2X - X \mathbin{@} T$ \Comment{1 次矩阵乘 + $O(n^2)$ 加减}
+\EndFor
+\State \Return $X$
+\end{algorithmic}
+\end{algorithm}
+
+\noindent 收敛条件：$\|I - AX_0\| < 1$。病态矩阵可能发散。
+
+\subsection{Block-Jacobi 迭代求逆（BJ）}
+
+通过块对角预条件子 $D^{-1}$ 构造 $B = D^{-1}A$（特征值聚集在 $1$ 附近），再用 Chebyshev 加速迭代求解 $B\cdot Y = I$，最后恢复 $A^{-1} = Y \cdot D^{-1}$。
+
+\begin{algorithm}[H]
+\caption{Block-Jacobi 迭代求逆}
+\begin{algorithmic}[1]
+\State \textbf{// Step 1: 预条件子}
+\State $D^{-1} \gets \text{blkdiag}(A_{00}^{-1}, A_{11}^{-1}, \ldots)$
+    \Comment{独立对角块求逆（全并行）}
+\State $B \gets D^{-1} \mathbin{@} A$ \Comment{1 次矩阵乘}
+\State \textbf{// Step 2: Chebyshev 加速迭代}
+\State $Y \gets 0$
+\State $\omega_{0:L-1} \gets \text{chebyshev\_weights}(\eta_{\min}, \eta_{\max}, L)$
+\For{$k = 0$ \textbf{to} $L-1$} \Comment{$L=4$}
+    \State $R \gets I - B \mathbin{@} Y$ \Comment{1 次矩阵乘 + 1 次矩阵加减}
+    \State $Y \gets Y + \omega_k \cdot R$ \Comment{1 次标量乘 + 1 次矩阵加减}
+\EndFor
+\State \textbf{// Step 3: 恢复逆矩阵}
+\State \Return $Y \mathbin{@} D^{-1}$ \Comment{1 次矩阵乘}
+\end{algorithmic}
+\end{algorithm}
+
+\noindent Chebyshev 权重公式：
+
+\begin{equation}
+t_k = \tfrac{1}{2}(\eta_{\max}+\eta_{\min}) + \tfrac{1}{2}(\eta_{\max}-\eta_{\min})
+      \cos\!\Big(\tfrac{\pi(2k+1)}{2L}\Big),\qquad
+\omega_k = 1/t_k
+\end{equation}
+
+其中 $[\eta_{\min}, \eta_{\max}]$ 为 $B$ 的特征值范围。收敛速度取决于 $\eta_{\max}/\eta_{\min}$ 而非原始 $A$ 的条件数。当 $A$ 对角占优时，$B \approx I$（$\eta_{\max}/\eta_{\min} \approx 1.5$），$L=4$ 即可收敛。
+
+\section{指标含义}
+
+\subsection{第一类：总 FLOPs（按运算单元分布）}
+
+将浮点运算按执行硬件分为三级，三者之和 \textbf{严格等于总 FLOPs}。
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{矩阵 FLOPs（Cube 单元）}：矩阵乘（GEMM）的浮点运算次数。
+          在 AI 加速器上由 Systolic Array / Tensor Core 执行，可接近峰值算力。
+          一次 $m\times k$ 与 $k\times n$ 矩阵乘计为 $2mnk$ FLOPs。
+    \item \textbf{向量 FLOPs（Vector 单元）}：向量内积（dot product）、逐元素加减（axpy）、
+          标量缩放等操作的 FLOPs。由 SIMD / Vector 单元执行，受内存带宽限制。
+    \item \textbf{标量 FLOPs（Scalar 单元）}：逐元素的除法、开方等。串行执行，效率最低。
+\end{itemize}
+
+\subsection{第二类：操作（指令）计数}
+
+统计每个运算级别上发出的独立操作（kernel 调用）次数。
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{矩阵操作}：矩阵乘调用次数（每次调用内部的所有 FLOPs 计为 1 条指令）。
+    \item \textbf{向量操作}：向量内积、向量加减、向量缩放调用次数。
+    \item \textbf{标量操作}：逐元素除法、开方等调用次数。
+\end{itemize}
+
+\noindent 矩阵加减按 $\min(m,n)$ 次向量操作建模（对应 $m\times n$ 矩阵逐元素加减，
+可展开为 $\min(m,n)$ 个独立向量操作）。
+
+\subsection{第三类：并行度}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{关键路径（Critical Path）}：算法执行 DAG 中最长的串行依赖链长度（步数）。
+          假设无限并行硬件，关键路径决定了算法的 \textbf{理论最短执行时间}。
+          每个 kernel 调用的关键路径由其内部结构贡献：标量分解的 $n$ 层串行循环，
+          矩阵乘的 $\lceil\log_2(k)\rceil$ 层归约深度。
+    \item \textbf{总 kernel 调用数}：算法 trace 中记录的 kernel 调用总次数。
+    \item \textbf{Ops / crit-path}：总调用数 $\div$ 关键路径，表示 \textbf{平均并发度}——
+          每单位关键路径长度上平均有多少个 kernel 调用在执行。
+          该值越接近 1 说明算法负载越均衡地分布在时间轴上。
+\end{itemize}
+
+\section{实验设置}
+
+\begin{itemize}[leftmargin=*]
+    \item 矩阵规模：$n = 16$（对称正定矩阵）
+    \item 分块算法：block\_size = 2
+    \item Newton 迭代：10 次迭代
+    \item BJ 迭代：block\_size = 2，层数 $L = 4$
+    \item 符号执行框架：\texttt{algolib} —— 算法代码在 trace 模式下执行，
+          SymMatrix 只携带 shape 不存数值，所有 kernel 调用自动记录并汇总
+\end{itemize}
+
+\section{实验结果}
+
+\subsection{指标总表}
+
+\begin{table}[H]
+\centering
+\caption{六种算法静态指标对比（$n=16$）}
+\label{tab:full}
+\small
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+\textbf{指标} & \textbf{Direct Chol} & \textbf{Direct LDL} &
+\textbf{Block Chol} & \textbf{Block LDL} & \textbf{Newton(10)} & \textbf{BJ(L=4)} \\
+\midrule
+\multicolumn{7}{@{}l}{\textbf{1. 总 FLOPs}} \\
+\quad 矩阵 FLOPs   & 7,936  & 15,872 & 12,864 & 23,264 & 158,720 & 47,616 \\
+\quad 向量 FLOPs   & 2,480  & 3,160  & 128    & 136    & 767     & 3,072 \\
+\quad 标量 FLOPs   & 528    & 392    & 80     & 80     & 1       & 64 \\
+\quad \textbf{合计} & \textbf{10,944} & \textbf{19,424} & \textbf{13,072} & \textbf{23,480} & \textbf{159,488} & \textbf{50,752} \\
+\quad 矩阵占比     & 72.5\% & 81.7\% & 98.4\% & 99.1\% & 99.5\%  & 93.8\% \\
+\quad 向量占比     & 22.7\% & 16.3\% & 1.0\%  & 0.6\%  & 0.5\%   & 6.1\% \\
+\quad 标量占比     & 4.8\%  & 2.0\%  & 0.6\%  & 0.3\%  & 0.0\%   & 0.1\% \\
+\midrule
+\multicolumn{7}{@{}l}{\textbf{2. 操作（指令）计数}} \\
+\quad 矩阵操作     & 1      & 2      & 29     & 44     & 20      & 6 \\
+\quad 向量操作     & 240    & 240    & 40     & 40     & 32      & 192 \\
+\quad 标量操作     & 528    & 392    & 80     & 80     & 1       & 8 \\
+\quad \textbf{合计} & \textbf{769} & \textbf{634} & \textbf{149} & \textbf{164} & \textbf{53} & \textbf{206} \\
+\midrule
+\multicolumn{7}{@{}l}{\textbf{3. 并行度}} \\
+\quad 关键路径     & 165    & 171    & 116    & 165    & 118     & \textbf{43} \\
+\quad 总调用数     & 3      & 5      & 52     & 75     & 21      & 19 \\
+\quad 平均并发度   & 0.02   & 0.03   & 0.45   & 0.45   & 0.18    & 0.44 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{算法 Trace 结构}
+
+表~\ref{tab:trace} 列出各算法 trace 中各 kernel 的调用次数与规模，直观反映算法的运算组成。
+
+\begin{table}[H]
+\centering
+\caption{算法 Kernel Trace 结构（$n=16$, $b=2$）}
+\label{tab:trace}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{算法} & \textbf{Trace 组成} \\
+\midrule
+Direct Chol
+    & $\text{cholesky\_decomp}(16)\times1,\;
+       \text{tril\_inv}(16)\times1,\;
+       \text{matmul}(16)\times1$ \\[4pt]
+Direct LDL
+    & $\text{ldl\_decomp}(16)\times1,\;
+       \text{tril\_inv}(16)\times1,\;
+       \text{diag\_inv}(16)\times1,\;
+       \text{matmul}(16)\times2$ \\[4pt]
+Block Chol
+    & $\text{cholesky\_decomp}(2)\times8,\;
+       \text{tril\_inv}(2)\times8$ \\
+    & $\text{matmul}(2)\times16,\;
+       \text{matmul}(4)\times8,\;
+       \text{matmul}(8)\times4,\;
+       \text{matmul}(16)\times1$ \\
+    & $\text{matrix\_add}(2)\times4,\;
+       \text{matrix\_add}(4)\times2,\;
+       \text{matrix\_add}(8)\times1$ \\[4pt]
+Block LDL
+    & $\text{ldl\_decomp}(2)\times8,\;
+       \text{tril\_inv}(2)\times8$ \\
+    & $\text{matmul}(2)\times24,\;
+       \text{matmul}(4)\times12,\;
+       \text{matmul}(8)\times6,\;
+       \text{matmul}(16)\times2$ \\
+    & $\text{diag\_inv}(2)\times4,\;
+       \text{diag\_inv}(4)\times2,\;
+       \text{diag\_inv}(8,16)\times1$ \\
+    & $\text{matrix\_add}(2)\times4,\;
+       \text{matrix\_add}(4)\times2,\;
+       \text{matrix\_add}(8)\times1$ \\[4pt]
+Newton(10)
+    & $\text{newton\_init}(16)\times1,\;
+       \text{matmul}(16)\times20$ \\[4pt]
+BJ(L=4)
+    & $\text{bj\_block\_inv}(2)\times8,\;
+       \text{matmul}(16)\times6,\;
+       \text{matrix\_add}(16)\times8,\;
+       \text{vector\_scale}(16)\times4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{算法分类与定位}
+
+根据表~\ref{tab:full} 的结果，可将六种算法分为三类：
+
+\subsubsection*{精确分解法（Direct / Block）}
+
+直接/分块 Cholesky 与 LDL\textsuperscript{T} 属于 \textbf{精确求逆}，通过有限步代数运算得到 $A^{-1}$。
+\begin{itemize}
+    \item Direct 算法总 FLOPs 最低（Cholesky 10,944），但 BLAS3 占比仅 72--82\%，向量/标量操作密集。
+    \item Block 算法通过递归将标量分解替换为矩阵乘，BLAS3 占比提升至 98--99\%，
+          代价是总 FLOPs 增加 18--19\%（因显式计算 $L^{-1}$ 并通过矩阵乘进行组装）。
+    \item Critical Path 从 165 降至 116（Block Chol），平均并发度从 0.02 升至 0.45。
+\end{itemize}
+
+\subsubsection*{迭代逼近法（Newton / BJ）}
+
+Newton 和 BJ 属于 \textbf{迭代近似求逆}，通过反复应用矩阵乘逼近 $A^{-1}$。
+\begin{itemize}
+    \item \textbf{Newton}：100\% BLAS3 操作，代码最简单（仅 2 类 kernel），
+          但 FLOPs 极高（159,488，为 Direct Chol 的 14.6 倍）。
+          收敛依赖初始猜测质量，大条件数下可能发散。
+    \item \textbf{BJ}：关键路径最短（43 步，为 Direct Chol 的 1/4），
+          BLAS3 占比 93.8\%，向量操作占 6.1\%（来自每层迭代的残差计算和更新）。
+          FLOPs 为 Direct Chol 的 4.6 倍（50,752），
+          但预条件子 $D^{-1}$ 使特征值聚集，收敛速度与原始条件数无关。
+\end{itemize}
+
+\subsubsection*{选型建议}
+
+\begin{table}[H]
+\centering
+\caption{算法选型建议}
+\label{tab:choice}
+\begin{tabular}{@{}lp{3cm}p{3cm}p{3cm}@{}}
+\toprule
+\textbf{场景} & \textbf{推荐算法} & \textbf{理由} \\
+\midrule
+小矩阵、单次求逆    & Direct Cholesky & FLOPs 最低，标量开销可接受 \\
+GPU/AI 加速器       & Block Cholesky  & 98\% BLAS3，适用于 Cube 单元 \\
+极致 BLAS3 占比     & Newton          & 100\% 矩阵乘，但 FLOPs 极高 \\
+低延迟、迭代容错    & BJ              & 关键路径最短（43），可提前截断 \\
+大条件数 + 对角占优 & BJ              & 收敛速度与 $\kappa(A)$ 无关 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{分析框架说明}
+
+本报告使用的 \texttt{algolib} 符号执行框架的工作流程：
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Kernel 定义}：每个基础运算（Cholesky 分解、矩阵乘、矩阵加减等）
+          在 KernelLibrary 中注册，附带成本函数（FLOPs 公式、并行度模型）。
+    \item \textbf{算法编写}：用户以 Python 函数编写算法，使用 \texttt{@kernel} 装饰的基础运算
+          和 SymMatrix（符号矩阵，仅携带 shape）进行组合。
+    \item \textbf{Trace 执行}：\texttt{analyze()} 或 \texttt{compare()} 函数在 trace 模式下
+          执行算法代码。SymMatrix 的运算符（\texttt{@}、\texttt{+}、\texttt{-}、\texttt{*}）
+          自动向 Tracer 记录相应的 kernel 调用。递归和循环被原样展开。
+    \item \textbf{指标汇总}：Analyzer 读取 trace，查询每个 kernel 的成本模型，
+          聚合并输出 FLOPs 分布、操作计数、并行度指标。
+\end{enumerate}
+
+\noindent 新增算法只需编写算法函数（使用已有 kernel 或注册新 kernel），
+无需修改分析框架代码。
+
+\end{document}

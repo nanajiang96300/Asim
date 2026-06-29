@@ -1,0 +1,15 @@
+{
+  "models": [
+    {
+      "name": "neumann_ns_16x16",
+      "batch_size": 96,
+      "matrix_m": 16,
+      "matrix_k": 16,
+      "attributes": {
+        "iterations": "10",
+        "use_neumann_init": "true",
+        "neumann_order": "2"
+      }
+    }
+  ]
+}
