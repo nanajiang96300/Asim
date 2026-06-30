@@ -104,3 +104,15 @@ Git submodules: `booksim`, `protobuf`, `onnx`, `ramulator_custom`, `ramulator2`.
 - Header-only lib `robin_hood` provides the hash map; `nlohmann/json` for all JSON needs
 - `spdlog` for logging — levels: trace, debug, info
 - Use `spdlog::info("msg")` style; prefer lambda helpers for repeated SPAD address patterns in `initialize_instructions()`
+
+## Operator Development Pipeline (MANDATORY)
+
+When developing a NEW operator or optimizing an EXISTING operator, you MUST invoke `/op-flow <operator_name> <action>` before writing any code. The pipeline enforces:
+
+1. Design document with formula derivation exists before code
+2. Code follows v3.0 standard (DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md)
+3. CMake build passes
+4. /audit-operator sub-agent review passes (formula↔code consistency)
+5. Benchmark results archived to results/<operator>/
+
+**NEVER skip the pipeline.** If you write operator code without running /op-flow first, stop, delete the code, and run /op-flow.
