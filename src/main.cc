@@ -20,6 +20,7 @@
 #include "inverse/cholesky_block/CholeskyModel.h"
 #include "inverse/cholesky_noblock/CholeskyNoBlockModel.h"
 #include "inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.h"
+#include "inverse/cholesky_noblock/CholeskyNoBlockMergeModel.h"
 #include "inverse/cholesky_block/CholeskyBlockBaselineModel.h"
 #include "inverse/ldl_block/LDLBlockBaselineModel.h"
 #include "inverse/newton_schulz/NewtonSchulzBaselineModel.h"
@@ -132,6 +133,9 @@ int main(int argc, char** argv) {
   } else if (mode == "cholesky_noblock_test") {
     spdlog::info("Running in Cholesky non-block test mode (CholeskyNoBlockModel)");
     language_mode = false;
+  } else if (mode == "cholesky_noblock_merge_test") {
+    spdlog::info("Running in Cholesky NoBlock merge test mode");
+    language_mode = false;
   } else if (mode == "cholesky_noblock_v2_test") {
     spdlog::info("Running in Cholesky NoBlock v2 baseline test mode");
     language_mode = false;
@@ -204,6 +208,7 @@ int main(int argc, char** argv) {
       std::string model_name = model_config["name"];
       auto model = std::make_unique<ChannelModel>(model_config, config, model_name);
       spdlog::info("Register ChannelModel (LS test): {}", model_name);
+      simulator->register_model(std::move(model));
       simulator->register_model(std::move(model));
     }
     else if (mode == "newton_schulz_test") {
@@ -279,10 +284,16 @@ int main(int argc, char** argv) {
       auto model = std::make_unique<CholeskyNoBlockModel>(model_config, config, model_name);
       spdlog::info("Register CholeskyNoBlockModel (Cholesky non-block test): {}", model_name);
       simulator->register_model(std::move(model));
+    } else if (mode == "cholesky_noblock_merge_test") {
+      std::string mn = model_config["name"];
+      auto model = std::make_unique<CholeskyNoBlockMergeModel>(model_config, config, mn);
+      spdlog::info("Register CholeskyNoBlockMergeModel: {}", mn);
+      simulator->register_model(std::move(model));
     } else if (mode == "cholesky_noblock_v2_test") {
       std::string model_name = model_config["name"];
       auto model = std::make_unique<CholeskyNoBlockBaselineModel>(model_config, config, model_name);
       spdlog::info("Register CholeskyNoBlockBaselineModel: {}", model_name);
+      simulator->register_model(std::move(model));
       simulator->register_model(std::move(model));
     } else if (mode == "ldl_noblock_v2_test") {
       std::string model_name = model_config["name"];
