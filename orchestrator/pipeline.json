@@ -1,0 +1,71 @@
+{
+  "name": "op-flow",
+  "version": "1.0",
+  "description": "Operator development pipeline — declarative phase definitions",
+  "phases": [
+    {
+      "id": "design_doc",
+      "name": "Design Document",
+      "required": true,
+      "description": "DOCS/operators/<op>.md must exist with formula derivation",
+      "check": "test -f DOCS/operators/${OP_NAME}.md",
+      "on_fail": "Create DOCS/operators/${OP_NAME}.md with: math formulas, SPAD layout, instruction mapping, FormulaLogger coverage. See 01_cholesky_noblock_v2.md for template."
+    },
+    {
+      "id": "math_derivation",
+      "name": "Mathematical Derivation",
+      "required": true,
+      "description": "Document must contain formula derivation and optimization equivalence proof",
+      "check": "grep -q '公式推导' DOCS/operators/${OP_NAME}.md || grep -q 'formula' DOCS/operators/${OP_NAME}.md",
+      "on_fail": "Add '## 2. 公式推导' section with baseline formulas and optimization equivalence proof."
+    },
+    {
+      "id": "code_v3_standard",
+      "name": "Code Follows v3.0 Standard",
+      "required": true,
+      "description": "Operator .cc must follow DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md",
+      "check": "grep -q 'base_addr = 0' src/inverse/${ALGO_DIR}/${OP_FILE}.cc && grep -q 'set_algorithm' src/inverse/${ALGO_DIR}/${OP_FILE}.cc && grep -q 'PIPE_BARRIER' src/inverse/${ALGO_DIR}/${OP_FILE}.cc",
+      "on_fail": "Fix: base_addr=0 in MOVIN, FormulaLogger::set_algorithm(), PIPE_BARRIER at column boundaries."
+    },
+    {
+      "id": "compile",
+      "name": "Build Verification",
+      "required": true,
+      "description": "cmake --build must succeed",
+      "check": "CMAKE_POLICY_VERSION_MINIMUM=3.5 cmake --build build --target Simulator -j$(nproc) 2>&1 | grep -q 'Built target Simulator'",
+      "on_fail": "Fix compilation errors and re-run."
+    },
+    {
+      "id": "runtime",
+      "name": "Runtime Smoke Test",
+      "required": true,
+      "description": "Simulator must finish without abort",
+      "check": "ONNXIM_MAX_CORE_CYCLES=100000 ./build/bin/Simulator --config configs/ascend_910b_quiet.json --models_list example/${CONFIG_JSON} --mode ${MODE} --log_level info 2>&1 | grep -q 'finish at'",
+      "on_fail": "Check for SPAD deadlock, missing init, wrong addresses."
+    },
+    {
+      "id": "audit_review",
+      "name": "Audit Sub-Agent Review",
+      "required": true,
+      "description": "/audit-operator must pass — sub-agent compares formulas in doc against code",
+      "action": "Invoke /audit-operator ${OP_NAME}. All checklist items must PASS.",
+      "on_fail": "Fix audit findings and re-audit."
+    },
+    {
+      "id": "benchmark",
+      "name": "Benchmark & Archive",
+      "required": true,
+      "description": "Run benchmark and store to results/<op>/run_NNN/",
+      "action": "bash scripts/run_benchmark_suite.sh ${OP_NAME} ${MODE} configs/ascend_910b_quiet.json example/${CONFIG_JSON}",
+      "on_fail": "Re-run benchmark script."
+    },
+    {
+      "id": "ext_numeric_verify",
+      "name": "EXTENSION: Numerical SE Verification",
+      "required": false,
+      "description": "[FUTURE] Verify numerical correctness via FormulaLogger→UOBS SE reconstruction",
+      "action": "Run scripts/verify_baseline.py with operator output and compare SE",
+      "on_fail": "Fix numerical errors in operator."
+    }
+  ]
+}
