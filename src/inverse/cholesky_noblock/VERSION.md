@@ -27,3 +27,12 @@
 | 版本 | 日期 | 变更 |
 |------|------|------|
 | v1.0 | 2026-06 | 从 operations/ 迁移到 inverse/cholesky_noblock/ |
+
+## v2.0 — Unified Baseline (2026-06-30)
+- **文件**: `CholeskyNoBlockBaselineOp.{h,cc}` + `CholeskyNoBlockBaselineModel.{h,cc}`
+- **重大重构**: 完全重写，纯基线，无优化标记
+- 移除 `_strict_iso_lowering`、`_use_left_looking` 等标记
+- 每步 compute_size=1，每列加 barrier
+- FormulaLogger 覆盖全部阶段 (GRAM, REG, POTRF, TRSM, BWD)
+- 与 `scripts/algo/cholesky_noblock.py` Python 参考严格对应
+- **Cycle (U=16)**: 15261

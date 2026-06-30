@@ -65,6 +65,7 @@ enum class Opcode {
   EXP,
   SQRT,
   SCALAR_ADD,
+  SCALAR_SUB,
   SCALAR_MUL,
   SCALAR_DIV,
   SCALAR_SQRT,

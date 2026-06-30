@@ -27,3 +27,13 @@
 | 版本 | 日期 | 变更 |
 |------|------|------|
 | v1.0 | 2026-06 | 从 operations/ 迁移到 inverse/ldl_noblock/，两个变体合并到一个目录 |
+
+## v2.0 — Unified Baseline (2026-06-30)
+- **文件**: `LDLNoBlockBaselineOp.{h,cc}` + `LDLNoBlockBaselineModel.{h,cc}`
+- **重大重构**: 从 Python 参考同步重写，与 Cholesky v2 统一骨架
+- 修复 Schur complement、forward solve、D factor 的数值路径
+- 新增 SPAD 区域初始化 (D, Dinv, Tmp, L, Y)
+- 修复 MOVOUT base_addr (不再 double-add)
+- FormulaLogger 覆盖全部阶段 (GRAM, REG, D_UPDATE, L_UPDATE, BWD)
+- 与 `scripts/algo/ldl_noblock.py` Python 参考严格对应
+- **Cycle (U=16)**: 20733

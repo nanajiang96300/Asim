@@ -82,8 +82,9 @@ void SystolicWS::cycle() {
       _stat_systolic_inst_issue_count++;
     } else {
       const bool is_scalar_op =
-          (front->opcode == Opcode::SCALAR_ADD || front->opcode == Opcode::SCALAR_MUL ||
-           front->opcode == Opcode::SCALAR_DIV || front->opcode == Opcode::SCALAR_SQRT);
+          (front->opcode == Opcode::SCALAR_ADD || front->opcode == Opcode::SCALAR_SUB ||
+           front->opcode == Opcode::SCALAR_MUL || front->opcode == Opcode::SCALAR_DIV ||
+           front->opcode == Opcode::SCALAR_SQRT);
       front->start_cycle = _core_cycle;
       front->finish_cycle = front->start_cycle +
                             (is_scalar_op ? get_scalar_compute_cycles(front)
@@ -138,8 +139,9 @@ bool SystolicWS::can_issue_compute(std::unique_ptr<Instruction>& inst) {
     if (_compute_pipeline.size() >= _config.core_config[_id].core_height) {
       return false;
     }
-  } else if (inst->opcode == Opcode::SCALAR_ADD || inst->opcode == Opcode::SCALAR_MUL ||
-             inst->opcode == Opcode::SCALAR_DIV || inst->opcode == Opcode::SCALAR_SQRT) {
+  } else if (inst->opcode == Opcode::SCALAR_ADD || inst->opcode == Opcode::SCALAR_SUB ||
+             inst->opcode == Opcode::SCALAR_MUL || inst->opcode == Opcode::SCALAR_DIV ||
+             inst->opcode == Opcode::SCALAR_SQRT) {
     if(!_scalar_pipeline.empty()) {
       return false;
     }
@@ -233,6 +235,8 @@ cycle_type SystolicWS::get_scalar_compute_cycles(std::unique_ptr<Instruction>& i
   switch (inst->opcode) {
     case Opcode::SCALAR_ADD:
       return _config.core_config[_id].scalar_add_latency;
+    case Opcode::SCALAR_SUB:
+      return _config.core_config[_id].scalar_add_latency;  // SUB = ADD latency
     case Opcode::SCALAR_MUL:
       return _config.core_config[_id].scalar_mul_latency;
     case Opcode::SCALAR_DIV:
