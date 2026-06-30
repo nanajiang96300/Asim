@@ -128,12 +128,12 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
           .opcode = Opcode::SCALAR_MUL,
           .id = "CHOL_NB_POTRF_SQ_" + std::to_string(j),
           .dest_addr = aTmp, .compute_size = j,
-          .src_addrs = {aL, aL}, .tile_m = j, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+          .src_addrs = {aL, aL}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}));
       tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
           .opcode = Opcode::SCALAR_SUB,
           .id = "CHOL_NB_POTRF_SUB_" + std::to_string(j),
           .dest_addr = aA, .compute_size = j,
-          .src_addrs = {aA, aTmp}, .tile_m = j, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+          .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}));
     }
     // L[j,j] = sqrt(A[j,j])
     tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
@@ -153,12 +153,12 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
             .opcode = Opcode::SCALAR_MUL,
             .id = "CHOL_NB_TRSM_MUL_" + std::to_string(i) + "_" + std::to_string(j),
             .dest_addr = aTmp, .compute_size = j,
-            .src_addrs = {aL, aL}, .tile_m = j, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+            .src_addrs = {aL, aL}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}));
         tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
             .opcode = Opcode::SCALAR_SUB,
             .id = "CHOL_NB_TRSM_SUB_" + std::to_string(i) + "_" + std::to_string(j),
             .dest_addr = aA, .compute_size = j,
-            .src_addrs = {aA, aTmp}, .tile_m = j, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+            .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}));
       }
       // L[i,j] = A[i,j] / L[j,j]
       tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
@@ -196,7 +196,7 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
             .opcode = Opcode::SCALAR_MUL,
             .id = "CHOL_NB_FWD_MUL_" + std::to_string(i) + "_" + std::to_string(c),
             .dest_addr = aTmp, .compute_size = len,
-            .src_addrs = {aL, aY}, .tile_m = len, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+            .src_addrs = {aL, aY}, .tile_m = 1, .tile_k = len, .tile_n = 1, .my_tile = tile}));
       }
       // Y[i,c] = -sum / L[i,i]
       tile->instructions.push_back(std::make_unique<Instruction>(Instruction{

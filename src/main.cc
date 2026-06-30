@@ -28,6 +28,7 @@
 #include "inverse/cholesky_block/CholeskyChainModel.h"
 #include "inverse/block_richardson/BlockRichardsonModel.h"
 #include "inverse/ldl_noblock/LDLNoBlockBaselineModel.h"
+#include "inverse/ldl_noblock/LDLNoBlockMergeModel.h"
 #include "models/SeriesInverseModel.h"
 #include "models/MatmulModel.h"
 
@@ -139,6 +140,9 @@ int main(int argc, char** argv) {
   } else if (mode == "cholesky_noblock_v2_test") {
     spdlog::info("Running in Cholesky NoBlock v2 baseline test mode");
     language_mode = false;
+  } else if (mode == "ldl_noblock_merge_test") {
+    spdlog::info("Running in LDL NoBlock merge test mode");
+    language_mode = false;
   } else if (mode == "ldl_noblock_v2_test") {
     spdlog::info("Running in LDL NoBlock v2 baseline test mode");
     language_mode = false;
@@ -208,6 +212,7 @@ int main(int argc, char** argv) {
       std::string model_name = model_config["name"];
       auto model = std::make_unique<ChannelModel>(model_config, config, model_name);
       spdlog::info("Register ChannelModel (LS test): {}", model_name);
+      simulator->register_model(std::move(model));
       simulator->register_model(std::move(model));
       simulator->register_model(std::move(model));
     }
@@ -294,11 +299,18 @@ int main(int argc, char** argv) {
       auto model = std::make_unique<CholeskyNoBlockBaselineModel>(model_config, config, model_name);
       spdlog::info("Register CholeskyNoBlockBaselineModel: {}", model_name);
       simulator->register_model(std::move(model));
-      simulator->register_model(std::move(model));
+  } else if (mode == "ldl_noblock_merge_test") {
+    spdlog::info("Running in LDL NoBlock merge test mode");
+    language_mode = false;
     } else if (mode == "ldl_noblock_v2_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<LDLNoBlockBaselineModel>(model_config, config, model_name);
-      spdlog::info("Register LDLNoBlockBaselineModel: {}", model_name);
+      std::string mn = model_config["name"];
+      auto model = std::make_unique<LDLNoBlockBaselineModel>(model_config, config, mn);
+      spdlog::info("Register LDLNoBlockBaselineModel: {}", mn);
+      simulator->register_model(std::move(model));
+    } else if (mode == "ldl_noblock_merge_test") {
+      std::string mn = model_config["name"];
+      auto model = std::make_unique<LDLNoBlockMergeModel>(model_config, config, mn);
+      spdlog::info("Register LDLNoBlockMergeModel: {}", mn);
       simulator->register_model(std::move(model));
     } else if (mode == "cholesky_block_v3_test") {
       std::string mn = model_config["name"];
