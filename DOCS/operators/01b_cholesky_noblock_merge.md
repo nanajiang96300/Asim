@@ -1,0 +1,63 @@
+# Cholesky NoBlock — SCALAR 合并优化 (Opt1)
+
+> 基线: `CholeskyNoBlockBaselineOp` (23,439 cyc) | 优化: `CholeskyNoBlockMergeOp` (9,999 cyc) | 加速比: **2.34×**
+
+## 1. 优化动机
+
+SCALAR Pipeline 是单发射通道，指令数直接决定周期。基线的内层循环将 j 次点积拆为 j 条 `SCALAR_MUL compute_size=1`，全部串行化在 Scalar Pipeline 上。合并为 1 条 `compute_size=j` 后，利用 SCALAR 的向量化处理能力并行完成。
+
+## 2. 公式推导
+
+### 基线 POTRF（j=3, k=0,1,2）
+
+```
+SCALAR_MUL  id=POTRF_SQ_3_0  compute_size=1    // |L[3,0]|^2
+SCALAR_SUB  id=POTRF_SUB_3_0  compute_size=1    // A -= term0
+SCALAR_MUL  id=POTRF_SQ_3_1  compute_size=1    // |L[3,1]|^2
+SCALAR_SUB  id=POTRF_SUB_3_1  compute_size=1    // A -= term1
+SCALAR_MUL  id=POTRF_SQ_3_2  compute_size=1    // |L[3,2]|^2
+SCALAR_SUB  id=POTRF_SUB_3_2  compute_size=1    // A -= term2
+```
+共 2j = 6 条指令，6 cycles（Scalar Pipeline 串行）
+
+### 优化后
+
+```
+SCALAR_MUL  id=POTRF_SQ_3  compute_size=3  tile_m=1 tile_k=3  // |L[3,:]|^2 全向量
+SCALAR_SUB  id=POTRF_SUB_3  compute_size=3  tile_m=1 tile_k=3  // A -= vec
+```
+共 2 条指令，约 2 × ceil(j/128) ≈ 2 cycles（j=3 时），实际接近 2 cycles
+
+**理论加速**: 从 O(j) 降到 O(1)，对大 U 加速更显著。
+
+### TRSM 合并（同样模式）
+
+**基线**: 每个 (i,j) 对内 j 条 MUL+SUB → 2j 条指令
+**优化**: 每个 (i,j) 对内 1 条 MUL(j)+1 条 SUB(j) → 2 条指令
+
+### FWD 合并
+
+**基线**: 每个 (i,c) 对内 (i-c) 条 MUL → (i-c) 条指令
+**优化**: 每个 (i,c) 对内 1 条 MUL(len) → 1 条指令
+
+## 3. 指令数对比 (U=16)
+
+| 阶段 | 基线指令数 | 合并后指令数 | 减少 |
+|------|-----------|-------------|------|
+| POTRF (全列) | Σ(2j) ≈ U² ≈ 256 | Σ(2×1) ≈ 2U ≈ 32 | 87.5% |
+| TRSM (全列) | Σ(2j×(U-j-1)) ≈ U³/3 ≈ 1365 | Σ(2×(U-j-1)) ≈ U² ≈ 256 | 81% |
+| FWD (全列) | Σ((i-c)×(U-c-1)) ≈ U³/6 ≈ 682 | Σ(1×(U-c-1)) ≈ U²/2 ≈ 128 | 81% |
+
+## 4. 适用条件
+
+- ✅ NoBlock (B=1): j 越大加速越显著
+- ✅ Block (B≥2): 块内 SCALAR 同样可合并
+- ❌ 向量化 penalty: compute_size 很大且超过 SPAD 单次处理能力时退化
+
+## 5. 实测数据
+
+| 配置 | 基线 | Merge | 加速比 |
+|------|------|-------|--------|
+| U=16, M=64, bs=96 | 23,439 | 9,999 | 2.34× |
+
+运行: `--mode cholesky_noblock_merge_test`
