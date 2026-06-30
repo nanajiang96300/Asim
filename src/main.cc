@@ -20,6 +20,10 @@
 #include "inverse/cholesky_block/CholeskyModel.h"
 #include "inverse/cholesky_noblock/CholeskyNoBlockModel.h"
 #include "inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.h"
+#include "inverse/cholesky_block/CholeskyBlockBaselineModel.h"
+#include "inverse/ldl_block/LDLBlockBaselineModel.h"
+#include "inverse/newton_schulz/NewtonSchulzBaselineModel.h"
+#include "inverse/block_richardson/BlockRichardsonBaselineModel.h"
 #include "inverse/cholesky_block/CholeskyChainModel.h"
 #include "inverse/block_richardson/BlockRichardsonModel.h"
 #include "inverse/ldl_noblock/LDLNoBlockBaselineModel.h"
@@ -133,6 +137,18 @@ int main(int argc, char** argv) {
     language_mode = false;
   } else if (mode == "ldl_noblock_v2_test") {
     spdlog::info("Running in LDL NoBlock v2 baseline test mode");
+    language_mode = false;
+  } else if (mode == "cholesky_block_v3_test") {
+    spdlog::info("Running in Cholesky Block v3 baseline test mode");
+    language_mode = false;
+  } else if (mode == "ldl_block_v3_test") {
+    spdlog::info("Running in LDL Block v3 baseline test mode");
+    language_mode = false;
+  } else if (mode == "newton_schulz_v3_test") {
+    spdlog::info("Running in Newton-Schulz v3 baseline test mode");
+    language_mode = false;
+  } else if (mode == "bri_v3_test") {
+    spdlog::info("Running in Block-Richardson v3 baseline test mode");
     language_mode = false;
   } else if (mode == "cholesky_chain_test") {
     spdlog::info("Running in Cholesky chain test mode (CholeskyChainModel)");
@@ -272,6 +288,26 @@ int main(int argc, char** argv) {
       std::string model_name = model_config["name"];
       auto model = std::make_unique<LDLNoBlockBaselineModel>(model_config, config, model_name);
       spdlog::info("Register LDLNoBlockBaselineModel: {}", model_name);
+      simulator->register_model(std::move(model));
+    } else if (mode == "cholesky_block_v3_test") {
+      std::string mn = model_config["name"];
+      auto model = std::make_unique<CholeskyBlockBaselineModel>(model_config, config, mn);
+      spdlog::info("Register CholeskyBlockBaselineModel: {}", mn);
+      simulator->register_model(std::move(model));
+    } else if (mode == "ldl_block_v3_test") {
+      std::string mn = model_config["name"];
+      auto model = std::make_unique<LDLBlockBaselineModel>(model_config, config, mn);
+      spdlog::info("Register LDLBlockBaselineModel: {}", mn);
+      simulator->register_model(std::move(model));
+    } else if (mode == "newton_schulz_v3_test") {
+      std::string mn = model_config["name"];
+      auto model = std::make_unique<NewtonSchulzBaselineModel>(model_config, config, mn);
+      spdlog::info("Register NewtonSchulzBaselineModel: {}", mn);
+      simulator->register_model(std::move(model));
+    } else if (mode == "bri_v3_test") {
+      std::string mn = model_config["name"];
+      auto model = std::make_unique<BlockRichardsonBaselineModel>(model_config, config, mn);
+      spdlog::info("Register BlockRichardsonBaselineModel: {}", mn);
       simulator->register_model(std::move(model));
     }
     else if (mode == "cholesky_chain_test") {
