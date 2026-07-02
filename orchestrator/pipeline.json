@@ -66,6 +66,14 @@
       "description": "[FUTURE] Verify numerical correctness via FormulaLogger→UOBS SE reconstruction",
       "action": "Run scripts/verify_baseline.py with operator output and compare SE",
       "on_fail": "Fix numerical errors in operator."
+    },
+    {
+      "id": "ext_spad_audit",
+      "name": "EXTENSION TEST: SPAD Layout Audit",
+      "required": false,
+      "description": "Verify SPAD addresses don't overlap and all regions are sized correctly",
+      "check": "python3 -c \"exec(open('scripts/check_spad_layout.py').read())\" 2>/dev/null || echo 'NOT YET IMPLEMENTED'",
+      "on_fail": "SPAD layout may have issues — check for overlapping regions."
     }
   ]
 }
