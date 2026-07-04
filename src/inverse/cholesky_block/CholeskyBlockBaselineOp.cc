@@ -124,7 +124,7 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .src_addrs = {aL, aL},
           .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}));
       FormulaLogger::instance().emit_step("CHOL_BLK_POTRF_GEMM_" + std::to_string(j) + "_" + std::to_string(k),
-          "GEMM", {"L_jk","L_jk^H"}, "schur", {{B,B},{B,B}}, {B,B}, tile->batch,
+          "GEMM", {"L","L"}, "schur", {{B,B},{B,B}}, {B,B}, tile->batch,
           "CHOL_BLK_POTRF_GEMM_" + std::to_string(j) + "_" + std::to_string(k));
     }
     // Step 2: B×B Cholesky on diagonal block using SCALAR ops
@@ -148,7 +148,7 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .src_addrs = {aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
     FormulaLogger::instance().emit_step("CHOL_BLK_POTRF_" + std::to_string(j), "CHOLESKY",
-        {"A"}, "L_jj", {{U,U}}, {B,B}, tile->batch, "CHOL_BLK_POTRF_SQRT_" + std::to_string(j));
+        {"A"}, "L_" + std::to_string(j), {{U,U}}, {B,B}, tile->batch, "CHOL_BLK_POTRF_SQRT_" + std::to_string(j));
 
     // TRSM for off-diagonal blocks
     for (uint32_t i = j + 1; i < nB; ++i) {
@@ -169,7 +169,7 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
             .src_addrs = {aA, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
       }
       FormulaLogger::instance().emit_step("CHOL_BLK_TRSM_" + std::to_string(i)+"_"+std::to_string(j),
-          "TRSM", {"A","L"}, "L_ij", {{U,U},{U,U}}, {B,B}, tile->batch,
+          "TRSM", std::vector<std::string>{"A", "L_" + std::to_string(j)}, "L", {{U,U},{U,U}}, {B,B}, tile->batch,
           "CHOL_BLK_TRSM_DIV_" + std::to_string(i)+"_"+std::to_string(j));
     }
 
@@ -224,7 +224,11 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     barrier("CHOL_BLK_FB_" + std::to_string(c), 5);
   }
 
-  // Phase 5: Backward Assembly Ainv = Y^H @ Y
+  // Phase 5: Forward Solve Complete — Y = L^{-1}
+  FormulaLogger::instance().emit_step("CHOL_BLK_FWD_SOLVE", "TRSM",
+      {"L"}, "Y", {{U,U}}, {U,U}, tile->batch, "CHOL_BLK_FWD_DIAG_0");
+
+  // Phase 6: Backward Assembly Ainv = Y^H @ Y
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "CHOL_BLK_BWD",
       .dest_addr = aAinv, .compute_size = U, .src_addrs = {aY, aY},
