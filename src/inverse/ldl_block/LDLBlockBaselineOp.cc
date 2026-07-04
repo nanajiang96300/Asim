@@ -168,8 +168,8 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .dest_addr = aD, .compute_size = 1, .src_addrs = {aA, aTmp},
           .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
-    FormulaLogger::instance().emit_step("LDL_BLK_DUPDATE_"+std::to_string(j), "DIAG_INV",
-        {"A"}, "D_" + std::to_string(j), {{U,U}}, {B,B}, tile->batch, "LDL_BLK_DINV_"+std::to_string(j));
+    FormulaLogger::instance().emit_step("LDL_BLK_DUPDATE_"+std::to_string(j), "LDL_DECOMPOSE",
+        {"A"}, "Y", {{U,U}}, {B,B}, tile->batch, "LDL_BLK_DINV_"+std::to_string(j));
 
     // L_UPDATE for off-diagonal blocks
     for (uint32_t i = j + 1; i < nB; ++i) {
@@ -188,7 +188,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
             .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
       }
       FormulaLogger::instance().emit_step("LDL_BLK_LUPDATE_"+std::to_string(i)+"_"+std::to_string(j),
-          "TRSM", std::vector<std::string>{"A", "D_" + std::to_string(j)}, "L", {{U,U},{B,B}}, {B,B}, tile->batch,
+          "TRSM", std::vector<std::string>{"A", "Y"}, "L", {{U,U},{B,B}}, {B,B}, tile->batch,
           "LDL_BLK_LAPPLY_"+std::to_string(i)+"_"+std::to_string(j));
     }
     barrier("LDL_BLK_COL_"+std::to_string(j), 4);

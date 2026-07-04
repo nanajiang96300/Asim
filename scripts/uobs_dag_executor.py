@@ -90,13 +90,73 @@ def prim_cholesky(a: np.ndarray) -> np.ndarray:
 
 
 def prim_diag_inv(a: np.ndarray) -> np.ndarray:
-    """DIAG_INV: invert a diagonal (or block-diagonal) matrix."""
+    """DIAG_INV: invert a diagonal (or block-diagonal) matrix. Handles scalar case for LDL."""
     a_q = _cplx_fp16(a)
+    if a_q.size == 1:
+        return _cplx_fp16(np.array([[1.0 / max(a_q.flat[0].real, 1e-15)]], dtype=np.complex128))
     if a_q.shape[0] == a_q.shape[1]:
         inv = np.linalg.inv(a_q.astype(np.complex128))
     else:
         inv = np.linalg.pinv(a_q.astype(np.complex128))
     return _cplx_fp16(inv)
+
+
+def prim_ldl_decompose(*inputs):
+    """LDL_DECOMPOSE: Full LDL A=L·D·L^H → Dinv column vector + compute Y = sqrt(Dinv)·L^{-1}.
+    Takes 1 input (A), returns Y ready for BWD GEMM.
+    Used as a high-level primitive matching CHOLESKY's role for LDL operators."""
+    if len(inputs) == 0: return None
+    A = inputs[0]
+    if A is None: return None
+    A_q = _cplx_fp16(A)
+    A_d = A_q.astype(np.complex128)
+    n = A_d.shape[0]
+    L = np.eye(n, dtype=np.complex128)
+    D = np.zeros(n, dtype=np.float64)
+    Dinv = np.zeros(n, dtype=np.float64)
+
+    # Column-by-column LDL decomposition
+    for j in range(n):
+        acc = 0.0
+        for k in range(j):
+            acc += D[k] * (L[j,k].real**2 + L[j,k].imag**2)
+        d_jj = A_d[j,j].real - acc
+        if d_jj <= 0: d_jj = 1e-15
+        D[j] = d_jj
+        Dinv[j] = 1.0 / d_jj
+
+        for i in range(j+1, n):
+            dot = np.complex128(0.0)
+            for k in range(j):
+                dot += L[i,k] * D[k] * np.conj(L[j,k])
+            L[i,j] = (A_d[i,j] - dot) * Dinv[j]
+
+    # Forward solve Z = L^{-1} (unit triangular)
+    Z = np.eye(n, dtype=np.complex128)
+    for c in range(n):
+        for i in range(c+1, n):
+            acc = np.complex128(0.0)
+            for k in range(c, i):
+                acc += L[i,k] * Z[k,c]
+            Z[i,c] = -acc
+
+    # Scale by sqrt(Dinv)
+    sqrt_d = np.sqrt(np.maximum(Dinv, 0))
+    Y = Z * sqrt_d[np.newaxis, :]
+    return _cplx_fp16(Y)
+
+
+def prim_sqrt_scale(*inputs):
+    """SQRT_SCALE: Y_col *= sqrt(Dinv_col) for each column."""
+    if len(inputs) < 2: return inputs[0] if inputs else None
+    Y, Dinv = inputs[0], inputs[1]
+    if Y is None or Dinv is None: return Y
+    Y_q = _cplx_fp16(Y)
+    D_q = _cplx_fp16(Dinv)
+    n = Y_q.shape[0]
+    sqrt_d = np.sqrt(np.maximum(np.abs(D_q.flat[:n]) if D_q.size >= n else np.abs(np.diag(D_q)), 0))
+    result = Y_q * sqrt_d[np.newaxis, :]
+    return _cplx_fp16(result)
 
 
 def prim_matrix_inv_2x2(a: np.ndarray) -> np.ndarray:
@@ -129,12 +189,14 @@ PRIMITIVES: Dict[str, Callable] = {
     "GEMM":             prim_gemm,
     "DIAG_ADD":         prim_diag_add,
     "CHOLESKY":         prim_cholesky,
+    "LDL_DECOMPOSE":    prim_ldl_decompose,
     "TRSM":             prim_trsm,
     "DIAG_INV":         prim_diag_inv,
     "MATRIX_INV_2x2":   prim_matrix_inv_2x2,
     "MATRIX_SUB":       prim_matrix_sub,
     "MATRIX_ADD":       prim_matrix_add,
     "SCALE":            prim_scale,
+    "SQRT_SCALE":       prim_sqrt_scale,
 }
 
 # ── DAG node ───────────────────────────────────────────────────────────────
@@ -268,6 +330,10 @@ class FormulaDAG:
                         result = inputs[1]  # L update pass-through
                 elif node.op_type == "SCALE":
                     result = prim_fn(inputs[0], aux_params.get("omega", 1.0))
+                elif node.op_type == "SQRT_SCALE":
+                    result = prim_fn(inputs[0], inputs[1]) if len(inputs) >= 2 else prim_fn(inputs[0])
+                elif node.op_type == "LDL_DECOMPOSE":
+                    result = prim_fn(inputs[0])
                 else:
                     # CHOLESKY, DIAG_INV, MATRIX_INV_2x2
                     result = prim_fn(inputs[0])
