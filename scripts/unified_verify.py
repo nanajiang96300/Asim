@@ -111,6 +111,46 @@ def compute_se_batch(H, inv_func, lam):
     return se / B
 
 
+def run_multi_seed(algo_name, algo_func, formula_path, seeds=(42, 123, 456), batches=(0, 1, 2)):
+    """Multi-seed, multi-batch verification."""
+    print(f"\n  Multi-Seed + Multi-Batch: {algo_name}")
+    with open(formula_path) as f:
+        data = json.load(f)
+
+    for ch_name, ch_gen in CHANNELS.items():
+        print(f"\n  --- {ch_name} ({len(seeds)} seeds x {len(batches)} batches) ---")
+        all_cross = []
+        for seed in seeds:
+            for batch in batches:
+                H = ch_gen.generate(max(batch + 1, BATCH), NR, NT, seed=seed)
+                H_b = H[batch]
+                dag = FormulaDAG([s for s in data['steps'] if s['batch'] == batch])
+                if len(dag.nodes) == 0:
+                    print(f"    seed={seed} batch={batch}: no DAG nodes, skipping")
+                    continue
+                lam = NT / (10 ** (10 / 10.0))  # SNR=10dB
+                A_b = H_b.conj().T @ H_b + lam * np.eye(NT)
+                A_py = fp16c(algo_func(A_b.copy()))
+                try:
+                    result = dag.execute({"H": H_b}, {"lambda": lam})
+                    A_dag = result.get("Ainv")
+                    if A_dag is not None:
+                        err = np.linalg.norm(fp16c(A_py) - fp16c(A_dag)) / max(np.linalg.norm(fp16c(A_py)), 1e-15)
+                        all_cross.append(err)
+                except Exception as e:
+                    print(f"    seed={seed} batch={batch}: DAG error: {e}")
+
+        if all_cross:
+            mean_err = np.mean(all_cross)
+            max_err = np.max(all_cross)
+            min_err = np.min(all_cross)
+            print(f"    Samples: {len(all_cross)}  Mean: {mean_err:.4e}  Min: {min_err:.4e}  Max: {max_err:.4e}")
+            status = "PASS" if max_err < 0.01 else "FAIL"
+            print(f"    Status: {status} (threshold=0.01)")
+        else:
+            print(f"    No valid results — all DAG executions failed")
+
+
 if __name__ == "__main__":
     # Generate formula_steps.json from C++ simulator
     import subprocess
@@ -158,3 +198,9 @@ if __name__ == "__main__":
             print(f"  {ch_name:<20} PASS  cross_err={avg_cross:.2e}  dag_err={avg_dag:.2e}")
     
     print(f"\n  Overall: {'ALL PASS' if all_pass else 'SOME FAILED'}")
+
+    # Multi-seed + multi-batch verification
+    print(f"\n{'='*70}")
+    print("  Multi-Seed + Multi-Batch Stability Test")
+    print(f"{'='*70}")
+    run_multi_seed("Cholesky NoBlock", cholesky_noblock_inverse, formula_path)
