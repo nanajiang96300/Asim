@@ -151,6 +151,58 @@ def run_multi_seed(algo_name, algo_func, formula_path, seeds=(42, 123, 456), bat
             print(f"    No valid results — all DAG executions failed")
 
 
+def compare_intermediates(algo_name, formula_path, ch_name="Rayleigh", seed=42):
+    """Compare G, A, L, Y, Ainv between DAG executor and direct Python computation."""
+    print(f"\n  Intermediate Tensor Comparison: {algo_name} @ {ch_name}")
+
+    with open(formula_path) as f:
+        data = json.load(f)
+
+    ch_gen = CHANNELS[ch_name]
+    H = ch_gen.generate(1, NR, NT, seed=seed)[0]
+
+    dag = FormulaDAG([s for s in data['steps'] if s['batch'] == 0])
+    lam = NT / (10 ** (10 / 10.0))  # SNR=10dB
+    U = NT
+
+    # Direct Python computation of intermediates
+    G_py = fp16c(H.conj().T @ H)
+    A_py = fp16c(G_py + lam * np.eye(U))
+
+    # DAG execution
+    result = dag.execute({"H": H}, {"lambda": lam})
+
+    # Compare known intermediates
+    print(f"  {'Tensor':<8} {'DAG shape':<12} {'Error vs Python':<16} {'Status'}")
+    all_pass = True
+
+    for name, py_val in [("G", G_py), ("A", A_py)]:
+        dag_val = result.get(name)
+        if dag_val is not None and py_val is not None:
+            err = np.linalg.norm(fp16c(dag_val) - py_val) / max(np.linalg.norm(py_val), 1e-15)
+            status = "PASS" if err < 0.01 else "FAIL"
+            if err >= 0.01: all_pass = False
+            print(f"  {name:<8} {str(dag_val.shape):<12} {err:<16.4e} {status}")
+
+    # For L, Y, Ainv — cross-check with Python algorithm
+    A_full = H.conj().T @ H + lam * np.eye(U)
+    Ainv_py = fp16c(cholesky_noblock_inverse(A_full.copy()))
+
+    for name in ["L", "Y", "Ainv"]:
+        dag_val = result.get(name)
+        if dag_val is not None:
+            ref = Ainv_py if name == "Ainv" else None
+            if ref is not None:
+                err = np.linalg.norm(fp16c(dag_val) - ref) / max(np.linalg.norm(ref), 1e-15)
+                status = "PASS" if err < 0.01 else "FAIL"
+                if err >= 0.01: all_pass = False
+                print(f"  {name:<8} {str(dag_val.shape):<12} {err:<16.4e} {status}")
+            else:
+                print(f"  {name:<8} {str(dag_val.shape):<12} {'(no direct ref)':<16} {'--'}")
+
+    return all_pass
+
+
 if __name__ == "__main__":
     # Generate formula_steps.json from C++ simulator
     import subprocess
@@ -204,3 +256,10 @@ if __name__ == "__main__":
     print("  Multi-Seed + Multi-Batch Stability Test")
     print(f"{'='*70}")
     run_multi_seed("Cholesky NoBlock", cholesky_noblock_inverse, formula_path)
+
+    # Intermediate tensor comparison
+    print(f"\n{'='*70}")
+    print("  Intermediate Tensor Check (G,A,L,Y,Ainv)")
+    print(f"{'='*70}")
+    for ch in ["Rayleigh", "CDL-B"]:
+        compare_intermediates("Cholesky NoBlock", formula_path, ch)
