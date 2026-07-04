@@ -219,18 +219,24 @@ def prim_scale(a: np.ndarray, scalar: float = 1.0) -> np.ndarray:
 
 
 # Map UOBS op_type → executor function
+# See DOCS/DAG_PRIMITIVES_SPEC.md for the complete specification.
+# Add new primitives here when operators need them.
 PRIMITIVES: Dict[str, Callable] = {
+    # ── Core primitives (all operators use these) ──
+    # ── Core primitives ──
     "GEMM":             prim_gemm,
     "DIAG_ADD":         prim_diag_add,
-    "CHOLESKY":         prim_cholesky,
-    "LDL_DECOMPOSE":    prim_ldl_decompose,
-    "BRI_PRECOND":      prim_bri_precond,
     "TRSM":             prim_trsm,
-    "DIAG_INV":         prim_diag_inv,
-    "MATRIX_INV_2x2":   prim_matrix_inv_2x2,
     "MATRIX_SUB":       prim_matrix_sub,
     "MATRIX_ADD":       prim_matrix_add,
     "SCALE":            prim_scale,
+    # ── Algorithm primitives ──
+    "CHOLESKY":         prim_cholesky,
+    "LDL_DECOMPOSE":    prim_ldl_decompose,
+    "DIAG_INV":         prim_diag_inv,
+    # ── Operator-specific primitives ──
+    "BRI_PRECOND":      prim_bri_precond,
+    "MATRIX_INV_2x2":   prim_matrix_inv_2x2,
     "SQRT_SCALE":       prim_sqrt_scale,
 }
 
