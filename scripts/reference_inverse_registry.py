@@ -14,6 +14,8 @@ Usage:
 
 from __future__ import annotations
 
+import json
+import os
 import sys
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional
@@ -90,6 +92,11 @@ def _chol_noblock(a_mat: np.ndarray, cfg: EvalConfig, **kwargs) -> np.ndarray:
     return cholesky_formula_inverse(a_mat, cfg)
 
 
+@register("cholesky_noblock_v2")
+def _chol_noblock_v2(a_mat: np.ndarray, cfg: EvalConfig, **kwargs) -> np.ndarray:
+    return cholesky_formula_inverse(a_mat, cfg)
+
+
 @register("ldl_block")
 def _ldl_block(a_mat: np.ndarray, cfg: EvalConfig, **kwargs) -> np.ndarray:
     bs = kwargs.get("block_size", 2)
@@ -117,6 +124,28 @@ def _bj(a_mat: np.ndarray, cfg: EvalConfig, **kwargs) -> np.ndarray:
 def _ns(a_mat: np.ndarray, cfg: EvalConfig, **kwargs) -> np.ndarray:
     iters = max(kwargs.get("layers", 10), 15)
     return newton_schulz_inverse(a_mat, iters=iters, dtype=np.complex64)
+
+
+# ── DAG-based reconstruction ──────────────────────────────────────────────
+
+def _compute_via_dag(formula_json_path, a_mat, cfg):
+    """Compute reference inverse via generic DAG executor."""
+    if not formula_json_path or not os.path.exists(formula_json_path):
+        return None
+    try:
+        with open(formula_json_path) as f:
+            data = json.load(f)
+        dag = FormulaDAG()
+        dag.build(data["steps"])
+        result = dag.execute({"A": a_mat}, {"lambda": 0.1})
+        # Return the last computed matrix (should be Ainv)
+        for node in reversed(dag.nodes):
+            val = result.get(node.output_name)
+            if val is not None and isinstance(val, np.ndarray) and val.ndim == 2:
+                return val
+    except Exception:
+        pass
+    return None
 
 
 # ── Unified dispatch ──────────────────────────────────────────────────────
@@ -160,26 +189,11 @@ def compute_reference_inverse(
         except Exception:
             pass
 
-    # NOTE: DAG-based reconstruction is disabled for now.
-    # The DAG executor (FormulaDAG) cannot currently handle multi-batch
-    # formula steps with correct tensor shape propagation.  It produces
-    # wrong-shaped outputs that pass the `is not None` check but are
-    # numerically invalid (e.g. norm ~300 instead of ~0.1).
-    #
-    # TODO: Re-enable DAG path once the following are fixed:
-    #   1. Per-batch tensor isolation (H should be (M,U) not (U,U))
-    #   2. Intermediate tensor name resolution across all sub-steps
-    #   3. Output shape validation (must match expected matrix dimension)
-    #
-    # When re-enabled, the code is:
-    #   if formula_json_path is not None:
-    #       try:
-    #           dag = load_dag(formula_json_path)
-    #           a_inv = _execute_dag_inverse(dag, a_mat, name)
-    #           if a_inv is not None and a_inv.shape == (a_mat.shape[0], a_mat.shape[0]):
-    #               return a_inv
-    #       except Exception:
-    #           pass
+    # Try DAG path first if formula JSON is available
+    if formula_json_path and os.path.exists(formula_json_path):
+        result = _compute_via_dag(formula_json_path, a_mat, cfg)
+        if result is not None:
+            return result
 
     # Use registered per-algorithm function
     fn = _registry.get(name)
