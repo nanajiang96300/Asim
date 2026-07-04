@@ -6,30 +6,13 @@
 #include "helper/CommandLineParser.h"
 #include "operations/OperationFactory.h"
 #include "models/LanguageModel.h"
-#include "models/ChannelModel.h"
-#include "inverse/newton_schulz/NewtonSchulzModel.h"
-#include "inverse/newton_schulz/NewtonSchulzOptModel.h"
-#include "models/MMSEModel.h"
-#include "models/MMSEBaselineModel.h"
-#include "inverse/ldl_block/LDLModel.h"
-#include "inverse/ldl_noblock/LDLNoBlockModel.h"
-#include "inverse/ldl_noblock/LDLDecompNoBlockAlignedModel.h"
-#include "models/DeepUnfoldModel.h"
-#include "models/DeepUnfoldNPUOptModel.h"
-#include "models/BlockJacobiModel.h"
-#include "inverse/cholesky_block/CholeskyModel.h"
-#include "inverse/cholesky_noblock/CholeskyNoBlockModel.h"
 #include "inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.h"
 #include "inverse/cholesky_noblock/CholeskyNoBlockMergeModel.h"
 #include "inverse/cholesky_block/CholeskyBlockBaselineModel.h"
 #include "inverse/ldl_block/LDLBlockBaselineModel.h"
 #include "inverse/newton_schulz/NewtonSchulzBaselineModel.h"
 #include "inverse/block_richardson/BlockRichardsonBaselineModel.h"
-#include "inverse/cholesky_block/CholeskyChainModel.h"
-#include "inverse/block_richardson/BlockRichardsonModel.h"
 #include "inverse/ldl_noblock/LDLNoBlockBaselineModel.h"
-#include "inverse/ldl_noblock/LDLNoBlockMergeModel.h"
-#include "models/SeriesInverseModel.h"
 #include "models/MatmulModel.h"
 
 namespace fs = std::filesystem;
@@ -95,45 +78,6 @@ int main(int argc, char** argv) {
   } else if (mode == "language") {
     spdlog::info("Running in language mode");
     language_mode = true;
-  } else if (mode == "ls_test") {
-    spdlog::info("Running in LS test mode (ChannelModel)");
-    language_mode = false;
-  } else if (mode == "newton_schulz_test") {
-    spdlog::info("Running in Newton-Schulz test mode (NewtonSchulzModel)");
-    language_mode = false;
-  } else if (mode == "newton_schulz_opt_test") {
-    spdlog::info("Running in Newton-Schulz OPT test mode (NewtonSchulzOptModel)");
-    language_mode = false;
-  } else if (mode == "mmse_test") {
-    spdlog::info("Running in MMSE test mode (MMSEModel)");
-    language_mode = false;
-  } else if (mode == "mmse_baseline_test") {
-    spdlog::info("Running in MMSE baseline test mode (MMSEBaselineModel)");
-    language_mode = false;
-  } else if (mode == "ldl_test") {
-    spdlog::info("Running in LDL test mode (LDLModel)");
-    language_mode = false;
-  } else if (mode == "ldl_noblock_aligned_test") {
-    spdlog::info("Running in LDL NoBlock ALIGNED test mode (right-looking, no packing)");
-    language_mode = false;
-  } else if (mode == "ldl_noblock_test") {
-    spdlog::info("Running in LDL no-block test mode (LDLNoBlockModel)");
-    language_mode = false;
-  } else if (mode == "deepunfold_test") {
-    spdlog::info("Running in DeepUnfold test mode (DeepUnfoldModel)");
-    language_mode = false;
-  } else if (mode == "deepunfold_opt_test") {
-    spdlog::info("Running in DeepUnfold OPT test mode (DeepUnfoldNPUOptModel)");
-    language_mode = false;
-  } else if (mode == "block_jacobi_test") {
-    spdlog::info("Running in Block-Jacobi test mode (BlockJacobiModel)");
-    language_mode = false;
-  } else if (mode == "cholesky_test") {
-    spdlog::info("Running in Cholesky baseline test mode (CholeskyModel)");
-    language_mode = false;
-  } else if (mode == "cholesky_noblock_test") {
-    spdlog::info("Running in Cholesky non-block test mode (CholeskyNoBlockModel)");
-    language_mode = false;
   } else if (mode == "cholesky_noblock_merge_test") {
     spdlog::info("Running in Cholesky NoBlock merge test mode");
     language_mode = false;
@@ -157,15 +101,6 @@ int main(int argc, char** argv) {
     language_mode = false;
   } else if (mode == "bri_v3_test") {
     spdlog::info("Running in Block-Richardson v3 baseline test mode");
-    language_mode = false;
-  } else if (mode == "cholesky_chain_test") {
-    spdlog::info("Running in Cholesky chain test mode (CholeskyChainModel)");
-    language_mode = false;
-  } else if (mode == "block_richardson_test") {
-    spdlog::info("Running in Block Jacobi test mode (BlockRichardsonModel)");
-    language_mode = false;
-  } else if (mode == "series_inverse_test") {
-    spdlog::info("Running in Series-inverse test mode (SeriesInverseModel)");
     language_mode = false;
   } else if (mode == "matmul_test") {
     spdlog::info("Running in MatMul test mode (MatmulModel)");
@@ -206,112 +141,24 @@ int main(int argc, char** argv) {
       auto model = std::make_unique<LanguageModel>(model_json, config, model_name);
       spdlog::info("Register Language Model: {}", model_name);
       simulator->register_language_model(model_config, std::move(model));
-    }
-    else if (mode == "ls_test") {
-      // LS channel estimation test: bypass ONNX and build ChannelModel
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<ChannelModel>(model_config, config, model_name);
-      spdlog::info("Register ChannelModel (LS test): {}", model_name);
-      simulator->register_model(std::move(model));
-      simulator->register_model(std::move(model));
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "newton_schulz_test") {
-      // Newton-Schulz matrix inverse test: pure C++ graph, no ONNX
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<NewtonSchulzModel>(model_config, config, model_name);
-      spdlog::info("Register NewtonSchulzModel (Newton-Schulz test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "newton_schulz_opt_test") {
-      std::string model_name = model_config["name"]; 
-      auto model = std::make_unique<NewtonSchulzOptModel>(model_config, config, model_name);
-      spdlog::info("Register NewtonSchulzOptModel (Newton-Schulz OPT test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "mmse_test") {
-      // MMSE estimator test: pure C++ graph, no ONNX
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<MMSEModel>(model_config, config, model_name);
-      spdlog::info("Register MMSEModel (MMSE test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "mmse_baseline_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<MMSEBaselineModel>(model_config, config, model_name);
-      spdlog::info("Register MMSEBaselineModel (MMSE baseline test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "ldl_test") {
-      // LDL decomposition / inverse test: pure C++ graph, no ONNX
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<LDLModel>(model_config, config, model_name);
-      spdlog::info("Register LDLModel (LDL test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "ldl_noblock_aligned_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<LDLDecompNoBlockAlignedModel>(model_config, config, model_name);
-      spdlog::info("Register LDLDecompNoBlockAlignedModel: {}", model_name);
-      simulator->register_model(std::move(model));
-    } else if (mode == "ldl_noblock_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<LDLNoBlockModel>(model_config, config, model_name);
-      spdlog::info("Register LDLNoBlockModel (LDL no-block test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "deepunfold_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<DeepUnfoldModel>(model_config, config, model_name);
-      spdlog::info("Register DeepUnfoldModel (DeepUnfold test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "deepunfold_opt_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<DeepUnfoldNPUOptModel>(model_config, config, model_name);
-      spdlog::info("Register DeepUnfoldNPUOptModel (DeepUnfold OPT test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "block_jacobi_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<BlockJacobiModel>(model_config, config, model_name);
-      spdlog::info("Register BlockJacobiModel (Block-Jacobi test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "cholesky_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<CholeskyModel>(model_config, config, model_name);
-      spdlog::info("Register CholeskyModel (Cholesky baseline test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "cholesky_noblock_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<CholeskyNoBlockModel>(model_config, config, model_name);
-      spdlog::info("Register CholeskyNoBlockModel (Cholesky non-block test): {}", model_name);
+    } else if (mode == "cholesky_noblock_v2_test") {
+      std::string mn = model_config["name"];
+      auto model = std::make_unique<CholeskyNoBlockBaselineModel>(model_config, config, mn);
+      spdlog::info("Register CholeskyNoBlockBaselineModel: {}", mn);
       simulator->register_model(std::move(model));
     } else if (mode == "cholesky_noblock_merge_test") {
       std::string mn = model_config["name"];
       auto model = std::make_unique<CholeskyNoBlockMergeModel>(model_config, config, mn);
       spdlog::info("Register CholeskyNoBlockMergeModel: {}", mn);
       simulator->register_model(std::move(model));
-    } else if (mode == "cholesky_noblock_v2_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<CholeskyNoBlockBaselineModel>(model_config, config, model_name);
-      spdlog::info("Register CholeskyNoBlockBaselineModel: {}", model_name);
-      simulator->register_model(std::move(model));
-  } else if (mode == "ldl_noblock_merge_test") {
-    spdlog::info("Running in LDL NoBlock merge test mode");
-    language_mode = false;
     } else if (mode == "ldl_noblock_v2_test") {
       std::string mn = model_config["name"];
       auto model = std::make_unique<LDLNoBlockBaselineModel>(model_config, config, mn);
       spdlog::info("Register LDLNoBlockBaselineModel: {}", mn);
       simulator->register_model(std::move(model));
     } else if (mode == "ldl_noblock_merge_test") {
-      std::string mn = model_config["name"];
-      auto model = std::make_unique<LDLNoBlockMergeModel>(model_config, config, mn);
-      spdlog::info("Register LDLNoBlockMergeModel: {}", mn);
-      simulator->register_model(std::move(model));
+      spdlog::error("LDL merge operator temporarily disabled");
+      exit(EXIT_FAILURE);
     } else if (mode == "cholesky_block_v3_test") {
       std::string mn = model_config["name"];
       auto model = std::make_unique<CholeskyBlockBaselineModel>(model_config, config, mn);
@@ -331,25 +178,6 @@ int main(int argc, char** argv) {
       std::string mn = model_config["name"];
       auto model = std::make_unique<BlockRichardsonBaselineModel>(model_config, config, mn);
       spdlog::info("Register BlockRichardsonBaselineModel: {}", mn);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "cholesky_chain_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<CholeskyChainModel>(model_config, config, model_name);
-      spdlog::info("Register CholeskyChainModel (Cholesky chain test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "block_richardson_test") {
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<BlockRichardsonModel>(model_config, config, model_name);
-      spdlog::info("Register BlockRichardsonModel (Block Jacobi test): {}", model_name);
-      simulator->register_model(std::move(model));
-    }
-    else if (mode == "series_inverse_test") {
-      // Neumann-series matrix inverse test: pure C++ graph, no ONNX
-      std::string model_name = model_config["name"];
-      auto model = std::make_unique<SeriesInverseModel>(model_config, config, model_name);
-      spdlog::info("Register SeriesInverseModel (Series-inverse test): {}", model_name);
       simulator->register_model(std::move(model));
     }
     else if (mode == "matmul_test") {
