@@ -62,7 +62,16 @@ Read `orchestrator/pipeline.json` for phase definitions. Execute each phase in o
 - **Gate**: `results/<operator>/run_NNN/summary.json` must exist
 - Record result in operator doc's verification section
 
-### Phase 8: Final Report
+### Phase 8: Numerical Verification (A' + B1) [OPTIONAL]
+
+- **Gate**: FormulaLogger DAG reconstruction produces correct inverse
+- **Method**:
+  1. DAG executor: reads `results/<op>/run_NNN/formula_steps.json`, builds computation DAG, replays with FP16 quantization, compares inverse against numpy.linalg.inv
+  2. Trace replay: reads `results/<op>/run_NNN/trace.csv`, counts GEMM operations, verifies final ACCUM contains expected output matrix
+- **If FAIL**: The operator's FormulaLogger steps do not produce a numerically correct inverse. Fix the instruction sequence or FormulaLogger declarations.
+- **When required=false**: This phase is informational. Set `"required": true` in pipeline.json to make it a hard gate.
+
+### Phase 9: Final Report
 Output a summary table:
 
 | Phase | Gate | Status |

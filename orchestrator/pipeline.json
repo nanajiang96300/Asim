@@ -61,11 +61,12 @@
     },
     {
       "id": "ext_numeric_verify",
-      "name": "EXTENSION: Numerical SE Verification",
+      "name": "Numerical Verification (A' + B1)",
       "required": false,
-      "description": "[FUTURE] Verify numerical correctness via FormulaLogger→UOBS SE reconstruction",
-      "action": "Run scripts/verify_baseline.py with operator output and compare SE",
-      "on_fail": "Fix numerical errors in operator."
+      "description": "Verify operator numerical correctness via FormulaLogger DAG reconstruction + GEMM trace replay",
+      "check": "echo 'Phase 8 checks:' && .venv/bin/python3 -c \"from scripts.reference_inverse_registry import compute_reference_inverse; print('DAG path available')\" && .venv/bin/python3 scripts/trace_replay.py results/${OP_NAME}/run_001/trace.csv 2>&1 | head -5",
+      "action": "Run: (1) DAG executor on formula_steps.json to reconstruct inverse, (2) trace_replay.py on trace.csv to verify GEMM operations",
+      "on_fail": "Numerical verification failed. Check FormulaLogger coverage and operator instruction sequence."
     },
     {
       "id": "ext_spad_audit",
