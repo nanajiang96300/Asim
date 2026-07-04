@@ -98,7 +98,7 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       .dest_addr = aG, .compute_size = U, .src_addrs = {aH, aH},
       .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
   FormulaLogger::instance().emit_step("LDL_NB_GRAM", "GEMM",
-      {"H", "H^H"}, "G", {{M, U}, {U, M}}, {U, U}, tile->batch, "LDL_NB_GRAM");
+      {"H^H", "H"}, "G", {{M, U}, {U, M}}, {U, U}, tile->batch, "LDL_NB_GRAM");
 
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::ADD, .id = "LDL_NB_REG",
@@ -179,7 +179,7 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .dest_addr = aD, .compute_size = 1,
         .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     FormulaLogger::instance().emit_step("LDL_NB_DUPDATE_" + std::to_string(j), "DIAG_INV",
-        {"A"}, "D_inv", {{U, U}}, {1, 1}, tile->batch, "LDL_NB_DINV_" + std::to_string(j));
+        {"A"}, "D", {{U, U}}, {U, U}, tile->batch, "LDL_NB_DINV_" + std::to_string(j));
 
     // L_UPDATE for rows i > j
     for (uint32_t i = j + 1; i < U; ++i) {
@@ -212,7 +212,7 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .src_addrs = {aA, aDinv}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
       FormulaLogger::instance().emit_step(
           "LDL_NB_LUPDATE_" + std::to_string(i) + "_" + std::to_string(j),
-          "TRSM", {"A", "D_inv"}, "L_ij", {{U, U}, {1, 1}}, {1, 1}, tile->batch,
+          "TRSM", {"A", "D_inv"}, "L", {{U, U}, {U, U}}, {U, U}, tile->batch,
           "LDL_NB_LAPPLY_" + std::to_string(i) + "_" + std::to_string(j));
     }
     barrier("LDL_NB_COL_" + std::to_string(j), 4);
@@ -265,6 +265,9 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   }
 
   // ===== Phase 6: Backward Assembly Ainv = Y^H @ Y =====
+  // FWD solve complete: Z = L^{-1}
+  FormulaLogger::instance().emit_step("LDL_NB_FWD_SOLVE", "TRSM",
+      {"L"}, "Y", {{U, U}}, {U, U}, tile->batch, "LDL_NB_FWD_DIAG_0");
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "LDL_NB_BWD",
       .dest_addr = aAinv, .compute_size = U, .src_addrs = {aY, aY},

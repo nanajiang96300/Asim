@@ -95,7 +95,7 @@ void CholeskyNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       .dest_addr = aG, .compute_size = U, .src_addrs = {aH, aH},
       .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
   FormulaLogger::instance().emit_step("CHOL_NB_GRAM", "GEMM",
-      {"H", "H^H"}, "G", {{M, U}, {U, M}}, {U, U}, tile->batch, "CHOL_NB_GRAM");
+      {"H^H", "H"}, "G", {{M, U}, {U, M}}, {U, U}, tile->batch, "CHOL_NB_GRAM");
 
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::ADD, .id = "CHOL_NB_REG",
@@ -143,7 +143,7 @@ void CholeskyNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .dest_addr = aL, .compute_size = 1,
         .src_addrs = {aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     FormulaLogger::instance().emit_step("CHOL_NB_POTRF_" + std::to_string(j), "CHOLESKY",
-        {"A"}, "L_diag", {{U, U}}, {1, 1}, tile->batch,
+        {"A"}, "L", {{U, U}}, {U, U}, tile->batch,
         "CHOL_NB_POTRF_SQRT_" + std::to_string(j));
 
     // TRSM: L[i,j] = (A[i,j] - sum_{k<j} L[i,k]*conj(L[j,k])) / L[j,j]
@@ -168,9 +168,6 @@ void CholeskyNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .id = "CHOL_NB_TRSM_DIV_" + std::to_string(i) + "_" + std::to_string(j),
           .dest_addr = aL, .compute_size = 1,
           .src_addrs = {aA, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-      FormulaLogger::instance().emit_step("CHOL_NB_TRSM_" + std::to_string(i) + "_" + std::to_string(j),
-          "TRSM", {"A", "L"}, "L_ij", {{U, U}, {U, U}}, {1, 1}, tile->batch,
-          "CHOL_NB_TRSM_DIV_" + std::to_string(i) + "_" + std::to_string(j));
     }
     barrier("CHOL_NB_COL_" + std::to_string(j), 4);
   }
@@ -215,6 +212,9 @@ void CholeskyNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   }
 
   // Phase 5: Backward Assembly Ainv = Y^H @ Y
+  // FWD solve complete: Y = L^{-1}
+  FormulaLogger::instance().emit_step("CHOL_NB_FWD_SOLVE", "TRSM",
+      {"L"}, "Y", {{U, U}}, {U, U}, tile->batch, "CHOL_NB_FWD_DIAG_0");
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "CHOL_NB_BWD_GEMM",
       .dest_addr = aAinv, .compute_size = U, .src_addrs = {aY, aY},

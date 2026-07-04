@@ -18,18 +18,14 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import numpy as np
 
-# ── primitive implementations (FP16-quantised at every step) ────────────────
-
-FP16_MAX = 65504.0
-FP16_MIN = -65504.0
-
-
 def _fp16(x: np.ndarray) -> np.ndarray:
-    """Quantise to IEEE 754 binary16 (round-to-nearest-even)."""
-    x = np.asarray(x, dtype=np.float64)
-    return x.astype(np.float16).astype(np.float64)
-
-
+    """Quantize to FP16 (separate real/imag for complex)."""
+    if x is None: return None
+    if np.iscomplexobj(x):
+        r = _fp16(x.real)
+        i = _fp16(x.imag)
+        return r + 1j * i
+    return np.asarray(x, dtype=np.float64).astype(np.float16).astype(np.float64)
 def _cplx_fp16(z: np.ndarray) -> np.ndarray:
     """Quantise complex array: real & imag independently to fp16."""
     real = _fp16(z.real)
@@ -37,12 +33,8 @@ def _cplx_fp16(z: np.ndarray) -> np.ndarray:
     return real + 1j * imag
 
 
-def _clip(x: np.ndarray, lo: float = FP16_MIN, hi: float = FP16_MAX) -> np.ndarray:
-    return np.clip(x, lo, hi)
-
-
 def prim_gemm(a: np.ndarray, b: np.ndarray) -> np.ndarray:
-    """GEMM: C = A @ B  (A: m×k, B: k×n, C: m×n)"""
+    """GEMM: C = _fp16(_fp16(A) @ _fp16(B))  (A: m×k, B: k×n, C: m×n)"""
     a_q = _cplx_fp16(a)
     b_q = _cplx_fp16(b)
     result = a_q @ b_q
@@ -57,20 +49,29 @@ def prim_diag_add(a: np.ndarray, lam: float = 1.0) -> np.ndarray:
     return _cplx_fp16(result)
 
 
+
+def prim_trsm(*inputs):
+    """Forward substitution: Y = L^{-1}. Takes 1 input (L), returns Y."""
+    if len(inputs) == 0: return None
+    L = inputs[0]
+    if L is None: return None
+    n = L.shape[0]
+    Y = np.zeros((n, n), dtype=np.complex128)
+    for c in range(n):
+        Y[c, c] = _fp16(1.0 / max(L[c, c].real, 1e-15))
+        for i in range(c + 1, n):
+            acc = np.complex128(0.0)
+            for k in range(c, i):
+                acc += _fp16(L[i, k] * Y[k, c])
+            Y[i, c] = _fp16(-acc / max(L[i, i].real, 1e-15))
+    return Y
+
 def prim_cholesky(a: np.ndarray) -> np.ndarray:
     """CHOLESKY: L = chol(A), A is n×n Hermitian positive-definite."""
     a_q = _cplx_fp16(a)
     # Use double-precision Cholesky for stability, then quantise.
     l_mat = np.linalg.cholesky(a_q.astype(np.complex128))
     return _cplx_fp16(l_mat)
-
-
-def prim_trsm(l_mat: np.ndarray, b_mat: np.ndarray) -> np.ndarray:
-    """TRSM: solve L·X = B for X  (L lower-triangular)."""
-    l_q = _cplx_fp16(l_mat)
-    b_q = _cplx_fp16(b_mat)
-    x = np.linalg.solve(l_q, b_q)
-    return _cplx_fp16(x)
 
 
 def prim_diag_inv(a: np.ndarray) -> np.ndarray:
@@ -185,6 +186,7 @@ class FormulaDAG:
             aux_params = {}
 
         # Registry: per-batch tensor store
+        # For incremental updates (multiple steps write to same name), accumulate
         registry: Dict[Tuple[int, str], np.ndarray] = {}
 
         # Seed initial tensors per batch: register each tensor only for batches
@@ -222,6 +224,10 @@ class FormulaDAG:
                     h = registry.get((node.batch, "H"))
                     if h is not None:
                         val = h.conj().T
+                if val is None and iname == "Y^H":
+                    y = registry.get((node.batch, "Y"))
+                    if y is not None:
+                        val = y.conj().T
                 if val is None:
                     raise KeyError(
                         f"Cannot resolve input '{iname}' for step '{node.step_id}' "
@@ -242,7 +248,10 @@ class FormulaDAG:
                     lam = aux_params.get("lambda", 0.1)
                     result = prim_fn(inputs[0], lam)
                 elif node.op_type == "TRSM":
-                    result = prim_fn(inputs[0], inputs[1])
+                    if len(inputs) == 1:
+                        result = prim_fn(inputs[0])  # Y = L^{-1} (FWD solve)
+                    else:
+                        result = inputs[1]  # L update pass-through
                 elif node.op_type == "SCALE":
                     result = prim_fn(inputs[0], aux_params.get("omega", 1.0))
                 else:
@@ -256,7 +265,7 @@ class FormulaDAG:
 
             node.inputs = inputs
             node.output = result
-            registry[key] = result
+            registry[key] = _fp16(result) if isinstance(result, np.ndarray) else result
 
         # Collect final outputs from last batch
         final_outputs: Dict[str, np.ndarray] = {}
