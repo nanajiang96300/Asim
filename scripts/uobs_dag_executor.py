@@ -334,6 +334,9 @@ class FormulaDAG:
                     result = prim_fn(inputs[0], inputs[1]) if len(inputs) >= 2 else prim_fn(inputs[0])
                 elif node.op_type == "LDL_DECOMPOSE":
                     result = prim_fn(inputs[0])
+                    if node.step_id.endswith("_0"):
+                        import numpy as _np
+                        print(f"  DAG: {node.step_id} input_norm={_np.linalg.norm(inputs[0]):.4f} output_norm={_np.linalg.norm(result):.4f}", flush=True)
                 else:
                     # CHOLESKY, DIAG_INV, MATRIX_INV_2x2
                     result = prim_fn(inputs[0])

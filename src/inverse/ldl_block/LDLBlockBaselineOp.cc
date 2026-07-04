@@ -187,7 +187,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
             .dest_addr = aL, .compute_size = 1, .src_addrs = {aA, aDinv},
             .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
       }
-      FormulaLogger::instance().emit_step("LDL_BLK_LUPDATE_"+std::to_string(i)+"_"+std::to_string(j),
+      // LUPDATE doc: FormulaLogger::instance().emit_step("LDL_BLK_LUPDATE_"+std::to_string(i)+"_"+std::to_string(j),
           "TRSM", std::vector<std::string>{"A", "Y"}, "L", {{U,U},{B,B}}, {B,B}, tile->batch,
           "LDL_BLK_LAPPLY_"+std::to_string(i)+"_"+std::to_string(j));
     }
@@ -233,7 +233,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     }
 
   // Phase 6 emits Y after sqrt weighting
-  FormulaLogger::instance().emit_step("LDL_BLK_SQRT_SCALE", "SCALE",
+  FormulaLogger::instance().emit_step("LDL_BLK_SQRT_SCALE", "SQRT_SCALE",
       {"A","Y"}, "Y", {{U,U},{U,U}}, {U,U}, tile->batch, "LDL_BLK_BWD");
 
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
