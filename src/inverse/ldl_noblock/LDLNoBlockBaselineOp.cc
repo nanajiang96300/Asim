@@ -179,7 +179,7 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .dest_addr = aD, .compute_size = 1,
         .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     FormulaLogger::instance().emit_step("LDL_NB_DUPDATE_" + std::to_string(j), "DIAG_INV",
-        {"A"}, "D", {{U, U}}, {U, U}, tile->batch, "LDL_NB_DINV_" + std::to_string(j));
+        {"A"}, "D_" + std::to_string(j), {{U, U}}, {U, U}, tile->batch, "LDL_NB_DINV_" + std::to_string(j));
 
     // L_UPDATE for rows i > j
     for (uint32_t i = j + 1; i < U; ++i) {
@@ -212,7 +212,7 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .src_addrs = {aA, aDinv}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
       FormulaLogger::instance().emit_step(
           "LDL_NB_LUPDATE_" + std::to_string(i) + "_" + std::to_string(j),
-          "TRSM", {"A", "D_inv"}, "L", {{U, U}, {U, U}}, {U, U}, tile->batch,
+          "TRSM", std::vector<std::string>{"A", "D_" + std::to_string(j)}, "L", {{U, U}, {U, U}}, {U, U}, tile->batch,
           "LDL_NB_LAPPLY_" + std::to_string(i) + "_" + std::to_string(j));
     }
     barrier("LDL_NB_COL_" + std::to_string(j), 4);
