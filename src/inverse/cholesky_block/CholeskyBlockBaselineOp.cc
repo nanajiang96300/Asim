@@ -96,7 +96,7 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       .dest_addr = aG, .compute_size = U, .src_addrs = {aH, aH},
       .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
   FormulaLogger::instance().emit_step("CHOL_BLK_GRAM", "GEMM",
-      {"H","H^H"}, "G", {{M,U},{U,M}}, {U,U}, tile->batch, "CHOL_BLK_GRAM");
+      {"H^H","H"}, "G", {{M,U},{U,M}}, {U,U}, tile->batch, "CHOL_BLK_GRAM");
 
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::ADD, .id = "CHOL_BLK_REG",
@@ -225,8 +225,6 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   }
 
   // Phase 5: Forward Solve Complete — Y = L^{-1}
-  FormulaLogger::instance().emit_step("CHOL_BLK_FWD_SOLVE", "TRSM",
-      {"L"}, "Y", {{U,U}}, {U,U}, tile->batch, "CHOL_BLK_FWD_DIAG_0");
 
   // Phase 6: Backward Assembly Ainv = Y^H @ Y
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{

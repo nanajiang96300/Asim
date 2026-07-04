@@ -97,7 +97,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       .dest_addr = aG, .compute_size = U, .src_addrs = {aH, aH},
       .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
   FormulaLogger::instance().emit_step("LDL_BLK_GRAM", "GEMM",
-      {"H","H^H"}, "G", {{M,U},{U,M}}, {U,U}, tile->batch, "LDL_BLK_GRAM");
+      {"H^H","H"}, "G", {{M,U},{U,M}}, {U,U}, tile->batch, "LDL_BLK_GRAM");
 
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::ADD, .id = "LDL_BLK_REG",
@@ -217,9 +217,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     barrier("LDL_BLK_FB_"+std::to_string(c), 5);
   }
 
-  // Phase 5: Forward Solve Complete — Y = L^{-1}
-  FormulaLogger::instance().emit_step("LDL_BLK_FWD_SOLVE", "TRSM",
-      {"L"}, "Y", {{U,U}}, {U,U}, tile->batch, "LDL_BLK_FWD_DIAG_0");
+  // Phase 5: Y computed by LDL_DECOMPOSE above — no separate FWD needed
 
   // Phase 6: sqrt(Dinv) weighting + BWD GEMM
   for (uint32_t c = 0; c < nB; ++c)
