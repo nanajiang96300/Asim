@@ -168,7 +168,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .dest_addr = aD, .compute_size = 1, .src_addrs = {aA, aTmp},
           .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
-    FormulaLogger::instance().emit_step("LDL_BLK_DUPDATE_"+std::to_string(j), "DIAG_INV",
+    FormulaLogger::instance().emit_step("LDL_BLK_DUPDATE_"+std::to_string(j), "LDL_DECOMPOSE",
         {"A"}, "Y", {{U,U}}, {B,B}, tile->batch, "LDL_BLK_DINV_"+std::to_string(j));
 
     // L_UPDATE for off-diagonal blocks
@@ -218,8 +218,6 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   }
 
   // Phase 5: Forward Solve Complete — Y = L^{-1}
-  FormulaLogger::instance().emit_step("LDL_BLK_FWD_SOLVE", "TRSM",
-      {"L"}, "Y", {{U,U}}, {U,U}, tile->batch, "LDL_BLK_FWD_DIAG_0");
 
   // Phase 6: sqrt(Dinv) weighting + BWD GEMM
   for (uint32_t c = 0; c < nB; ++c)
