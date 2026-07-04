@@ -67,10 +67,25 @@ def prim_trsm(*inputs):
     return Y
 
 def prim_cholesky(a: np.ndarray) -> np.ndarray:
-    """CHOLESKY: L = chol(A), A is n×n Hermitian positive-definite."""
+    """CHOLESKY: L = chol(A) with near-singular fallback."""
     a_q = _cplx_fp16(a)
-    # Use double-precision Cholesky for stability, then quantise.
-    l_mat = np.linalg.cholesky(a_q.astype(np.complex128))
+    a_d = a_q.astype(np.complex128)
+    try:
+        l_mat = np.linalg.cholesky(a_d)
+    except np.linalg.LinAlgError:
+        # Near-singular: add small diagonal perturbation for stability
+        eps = 1e-6 * np.max(np.abs(np.diag(a_d)))
+        for attempt in range(5):
+            try:
+                l_mat = np.linalg.cholesky(a_d + eps * np.eye(a_d.shape[0]))
+                break
+            except np.linalg.LinAlgError:
+                eps *= 10
+        else:
+            # Last resort: eigenvalue regularization
+            w, v = np.linalg.eigh(a_d)
+            w = np.maximum(w, 1e-10)
+            l_mat = np.linalg.cholesky((v * w) @ v.conj().T + 1e-8 * np.eye(a_d.shape[0]))
     return _cplx_fp16(l_mat)
 
 
