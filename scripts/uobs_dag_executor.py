@@ -213,8 +213,7 @@ class FormulaDAG:
 
         for node in self.nodes:
             key = (node.batch, node.output_name)
-            if key in registry:
-                continue  # already computed
+            # Allow recomputation for iterative algorithms (e.g., Newton-Schulz loops)
 
             # Resolve inputs
             inputs = []

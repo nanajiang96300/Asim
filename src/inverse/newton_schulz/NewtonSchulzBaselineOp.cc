@@ -92,7 +92,7 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .src_addrs = {aA, aX},
         .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}));
     FormulaLogger::instance().emit_step("NS_GEMM_T_" + std::to_string(k), "GEMM",
-        {"A", "X"}, "T", {{N,N},{N,N}}, {N,N}, tile->batch,
+        {std::string("A"), std::string(k==0?"X":"X_"+std::to_string(k-1))}, "T_" + std::to_string(k), {{N,N},{N,N}}, {N,N}, tile->batch,
         "NS_T_" + std::to_string(k));
 
     barrier("NS_T2R_" + std::to_string(k), 2);
@@ -105,7 +105,7 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .src_addrs = {aC, aT},
         .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}));
     FormulaLogger::instance().emit_step("NS_RESIDUAL_" + std::to_string(k), "MATRIX_SUB",
-        {"2I", "T"}, "R", {{N,N},{N,N}}, {N,N}, tile->batch,
+        {"2I", "T_" + std::to_string(k)}, "R_" + std::to_string(k), {{N,N},{N,N}}, {N,N}, tile->batch,
         "NS_R_" + std::to_string(k));
 
     barrier("NS_R2X_" + std::to_string(k), 3);
@@ -118,7 +118,7 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .src_addrs = {aX, aR},
         .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}));
     FormulaLogger::instance().emit_step("NS_UPDATE_" + std::to_string(k), "GEMM",
-        {"X", "R"}, "X_new", {{N,N},{N,N}}, {N,N}, tile->batch,
+        {std::string(k==0?"X":"X_"+std::to_string(k-1)), "R_" + std::to_string(k)}, "X_" + std::to_string(k), {{N,N},{N,N}}, {N,N}, tile->batch,
         "NS_X_" + std::to_string(k));
 
     if (k + 1 < K) barrier("NS_ITER_" + std::to_string(k), 4);
