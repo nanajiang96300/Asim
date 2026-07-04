@@ -169,7 +169,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
     FormulaLogger::instance().emit_step("LDL_BLK_DUPDATE_"+std::to_string(j), "DIAG_INV",
-        {"A"}, "D_inv", {{U,U}}, {B,B}, tile->batch, "LDL_BLK_DINV_"+std::to_string(j));
+        {"A"}, "D_" + std::to_string(j), {{U,U}}, {B,B}, tile->batch, "LDL_BLK_DINV_"+std::to_string(j));
 
     // L_UPDATE for off-diagonal blocks
     for (uint32_t i = j + 1; i < nB; ++i) {
@@ -188,7 +188,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
             .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
       }
       FormulaLogger::instance().emit_step("LDL_BLK_LUPDATE_"+std::to_string(i)+"_"+std::to_string(j),
-          "TRSM", {"A","D_inv"}, "L_ij", {{U,U},{B,B}}, {B,B}, tile->batch,
+          "TRSM", std::vector<std::string>{"A", "D_" + std::to_string(j)}, "L", {{U,U},{B,B}}, {B,B}, tile->batch,
           "LDL_BLK_LAPPLY_"+std::to_string(i)+"_"+std::to_string(j));
     }
     barrier("LDL_BLK_COL_"+std::to_string(j), 4);
@@ -217,7 +217,11 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     barrier("LDL_BLK_FB_"+std::to_string(c), 5);
   }
 
-  // Phase 5: sqrt(Dinv) weighting + BWD GEMM
+  // Phase 5: Forward Solve Complete — Y = L^{-1}
+  FormulaLogger::instance().emit_step("LDL_BLK_FWD_SOLVE", "TRSM",
+      {"L"}, "Y", {{U,U}}, {U,U}, tile->batch, "LDL_BLK_FWD_DIAG_0");
+
+  // Phase 6: sqrt(Dinv) weighting + BWD GEMM
   for (uint32_t c = 0; c < nB; ++c)
     for (uint32_t ii = 0; ii < B; ++ii) {
       tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
@@ -229,6 +233,10 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .dest_addr = aY, .compute_size = B, .src_addrs = {aY, aTmp},
           .tile_m = B, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
+
+  // Phase 6 emits Y after sqrt weighting
+  FormulaLogger::instance().emit_step("LDL_BLK_SQRT_SCALE", "SCALE",
+      {"A","Y"}, "Y", {{U,U},{U,U}}, {U,U}, tile->batch, "LDL_BLK_BWD");
 
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "LDL_BLK_BWD",
