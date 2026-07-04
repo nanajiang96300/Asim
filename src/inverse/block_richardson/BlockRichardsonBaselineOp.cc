@@ -105,14 +105,14 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       .dest_addr = aA, .compute_size = U, .src_addrs = {aH, aH},
       .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
   FormulaLogger::instance().emit_step("BRI_GRAM", "GEMM",
-      {"H","H^H"}, "A", {{M,U},{U,M}}, {U,U}, tile->batch, "BRI_GRAM");
+      {"H^H","H"}, "G", {{M,U},{U,M}}, {U,U}, tile->batch, "BRI_GRAM");
 
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::ADD, .id = "BRI_REG",
       .dest_addr = aA, .compute_size = U*U, .src_addrs = {aA, aReg},
       .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
   FormulaLogger::instance().emit_step("BRI_REG", "DIAG_ADD",
-      {"A","lambda*I"}, "A_reg", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_REG");
+      {"G","lambda*I"}, "A", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_REG");
   barrier("BRI_REG2PRECOND", 3);
 
   // Init regions
@@ -173,8 +173,9 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .id = "BRI_BY_"+std::to_string(layer),
         .dest_addr = aBY, .compute_size = U, .src_addrs = {aB, aYk},
         .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+    std::string y_in = (layer == 0) ? std::string("I") : ("Y_" + std::to_string(layer - 1));
     FormulaLogger::instance().emit_step("BRI_BY_"+std::to_string(layer), "GEMM",
-        {"B","Y"}, "BY", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_BY_"+std::to_string(layer));
+        std::vector<std::string>{"B", y_in}, "BY_" + std::to_string(layer), {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_BY_"+std::to_string(layer));
 
     // R = I - BY (residual)
     tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
@@ -182,7 +183,7 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .dest_addr = aR, .compute_size = U*U, .src_addrs = {aReg, aBY},
         .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
     FormulaLogger::instance().emit_step("BRI_RESIDUAL_"+std::to_string(layer), "MATRIX_SUB",
-        {"I","BY"}, "R", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_RESIDUAL_"+std::to_string(layer));
+        std::vector<std::string>{"I", "BY_" + std::to_string(layer)}, "R_" + std::to_string(layer), {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_RESIDUAL_"+std::to_string(layer));
 
     // Y_{k+1} = Y_k + omega * R  (omega=1 in baseline Chebyshev)
     tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
@@ -190,7 +191,7 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .dest_addr = aYnext, .compute_size = U*U, .src_addrs = {aYk, aR},
         .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
     FormulaLogger::instance().emit_step("BRI_Y_UPDATE_"+std::to_string(layer), "MATRIX_ADD",
-        {"Y","omega*R"}, "Y_new", {{U,U},{U,U}}, {U,U}, tile->batch,
+        std::vector<std::string>{y_in, "R_" + std::to_string(layer)}, "Y_" + std::to_string(layer), {{U,U},{U,U}}, {U,U}, tile->batch,
         "BRI_Y_UPDATE_"+std::to_string(layer));
 
     // Swap Y buffers for next iteration
@@ -212,6 +213,8 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       .opcode = Opcode::GEMM_PRELOAD, .id = "BRI_XHAT",
       .dest_addr = aXhat, .compute_size = U, .src_addrs = {aW, aYin},
       .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
+  FormulaLogger::instance().emit_step("BRI_FINAL", "GEMM",
+      {"Y^H","Y"}, "Ainv", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_XHAT");
   barrier("BRI_PRE_MOVOUT", 6);
 
   std::set<addr_type> outs;
