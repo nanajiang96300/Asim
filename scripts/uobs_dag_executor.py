@@ -187,11 +187,12 @@ class FormulaDAG:
         # Registry: per-batch tensor store
         registry: Dict[Tuple[int, str], np.ndarray] = {}
 
-        # Seed initial tensors into registry for all batches present in the DAG
-        all_batches = sorted({n.batch for n in self.nodes})
+        # Seed initial tensors per batch: register each tensor only for batches
+        # where it actually appears as an input, using the correct per-step shapes.
         for name, tensor in initial_tensors.items():
-            for b in all_batches:
-                registry[(b, name)] = np.asarray(tensor, dtype=np.complex128)
+            for node in self.nodes:
+                if name in node.input_names:
+                    registry[(node.batch, name)] = np.asarray(tensor, dtype=np.complex128)
 
         for node in self.nodes:
             key = (node.batch, node.output_name)
@@ -259,6 +260,7 @@ class FormulaDAG:
 
         # Collect final outputs from last batch
         final_outputs: Dict[str, np.ndarray] = {}
+        all_batches = sorted({n.batch for n in self.nodes})
         last_batch = all_batches[-1] if all_batches else 0
         for node in self.nodes:
             if node.batch == last_batch:
