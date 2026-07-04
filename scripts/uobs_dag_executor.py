@@ -146,6 +146,40 @@ def prim_ldl_decompose(*inputs):
     return _cplx_fp16(Y)
 
 
+def prim_bri_precond(*inputs):
+    """BRI_PRECOND: Build block-diagonal preconditioner B = blockdiag(A_00^{-1}, ...).
+    Each diagonal B×B block of A is inverted. B=2 uses direct 2x2 formula."""
+    if len(inputs) == 0: return None
+    A = inputs[0]
+    if A is None: return None
+    A_q = _cplx_fp16(A)
+    n = A_q.shape[0]
+    # Determine block size: if n is divisible by 2, use B=2; else try 4,8
+    for B in [2, 4, 8]:
+        if n % B == 0:
+            break
+    else:
+        B = 1
+    nB = n // B
+    Bmat = np.zeros((n, n), dtype=np.complex128)
+    for b in range(nB):
+        r0, r1 = b * B, (b + 1) * B
+        block = A_q[r0:r1, r0:r1]
+        if B == 2:
+            a00, a01 = block[0, 0], block[0, 1]
+            a10, a11 = block[1, 0], block[1, 1]
+            det = _fp16(a00 * a11 - a01 * a10)
+            inv_det = 1.0 / max(det, 1e-15)
+            Bmat[r0, r0] = _fp16(a11 * inv_det)
+            Bmat[r0, r0+1] = _fp16(-a01 * inv_det)
+            Bmat[r0+1, r0] = _fp16(-a10 * inv_det)
+            Bmat[r0+1, r0+1] = _fp16(a00 * inv_det)
+        else:
+            inv = np.linalg.inv(block.astype(np.complex128))
+            Bmat[r0:r1, r0:r1] = inv
+    return _cplx_fp16(Bmat)
+
+
 def prim_sqrt_scale(*inputs):
     """SQRT_SCALE: Y_col *= sqrt(Dinv_col) for each column."""
     if len(inputs) < 2: return inputs[0] if inputs else None
@@ -190,6 +224,7 @@ PRIMITIVES: Dict[str, Callable] = {
     "DIAG_ADD":         prim_diag_add,
     "CHOLESKY":         prim_cholesky,
     "LDL_DECOMPOSE":    prim_ldl_decompose,
+    "BRI_PRECOND":      prim_bri_precond,
     "TRSM":             prim_trsm,
     "DIAG_INV":         prim_diag_inv,
     "MATRIX_INV_2x2":   prim_matrix_inv_2x2,
@@ -334,9 +369,8 @@ class FormulaDAG:
                     result = prim_fn(inputs[0], inputs[1]) if len(inputs) >= 2 else prim_fn(inputs[0])
                 elif node.op_type == "LDL_DECOMPOSE":
                     result = prim_fn(inputs[0])
-                    if node.step_id.endswith("_0"):
-                        import numpy as _np
-                        print(f"  DAG: {node.step_id} input_norm={_np.linalg.norm(inputs[0]):.4f} output_norm={_np.linalg.norm(result):.4f}", flush=True)
+                elif node.op_type == "BRI_PRECOND":
+                    result = prim_fn(inputs[0])
                 else:
                     # CHOLESKY, DIAG_INV, MATRIX_INV_2x2
                     result = prim_fn(inputs[0])

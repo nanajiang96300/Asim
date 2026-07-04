@@ -156,7 +156,7 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
   }
-  FormulaLogger::instance().emit_step("BRI_PRECOND", "MATRIX_INV_2x2",
+  FormulaLogger::instance().emit_step("BRI_PRECOND", "BRI_PRECOND",
       {"A"}, "B", {{U,U}}, {U,U}, tile->batch, "BRI_PRECOND");
 
   // Phase 4: Initialize Y_0 = I
@@ -214,7 +214,7 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       .dest_addr = aXhat, .compute_size = U, .src_addrs = {aW, aYin},
       .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
   FormulaLogger::instance().emit_step("BRI_FINAL", "GEMM",
-      {"Y^H","Y"}, "Ainv", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_XHAT");
+      {"Y_7","Y_7"}, "Ainv", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_XHAT");
   barrier("BRI_PRE_MOVOUT", 6);
 
   std::set<addr_type> outs;
