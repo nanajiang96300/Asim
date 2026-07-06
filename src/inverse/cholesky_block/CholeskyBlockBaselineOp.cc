@@ -225,6 +225,8 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   }
 
   // Phase 5: Forward Solve Complete — Y = L^{-1}
+  FormulaLogger::instance().emit_step("CHOL_BLK_FWD_SOLVE", "TRSM",
+      {"L"}, "Y", {{U,U}}, {U,U}, tile->batch, "CHOL_BLK_FWD_DIAG_0");
 
   // Phase 6: Backward Assembly Ainv = Y^H @ Y
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
