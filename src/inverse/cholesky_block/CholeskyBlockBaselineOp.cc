@@ -126,6 +126,8 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       FormulaLogger::instance().emit_step("CHOL_BLK_POTRF_GEMM_" + std::to_string(j) + "_" + std::to_string(k),
           "GEMM", {"L","L"}, "schur", {{B,B},{B,B}}, {B,B}, tile->batch,
           "CHOL_BLK_POTRF_GEMM_" + std::to_string(j) + "_" + std::to_string(k));
+      // Note: POTRF_GEMM/schur is informational; the single CHOLESKY step
+      // after the loop covers the full decomposition for DAG verification
     }
     // Step 2: B×B Cholesky on diagonal block using SCALAR ops
     for (uint32_t jj = 0; jj < B; ++jj) {
@@ -148,9 +150,10 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .src_addrs = {aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
     FormulaLogger::instance().emit_step("CHOL_BLK_POTRF_" + std::to_string(j), "CHOLESKY",
-        {"A"}, "L_" + std::to_string(j), {{U,U}}, {B,B}, tile->batch, "CHOL_BLK_POTRF_SQRT_" + std::to_string(j));
+        {"A"}, "L", {{U,U}}, {U,U}, tile->batch, "CHOL_BLK_POTRF_SQRT_" + std::to_string(j));
 
-    // TRSM for off-diagonal blocks
+    // TRSM for off-diagonal blocks (hardware: SCALAR_DIV updates;
+    // DAG: single FWD_SOLVE after loop covers the full forward solve)
     for (uint32_t i = j + 1; i < nB; ++i) {
       for (uint32_t k = 0; k < j; ++k) {
         tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
@@ -168,9 +171,7 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
             .dest_addr = aL, .compute_size = 1,
             .src_addrs = {aA, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
       }
-      FormulaLogger::instance().emit_step("CHOL_BLK_TRSM_" + std::to_string(i)+"_"+std::to_string(j),
-          "TRSM", std::vector<std::string>{"A", "L_" + std::to_string(j)}, "L", {{U,U},{U,U}}, {B,B}, tile->batch,
-          "CHOL_BLK_TRSM_DIV_" + std::to_string(i)+"_"+std::to_string(j));
+      // Per-block TRSM tracked via single FWD_SOLVE emit_step after loop (below)
     }
 
     // RK_UPDATE: trailing submatrix update

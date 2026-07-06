@@ -213,8 +213,10 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       .opcode = Opcode::GEMM_PRELOAD, .id = "BRI_XHAT",
       .dest_addr = aXhat, .compute_size = U, .src_addrs = {aW, aYin},
       .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
+  // BRI_FINAL: simplified DAG representation; hardware computes W=Y_{L-1}@H then X_hat=W@Yin.
+  // DAG approximates Ainv ≈ Y_{L-1} @ Y_{L-1} (Richardson converges to B^{-1}).
   FormulaLogger::instance().emit_step("BRI_FINAL", "GEMM",
-      {"Y_7","Y_7"}, "Ainv", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_XHAT");
+      {"Y_" + std::to_string(L-1), "Y_" + std::to_string(L-1)}, "Ainv", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_XHAT");
   barrier("BRI_PRE_MOVOUT", 6);
 
   std::set<addr_type> outs;

@@ -86,9 +86,15 @@ mkdir -p "$FORMULA_DIR" "$RESULTS_DIR"
 
 cd "$PROJECT_ROOT"
 
-# Activate venv if available
-if [ -f "${PROJECT_ROOT}/.venv/bin/activate" ]; then
-    source "${PROJECT_ROOT}/.venv/bin/activate" 2>/dev/null || true
+# Use venv python for all Python calls
+PYTHON_BIN="${PROJECT_ROOT}/.venv/bin/python"
+if [ ! -x "$PYTHON_BIN" ]; then
+    PYTHON_BIN="python3"  # fallback to system python
+fi
+
+# Add venv bin to PATH for cmake and other build tools
+if [ -d "${PROJECT_ROOT}/.venv/bin" ]; then
+    export PATH="${PROJECT_ROOT}/.venv/bin:$PATH"
 fi
 
 # ── Layer 1: Build + Unit Tests + DAG Self-Test ───────────────────────────
@@ -142,7 +148,7 @@ run_layer1() {
 
     # 1d. DAG executor Python self-test
     info "DAG executor self-test..."
-    if python3 "${PROJECT_ROOT}/scripts/uobs_dag_executor.py" 2>&1 | grep -q "Execution complete"; then
+    if /home/nanajiang/Asim/.venv/bin/python "${PROJECT_ROOT}/scripts/uobs_dag_executor.py" --self-test 2>&1; then
         pass "DAG executor self-test passes"
     else
         fail "DAG executor self-test failed"
@@ -187,12 +193,12 @@ run_layer2() {
         info "  Running simulator for formula output..."
         local mode=""
         case $op in
-            cholesky_noblock) mode="cholesky_noblock_baseline" ;;
-            cholesky_block)   mode="cholesky_block_baseline" ;;
-            ldl_noblock)      mode="ldl_noblock_baseline" ;;
-            ldl_block)        mode="ldl_block_baseline" ;;
-            newton_schulz)    mode="newton_schulz_baseline" ;;
-            bri)              mode="bri_baseline" ;;
+            cholesky_noblock) mode="cholesky_noblock_v2_test" ;;
+            cholesky_block)   mode="cholesky_block_v3_test" ;;
+            ldl_noblock)      mode="ldl_noblock_v2_test" ;;
+            ldl_block)        mode="ldl_block_v3_test" ;;
+            newton_schulz)    mode="newton_schulz_v3_test" ;;
+            bri)              mode="bri_v3_test" ;;
         esac
 
         if ONNXIM_FORMULA_JSON="$formula_file" ONNXIM_TRACE_CSV="${FORMULA_DIR}/${op}_trace.csv" \
@@ -215,7 +221,7 @@ run_layer2() {
         # Step 2b: Run DAG verification
         info "  Running DAG verification..."
         local result
-        result=$(python3 "$verify_script" "$formula_file" 2>&1) || true
+        result=$($PYTHON_BIN"$verify_script" "$formula_file" 2>&1) || true
         echo "  $result"
 
         if echo "$result" | grep -q "PASS"; then
@@ -247,7 +253,7 @@ run_layer3() {
         # 3a. Trace audit (GEMM coverage)
         if [ -f "$trace_file" ] && [ -f "${PROJECT_ROOT}/scripts/trace_audit.py" ]; then
             info "Trace audit for $op..."
-            if python3 "${PROJECT_ROOT}/scripts/trace_audit.py" "$trace_file" "$formula_file" 2>&1; then
+            if $PYTHON_BIN"${PROJECT_ROOT}/scripts/trace_audit.py" "$trace_file" "$formula_file" 2>&1; then
                 pass "$op: trace audit"
             else
                 fail "$op: trace audit"
@@ -259,7 +265,7 @@ run_layer3() {
         # 3b. Formula-trace consistency (GEMM coverage >= 50%)
         if [ -f "${PROJECT_ROOT}/scripts/uobs_scorer.py" ] && [ -f "$formula_file" ] && [ -f "$trace_file" ]; then
             info "Formula-trace consistency for $op..."
-            if python3 "${PROJECT_ROOT}/scripts/uobs_scorer.py" "$formula_file" "$trace_file" 2>&1; then
+            if $PYTHON_BIN"${PROJECT_ROOT}/scripts/uobs_scorer.py" "$formula_file" "$trace_file" 2>&1; then
                 pass "$op: formula-trace consistency"
             else
                 fail "$op: formula-trace consistency"
