@@ -168,8 +168,7 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .dest_addr = aD, .compute_size = 1, .src_addrs = {aA, aTmp},
           .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
-    FormulaLogger::instance().emit_step("LDL_BLK_DUPDATE_"+std::to_string(j), "LDL_DECOMPOSE",
-        {"A"}, "Y", {{U,U}}, {B,B}, tile->batch, "LDL_BLK_DINV_"+std::to_string(j));
+    // DUPDATE: FormulaLogger emits single LDL_DECOMPOSE after loop (see below)
 
     // L_UPDATE for off-diagonal blocks
     for (uint32_t i = j + 1; i < nB; ++i) {
@@ -187,12 +186,15 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
             .dest_addr = aL, .compute_size = 1, .src_addrs = {aA, aDinv},
             .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
       }
-      FormulaLogger::instance().emit_step("LDL_BLK_LUPDATE_"+std::to_string(i)+"_"+std::to_string(j),
-          "TRSM", std::vector<std::string>{"A", "Y"}, "L", {{U,U},{B,B}}, {B,B}, tile->batch,
-          "LDL_BLK_LAPPLY_"+std::to_string(i)+"_"+std::to_string(j));
+      // LUPDATE: FormulaLogger emits single LDL_DECOMPOSE after loop (see below)
     }
     barrier("LDL_BLK_COL_"+std::to_string(j), 4);
   }
+
+  // Emit single high-level LDL_DECOMPOSE for DAG verification
+  // (prim_ldl_decompose computes L,D,Dinv + forward solve + sqrt(Dinv) scaling internally)
+  FormulaLogger::instance().emit_step("LDL_BLK_DECOMPOSE", "LDL_DECOMPOSE",
+      {"A"}, "Y", {{U,U}}, {U,U}, tile->batch, "LDL_BLK_COL_" + std::to_string(nB-1));
 
   // Phase 4: Forward Solve Z = L^{-1} (unit triangular)
   for (uint32_t c = 0; c < nB; ++c) {
@@ -232,9 +234,8 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .tile_m = B, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
     }
 
-  // Phase 6 emits Y after sqrt weighting
-  FormulaLogger::instance().emit_step("LDL_BLK_SQRT_SCALE", "SQRT_SCALE",
-      {"A","Y"}, "Y", {{U,U},{U,U}}, {U,U}, tile->batch, "LDL_BLK_BWD");
+  // Phase 6: sqrt(Dinv) weighting applied in hardware;
+  // DAG already has sqrt-scaled Y from LDL_DECOMPOSE, so no separate SQRT_SCALE emit_step.
 
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "LDL_BLK_BWD",
