@@ -124,6 +124,10 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     if (k + 1 < K) barrier("NS_ITER_" + std::to_string(k), 4);
   }
 
+  // Emit final BWD assembly: Ainv = X_{K-1} @ X_{K-1} (X is symmetric, no transpose needed)
+  FormulaLogger::instance().emit_step("NS_BWD_ASSEMBLE", "GEMM",
+      {"X_" + std::to_string(K-1), "X_" + std::to_string(K-1)}, "Ainv", {{N,N},{N,N}}, {N,N}, tile->batch, "NS_FINAL");
+
   // Phase 3: Final GEMM to ACCUM and MOVOUT
   tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
       .opcode = Opcode::GEMM_PRELOAD,

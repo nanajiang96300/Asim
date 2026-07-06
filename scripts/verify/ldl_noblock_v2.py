@@ -25,5 +25,5 @@ def verify(formula_path, seed=42):
 
 if __name__ == "__main__":
     r = verify(sys.argv[1] if len(sys.argv) > 1 else "/tmp/formula.json")
-    max_e, _ = run_multi_seed(lambda seed: verify(sys.argv[1] if len(sys.argv) > 1 else "/tmp/formula.json", s))
+    max_e, _ = run_multi_seed(lambda seed: verify(sys.argv[1] if len(sys.argv) > 1 else "/tmp/formula.json", seed))
     print(f"LDL NoBlock: err={r['error']:.4e} max_err={max_e:.4e} {r['status']}")
