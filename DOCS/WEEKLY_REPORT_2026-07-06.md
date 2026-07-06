@@ -21,62 +21,7 @@
 
 ## 二、架构调整
 
-### 2.1 整体架构图
-
-```mermaid
-graph TB
-    subgraph "用户层 (User Layer)"
-        A["/op-flow 流水线<br/>新建/优化算子"]
-        B["/audit-operator<br/>公式-代码审查"]
-        C["/verify-operator<br/>数值验证"]
-        D["/eval-patch<br/>黑盒评估"]
-        E["/opt-round<br/>AI 驱动优化"]
-    end
-
-    subgraph "CI 门禁 (CI Gate)"
-        F["scripts/ci_gate.sh<br/>构建 → 测试 → 验证"]
-    end
-
-    subgraph "仿真层 (Simulator Layer)"
-        G["C++ Simulator<br/>cycle-level NPU model"]
-        H["FormulaLogger<br/>数学语义嵌入"]
-        I["SCALAR Pipeline<br/>单发射, 固定延迟"]
-        J["Cube Pipeline<br/>GEMM_PRELOAD/GEMM"]
-        K["Vector Pipeline<br/>ADD/MUL/DIV/BARRIER"]
-    end
-
-    subgraph "验证层 (Verification Layer)"
-        L["DAG Executor<br/>formula_steps.json 重放"]
-        M["Per-Op Verify Scripts<br/>6 个算子双路径对比"]
-        N["Trace Audit<br/>GEMM 覆盖率检查"]
-    end
-
-    subgraph "数据层 (Data Layer)"
-        O[("算子文档<br/>DOCS/operators/")]
-        P[("formula_steps.json<br/>DAG 步骤记录")]
-        Q[("trace.csv<br/>指令级轨迹")]
-        R[("基线快照<br/>results/baselines/")]
-    end
-
-    A --> G
-    B --> G
-    C --> H
-    C --> L
-    D --> G
-    E --> D
-    F --> G
-    F --> L
-    F --> N
-    G --> H
-    H --> P
-    G --> Q
-    L --> M
-    M --> O
-    P --> L
-    N --> M
-```
-
-### 2.2 算子矩阵
+### 2.1 算子矩阵
 
 6 个 Baseline 算子 + 1 个优化变体，统一在 `src/inverse/` 下，旧版移入 `legacy_operators/`：
 
@@ -152,38 +97,9 @@ LDL 算子新增 SPAD 区域（aD, aDinv, aTmp）未初始化，SCALAR 指令读
 
 ## 四、DAG 原理与实现
 
-### 4.1 FormulaLogger ↔ DAG Executor 全链路
+### 4.1 C++ → JSON → Python 全链路
 
-```mermaid
-graph TB
-    subgraph "C++ 仿真器 (initialize_instructions)"
-        A["set_algorithm(name, B, L, U)"]
-        B["emit_step(GRAM, GEMM, {H^H,H}, G)"]
-        C["emit_step(REG, DIAG_ADD, {G,lambda*I}, A)"]
-        D["emit_step(POTRF, CHOLESKY, {A}, L)"]
-        E["emit_step(FWD, TRSM, {L}, Y)"]
-        F["emit_step(BWD, GEMM, {Y^H,Y}, Ainv)"]
-    end
-
-    subgraph "formula_steps.json"
-        G["[{step_id: GRAM, op_type: GEMM, inputs: [H^H,H], output: G},<br/>{step_id: REG, op_type: DIAG_ADD, inputs: [G,lambda*I], output: A},<br/>{step_id: POTRF, op_type: CHOLESKY, inputs: [A], output: L},<br/>{step_id: FWD, op_type: TRSM, inputs: [L], output: Y},<br/>{step_id: BWD, op_type: GEMM, inputs: [Y^H,Y], output: Ainv}]"]
-    end
-
-    subgraph "Python DAG Executor"
-        H["FormulaDAG(steps)<br/>构建 DAG 节点图"]
-        I["dag.execute({H: matrix}, {lambda: 0.1})"]
-        J["拓扑执行每个节点"]
-        K["输入解析链:<br/>batch → batch-0 → aux<br/>→ I/2I/lambda*I<br/>→ H^H/Y^H 共轭转置"]
-        L["查找 PRIMITIVES[node.op_type]<br/>调用原语函数"]
-        M["registry[(batch, name)] = FP16(result)"]
-        N["返回 {Ainv: np.ndarray}"]
-    end
-
-    A --> B --> C --> D --> E --> F
-    F --> G
-    G --> H --> I --> J
-    J --> K --> L --> M --> N
-```
+C++ 端通过 `emit_step()` 声明数学步骤，输出 `formula_steps.json`。Python 端 `FormulaDAG` 读取 JSON，按声明顺序拓扑执行，每个步骤调用对应的 `PRIMITIVES` 原语函数，最终输出 `Ainv` 矩阵。
 
 ### 4.2 双路径验证原理
 
@@ -297,77 +213,13 @@ Layer 1: Code Audit          Layer 2: Numerical          Layer 3: Integration
 
 ## 七、CI 门禁
 
-### 7.1 三层门禁架构
+### 7.1 三层门禁设计
 
-```mermaid
-graph TB
-    START([git push / PR]) --> L1
-
-    subgraph "Layer 1: FAST (~2 min, 每次提交)"
-        L1A["🔨 Simulator 构建<br/>cmake --build"]
-        L1B["🔨 Simulator_test 构建<br/>cmake --build"]
-        L1C["🧪 单元测试<br/>GTest 29 用例"]
-        L1D["🔬 DAG 自测<br/>合成链验证 3 种原语"]
-    end
-
-    subgraph "Layer 2: FULL (需仿真器运行时)"
-        L2A["Cholesky NoBlock<br/>DAG 数值验证"]
-        L2B["LDL NoBlock<br/>DAG 数值验证"]
-        L2C["Cholesky Block<br/>DAG 数值验证"]
-        L2D["LDL Block<br/>DAG 数值验证"]
-        L2E["Newton-Schulz<br/>DAG 数值验证"]
-        L2F["Block-Richardson<br/>DAG 数值验证"]
-    end
-
-    subgraph "Layer 3: DEEP (需仿真器运行时)"
-        L3A["Trace 审计<br/>GEMM 覆盖率"]
-        L3B["Formula-Trace 一致性<br/>覆盖率 ≥ 50%"]
-    end
-
-    L1 --> L1A
-    L1 --> L1B
-    L1 --> L1C
-    L1 --> L1D
-    L1A --> L1_PASS{"Layer 1<br/>全部 PASS?"}
-    L1B --> L1_PASS
-    L1C --> L1_PASS
-    L1D --> L1_PASS
-
-    L1_PASS -->|"✅ 是"| L2
-    L1_PASS -->|"❌ 否"| FAIL1["❌ 构建/测试失败<br/>阻塞合入"]
-
-    L2 --> L2A
-    L2 --> L2B
-    L2 --> L2C
-    L2 --> L2D
-    L2 --> L2E
-    L2 --> L2F
-    L2A --> L2_PASS{"Layer 2<br/>全部 PASS?"}
-    L2B --> L2_PASS
-    L2C --> L2_PASS
-    L2D --> L2_PASS
-    L2E --> L2_PASS
-    L2F --> L2_PASS
-
-    L2_PASS -->|"✅ 是"| L3
-    L2_PASS -->|"❌ 否"| FAIL2["⚠️ DAG 验证失败<br/>检查 FormulaLogger"]
-
-    L3 --> L3A
-    L3 --> L3B
-    L3A --> L3_PASS{"Layer 3<br/>全部 PASS?"}
-    L3B --> L3_PASS
-
-    L3_PASS -->|"✅ 是"| DONE["✅ CI GATE PASSED<br/>允许合入"]
-    L3_PASS -->|"❌ 否"| FAIL3["⚠️ Trace 审计失败<br/>检查 GEMM 覆盖率"]
-
-    style L1 fill:#4a90d9,color:#fff
-    style L2 fill:#e6a23c,color:#fff
-    style L3 fill:#909399,color:#fff
-    style DONE fill:#67c23a,color:#fff
-    style FAIL1 fill:#f56c6c,color:#fff
-    style FAIL2 fill:#f56c6c,color:#fff
-    style FAIL3 fill:#f56c6c,color:#fff
-```
+| 层级 | 触发方式 | 耗时 | 检查内容 |
+|:---:|------|:---:|------|
+| **Layer 1 (FAST)** | `--fast` 或每次提交 | ~2 min | Simulator 构建 + Test 构建 + 单元测试 + DAG 自测 |
+| **Layer 2 (FULL)** | `--layer 2` | ~10 min | Layer 1 + 每算子运行仿真器 → DAG 数值验证 |
+| **Layer 3 (DEEP)** | `--layer 3` | ~15 min | Layer 2 + Trace 审计 + Formula-Trace 一致性 |
 
 ### 7.2 使用方式
 
@@ -402,330 +254,90 @@ CI GATE PASSED — all 4 checks passed
 
 ## 八、新增 Skills
 
-### 8.0 Skills 全景图
+### 8.1 Skills 总览
+
+| Skill | 功能 | 触发场景 |
+|------|------|------|
+| `/op-flow` | 9 阶段算子开发流水线（核心入口） | 新建算子 / 优化算子 |
+| `/audit-operator` | C++ 指令 ↔ 公式一致性审查（6 维度） | 代码修改后 |
+| `/verify-operator` | DAG 数值验证（双路径对比 + Multi-seed） | 代码修改后 |
+| `/eval-patch` | 黑盒评估（Score/Cycle/Cube%/Error） | 补丁评估 / 基线测试 |
+| `/opt-round` | AI 驱动多轮优化（生成 Idea → 并行 Agent → 打分汇总） | 自动优化迭代 |
+
+Skills 按"新建→审查→验证→评估→优化"的算子生命周期串联，`/op-flow` 自动调用 audit/verify 子流程。
+
+### 8.2 `/op-flow` — 算子开发流水线
+
+**调用**: `/op-flow <name> new|optimize`
 
 ```mermaid
 graph LR
-    subgraph "算子生命周期"
-        A["/op-flow<br/>开发流水线"] --> B["/audit-operator<br/>代码审查"]
-        B --> C["/verify-operator<br/>数值验证"]
-        C --> D["/eval-patch<br/>性能评估"]
-        D --> E["/opt-round<br/>自动优化"]
-        E -.->|"下一轮"| A
-    end
+    A["📄 设计文档"] --> B["📐 公式推导"]
+    B --> C["💻 v3.0 编码<br/>base_addr=0<br/>SCALAR_DIV(Reg,Reg)<br/>PIPE_BARRIER"]
+    C --> D["🔨 编译"]
+    D --> E["🚀 冒烟测试"]
+    E --> F["🔍 审计审查<br/>6 维度公式↔代码"]
+    F --> G["📊 基准测试"]
+    G --> H["✅ 数值验证<br/>DAG 重放+多 seed"]
+    H --> I["📋 报告汇总"]
 
-    subgraph "触发条件"
-        A1["新建算子"] --> A
-        A2["代码修改"] --> B
-        A2 --> C
-        A3["补丁评估"] --> D
-        A4["迭代优化"] --> E
-    end
+    C -.->|❌ FAIL| C
+    F -.->|❌ FAIL| C
+    H -.->|❌ FAIL| C
 
     style A fill:#4a90d9,color:#fff
-    style B fill:#e6a23c,color:#fff
-    style C fill:#67c23a,color:#fff
-    style D fill:#909399,color:#fff
-    style E fill:#f56c6c,color:#fff
+    style F fill:#e6a23c,color:#fff
+    style H fill:#67c23a,color:#fff
+    style I fill:#409eff,color:#fff
 ```
-
-### 8.1 `/op-flow` — 算子开发流水线（核心入口）
-
-**功能**: 强制执行标准化 9 阶段开发流程，确保每个新算子/优化变体通过全部质量门禁。
-
-**调用方式**:
-```bash
-/op-flow <operator_name> <action>
-# action: new（新建算子）| optimize（从基线优化）
-```
-
-**流水线流程图**:
-
-```mermaid
-graph TB
-    START([开始 /op-flow]) --> P1
-
-    subgraph "Phase 1-2: 设计阶段"
-        P1["📄 设计文档<br/>DOCS/operators/&lt;op&gt;.md"]
-        P2["📐 公式推导<br/>完整数学推导 + 优化等价证明"]
-    end
-
-    subgraph "Phase 3-5: 实现阶段"
-        P3["💻 v3.0 标准化<br/>base_addr=0<br/>set_algorithm<br/>PIPE_BARRIER<br/>SCALAR_DIV(Reg,Reg)"]
-        P4["🔨 编译验证<br/>cmake --build"]
-        P5["🚀 运行时冒烟<br/>100K cycle 不 abort"]
-    end
-
-    subgraph "Phase 6-7: 审查阶段"
-        P6["🔍 审计审查<br/>公式↔代码逐行对比<br/>6 维度检查"]
-        P7["📊 基准测试<br/>周期/利用率/Score<br/>归档 results/"]
-    end
-
-    subgraph "Phase 8-9: 验证阶段"
-        P8["✅ 数值验证<br/>DAG 重放 + 双路径对比<br/>Multi-seed 测试"]
-        P9["📋 最终报告<br/>9 阶段通过/失败汇总"]
-    end
-
-    P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7 --> P8 --> P9
-    P9 --> END([✅ 算子就绪])
-
-    P1 -.->|"❌ 缺失"| E1[创建文档]
-    P2 -.->|"❌ 缺失"| E2[补充推导]
-    P3 -.->|"❌ 不合规"| E3[修复代码]
-    P4 -.->|"❌ 编译失败"| E4[修复编译错误]
-    P5 -.->|"❌ 死锁/abort"| E5[检查 SPAD/BARRIER]
-    P6 -.->|"❌ 审查 FAIL"| E6[修复审计发现]
-    E1 --> P2
-    E2 --> P3
-    E3 --> P4
-    E4 --> P5
-    E5 --> P6
-    E6 --> P7
-
-    style P1 fill:#4a90d9,color:#fff
-    style P6 fill:#e6a23c,color:#fff
-    style P8 fill:#67c23a,color:#fff
-    style P9 fill:#409eff,color:#fff
-```
-
-**各阶段详细说明**:
 
 | 阶段 | 门禁检查 | 失败处理 |
 |------|------|------|
-| **1. 设计文档** | `DOCS/operators/<op>.md` 存在，含文件清单、SPAD 布局、指令映射表、FormulaLogger 覆盖表 | 按 01_cholesky_noblock_v2.md 模板创建 |
-| **2. 公式推导** | 文档含 `## 2. 公式推导` 章节。optimize action 额外要求：基线公式 + 优化等价证明 + 指令数对比 + 预期加速比 | 补充完整数学推导 |
-| **3. v3.0 标准化** | `base_addr = 0`、`set_algorithm()`、`PIPE_BARRIER`、SCALAR_DIV 恒等元合成、SPAD 区域初始化 | 按 v3 标准修复 |
+| **1. 设计文档** | `DOCS/operators/<op>.md` 存在（含文件清单、SPAD 布局、指令映射） | 按模板创建 |
+| **2. 公式推导** | 含完整数学推导（optimize 还需：基线公式 + 等价证明 + 指令数对比） | 补充推导 |
+| **3. v3.0 编码** | `base_addr=0`、`set_algorithm()`、`PIPE_BARRIER`、恒等元合成、SPAD 初始化 | 按 v3 标准修复 |
 | **4. 编译** | `[100%] Built target Simulator` | 修复编译错误 |
-| **5. 运行时** | 仿真器输出 `finish at <N>` 而非 abort | 检查 SPAD 死锁、缺失初始化、地址错误 |
-| **6. 审计审查** | 6 维度审查全部 PASS（见 8.2） | 修复审计发现 |
-| **7. 基准测试** | `results/<op>/run_NNN/summary.json` 存在 | 重新运行 |
-| **8. 数值验证** | DAG 误差 < THRESHOLD，多 seed 通过 | 修复 FormulaLogger 声明 |
-| **9. 报告** | 汇总表含全部 9 阶段状态 | — |
+| **5. 冒烟测试** | 仿真器 `finish at <N>` 不 abort | 检查 SPAD/BARRIER |
+| **6. 审计审查** | 6 维度全部 PASS（指令类型/运算数/循环/恒等元/FormulaLogger/结构一致性） | 修复发现项 |
+| **7. 基准测试** | `results/<op>/summary.json` 归档 | 重新运行 |
+| **8. 数值验证** | DAG 误差 < THRESHOLD，multi-seed 最大误差通过 | 修复 FormulaLogger |
+| **9. 报告** | 9 阶段状态汇总表 | — |
 
-### 8.2 `/audit-operator` — 公式↔代码一致性审查
+### 8.3 `/audit-operator` — 公式↔代码审查
 
-**功能**: 审查 C++ 指令序列与数学公式的逐步骤对应关系，防止 opcode 错误、操作数错误、循环边界错误。
+6 个审查维度：
 
-**审查流程图**:
+| 维度 | 检查内容 |
+|------|------|
+| **指令类型** | 每条 SCALAR 的 opcode 与公式操作匹配（MUL→乘、DIV→除、SUB→减、SQRT→开方） |
+| **运算数** | `src_addrs` 数量与操作数一致，SPAD 基地址已被写入 |
+| **循环结构** | 外循环 j:0..U-1、内循环 k:0..j-1 边界正确，Schur complement 有 SUB |
+| **恒等元合成** | 常数 1.0 通过 `DIV(Reg,Reg)` 合成，禁止直接读 Reg 当 1 |
+| **FormulaLogger** | `emit_step` 覆盖全部数学阶段（GRAM→REG→分解→前向求解→后向装配） |
+| **结构一致性** | 成对算子（Cholesky↔LDL）SPAD/Barrier/Phase 对齐 |
 
-```mermaid
-graph TB
-    START(["/audit-operator &lt;name&gt;"]) --> S1
+输出：按 CRITICAL/HIGH/MEDIUM/LOW 分级的结构化报告。
 
-    S1["Step 1: 定位代码<br/>从 operator_registry.json<br/>查找 C++ 文件路径"]
-    S2["Step 2: 加载公式基准<br/>① Python 参考实现<br/>② 设计文档公式<br/>③ 论文算法章节"]
-    S3["Step 3: 逐项审查"]
+### 8.4 `/verify-operator` — 数值验证
 
-    S1 --> S2 --> S3
+5 阶段流程：**DAG 链检查 → 生成 formula JSON → DAG 执行 → 结果判断 → 流水线集成**。核心是双路径对比：Path A 从 C++ formula JSON 重放，Path B 用 Python 原语独立计算，交叉误差 < THRESHOLD 则 PASS。
 
-    S3 --> C1["3.1 指令类型<br/>MUL/DIV/SUB/SQRT/ADD<br/>与公式操作匹配"]
-    S3 --> C2["3.2 运算数<br/>src_addrs 数量+来源<br/>SPAD 基地址已验证写入"]
-    S3 --> C3["3.3 循环结构<br/>j:0..U-1, k:0..j-1<br/>Schur complement SUB"]
-    S3 --> C4["3.4 恒等元合成<br/>DIV(Reg,Reg)=1<br/>禁止直接读 Reg 当 1"]
-    S3 --> C5["3.5 FormulaLogger 覆盖<br/>GRAM→REG→分解→装配<br/>全部数学阶段"]
-    S3 --> C6["3.6 结构一致性<br/>Cholesky↔LDL 成对<br/>SPAD/Barrier/Phase 对齐"]
+### 8.5 `/eval-patch` — 黑盒评估
 
-    C1 --> S4["Step 4: 输出报告"]
-    C2 --> S4
-    C3 --> S4
-    C4 --> S4
-    C5 --> S4
-    C6 --> S4
+闭环：`git stash → apply patch → cmake → Simulator → UOBS Scorer → Score → git stash pop`。支持 `--baseline` 直接评估当前代码。
 
-    S4 --> R1["CRITICAL: 缺失步骤<br/>导致数值完全错误"]
-    S4 --> R2["HIGH: opcode/操作数<br/>/循环边界错误"]
-    S4 --> R3["MEDIUM: 结构不一致<br/>但不影响正确性"]
-    S4 --> R4["LOW: 注释/命名建议"]
+### 8.6 `/opt-round` — AI 驱动优化
 
-    R1 --> PASS{"全部 PASS?"}
-    R2 --> PASS
-    R3 --> PASS
-    R4 --> PASS
+4 阶段：**准备（跑基线）→ 生成 3 个优化 Idea → 并行 Agent 探索 → 收集汇总**。关键约束：只改 `src/operations/`、维度锁定、`rel_error < 0.01` 硬约束、SCALAR 只用块地址。收敛条件：Score 提升 < 5% 连续 2 轮。
 
-    PASS -->|"✅ 是"| DONE([审查通过])
-    PASS -->|"❌ 否"| FIX[修复发现项<br/>重新审查]
+### 8.7 流水线配置
 
-    style S3 fill:#e6a23c,color:#fff
-    style DONE fill:#67c23a,color:#fff
-    style FIX fill:#f56c6c,color:#fff
-```
+所有门禁定义在 `orchestrator/pipeline.json`，每个阶段可配置 `required: true/false`。稳定后可将 `required` 从 false 改为 true。
 
-### 8.3 `/verify-operator` — DAG 数值验证
-
-**功能**: 执行双路径数值对比，验证 C++ FormulaLogger 声明链的数值正确性。
-
-**验证流程图**:
-
-```mermaid
-graph TB
-    START(["/verify-operator &lt;name&gt;"]) --> P1
-
-    P1["Phase 1: DAG 链检查<br/>emit_step 链完整性<br/>输出名≡输入名<br/>H→G→A→...→Ainv"]
-    P2["Phase 2: 生成 formula JSON<br/>ONNXIM_FORMULA_JSON=/tmp/formula.json<br/>运行 C++ 仿真器"]
-    P3["Phase 3: DAG 执行<br/>FormulaDAG(steps)<br/>拓扑排序执行原语<br/>FP16 量化"]
-    P4["Phase 4: 结果判断<br/>error &lt; THRESHOLD?<br/>Multi-seed 最大误差"]
-
-    P1 --> P2 --> P3 --> P4
-
-    P4 -->|"✅ PASS"| P5["Phase 5: 流水线集成<br/>更新 pipeline.json<br/>记录到算子文档"]
-    P4 -->|"❌ FAIL"| P6["检查断裂点<br/>trace_audit GEMM 覆盖<br/>修复 FormulaLogger"]
-
-    P6 --> P1
-
-    P5 --> DONE([验证通过])
-
-    style P3 fill:#4a90d9,color:#fff
-    style P4 fill:#e6a23c,color:#fff
-    style DONE fill:#67c23a,color:#fff
-    style P6 fill:#f56c6c,color:#fff
-```
-
-**各算子 DAG 链配置**:
-
-| 算子类型 | DAG 链 | 原语数量 |
-|---------|------|:---:|
-| Cholesky NoBlock | `GRAM(GEMM) → REG(DIAG_ADD) → POTRF(CHOLESKY) → FWD_SOLVE(TRSM) → BWD_ASSEMBLE(GEMM)` | 3 |
-| Cholesky Block | `GRAM(GEMM) → REG(DIAG_ADD) → POTRF(CHOLESKY) → FWD_SOLVE(TRSM) → BWD_ASSEMBLE(GEMM)` | 3 |
-| LDL NoBlock | `GRAM(GEMM) → REG(DIAG_ADD) → LDL_DECOMPOSE → BWD_ASSEMBLE(GEMM)` | 2 |
-| LDL Block | `GRAM(GEMM) → REG(DIAG_ADD) → LDL_DECOMPOSE → BWD_ASSEMBLE(GEMM)` | 2 |
-| Newton-Schulz | `K×(GEMM → MATRIX_SUB → GEMM) + BWD_ASSEMBLE(GEMM)` | 2 |
-| Block-Richardson | `GRAM(GEMM) → REG(DIAG_ADD) → BRI_PRECOND → L×(GEMM → MATRIX_SUB → MATRIX_ADD)` | 5 |
-
-### 8.4 `/eval-patch` — 黑盒性能评估
-
-**功能**: 对算子代码补丁执行完整评估闭环，返回 Score/Cycle/Cube%/Error。
-
-**评估流程图**:
-
-```mermaid
-graph LR
-    A["git stash<br/>保护工作区"] --> B["git apply patch<br/>应用补丁"]
-    B --> C["cmake --build<br/>编译"]
-    C --> D["Simulator<br/>运行仿真"]
-    D --> E["formula_steps.json<br/>+ trace.csv"]
-    E --> F["UOBS Scorer<br/>综合评分"]
-    F --> G["Score / Cycle<br/>Cube% / Error"]
-    G --> H["git stash pop<br/>恢复工作区"]
-
-    C -.->|"❌ BUILD_FAILED"| ERR1["展示 stderr<br/>+ 修复建议"]
-    D -.->|"❌ SIM_FAILED"| ERR2["展示 stderr<br/>+ 修复建议"]
-
-    style F fill:#4a90d9,color:#fff
-    style G fill:#67c23a,color:#fff
-    style ERR1 fill:#f56c6c,color:#fff
-    style ERR2 fill:#f56c6c,color:#fff
-```
-
-**参数**:
-- `--operator <name>`: 算子名称（必填）
-- `--patch <path>`: 补丁文件路径
-- `--baseline`: 评估当前代码（不应用补丁）
-- `--nr <int> --nt <int>`: 覆盖默认维度
-
-### 8.5 `/opt-round` — AI 驱动多轮优化
-
-**功能**: AI 协调器自动生成优化想法 → 并行 Agent 探索 → UOBS 打分 → 汇总推荐。
-
-**优化流程图**:
-
-```mermaid
-graph TB
-    START(["/opt-round &lt;operator&gt;"]) --> P1
-
-    P1["Phase 1: 准备<br/>清理环境 → 读取源码<br/>读取 registry → 跑基线"]
-
-    P2["Phase 2: 生成 N=3 个 Idea<br/>参数调优 / 调度优化<br/>结构改造 / 数值策略"]
-
-    P3["Phase 3: 并行 Agent 探索<br/>Agent 1: Idea A<br/>Agent 2: Idea B<br/>Agent 3: Idea C"]
-
-    P4["Phase 4: 收集汇总<br/>按 Score 排序<br/>分析根因<br/>推荐下轮方向"]
-
-    P5{"收敛判断<br/>Score 提升 &lt; 5%<br/>连续 2 轮?"}
-
-    P1 --> P2 --> P3 --> P4 --> P5
-
-    P5 -->|"❌ 未收敛"| P2
-    P5 -->|"✅ 已收敛"| DONE([优化终止])
-
-    subgraph "Agent 内部循环"
-        A1["修改源码<br/>(只改 src/operations/)"]
-        A2["git apply --check<br/>预检 Patch"]
-        A3["evaluate_operator.sh<br/>--patch --nr --nt"]
-        A4{"rel_error<br/>&lt; 0.01?"}
-        A5["iterations++<br/>自动搜索最小值"]
-        A6["写入 result.json"]
-
-        A1 --> A2 --> A3 --> A4
-        A4 -->|"否"| A5 --> A1
-        A4 -->|"是"| A6
-    end
-
-    P3 -.-> A1
-
-    style P3 fill:#4a90d9,color:#fff
-    style P4 fill:#e6a23c,color:#fff
-    style DONE fill:#67c23a,color:#fff
-```
-
-**关键约束**（Agent 必须遵守，违反视为 FAIL）:
-- **禁止越界**: 只改 `src/operations/` 下的 .h/.cc，禁止修改 src/models/、configs/ 等
-- **维度锁定**: 严格使用 `--nr M --nt K`，不读取 config JSON 中的默认维度
-- **SE 硬约束**: `rel_error > 0.01` 则 Score=null，状态为 INVALID
-- **防死锁**: 仿真超过 120 秒无输出 → 检查 PIPE_BARRIER 和地址分配
-- **SCALAR 源地址**: 只能使用块地址（MOVIN dest / Vector ADD dest 基地址），禁止 base+offset 元素地址
-
-### 8.6 Skills 协同工作流
-
-```mermaid
-sequenceDiagram
-    participant U as 👤 用户
-    participant OF as /op-flow
-    participant AO as /audit-operator
-    participant VO as /verify-operator
-    participant EP as /eval-patch
-    participant OR as /opt-round
-
-    Note over U,OR: === 新建算子流程 ===
-    U->>OF: /op-flow my_op new
-    OF->>OF: Phase 1-2: 设计文档 + 公式推导
-    OF->>OF: Phase 3-5: 编码 + 编译 + 运行
-    OF->>AO: Phase 6: 触发审计
-    AO-->>OF: ✅ PASS / ❌ FAIL (附发现项)
-    OF->>OF: Phase 7: 基准测试
-    OF->>VO: Phase 8: 触发数值验证
-    VO-->>OF: ✅ PASS (error=0.001) / ❌ FAIL
-    OF->>U: Phase 9: 汇总报告
-
-    Note over U,OR: === 优化迭代流程 ===
-    U->>OR: /opt-round my_op
-    OR->>EP: 跑基线 Score
-    EP-->>OR: Score=2.1, Cycle=23439
-    OR->>OR: 生成 3 个优化 Idea
-    OR->>OR: 并行 Agent 探索
-    OR->>EP: Agent 评估补丁
-    EP-->>OR: Score=3.5, 3.2, 2.8
-    OR->>U: 汇总 + 推荐下轮方向
-    U->>OR: /opt-round my_op --round 2
-```
-
-### 8.7 Skill 配置与扩展
-
-所有 Skill 定义在 `.claude/skills/<name>/SKILL.md`，流水线门禁定义在 `orchestrator/pipeline.json`。
-
-**pipeline.json 扩展机制**:
 ```json
-{
-  "id": "ext_custom_check",
-  "name": "Custom Check Name",
-  "required": false,
-  "description": "What this check does",
-  "check": "bash scripts/custom_check.sh ${OP_NAME}",
-  "on_fail": "How to fix the issue"
-}
+{ "id": "ext_custom_check", "name": "...", "required": false,
+  "check": "bash scripts/check.sh ${OP_NAME}", "on_fail": "修复建议" }
 ```
-- `required: false` → 信息性检查（失败不阻塞流水线）
-- `required: true` → 强制门禁（失败阻塞流水线）
-- 检查稳定后可将 `required` 从 false 改为 true
 
 ---
 
