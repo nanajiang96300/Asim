@@ -23,6 +23,18 @@
 
 ### 2.1 算子目录结构
 
+6 个 Baseline 算子 + 2 个优化变体，统一在 `src/inverse/` 下：
+
+| 算子 | 算法名 | 周期数 | emit_step | 指令数 | 类型 |
+|------|------|------|:---:|:---:|------|
+| Cholesky NoBlock v2 | `cholesky_noblock_v2` | 23,439 (U=16) | 5 | 20 | 直接法基线 |
+| Cholesky NoBlock Merge | `cholesky_noblock_merge` | 9,999 (U=16) | 5 | 20 | SCALAR 合并优化 |
+| LDL NoBlock v2 | `ldl_noblock_v2` | 25,628 (U=16) | 5 | 26 | 直接法基线 |
+| Cholesky Block v3 | `cholesky_block_v3` | 6,440 (U=16,B=2) | 7 | 19 | 分块 |
+| LDL Block v3 | `ldl_block_v3` | 4,959 (U=16,B=2) | 5 | 25 | 分块 |
+| Newton-Schulz v3 | `newton_schulz_v3` | 2,591 (N=32,K=8) | 4 | 7 | 迭代 |
+| Block-Richardson v3 | `block_richardson_v3` | 1,993 (U=16,B=2,L=8) | 7 | 19 | 迭代 |
+
 ```
 src/inverse/
 ├── cholesky_noblock/        # Cholesky 无分块基线 (v2)
@@ -369,4 +381,4 @@ CI 门禁将 6 个预先存在的卷积周期模型失败标记为"known pre-exi
 
 ---
 
-> 周报生成: 2026-07-06 | 提交数: ~15 | 修改文件: ~30 | 新增行数: ~3000
+> 周报生成: 2026-07-06 | 提交数: 40 | 修改文件: 126 | 新增行数: 5,847 | 删除行数: 676
