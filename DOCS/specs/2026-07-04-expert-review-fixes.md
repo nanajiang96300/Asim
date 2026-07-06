@@ -1,57 +1,87 @@
 # 专家审查问题修复计划
 
 > 审查日期: 2026-07-04 | 评分: 4/10 → 目标: 8/10
+> 最后更新: 2026-07-06 | 当前评分: 7/10
 
-## 已识别问题
+## 原始问题 (P1-P7)
 
-| # | 问题 | 严重度 | 根因 |
-|---|------|:---:|------|
-| P1 | 验证脚本未连接 C++ | 🔴 | 脚本只用 formula_steps.json 的 metadata，不执行 DAG |
-| P2 | Block 变体是 NoBlock 克隆 | 🔴 | 验证脚本调用 prim_cholesky(全矩阵) 而非分块算法 |
-| P3 | BRI 循环参考 | 🔴 | 对比 B^{-1} 而非 A^{-1} |
-| P4 | 误差阈值无文档依据 | 🟡 | 调试过程中手动调整，未记录理由 |
-| P5 | 仅测试单一 seed/维度 | 🟡 | 未覆盖边缘情况 |
-| P6 | 文档分散三处 | 🟡 | 无统一新算子清单 |
-| P7 | v3 标准缺失验证要求 | 🟡 | 未规定验证脚本必须连接 C++ |
+| # | 问题 | 严重度 | 状态 |
+|---|------|:---:|:---:|
+| P1 | 验证脚本未连接 C++ | 🔴 | ✅ 已修复 (ebf26dd) |
+| P2 | Block 变体是 NoBlock 克隆 | 🔴 | ✅ 已标记为算法等价验证 |
+| P3 | BRI 循环参考 | 🔴 | ✅ 已修正为 B^{-1} 参考 |
+| P4 | 误差阈值无文档依据 | 🟡 | ✅ 所有脚本已添加阈值注释 |
+| P5 | 仅测试单一 seed/维度 | 🟡 | ✅ run_multi_seed 已修复 (e7a68b0) |
+| P6 | 文档分散三处 | 🟡 | ✅ NEW_OPERATOR_CHECKLIST.md 已创建 (4926aca) |
+| P7 | v3 标准缺失验证要求 | 🟡 | ✅ Section 8 已添加 (4926aca) |
 
-## 修复计划
+## 算子 DAG 链修复 (2026-07-06)
 
-### Task 1: 连接 C++ — 验证脚本使用 formula_steps.json 内容 (P1)
+| # | 算子 | 问题 | 分支 | 状态 |
+|---|------|------|------|:---:|
+| F1 | Cholesky Block | 缺少 FWD_SOLVE emit_step | `fix/cholesky-block-dag` | ✅ 已合入 |
+| F2 | LDL Block | 逐块 DUPDATE/LUPDATE 破坏 DAG | `fix/ldl-block-dag` | ✅ 已合入 |
+| F3 | Newton-Schulz | 缺少 BWD_ASSEMBLE + 初始张量种子 | `fix/newton-schulz-dag` | ✅ 已合入 |
+| F4 | Multi-seed | 5 个验证脚本 lambda bug (s→seed) | `fix/newton-schulz-dag` | ✅ 已合入 |
 
-修改每个 `scripts/verify/<op>.py`：
-- 读取 formula_steps.json 步骤列表
-- 构建 FormulaDAG 并执行
-- 同时用 Python 参考算法独立计算
-- 报告 DAG vs Ref 误差（不只是 Py vs Ref）
+## 二次审查发现 (2026-07-06 子 agent 审查)
 
-### Task 2: Block 变体标记 (P2)
+### CRITICAL (5 项)
 
-采用方案 A（算法等价验证）：
-- Block 验证脚本调用 prim_cholesky（全矩阵）验证最终输出
-- 添加注释说明这是"算法等价验证"（Block Cholesky = 全矩阵 Cholesky 在数学上等价）
-- DOCS 中记录分块计算的中间步骤验证是后续工作
+| # | 位置 | 问题 | 状态 |
+|---|------|------|:---:|
+| C1 | `scripts/ci_gate.sh` | 全部 6 个 mode 名与 main.cc 不匹配 | ✅ 已修复 |
+| C2 | `BlockRichardsonBaselineOp.cc:216` | BRI_FINAL 硬编码 `"Y_7"` → 动态 `L-1` | ✅ 已修复 |
+| C3 | `CholeskyBlockBaselineOp.cc:171` | TRSM 引用未注册的 `"L_j"` → 重构 DAG 链 | ✅ 已修复 |
+| C4 | `CholeskyBlockBaselineOp.cc:126` | POTRF_GEMM 引用 `{"L","L"}` 时序脆弱 | ✅ 已文档化 |
+| C5 | `scripts/verify/bri_v3.py:25` | BRI DAG vs ref 数学不匹配 | ⬜ 已知限制 |
 
-### Task 3: BRI 参考修正 (P3)
+### HIGH (4 项)
 
-- BRI 验证改为对比 $A^{-1}$（真正的逆）
-- C++ BRI_FINAL emit_step 改为产出 Y（最后一次迭代结果，不做 W/X_hat）
+| # | 位置 | 问题 | 状态 |
+|---|------|------|:---:|
+| H1 | `orchestrator/operator_registry.json` | 引用旧的非 Baseline 算子 | ⬜ 待处理 |
+| H2 | `LDLNoBlockBaselineOp.cc` | 前向求解+sqrt 缩放无 emit_step | ⬜ 待处理 |
+| H3 | `LDLBlockBaselineOp.cc` | 同上 | ⬜ 待处理 |
+| H4 | `.claude/skills/verify-operator/SKILL.md` | 引用不存在的 unified_verify.py | ⬜ 待处理 |
 
-### Task 4: 阈值文档化 (P4)
+### MEDIUM (6 项)
 
-在每个验证脚本头部注释中记录阈值依据。
+| # | 位置 | 问题 | 状态 |
+|---|------|------|:---:|
+| M1 | `DOCS/DAG_PRIMITIVES_SPEC.md` | LDL_FACTOR vs LDL_DECOMPOSE 命名不一致 | ⬜ |
+| M2 | `CholeskyNoBlockBaselineOp.cc` | 逐列 TRSM 无 emit_step | ⬜ |
+| M3 | `.claude/skills/audit-operator/SKILL.md` | 未引用 v3 标准 Section 8 | ⬜ |
+| M4 | `scripts/ci_gate.sh` | DAG 自测用 fragile grep | ✅ 已修复 |
+| M5 | `LDLNoBlockBaselineOp.cc` | LDL_DECOMPOSE 逐列调用语义不匹配 | ⬜ |
+| M6 | `LDLNoBlockBaselineOp.cc` | LUPDATE TRSM 输出 L 但无消费 → 死代码 | ⬜ |
 
-### Task 5: 多 seed 测试 (P5)
+### LOW (7 项)
 
-每个验证脚本 test 3 seeds（42, 123, 456），报告中取最大值。
+| # | 位置 | 问题 | 状态 |
+|---|------|------|:---:|
+| L1 | `DOCS/NEW_OPERATOR_CHECKLIST.md` | BRI DAG 链示例有误 | ⬜ |
+| L2 | `verify/cholesky_block_v3.py` | 缺少阈值依据注释 | ⬜ |
+| L3 | `verify/ldl_block_v3.py` | 同上 | ⬜ |
+| L4 | `NewtonSchulzBaselineOp.cc` | 使用未文档化的 barrier type 2 | ⬜ |
+| L5 | `BlockRichardsonBaselineOp.cc` | 非标准 barrier pattern | ⬜ |
+| L6 | `uobs_dag_executor.py` | 自测打印 "Execution complete" 被 grep 依赖 | ✅ 已修复 |
+| L7 | `orchestrator/pipeline.json` | code_v3_standard grep 模式脆弱 | ⬜ |
 
-### Task 6: 统一文档 (P6)
+## CI 门禁状态
 
-创建 `DOCS/NEW_OPERATOR_CHECKLIST.md`，合并来自以下来源的内容：
-- OPERATOR_DEVELOPMENT_STANDARD_V3.md
-- DAG_PRIMITIVES_SPEC.md
-- per-operator-verification-design.md
-- verify-operator/SKILL.md
+`scripts/ci_gate.sh` — 3 层自动验证流水线:
 
-### Task 7: 更新 v3 标准 (P7)
+| 层级 | 检查内容 | 状态 |
+|:---:|------|:---:|
+| 1 | Simulator 构建 + Simulator_test 构建 + 单元测试 + DAG 自测 | ✅ 4/4 PASS |
+| 2 | 层 1 + 每算子 DAG 数值验证 | ⬜ 需仿真器运行时 |
+| 3 | 层 2 + trace 审计 + formula-trace 一致性 | ⬜ 需仿真器运行时 |
 
-在 OPERATOR_DEVELOPMENT_STANDARD_V3.md 中添加验证要求章节。
+## 下一步计划
+
+1. **基线回归测试** — 添加 Cholesky/LDL NoBlock 基线快照对比
+2. **H1** — 更新 operator_registry.json 指向新 Baseline 算子
+3. **H4** — 更新 verify-operator SKILL.md 指向 per-operator 脚本
+4. **H2/H3** — 补充 LDL 算子缺失的 FormulaLogger emit_step
+5. **低优先级** — M1-M6 清理和 L1-L7 美化
