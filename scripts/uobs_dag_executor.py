@@ -337,6 +337,9 @@ class FormulaDAG:
                 if val is None and iname == "I":
                     n = node.output_shape[0]
                     val = np.eye(n, dtype=np.complex128)
+                if val is None and iname == "2I":
+                    n = node.output_shape[0]
+                    val = 2.0 * np.eye(n, dtype=np.complex128)
                 if val is None and iname == "H^H":
                     h = registry.get((node.batch, "H"))
                     if h is not None:

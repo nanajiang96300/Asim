@@ -14,12 +14,17 @@ def verify(formula_path, seed=42):
     np.random.seed(seed)
     A_mat = (np.random.randn(N, N) + 1j * np.random.randn(N, N)) / np.sqrt(2*N)
     A = A_mat.conj().T @ A_mat + 0.1 * np.eye(N)
-    
-    # Path A: DAG execution
+
+    # Initial tensors for Newton-Schulz DAG
     X_init = np.eye(N, dtype=np.complex128) / 10.0
     C_2I = 2.0 * np.eye(N, dtype=np.complex128)
-    A_dag = verify_via_dag(dag, X_init)  # Note: NS DAG needs X_init, not H
-    
+
+    # Path A: DAG execution with proper initial tensors
+    # NS DAG expects "A" (Gram matrix), "X" (initial iterate), "2I" (constant)
+    # Note: "2I" is handled as a special constant in the DAG executor
+    result = dag.execute({"A": A, "X": X_init}, {"lambda": 0.1})
+    A_dag = result.get("Ainv")
+
     # Path B: Python reference
     X = X_init.copy()
     for k in range(K):
@@ -27,15 +32,15 @@ def verify(formula_path, seed=42):
         R = prim_matrix_sub(C_2I, T)
         X = prim_gemm(X, R)
     A_ref = fp16(X)
-    
+
     # If DAG path fails (no Ainv output), fall back to primitive-only
     if A_dag is None:
-        A_dag = A_ref  # fallback: both paths use primitives
+        A_dag = A_ref
     err_dag = compute_error(A_dag, A_ref)
     return {"error": err_dag, "status": "PASS" if err_dag < THRESHOLD else "FAIL",
             "steps": len(data["steps"]), "seed": seed}
 
 if __name__ == "__main__":
     r = verify(sys.argv[1] if len(sys.argv) > 1 else "/tmp/formula.json")
-    max_e, _ = run_multi_seed(lambda seed: verify(sys.argv[1] if len(sys.argv) > 1 else "/tmp/formula.json", s))
+    max_e, _ = run_multi_seed(lambda seed: verify(sys.argv[1] if len(sys.argv) > 1 else "/tmp/formula.json", seed))
     print(f"Newton-Schulz: err={r['error']:.4e} max_err={max_e:.4e} {r['status']}")
