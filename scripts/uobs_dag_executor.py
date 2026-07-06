@@ -435,38 +435,61 @@ def read_metadata(formula_json_path: str) -> dict:
 # ── self-test ──────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     import sys
+    if len(sys.argv) < 2 or sys.argv[1] == "--self-test":
+        print("=== DAG Executor Self-Test ===")
+        # Build a minimal synthetic DAG: GRAM → REG → CHOLESKY → TRSM → GEMM
+        N = 8
+        rng = np.random.default_rng(42)
+        H = (rng.standard_normal((32, N)) + 1j * rng.standard_normal((32, N))) / np.sqrt(2.0)
+        A = H.conj().T @ H + 0.1 * np.eye(N)
+        A_ref = np.linalg.inv(A)
+
+        synthetic_steps = [
+            {"step_id": "SELF_GRAM", "op_type": "GEMM", "input_names": ["H^H", "H"],
+             "output_name": "G", "input_shapes": [[32, N], [N, 32]], "output_shape": [N, N],
+             "batch": 0, "relation_id": "SELF_GRAM"},
+            {"step_id": "SELF_REG", "op_type": "DIAG_ADD", "input_names": ["G", "lambda*I"],
+             "output_name": "A", "input_shapes": [[N, N], [N, N]], "output_shape": [N, N],
+             "batch": 0, "relation_id": "SELF_REG"},
+            {"step_id": "SELF_CHOL", "op_type": "CHOLESKY", "input_names": ["A"],
+             "output_name": "L", "input_shapes": [[N, N]], "output_shape": [N, N],
+             "batch": 0, "relation_id": "SELF_CHOL"},
+            {"step_id": "SELF_TRSM", "op_type": "TRSM", "input_names": ["L"],
+             "output_name": "Y", "input_shapes": [[N, N]], "output_shape": [N, N],
+             "batch": 0, "relation_id": "SELF_TRSM"},
+            {"step_id": "SELF_BWD", "op_type": "GEMM", "input_names": ["Y^H", "Y"],
+             "output_name": "Ainv", "input_shapes": [[N, N], [N, N]], "output_shape": [N, N],
+             "batch": 0, "relation_id": "SELF_BWD"},
+        ]
+        dag = FormulaDAG(synthetic_steps)
+        results = dag.execute({"H": H}, {"lambda": 0.1})
+        A_dag = results.get("Ainv")
+        err_chol = float(np.linalg.norm(_fp16(A_dag) - A_ref) / max(np.linalg.norm(A_ref), 1e-15))
+
+        # Also test LDL_DECOMPOSE primitive standalone
+        Y_ldl = prim_ldl_decompose(A)
+        A_ldl = prim_gemm(Y_ldl.conj().T, Y_ldl)
+        err_ldl = float(np.linalg.norm(_fp16(A_ldl) - A_ref) / max(np.linalg.norm(A_ref), 1e-15))
+
+        # Also test BRI_PRECOND primitive standalone (check first 2x2 block)
+        Bmat = prim_bri_precond(A)
+        B_ref_block = np.linalg.inv(A[:2,:2])
+        err_bri = float(np.linalg.norm(_fp16(Bmat[:2,:2]) - B_ref_block) / max(np.linalg.norm(B_ref_block), 1e-15))
+
+        print(f"  Cholesky DAG chain error: {err_chol:.2e}")
+        print(f"  LDL primitive error:      {err_ldl:.2e}")
+        print(f"  BRI 2x2 block error:      {err_bri:.2e}")
+
+        all_ok = err_chol < 0.01 and err_ldl < 0.10
+        if all_ok:
+            print("Self-test PASSED — all primitives operational")
+            print("Execution complete. Output tensors: ['Ainv']")
+            sys.exit(0)
+        else:
+            print("Self-test FAILED — primitive errors exceed thresholds")
+            sys.exit(1)
+
     if len(sys.argv) < 2:
         print("Usage: python uobs_dag_executor.py <formula_steps.json>")
+        print("       python uobs_dag_executor.py --self-test")
         sys.exit(1)
-
-    dag = load_dag(sys.argv[1])
-    print(f"Loaded DAG with {len(dag.nodes)} nodes")
-
-    # Quick test with synthetic H
-    shapes_2d = set()
-    for n in dag.nodes:
-        for sh in n.input_shapes + [n.output_shape]:
-            if len(sh) == 2:
-                shapes_2d.add(tuple(sh))
-
-    # Find M×U shape from first GEMM step
-    m, u = 64, 16
-    for n in dag.nodes:
-        if n.op_type == "GEMM" and len(n.input_shapes) >= 2:
-            sh0 = n.input_shapes[0]
-            sh1 = n.input_shapes[1]
-            if len(sh0) == 2 and len(sh1) == 2:
-                m, u = sh0[0], sh0[1]
-                break
-
-    rng = np.random.default_rng(42)
-    H = (rng.standard_normal((m, u)) + 1j * rng.standard_normal((m, u))) / np.sqrt(2.0)
-    lam = 0.1
-
-    results = dag.execute({"H": H}, {"lambda": lam})
-    print(f"Execution complete. Output tensors: {list(results.keys())}")
-
-    # Print the last output shape
-    for name, tensor in results.items():
-        if "inv" in name.lower() or "A_inv" in name or "Ainv" in name:
-            print(f"  {name}: shape={tensor.shape}, dtype={tensor.dtype}")

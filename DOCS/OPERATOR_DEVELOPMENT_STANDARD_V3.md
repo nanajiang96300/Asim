@@ -329,3 +329,101 @@ SCALAR_DIV dest=aY,   src={aNeg, aL}      // -sum/L
 - [ ] FormulaLogger 覆盖全部数学阶段
 - [ ] 每列 / 每阶段有 PIPE_BARRIER
 - [ ] 可运行 `/audit-operator` 自动审查通过
+
+## 8. 验证要求（Verification Requirements）
+
+> 新增于 2026-07-06 | 依据: 专家审查问题 P1-P7
+
+每个算子**必须**通过数值验证才能视为开发完成。验证分为 DAG 链验证和 Python 参考对比两部分。
+
+### 8.1 每算子验证脚本（Per-Operator Verification Script）
+
+每个算子必须提供 `scripts/verify/<op_name>.py`，满足以下要求：
+
+**文件位置**: `scripts/verify/<algorithm>_<variant>.py`
+
+**必须实现**:
+```python
+def verify(formula_path, seed=42):
+    """返回 {"error": float, "status": "PASS"|"FAIL", "steps": int, "seed": int}"""
+    ...
+```
+
+**必须使用** `verify/_base.py` 公共工具:
+- `load_dag(formula_path)` — 从 `formula_steps.json` 构建 DAG
+- `compute_error(A_dag, A_ref)` — 相对 Frobenius 误差
+- `run_multi_seed(verify_fn, seeds=(42, 123, 456))` — 多 seed 测试
+- `fp16(x)` — FP16 量化
+
+**必须在 `__main__` 块中调用 `run_multi_seed`**，使用 lambda 正确传递 seed 参数：
+```python
+if __name__ == "__main__":
+    r = verify(sys.argv[1] if len(sys.argv) > 1 else "/tmp/formula.json")
+    max_e, _ = run_multi_seed(lambda seed: verify(..., seed))  # 注意: 参数名必须用 seed
+    print(f"...")
+```
+
+### 8.2 DAG 链连接（DAG Chain Connection）
+
+验证脚本必须执行**双路径对比**：
+
+- **Path A (DAG)**: 读取 C++ FormulaLogger 生成的 `formula_steps.json`，通过 `FormulaDAG.execute()` 执行步骤链，得到 `Ainv_dag`
+- **Path B (Reference)**: 独立使用 Python 原语库（`prim_gemm`, `prim_cholesky` 等）计算参考矩阵 `Ainv_ref`
+- **交叉误差**: `error = ||fp16(Ainv_dag) - Ainv_ref||_F / max(||Ainv_ref||_F, 1e-15)`
+
+**禁止**以下反模式：
+- ❌ 只对比 Python 原语 vs numpy 参考（未使用 C++ 产生的 formula_steps.json）
+- ❌ `A_dag is None` 时静默 fallback 为参考值（应报 FAIL）
+- ❌ 只读取 formula_steps.json 的 metadata 而不执行 DAG 步骤
+
+**各算子类型的 DAG 链要求**（见 [DAG_PRIMITIVES_SPEC.md](DAG_PRIMITIVES_SPEC.md)）：
+
+| 算子类型 | 最小 DAG 链 | 输出名 |
+|---------|------------|--------|
+| Cholesky (NoBlock/Block) | GRAM → REG → CHOLESKY → FWD_SOLVE → BWD_ASSEMBLE | `"Ainv"` |
+| LDL (NoBlock/Block) | GRAM → REG → LDL_DECOMPOSE → BWD_ASSEMBLE | `"Ainv"` |
+| Newton-Schulz | K×(GEMM → MATRIX_SUB → GEMM) + BWD_ASSEMBLE | `"Ainv"` |
+| Block-Richardson | GRAM → REG → BRI_PRECOND → L×(GEMM → MATRIX_SUB → MATRIX_ADD) | `"Ainv"` |
+
+### 8.3 误差阈值文档化（Error Threshold Documentation）
+
+每个验证脚本必须定义 `THRESHOLD` 常量，并在注释中记录阈值依据：
+
+```python
+# Threshold: 0.01 — FP16 Cholesky has ~0.1% numerical error on well-conditioned matrices
+# (U=16, M=64, cond(A) < 100). Measured over 3 random seeds.
+THRESHOLD = 0.01
+```
+
+**阈值设定指南**：
+
+| 方法类型 | 典型阈值 | 依据 |
+|---------|:---:|------|
+| 直接法 (Cholesky/LDL) | 0.01 | FP16 精度 ~0.1%，条件数良好 |
+| 直接法 (LDL，含 D 因子) | 0.10 | 额外的除法和缩放累积更多 FP16 误差 |
+| 迭代法 (Newton-Schulz, K=8) | 0.10 | 迭代累积误差，K 越大误差越大 |
+| 迭代法 (BRI, L=8) | 0.25 | Richardson 收敛慢，需更多迭代（L=16 可达 <0.05） |
+
+**通过/失败判定**: `"PASS" if err_dag < THRESHOLD else "FAIL"`
+
+### 8.4 多 Seed 测试（Multi-Seed Testing）
+
+每个验证脚本必须使用 `run_multi_seed()` 测试多个随机种子（默认: 42, 123, 456）：
+
+- 每个 seed 产生不同的随机矩阵 H
+- 取各 seed 中误差的**最大值**作为最终指标
+- 如果任意 seed 超过 THRESHOLD，测试 FAIL
+- 报告中同时记录单 seed 误差和 max 误差
+
+### 8.5 流水线集成（Pipeline Integration）
+
+验证结果是 `/op-flow` 流水线 `ext_numeric_verify` 阶段的核心输入：
+
+1. `/verify-operator <name>` 触发验证脚本
+2. 验证结果记录在 `DOCS/operators/<op>.md` 的验证数据章节
+3. 通过/失败状态更新到 `orchestrator/pipeline.json`
+4. CI 门禁（`scripts/ci_gate.sh`）自动运行所有算子验证
+
+### 8.6 新增算子检查清单
+
+完整的新增算子流程参见 [NEW_OPERATOR_CHECKLIST.md](NEW_OPERATOR_CHECKLIST.md)，该文档合并了本文档、DAG 原语规范、验证架构设计和 verify-operator 技能的全部要求。
