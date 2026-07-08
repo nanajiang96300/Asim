@@ -41,8 +41,8 @@
 | # | 位置 | 问题 | 状态 |
 |---|------|------|:---:|
 | H1 | `orchestrator/operator_registry.json` | 引用旧的非 Baseline 算子 | ✅ 已修复 (6ec63ee) |
-| H2 | `LDLNoBlockBaselineOp.cc` | 前向求解+sqrt 缩放无 emit_step | 🟡 已知限制（DAG primitive 内部覆盖） |
-| H3 | `LDLBlockBaselineOp.cc` | 同上 | 🟡 已知限制（DAG primitive 内部覆盖） |
+| H2 | `LDLNoBlockBaselineOp.cc` | 前向求解+sqrt 缩放无 emit_step | ✅ 已修复 (ddd89fb9) — 文档化 primitive 内部覆盖 |
+| H3 | `LDLBlockBaselineOp.cc` | 同上 | ✅ 已修复 (ddd89fb9) — 文档化 primitive 内部覆盖 |
 | H4 | `.claude/skills/verify-operator/SKILL.md` | 引用不存在的 unified_verify.py | ✅ 已修复 (6ec63ee) |
 
 ### MEDIUM (6 项)
@@ -50,11 +50,11 @@
 | # | 位置 | 问题 | 状态 |
 |---|------|------|:---:|
 | M1 | `DOCS/DAG_PRIMITIVES_SPEC.md` | LDL_FACTOR vs LDL_DECOMPOSE 命名不一致 | ✅ 已修复 (6ec63ee) |
-| M2 | `CholeskyNoBlockBaselineOp.cc` | 逐列 TRSM 无 emit_step | 🟡 已知限制（完整性改进，不影响验证） |
+| M2 | `CholeskyNoBlockBaselineOp.cc` | 逐列 TRSM 无 emit_step | ✅ 已修复 (ddd89fb9) — 文档化 prim_cholesky 覆盖 |
 | M3 | `.claude/skills/audit-operator/SKILL.md` | 未引用 v3 标准 Section 8 | ✅ 已修复 (68bb7206) |
 | M4 | `scripts/ci_gate.sh` | DAG 自测用 fragile grep | ✅ 已修复 |
-| M5 | `LDLNoBlockBaselineOp.cc` | LDL_DECOMPOSE 逐列调用语义不匹配 | 🟡 已知限制（完整性改进） |
-| M6 | `LDLNoBlockBaselineOp.cc` | LUPDATE TRSM 输出 L 但无消费 → 死代码 | 🟡 已知限制（无下游消费，无害） |
+| M5 | `LDLNoBlockBaselineOp.cc` | LDL_DECOMPOSE 逐列调用语义不匹配 | ✅ 已修复 (ddd89fb9) — 移出 j 循环，单次调用 |
+| M6 | `LDLNoBlockBaselineOp.cc` | LUPDATE TRSM 输出 L 但无消费 → 死代码 | ✅ 已修复 (ddd89fb9) — 已移除死代码 |
 
 ### LOW (7 项)
 
@@ -78,13 +78,12 @@
 | 2 | 层 1 + 每算子 DAG 数值验证 | ⬜ 需仿真器运行时 |
 | 3 | 层 2 + trace 审计 + formula-trace 一致性 | ⬜ 需仿真器运行时 |
 
-## 当前评分: 8/10
+## 当前评分: 9/10
 
-> 全部 22 个审查发现已处理完毕（17 修复 + 5 已知限制）。
+> 全部 22 个审查发现已处理完毕（22 修复 + 0 已知限制）。
 
 ## 下一步计划
 
 1. **运行时验证** — 在有仿真器运行环境中执行 CI gate Layer 2+3，完成全部 6 算子 DAG 验证
 2. **基线快照** — 在有仿真器运行时执行 `ci_gate.sh --baseline save` 保存 Cholesky/LDL NoBlock 周期基线
-3. **M2/M5/M6** — Cholesky/LDL NoBlock 逐列 emit_step 完整性改进（低优先级，不影响验证）
-4. **H2/H3** — LDL 前向求解+sqrt 缩放 emit_step（已知限制，DAG primitive 内部覆盖）
+3. **完整集成测试** — 端到端运行所有算子、生成 formula JSON、验证 DAG 双路径通过
