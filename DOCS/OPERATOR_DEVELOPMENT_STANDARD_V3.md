@@ -246,13 +246,19 @@ void MyOp::initialize_instructions(Tile* tile, Mapping) {
 
 ### 5.3 必须的 barrier 位置
 
-| Barrier | Type | 位置 |
-|---------|------|------|
-| LOAD | 1 | MOVIN 完成后 |
-| REG | 3 | Gram+正则化完成后 |
-| COL_j | 4 | 每列分解完成后 |
-| FWD_c | 5 | 每列前向求解完成后 |
-| PRE_MOVOUT | 6 | GEMM 写回前 |
+| Barrier | Type | 位置 | 使用场景 |
+|---------|------|------|------|
+| LOAD | 1 | MOVIN 完成后 | 所有算子 |
+| T2R | 2 | GEMM_T → Residual 之间 | Newton-Schulz（NS_T2R_k） |
+| REG | 3 | Gram+正则化完成后 | 所有直接法算子 |
+| COL_j | 4 | 每列分解完成后 | Cholesky/LDL（分块和无分块） |
+| FB_c / SYNC_l | 5 | 每列前向求解完成后 / 迭代同步 | Cholesky/LDL（FB_c）、BRI（SYNC_l，每 4 次迭代） |
+| PRE_MOVOUT | 6 | GEMM 写回前 | 所有算子 |
+
+**非标准 barrier pattern**（已知，用于特定算子）:
+- BRI 使用 Type 5 (`BRI_SYNC_l`) 在迭代循环内每 4 次迭代做同步，而非逐列 — 这是 Richardson 迭代的特性
+- BRI 使用 Type 6 (`BRI_INV2W`) 在预条件器完成到输出 GEMM 之间 — 与标准 PRE_MOVOUT 含义一致
+- Newton-Schulz 使用 Type 2 (`NS_T2R_k`) 在 GEMM_T 和 Residual 之间 — 与标准 REG 类似，但用于迭代循环内
 
 ## 6. 常见错误与反模式 ⚠️
 

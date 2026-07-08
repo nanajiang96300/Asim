@@ -64,6 +64,13 @@
 - Barrier 位置是否一致
 - Phase 划分是否相同
 
+#### 3.7 DAG 链完整性检查（v3 标准 Section 8）
+依据 `DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md` Section 8 验证要求：
+- emit_step 输出名 ≡ 下游输入名（DAG 链连通性）
+- 链是否形成完整路径：初始输入 → ... → "Ainv"
+- 验证脚本 `scripts/verify/<op_name>.py` 是否存在
+- 验证脚本是否正确使用 `load_dag()` + `compute_error()` + `run_multi_seed()`
+
 ### Step 4: 输出审查报告
 
 格式：
