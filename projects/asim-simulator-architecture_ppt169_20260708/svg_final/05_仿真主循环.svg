@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#0D1B2A" />
+
+  
+  <g fill="none" stroke="#1B2838" stroke-width="0.5" stroke-opacity="0.25">
+    <line x1="0" y1="120" x2="1280" y2="120" />
+    <line x1="0" y1="240" x2="1280" y2="240" />
+    <line x1="0" y1="360" x2="1280" y2="360" />
+    <line x1="0" y1="480" x2="1280" y2="480" />
+    <line x1="0" y1="600" x2="1280" y2="600" />
+  </g>
+
+  
+  <text x="60" y="65" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="48" font-weight="bold" fill="#ECEFF1">仿真主循环：三域时间推进</text>
+  <rect x="60" y="81" width="80" height="2" fill="#00BCD4" fill-opacity="0.7" />
+
+  <text x="60" y="110" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="20" fill="#90A4AE">set_cycle_mask() 比较 Core / DRAM / ICNT 三域时间戳，实现异构频率精确交错</text>
+
+  
+  <g>
+    
+    <path fill="#1B2838" fill-opacity="0.8" stroke="#2196F3" stroke-width="1.5" stroke-opacity="0.7" d="M124,150 H436 A4,4 0 0 1 440,154 V202 A4,4 0 0 1 436,206 H124 A4,4 0 0 1 120,202 V154 A4,4 0 0 1 124,150 Z" />
+    <text x="280" y="174" font-family="Consolas, monospace" font-size="20" font-weight="bold" fill="#ECEFF1" text-anchor="middle">while (running())</text>
+    <text x="280" y="196" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">所有组件都空闲时退出</text>
+
+    
+    <line x1="280" y1="206" x2="280" y2="230" stroke="#2196F3" stroke-width="1.2" stroke-opacity="0.5" />
+    <polygon points="276,224 280,230 284,224" fill="#2196F3" fill-opacity="0.5" stroke="none" />
+
+    
+    <path fill="#1B2838" fill-opacity="0.8" stroke="#00BCD4" stroke-width="1.5" stroke-opacity="0.7" d="M124,235 H436 A4,4 0 0 1 440,239 V287 A4,4 0 0 1 436,291 H124 A4,4 0 0 1 120,287 V239 A4,4 0 0 1 124,235 Z" />
+    <text x="280" y="259" font-family="Consolas, monospace" font-size="20" font-weight="bold" fill="#ECEFF1" text-anchor="middle">set_cycle_mask()</text>
+    <text x="280" y="281" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">比较三域时间戳，选择推进域</text>
+
+    
+    <line x1="280" y1="291" x2="280" y2="310" stroke="#00BCD4" stroke-width="1.2" stroke-opacity="0.5" />
+    <polygon points="276,304 280,310 284,304" fill="#00BCD4" fill-opacity="0.5" stroke="none" />
+
+    
+    
+    <path fill="#1B2838" fill-opacity="0.6" stroke="#2196F3" stroke-width="1" stroke-opacity="0.5" d="M64,315 H276 A4,4 0 0 1 280,319 V491 A4,4 0 0 1 276,495 H64 A4,4 0 0 1 60,491 V319 A4,4 0 0 1 64,315 Z" />
+    <path fill="#2196F3" fill-opacity="0.12" d="M64,315 H276 A4,4 0 0 1 280,319 V345 A4,4 0 0 1 276,349 H64 A4,4 0 0 1 60,345 V319 A4,4 0 0 1 64,315 Z" />
+    <text x="170" y="338" font-family="Consolas, monospace" font-size="16" font-weight="bold" fill="#2196F3" text-anchor="middle">CORE_MASK</text>
+    <text x="80" y="372" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">handle_model()</text>
+    <text x="80" y="398" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">pop_finished_tile()</text>
+    <text x="80" y="424" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">issue(new_tile)</text>
+    <text x="80" y="450" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">core-&gt;cycle()</text>
+    <text x="80" y="476" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#4DD0E1">core_cycles++</text>
+
+    
+    <path fill="#1B2838" fill-opacity="0.6" stroke="#4DD0E1" stroke-width="1" stroke-opacity="0.5" d="M304,315 H476 A4,4 0 0 1 480,319 V491 A4,4 0 0 1 476,495 H304 A4,4 0 0 1 300,491 V319 A4,4 0 0 1 304,315 Z" />
+    <path fill="#4DD0E1" fill-opacity="0.12" d="M304,315 H476 A4,4 0 0 1 480,319 V345 A4,4 0 0 1 476,349 H304 A4,4 0 0 1 300,345 V319 A4,4 0 0 1 304,315 Z" />
+    <text x="390" y="338" font-family="Consolas, monospace" font-size="16" font-weight="bold" fill="#4DD0E1" text-anchor="middle">DRAM_MASK</text>
+    <text x="320" y="380" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">dram-&gt;cycle()</text>
+    <text x="320" y="410" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#90A4AE">Ramulator2 HBM2</text>
+    <text x="320" y="435" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#90A4AE">32 通道周期推进</text>
+    <text x="320" y="470" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#4DD0E1">dram_time += period</text>
+
+    
+    <path fill="#1B2838" fill-opacity="0.6" stroke="#00BCD4" stroke-width="1" stroke-opacity="0.5" d="M504,315 H796 A4,4 0 0 1 800,319 V491 A4,4 0 0 1 796,495 H504 A4,4 0 0 1 500,491 V319 A4,4 0 0 1 504,315 Z" />
+    <path fill="#00BCD4" fill-opacity="0.12" d="M504,315 H796 A4,4 0 0 1 800,319 V345 A4,4 0 0 1 796,349 H504 A4,4 0 0 1 500,345 V319 A4,4 0 0 1 504,315 Z" />
+    <text x="650" y="338" font-family="Consolas, monospace" font-size="16" font-weight="bold" fill="#00BCD4" text-anchor="middle">ICNT_MASK</text>
+    <text x="520" y="372" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">Core → ICNT: push memory request</text>
+    <text x="520" y="398" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">ICNT → Core: pop response</text>
+    <text x="520" y="424" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">ICNT → DRAM: forward request</text>
+    <text x="520" y="450" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#ECEFF1">DRAM → ICNT: return response</text>
+    <text x="520" y="476" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#4DD0E1">icnt-&gt;cycle()</text>
+  </g>
+
+  
+  <g>
+    <text x="860" y="155" font-family="Consolas, monospace" font-size="18" font-weight="bold" fill="#00BCD4">三域时间推进示意</text>
+
+    
+    <text x="860" y="185" font-family="Consolas, monospace" font-size="14" fill="#607D8B">Core: 1GHz (1ns period)</text>
+    <text x="860" y="208" font-family="Consolas, monospace" font-size="14" fill="#607D8B">DRAM: 500MHz (2ns period)</text>
+    <text x="860" y="231" font-family="Consolas, monospace" font-size="14" fill="#607D8B">ICNT: 500MHz (2ns period)</text>
+
+    
+    <g fill="none" stroke-width="1.5">
+      
+      <text x="860" y="275" font-family="Consolas, monospace" font-size="12" fill="#2196F3">Core</text>
+      <path fill="#2196F3" fill-opacity="0.5" stroke="#2196F3" stroke-opacity="0.7" d="M921,262 H943 A1,1 0 0 1 944,263 V275 A1,1 0 0 1 943,276 H921 A1,1 0 0 1 920,275 V263 A1,1 0 0 1 921,262 Z" />
+      <path fill="#2196F3" fill-opacity="0.5" stroke="#2196F3" stroke-opacity="0.7" d="M949,262 H971 A1,1 0 0 1 972,263 V275 A1,1 0 0 1 971,276 H949 A1,1 0 0 1 948,275 V263 A1,1 0 0 1 949,262 Z" />
+      <path fill="#2196F3" fill-opacity="0.5" stroke="#2196F3" stroke-opacity="0.7" d="M977,262 H999 A1,1 0 0 1 1000,263 V275 A1,1 0 0 1 999,276 H977 A1,1 0 0 1 976,275 V263 A1,1 0 0 1 977,262 Z" />
+      <path fill="#2196F3" fill-opacity="0.5" stroke="#2196F3" stroke-opacity="0.7" d="M1005,262 H1027 A1,1 0 0 1 1028,263 V275 A1,1 0 0 1 1027,276 H1005 A1,1 0 0 1 1004,275 V263 A1,1 0 0 1 1005,262 Z" />
+      <path fill="#2196F3" fill-opacity="0.5" stroke="#2196F3" stroke-opacity="0.7" d="M1033,262 H1055 A1,1 0 0 1 1056,263 V275 A1,1 0 0 1 1055,276 H1033 A1,1 0 0 1 1032,275 V263 A1,1 0 0 1 1033,262 Z" />
+      <path fill="#2196F3" fill-opacity="0.5" stroke="#2196F3" stroke-opacity="0.7" d="M1061,262 H1083 A1,1 0 0 1 1084,263 V275 A1,1 0 0 1 1083,276 H1061 A1,1 0 0 1 1060,275 V263 A1,1 0 0 1 1061,262 Z" />
+      
+      <text x="860" y="305" font-family="Consolas, monospace" font-size="12" fill="#4DD0E1">DRAM</text>
+      <path fill="#4DD0E1" fill-opacity="0.4" stroke="#4DD0E1" stroke-opacity="0.6" d="M921,292 H971 A1,1 0 0 1 972,293 V305 A1,1 0 0 1 971,306 H921 A1,1 0 0 1 920,305 V293 A1,1 0 0 1 921,292 Z" />
+      <path fill="#4DD0E1" fill-opacity="0.4" stroke="#4DD0E1" stroke-opacity="0.6" d="M977,292 H1027 A1,1 0 0 1 1028,293 V305 A1,1 0 0 1 1027,306 H977 A1,1 0 0 1 976,305 V293 A1,1 0 0 1 977,292 Z" />
+      <path fill="#4DD0E1" fill-opacity="0.4" stroke="#4DD0E1" stroke-opacity="0.6" d="M1033,292 H1083 A1,1 0 0 1 1084,293 V305 A1,1 0 0 1 1083,306 H1033 A1,1 0 0 1 1032,305 V293 A1,1 0 0 1 1033,292 Z" />
+      
+      <text x="860" y="335" font-family="Consolas, monospace" font-size="12" fill="#00BCD4">ICNT</text>
+      <path fill="#00BCD4" fill-opacity="0.4" stroke="#00BCD4" stroke-opacity="0.6" d="M921,322 H971 A1,1 0 0 1 972,323 V335 A1,1 0 0 1 971,336 H921 A1,1 0 0 1 920,335 V323 A1,1 0 0 1 921,322 Z" />
+      <path fill="#00BCD4" fill-opacity="0.4" stroke="#00BCD4" stroke-opacity="0.6" d="M977,322 H1027 A1,1 0 0 1 1028,323 V335 A1,1 0 0 1 1027,336 H977 A1,1 0 0 1 976,335 V323 A1,1 0 0 1 977,322 Z" />
+      <path fill="#00BCD4" fill-opacity="0.4" stroke="#00BCD4" stroke-opacity="0.6" d="M1033,322 H1083 A1,1 0 0 1 1084,323 V335 A1,1 0 0 1 1083,336 H1033 A1,1 0 0 1 1032,335 V323 A1,1 0 0 1 1033,322 Z" />
+    </g>
+    <text x="860" y="370" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#90A4AE">每个 step 选择时间戳最小的域推进</text>
+    <text x="860" y="392" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#90A4AE">频率不同自然形成交错执行</text>
+  </g>
+
+  
+  <g>
+    <line x1="60" y1="520" x2="820" y2="520" stroke="#263238" stroke-width="0.8" stroke-opacity="0.5" />
+    <text x="60" y="555" font-family="'Microsoft YaHei', sans-serif" font-size="22" fill="#ECEFF1">仿真结束 → 统计输出</text>
+    <text x="320" y="555" font-family="Consolas, monospace" font-size="20" fill="#00BCD4">Core 利用率</text>
+    <text x="520" y="555" font-family="Consolas, monospace" font-size="20" fill="#00BCD4">Trace CSV</text>
+    <text x="680" y="555" font-family="Consolas, monospace" font-size="20" fill="#00BCD4">Formula JSON</text>
+    <text x="320" y="582" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#90A4AE">Cube% / Vector% / Scalar%</text>
+    <text x="520" y="582" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#90A4AE">指令级时间线</text>
+    <text x="680" y="582" font-family="'Microsoft YaHei', sans-serif" font-size="15" fill="#90A4AE">数学语义 DAG 验证</text>
+  </g>
+
+  <text x="1220" y="695" font-family="Consolas, monospace" font-size="14" fill="#607D8B" fill-opacity="0.5" text-anchor="end">P05</text>
+</svg>

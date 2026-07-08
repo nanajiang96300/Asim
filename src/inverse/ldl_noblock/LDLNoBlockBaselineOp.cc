@@ -178,8 +178,9 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .id = "LDL_NB_DSTORE_" + std::to_string(j),
         .dest_addr = aD, .compute_size = 1,
         .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-    FormulaLogger::instance().emit_step("LDL_NB_DUPDATE_" + std::to_string(j), "LDL_DECOMPOSE",
-        {"A"}, "Y", {{U, U}}, {U, U}, tile->batch, "LDL_NB_DINV_" + std::to_string(j));
+    // LDL_DECOMPOSE step emitted once after decomposition loop (see below)
+    // Removed per-column emit_step: prim_ldl_decompose runs on full A,
+    // per-column calls were redundant (M5 fix).
 
     // L_UPDATE for rows i > j
     for (uint32_t i = j + 1; i < U; ++i) {
@@ -210,13 +211,20 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
           .id = "LDL_NB_LAPPLY_" + std::to_string(i) + "_" + std::to_string(j),
           .dest_addr = aL, .compute_size = 1,
           .src_addrs = {aA, aDinv}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-      FormulaLogger::instance().emit_step(
-          "LDL_NB_LUPDATE_" + std::to_string(i) + "_" + std::to_string(j),
-          "TRSM", std::vector<std::string>{"A", "Y"}, "L", {{U, U}, {U, U}}, {U, U}, tile->batch,
-          "LDL_NB_LAPPLY_" + std::to_string(i) + "_" + std::to_string(j));
+      // LUPDATE TRSM: removed dead DAG code — output "L" was never consumed by any step (M6 fix).
+      // The DAG chain is: GRAM→REG→LDL_DECOMPOSE→BWD_ASSEMBLE, where LDL_DECOMPOSE
+      // internally covers forward solve + sqrt(Dinv) scaling (H2/H3 known limitation).
     }
     barrier("LDL_NB_COL_" + std::to_string(j), 4);
   }
+
+  // Single LDL_DECOMPOSE emit_step after decomposition loop (M5 fix).
+  // prim_ldl_decompose internally covers: L·D·L^H decomposition +
+  // forward solve Z=L^{-1} + sqrt(Dinv) column scaling → Y.
+  // Phases 4 (forward solve) and 5 (sqrt scaling) below are hardware
+  // phases whose semantics are covered by this single DAG step (H2 known limitation).
+  FormulaLogger::instance().emit_step("LDL_NB_DECOMPOSE", "LDL_DECOMPOSE",
+      {"A"}, "Y", {{U, U}}, {U, U}, tile->batch, "LDL_NB_COL_0");
 
   // ===== Phase 4: Forward Solve Z = L^{-1} =====
   // L is unit lower triangular: Z[c,c] = 1, Z[i,c] = -sum_{k=c}^{i-1} L[i,k] * Z[k,c]

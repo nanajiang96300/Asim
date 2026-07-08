@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1280" height="4" fill="#1F497D"/>
+
+  <!-- Title -->
+  <text x="60" y="60" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="36" font-weight="bold" fill="#1F497D">仿真器流水线实现：从指令生成到周期推进</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="95" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" fill="#666666">基于 Asim 源码分析 — Model::initialize_instructions() 到 Simulator::cycle() 的完整数据流</text>
+
+  <!-- Divider -->
+  <rect x="60" y="110" width="1160" height="1" fill="#D0D0D0"/>
+
+  <!-- Phase 1: 指令生成阶段 (Left column) -->
+  <g>
+    <rect x="40" y="130" width="390" height="280" rx="6" fill="#F0F4F8" stroke="#D0D0D0" stroke-width="1"/>
+    <rect x="40" y="130" width="390" height="38" rx="6" fill="#1F497D"/>
+    <rect x="40" y="154" width="390" height="14" fill="#1F497D"/>
+    <text x="235" y="155" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">阶段 1：指令生成（编译时）</text>
+
+    <text x="60" y="195" font-family="Consolas, monospace" font-size="14" font-weight="bold" fill="#4F81BD">Operation::initialize_instructions(tile)</text>
+
+    <!-- Arrow flow -->
+    <line x1="235" y1="215" x2="235" y2="230" stroke="#4BACC6" stroke-width="1.5"/>
+    <polygon points="230,226 235,232 240,226" fill="#4BACC6"/>
+
+    <!-- Instruction sequence -->
+    <rect x="70" y="235" width="340" height="20" rx="3" fill="#4F81BD" fill-opacity="0.12" stroke="none"/>
+    <text x="80" y="250" font-family="Consolas, monospace" font-size="11" fill="#1F497D">MOVIN</text>
+    <text x="140" y="250" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">DRAM→SPAD 数据加载</text>
+
+    <rect x="70" y="260" width="340" height="20" rx="3" fill="#4F81BD" fill-opacity="0.12" stroke="none"/>
+    <text x="80" y="275" font-family="Consolas, monospace" font-size="11" fill="#1F497D">PIPE_BARRIER</text>
+    <text x="185" y="275" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">MTE→Cube 同步屏障</text>
+
+    <rect x="70" y="285" width="340" height="20" rx="3" fill="#4F81BD" fill-opacity="0.12" stroke="none"/>
+    <text x="80" y="300" font-family="Consolas, monospace" font-size="11" fill="#1F497D">GEMM_PRELOAD / GEMM</text>
+    <text x="230" y="300" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">Cube 矩阵乘</text>
+
+    <rect x="70" y="310" width="340" height="20" rx="3" fill="#4F81BD" fill-opacity="0.12" stroke="none"/>
+    <text x="80" y="325" font-family="Consolas, monospace" font-size="11" fill="#1F497D">ADD / MUL / DIV / SQRT / EXP / ...</text>
+    <text x="265" y="325" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">Vector/Scalar</text>
+
+    <rect x="70" y="335" width="340" height="20" rx="3" fill="#4F81BD" fill-opacity="0.12" stroke="none"/>
+    <text x="80" y="350" font-family="Consolas, monospace" font-size="11" fill="#1F497D">PIPE_BARRIER</text>
+    <text x="185" y="350" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">Vector→MTE 同步屏障</text>
+
+    <rect x="70" y="360" width="340" height="20" rx="3" fill="#4F81BD" fill-opacity="0.12" stroke="none"/>
+    <text x="80" y="375" font-family="Consolas, monospace" font-size="11" fill="#1F497D">MOVOUT</text>
+    <text x="140" y="375" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">SPAD→DRAM 写回</text>
+
+    <text x="60" y="400" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#999999">* 每条指令同步调用 FormulaLogger::emit_step()</text>
+  </g>
+
+  <!-- Arrow between phases -->
+  <polygon points="445,260 460,270 445,280" fill="#4BACC6"/>
+  <text x="448" y="255" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#4BACC6">Tile入队</text>
+
+  <!-- Phase 2: 周期推进阶段 (Right column) -->
+  <g>
+    <rect x="470" y="130" width="770" height="280" rx="6" fill="#F0F4F8" stroke="#D0D0D0" stroke-width="1"/>
+    <rect x="470" y="130" width="770" height="38" rx="6" fill="#1F497D"/>
+    <rect x="470" y="154" width="770" height="14" fill="#1F497D"/>
+    <text x="855" y="155" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">阶段 2：周期级仿真推进（运行时） — Simulator::cycle() 主循环</text>
+
+    <!-- while(running) -->
+    <rect x="490" y="180" width="280" height="36" rx="4" fill="#1F497D" fill-opacity="0.08" stroke="#1F497D" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="630" y="203" font-family="Consolas, monospace" font-size="15" font-weight="bold" fill="#1F497D" text-anchor="middle">while (running()) 全局循环</text>
+
+    <!-- Set mask -->
+    <rect x="490" y="225" width="280" height="36" rx="4" fill="#4BACC6" fill-opacity="0.08" stroke="#4BACC6" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="630" y="248" font-family="Consolas, monospace" font-size="15" font-weight="bold" fill="#1F497D" text-anchor="middle">set_cycle_mask() 三域选择</text>
+
+    <!-- Three domain cards -->
+    <!-- Core -->
+    <rect x="490" y="270" width="180" height="130" rx="4" fill="#FFFFFF" stroke="#4F81BD" stroke-width="1.2"/>
+    <rect x="490" y="270" width="180" height="28" rx="4" fill="#4F81BD"/>
+    <rect x="490" y="284" width="180" height="14" fill="#4F81BD"/>
+    <text x="580" y="290" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">CORE_MASK</text>
+    <text x="500" y="315" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#333333">handle_model()</text>
+    <text x="500" y="333" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#333333">Scheduler.issue(tile)</text>
+    <text x="500" y="351" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#333333">Core::cycle() → LD/EX/ST</text>
+    <text x="500" y="369" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#333333">→ Cube/Vector/Scalar</text>
+    <text x="500" y="392" font-family="Consolas, monospace" font-size="10" fill="#4F81BD">core_cycles++</text>
+
+    <!-- DRAM -->
+    <rect x="685" y="270" width="140" height="130" rx="4" fill="#FFFFFF" stroke="#4BACC6" stroke-width="1.2"/>
+    <rect x="685" y="270" width="140" height="28" rx="4" fill="#4BACC6"/>
+    <rect x="685" y="284" width="140" height="14" fill="#4BACC6"/>
+    <text x="755" y="290" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">DRAM_MASK</text>
+    <text x="695" y="320" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">dram->cycle()</text>
+    <text x="695" y="345" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">Ramulator2 HBM2</text>
+    <text x="695" y="365" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">32通道排队处理</text>
+    <text x="695" y="392" font-family="Consolas, monospace" font-size="10" fill="#4BACC6">dram_time += period</text>
+
+    <!-- ICNT -->
+    <rect x="840" y="270" width="180" height="130" rx="4" fill="#FFFFFF" stroke="#8064A2" stroke-width="1.2"/>
+    <rect x="840" y="270" width="180" height="28" rx="4" fill="#8064A2"/>
+    <rect x="840" y="284" width="180" height="14" fill="#8064A2"/>
+    <text x="930" y="290" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ICNT_MASK</text>
+    <text x="850" y="315" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#333333">Core→ICNT push request</text>
+    <text x="850" y="333" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#333333">ICNT→Core pop response</text>
+    <text x="850" y="351" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#333333">ICNT→DRAM forward</text>
+    <text x="850" y="369" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#333333">DRAM→ICNT return</text>
+    <text x="850" y="392" font-family="Consolas, monospace" font-size="10" fill="#8064A2">icnt_cycle++</text>
+  </g>
+
+  <!-- Bottom: Phase 3 (Simulation Output) -->
+  <g>
+    <rect x="40" y="425" width="1200" height="40" rx="4" fill="#4F81BD" fill-opacity="0.06" stroke="#D0D0D0" stroke-width="0.8"/>
+    <text x="640" y="451" font-family="Consolas, monospace" font-size="15" font-weight="bold" fill="#1F497D" text-anchor="middle">running()==false → finish at cycle N  →  print_stats()  →  TraceLogger::dump_to_csv()  →  FormulaLogger::dump_to_json()</text>
+  </g>
+
+  <!-- Bottom detail sections -->
+  <g>
+    <!-- Left: Instruction Dispatch -->
+    <rect x="40" y="485" width="370" height="220" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1"/>
+    <rect x="40" y="485" width="370" height="32" rx="4" fill="#F0F4F8"/>
+    <rect x="40" y="503" width="370" height="14" fill="#F0F4F8"/>
+    <text x="225" y="506" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="15" font-weight="bold" fill="#1F497D" text-anchor="middle">Core 内部指令调度流程</text>
+
+    <text x="55" y="535" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#333333">1. handle_ld_inst_queue()</text>
+    <text x="70" y="553" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">MOVIN → SPAD prefetch → DRAM 读请求</text>
+    <text x="55" y="575" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#333333">2. EX Queue 发射（opcode 分发）</text>
+    <text x="70" y="593" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">检查 src_addrs 依赖（SPAD/ACCUM 命中）</text>
+    <text x="70" y="611" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">GEMM/GEMM_PRELOAD → 脉动阵列 start_cycle 偏移</text>
+    <text x="70" y="629" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">Vector/Scalar → start_cycle = core_cycle</text>
+    <text x="55" y="651" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#333333">3. handle_st_inst_queue()</text>
+    <text x="70" y="669" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">MOVOUT → SPAD 命中确认 → DRAM 写请求</text>
+    <text x="55" y="691" font-family="'Microsoft YaHei', sans-serif" font-size="13" fill="#333333">4. 完成流水线退休 → SPAD/ACCUM fill</text>
+  </g>
+
+  <!-- Middle: Pipeline timing models -->
+  <g>
+    <rect x="425" y="485" width="390" height="220" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1"/>
+    <rect x="425" y="485" width="390" height="32" rx="4" fill="#F0F4F8"/>
+    <rect x="425" y="503" width="390" height="14" fill="#F0F4F8"/>
+    <text x="620" y="506" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="15" font-weight="bold" fill="#1F497D" text-anchor="middle">三条流水线周期延迟模型</text>
+
+    <text x="440" y="540" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#4F81BD">Cube Pipeline — 脉动阵列</text>
+    <text x="440" y="560" font-family="Consolas, monospace" font-size="11" fill="#333333">b_m = ceil(tile_m/16), b_n = ceil(tile_n/16), b_k = ceil(tile_k/16)</text>
+    <text x="440" y="580" font-family="Consolas, monospace" font-size="11" fill="#333333">cycles = 1 + (16+16-2) + max(b_m*b_n*b_k, 1)</text>
+
+    <text x="440" y="610" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#4BACC6">Vector Pipeline — SIMD (2048-bit)</text>
+    <text x="440" y="630" font-family="Consolas, monospace" font-size="11" fill="#333333">vec_iter = ceil(compute_size*2B / 256B)</text>
+    <text x="440" y="650" font-family="Consolas, monospace" font-size="11" fill="#333333">cycles = vec_iter × op_latency  (ADD=1, DIV=4, SQRT=4, EXP=2)</text>
+
+    <text x="440" y="680" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#8064A2">Scalar Pipeline — 严格单发射</text>
+    <text x="440" y="698" font-family="Consolas, monospace" font-size="11" fill="#333333">compute_size=1 | cycles = 1~4 (固定) | 无并行</text>
+  </g>
+
+  <!-- Right: Memory flow -->
+  <g>
+    <rect x="830" y="485" width="410" height="220" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1"/>
+    <rect x="830" y="485" width="410" height="32" rx="4" fill="#F0F4F8"/>
+    <rect x="830" y="503" width="410" height="14" fill="#F0F4F8"/>
+    <text x="1035" y="506" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="15" font-weight="bold" fill="#1F497D" text-anchor="middle">数据搬运与访存模型</text>
+
+    <text x="845" y="540" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#333333">MOVIN / MOVOUT 分包机制</text>
+    <text x="845" y="560" font-family="Consolas, monospace" font-size="12" fill="#333333">N_req = ceil(data_bytes / 64B)</text>
+    <text x="845" y="580" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">每条 MemoryAccess = 64B 固定粒度</text>
+    <text x="845" y="600" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">例：8KB MOVIN → 128 条 DRAM 请求</text>
+
+    <text x="845" y="630" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#333333">访存路径</text>
+    <text x="845" y="650" font-family="Consolas, monospace" font-size="12" fill="#333333">Core → ICNT (NoC) → DRAM (HBM2)</text>
+    <text x="845" y="670" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">DRAM 通道 = hash(dram_address) % 32</text>
+    <text x="845" y="690" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#666666">总延迟 = 排队 + NoC + DRAM 时序</text>
+  </g>
+</svg>

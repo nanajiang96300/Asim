@@ -197,6 +197,9 @@ void LDLBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       {"A"}, "Y", {{U,U}}, {U,U}, tile->batch, "LDL_BLK_COL_" + std::to_string(nB-1));
 
   // Phase 4: Forward Solve Z = L^{-1} (unit triangular)
+  // Hardware forward solve + Phase 6 sqrt(Dinv) scaling are covered by the
+  // LDL_DECOMPOSE DAG primitive which internally handles: L·D·L^H → Z = L^{-1} → Y = Z*sqrt(Dinv).
+  // No separate emit_step needed for these phases (H3 known limitation).
   for (uint32_t c = 0; c < nB; ++c) {
     for (uint32_t ii = 0; ii < B; ++ii) {
       tile->instructions.push_back(std::make_unique<Instruction>(Instruction{

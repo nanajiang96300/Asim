@@ -147,6 +147,9 @@ void CholeskyNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         "CHOL_NB_POTRF_SQRT_" + std::to_string(j));
 
     // TRSM: L[i,j] = (A[i,j] - sum_{k<j} L[i,k]*conj(L[j,k])) / L[j,j]
+    // Per-column TRSM uses SCALAR ops (MUL+SUB+DIV) without separate emit_step.
+    // The per-column CHOLESKY emit_step above covers the full decomposition via
+    // prim_cholesky which runs on the full A matrix, so TRSM tracking is redundant (M2).
     for (uint32_t i = j + 1; i < U; ++i) {
       for (uint32_t k = 0; k < j; ++k) {
         // L[i,k] * conj(L[j,k])

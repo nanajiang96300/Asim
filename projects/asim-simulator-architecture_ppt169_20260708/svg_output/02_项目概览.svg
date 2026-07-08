@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <!-- Background -->
+  <rect x="0" y="0" width="1280" height="720" fill="#0D1B2A"/>
+
+  <!-- Subtle grid -->
+  <g fill="none" stroke="#1B2838" stroke-width="0.5" stroke-opacity="0.3">
+    <line x1="0" y1="180" x2="1280" y2="180"/>
+    <line x1="0" y1="360" x2="1280" y2="360"/>
+    <line x1="0" y1="540" x2="1280" y2="540"/>
+    <line x1="320" y1="0" x2="320" y2="720"/>
+    <line x1="640" y1="0" x2="640" y2="720"/>
+    <line x1="960" y1="0" x2="960" y2="720"/>
+  </g>
+
+  <!-- Corner marks -->
+  <g fill="none" stroke="#2196F3" stroke-opacity="0.3" stroke-width="0.8">
+    <path d="M 40 60 L 40 40 L 60 40"/>
+    <path d="M 1240 60 L 1240 40 L 1220 40"/>
+  </g>
+
+  <!-- Page title -->
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="48" font-weight="bold" fill="#ECEFF1">项目概览</text>
+  <rect x="60" y="96" width="80" height="2" fill="#00BCD4" fill-opacity="0.7"/>
+
+  <!-- Core message (lead) -->
+  <text x="60" y="145" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="28" fill="#90A4AE">Asim 是一个显式建模 Core / NoC / DRAM 的多核 NPU 周期级仿真器，</text>
+  <text x="60" y="178" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="28" fill="#90A4AE">服务于 MIMO 通信系统中矩阵求逆算子的指令级微架构优化。</text>
+
+  <!-- 2x2 Card Grid -->
+  <!-- Card 1: 定位 -->
+  <g>
+    <rect x="60" y="220" width="560" height="210" rx="3" fill="#1B2838" fill-opacity="0.6" stroke="#263238" stroke-width="1"/>
+    <!-- Card header tab -->
+    <rect x="60" y="220" width="180" height="36" rx="3" fill="#2196F3" fill-opacity="0.15" stroke="#2196F3" stroke-opacity="0.4" stroke-width="0.8"/>
+    <text x="78" y="244" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="22" font-weight="bold" fill="#4DD0E1">定位</text>
+    <!-- Card content -->
+    <text x="78" y="290" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="22" fill="#ECEFF1">多核 NPU 周期级仿真器</text>
+    <text x="78" y="320" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#90A4AE">Forked from ONNXim</text>
+    <text x="78" y="350" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#90A4AE">基于类昇腾 910B 脉动阵列架构</text>
+    <text x="78" y="380" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#90A4AE">C++20 实现，周期精确建模</text>
+  </g>
+
+  <!-- Card 2: 硬件建模 -->
+  <g>
+    <rect x="660" y="220" width="560" height="210" rx="3" fill="#1B2838" fill-opacity="0.6" stroke="#263238" stroke-width="1"/>
+    <rect x="660" y="220" width="180" height="36" rx="3" fill="#2196F3" fill-opacity="0.15" stroke="#2196F3" stroke-opacity="0.4" stroke-width="0.8"/>
+    <text x="678" y="244" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="22" font-weight="bold" fill="#4DD0E1">硬件建模</text>
+    <!-- Hardware spec grid -->
+    <text x="678" y="290" font-family="Consolas, monospace" font-size="18" fill="#2196F3">24</text>
+    <text x="708" y="290" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#ECEFF1"> 核 SystolicWS Core</text>
+    <text x="678" y="318" font-family="Consolas, monospace" font-size="18" fill="#2196F3">3</text>
+    <text x="700" y="318" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#ECEFF1"> 流水线：Cube / Vector / Scalar</text>
+    <text x="678" y="346" font-family="Consolas, monospace" font-size="18" fill="#2196F3">2</text>
+    <text x="700" y="346" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#ECEFF1"> NoC 模型：Simple / BookSim2</text>
+    <text x="678" y="374" font-family="Consolas, monospace" font-size="18" fill="#2196F3">3</text>
+    <text x="700" y="374" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#ECEFF1"> DRAM 模型：Simple / Ramulator1 / Ramulator2</text>
+    <text x="678" y="402" font-family="Consolas, monospace" font-size="18" fill="#2196F3">HBM2</text>
+    <text x="738" y="402" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#ECEFF1"> 32 通道，Ramulator2 周期模型</text>
+  </g>
+
+  <!-- Card 3: 核心场景 -->
+  <g>
+    <rect x="60" y="455" width="560" height="160" rx="3" fill="#1B2838" fill-opacity="0.6" stroke="#263238" stroke-width="1"/>
+    <rect x="60" y="455" width="180" height="36" rx="3" fill="#2196F3" fill-opacity="0.15" stroke="#2196F3" stroke-opacity="0.4" stroke-width="0.8"/>
+    <text x="78" y="479" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="22" font-weight="bold" fill="#4DD0E1">核心场景</text>
+    <text x="78" y="525" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="22" fill="#ECEFF1">MIMO 通信系统矩阵求逆算子</text>
+    <text x="78" y="555" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#90A4AE">7 种求逆算子（Cholesky / LDL / Newton-Schulz / Block-Richardson）</text>
+    <text x="78" y="582" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#90A4AE">LLM 驱动的自动化指令级微架构优化</text>
+  </g>
+
+  <!-- Card 4: 输出 -->
+  <g>
+    <rect x="660" y="455" width="560" height="160" rx="3" fill="#1B2838" fill-opacity="0.6" stroke="#263238" stroke-width="1"/>
+    <rect x="660" y="455" width="180" height="36" rx="3" fill="#2196F3" fill-opacity="0.15" stroke="#2196F3" stroke-opacity="0.4" stroke-width="0.8"/>
+    <text x="678" y="479" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="22" font-weight="bold" fill="#4DD0E1">仿真输出</text>
+    <!-- Output items as horizontal specs -->
+    <text x="678" y="525" font-family="Consolas, monospace" font-size="20" fill="#00BCD4">Cycle Counts</text>
+    <text x="850" y="525" font-family="Consolas, monospace" font-size="20" fill="#00BCD4">Utilization %</text>
+    <text x="678" y="555" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#90A4AE">周期计数（Core / DRAM / ICNT）</text>
+    <text x="850" y="555" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" fill="#90A4AE">Cube / Vector / Scalar 利用率</text>
+    <text x="678" y="585" font-family="Consolas, monospace" font-size="20" fill="#00BCD4">Trace CSV</text>
+    <text x="850" y="585" font-family="Consolas, monospace" font-size="20" fill="#00BCD4">Formula JSON</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="1220" y="695" font-family="Consolas, monospace" font-size="14" fill="#607D8B" fill-opacity="0.5" text-anchor="end">P02</text>
+  <rect x="60" y="675" width="1160" height="0.5" fill="#263238" fill-opacity="0.4"/>
+</svg>

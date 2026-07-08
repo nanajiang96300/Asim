@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1280" height="4" fill="#1F497D"/>
+
+  <!-- Title -->
+  <text x="60" y="52" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="36" font-weight="bold" fill="#1F497D">Asim 底层物理级基础算子 (Instruction) 全集</text>
+  <text x="60" y="78" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="16" fill="#666666">Opcode 定义来自 src/Common.h，执行路径由 Core.cc + SystolicWS.cc 处理 — 共 5 大类 21 条指令</text>
+
+  <!-- ===== TABLE ===== -->
+  <!-- Column widths: cat 160, opcode 210, pipeline 150, desc 270, timing 370 -->
+  <g>
+    <!-- Header -->
+    <rect x="30" y="95" width="1220" height="34" rx="3" fill="#1F497D"/>
+    <text x="50" y="117" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">指令类别</text>
+    <text x="200" y="117" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">Opcode</text>
+    <text x="380" y="117" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">分发流水线</text>
+    <text x="530" y="117" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">微观作用</text>
+    <text x="800" y="117" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">时延模型 &amp; 关键参数</text>
+
+    <!-- Col separators -->
+    <line x1="185" y1="95" x2="185" y2="650" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="375" y1="95" x2="375" y2="650" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="520" y1="95" x2="520" y2="650" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="790" y1="95" x2="790" y2="650" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1"/>
+
+    <!-- ===== ROW 1: 数据搬运流 ===== -->
+    <rect x="30" y="129" width="1220" height="64" rx="0" fill="#F5F7FA"/>
+    <rect x="30" y="129" width="155" height="64" fill="#4F81BD" fill-opacity="0.08"/>
+    <text x="50" y="155" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#1F497D">数据搬运流</text>
+    <text x="50" y="175" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">Data Movement</text>
+
+    <text x="200" y="155" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#1F497D">MOVIN</text>
+    <text x="200" y="172" font-family="Consolas, monospace" font-size="11" fill="#4F81BD">MOVOUT / MOVOUT_POOL</text>
+
+    <text x="380" y="163" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">LD/ST Queue</text>
+
+    <text x="530" y="155" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">管控 SPAD ↔ DRAM 间数据搬运</text>
+    <text x="530" y="175" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">按 dram_req_size(64B) 分包发起 MemoryAccess</text>
+
+    <text x="800" y="155" font-family="Consolas, monospace" font-size="11" fill="#333333">N_req = ceil(data_bytes / 64B)</text>
+    <text x="800" y="175" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">ICNT 往返 + DRAM 排队延迟</text>
+
+    <!-- ===== ROW 2: Cube 脉动阵列 ===== -->
+    <rect x="30" y="193" width="1220" height="64" rx="0" fill="#FFFFFF"/>
+    <rect x="30" y="193" width="155" height="64" fill="#4BACC6" fill-opacity="0.08"/>
+    <text x="50" y="219" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#1F497D">Cube 脉动阵列</text>
+    <text x="50" y="239" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">Systolic Array</text>
+
+    <text x="200" y="219" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#1F497D">GEMM_PRELOAD</text>
+    <text x="200" y="236" font-family="Consolas, monospace" font-size="11" fill="#4BACC6">GEMM</text>
+
+    <text x="380" y="227" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">Cube Pipeline</text>
+
+    <text x="530" y="219" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">微块矩阵乘法，支持权重预加载与流填充</text>
+    <text x="530" y="239" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">GEMM_PRELOAD: 含 pipeline 启动偏移 + 相邻指令间隔</text>
+
+    <text x="800" y="215" font-family="Consolas, monospace" font-size="10" fill="#333333">b_m=ceil(t_m/16), b_n=ceil(t_n/16), b_k=ceil(t_k/16)</text>
+    <text x="800" y="229" font-family="Consolas, monospace" font-size="10" fill="#333333">C = 1+(16+16-2)+max(b_m·b_n·b_k, 1)</text>
+    <text x="800" y="243" font-family="'Microsoft YaHei', sans-serif" font-size="10" fill="#666666">多发射: compute_pipeline 深度 = core_height</text>
+
+    <!-- ===== ROW 3: Vector 向量池 (基础) ===== -->
+    <rect x="30" y="257" width="1220" height="80" rx="0" fill="#F5F7FA"/>
+    <rect x="30" y="257" width="155" height="80" fill="#4F81BD" fill-opacity="0.06"/>
+    <text x="50" y="283" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#1F497D">Vector 向量池</text>
+    <text x="50" y="303" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">基础运算</text>
+
+    <text x="200" y="283" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#1F497D">ADD / MUL / MAC</text>
+    <text x="200" y="300" font-family="Consolas, monospace" font-size="11" fill="#4F81BD">DIV / SQRT</text>
+    <text x="200" y="317" font-family="Consolas, monospace" font-size="11" fill="#4F81BD">EXP / ADDTREE / COMP</text>
+
+    <text x="380" y="295" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">Vector Pipeline</text>
+
+    <text x="530" y="283" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">向量化逐元素运算：加减乘除、开方、指数、归约求和、比较</text>
+    <text x="530" y="303" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">ADDTREE: N 维特征一维降维压缩求和（树形结构累计）</text>
+    <text x="530" y="320" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">SQRT: 使用 scalar_sqrt_latency 建模，阻塞影响显著</text>
+
+    <text x="800" y="283" font-family="Consolas, monospace" font-size="10" fill="#333333">vec_iter = ceil(compute_size*2B / 256B)</text>
+    <text x="800" y="300" font-family="Consolas, monospace" font-size="10" fill="#333333">cycles = vec_iter × latency</text>
+    <text x="800" y="317" font-family="Consolas, monospace" font-size="10" fill="#333333">ADD=1 | MUL=1 | MAC=1 | DIV=4 | SQRT=4</text>
+    <text x="800" y="331" font-family="Consolas, monospace" font-size="10" fill="#666666">EXP=2 | ADDTREE: iter×latency×tile_m | COMP: iter×1</text>
+
+    <!-- ===== ROW 4: Vector 向量池 (复合/激活) ===== -->
+    <rect x="30" y="337" width="1220" height="64" rx="0" fill="#FFFFFF"/>
+    <rect x="30" y="337" width="155" height="64" fill="#4F81BD" fill-opacity="0.06"/>
+    <text x="50" y="363" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#1F497D">Vector 向量池</text>
+    <text x="50" y="383" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">复合/激活</text>
+
+    <text x="200" y="363" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#1F497D">SOFTMAX / LAYERNORM</text>
+    <text x="200" y="380" font-family="Consolas, monospace" font-size="11" fill="#4F81BD">GELU / SWISH</text>
+
+    <text x="380" y="369" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">Vector Pipeline</text>
+
+    <text x="530" y="363" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">复合归一化算子 + 激活函数</text>
+    <text x="530" y="383" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">SOFTMAX: 2×add_tree + (add+exp+mul) 组合 | LAYERNORM: add_tree+sqrt+vec</text>
+
+    <text x="800" y="363" font-family="Consolas, monospace" font-size="10" fill="#333333">SOFTMAX: 2×add_tree_iter×latency×tile_m</text>
+    <text x="800" y="380" font-family="Consolas, monospace" font-size="10" fill="#333333">       + vec_iter×(add+exp+mul)</text>
+    <text x="800" y="397" font-family="Consolas, monospace" font-size="10" fill="#333333">GELU: vec_iter×gelu_latency (2)</text>
+
+    <!-- ===== ROW 5: Scalar ===== -->
+    <rect x="30" y="401" width="1220" height="64" rx="0" fill="#F5F7FA"/>
+    <rect x="30" y="401" width="155" height="64" fill="#8064A2" fill-opacity="0.08"/>
+    <text x="50" y="427" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#1F497D">Scalar 标量池</text>
+    <text x="50" y="447" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">逐元素 ALU</text>
+
+    <text x="200" y="427" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#1F497D">SCALAR_ADD / SCALAR_SUB</text>
+    <text x="200" y="444" font-family="Consolas, monospace" font-size="11" fill="#8064A2">SCALAR_MUL / SCALAR_DIV / SCALAR_SQRT</text>
+
+    <text x="380" y="433" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">Scalar Pipeline</text>
+
+    <text x="530" y="427" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">逐元素标量操作，compute_size 恒为 1</text>
+    <text x="530" y="447" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">用于对角线元素操作（Cholesky/LDL 的 per-column SQRT/DIV）</text>
+
+    <text x="800" y="427" font-family="Consolas, monospace" font-size="10" fill="#333333">compute_size = 1（强约束）</text>
+    <text x="800" y="444" font-family="Consolas, monospace" font-size="10" fill="#333333">SCALAR_ADD/SUB=1 | MUL=1 | DIV=4 | SQRT=4</text>
+    <text x="800" y="458" font-family="'Microsoft YaHei', sans-serif" font-size="10" fill="#C0504D">严格单发射: scalar_pipeline 同时仅 1 条指令</text>
+
+    <!-- ===== ROW 6: 同步屏障 ===== -->
+    <rect x="30" y="465" width="1220" height="64" rx="0" fill="#FFFFFF"/>
+    <rect x="30" y="465" width="155" height="64" fill="#C0504D" fill-opacity="0.06"/>
+    <text x="50" y="491" font-family="'Microsoft YaHei', sans-serif" font-size="13" font-weight="bold" fill="#1F497D">同步屏障</text>
+    <text x="50" y="511" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">Synchronization</text>
+
+    <text x="200" y="491" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#1F497D">PIPE_BARRIER</text>
+
+    <text x="380" y="499" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">Vector Pipeline (1-cycle)</text>
+
+    <text x="530" y="491" font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">显式建模 MTE/Cube/Vector 跨单元同步依赖</text>
+    <text x="530" y="511" font-family="'Microsoft YaHei', sans-serif" font-size="11" fill="#666666">barrier_type 区分: MTE→Cube(1) / Cube→Vector(2) / Vector→Cube(3) / Cube→MTE(4)</text>
+
+    <text x="800" y="491" font-family="Consolas, monospace" font-size="10" fill="#333333">C_barrier = 1 周期</text>
+    <text x="800" y="508" font-family="'Microsoft YaHei', sans-serif" font-size="10" fill="#666666">T_barrier = T_wait_issue + 1</text>
+    <text x="800" y="522" font-family="'Microsoft YaHei', sans-serif" font-size="10" fill="#C0504D">等待前序 vector+scalar pipeline 清空后才发射</text>
+
+    <!-- Bottom Key insights -->
+    <rect x="30" y="545" width="1220" height="2" fill="#D0D0D0"/>
+
+    <text x="50" y="575" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="14" font-weight="bold" fill="#1F497D">关键设计要点</text>
+
+    <g font-family="'Microsoft YaHei', sans-serif" font-size="12" fill="#333333">
+      <text x="50" y="600">1. 指令生成阶段 (initialize_instructions) 每个 tile 独立生成完整指令序列，按 batch 并行 → Scheduler 发射到 24 核</text>
+      <text x="50" y="622">2. Cube Pipeline 多发射（深度 core_height），Vector/Scalar 单发射 —— PIPE_BARRIER 同步三者</text>
+      <text x="50" y="644">3. MOVIN/MOVOUT 拆分为固定 64B 粒度 MemoryAccess，经 NoC 路由到 DRAM 32 通道</text>
+      <text x="50" y="666">4. SPAD(0x10000000) + ACCUM_SPAD(0x20000000) 各 256KB，双缓冲乒乓操作，首次使用前需 ADD 初始化</text>
+      <text x="50" y="688">5. 总周期 = 片上依赖等待 + 流水线占用 + NoC 传输 + DRAM 排队 —— 非单条指令延迟简单相加</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,1 @@
+每个 Core 内部通过 LD、EX、ST 三条指令队列将 Tile 指令分发到物理流水线。EX 队列根据 opcode 类型将指令路由到 Cube、Vector 或 Scalar 流水线。Cube 流水线是脉动阵列，支持多发射，以 16 乘 16 乘 16 为基本块做矩阵乘法。Vector 流水线是 2048 位的 SIMD 单元，单发射处理逐元素运算。Scalar 流水线是严格的单发射 ALU，compute_size 恒为 1，用于对角线元素操作。SPAD 和 ACCUM 各 256KB，通过双缓冲机制交替使用。
