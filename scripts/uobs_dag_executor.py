@@ -307,12 +307,20 @@ class FormulaDAG:
         # For incremental updates (multiple steps write to same name), accumulate
         registry: Dict[Tuple[int, str], np.ndarray] = {}
 
-        # Seed initial tensors per batch: register each tensor only for batches
-        # where it actually appears as an input, using the correct per-step shapes.
+        # Seed initial tensors per batch.
+        # Supports per-batch tensors as a list: {"H": [H_batch0, H_batch1]}.
+        # If a single array is passed, it's used for all batches (common case).
         for name, tensor in initial_tensors.items():
-            for node in self.nodes:
-                if name in node.input_names:
-                    registry[(node.batch, name)] = np.asarray(tensor, dtype=np.complex128)
+            if isinstance(tensor, (list, tuple)):
+                # Per-batch list: tensor[b] used for batch b
+                for node in self.nodes:
+                    if name in node.input_names and node.batch < len(tensor):
+                        registry[(node.batch, name)] = np.asarray(tensor[node.batch], dtype=np.complex128)
+            else:
+                # Single tensor: used for all batches that reference it (H1 fix: documented limitation)
+                for node in self.nodes:
+                    if name in node.input_names:
+                        registry[(node.batch, name)] = np.asarray(tensor, dtype=np.complex128)
 
         for node in self.nodes:
             key = (node.batch, node.output_name)

@@ -135,8 +135,7 @@ def _compute_via_dag(formula_json_path, a_mat, cfg):
     try:
         with open(formula_json_path) as f:
             data = json.load(f)
-        dag = FormulaDAG()
-        dag.build(data["steps"])
+        dag = FormulaDAG(data["steps"])  # C3 fix: _build is private, use constructor
         result = dag.execute({"A": a_mat}, {"lambda": 0.1})
         # Return the last computed matrix (should be Ainv)
         for node in reversed(dag.nodes):

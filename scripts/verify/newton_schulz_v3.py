@@ -25,17 +25,22 @@ def verify(formula_path, seed=42):
     result = dag.execute({"A": A, "X": X_init}, {"lambda": 0.1})
     A_dag = result.get("Ainv")
 
-    # Path B: Python reference
+    # Path B: Python reference — must include final GEMM because
+    # NS_BWD_ASSEMBLE in C++ computes GEMM(X_{K-1}, X_{K-1}) → Ainv
+    # so Ainv_dag = X_{K-1} @ X_{K-1}. Reference must match this.
     X = X_init.copy()
     for k in range(K):
         T = prim_gemm(A, X)
         R = prim_matrix_sub(C_2I, T)
         X = prim_gemm(X, R)
-    A_ref = fp16(X)
+    A_ref = fp16(prim_gemm(X, X))  # final GEMM matches NS_BWD_ASSEMBLE
 
-    # If DAG path fails (no Ainv output), fall back to primitive-only
+    # C1 fix: was comparing A^{-1} (X) against A^{-2} (X@X) — algebra mismatch
+    # H2 fix: removed A_dag = A_ref fallback that silently masked DAG failures
     if A_dag is None:
-        A_dag = A_ref
+        return {"error": float('inf'), "status": "FAIL",
+                "steps": len(data["steps"]), "seed": seed,
+                "note": "DAG chain incomplete — no Ainv output"}
     err_dag = compute_error(A_dag, A_ref)
     return {"error": err_dag, "status": "PASS" if err_dag < THRESHOLD else "FAIL",
             "steps": len(data["steps"]), "seed": seed}

@@ -8,11 +8,20 @@ def fp16(x):
     return r + 1j * i
 
 def load_dag(formula_path):
-    """Load FormulaDAG from formula_steps.json."""
+    """Load FormulaDAG from formula_steps.json.
+
+    Handles both formats:
+    - New: {"_metadata": {...}, "steps": [...]}
+    - Old: [{...}, {...}]  (list of step dicts)
+    """
     from uobs_dag_executor import FormulaDAG
     with open(formula_path) as f:
         data = json.load(f)
-    steps = [s for s in data['steps'] if s['batch'] == 0]
+    if isinstance(data, dict):
+        steps = data.get("steps", [])
+    else:
+        steps = data  # old format: list of steps
+    steps = [s for s in steps if s['batch'] == 0]
     return FormulaDAG(steps), data
 
 def verify_via_dag(dag, H, lam=0.1):
