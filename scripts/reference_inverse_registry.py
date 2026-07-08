@@ -211,41 +211,6 @@ def compute_reference_inverse(
     return fn(a_mat, cfg, **kwargs)
 
 
-def _execute_dag_inverse(dag: FormulaDAG, a_mat: np.ndarray,
-                         algo_name: str) -> Optional[np.ndarray]:
-    """Try to reconstruct the inverse using the DAG executor.
-
-    Returns None if reconstruction fails (missing intermediates, shape
-    mismatches, etc.), signalling the caller to fall back to the registered
-    per-algorithm function.
-    """
-    n = a_mat.shape[0]
-    # The DAG needs initial tensors for all leaf inputs.
-    # Common inputs for communication operators:
-    #   "H" — channel matrix (M×U)
-    #   "lambda*I" — regularization term
-    #   "I" — identity matrix
-    initial: Dict[str, np.ndarray] = {
-        "H": a_mat,              # H^H·H will be computed from H
-        "I": np.eye(n, dtype=np.complex128),
-        "lambda*I": np.eye(n, dtype=np.complex128) * 0.1,  # placeholder
-    }
-    aux = {"lambda": 0.1}
-
-    results = dag.execute(initial, aux)
-
-    # Look for the output inverse matrix
-    for key in results:
-        if any(pat in key.lower() for pat in ['inv', 'a_inv', 'ainv', 'x_']):
-            return np.asarray(results[key], dtype=np.complex64)
-
-    # Fallback: return the last produced tensor
-    if results:
-        return np.asarray(list(results.values())[-1], dtype=np.complex64)
-
-    return None
-
-
 # ── Registry introspection ────────────────────────────────────────────────
 
 def list_algorithms() -> list:
