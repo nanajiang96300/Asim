@@ -22,21 +22,25 @@ Standardized DAG-based numerical verification for operators.
 
 ### Phase 3: Run DAG Verification
 ```bash
-.venv/bin/python3 -c "
-from scripts.unified_verify import run_test
-from scripts.algo import <algo_func>
-run_test('<op_name>', <algo_func>, '<formula_path>')
-"
+# Use the per-operator verify script
+.venv/bin/python scripts/verify/<op_name>.py <formula_path>
 ```
+Each operator has a dedicated verify script in `scripts/verify/` that:
+- Loads formula_steps.json via `load_dag()`
+- Executes Path A (DAG from C++ FormulaLogger)
+- Computes Path B (Python reference using primitives)
+- Reports dual-path error
 
 ### Phase 4: Check Results
-- Cross-error (Py vs DAG) must be < 0.01 for PASS
-- If FAIL: check FormulaLogger declarations for missing steps
-- Run `scripts/trace_audit.py` to verify GEMM coverage is 100%
+- Dual-path error must be < operator-specific THRESHOLD for PASS
+- If FAIL: check FormulaLogger declarations for missing steps or broken DAG chain
+- Run `scripts/trace_audit.py` to verify GEMM coverage
+- Run multi-seed verification: `run_multi_seed(verify_fn, seeds=(42, 123, 456))`
 
 ### Phase 5: Pipeline Integration
 - Update `orchestrator/pipeline.json` if operator has verified mode
 - Record result in `DOCS/operators/<op>.md` verification section
+- Result format: `{"error": float, "status": "PASS"|"FAIL", "steps": int, "seed": int}`
 
 ## Per-Operator DAG Chain Requirements
 

@@ -7,6 +7,7 @@ from verify._base import fp16, load_dag, verify_via_dag, compute_error, run_mult
 from uobs_dag_executor import prim_gemm, prim_diag_add, prim_cholesky, prim_trsm
 
 THRESHOLD = 0.01
+# Threshold: 0.01 — FP16 Block Cholesky has same numerical stability as full Cholesky (~0.1% error)
 
 def verify(formula_path, seed=42):
     dag, data = load_dag(formula_path)

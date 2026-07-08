@@ -24,7 +24,7 @@
       "name": "Code Follows v3.0 Standard",
       "required": true,
       "description": "Operator .cc must follow DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md",
-      "check": "grep -q 'base_addr = 0' src/inverse/${ALGO_DIR}/${OP_FILE}.cc && grep -q 'set_algorithm' src/inverse/${ALGO_DIR}/${OP_FILE}.cc && grep -q 'PIPE_BARRIER' src/inverse/${ALGO_DIR}/${OP_FILE}.cc",
+      "check": "grep -q '.base_addr = 0' src/inverse/${ALGO_DIR}/${OP_FILE}.cc && grep -q 'set_algorithm' src/inverse/${ALGO_DIR}/${OP_FILE}.cc && grep -q 'PIPE_BARRIER' src/inverse/${ALGO_DIR}/${OP_FILE}.cc",
       "on_fail": "Fix: base_addr=0 in MOVIN, FormulaLogger::set_algorithm(), PIPE_BARRIER at column boundaries."
     },
     {

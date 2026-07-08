@@ -5,6 +5,7 @@ from verify._base import fp16, load_dag, verify_via_dag, compute_error, run_mult
 from uobs_dag_executor import prim_gemm, prim_diag_add, prim_ldl_decompose
 
 THRESHOLD = 0.10
+# Threshold: 0.10 — LDL Block has higher FP16 error than Cholesky due to D-factor ops
 
 def verify(formula_path, seed=42):
     dag, data = load_dag(formula_path)

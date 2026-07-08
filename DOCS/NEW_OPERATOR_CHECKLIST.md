@@ -171,7 +171,8 @@ Newton-Schulz (K iterations):
 Block-Richardson (L iterations):
   GRAM(GEMM: H^H,H→G) → REG(DIAG_ADD: G,lambda*I→A) → BRI_PRECOND(A→B)
   For l=0..L-1:
-    GEMM(A, X_l→T_l) → MATRIX_SUB(2I, T_l→R_l) → MATRIX_ADD(X_l, R_l→X_{l+1})
+    GEMM(B, Y_l→BY_l) → MATRIX_SUB(I, BY_l→R_l) → MATRIX_ADD(Y_l, R_l→Y_{l+1})
+  BRI_FINAL(GEMM: Y_{L-1}, Y_{L-1}→Ainv)  [注：简化表示，实际硬件计算 Y@H@Yin]
 ```
 
 ---
