@@ -40,33 +40,33 @@
 
 | # | 位置 | 问题 | 状态 |
 |---|------|------|:---:|
-| H1 | `orchestrator/operator_registry.json` | 引用旧的非 Baseline 算子 | ⬜ 待处理 |
-| H2 | `LDLNoBlockBaselineOp.cc` | 前向求解+sqrt 缩放无 emit_step | ⬜ 待处理 |
-| H3 | `LDLBlockBaselineOp.cc` | 同上 | ⬜ 待处理 |
-| H4 | `.claude/skills/verify-operator/SKILL.md` | 引用不存在的 unified_verify.py | ⬜ 待处理 |
+| H1 | `orchestrator/operator_registry.json` | 引用旧的非 Baseline 算子 | ✅ 已修复 (6ec63ee) |
+| H2 | `LDLNoBlockBaselineOp.cc` | 前向求解+sqrt 缩放无 emit_step | 🟡 已知限制（DAG primitive 内部覆盖） |
+| H3 | `LDLBlockBaselineOp.cc` | 同上 | 🟡 已知限制（DAG primitive 内部覆盖） |
+| H4 | `.claude/skills/verify-operator/SKILL.md` | 引用不存在的 unified_verify.py | ✅ 已修复 (6ec63ee) |
 
 ### MEDIUM (6 项)
 
 | # | 位置 | 问题 | 状态 |
 |---|------|------|:---:|
-| M1 | `DOCS/DAG_PRIMITIVES_SPEC.md` | LDL_FACTOR vs LDL_DECOMPOSE 命名不一致 | ⬜ |
-| M2 | `CholeskyNoBlockBaselineOp.cc` | 逐列 TRSM 无 emit_step | ⬜ |
-| M3 | `.claude/skills/audit-operator/SKILL.md` | 未引用 v3 标准 Section 8 | ⬜ |
+| M1 | `DOCS/DAG_PRIMITIVES_SPEC.md` | LDL_FACTOR vs LDL_DECOMPOSE 命名不一致 | ✅ 已修复 (6ec63ee) |
+| M2 | `CholeskyNoBlockBaselineOp.cc` | 逐列 TRSM 无 emit_step | 🟡 已知限制（完整性改进，不影响验证） |
+| M3 | `.claude/skills/audit-operator/SKILL.md` | 未引用 v3 标准 Section 8 | 🟡 低优先级 |
 | M4 | `scripts/ci_gate.sh` | DAG 自测用 fragile grep | ✅ 已修复 |
-| M5 | `LDLNoBlockBaselineOp.cc` | LDL_DECOMPOSE 逐列调用语义不匹配 | ⬜ |
-| M6 | `LDLNoBlockBaselineOp.cc` | LUPDATE TRSM 输出 L 但无消费 → 死代码 | ⬜ |
+| M5 | `LDLNoBlockBaselineOp.cc` | LDL_DECOMPOSE 逐列调用语义不匹配 | 🟡 已知限制（完整性改进） |
+| M6 | `LDLNoBlockBaselineOp.cc` | LUPDATE TRSM 输出 L 但无消费 → 死代码 | 🟡 已知限制（无下游消费，无害） |
 
 ### LOW (7 项)
 
 | # | 位置 | 问题 | 状态 |
 |---|------|------|:---:|
-| L1 | `DOCS/NEW_OPERATOR_CHECKLIST.md` | BRI DAG 链示例有误 | ⬜ |
-| L2 | `verify/cholesky_block_v3.py` | 缺少阈值依据注释 | ⬜ |
-| L3 | `verify/ldl_block_v3.py` | 同上 | ⬜ |
-| L4 | `NewtonSchulzBaselineOp.cc` | 使用未文档化的 barrier type 2 | ⬜ |
-| L5 | `BlockRichardsonBaselineOp.cc` | 非标准 barrier pattern | ⬜ |
+| L1 | `DOCS/NEW_OPERATOR_CHECKLIST.md` | BRI DAG 链示例有误 | ✅ 已修复 (6ec63ee) |
+| L2 | `verify/cholesky_block_v3.py` | 缺少阈值依据注释 | ✅ 已修复 (6ec63ee) |
+| L3 | `verify/ldl_block_v3.py` | 同上 | ✅ 已修复 (6ec63ee) |
+| L4 | `NewtonSchulzBaselineOp.cc` | 使用未文档化的 barrier type 2 | 🟡 低优先级 |
+| L5 | `BlockRichardsonBaselineOp.cc` | 非标准 barrier pattern | 🟡 低优先级 |
 | L6 | `uobs_dag_executor.py` | 自测打印 "Execution complete" 被 grep 依赖 | ✅ 已修复 |
-| L7 | `orchestrator/pipeline.json` | code_v3_standard grep 模式脆弱 | ⬜ |
+| L7 | `orchestrator/pipeline.json` | code_v3_standard grep 模式脆弱 | ✅ 已修复 (6ec63ee) |
 
 ## CI 门禁状态
 
