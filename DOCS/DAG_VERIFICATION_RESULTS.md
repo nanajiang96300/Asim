@@ -47,26 +47,58 @@
 | 7 | `"H^H"` | 共轭转置 (所有 GRAM 步骤) |
 | 8 | `"Y^H"` | 共轭转置 (所有 BWD 步骤) |
 
-## 二、自测误差统计
+## 二、完整算子误差统计 (2026-07-08)
 
-### 2.1 DAG 执行器自测 (`--self-test`)
+### 2.1 测试配置
 
-| 测试项 | N | 误差 | 阈值 | 结果 |
+- **脚本**: `scripts/test_all_operators.py`
+- **算子**: 7 个（6 Baseline + 1 Merge）
+- **种子**: 5 个 (42, 123, 456, 789, 1024)
+- **维度**: 2 组 (U=16/M=64, U=32/M=128)
+- **指标**: Self-Err (DAG vs 同原语 Python 参考) + True-Err (DAG vs numpy.linalg.inv)
+
+### 2.2 完整误差表 (5 seed × 2 size)
+
+| 算子 | U | Self-Max | True-Max | 阈值 | 结果 |
+|------|:---:|------:|------:|:---:|:---:|
+| Cholesky NoBlock v2 | 16 | 0.00 | 9.25e-04 | 0.01 | ✅ |
+| Cholesky NoBlock v2 | 32 | 0.00 | 9.66e-04 | 0.01 | ✅ |
+| Cholesky NoBlock Merge | 16 | 0.00 | 9.25e-04 | 0.01 | ✅ |
+| Cholesky NoBlock Merge | 32 | 0.00 | 9.66e-04 | 0.01 | ✅ |
+| Cholesky Block v3 | 16 | 0.00 | 9.25e-04 | 0.01 | ✅ |
+| Cholesky Block v3 | 32 | 0.00 | 9.66e-04 | 0.01 | ✅ |
+| LDL NoBlock v2 | 16 | 0.00 | 7.62e-02 | 0.10 | ✅ |
+| LDL NoBlock v2 | 32 | 0.00 | 5.79e-02 | 0.10 | ✅ |
+| LDL Block v3 | 16 | 0.00 | 7.62e-02 | 0.10 | ✅ |
+| LDL Block v3 | 32 | 0.00 | 5.79e-02 | 0.10 | ✅ |
+| Newton-Schulz v3 | 16 | 0.00 | N/A* | 0.10 | ✅ |
+| Newton-Schulz v3 | 32 | 0.00 | N/A* | 0.10 | ✅ |
+| Block-Richardson v3 | 16 | 0.00 | N/A* | 0.01 | ✅ |
+| Block-Richardson v3 | 32 | 0.00 | N/A* | 0.01 | ✅ |
+
+> *NS/BRI 的 True-Err 不适用（DAG 输出与 A^{-1} 是不同的数学量，见 2.4 已知限制）
+
+### 2.3 按方法汇总
+
+| 方法 | 算子数 | Avg Self-Err | Avg True-Err | 结果 |
+|------|:---:|------:|------:|:---:|
+| Direct (Cholesky) | 3 | 0.00e+00 | 9.46e-04 | ✅ |
+| Direct (LDL) | 2 | 0.00e+00 | 6.71e-02 | ✅ |
+| Iterative | 2 | 0.00e+00 | N/A* | ✅ |
+
+### 2.4 各算子验证方式
+
+| 算子 | 阈值 | 验证方式 | 双路径 | True-Err 适用 |
 |------|:---:|------|:---:|:---:|
-| Cholesky DAG 链 | 8 | 7.55e-04 | 0.01 | ✅ PASS |
-| LDL primitive | 8 | 4.77e-02 | 0.10 | ✅ PASS |
-| BRI 2x2 block | 8 | 3.96e-04 | — | ✅ PASS |
+| Cholesky NoBlock v2 | 0.01 | DAG vs prim_cholesky ref | ✅ | ✅ (DAG 输出 = A^{-1}) |
+| Cholesky NoBlock Merge | 0.01 | DAG vs prim_cholesky ref | ✅ | ✅ |
+| Cholesky Block v3 | 0.01 | DAG vs prim_cholesky ref (算法等价) | ✅ | ✅ |
+| LDL NoBlock v2 | 0.10 | DAG vs prim_ldl_decompose ref | ✅ | ✅ (DAG 输出 = A^{-1}) |
+| LDL Block v3 | 0.10 | DAG vs prim_ldl_decompose ref (算法等价) | ✅ | ✅ |
+| Newton-Schulz v3 | 0.10 | DAG vs prim_gemm+prim_matrix_sub ref | ✅ | ❌ (DAG 输出 X@X ≠ A^{-1}，需收敛) |
+| Block-Richardson v3 | 0.01 | DAG 自一致性 (同 primitive 重放) | ✅ | ❌ (DAG 输出 Y@Y，HW 输出 Y@H@Yin)** |
 
-### 2.2 各算子验证脚本（需仿真器运行时生成 formula JSON）
-
-| 算子 | 阈值 | 验证方式 | 双路径 |
-|------|:---:|------|:---:|
-| Cholesky NoBlock | 0.01 | DAG vs prim_cholesky ref | ✅ |
-| Cholesky Block | 0.01 | DAG vs prim_cholesky ref (算法等价) | ✅ |
-| LDL NoBlock | 0.10 | DAG vs prim_ldl_decompose ref | ✅ |
-| LDL Block | 0.10 | DAG vs prim_ldl_decompose ref (算法等价) | ✅ |
-| Newton-Schulz | 0.10 | DAG vs prim_gemm+prim_matrix_sub ref | ✅ |
-| Block-Richardson | 0.01 | DAG 自一致性 (同 primitive 重放) | ✅ |
+> **BRI 硬件算 X_hat=Y@H@Yin (MMSE estimate)，DAG 简化记录为 Y@Y。无法对比 A^{-1}
 
 ### 2.3 已知限制
 
