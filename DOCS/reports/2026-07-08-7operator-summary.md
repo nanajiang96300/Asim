@@ -16,7 +16,7 @@
 | 4 | LDL NoBlock v2 | 直接法 | 25,628 | ✅ | 0.0139 | 0.9494 | ⚠️ 条件数敏感 |
 | 5 | LDL Block v3 | 分块直接法 | 4,959 | ✅ | 0.0136* | 0.9503* | ⚠️ 条件数敏感 |
 | 6 | Newton-Schulz v3 | 迭代法 | 2,591 (K=8→16: ~5,182) | ✅ | 0.0001 | 0.0210 | ✅ K=16 推荐 |
-| 7 | Block-Richardson v3 | 迭代法 | 1,993 (L=8) | ✅ | 0.0001 | 0.7396 | ✅ Rayleigh |
+| 7 | Block-Richardson v3 | 迭代法 | 1,993 (L=4) | ✅ | 0.0001 | ❌ | ✅ Rayleigh only |
 
 > *LDL Block FP16 数据。NS 周期 K=16 为估算（线性缩放）。
 
@@ -36,7 +36,7 @@
 | Newton-Schulz v3 | 0.00 | N/A* | 0.00 | N/A* | ✅ |
 | Block-Richardson v3 | 0.00 | N/A* | 0.00 | N/A* | ✅ |
 
-> *NS/BJ 的 True-Err 不适用（DAG 输出 ≠ A⁻¹）
+> *NS/BRI 的 True-Err 不适用（DAG 输出 ≠ A⁻¹）
 
 ### 2.2 SER 检测精度（Rayleigh, SNR=20dB）
 
@@ -44,7 +44,7 @@
 |------|:---:|------:|------|
 | Cholesky NoBlock | 0.0000 | 4.5e-04 | ✅ 完美 |
 | NS K=16 (spectral) | 0.0000 | 1.9e-04 | ✅ 完美 |
-| BJ B=2 L=4 (Chebyshev) | 0.0001 | 5.1e-02 | ✅ 完美 |
+| BRI B=2 L=4 (Chebyshev) | 0.0001 | 5.1e-02 | ✅ 完美 |
 | LDL (scalar) | 0.0139 | 5.5e-02 | ⚠️ 1.4% SER 退化 |
 
 ### 2.3 SER 检测精度（CDL-B, SNR=20dB, cond≈114）
@@ -55,7 +55,7 @@
 | NS K=32 (spectral) | 0.0000 | 2.1e-04 | ✅ 收敛 |
 | NS K=16 (spectral) | 0.0210 | 1.1e-01 | ⚠️ 可接受 |
 | NS K=8 (spectral) | 0.9409 | 9.7e-01 | ❌ 未收敛 |
-| BJ B=2 L=8 | 0.7396 | 2.0e-01 | ❌ 需更多迭代 |
+| BRI | ❌ | ❌ | 预条件器失效（min eig(B)≈0.06） |
 | LDL (scalar) | 0.9494 | 2.8e-01 | ❌ 条件数敏感 |
 
 ---
@@ -82,8 +82,8 @@
 | 1 | LDL (全部) | CDL-B 条件数下 D 因子链误差放大 | HIGH | 无需修复（改用 Cholesky） |
 | 2 | LDL (全部) | Rayleigh 下 1.4% SER 退化（算法固有） | MEDIUM | 可接受 |
 | 3 | NS | 默认 iterations=8→16，周期翻倍 | MEDIUM | 新默认 16 |
-| 4 | BJ | CDL-B 需要 L≥16 才能收敛 | MEDIUM | 迭代数自适应 |
-| 5 | BJ | DAG 简化表示（Y@Y 非真实 HW 链路） | LOW | 文档化 |
+| 4 | BRI | CDL-B 预条件器失效：min eig(D^{-1}@A)≈0.06，无法通过增加迭代或调整参数修复 | HIGH | 相关信道改用 Cholesky |
+| 5 | BRI | DAG 简化表示（Y@Y 非真实 HW 链路） | LOW | 文档化 |
 | 6 | Cholesky Block | POTRF_GEMM emit_step 输出 schur 为死数据 | LOW | 文档化 |
 | 7 | NS | 默认 K=16 估算周期 ~5,182 | LOW | 实际运行后确认 |
 
@@ -97,7 +97,7 @@
 |------|------|------|
 | **FP16 MIMO 检测 (Rayleigh)** | Cholesky NoBlock v2 | 0% SER 退化，最可靠 |
 | **FP16 MIMO 检测 (CDL-B)** | Cholesky NoBlock v2 | 相关信道下唯一完美方案 |
-| **低延迟 (Rayleigh)** | BJ B=2 L=4 | 1,993 周期，0.01% SER 退化 |
+| **低延迟 (Rayleigh)** | BRI B=2 L=4 | 1,993 周期，0.01% SER 退化 |
 | **低延迟 (通用)** | Cholesky Block v3 | 6,440 周期，0% SER 退化 |
 | **吞吐优先** | Newton-Schulz v3 (K=16) | 纯 GEMM，Cube 利用率最高 |
 
@@ -105,7 +105,7 @@
 
 1. **Cholesky 是唯一在两种信道下都完美的算法**（ΔSER=0.000）。FP16 下无损。
 
-2. **NS 和 BJ 在 Rayleigh 下可以达到完美精度**，但需要正确的初始化和加速策略（谱初始化、Chebyshev）。
+2. **NS 和 BRI 在 Rayleigh 下可以达到完美精度**。BRI 在 CDL-B 不可用（预条件器 min eig≈0.06，无法收敛）。
 
 3. **LDL 在 Rayleigh 下有 1.4% 的固有 SER 退化**，这是 D 因子链的数值特性，与精度无关。CDL-B 下不可用。
 
@@ -115,12 +115,27 @@
 
 6. **NS 默认迭代数已从 8 改为 16**，确保 CDL-B 信道下有足够收敛。
 
-### 5.3 后续工作
+### 5.4 BRI CDL-B 详细分析 (2026-07-14)
+
+测试了 B=2/4/8, L=4~48, adaptive/fixed/wider Chebyshev, FP16/FP64 全部组合，**无一收敛**。
+
+| 最优配置 | ΔSER | 结论 |
+|------|:---:|------|
+| B=2 L=8 wider [0.001,5.0] | 0.7396 | 最佳但仍失败 |
+| B=4 L=32 adaptive | 0.9842 | 更大块无效 |
+| B=8 L=32 adaptive | 0.9842 | 更大块无效 |
+| B=2 L=32 FP64 | 0.9839 | 精度升级无效 |
+
+**根因**: `eig(D^{-1}@A)` 在 CDL-B 下 min ≈ 0.06（Rayleigh 下 ≈ 0.32）。预条件器无法将相关信道的特征值聚类到 1 附近。这导致 Richardson 迭代收敛半径 ≈ 1，需要 > 100 次迭代才能收敛。
+
+**结论**: BRI 的块对角预条件器对相关信道（CDL-B）从根本上不适用。推荐 CDL-B 下使用 Cholesky 直接法。
+
+### 5.5 后续工作
 
 | 优先级 | 工作 | 预计影响 |
 |:---:|------|------|
 | HIGH | 实际运行 NS K=16 获取精确周期数 | 更新性能表 |
-| MEDIUM | BJ CDL-B 收敛性优化（更多 L 或更好预条件器） | 提升相关信道性能 |
+| — | BRI CDL-B 已确认不可用（预条件器失效），无需进一步优化 | 记录为已知限制 |
 | MEDIUM | DAG executor: 删除未使用的原语（DIAG_INV/MATRIX_INV_2x2/SQRT_SCALE） | 代码清理 |
 | LOW | Cholesky Block POTRF_GEMM 死数据流清理 | 代码清理 |
 | LOW | 基线回归测试（CI gate --baseline save） | 回归保护 |
@@ -134,7 +149,7 @@
 | 周期数 | `DOCS/operators/README.md` | 2026-07-04 |
 | DAG 自一致性 | `scripts/test_all_operators.py` | 2026-07-08 |
 | SER (修正后) | `scripts/eval_corrected_fp16.py` | 2026-07-08 |
-| BJ SER | `scripts/eval_bj_correct.py` | 2026-07-08 |
+| BRI SER + CDL-B | `scripts/eval_bri_cdlb_test.py` | 2026-07-14 |
 | LDL FP16/FP64 | `scripts/eval_ldl_correct.py` | 2026-07-08 |
 | CI 门禁 | `scripts/ci_gate.sh --fast` | 2026-07-08 |
 | 算子代码 | `src/inverse/*/BaselineOp.cc` | 2026-07-08 |
