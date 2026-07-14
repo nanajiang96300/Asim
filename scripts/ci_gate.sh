@@ -33,6 +33,7 @@ RESULTS_DIR="${PROJECT_ROOT}/results/ci_gate"
 # Operator → test model mapping
 declare -A OPERATOR_MODELS=(
     ["cholesky_noblock"]="cholesky_noblock_v2_test.json"
+    ["cholesky_noblock_merge"]="cholesky_noblock_merge_test.json"
     ["cholesky_block"]="cholesky_block_v3_test.json"
     ["ldl_noblock"]="ldl_noblock_v2_test.json"
     ["ldl_block"]="ldl_block_v3_test.json"
@@ -43,6 +44,7 @@ declare -A OPERATOR_MODELS=(
 # Operator → simulator mode mapping
 declare -A OPERATOR_MODES=(
     ["cholesky_noblock"]="cholesky_noblock_v2_test"
+    ["cholesky_noblock_merge"]="cholesky_noblock_merge_test"
     ["cholesky_block"]="cholesky_block_v3_test"
     ["ldl_noblock"]="ldl_noblock_v2_test"
     ["ldl_block"]="ldl_block_v3_test"
@@ -53,6 +55,7 @@ declare -A OPERATOR_MODES=(
 # Operator → verify script mapping
 declare -A VERIFY_SCRIPTS=(
     ["cholesky_noblock"]="cholesky_noblock_v2.py"
+    ["cholesky_noblock_merge"]="cholesky_noblock_v2.py"
     ["cholesky_block"]="cholesky_block_v3.py"
     ["ldl_noblock"]="ldl_noblock_v2.py"
     ["ldl_block"]="ldl_block_v3.py"

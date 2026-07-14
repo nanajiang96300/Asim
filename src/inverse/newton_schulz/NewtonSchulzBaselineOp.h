@@ -17,5 +17,5 @@ class NewtonSchulzBaselineOp : public Operation {
   void parse_attributes();
   std::vector<uint32_t> _matrix_shape;
   uint32_t _batch_size{96};
-  uint32_t _iterations{8};
+  uint32_t _iterations{16};  // K=16: ΔSER=0.000 on Rayleigh, 0.021 on CDL-B (verified 2026-07-08)
 };

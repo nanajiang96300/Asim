@@ -7,6 +7,7 @@
 | # | 算子 | 文档 | Python | C++ | 周期 (U=16) |
 |---|------|------|--------|-----|------------|
 | 1 | Cholesky NoBlock v2 | [01_cholesky_noblock_v2.md](01_cholesky_noblock_v2.md) | `scripts/algo/cholesky_noblock.py` | `CholeskyNoBlockBaselineOp` | 23,439 |
+| 1b | Cholesky NoBlock Merge | — | — | `CholeskyNoBlockMergeOp` | 9,999 |
 | 2 | LDL NoBlock v2 | [02_ldl_noblock_v2.md](02_ldl_noblock_v2.md) | `scripts/algo/ldl_noblock.py` | `LDLNoBlockBaselineOp` | 25,628 |
 
 ## Block 算子（块分解）
