@@ -1,0 +1,1054 @@
+{
+  "schema_version": "asim-legacy-runs-1",
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "run_count": 10,
+  "runs": [
+    {
+      "run_id": "results/block_richardson/run_001",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "block_richardson",
+        "mode": "block_richardson_test",
+        "timestamp": "2026-06-29T13:03:48Z",
+        "run_dir": "results/block_richardson/run_001",
+        "finish_cycle": 1979,
+        "total_tiles": 96,
+        "tps": 243.517902,
+        "simulation_time_seconds": 0.732531
+      },
+      "models": {
+        "models": [
+          {
+            "name": "block_jacobi_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16,
+            "attributes": {
+              "layers": "8",
+              "block_size": "2",
+              "group_sync": "2",
+              "adaptive_bounds": "1",
+              "iter_weight": "1",
+              "fused_by_gemm": "1",
+              "by_preload_period": "4"
+            }
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/block_richardson/run_001/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "unversioned-20260629-130348",
+      "recorded_base_commit": null,
+      "dirty_source_indicated": null,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/block_richardson/run_001/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/block_richardson/run_001/formula_steps.json",
+          "bytes": 75478,
+          "sha256": "0fcb53b05c94b3f8c951dbe771bce5a91576db2403464f3a4e99e05fad9f6c88"
+        },
+        {
+          "path": "results/block_richardson/run_001/log.txt",
+          "bytes": 35131,
+          "sha256": "310bc73b1078ef7eb66bbd518f81b92c050b23d23625e4a06d16c666b08bf237"
+        },
+        {
+          "path": "results/block_richardson/run_001/models_list.json",
+          "bytes": 471,
+          "sha256": "77ac13e3d36bf2d72ab698c5ab7f70676e83a0d2cac42019c25a9f057095b487"
+        },
+        {
+          "path": "results/block_richardson/run_001/operator_version.md",
+          "bytes": 2439,
+          "sha256": "d0311917b3aa8cd6eb739f2e83667a2ae4f6fa142e50830969f286e52c2a0fe7"
+        },
+        {
+          "path": "results/block_richardson/run_001/summary.json",
+          "bytes": 266,
+          "sha256": "f942f7e9507ed10931c9fbc202c0db0352eb3285847773e4d8f7eec3ef34f92c"
+        },
+        {
+          "path": "results/block_richardson/run_001/timestamp",
+          "bytes": 21,
+          "sha256": "9f4039118ef5103b8dc0ed8ba28f8a1d5bea8e825546c59dd0bed0e7995f7228"
+        },
+        {
+          "path": "results/block_richardson/run_001/trace.csv",
+          "bytes": 712695,
+          "sha256": "28ba2464ad9b267863c49cc0093208f631d66c37ffdc214ea56e8fcf1c8e8de7"
+        },
+        {
+          "path": "results/block_richardson/run_001/version.txt",
+          "bytes": 28,
+          "sha256": "3b0811284827ef13cf1de5686de9e6f3a322191db6c720f4269ba1591f80817e"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/cholesky_block/run_001",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "cholesky_block",
+        "mode": "cholesky_test",
+        "timestamp": "2026-06-29T13:02:29Z",
+        "run_dir": "results/cholesky_block/run_001",
+        "finish_cycle": 3326,
+        "total_tiles": 96,
+        "tps": 151.678079,
+        "simulation_time_seconds": 1.112993
+      },
+      "models": {
+        "models": [
+          {
+            "name": "cholesky_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16,
+            "attributes": {
+              "block_size": "2",
+              "solve_steps": "1"
+            }
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/cholesky_block/run_001/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "unversioned-20260629-130229",
+      "recorded_base_commit": null,
+      "dirty_source_indicated": null,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/cholesky_block/run_001/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/cholesky_block/run_001/formula_steps.json",
+          "bytes": 116458,
+          "sha256": "1ac93fafd7724e4d58ef0c0d04262b074bdc575c432882a8dc0b301dcaab7a45"
+        },
+        {
+          "path": "results/cholesky_block/run_001/log.txt",
+          "bytes": 34538,
+          "sha256": "25e15633d2559727f4aff30fc59ffc4643605db5b9e78288de8e5566368f5169"
+        },
+        {
+          "path": "results/cholesky_block/run_001/models_list.json",
+          "bytes": 281,
+          "sha256": "c69cf260cac37409dda6d5e1f5282e703918875e7e7d139dae377bec84eb4022"
+        },
+        {
+          "path": "results/cholesky_block/run_001/operator_version.md",
+          "bytes": 1181,
+          "sha256": "2ff0915f42772fe523941f2cba514be30e7303056afc92c9d996da382d18a560"
+        },
+        {
+          "path": "results/cholesky_block/run_001/summary.json",
+          "bytes": 254,
+          "sha256": "a238e30c388b1f92951e79d0e1fe5e964efcb1614c9ccaa8603b800e0961270e"
+        },
+        {
+          "path": "results/cholesky_block/run_001/timestamp",
+          "bytes": 21,
+          "sha256": "375be6a19db5837794e31cec6f9bddfb426626f6241bc0ee915e7c85fd971466"
+        },
+        {
+          "path": "results/cholesky_block/run_001/trace.csv",
+          "bytes": 1496060,
+          "sha256": "92c3e19aeb5636a903d432d602e62c7844325485af2782d60a5ea45a21715cd8"
+        },
+        {
+          "path": "results/cholesky_block/run_001/version.txt",
+          "bytes": 28,
+          "sha256": "082a1a2b5687512c9095c36901e844ae8c0226af484da5ceae754c007b505d8e"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/cholesky_noblock/run_001",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "cholesky_noblock",
+        "mode": "cholesky_noblock_test",
+        "timestamp": "2026-06-29T13:02:50Z",
+        "run_dir": "results/cholesky_noblock/run_001",
+        "finish_cycle": 6142,
+        "total_tiles": 96,
+        "tps": 93.003114,
+        "simulation_time_seconds": 2.209711
+      },
+      "models": {
+        "models": [
+          {
+            "name": "cholesky_noblock_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16,
+            "attributes": {
+              "strict_iso_lowering": "1"
+            }
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/cholesky_noblock/run_001/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "unversioned-20260629-130250",
+      "recorded_base_commit": null,
+      "dirty_source_indicated": null,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/cholesky_noblock/run_001/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/cholesky_noblock/run_001/formula_steps.json",
+          "bytes": 625014,
+          "sha256": "f37ba8a41f20e7aea4cdf5de1094f96de7a147d035f1de3b4b1e023833645a44"
+        },
+        {
+          "path": "results/cholesky_noblock/run_001/log.txt",
+          "bytes": 34673,
+          "sha256": "0cdf6f811e435eb9db0c09092b031bb2416ee2b069fd22b499682f6868bd093a"
+        },
+        {
+          "path": "results/cholesky_noblock/run_001/models_list.json",
+          "bytes": 262,
+          "sha256": "6d09bbef7e9ef20fe65168a3eb6002ba5c782d184a2b6380d20e6e3129217e1a"
+        },
+        {
+          "path": "results/cholesky_noblock/run_001/operator_version.md",
+          "bytes": 1008,
+          "sha256": "6c02017ec54cc17e85ac1ca2b641f4bc79e2073b514347546a9a6df23c1e861e"
+        },
+        {
+          "path": "results/cholesky_noblock/run_001/summary.json",
+          "bytes": 265,
+          "sha256": "7f47867ccfe8aefc8fd9c014db98e716929f13ebc1c4cb39061eb097924e1831"
+        },
+        {
+          "path": "results/cholesky_noblock/run_001/timestamp",
+          "bytes": 21,
+          "sha256": "b2fb3793552685cace06245e3995ffe4db274d0ca97ae9bb04dbf0df2f6b3274"
+        },
+        {
+          "path": "results/cholesky_noblock/run_001/trace.csv",
+          "bytes": 3790318,
+          "sha256": "19ccbb9361fc1a0211c07fcf4ef6250432c306d6ed1c0097593ac5969bb9c991"
+        },
+        {
+          "path": "results/cholesky_noblock/run_001/version.txt",
+          "bytes": 28,
+          "sha256": "4ccaa37f469e036f374bdf5d5ac149a8417e371f11098459a2dfadfb632996c7"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/cholesky_noblock_v2/run_001",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "cholesky_noblock_v2",
+        "mode": "cholesky_noblock_v2_test",
+        "timestamp": "2026-06-30T01:18:50Z",
+        "run_dir": "results/cholesky_noblock_v2/run_001",
+        "finish_cycle": 15261,
+        "total_tiles": 96,
+        "tps": 40.29923,
+        "simulation_time_seconds": 4.855138
+      },
+      "models": {
+        "models": [
+          {
+            "name": "cholesky_noblock_v2_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/cholesky_noblock_v2/run_001/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "e66a5d7 ( 1 file changed, 18 insertions(+))",
+      "recorded_base_commit": "e66a5d7b92f983129fb59bde85ec605525812094",
+      "dirty_source_indicated": true,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/cholesky_noblock_v2/run_001/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_001/formula_steps.json",
+          "bytes": 5347775,
+          "sha256": "733d41d4bfd761d5defe1868d2bd9dfe48b5b81385717c1c24464a434937b590"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_001/log.txt",
+          "bytes": 34354,
+          "sha256": "0954722b4a0b12075ec393f65eea4d68d981de30672b6d82dcb4657e97d8ee24"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_001/models_list.json",
+          "bytes": 180,
+          "sha256": "ebfff2f183afcca92ddda2ad949d600010d1c2c4c69308a2d0b5299d24255472"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_001/summary.json",
+          "bytes": 275,
+          "sha256": "93a7f19d476a25eeb24729f252eef48ab272f67414a7aee3d366d9bc0abded3b"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_001/timestamp",
+          "bytes": 21,
+          "sha256": "09614d3562eec753bb65d6eb332fbf7007edc035e441fe8136c7ce691b7085cf"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_001/trace.csv",
+          "bytes": 8381062,
+          "sha256": "79cd1619e51bc0932fdacd490a8d6fc17c6886604f3ee78b9b10c8635ff1a3c1"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_001/version.txt",
+          "bytes": 44,
+          "sha256": "363e09214c3eee795ff11e617987085170888c22fbe0be4420074918aeefbab9"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/cholesky_noblock_v2/run_002",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "cholesky_noblock_v2",
+        "mode": "cholesky_noblock_v2_test",
+        "timestamp": "2026-06-30T01:30:15Z",
+        "run_dir": "results/cholesky_noblock_v2/run_002",
+        "finish_cycle": 15261,
+        "total_tiles": 96,
+        "tps": 39.177788,
+        "simulation_time_seconds": 5.049249
+      },
+      "models": {
+        "models": [
+          {
+            "name": "cholesky_noblock_v2_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/cholesky_noblock_v2/run_002/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "e66a5d7 ( 1 file changed, 18 insertions(+))",
+      "recorded_base_commit": "e66a5d7b92f983129fb59bde85ec605525812094",
+      "dirty_source_indicated": true,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/cholesky_noblock_v2/run_002/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_002/formula_steps.json",
+          "bytes": 5347775,
+          "sha256": "733d41d4bfd761d5defe1868d2bd9dfe48b5b81385717c1c24464a434937b590"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_002/log.txt",
+          "bytes": 34354,
+          "sha256": "2aec8df2aacc284500b80c5431f6c97b7415102f8f5aa4bdeb4da28971fa0186"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_002/models_list.json",
+          "bytes": 180,
+          "sha256": "ebfff2f183afcca92ddda2ad949d600010d1c2c4c69308a2d0b5299d24255472"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_002/summary.json",
+          "bytes": 275,
+          "sha256": "b85b35ffbfbe227476f400a3288f9a5ba56ba3a8fe8f039c0a0e5a0bea38d1bc"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_002/timestamp",
+          "bytes": 21,
+          "sha256": "17bac5bc840605d68bf84ec2a87cfd33aa41782b59a05cd3c44ccccafaf7a22e"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_002/trace.csv",
+          "bytes": 8381062,
+          "sha256": "79cd1619e51bc0932fdacd490a8d6fc17c6886604f3ee78b9b10c8635ff1a3c1"
+        },
+        {
+          "path": "results/cholesky_noblock_v2/run_002/version.txt",
+          "bytes": 44,
+          "sha256": "363e09214c3eee795ff11e617987085170888c22fbe0be4420074918aeefbab9"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/ldl_block/run_001",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "ldl_block",
+        "mode": "ldl_test",
+        "timestamp": "2026-06-29T13:03:34Z",
+        "run_dir": "results/ldl_block/run_001",
+        "finish_cycle": 1682,
+        "total_tiles": 96,
+        "tps": 328.933306,
+        "simulation_time_seconds": 0.538276
+      },
+      "models": {
+        "models": [
+          {
+            "name": "ldl_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16,
+            "attributes": {
+              "block_size": "2",
+              "bwd_steps": "1"
+            }
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/ldl_block/run_001/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "unversioned-20260629-130334",
+      "recorded_base_commit": null,
+      "dirty_source_indicated": null,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/ldl_block/run_001/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/ldl_block/run_001/formula_steps.json",
+          "bytes": 76239,
+          "sha256": "add50fa1bb713822efc34827cdddc6d4ba9944189db1fe98a792ecaf9caeee07"
+        },
+        {
+          "path": "results/ldl_block/run_001/log.txt",
+          "bytes": 34615,
+          "sha256": "6be8b239a22221d166a0dc8b13f9e6991db34cc9c93acb1d60b6de844db15480"
+        },
+        {
+          "path": "results/ldl_block/run_001/models_list.json",
+          "bytes": 274,
+          "sha256": "e7dd717c17f033f1b7058917ef7a7d9d62feca881e451e59a757c5ecd8432b71"
+        },
+        {
+          "path": "results/ldl_block/run_001/operator_version.md",
+          "bytes": 1318,
+          "sha256": "ebf7fb7130ed4c26be5688311449b3cbe784835bb56977b799691d7f6b4ef23b"
+        },
+        {
+          "path": "results/ldl_block/run_001/summary.json",
+          "bytes": 239,
+          "sha256": "7c66cdeeb8c7354cbcfdca2cdf8d173c4a41be10691aa6612f430fceb83225f6"
+        },
+        {
+          "path": "results/ldl_block/run_001/timestamp",
+          "bytes": 21,
+          "sha256": "20e30aa05428400f435e9b6d123df983bb2aa615f6ff83821fa0c560a367a23b"
+        },
+        {
+          "path": "results/ldl_block/run_001/trace.csv",
+          "bytes": 801609,
+          "sha256": "2780dc187a1101fac7987685eeaff55eed38e4b59f71831ec89f4d55fc7f8627"
+        },
+        {
+          "path": "results/ldl_block/run_001/version.txt",
+          "bytes": 28,
+          "sha256": "c5e37f2498e77f156029095e518798d40ce5b95ce0629f62528fee1d2b18d298"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/ldl_noblock/run_001",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "ldl_noblock",
+        "mode": "ldl_noblock_test",
+        "timestamp": "2026-06-29T13:03:35Z",
+        "run_dir": "results/ldl_noblock/run_001",
+        "finish_cycle": 3673,
+        "total_tiles": 96,
+        "tps": 137.6185,
+        "simulation_time_seconds": 1.160422
+      },
+      "models": {
+        "models": [
+          {
+            "name": "ldl_noblock_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16,
+            "attributes": {
+              "bwd_steps": "1"
+            }
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/ldl_noblock/run_001/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "unversioned-20260629-130335",
+      "recorded_base_commit": null,
+      "dirty_source_indicated": null,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/ldl_noblock/run_001/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/ldl_noblock/run_001/formula_steps.json",
+          "bytes": 76241,
+          "sha256": "a615f8c4a88a9edb2368508c37be3dfe50315b2858a1bad2e23befde779caba8"
+        },
+        {
+          "path": "results/ldl_noblock/run_001/log.txt",
+          "bytes": 34610,
+          "sha256": "2b1dc46a1d29905ae4fdd551dbe6ae993bc7d26932cd7174fb842bec66750e14"
+        },
+        {
+          "path": "results/ldl_noblock/run_001/models_list.json",
+          "bytes": 247,
+          "sha256": "cb7383ab7d2dfc9941667dadad9a5cea9fa55c1d4a4479cdaae35a08cf5b3742"
+        },
+        {
+          "path": "results/ldl_noblock/run_001/operator_version.md",
+          "bytes": 1216,
+          "sha256": "1df8aee79c55534f01b69c8782369ae8147eb1b825b38bbac036eabe1f61e193"
+        },
+        {
+          "path": "results/ldl_noblock/run_001/summary.json",
+          "bytes": 251,
+          "sha256": "7d16b1287ec500bc0e1b784fc8cc0d23d5bc6355861a56553ae4ebdcccbc82de"
+        },
+        {
+          "path": "results/ldl_noblock/run_001/timestamp",
+          "bytes": 21,
+          "sha256": "70743d5639394cfed142640bfc3cb695ab325f9e9493e2b3d043f958f249428b"
+        },
+        {
+          "path": "results/ldl_noblock/run_001/trace.csv",
+          "bytes": 2473004,
+          "sha256": "973c2004f6fc37874dee942979cae91dc808f926997962dd10c5ee4501204bbc"
+        },
+        {
+          "path": "results/ldl_noblock/run_001/version.txt",
+          "bytes": 28,
+          "sha256": "2a3060eb49e34051922ffbb2788f2c7e2d933d93f72584a3b99ba3c6fa5dcc78"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/ldl_noblock_v2/run_001",
+      "summary_parse_status": "INVALID",
+      "summary_parse_error": "Expecting value: line 6 column 19 (char 172)",
+      "summary": null,
+      "models": {
+        "models": [
+          {
+            "name": "ldl_noblock_v2_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/ldl_noblock_v2/run_001/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "e66a5d7 ( 1 file changed, 18 insertions(+))",
+      "recorded_base_commit": "e66a5d7b92f983129fb59bde85ec605525812094",
+      "dirty_source_indicated": true,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/ldl_noblock_v2/run_001/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_001/formula_steps.json",
+          "bytes": 5347962,
+          "sha256": "ce86893998299323a74785e81d2b4f285bb6cfb89b1d13ce5177b802631f76cf"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_001/log.txt",
+          "bytes": 35545,
+          "sha256": "2cbb50d69ccdaecabb9fff4a8659aaef377ecf47f7ef5b9d114797e4aa3beef1"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_001/models_list.json",
+          "bytes": 175,
+          "sha256": "5e1d9020fe7690aeabdfefa031969f59c24e7975dba6e824f5175fb2ac63008f"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_001/summary.json",
+          "bytes": 262,
+          "sha256": "82a30e6b74492352becab6b3a53d9ccc06f0e25110c3d2ca4777d8d209f29399"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_001/timestamp",
+          "bytes": 21,
+          "sha256": "6d977818d714106eb3e66ea85381cb69bd37222b38cb082369ee20c145586d55"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_001/trace.csv",
+          "bytes": 96502,
+          "sha256": "43650a806373c105d79e6e0f0afef3804b48c13b2845663c66d37d3622c3d425"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_001/version.txt",
+          "bytes": 44,
+          "sha256": "363e09214c3eee795ff11e617987085170888c22fbe0be4420074918aeefbab9"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/ldl_noblock_v2/run_002",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "ldl_noblock_v2",
+        "mode": "ldl_noblock_v2_test",
+        "timestamp": "2026-06-30T01:30:20Z",
+        "run_dir": "results/ldl_noblock_v2/run_002",
+        "finish_cycle": 20733,
+        "total_tiles": 96,
+        "tps": 31.147294,
+        "simulation_time_seconds": 6.370739
+      },
+      "models": {
+        "models": [
+          {
+            "name": "ldl_noblock_v2_64x16",
+            "batch_size": 96,
+            "matrix_m": 64,
+            "matrix_k": 16
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/ldl_noblock_v2/run_002/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "e66a5d7 ( 1 file changed, 18 insertions(+))",
+      "recorded_base_commit": "e66a5d7b92f983129fb59bde85ec605525812094",
+      "dirty_source_indicated": true,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/ldl_noblock_v2/run_002/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_002/formula_steps.json",
+          "bytes": 5347482,
+          "sha256": "7ef498ca2bb6d210f324513b1b48d14e34bcb22a035bbcd2e338cdec9ea4852a"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_002/log.txt",
+          "bytes": 34402,
+          "sha256": "31e33dcf1448724a9c6775e9fc0666364f98be3c495b773a6b1993e5973bb8dd"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_002/models_list.json",
+          "bytes": 175,
+          "sha256": "5e1d9020fe7690aeabdfefa031969f59c24e7975dba6e824f5175fb2ac63008f"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_002/summary.json",
+          "bytes": 260,
+          "sha256": "d0623c06e920e16b1795332faee9d3ba311c5968f4bfe94a97043469c335f0f5"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_002/timestamp",
+          "bytes": 21,
+          "sha256": "ccc3a2e6adbdf58a3f39aa796591ab77b97641937e5e1356c5cd2eb4ded7bf89"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_002/trace.csv",
+          "bytes": 11262435,
+          "sha256": "77856db64af67adc8c9c390c0d0bdf271a0b92eceb5eceea1d67b8110ead26c4"
+        },
+        {
+          "path": "results/ldl_noblock_v2/run_002/version.txt",
+          "bytes": 44,
+          "sha256": "363e09214c3eee795ff11e617987085170888c22fbe0be4420074918aeefbab9"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    },
+    {
+      "run_id": "results/newton_schulz/run_001",
+      "summary_parse_status": "PARSED",
+      "summary_parse_error": null,
+      "summary": {
+        "algorithm": "newton_schulz",
+        "mode": "newton_schulz_opt_test",
+        "timestamp": "2026-06-29T13:03:36Z",
+        "run_dir": "results/newton_schulz/run_001",
+        "finish_cycle": 38806,
+        "total_tiles": 24,
+        "tps": 876584.243398,
+        "simulation_time_seconds": 11.629417
+      },
+      "models": {
+        "models": [
+          {
+            "name": "newton_schulz_32x32_opt",
+            "batch_size": 96,
+            "matrix_m": 32,
+            "matrix_k": 32,
+            "attributes": {
+              "iterations": "10"
+            }
+          }
+        ]
+      },
+      "models_parse_error": null,
+      "hardware": {
+        "num_cores": 24,
+        "precision_bytes": 2,
+        "layout": "NHWC",
+        "cube_model": {
+          "enabled": true,
+          "cube_m": 16,
+          "cube_n": 16,
+          "cube_k": 16,
+          "cube_base_latency": 1
+        },
+        "config_path": "results/newton_schulz/run_001/config.json"
+      },
+      "config_parse_error": null,
+      "recorded_version": "unversioned-20260629-130336",
+      "recorded_base_commit": null,
+      "dirty_source_indicated": null,
+      "candidate_commit": null,
+      "input_hash": null,
+      "evaluator_version": null,
+      "scorer_version": null,
+      "quality": null,
+      "score": null,
+      "evidence_levels": [
+        "documented"
+      ],
+      "reproduction_status": "not_run",
+      "promotion_status": "legacy_unverified",
+      "artifacts": [
+        {
+          "path": "results/newton_schulz/run_001/config.json",
+          "bytes": 12562,
+          "sha256": "d5dbae61766a34f278414908090d01c2580c8da2c9dbac67382517f86414ce98"
+        },
+        {
+          "path": "results/newton_schulz/run_001/formula_steps.json",
+          "bytes": 1127896,
+          "sha256": "2552c3e794fbb28f16a99bec0e9876c34bc59a1abdc8689279ecf8706ddedb55"
+        },
+        {
+          "path": "results/newton_schulz/run_001/log.txt",
+          "bytes": 35002,
+          "sha256": "4dc028ed93a22ec1475e456de3b62e2e9d5087d97e7474ce9778f943e69a49c8"
+        },
+        {
+          "path": "results/newton_schulz/run_001/models_list.json",
+          "bytes": 199,
+          "sha256": "91f933cfd2070ec932373b6ea8001d2d563309d57ec91ccaa0c8006847a5d765"
+        },
+        {
+          "path": "results/newton_schulz/run_001/operator_version.md",
+          "bytes": 1564,
+          "sha256": "08c24d877e4a7b36cf54ab83d4545f8a5987df497c47d0d8a5854d05e454a961"
+        },
+        {
+          "path": "results/newton_schulz/run_001/summary.json",
+          "bytes": 266,
+          "sha256": "e0172cacf390809920edbe14a610f3a5e2318665826d44eddaff06915abf46a8"
+        },
+        {
+          "path": "results/newton_schulz/run_001/timestamp",
+          "bytes": 21,
+          "sha256": "92ccbad7ba295874d461becb315bf92205bb54617d736fbdda4d2fb754ae115b"
+        },
+        {
+          "path": "results/newton_schulz/run_001/trace.csv",
+          "bytes": 1608609,
+          "sha256": "9e6af3e2175d1e97c31570602deec3735d3348095208a337233ef834d0481d01"
+        },
+        {
+          "path": "results/newton_schulz/run_001/version.txt",
+          "bytes": 28,
+          "sha256": "4dab02e147c5a91614e453e8faa73844099f3b5a357964720961f807829ea0ea"
+        }
+      ],
+      "limitations": [
+        "运行目录存在不代表本轮复现；未冻结的输入/源码差异和验证器版本无法补造。",
+        "precision_bytes=2仅表示周期配置的元素字节宽度，不证明数值执行FP16。"
+      ]
+    }
+  ]
+}

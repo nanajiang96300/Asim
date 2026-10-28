@@ -1,0 +1,144 @@
+{
+  "schema_version": "asim-history-sources-1",
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "sources": [
+    {
+      "path": "README.md",
+      "bytes": 14507,
+      "sha256": "95f8f56ce7e645acce1c7843ae7d1614b7ff15b67e366426b5d11c0cc36cbfce",
+      "last_change_commit": "6ec63ee84a3d775e94913f2337d2c3519fc9a5d8",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/Ascend.tex",
+      "bytes": 236957,
+      "sha256": "61a38206f5c3b1979e86818c7b24f8492c423f0b179edce2823c006e999a2c1f",
+      "last_change_commit": "e66a5d7b92f983129fb59bde85ec605525812094",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/WEEKLY_REPORT_2026-07-06.md",
+      "bytes": 18709,
+      "sha256": "fcf90acaefb906eabad1d97b7e1e87964662f9c8e1057f16ae7b4fa56e6c5685",
+      "last_change_commit": "86c273084dc3f5fa8d3d1ed08f72063bb05955b6",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/reports/2026-07-14-weekly-report.md",
+      "bytes": 7934,
+      "sha256": "cb7a4aafc0e51e97c2be147b642c8c521d7243f7874f73753cc3b9dbd8485adf",
+      "last_change_commit": "5a86e9fc5ba4fda657f34f8503ed0053de0248c8",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/reports/2026-07-08-7operator-summary.md",
+      "bytes": 7329,
+      "sha256": "7b8b1f751f48e06f725aec649cb71e4a330e7d382b61aa037ddf96064096f8fa",
+      "last_change_commit": "4c6cd570e6f24b116197bf13651ef002ece981a8",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/reports/2026-07-08-algorithm-fix-report.md",
+      "bytes": 4449,
+      "sha256": "08773aec0495ef487eb8237854f57f0842d1b19f8aac82cd6803c4a502128439",
+      "last_change_commit": "3abf495ebd6200ed0e70d0dd53b0b3335f99bb5a",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/reports/2026-07-08-dag-architecture-review.md",
+      "bytes": 2932,
+      "sha256": "55650ed8843b1179d6b1f1a8c984d890f0dd3319964787b97b8e1a83d4bc33fe",
+      "last_change_commit": "3abf495ebd6200ed0e70d0dd53b0b3335f99bb5a",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/reports/2026-07-08-dag-verification-results.md",
+      "bytes": 7325,
+      "sha256": "4e2b4fdc4106d23649b667767702197878915a9fd7f59af9fa467fbfd958d88d",
+      "last_change_commit": "3abf495ebd6200ed0e70d0dd53b0b3335f99bb5a",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/operators/README.md",
+      "bytes": 1551,
+      "sha256": "4021bb51650cd6bbf9009278b0b89edfa08e4b30ea49c69b3ae0c1680022e682",
+      "last_change_commit": "02f7f518226c27a424a9e21b9b20da698a59f8a8",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/operators/05_newton_schulz_v3.md",
+      "bytes": 2368,
+      "sha256": "be706a07601982ab0551fa044dbe72c1082065e29becfcc6d6adb82de2a92aa8",
+      "last_change_commit": "0eb1dbe9f6803a12ed5ad9e329e37087bfd9a5d9",
+      "status": "present"
+    },
+    {
+      "path": "DOCS/zhongqi/zhongqi.md",
+      "bytes": 26695,
+      "sha256": "43ddf0a0e0c177bdbd1f97ea3567ec01be11239ef0e7ad9d3b9dc8aa4d27a178",
+      "last_change_commit": "fe8abb0cc2da02633c2eae822262a18ca0c8ae47",
+      "status": "present"
+    },
+    {
+      "path": "scripts/eval_corrected_fp16.py",
+      "bytes": 8820,
+      "sha256": "753ee92bd340020e5d2a4994650a204da2ea5e923603b5988c32103f20a8add6",
+      "last_change_commit": "9dfec81aab925029ab92c793f1249d88ed50926c",
+      "status": "present"
+    },
+    {
+      "path": "scripts/eval_bri_cdlb_test.py",
+      "bytes": 7398,
+      "sha256": "4bb1ecd91799830b208ff7693d673afbb19db1dbdb47a3faa034e09df9fc6386",
+      "last_change_commit": "4c6cd570e6f24b116197bf13651ef002ece981a8",
+      "status": "present"
+    },
+    {
+      "path": "scripts/eval_bri_blocksize.py",
+      "bytes": 5437,
+      "sha256": "245ec653de818efd5229e5181d1b61d6e610d778531755ce3a43c3c3a11773f9",
+      "last_change_commit": "88344eff53c1048ff63f11beb1eb366a166e5d2a",
+      "status": "present"
+    },
+    {
+      "path": "scripts/eval_bri_hybrid.py",
+      "bytes": 6968,
+      "sha256": "4855cff46afc75fdbbf1dd6265b77f164ddbd022a9f19f9f84b83ca2dc92bc67",
+      "last_change_commit": "b29a2f9ca59a27bbddc2271d45e033af088a148e",
+      "status": "present"
+    },
+    {
+      "path": "scripts/eval_bri_tridiag.py",
+      "bytes": 6875,
+      "sha256": "b5a2c13c4fbea562a0de9274d909e46ba34b26d849f24744825f552e5f4d46c0",
+      "last_change_commit": "92a819b597eb88a9ede64d014dbfdf34cb853d01",
+      "status": "present"
+    },
+    {
+      "path": "scripts/eval_ldl_correct.py",
+      "bytes": 9381,
+      "sha256": "c6ba0903a0b68c34754e53cb19461e5234146b5d058a77055f96faf86ae585c7",
+      "last_change_commit": "3abf495ebd6200ed0e70d0dd53b0b3335f99bb5a",
+      "status": "present"
+    },
+    {
+      "path": "scripts/eval_qam64_se.py",
+      "bytes": 15669,
+      "sha256": "b260705584d078ee25918aea227f386f340ac933e73c7ebc40b3470b7eb8b02e",
+      "last_change_commit": "2e7d9ce33961b5993408ffe6ea1ef7ec8b22e39b",
+      "status": "present"
+    },
+    {
+      "path": "scripts/verify/newton_schulz_v3.py",
+      "bytes": 2474,
+      "sha256": "c1be160c807d4eb6e856e8c6396cb531d3000e9552b42d8ba528ca5be426a163",
+      "last_change_commit": "a0f3853ea716f66f7c1772740b645301cfcb03e6",
+      "status": "present"
+    }
+  ],
+  "missing_referenced_artifacts": [
+    "results/COMPLETE_SUMMARY.md",
+    "results/block_jacobi_cycle_detail_compact_stats.csv"
+  ],
+  "note": "内容摘要针对本次读取的文件；last_change_commit是资料版本，不是实验候选版本。"
+}

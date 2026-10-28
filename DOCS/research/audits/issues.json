@@ -1,0 +1,878 @@
+{
+  "schema_version": "research-verification-audit-v1",
+  "date": "2026-10-28",
+  "timezone": "Asia/Hong_Kong",
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "scope": "numerical validation, cycle evidence, scoring, Claude automation, NS shadow design",
+  "status": "AUDITED_WITH_OPEN_ISSUES",
+  "report": "DOCS/research/audits/VERIFICATION_AUTOMATION_AUDIT.md",
+  "shadow_plan": "DOCS/research/audits/NS_SHADOW_EXECUTION_PLAN.md",
+  "legacy_files_modified": false,
+  "full_operator_validation_performed": false,
+  "issues": [
+    {
+      "id": "VA-001",
+      "status": "open",
+      "severity": "CRITICAL",
+      "title": "实际搬运及Scalar/Vector未重放",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/trace_replay.py",
+          "line": 342
+        },
+        {
+          "path": "scripts/trace_replay.py",
+          "line": 363
+        }
+      ],
+      "trigger": "包含LOAD/STORE或Scalar/Vector的程序进入重放",
+      "impact": "仅GEMM计数/公式计算不能证明完整NS链或最终DRAM输出",
+      "negative_test": "在实际Instruction删除残差Vector或STORE；公式不变，新执行器必须失败",
+      "followup_tasks": [
+        "S1",
+        "S2"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-002",
+      "status": "open",
+      "severity": "CRITICAL",
+      "title": "伪地址与缺输入随机补值",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/trace_replay.py",
+          "line": 197
+        },
+        {
+          "path": "scripts/trace_replay.py",
+          "line": 213
+        },
+        {
+          "path": "scripts/trace_replay.py",
+          "line": 314
+        }
+      ],
+      "trigger": "跨步骤读取相同tensor或输入缺失",
+      "impact": "step_id参与hash使中间值断开；输入可能被绕过并随机补齐，hash受进程种子影响",
+      "negative_test": "删除输入或改写前一步输出，必须INVALID且禁止随机补齐",
+      "followup_tasks": [
+        "S1",
+        "S2"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-003",
+      "status": "open",
+      "severity": "CRITICAL",
+      "title": "DAG失败后回退算法参考",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/reference_inverse_registry.py",
+          "line": 131
+        },
+        {
+          "path": "scripts/reference_inverse_registry.py",
+          "line": 191
+        }
+      ],
+      "trigger": "DAG缺输入/未知op/失败或公式不可用",
+      "impact": "吞异常后计算注册算法，候选实现与被验证结果脱节",
+      "negative_test": "破坏实际program但保留算法名，必须拒绝且无回退",
+      "followup_tasks": [
+        "S2",
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-004",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "NS参考轮数被强制改变",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/reference_inverse_registry.py",
+          "line": 123
+        }
+      ],
+      "trigger": "候选layers小于15",
+      "impact": "参考改为至少15轮及谱范数初值，不与候选数学参数一致",
+      "negative_test": "K=1与K=16使用同固定输入，P2必须分别执行实际K",
+      "followup_tasks": [
+        "S0",
+        "S2"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-005",
+      "status": "open",
+      "severity": "CRITICAL",
+      "title": "NS平方输出被同原语自比较掩盖",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/verify/newton_schulz_v3.py",
+          "line": 19
+        },
+        {
+          "path": "scripts/verify/newton_schulz_v3.py",
+          "line": 28
+        },
+        {
+          "path": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc",
+          "line": 127
+        }
+      ],
+      "trigger": "NS最终实际生成X@X，DAG与reference均照做",
+      "impact": "公式自一致但与逆矩阵输出契约不等价；两路径共享原语错误",
+      "negative_test": "A=diag(2,4)、X0=A^-1时末尾平方必须被solve(A,I)拒绝",
+      "followup_tasks": [
+        "S0",
+        "S2",
+        "S3"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED",
+      "mathematical_witness": {
+        "artifact": "experiments/audit/2026-10-28/diagnostics.json",
+        "check_id": "ns_final_square_witness",
+        "limitation": "explicit subtraction and valid input assumptions; not C++ execution"
+      }
+    },
+    {
+      "id": "VA-006",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "trace一致性检查可跳过且门槛仅数量",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present",
+        "reproduced"
+      ],
+      "locations": [
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 328
+        },
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 353
+        },
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 364
+        }
+      ],
+      "trigger": "helper读取trace异常或错误指令数量仍>=声明GEMM的50%",
+      "impact": "helper可能接受缺trace，数量无法证明运算方向/数据流；顶层可能更早读trace失败",
+      "negative_test": "单独调用helper的缺trace负例；另修改源地址但保留数量",
+      "followup_tasks": [
+        "S1",
+        "S6"
+      ],
+      "reproduced_scope": {
+        "artifact": "experiments/audit/2026-10-28/diagnostics.json",
+        "check_ids": [
+          "legacy_missing_trace_helper"
+        ],
+        "limitation": "isolated Python negative probe only; no C++ instruction replay or full-domain acceptance"
+      },
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-007",
+      "status": "open",
+      "severity": "CRITICAL",
+      "title": "scorer候选数值来自注册器",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 433
+        },
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 441
+        }
+      ],
+      "trigger": "调用score_operator",
+      "impact": "实际程序未产生可检验数值，评分却比较另一个算法/DAG结果",
+      "negative_test": "实际Instruction写错输出而公式不变，受信scorer必须拒绝",
+      "followup_tasks": [
+        "S2",
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-008",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "旧评分奖励利用率且基准口径不完整",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 374
+        },
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 396
+        },
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 404
+        }
+      ],
+      "trigger": "Cube或并行度增加，或相同Nt但batch/config/成本范围不同",
+      "impact": "0.8周期+0.1Cube+0.1并行度可奖励无效工作，按Nt查表不能保证同口径",
+      "negative_test": "加入无效GEMM不应因利用率得到奖励；不同contract禁止比较",
+      "followup_tasks": [
+        "S0",
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-009",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "NaN误差及零周期缺显式拒绝",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present",
+        "reproduced"
+      ],
+      "locations": [
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 391
+        },
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 397
+        }
+      ],
+      "trigger": "rel_error=NaN或finish_cycle<=0",
+      "impact": "NaN绕过>threshold；零周期被按1计算高分",
+      "negative_test": "NaN/Inf误差、零/负/非有限周期必须INVALID且score=null",
+      "followup_tasks": [
+        "S6"
+      ],
+      "reproduced_scope": {
+        "artifact": "experiments/audit/2026-10-28/diagnostics.json",
+        "check_ids": [
+          "legacy_nan_error",
+          "legacy_zero_cycle"
+        ],
+        "limitation": "isolated Python negative probe only; no C++ instruction replay or full-domain acceptance"
+      },
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-010",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "FP16名称与实际高精度中间计算不等价",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/uobs_dag_executor.py",
+          "line": 21
+        },
+        {
+          "path": "scripts/uobs_dag_executor.py",
+          "line": 36
+        },
+        {
+          "path": "scripts/uobs_dag_executor.py",
+          "line": 69
+        },
+        {
+          "path": "scripts/eval_pure_fp16.py",
+          "line": 21
+        }
+      ],
+      "trigger": "使用DAG/trace FP16 helpers或pure_fp16作为硬件精度证据",
+      "impact": "helpers返回FP64/complex128；GEMM高精度后量化，分解可改变矩阵稳定化；未固定硬件乘累存规则",
+      "negative_test": "舍入/溢出/复数乘法/不同归约顺序原语测试；profile缺项返回UNSUPPORTED",
+      "followup_tasks": [
+        "S4"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-011",
+      "status": "open",
+      "severity": "CRITICAL",
+      "title": "共享stash评估可能污染用户或候选修改",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/evaluate_operator.sh",
+          "line": 31
+        },
+        {
+          "path": "scripts/evaluate_operator.sh",
+          "line": 39
+        },
+        {
+          "path": ".claude/skills/opt-round/SKILL.md",
+          "line": 16
+        }
+      ],
+      "trigger": "旧patch evaluator与用户改动或并行worker共享源码/stash",
+      "impact": "只保护旧目录；pop/checkout回退及cleanup存在数据丢失或交叉污染风险",
+      "negative_test": "在一次性隔离repo检查已有改动及两候选互不影响；新runner禁stash",
+      "followup_tasks": [
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-012",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "共享build和全局临时文件冲突",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/evaluate_operator.sh",
+          "line": 46
+        },
+        {
+          "path": "scripts/evaluate_operator.sh",
+          "line": 51
+        },
+        {
+          "path": "scripts/evaluate_operator.sh",
+          "line": 60
+        },
+        {
+          "path": "scripts/ci_gate.sh",
+          "line": 30
+        }
+      ],
+      "trigger": "并行eval/CI任务运行",
+      "impact": "全局日志覆盖，build/config混用，不能可靠绑定产物来源",
+      "negative_test": "两个run_id独立worktree/build/TMPDIR/artifacts，无路径相交",
+      "followup_tasks": [
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-013",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "CI Python调用拼接及参数接口错误",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/ci_gate.sh",
+          "line": 239
+        },
+        {
+          "path": "scripts/ci_gate.sh",
+          "line": 271
+        },
+        {
+          "path": "scripts/ci_gate.sh",
+          "line": 283
+        },
+        {
+          "path": "scripts/uobs_scorer.py",
+          "line": 454
+        }
+      ],
+      "trigger": "CI执行Layer2或Layer3",
+      "impact": "解释器和脚本成为一个命令词；scorer位置参数不符合--formula/--trace接口",
+      "negative_test": "隔离调用捕获argv，要求解释器/脚本分词且参数匹配CLI",
+      "followup_tasks": [
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-014",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "文本PASS与退出码不代表全种子验证",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/ci_gate.sh",
+          "line": 239
+        },
+        {
+          "path": "scripts/ci_gate.sh",
+          "line": 242
+        },
+        {
+          "path": "scripts/verify/newton_schulz_v3.py",
+          "line": 48
+        }
+      ],
+      "trigger": "输出含PASS或首种子通过而后续种子失败",
+      "impact": "||true吞退出状态；脚本打印单次status，无失败sys.exit；文本可误判",
+      "negative_test": "首seed通过后seed失败、正文含PASS但status失败；JSON/退出码均需拒绝",
+      "followup_tasks": [
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-015",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "pipeline数值验证可选且扩展占位可成功",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "orchestrator/pipeline.json",
+          "line": 65
+        },
+        {
+          "path": "orchestrator/pipeline.json",
+          "line": 67
+        },
+        {
+          "path": "orchestrator/pipeline.json",
+          "line": 76
+        },
+        {
+          "path": ".claude/skills/op-flow/SKILL.md",
+          "line": 65
+        }
+      ],
+      "trigger": "按现有pipeline执行",
+      "impact": "只import入口/计数、截前五行；缺实现可输出NOT YET IMPLEMENTED而非硬失败",
+      "negative_test": "移除数值工具/trace/schema，必须UNSUPPORTED/INVALID且不评分",
+      "followup_tasks": [
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-016",
+      "status": "open",
+      "severity": "CRITICAL",
+      "title": "orchestrator信任跨会话Agent自报score",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "orchestrator/iterate.sh",
+          "line": 103
+        },
+        {
+          "path": "orchestrator/iterate.sh",
+          "line": 119
+        },
+        {
+          "path": "orchestrator/iterate.sh",
+          "line": 127
+        }
+      ],
+      "trigger": "存在/tmp/agent_*_rN_result.json",
+      "impact": "旧会话或其他候选文件可被采纳；缺campaign/程序/门禁摘要，无受信评分来源",
+      "negative_test": "预置陈旧或伪高分Agent JSON，受信runner不得采纳",
+      "followup_tasks": [
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-017",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "旧技能路径及评分维度与模型契约漂移",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": ".claude/skills/opt-round/SKILL.md",
+          "line": 43
+        },
+        {
+          "path": ".claude/skills/opt-round/SKILL.md",
+          "line": 63
+        },
+        {
+          "path": ".claude/skills/opt-round/SKILL.md",
+          "line": 94
+        },
+        {
+          "path": "orchestrator/operator_registry.json",
+          "line": 7
+        }
+      ],
+      "trigger": "旧opt-round按src/operations限制评估当前src/inverse算子，或仅更改--nr/--nt",
+      "impact": "候选改动范围与实际注册路径冲突；scorer维度和模拟器shape可能不一致",
+      "negative_test": "比对registry/model实际shape/program，任何维度或路径不符拒绝",
+      "followup_tasks": [
+        "S0",
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-018",
+      "status": "open",
+      "severity": "MEDIUM",
+      "title": "benchmark配置忽略及归档摘要不充分",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/run_benchmark_suite.sh",
+          "line": 8
+        },
+        {
+          "path": "scripts/run_benchmark_suite.sh",
+          "line": 12
+        },
+        {
+          "path": "scripts/run_benchmark_suite.sh",
+          "line": 20
+        },
+        {
+          "path": "scripts/run_benchmark_suite.sh",
+          "line": 32
+        },
+        {
+          "path": "scripts/run_benchmark_suite.sh",
+          "line": 75
+        }
+      ],
+      "trigger": "传入非默认硬件config、日志字段缺失或并发编号",
+      "impact": "参数未使用；N/A裸插JSON；编号非原子；没有输入/二进制/工具hash",
+      "negative_test": "不同配置应改变config_hash；缺字段产生结构化失败；唯一run_id",
+      "followup_tasks": [
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-019",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "现有CDL-B是相关信道代理",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/channel/cdl.py",
+          "line": 21
+        },
+        {
+          "path": "scripts/channel/cdl.py",
+          "line": 62
+        },
+        {
+          "path": "scripts/channel/cdl.py",
+          "line": 89
+        }
+      ],
+      "trigger": "把该生成器结果外推至完整标准CDL-B",
+      "impact": "只有角扩展控制的指数相关Kronecker平坦信道，不含完整簇/时延/射线等结构",
+      "negative_test": "记录实际model_id/参数/种子；完整标准实现另作校准，不改历史结果",
+      "followup_tasks": [
+        "S0",
+        "S4"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-020",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "lambda与噪声/星座归一化和成本范围未统一",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/unified_verify.py",
+          "line": 48
+        },
+        {
+          "path": "scripts/unified_verify.py",
+          "line": 101
+        },
+        {
+          "path": "scripts/eval_pure_fp16.py",
+          "line": 229
+        },
+        {
+          "path": "scripts/eval_pure_fp16.py",
+          "line": 230
+        },
+        {
+          "path": "scripts/evaluate_ns_se.py",
+          "line": 46
+        }
+      ],
+      "trigger": "跨脚本直接比较SER/SE或算法周期",
+      "impact": "lambda取sigma²或Nt*sigma²并混用noise_power，Gram/谱估计/初始化/恢复成本可能不同",
+      "negative_test": "冻结同H/y/lambda/星座/噪声及setup/apply成本，逐样本配对",
+      "followup_tasks": [
+        "S0",
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-021",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "缺文件或batch覆盖不足可被掩盖",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/check_inverse_replay_consistency.py",
+          "line": 101
+        },
+        {
+          "path": "scripts/check_inverse_replay_consistency.py",
+          "line": 109
+        },
+        {
+          "path": "scripts/verify/_base.py",
+          "line": 24
+        }
+      ],
+      "trigger": "公式文件缺失、所有case跳过或batch>0错绑",
+      "impact": "无NS检查；全缺失可报通过；默认仅batch0不能证明多batch正确",
+      "negative_test": "所有case缺失和仅batch1错误必须明确INVALID/NUMERIC_FAILED",
+      "followup_tasks": [
+        "S0",
+        "S2",
+        "S6"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-022",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "实际Instruction及trace不足以数值/异步重放",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "src/Common.h",
+          "line": 78
+        },
+        {
+          "path": "src/TraceLogger.h",
+          "line": 14
+        },
+        {
+          "path": "src/Core.cc",
+          "line": 224
+        },
+        {
+          "path": "scripts/trace_replay.py",
+          "line": 334
+        }
+      ],
+      "trigger": "试图仅凭基地址/周期CSV恢复元素运算和调度",
+      "impact": "缺view/常量/复数/精度/唯一实例读写范围，逻辑顺序不能证明异步RAW/WAR/WAW",
+      "negative_test": "缺字段返回UNSUPPORTED；删barrier或异步提前覆盖由事件门禁捕获",
+      "followup_tasks": [
+        "S1",
+        "S2",
+        "S5"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-023",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "LDL DAG列缩放导致一般重建错误",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present",
+        "reproduced"
+      ],
+      "locations": [
+        {
+          "path": "scripts/uobs_dag_executor.py",
+          "line": 143
+        },
+        {
+          "path": "scripts/uobs_dag_executor.py",
+          "line": 183
+        },
+        {
+          "path": "scripts/eval_pure_fp16.py",
+          "line": 130
+        }
+      ],
+      "trigger": "L非对角且D不为常数，先列缩放Z后YᴴY",
+      "impact": "得到D^-1/2 ZᴴZ D^-1/2，而应ZᴴD^-1 Z；正确行为需行缩放或直接中间D因子",
+      "negative_test": "复数2x2 HPD、非恒定D，与solve(A,I)比较",
+      "followup_tasks": [
+        "S0",
+        "S2",
+        "S4"
+      ],
+      "reproduced_scope": {
+        "artifact": "experiments/audit/2026-10-28/diagnostics.json",
+        "check_ids": [
+          "ldl_scaling_direction"
+        ],
+        "limitation": "isolated Python negative probe only; no C++ instruction replay or full-domain acceptance"
+      },
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-024",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "BRI DAG猜block_size与默认参数",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "scripts/uobs_dag_executor.py",
+          "line": 157
+        },
+        {
+          "path": "scripts/uobs_dag_executor.py",
+          "line": 384
+        }
+      ],
+      "trigger": "BRI配置B!=猜测B、omega未提供",
+      "impact": "DAG未消费真实block_size/权重；无法证明Python/DAG/C++同算法",
+      "negative_test": "同维度B=2/4、非1 omega的实际程序与独立算法逐步对齐",
+      "followup_tasks": [
+        "S0",
+        "S2"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "id": "VA-025",
+      "status": "open",
+      "severity": "HIGH",
+      "title": "旧开发规范含算术自相矛盾",
+      "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+      "evidence_levels": [
+        "code_present"
+      ],
+      "locations": [
+        {
+          "path": "DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md",
+          "line": 75
+        },
+        {
+          "path": "DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md",
+          "line": 129
+        },
+        {
+          "path": "DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md",
+          "line": 149
+        },
+        {
+          "path": "DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md",
+          "line": 159
+        }
+      ],
+      "trigger": "按旧规范复制初始化、取负或LDL缩放模板",
+      "impact": "ADD(Reg,Reg)不等于COPY；unity=1后1-sum不等于0-sum；LDL列缩放不普遍正确",
+      "negative_test": "独立COPY/FILL/zero/NEG/LDL重建原语已知解；规范修订另版本，保留旧文",
+      "followup_tasks": [
+        "S0",
+        "S1",
+        "S4"
+      ],
+      "reproduced_scope": null,
+      "operator_validation_status": "NOT_PERFORMED"
+    }
+  ]
+}

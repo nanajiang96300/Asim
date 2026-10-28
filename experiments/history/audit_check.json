@@ -1,0 +1,24 @@
+{
+  "schema_version": "asim-history-integrity-check-1",
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "status": "passed",
+  "checks": [
+    "all_ledger_jsonl_rows_parse",
+    "entry_ids_unique",
+    "source_paths_and_line_ranges_exist",
+    "legacy_artifact_size_sha256_match",
+    "source_sha256_match",
+    "no_reproduced_or_validated_claims",
+    "trusted_metrics_and_score_remain_null"
+  ],
+  "entries": 49,
+  "source_refs_checked": 77,
+  "legacy_runs": 10,
+  "raw_artifacts_checked": 86,
+  "invalid_original_summaries": [
+    "results/ldl_noblock_v2/run_001"
+  ],
+  "limitations": [
+    "仅文档与制品完整性检查；不构成算法数值复现或完整门禁通过。"
+  ]
+}
