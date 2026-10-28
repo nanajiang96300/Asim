@@ -1,0 +1,187 @@
+{
+  "schema_version": "research-diagnostic-v1",
+  "status": "AUDIT_EXPECTATIONS_CONFIRMED",
+  "operator_validation_status": "NOT_PERFORMED",
+  "candidate_score": null,
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python scripts/research_audit_checks.py --output experiments/audit/2026-10-28/diagnostics.json",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "numpy": "2.5.0",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "sources": [
+    {
+      "path": "scripts/research_audit_checks.py",
+      "sha256": "ed5b1015d7f8658368060dd7524ed142027fb179da8f7c401811ca265f4b6a4e"
+    },
+    {
+      "path": "scripts/uobs_scorer.py",
+      "sha256": "29bc4e72f27b001d0d93352a4c8b8298158d5e6b9c51fc1f7c561ac11ed633e8"
+    },
+    {
+      "path": "scripts/uobs_dag_executor.py",
+      "sha256": "2bcefbae3b56c8cccbfe4272a34fd730262966c3be4aaa37d7ce6639d60de5de"
+    },
+    {
+      "path": "scripts/algo/ldl_noblock.py",
+      "sha256": "22dd317607e216b6335c9915ef2be47b4a89058267d63c375278d990539d6555"
+    },
+    {
+      "path": "scripts/reference_inverse_registry.py",
+      "sha256": "076f78dfe2fe84093fb05382f214678d97ba5f0d7cd54312dfc36586d8496a56"
+    }
+  ],
+  "checks": [
+    {
+      "id": "legacy_nan_error",
+      "kind": "legacy_function_negative_probe",
+      "input": {
+        "rel_error": "NaN",
+        "trace": {
+          "finish_cycle": 100,
+          "cube_util": 1.8,
+          "avg_parallelism": 0.9
+        }
+      },
+      "observed": {
+        "accepted": true,
+        "score": 22.82311894273128
+      },
+      "defect_reproduced": true
+    },
+    {
+      "id": "legacy_zero_cycle",
+      "kind": "legacy_function_negative_probe",
+      "input": {
+        "rel_error": 0.0,
+        "trace": {
+          "finish_cycle": 0,
+          "cube_util": 1.8,
+          "avg_parallelism": 0.9
+        }
+      },
+      "observed": {
+        "accepted": true,
+        "score": 2262.5991189427314
+      },
+      "defect_reproduced": true
+    },
+    {
+      "id": "legacy_missing_trace_helper",
+      "kind": "legacy_function_negative_probe",
+      "input": {
+        "formula_gemm_count": 1,
+        "trace_exists": false
+      },
+      "observed": {
+        "accepted": true,
+        "reason": ""
+      },
+      "defect_reproduced": true,
+      "limitation": "helper only; top-level scorer may fail earlier while reading trace stats"
+    },
+    {
+      "id": "ldl_scaling_direction",
+      "kind": "actual_python_dag_comparison",
+      "input": {
+        "L_real": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.5,
+            1.0
+          ]
+        ],
+        "L_imag": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.25,
+            0.0
+          ]
+        ],
+        "D": [
+          2.0,
+          5.0
+        ]
+      },
+      "observed": {
+        "dag_relative_error": 0.2124982366845637,
+        "row_scaled_python_relative_error": 1.8867784123132548e-16,
+        "dag_storage_dtype": "complex128",
+        "reference_dtype": "complex128"
+      },
+      "defect_reproduced": true,
+      "limitation": "not C++ instruction replay or full-domain quality validation"
+    },
+    {
+      "id": "ns_final_square_witness",
+      "kind": "explicit_mathematical_witness",
+      "input": {
+        "A": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ]
+        ],
+        "X0": [
+          [
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "C": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            0.0,
+            2.0
+          ]
+        ],
+        "K": 2
+      },
+      "observed": {
+        "X": [
+          [
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "X_squared": [
+          [
+            0.25,
+            0.0
+          ],
+          [
+            0.0,
+            0.0625
+          ]
+        ],
+        "X_residual": 0.0,
+        "X_squared_residual": 0.9013878188659973
+      },
+      "witness_confirmed": true,
+      "limitation": "assumes explicit subtraction and valid inputs; current C++ binding/SUB semantics remain unsupported"
+    }
+  ]
+}

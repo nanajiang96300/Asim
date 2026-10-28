@@ -1,0 +1,29 @@
+{
+  "schema_version": "research-tool-check-v1",
+  "status": "EXPECTED_REJECTIONS_CONFIRMED",
+  "operator_validation_status": "NOT_PERFORMED",
+  "checks": [
+    {
+      "case": "tampered_manifest_member",
+      "returncode": 2,
+      "rejected": true,
+      "output": "{\"status\": \"INVALID\", \"error\": \"manifest mismatch: archive_map.jsonl\"}"
+    },
+    {
+      "case": "existing_snapshot_directory",
+      "returncode": 2,
+      "rejected": true,
+      "output": "{\"status\": \"INVALID\", \"error\": \"[Errno 17] File exists: '/tmp/asim-inventory-check-vvk1np9k/copy'\"}"
+    }
+  ],
+  "sources": [
+    {
+      "path": "scripts/research_inventory.py",
+      "sha256": "b74305760fda829da185089b89f8799fa9c2f8aa3bc0219f90aa7265246c2f1e"
+    },
+    {
+      "path": "scripts/research_validate.py",
+      "sha256": "540abe5decea4beec0a9f4201b6143fcea635a6be15bcd89786812fac667a313"
+    }
+  ]
+}

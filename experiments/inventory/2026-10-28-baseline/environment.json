@@ -1,0 +1,80 @@
+{
+  "schema_version": "research-inventory-v1",
+  "generated_at_utc": "2026-10-28T09:03:00.131260+00:00",
+  "root": "/home/nanajiang/Asim",
+  "hostname": "nanajiangserver",
+  "platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.39",
+  "cpu_count": 2,
+  "available_cpu_affinity": 2,
+  "meminfo_kib": {
+    "MemTotal": 4009860,
+    "MemAvailable": 3291360,
+    "SwapTotal": 4008956
+  },
+  "disk_bytes": {
+    "total": 60972511232,
+    "free": 28001783808
+  },
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "branch": "research/codex-transition-20261028",
+  "git_status": "?? DOCS/zhongqi/Communication_Operators_on_NPU_edit(6).pdf\n?? DOCS/zhongqi/projects/\n?? experiments/\n?? scripts/research_inventory.py\n",
+  "submodule_status": "",
+  "versions": {
+    "python": {
+      "returncode": 0,
+      "first_line": "Python 3.12.3"
+    },
+    "cmake": {
+      "returncode": 0,
+      "first_line": "cmake version 3.28.3"
+    },
+    "cxx": {
+      "returncode": 0,
+      "first_line": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+    },
+    "conan": {
+      "unavailable": "FileNotFoundError"
+    },
+    "venv_numpy": {
+      "returncode": 0,
+      "first_line": "2.5.0"
+    }
+  },
+  "scope": {
+    "included": "tracked project files (except exclusions), top-level research context, raw roots, selected existing build files",
+    "raw_roots": [
+      "results",
+      "DOCS/zhongqi/projects"
+    ],
+    "excluded": [
+      "extern/**",
+      ".git/**",
+      ".venv/**",
+      "experiments/**",
+      "scripts/research_*",
+      "new audit subdirectories",
+      "other ignored build/dependency files"
+    ],
+    "limitations": [
+      "build hashes do not establish source provenance",
+      "mtime is not an experiment date",
+      "no remote backup or copying performed"
+    ]
+  },
+  "totals": {
+    "source_and_context": {
+      "files": 8926,
+      "bytes": 67742499
+    },
+    "raw_or_historical": {
+      "files": 211,
+      "bytes": 67488854
+    },
+    "build_provenance_unknown": {
+      "files": 3,
+      "bytes": 11621923
+    }
+  },
+  "file_count": 9140,
+  "archive_entry_count": 211
+}

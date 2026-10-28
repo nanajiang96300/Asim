@@ -1,0 +1,21 @@
+{
+  "schema_version": "research-inventory-v1",
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "files": [
+    {
+      "path": "files.jsonl",
+      "sha256": "45d42f27a99472a2ed00b5ff163fb7d4535b06565333151bcb8dcb7ed45dadbf",
+      "bytes": 2677747
+    },
+    {
+      "path": "archive_map.jsonl",
+      "sha256": "d745eea96b602c534a578d4633041e1552ec1a6b2d935525f674e00c3f784081",
+      "bytes": 62224
+    },
+    {
+      "path": "environment.json",
+      "sha256": "b73c9866f78601138ab2c06aaa5c1bb39e5bea5da39d50e4c9219b5f6c9fe3a3",
+      "bytes": 2116
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "research-metadata-check-v1",
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "status": "METADATA_OK",
+  "counts": {
+    "history_entries": 49,
+    "ns_entries": 17,
+    "issues": 25,
+    "tasks": 16,
+    "legacy_runs": 10,
+    "legacy_artifacts": 86,
+    "diagnostics": 5,
+    "markdown_documents": 25
+  },
+  "errors": [],
+  "operator_validation_status": "NOT_PERFORMED",
+  "limitations": [
+    "checks metadata, original artifact hashes and citation bounds; does not certify mathematical claims or implement numerical gates"
+  ]
+}
