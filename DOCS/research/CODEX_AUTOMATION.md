@@ -1,0 +1,105 @@
+# Codex 平行自动化框架设计
+
+状态：拟议架构与接口；本次未安装远端 Codex、未启动无人值守搜索。
+
+## 1. 设计原则
+
+把长期闭环状态放在持久化控制器中，Agent 只负责提出假设、生成候选和解释失败。编译、验证、评分、资源调度和晋级由确定性程序执行，不依赖某次聊天的上下文。
+
+保留 `.claude/`、旧脚本与旧结果。新框架放在 `automation/`、`verification/`、`experiments/` 等独立目录；这些是拟议目录，除文档外尚未创建。两种平台通过适配器产生相同候选包，最终使用同一新版评估链。
+
+## 2. 角色与边界
+
+| 模块 | 输入 | 输出与责任 |
+|---|---|---|
+| 均衡任务管理器 | 契约、信道、形状、质量要求 | 不可变 campaign 配置与数据集合 |
+| 外循环规划 Agent | 已验证前沿、失败归因、预算 | 算法假设，适用域，预期成本，验证需求 |
+| 内循环实现 Agent | 固定算法与契约、性能诊断 | IR／允许路径内补丁、参数和变更说明 |
+| 审查 Agent | 候选与规范 | 风险与假设检查；没有最终通过权 |
+| 控制器 | 候选任务队列 | 工作区、超时、预算、重试、状态与日志 |
+| 构建与仿真 worker | 候选快照、固定工具链 | 二进制摘要、trace、周期、资源统计 |
+| 受信验证器 | 同一程序、输入、独立参考 | 分层门禁、数值误差、质量置信界 |
+| 受信评分器 | 验证通过证据与周期 | score、Pareto 状态、对比表 |
+| 晋级与归档器 | 复核后的候选 | 新冠军引用、可复现清单与 Git 版本 |
+
+“Agent 集群”可由多个独立 Codex 进程或 SDK 会话构成，不必依赖某个平台私有的 subagent 命令。
+
+## 3. 闭环与状态机
+
+```mermaid
+flowchart LR
+    Q[任务契约与预算] --> P[规划／均衡搜索资源]
+    P --> A[多个候选 Agent]
+    A --> F[冻结候选与摘要]
+    F --> C[静态检查与构建]
+    C --> V[功能验证]
+    V --> S[Asim 与调度检查]
+    S --> E[通信质量验收]
+    E --> R[评分与前沿]
+    R --> P
+    R --> M[复现后晋级／归档]
+```
+
+每个候选经过 `PROPOSED → GENERATING → FROZEN → BUILDING → VALIDATING → SIMULATING → QUALITY_CHECK → SCORED → CONFIRMED → PROMOTED/ARCHIVED`。所有失败边都有状态：`BUILD_FAILED`、`NUMERIC_FAILED`、`HAZARD_FAILED`、`QUALITY_FAILED`、`UNSUPPORTED`、`INCONCLUSIVE`、`TIMEOUT`、`INFRA_ERROR`、`CANCELLED`。
+
+原始假设保留不变；修复产生新的 attempt，记录 parent_attempt。相同基础设施故障有限重试；数值或调度错误回给 Agent 形成新候选。每个候选最多 2 次修复为首版建议值，启动 campaign 时冻结。
+
+控制器持久化 job ID、阶段、租约、进程组、attempt、输出路径。建议 SQLite WAL 保存事务状态，JSONL 保存追加事件，Git 保存最终小型清单。重启按最后完成阶段恢复；部分文件写到临时位置后原子改名，不将半份结果当成成功。
+
+缓存键至少包含候选源码／IR hash、契约与数据 hash、编译器、构建选项、硬件配置、模拟器和评估器版本。只按算法名或 commit 缓存会产生错误复用。
+
+## 4. Codex 接入方案
+
+首版推荐 Python 控制器调用 `codex exec`，易于管理子进程、超时、退出码和 JSONL。需要更细会话控制时再使用 Codex SDK；保持 `AgentAdapter` 边界不变。
+
+截至 2026-10-28，官方非交互模式支持 `--json` 事件、`--output-schema` 结构化最终输出和 `-o` 保存结果；这些仅保证接口格式，不保证候选正确。[官方非交互文档](https://learn.chatgpt.com/docs/non-interactive-mode)
+
+Codex SDK 可用于程序化启动与恢复会话。选定部署平台后固定 SDK／CLI 版本，并记录模型配置；不在设计中指定尚未确认账户可用性的模型。[官方 SDK 文档](https://learn.chatgpt.com/docs/codex-sdk)
+
+下例是未来 adapter 的调用形态，变量和 schema 文件由控制器创建；当前不是已部署脚本：
+
+```bash
+codex exec -C "$CANDIDATE_WORKTREE" \
+  --sandbox workspace-write --json \
+  --output-schema "$TRUSTED_SCHEMA" \
+  -o "$RUN_DIR/agent_result.json" - \
+  < "$RUN_DIR/task.txt" > "$RUN_DIR/agent_events.jsonl" \
+  2> "$RUN_DIR/agent_stderr.log"
+```
+
+结构化输出只包含 `candidate_id`、`hypothesis`、`changed_paths`、`assumptions`、`claimed_effect`、`self_reported_tests` 和 `limitations`。最终数值、pass 和 score 必须由 runner 重新计算。CLI 参数升级时重新做 adapter 兼容检查，不依赖终端文本关键词判断成功。
+
+现状：Windows 控制端检测到 `codex-cli 0.164.0-alpha.11.1`；Ubuntu PATH 未发现 Codex，nproc=2。推荐长期将控制器与 Linux 候选生成／评估部署在服务器侧，桌面用于查看与交互。部署前单独完成版本固定、认证与最小测试。本次不复制任何登录令牌。
+
+过渡期可以 Windows 生成候选、Linux 评估，但需以相同 base commit 导出补丁和完整清单，服务器验证 hash 后重建；不可依赖 Windows 绝对路径或未经记录的工作区文件。
+
+## 5. 并发与隔离
+
+首版建议 `agent_concurrency=2`、`build_jobs=1`、`sim_jobs=1`。这是针对当前 2 vCPU 的保守起点，需实测墙钟、内存和磁盘后调整。不要让每个 worker 都执行 `-j$(nproc)`。
+
+每候选独立源码、build、TMPDIR、日志和结果目录。共享依赖缓存只读或带锁；不共享可写 CMake build。旧 `evaluate_operator.sh` 的 stash/apply/pop 和 `/tmp/_uobs_*` 不能直接并行复用。
+
+由控制器从固定 commit 创建 worker worktree 或干净克隆；候选 Agent 不获得评估器写权限。评估 worker 在独立环境应用允许路径补丁，拒绝路径穿越、符号链接逃逸、构建入口或可信模块的越界修改。worktree 本身不能防止同用户进程读写其他目录，正式黑盒运行需权限／容器边界。
+
+生成阶段需要模型网络访问；编译和仿真阶段通常无需模型凭据。资源管理需覆盖 CPU、内存、墙钟、磁盘以及模型调用预算。超时结束本次 worker 进程组，不匹配名称终止其他任务。
+
+## 6. 外内循环协议
+
+外循环修改算法结构、初值、预条件器、收敛策略和精度分配，输出新的 `algorithm_id` 与适用域假设。内循环从该算法的 verified 基线出发，固定数学语义，优化实现和调度。
+
+第一版不自动嵌套无限内循环：每个外循环候选先过小规模功能筛选，再分配固定数量内循环尝试；最终按同一质量门禁、完整成本口径比较。失败样本反馈包含输入规模、失败层、指令 ID、首个坏值、读写 buffer、残差或 ΔSER；不能只给原始几千行日志。
+
+停止条件包括：预算用尽、连续若干轮无经确认收益、重复失败簇、验证能力缺失。停止后归档 incumbent 与未决问题。阈值、预算和重试次数是 campaign 配置，不由 Agent 临时改写。
+
+## 7. 旧流程映射与逐步替换
+
+| Claude 组件 | Codex 平行组件 | 迁移方式 |
+|---|---|---|
+| opt-round | campaign controller＋planner adapter | 抽取算法策略，重写状态与并发 |
+| eval-patch | isolated evaluation runner | 保留输入意图，取消共享 stash 与全局临时文件 |
+| op-flow | 确定性 gate pipeline | 质量验证必需；不能只 grep 日志 |
+| audit-operator | reviewer adapter＋静态／动态检查 | Agent 提示风险，机器检查决定门禁 |
+| FormulaLogger | 从 IR 派生的解释日志 | 过渡期保留，最终退出 oracle 角色 |
+| UOBS | scorer v2 | 旧分数只保留历史；新分数要求独立验证证据 |
+
+迁移按 shadow → pilot → default：先新链旁路记录，不改历史结论；再用少量候选试运行；完整复现与负例验收后才成为新实验默认。Claude 和 Codex 若比较效率，应使用同一任务、模型预算计量方法、候选预算、评估器与留出集；区分模型差异与编排差异。
