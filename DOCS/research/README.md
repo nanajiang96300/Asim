@@ -4,7 +4,7 @@
 
 工程：`/home/nanajiang/Asim/`
 
-状态：研究整理与框架设计 v0.1；新执行框架尚未实现。
+状态：研究整理与框架设计 v0.2；优先实施数值影子执行，完整 IR 与无人值守控制器后置。新执行框架尚未实现。
 
 ## 当前目标
 
@@ -19,6 +19,8 @@
 3. [Codex 自动化架构](CODEX_AUTOMATION.md)：控制器、Agent 集群、仿真器、验证器和评分器的接口。
 4. [Git 与实验管理](PROJECT_MANAGEMENT.md)：版本、分支、数据归档及结果晋级规则。
 5. [分阶段研究计划](ROADMAP.md)：依赖顺序、任务清单、验收标准与首轮实验。
+6. [远程部署操作指南](REMOTE_CODEX_SETUP.md)：Windows SSH 配置、Ubuntu Codex 安装认证、桌面远程项目与子 Agent 使用。
+7. [方案变更记录](DECISIONS.md)：逐次记录讨论产生的决定与实施状态。
 
 ## 本次决策
 
