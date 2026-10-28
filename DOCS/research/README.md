@@ -4,7 +4,7 @@
 
 工程：`/home/nanajiang/Asim/`
 
-状态：研究整理与框架设计 v0.2；优先实施数值影子执行，完整 IR 与无人值守控制器后置。新执行框架尚未实现。
+状态：系统审计与证据整理 v0.3 已落地；数值影子执行、可信门禁与持久化控制器尚未实现。当前可以执行文件盘点、完整性核对和小规模审计诊断；完整 IR 与无人值守控制器后置。
 
 ## 当前目标
 
@@ -13,6 +13,21 @@
 本阶段先整理历史研究、建立 Git 与实验证据管理、重构可信验证边界，再搭建与 Claude Code 并行的 Codex 自动化流程。
 
 ## 阅读顺序
+
+先看本轮交付索引：
+
+| 交付 | 内容与状态 |
+|---|---|
+| [项目现状总报告](STATUS_AUDIT.md) | 环境、研究结论边界、主要差异及实际诊断 |
+| [算子状态卡](operators/INDEX.md) | 六族＋Merge七卡，入口/公式/指令/参数/证据/待复现命令 |
+| [历史台账说明](history/README.md)、[NS谱系](history/NS_LINEAGE.md) | 49项记录、其中17项NS；10个旧run，缺证显式保留 |
+| [验证与自动化审计](audits/VERIFICATION_AUTOMATION_AUDIT.md) | 25项问题，源码位置与负例，旧Claude流程保留 |
+| [NS影子执行实施包](audits/NS_SHADOW_EXECUTION_PLAN.md) | 同一操作对象、最小原语、三路径、变异测试；设计尚未实现 |
+| [制品目录与规则](ARTIFACT_CATALOG.md) | 9,140文件hash、211原始/历史制品原位保留映射 |
+| [日常工作流](DAILY_WORKFLOW.md) | 已有工具命令、隔离/预算/失败状态，尚缺门禁不得晋级 |
+| [结构化台账](../../experiments/README.md) | 历史、盘点、诊断、模板及依赖任务表 |
+
+研究与架构主文档：
 
 1. [项目目标与研究进展](PROJECT_CHARTER.md)：研究定位、外内循环、已知成果与证据等级。
 2. [验证体系设计](VERIFICATION_DESIGN.md)：为什么反推算法不足，以及如何建立独立、可执行的验证。
@@ -34,8 +49,8 @@
 
 ## 证据来源与边界
 
-工程源码基点：`5a86e9fc`（2026-07-14）。核对范围包括 `src/Common.h`、NS 算子、`scripts/trace_replay.py`、`scripts/uobs_scorer.py`、`scripts/evaluate_operator.sh`、`orchestrator/pipeline.json`、旧 `opt-round` 技能，以及 7 月周报和 9 月材料。
+历史源码基点：`5a86e9fc`（2026-07-14）；本轮系统审计基点：`7cf9c5088ccc030ee3bf478468660b3cdf46cee3`。核对范围扩展为六族及变体、Model/mode/注册/配置、数值和评分脚本、旧Claude技能、README、历史报告/周报、9月材料和磁盘10个旧run。
 
-本次没有重新运行算法实验，没有证明历史数值结果可复现，也没有校准 Asim 与实机误差。历史材料中的“首次”“唯一”等文献判断不作为本计划的已核验结论。
+本轮实际执行五项低成本Python诊断与资料完整性检查；没有构建或运行C++算子、通信大样本实验，没有证明历史候选可复现，也没有校准Asim与实机误差。全部算子保持legacy_unverified；局部负例复现不等于完整验证。历史材料中的“首次”“唯一”等文献判断未核验。
 
 历史材料入口：`DOCS/zhongqi/kaiti.md`、`DOCS/zhongqi/zhongqi.md`、`DOCS/zhongqi/qianyan_diaoyan.md`。它们原文归档，不因新判断而回写历史。

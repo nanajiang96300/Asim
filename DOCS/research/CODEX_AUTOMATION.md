@@ -1,6 +1,6 @@
 # Codex 平行自动化框架设计
 
-状态：拟议架构与接口；本次未安装远端 Codex、未启动无人值守搜索。
+状态：完整控制器/adapter/可信执行链仍为拟议架构。本轮已经使用当前服务器上的原生主/子Agent完成系统审计，盘点/诊断/资料校验脚本落地；未启动无人值守搜索，也未独立核验CLI安装、认证和SDK接口。当前操作规程以 [DAILY_WORKFLOW](DAILY_WORKFLOW.md) 为准。
 
 ## v0.2 实施调整
 
@@ -14,7 +14,7 @@
 
 把长期闭环状态放在持久化控制器中，Agent 只负责提出假设、生成候选和解释失败。编译、验证、评分、资源调度和晋级由确定性程序执行，不依赖某次聊天的上下文。
 
-保留 `.claude/`、旧脚本与旧结果。新框架放在 `automation/`、`verification/`、`experiments/` 等独立目录；这些是拟议目录，除文档外尚未创建。两种平台通过适配器产生相同候选包，最终使用同一新版评估链。
+保留 `.claude/`、旧脚本与旧结果。`experiments/` 已建立历史/盘点/诊断台账与模板；`automation/`、`verification/` 的新执行链尚未创建。两种平台最终通过适配器产生相同候选包，使用同一新版受信评估链，目前尚未验收该能力。
 
 ## 2. 角色与边界
 
@@ -77,13 +77,13 @@ codex exec -C "$CANDIDATE_WORKTREE" \
 
 结构化输出只包含 `candidate_id`、`hypothesis`、`changed_paths`、`assumptions`、`claimed_effect`、`self_reported_tests` 和 `limitations`。最终数值、pass 和 score 必须由 runner 重新计算。CLI 参数升级时重新做 adapter 兼容检查，不依赖终端文本关键词判断成功。
 
-现状：Windows 控制端检测到 `codex-cli 0.164.0-alpha.11.1`；Ubuntu PATH 未发现 Codex，nproc=2。推荐长期将控制器与 Linux 候选生成／评估部署在服务器侧，桌面用于查看与交互。部署前单独完成版本固定、认证与最小测试。本次不复制任何登录令牌。
+先前会话检测记录：Windows控制端codex-cli版本与“Ubuntu PATH未发现Codex”只代表当时状态，不能当作当前检测结果。本轮实际主/子Agent直接访问nanajiangserver工程，nproc仍为2；未单独检查CLI/SDK版本或认证。未来控制器部署仍需固定版本并做最小测试，不复制登录令牌。上面的官方接口示例是历史设计引用，本轮没有重新核验产品API。
 
 过渡期可以 Windows 生成候选、Linux 评估，但需以相同 base commit 导出补丁和完整清单，服务器验证 hash 后重建；不可依赖 Windows 绝对路径或未经记录的工作区文件。
 
 ## 5. 并发与隔离
 
-首版建议 `agent_concurrency=2`、`build_jobs=1`、`sim_jobs=1`。这是针对当前 2 vCPU 的保守起点，需实测墙钟、内存和磁盘后调整。不要让每个 worker 都执行 `-j$(nproc)`。
+当前只读审计允许3个子Agent；候选生成仍建议 `agent_concurrency=2`、`build_jobs=1`、`sim_jobs=1`，编译与仿真避免同时争抢2核。资源/超时/修复次数已写入 [campaign模板](../../experiments/templates/campaign.json)，需要campaign启动时冻结。不要让每个worker执行-j$(nproc)。
 
 每候选独立源码、build、TMPDIR、日志和结果目录。共享依赖缓存只读或带锁；不共享可写 CMake build。旧 `evaluate_operator.sh` 的 stash/apply/pop 和 `/tmp/_uobs_*` 不能直接并行复用。
 

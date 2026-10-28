@@ -1,6 +1,6 @@
 # Git、研究证据与实验版本管理
 
-日期：2026-10-28。以下规则用于后续研究，工具实现仍需按路线图落地。
+日期：2026-10-28。盘点/校验脚本、历史台账、制品清单及模板已落地；候选执行器、受信门禁和晋级控制仍需按路线图实现。当前实例见 [制品目录](ARTIFACT_CATALOG.md)、[日常工作流](DAILY_WORKFLOW.md)。
 
 ## 1. 当前仓库与本次整理
 
@@ -13,7 +13,7 @@
 - `DOCS/research/`：当前目标、进展、设计和任务依赖。
 - `DOCS/operators/`：算法公式、适用域及实现映射。
 - `DOCS/reports/`：不可覆盖的阶段性历史报告。
-- `experiments/`（拟建）：Git 跟踪的小型证据清单与结果摘要。
+- `experiments/`（已建）：Git跟踪的小型证据清单、历史台账、审计诊断、模板与依赖任务表；不是已实现的控制器。
 - `results/`：大体积 trace、输入、运行日志；当前被 `.gitignore` 忽略。
 
 **不能只把关键结果写入 results/**，否则 Git 无法追踪。新实验应将摘要和内容摘要清单写入 experiments，原始制品另存可校验位置。
@@ -38,6 +38,8 @@
 | 实现候选 | opt/campaign/candidate | 单一候选的调度／指令优化 |
 | 已验证基线标签 | baseline/task-vN | 完整验收后的稳定参照 |
 | 论文实验快照 | paper/experiment-vN | 冻结代码、清单和制品引用 |
+
+上表是历史分类建议；新分支默认采用 `codex/` 前缀（如 `codex/infra-verification-v1`、`codex/opt-<campaign>-<candidate>`）。当前research分支继续使用，不为命名改写历史。
 
 候选从固定 base 创建独立工作区；只提交允许路径。基础设施修改不混入候选补丁。候选完成后控制器检查完整 diff，再创建不可变提交并评估；发生任何后续修改都使旧验证失效。
 
@@ -76,6 +78,10 @@
 ```
 
 每个 artifact 包含路径或 URI、字节数、SHA-256、类型和生成命令。最终验收时必须验证制品可访问且 hash 一致。Git 中不能只留下一个已过期 `/tmp/` 路径。结果清单与候选提交分开提交，避免自引用 commit。
+
+可复制的模板现位于 [campaign.json](../../experiments/templates/campaign.json)、[run_manifest.json](../../experiments/templates/run_manifest.json)。模板未知字段为null、门禁NOT_RUN、score=null、promotion_allowed=false；文件存在不表示运行完成。
+
+本轮快照 [manifest.json](../../experiments/inventory/2026-10-28-baseline/manifest.json) 绑定9,140项内容。原始/历史211项全部retain_in_place、目标null、未授权清理；未跟踪中期资料仍保留原样。逐项复制/目标hash验证/单独清理决定按ARTIFACT_CATALOG执行，不将本地Git提交称为外部备份。
 
 ## 6. 历史研究整理任务
 

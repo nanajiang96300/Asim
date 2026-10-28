@@ -1,0 +1,33 @@
+{
+  "schema_version": "campaign-v1-draft",
+  "status": "PROPOSED",
+  "campaign_id": null,
+  "question": null,
+  "search_layer": null,
+  "algorithm_id": null,
+  "base_commit": null,
+  "allowed_paths": [],
+  "trusted_evaluator_commit": null,
+  "contract": null,
+  "suite": null,
+  "hardware_config": null,
+  "precision_profile": null,
+  "measurement_scope": null,
+  "input_manifest": null,
+  "budgets": {
+    "generation_concurrency": 2,
+    "build_concurrency": 1,
+    "build_jobs": 1,
+    "simulation_concurrency": 1,
+    "max_candidates": 4,
+    "max_repairs_per_candidate": 2,
+    "max_infra_retries": 1,
+    "configure_seconds": 600,
+    "build_seconds": 1200,
+    "small_simulation_seconds": 120,
+    "small_validation_seconds": 120,
+    "model_call_budget": null
+  },
+  "promotion_allowed": false,
+  "limitations": ["Template only. Missing contract, suite or supported gates prevents execution and promotion."]
+}

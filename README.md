@@ -1,5 +1,7 @@
 # Asim: Multi-Core NPU Cycle-Level Simulator
 
+> 当前研究入口：[DOCS/research/README.md](DOCS/research/README.md)，系统审计：[2026-10-28项目现状](DOCS/research/STATUS_AUDIT.md)。下文保留既有架构和历史结果；周期表条件不同，DAG/PASS不代表实际指令完整验证。“FP16”及build路径以当前状态卡和工作流核查为准。新实验按 [日常规程](DOCS/research/DAILY_WORKFLOW.md) 使用独立工作区与串行构建。
+
 Asim 是一个多核 NPU 周期级仿真器（forked from ONNXim），显式建模 Core（Cube/Vector/Scalar/MTE 流水线）、片上存储（SRAM/SPAD/ACCUM）、NoC 互连（Simple/Booksim2）、以及片外 DRAM（Simple/Ramulator1/Ramulator2 HBM2），输出周期计数、利用率指标和指令级 Trace。
 
 **核心应用场景**：在类昇腾 910B 脉动阵列架构上，利用 LLM 驱动的自动化探索，进行 MIMO 通信系统中矩阵求逆算子的指令级微架构优化与数值正确性验证。

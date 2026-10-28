@@ -1,0 +1,60 @@
+# 原始资料、制品清单与保留规则
+
+日期：2026-10-28（Asia/Hong_Kong）；盘点源码基点 `7cf9c5088ccc030ee3bf478468660b3cdf46cee3`。本轮所有原件原位保留，没有移动、删除或复制到外部。
+
+## 1. 已生成清单
+
+[快照目录](../../experiments/inventory/2026-10-28-baseline/) 包含：
+
+- `files.jsonl`：9,140条记录，path、bytes、SHA-256、tracked、类型、分类、mtime（非实验时间）。
+- `archive_map.jsonl`：211项原始/历史资料的源路径、bytes、SHA-256、retain_in_place、目标null、未请求复制、未授权清理。
+- `environment.json`：HEAD、分支、工具版本、资源、范围与明确排除项。
+- `manifest.json`：前三份清单本身的大小与SHA-256。manifest本体由Git内容地址保存，不做自引用。
+
+| 范围 | 文件数 | 总bytes | 当前处理 |
+|---|---:|---:|---|
+| results/ | 99 | 62,981,525 | 10个run包及说明，保留原位；大部分被Git忽略 |
+| DOCS/zhongqi/ | 54 | 2,015,490 | 3份Markdown、PDF及中期生成目录；未跟踪PDF/projects不批量加入Git |
+| projects/ | 40 | 265,556 | 既有已跟踪架构演示制品，不重写 |
+| scripts/47_trae/ | 18 | 2,226,283 | 已跟踪模型/图与源文件，保留现状 |
+| 以上历史/原始合计 | 211 | 67,488,854 | 清单已落地，未执行搬迁 |
+| 选定build文件 | 3 | 11,621,923 | Simulator、Simulator_test、CMakeCache；只记录摘要，不认证来源 |
+
+其他8,926项源码/文档/配置合计67,742,499 bytes；含已跟踪.claude目录的8,339项依赖文件。`extern/**`、`.git/**`、`.venv/**`、其他忽略构建依赖不递归hash；不将盘点数称为整台服务器文件数。源码清单只纳入已有跟踪文件与明确指定的原始目录，排除并行生成的新审计子目录和清单自身。
+
+大文件示例：LDL v2 run002 trace约11.26MB，Cholesky v2 run001/002 trace各约8.38MB，多份formula约5.35MB。它们适合制品存储，不必为追踪证据把完整trace强行加入Git。
+
+## 2. Git和原始存储分工
+
+Git跟踪源码、配置、当前文档、状态卡、JSON/JSONL小台账、模板、校验脚本与清单。本轮新增清单约2.74MB，主要是逐文件hash元数据，不包含大trace/模型副本。历史已跟踪的PDF/PPT/模型不在本轮清理或改写。
+
+新run使用 `results/codex/<campaign>/<candidate>/<run>/`（目录约定，尚无执行器自动创建），每次独立log/trace/input/output/build配置快照。长期副本存储位置由实际挂载/对象存储配置决定，不能以一个未配置URI声称完成备份。
+
+关键小摘要写入 `experiments/`，不可只留在被忽略的results目录。保留真实失败和非法摘要的原字节；解析结果另写台账，不修改原件使其合法。临时文件不得成为唯一证据。
+
+## 3. 如需迁移，先形成复制事务
+
+当前映射的action一律retain_in_place，destination=null，copy_status=not_requested；目前没有需要立即搬迁的数据。将来更改某项时：
+
+1. 新建迁移manifest，引用源快照SHA，指定真实目标目录/URI、文件名、bytes、SHA-256、所有者、访问方式与保留期。推荐目标组织为 `<artifact-root>/sha256/<前2位>/<完整SHA>/<basename>`；这是命名模板，不是已存在的远端。
+2. 在独立目标目录复制，禁止覆盖已有不同内容；记录复制命令与时间。
+3. 对目标重新计算完整SHA-256及大小，逐项比对。源/目标一致后才标 `copied_verified`，不能以文件名或大小相同代替hash。
+4. 从目标独立读取并做一次代表性复现，确认台账链接可访问。
+5. 原件清理是单独决定；本轮没有清理授权，不因复制完成自动删除源。
+
+仓库不存密码、私钥、登录令牌或带凭据URL。工具只记录指定工程文件和非敏感环境，不导出完整环境变量。生成大制品前估算磁盘预算；空间不足记INFRA_ERROR，保留已有证据。
+
+## 4. 可重复检查
+
+```bash
+# 新快照只可写入新目录，拒绝覆盖
+python3 scripts/research_inventory.py create experiments/inventory/<new-id>
+# 文档尚未修改时可全量核对快照
+python3 scripts/research_inventory.py check experiments/inventory/<new-id>
+# 当前研究文档已更新，核对历史原件未变
+python3 scripts/research_inventory.py check experiments/inventory/2026-10-28-baseline --raw-only
+```
+
+缺文件、hash变化、未支持文件类型或清单自身损坏返回非零。全量核对发现本轮正常的研究文档更新也会报变化，应通过Git差异解释，不能覆盖旧快照。原始资料核对必须保持全通过。
+
+现存10个运行包的配置、摘要解析状态、版本、制品摘要另见 [legacy_runs.json](../../experiments/history/legacy_runs.json)，便于按算法和run追溯；它与本清单是不同视图，必须交叉一致。

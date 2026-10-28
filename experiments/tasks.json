@@ -1,0 +1,24 @@
+{
+  "schema_version": "research-tasks-v1",
+  "updated_date": "2026-10-28",
+  "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
+  "status_meaning": "done denotes documentation/audit delivery only; implementation gates require their own evidence",
+  "tasks": [
+    {"id":"A00","title":"资源与证据盘点","status":"done","depends_on":[],"allowed_paths":["experiments/inventory/","scripts/research_inventory.py"],"acceptance":["初始Git状态和资源记录","文件bytes/SHA256","原始资料保留映射"],"evidence":["experiments/inventory/2026-10-28-baseline/manifest.json","DOCS/research/ARTIFACT_CATALOG.md"]},
+    {"id":"A01","title":"六族及Merge统一状态卡","status":"done","depends_on":["A00"],"allowed_paths":["DOCS/research/operators/"],"acceptance":["七卡覆盖入口/参数/真实输出/历史证据/缺项","不把静态审计当验证"],"evidence":["DOCS/research/operators/INDEX.md"]},
+    {"id":"A02","title":"NS谱系与历史台账","status":"done","depends_on":["A00"],"allowed_paths":["DOCS/research/history/","experiments/history/"],"acceptance":["49项记录含NS17项","10旧run/19来源","估算/测量/验证口径分开"],"evidence":["experiments/history/ledger.jsonl","experiments/history/legacy_runs.json"]},
+    {"id":"A03","title":"验证/评分/Claude审计和NS设计","status":"done","depends_on":["A01","A02"],"allowed_paths":["DOCS/research/audits/","experiments/audit/","scripts/research_audit_checks.py"],"acceptance":["问题源码位置与失败触发","5项低成本诊断","文件级NS实施顺序和变异验收"],"evidence":["DOCS/research/audits/issues.json","experiments/audit/2026-10-28/diagnostics.json"]},
+    {"id":"A04","title":"工作流/归档规则/逻辑Git提交","status":"done","depends_on":["A00","A01","A02","A03"],"allowed_paths":["DOCS/research/","experiments/","scripts/research_validate.py","README.md"],"acceptance":["现状/拟议实现明确","日常命令/预算/失败状态","Git分批提交且不推送","原件hash仍匹配"],"evidence":["DOCS/research/DAILY_WORKFLOW.md","DOCS/research/DECISIONS.md"]},
+    {"id":"S0","title":"冻结NS小内核契约与固定样例/MMSE oracle","status":"planned","depends_on":["A04"],"allowed_paths":["verification/contracts/","verification/fixtures/","experiments/"],"acceptance":["A/X0/C/K和布局/精度/成本可机器校验","N2/4辨别样例与非对角SPD","独立solve(A,I)与solve(A,b)分开"],"evidence":[]},
+    {"id":"S1","title":"受信typed builder与实际程序导出","status":"planned","depends_on":["S0"],"allowed_paths":["src/Common.h","src/semantic/","src/inverse/newton_schulz/","verification/schema/"],"acceptance":["同对象驱动数值/周期且绑定hash","完整view/内存/精度/常量","旧入口绑定/初始化/SUB缺失明确拒绝","基础设施变更与算法修复分开提交"],"evidence":[]},
+    {"id":"S2","title":"NS顺序影子执行与三路径/变异测试","status":"planned","depends_on":["S1"],"allowed_paths":["verification/shadow/","verification/reference/","verification/tests/"],"acceptance":["MOVIN/OUT GEMM ADD/SUB barrier全覆盖","T/R/X/STORE快照","未知/缺输入fail closed","实际对象漏轮/平方/覆盖变异被拒绝","仅STRUCTURE_VERIFIED且score=null"],"evidence":[]},
+    {"id":"S3","title":"独立NS入口与算法修复候选","status":"planned","depends_on":["S2"],"allowed_paths":["src/inverse/newton_schulz/","example/","DOCS/operators/"],"acceptance":["独立worktree/build/log","实际op-flow步骤记录","保留旧失败基线","三路径同X0/K通过"],"evidence":[]},
+    {"id":"S4","title":"逐步精度/复数与尾块校准","status":"planned","depends_on":["S2"],"allowed_paths":["verification/profiles/","verification/shadow/","verification/tests/"],"acceptance":["乘法/累加/存储/舍入明确","复数布局及共轭负例","尾块/幅值/溢出不跳过"],"evidence":[]},
+    {"id":"S5","title":"G4真实事件与异步hazard检查","status":"planned","depends_on":["S2"],"allowed_paths":["src/Core.cc","src/SystolicWS.cc","src/TraceLogger.h","src/TraceLogger.cc","verification/schedule/"],"acceptance":["op/fragment与program唯一绑定","读完成/写可见事件","RAW/WAR/WAW/删barrier负例"],"evidence":[]},
+    {"id":"S6","title":"统一通信suite/成本/新评分/干净复现","status":"planned","depends_on":["S3","S4","S5"],"allowed_paths":["verification/quality/","verification/scoring/","experiments/"],"acceptance":["同H/符号/噪声成对分组与置信上界","所有门禁通过才score","正周期/有限数/摘要硬门禁","全成本与复用R","G6干净复现"],"evidence":[]},
+    {"id":"PILOT","title":"有人监督1复现+3优化候选","status":"planned","depends_on":["S6"],"allowed_paths":["automation/runner/","experiments/"],"acceptance":["候选隔离/冻结/超时/失败保留","不采用Agent自报分数","4候选完整受信闭环"],"evidence":[]},
+    {"id":"FAMILY","title":"LDL/分块/BRI语义迁移与统一复测","status":"planned","depends_on":["S6"],"allowed_paths":["src/inverse/","verification/","experiments/"],"acceptance":["LDL缩放重建正确","BRI三路径初值/系统/恢复一致","七实现同契约有效/无效/不支持结论"],"evidence":[]},
+    {"id":"CDLB","title":"BRI相关信道适用域与有限预算外循环","status":"planned","depends_on":["FAMILY"],"allowed_paths":["verification/channel/","experiments/"],"acceptance":["实际信道模型命名/归一化审查","条件数/相关度/B/L/精度分组","失败不外推永久不可用","setup/apply成本前沿"],"evidence":[]},
+    {"id":"CONTROLLER","title":"跨天持久化控制器","status":"deferred","depends_on":["PILOT"],"allowed_paths":["automation/"],"acceptance":["租约/中断恢复/预算/原子产物","API版本兼容与最小部署验证","框架收益对照实验"],"evidence":[]}
+  ]
+}
