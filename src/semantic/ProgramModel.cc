@@ -12,7 +12,10 @@ class ProgramOperation : public Operation {
     if (_config.precision != 8 || program_.at("schema") != "structure-program-v1")
       throw std::runtime_error("generic adapter requires explicit precision=8 structure profile");
     auto tile=std::make_unique<Tile>(Tile{.status=Tile::Status::INITIALIZED,.optype=_optype,.layer_id=_id,.batch=0,.core_id=0});
+    if (program_.at("regions").size()>32 || program_.at("ops").empty() || program_.at("ops").size()>256)
+      throw std::runtime_error("prototype program budget exceeded");
     std::map<std::string,addr_type> addresses;
+    std::map<std::string,uint64_t> totals;
     addr_type dram=0x10000,spad=SPAD_BASE,acc=ACCUM_SPAD_BASE;
     auto count=[&](const std::string& name) -> uint32_t {
       auto shape=program_.at("regions").at(name).at("shape");
@@ -23,7 +26,10 @@ class ProgramOperation : public Operation {
     for (auto& [name,r] : program_.at("regions").items()) {
       auto space=r.at("space").get<std::string>();
       addr_type* next=space=="DRAM"?&dram:space=="SPAD"?&spad:&acc;
-      addresses[name]=*next; *next+=count(name)*_config.dram_req_size;
+      auto bytes=count(name)*_config.dram_req_size;
+      totals[space]+=bytes;
+      if(totals[space]>65536) throw std::runtime_error("prototype space budget exceeded");
+      addresses[name]=*next; *next+=bytes;
     }
     uint32_t barrier=0;
     for (auto& op:program_.at("ops")) {
