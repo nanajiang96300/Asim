@@ -249,11 +249,11 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
             .src_addrs = {aL, aY}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aL,i,k,1,1,false,false), view(aY,k,c,1,1,false,false)}), view(aTmp,0,0,1,1,false,false), "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc:LDL_NB_FWD_MUL_"));
       }
       // Z[i,c] = -sum (negate the accumulated result)
-      tile->instructions.push_back(source_instruction(Instruction{
+      tile->instructions.push_back(ambiguous_instruction(Instruction{
           .opcode = Opcode::SCALAR_SUB,
           .id = "LDL_NB_FWD_NEG_" + std::to_string(i) + "_" + std::to_string(c),
           .dest_addr = aY, .compute_size = 1,
-          .src_addrs = {aReg, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aReg,c,c,1,1,false,false), view(aTmp,0,0,1,1,false,false)}), view(aY,i,c,1,1,false,false), "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc:LDL_NB_FWD_NEG_"));
+          .src_addrs = {aReg, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, "zero-source row/column is not uniquely specified by legacy base address; diagonal lambda and off-diagonal zero differ", "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc:LDL_NB_FWD_NEG_"));
     }
     barrier("LDL_NB_FB_" + std::to_string(c), 5);
   }
