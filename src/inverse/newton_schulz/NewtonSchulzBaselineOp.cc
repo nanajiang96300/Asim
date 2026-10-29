@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "FormulaLogger.h"
 #include <set>
+#include "semantic/SourceViews.h"
 
 NewtonSchulzBaselineOp::NewtonSchulzBaselineOp(
     SimulationConfig config, Model* model, const std::string& name,
@@ -51,6 +52,8 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   const addr_type aAinv= ACCUM_SPAD_BASE;
 
   const std::vector<uint32_t> sNN{N, N};
+  record_source_regions(json::array({region(aA,N,N,"aA"), region(aX,N,N,"aX"), region(aC,N,N,"aC"), region(aT,N,N,"aT"), region(aR,N,N,"aR"), region(aAinv,N,N,"aAinv")}), N, U);
+
   FormulaLogger::instance().set_algorithm("newton_schulz_v3", 0, K, N);
 
   auto movin = [&](addr_type dram, addr_type spad, uint32_t rows, uint32_t cols,
@@ -59,18 +62,18 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     for (uint32_t r = 0; r < rows; ++r)
       for (uint32_t c = 0; c < cols; c += epa)
         addrs.insert(dram + make_address({r, std::min(c, cols-1)}, shape));
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::MOVIN, .dest_addr = spad,
         .size = static_cast<uint32_t>(addrs.size()),
         .src_addrs = std::vector<addr_type>(addrs.begin(), addrs.end()),
         .operand_id = op_id, .base_addr = 0,
-        .tile_m = rows, .tile_k = cols, .my_tile = tile}));
+        .tile_m = rows, .tile_k = cols, .my_tile = tile}, json::array({view(dram,0,0,rows,cols,false,false)}), view(spad,0,0,rows,cols,false,false), "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:MOVIN"));
   };
 
   auto barrier = [&](const std::string& id, uint32_t type) {
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::PIPE_BARRIER, .id = id,
-        .my_tile = tile, .is_barrier = true, .barrier_type = type}));
+        .my_tile = tile, .is_barrier = true, .barrier_type = type}, json::array({}), nullptr, "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:PIPE_BARRIER"));
   };
 
   // Phase 1: MOVIN
@@ -85,12 +88,12 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   // X_{k+1} = X_k @ (2I - A @ X_k)
   for (uint32_t k = 0; k < K; ++k) {
     // T_k = A @ X_k
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::GEMM_PRELOAD,
         .id = "NS_T_" + std::to_string(k),
         .dest_addr = aT, .compute_size = N,
         .src_addrs = {aA, aX},
-        .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}));
+        .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}, json::array({view(aA,0,0,N,N,false,false), view(aX,0,0,N,N,false,false)}), view(aT,0,0,N,N,false,false), "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:NS_T_"));
     FormulaLogger::instance().emit_step("NS_GEMM_T_" + std::to_string(k), "GEMM",
         {std::string("A"), std::string(k==0?"X":"X_"+std::to_string(k-1))}, "T_" + std::to_string(k), {{N,N},{N,N}}, {N,N}, tile->batch,
         "NS_T_" + std::to_string(k));
@@ -98,12 +101,12 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     barrier("NS_T2R_" + std::to_string(k), 2);
 
     // R_k = 2I - T_k  (C=2I loaded, subtract T_k)
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::ADD,
         .id = "NS_R_" + std::to_string(k),
         .dest_addr = aR, .compute_size = N * N,
         .src_addrs = {aC, aT},
-        .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}));
+        .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}, json::array({view(aC,0,0,N,N,false,false), view(aT,0,0,N,N,false,false)}), view(aR,0,0,N,N,false,false), "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:NS_R_"));
     FormulaLogger::instance().emit_step("NS_RESIDUAL_" + std::to_string(k), "MATRIX_SUB",
         {"2I", "T_" + std::to_string(k)}, "R_" + std::to_string(k), {{N,N},{N,N}}, {N,N}, tile->batch,
         "NS_R_" + std::to_string(k));
@@ -111,12 +114,12 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     barrier("NS_R2X_" + std::to_string(k), 3);
 
     // X_{k+1} = X_k @ R_k  (write to aX, overwriting old X)
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::GEMM,
         .id = "NS_X_" + std::to_string(k),
         .dest_addr = aX, .compute_size = N,
         .src_addrs = {aX, aR},
-        .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}));
+        .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}, json::array({view(aX,0,0,N,N,false,false), view(aR,0,0,N,N,false,false)}), view(aX,0,0,N,N,false,false), "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:NS_X_"));
     FormulaLogger::instance().emit_step("NS_UPDATE_" + std::to_string(k), "GEMM",
         {std::string(k==0?"X":"X_"+std::to_string(k-1)), "R_" + std::to_string(k)}, "X_" + std::to_string(k), {{N,N},{N,N}}, {N,N}, tile->batch,
         "NS_X_" + std::to_string(k));
@@ -129,23 +132,23 @@ void NewtonSchulzBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       {"X_" + std::to_string(K-1), "X_" + std::to_string(K-1)}, "Ainv", {{N,N},{N,N}}, {N,N}, tile->batch, "NS_FINAL");
 
   // Phase 3: Final GEMM to ACCUM and MOVOUT
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::GEMM_PRELOAD,
       .id = "NS_FINAL",
       .dest_addr = aAinv, .compute_size = N,
       .src_addrs = {aX, aX},
-      .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}));
+      .tile_m = N, .tile_k = N, .tile_n = N, .my_tile = tile}, json::array({view(aX,0,0,N,N,false,false), view(aX,0,0,N,N,false,false)}), view(aAinv,0,0,N,N,false,false), "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:NS_FINAL"));
   barrier("NS_PRE_MOVOUT", 6);
 
   std::set<addr_type> outs;
   for (uint32_t r = 0; r < N; ++r)
     for (uint32_t c = 0; c < N; c += epa)
       outs.insert(dOut + make_address({r, std::min(c, N-1)}, sNN));
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::MOVOUT, .id = "NS_STORE",
       .dest_addr = aAinv, .size = static_cast<uint32_t>(outs.size()),
       .src_addrs = std::vector<addr_type>(outs.begin(), outs.end()),
       .operand_id = _OUTPUT_OPERAND,
       .tile_m = N, .tile_k = N, .tile_n = N,
-      .src_from_accum = true, .last_inst = true, .my_tile = tile}));
+      .src_from_accum = true, .last_inst = true, .my_tile = tile}, json::array({view(aAinv,0,0,N,N,false,false)}), view(dOut,0,0,N,N,false,false), "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:NS_STORE"));
 }

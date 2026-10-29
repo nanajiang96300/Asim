@@ -2,6 +2,7 @@
 #include "Model.h"
 #include "FormulaLogger.h"
 #include <set>
+#include "semantic/SourceViews.h"
 
 CholeskyNoBlockMergeOp::CholeskyNoBlockMergeOp(
     SimulationConfig config, Model* model, const std::string& name,
@@ -62,6 +63,8 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
   const addr_type aAinv= ACCUM_SPAD_BASE;
 
   const std::vector<uint32_t> sMU{M, U}, sUU{U, U};
+  record_source_regions(json::array({region(aH,M,U,"aH"), region(aReg,U,U,"aReg"), region(aG,U,U,"aG"), region(aA,U,U,"aA"), region(aL,U,U,"aL"), region(aInv,U,U,"aInv"), region(aY,U,U,"aY"), region(aTmp,U,U,"aTmp"), region(aAinv,U,U,"aAinv")}), M, U);
+
   FormulaLogger::instance().set_algorithm("cholesky_noblock_merge", 1, 0, U);
 
   auto movin = [&](addr_type dram, addr_type spad, uint32_t rows, uint32_t cols,
@@ -70,18 +73,18 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
     for (uint32_t r = 0; r < rows; ++r)
       for (uint32_t c = 0; c < cols; c += epa)
         addrs.insert(dram + make_address({r, std::min(c, cols - 1)}, shape));
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::MOVIN, .dest_addr = spad,
         .size = static_cast<uint32_t>(addrs.size()),
         .src_addrs = std::vector<addr_type>(addrs.begin(), addrs.end()),
         .operand_id = op_id, .base_addr = 0,
-        .tile_m = rows, .tile_k = cols, .my_tile = tile}));
+        .tile_m = rows, .tile_k = cols, .my_tile = tile}, json::array({view(dram,0,0,rows,cols,false,false)}), view(spad,0,0,rows,cols,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:MOVIN"));
   };
 
   auto barrier = [&](const std::string& id, uint32_t type) {
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::PIPE_BARRIER, .id = id,
-        .my_tile = tile, .is_barrier = true, .barrier_type = type}));
+        .my_tile = tile, .is_barrier = true, .barrier_type = type}, json::array({}), nullptr, "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:PIPE_BARRIER"));
   };
 
   // Phase 1: MOVIN
@@ -90,57 +93,57 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
   barrier("CHOL_NB_LOAD", 1);
 
   // Phase 2: GRAM + REG
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "CHOL_NB_GRAM",
       .dest_addr = aG, .compute_size = U, .src_addrs = {aH, aH},
-      .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}, json::array({view(aH,0,0,M,U,true,true), view(aH,0,0,M,U,false,false)}), view(aG,0,0,U,U,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_GRAM"));
   FormulaLogger::instance().emit_step("CHOL_NB_GRAM", "GEMM",
       {"H", "H^H"}, "G", {{M, U}, {U, M}}, {U, U}, tile->batch, "CHOL_NB_GRAM");
 
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "CHOL_NB_REG",
       .dest_addr = aA, .compute_size = U * U, .src_addrs = {aG, aReg},
-      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aG,0,0,U,U,false,false), view(aReg,0,0,U,U,false,false)}), view(aA,0,0,U,U,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_REG"));
   FormulaLogger::instance().emit_step("CHOL_NB_REG", "DIAG_ADD",
       {"G", "lambda*I"}, "A", {{U, U}, {U, U}}, {U, U}, tile->batch, "CHOL_NB_REG");
   barrier("CHOL_NB_REG2DECOMP", 3);
 
   // Init L, Y, Tmp regions
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "CHOL_NB_INIT_L",
       .dest_addr = aL, .compute_size = U * U,
-      .src_addrs = {aReg, aReg}, .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      .src_addrs = {aReg, aReg}, .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aReg,0,0,U,U,false,false), view(aReg,0,0,U,U,false,false)}), view(aL,0,0,U,U,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_INIT_L"));
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "CHOL_NB_INIT_Y",
       .dest_addr = aY, .compute_size = U * U,
-      .src_addrs = {aReg, aReg}, .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      .src_addrs = {aReg, aReg}, .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aReg,0,0,U,U,false,false), view(aReg,0,0,U,U,false,false)}), view(aY,0,0,U,U,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_INIT_Y"));
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "CHOL_NB_INIT_TMP",
       .dest_addr = aTmp, .compute_size = U,
-      .src_addrs = {aReg, aReg}, .tile_m = 1, .tile_k = U, .tile_n = 1, .my_tile = tile}));
+      .src_addrs = {aReg, aReg}, .tile_m = 1, .tile_k = U, .tile_n = 1, .my_tile = tile}, json::array({view(aReg,0,0,1,U,false,false), view(aReg,0,0,1,U,false,false)}), view(aTmp,0,0,1,U,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_INIT_TMP"));
 
   // Phase 3: Cholesky Decomposition (column-by-column)
   for (uint32_t j = 0; j < U; ++j) {
     // POTRF: L[j,j]^2 = A[j,j] - sum_{k<j} |L[j,k]|^2
     // OPT1: merge j individual MUL(1)+SUB(1) → 1 MUL(j)+SUB(j)
     if (j > 0) {
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      tile->instructions.push_back(ambiguous_instruction(Instruction{
           .opcode = Opcode::SCALAR_MUL,
           .id = "CHOL_NB_POTRF_SQ_" + std::to_string(j),
           .dest_addr = aTmp, .compute_size = j,
-          .src_addrs = {aL, aL}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}));
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+          .src_addrs = {aL, aL}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}, "SCALAR batch/fusion lacks explicit reduction semantics; cannot assume dot or sum", "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_POTRF_SQ_"));
+      tile->instructions.push_back(ambiguous_instruction(Instruction{
           .opcode = Opcode::SCALAR_SUB,
           .id = "CHOL_NB_POTRF_SUB_" + std::to_string(j),
           .dest_addr = aA, .compute_size = j,
-          .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}));
+          .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}, "SCALAR batch/fusion lacks explicit reduction semantics; cannot assume dot or sum", "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_POTRF_SUB_"));
     }
     // L[j,j] = sqrt(A[j,j])
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::SCALAR_SQRT,
         .id = "CHOL_NB_POTRF_SQRT_" + std::to_string(j),
         .dest_addr = aL, .compute_size = 1,
-        .src_addrs = {aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+        .src_addrs = {aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aA,j,j,1,1,false,false)}), view(aL,j,j,1,1,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_POTRF_SQRT_"));
     FormulaLogger::instance().emit_step("CHOL_NB_POTRF_" + std::to_string(j), "CHOLESKY",
         {"A"}, "L_diag", {{U, U}}, {1, 1}, tile->batch,
         "CHOL_NB_POTRF_SQRT_" + std::to_string(j));
@@ -149,23 +152,23 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
     // OPT1: merge j MUL+SUB per (i,j) → 1 MUL(j)+SUB(j) per (i,j)
     for (uint32_t i = j + 1; i < U; ++i) {
       if (j > 0) {
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        tile->instructions.push_back(ambiguous_instruction(Instruction{
             .opcode = Opcode::SCALAR_MUL,
             .id = "CHOL_NB_TRSM_MUL_" + std::to_string(i) + "_" + std::to_string(j),
             .dest_addr = aTmp, .compute_size = j,
-            .src_addrs = {aL, aL}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}));
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+            .src_addrs = {aL, aL}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}, "SCALAR batch/fusion lacks explicit reduction semantics; cannot assume dot or sum", "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_TRSM_MUL_"));
+        tile->instructions.push_back(ambiguous_instruction(Instruction{
             .opcode = Opcode::SCALAR_SUB,
             .id = "CHOL_NB_TRSM_SUB_" + std::to_string(i) + "_" + std::to_string(j),
             .dest_addr = aA, .compute_size = j,
-            .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}));
+            .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = j, .tile_n = 1, .my_tile = tile}, "SCALAR batch/fusion lacks explicit reduction semantics; cannot assume dot or sum", "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_TRSM_SUB_"));
       }
       // L[i,j] = A[i,j] / L[j,j]
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      tile->instructions.push_back(source_instruction(Instruction{
           .opcode = Opcode::SCALAR_DIV,
           .id = "CHOL_NB_TRSM_DIV_" + std::to_string(i) + "_" + std::to_string(j),
           .dest_addr = aL, .compute_size = 1,
-          .src_addrs = {aA, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+          .src_addrs = {aA, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aA,i,j,1,1,false,false), view(aL,j,j,1,1,false,false)}), view(aL,i,j,1,1,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_TRSM_DIV_"));
       FormulaLogger::instance().emit_step("CHOL_NB_TRSM_" + std::to_string(i) + "_" + std::to_string(j),
           "TRSM", {"A", "L"}, "L_ij", {{U, U}, {U, U}}, {1, 1}, tile->batch,
           "CHOL_NB_TRSM_DIV_" + std::to_string(i) + "_" + std::to_string(j));
@@ -176,48 +179,48 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
   // Phase 4: Forward Solve Y = L^{-1}
   for (uint32_t c = 0; c < U; ++c) {
     // Y[c,c] = 1 / L[c,c] (use Reg as identity numerator, Reg/Reg=1 then scale)
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::SCALAR_DIV,
         .id = "CHOL_NB_FWD_DIAG_" + std::to_string(c),
         .dest_addr = aInv, .compute_size = 1,
-        .src_addrs = {aReg, aReg}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+        .src_addrs = {aReg, aReg}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aReg,c,c,1,1,false,false), view(aReg,c,c,1,1,false,false)}), view(aInv,0,0,1,1,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_FWD_DIAG_"));
     // Y[c,c] = 1/L[c,c]
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::SCALAR_DIV,
         .id = "CHOL_NB_FWD_DIAG2_" + std::to_string(c),
         .dest_addr = aY, .compute_size = 1,
-        .src_addrs = {aInv, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+        .src_addrs = {aInv, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aInv,0,0,1,1,false,false), view(aL,c,c,1,1,false,false)}), view(aY,c,c,1,1,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_FWD_DIAG2_"));
 
     for (uint32_t i = c + 1; i < U; ++i) {
       // OPT1: merge (i-c) MUL → 1 MUL(compute_size=i-c)
       uint32_t len = i - c;
       if (len > 0) {
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        tile->instructions.push_back(ambiguous_instruction(Instruction{
             .opcode = Opcode::SCALAR_MUL,
             .id = "CHOL_NB_FWD_MUL_" + std::to_string(i) + "_" + std::to_string(c),
             .dest_addr = aTmp, .compute_size = len,
-            .src_addrs = {aL, aY}, .tile_m = 1, .tile_k = len, .tile_n = 1, .my_tile = tile}));
+            .src_addrs = {aL, aY}, .tile_m = 1, .tile_k = len, .tile_n = 1, .my_tile = tile}, "SCALAR batch/fusion lacks explicit reduction semantics; cannot assume dot or sum", "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_FWD_MUL_"));
       }
       // Y[i,c] = -sum / L[i,i]
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      tile->instructions.push_back(source_instruction(Instruction{
           .opcode = Opcode::SCALAR_SUB,
           .id = "CHOL_NB_FWD_NEG_" + std::to_string(i) + "_" + std::to_string(c),
           .dest_addr = aTmp, .compute_size = 1,
-          .src_addrs = {aReg, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+          .src_addrs = {aReg, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aReg,c,c,1,1,false,false), view(aTmp,0,0,1,1,false,false)}), view(aTmp,0,0,1,1,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_FWD_NEG_"));
+      tile->instructions.push_back(source_instruction(Instruction{
           .opcode = Opcode::SCALAR_DIV,
           .id = "CHOL_NB_FWD_DIV_" + std::to_string(i) + "_" + std::to_string(c),
           .dest_addr = aY, .compute_size = 1,
-          .src_addrs = {aTmp, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+          .src_addrs = {aTmp, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aTmp,0,0,1,1,false,false), view(aL,i,i,1,1,false,false)}), view(aY,i,c,1,1,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_FWD_DIV_"));
     }
     barrier("CHOL_NB_FB_" + std::to_string(c), 5);
   }
 
   // Phase 5: Backward Assembly Ainv = Y^H @ Y
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "CHOL_NB_BWD_GEMM",
       .dest_addr = aAinv, .compute_size = U, .src_addrs = {aY, aY},
-      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aY,0,0,U,U,true,true), view(aY,0,0,U,U,false,false)}), view(aAinv,0,0,U,U,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_BWD_GEMM"));
   FormulaLogger::instance().emit_step("CHOL_NB_BWD_ASSEMBLE", "GEMM",
       {"Y^H", "Y"}, "Ainv", {{U, U}, {U, U}}, {U, U}, tile->batch, "CHOL_NB_BWD_GEMM");
   barrier("CHOL_NB_PRE_MOVOUT", 6);
@@ -227,10 +230,10 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
   for (uint32_t r = 0; r < U; ++r)
     for (uint32_t c = 0; c < U; c += epa)
       outs.insert(dOut + make_address({r, std::min(c, U - 1)}, sUU));
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::MOVOUT, .id = "CHOL_NB_STORE",
       .dest_addr = aAinv, .size = static_cast<uint32_t>(outs.size()),
       .src_addrs = std::vector<addr_type>(outs.begin(), outs.end()),
       .operand_id = _OUTPUT_OPERAND, .tile_m = U, .tile_k = U, .tile_n = U,
-      .src_from_accum = true, .last_inst = true, .my_tile = tile}));
+      .src_from_accum = true, .last_inst = true, .my_tile = tile}, json::array({view(aAinv,0,0,U,U,false,false)}), view(dOut,0,0,U,U,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_STORE"));
 }

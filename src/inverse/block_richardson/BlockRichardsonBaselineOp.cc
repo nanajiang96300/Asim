@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "FormulaLogger.h"
 #include <set>
+#include "semantic/SourceViews.h"
 
 BlockRichardsonBaselineOp::BlockRichardsonBaselineOp(
     SimulationConfig config, Model* model, const std::string& name,
@@ -71,6 +72,8 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   const addr_type aXhat= ACCUM_SPAD_BASE;
 
   const std::vector<uint32_t> sMU{M, U}, sUU{U, U};
+  record_source_regions(json::array({region(aH,M,U,"aH"), region(aReg,U,U,"aReg"), region(aYin,M,U,"aYin"), region(aA,U,U,"aA"), region(aB,U,U,"aB"), region(aYk,U,U,"aYk"), region(aBY,U,U,"aBY"), region(aR,U,U,"aR"), region(aYnext,U,U,"aYnext"), region(aW,U,U,"aW"), region(aTmp,U,U,"aTmp"), region(aXhat,U,U,"aXhat")}), M, U);
+
   FormulaLogger::instance().set_algorithm("block_richardson_v3", B, L, U);
 
   auto movin = [&](addr_type dram, addr_type spad, uint32_t rows, uint32_t cols,
@@ -79,18 +82,18 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     for (uint32_t r = 0; r < rows; ++r)
       for (uint32_t c = 0; c < cols; c += epa)
         addrs.insert(dram + make_address({r, std::min(c, cols-1)}, shape));
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::MOVIN, .dest_addr = spad,
         .size = static_cast<uint32_t>(addrs.size()),
         .src_addrs = std::vector<addr_type>(addrs.begin(), addrs.end()),
         .operand_id = op_id, .base_addr = 0,
-        .tile_m = rows, .tile_k = cols, .my_tile = tile}));
+        .tile_m = rows, .tile_k = cols, .my_tile = tile}, json::array({view(dram,0,0,rows,cols,false,false)}), view(spad,0,0,rows,cols,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:MOVIN"));
   };
 
   auto barrier = [&](const std::string& id, uint32_t type) {
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::PIPE_BARRIER, .id = id,
-        .my_tile = tile, .is_barrier = true, .barrier_type = type}));
+        .my_tile = tile, .is_barrier = true, .barrier_type = type}, json::array({}), nullptr, "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:PIPE_BARRIER"));
   };
 
   // Phase 1: MOVIN
@@ -100,96 +103,96 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   barrier("BRI_LOAD", 1);
 
   // Phase 2: GRAM + REG
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "BRI_GRAM",
       .dest_addr = aA, .compute_size = U, .src_addrs = {aH, aH},
-      .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}, json::array({view(aH,0,0,M,U,true,true), view(aH,0,0,M,U,false,false)}), view(aA,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_GRAM"));
   FormulaLogger::instance().emit_step("BRI_GRAM", "GEMM",
       {"H^H","H"}, "G", {{M,U},{U,M}}, {U,U}, tile->batch, "BRI_GRAM");
 
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "BRI_REG",
       .dest_addr = aA, .compute_size = U*U, .src_addrs = {aA, aReg},
-      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aA,0,0,U,U,false,false), view(aReg,0,0,U,U,false,false)}), view(aA,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_REG"));
   FormulaLogger::instance().emit_step("BRI_REG", "DIAG_ADD",
       {"G","lambda*I"}, "A", {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_REG");
   barrier("BRI_REG2PRECOND", 3);
 
   // Init regions
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "BRI_INIT_B",
       .dest_addr = aB, .compute_size = U*U, .src_addrs = {aReg, aReg},
-      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aReg,0,0,U,U,false,false), view(aReg,0,0,U,U,false,false)}), view(aB,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_INIT_B"));
 
   // Phase 3: Block-diagonal preconditioner (B=2 direct 2x2 inverse)
   for (uint32_t b = 0; b < nB; ++b) {
     // 2x2 direct inverse: inv([a b; c d]) = 1/(ad-bc) * [d -b; -c a]
     // SCALAR_MUL: ad, bc
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::SCALAR_MUL, .id = "BRI_PRECOND_AD_"+std::to_string(b),
         .dest_addr = aTmp, .compute_size = 1, .src_addrs = {aA, aA},
-        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aA,b*B,b*B,1,1,false,false), view(aA,b*B+1,b*B+1,1,1,false,false)}), view(aTmp,0,0,1,1,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_PRECOND_AD_"));
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::SCALAR_MUL, .id = "BRI_PRECOND_BC_"+std::to_string(b),
         .dest_addr = aBY, .compute_size = 1, .src_addrs = {aA, aA},
-        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aA,b*B,b*B+1,1,1,false,false), view(aA,b*B+1,b*B,1,1,false,false)}), view(aBY,0,0,1,1,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_PRECOND_BC_"));
     // det = ad - bc
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::SCALAR_SUB, .id = "BRI_PRECOND_DET_"+std::to_string(b),
         .dest_addr = aTmp, .compute_size = 1, .src_addrs = {aTmp, aBY},
-        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aTmp,0,0,1,1,false,false), view(aBY,0,0,1,1,false,false)}), view(aTmp,0,0,1,1,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_PRECOND_DET_"));
     // inv_det = 1/det
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::SCALAR_DIV, .id = "BRI_PRECOND_UNITY_"+std::to_string(b),
         .dest_addr = aBY, .compute_size = 1, .src_addrs = {aReg, aReg},
-        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aReg,b*B,b*B,1,1,false,false), view(aReg,b*B,b*B,1,1,false,false)}), view(aBY,0,0,1,1,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_PRECOND_UNITY_"));
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::SCALAR_DIV, .id = "BRI_PRECOND_INVDET_"+std::to_string(b),
         .dest_addr = aBY, .compute_size = 1, .src_addrs = {aBY, aTmp},
-        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+        .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aBY,0,0,1,1,false,false), view(aTmp,0,0,1,1,false,false)}), view(aBY,0,0,1,1,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_PRECOND_INVDET_"));
     // Store B block: B_00 = d*inv_det, B_01 = -b*inv_det, B_10 = -c*inv_det, B_11 = a*inv_det
     for (int op = 0; op < 4; ++op) {
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      tile->instructions.push_back(source_instruction(Instruction{
           .opcode = Opcode::SCALAR_MUL,
           .id = "BRI_PRECOND_BLK_"+std::to_string(b)+"_"+std::to_string(op),
           .dest_addr = aB, .compute_size = 1, .src_addrs = {aA, aBY},
-          .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+          .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aA,b*B+((op==0||op==2)?1:0),b*B+((op==0||op==1)?1:0),1,1,false,false), view(aBY,0,0,1,1,false,false)}), view(aB,b*B+op/2,b*B+op%2,1,1,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_PRECOND_BLK_"));
     }
   }
   FormulaLogger::instance().emit_step("BRI_PRECOND", "BRI_PRECOND",
       {"A"}, "B", {{U,U}}, {U,U}, tile->batch, "BRI_PRECOND");
 
   // Phase 4: Initialize Y_0 = I
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "BRI_INIT_Y0",
       .dest_addr = aYk, .compute_size = U*U, .src_addrs = {aReg, aReg},
-      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aReg,0,0,U,U,false,false), view(aReg,0,0,U,U,false,false)}), view(aYk,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_INIT_Y0"));
 
   // Phase 5: Richardson Iteration
   for (uint32_t layer = 0; layer < L; ++layer) {
     // BY = B @ Y_k (block-diagonal GEMM)
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::GEMM_PRELOAD,
         .id = "BRI_BY_"+std::to_string(layer),
         .dest_addr = aBY, .compute_size = U, .src_addrs = {aB, aYk},
-        .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+        .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aB,0,0,U,U,false,false), view(aYk,0,0,U,U,false,false)}), view(aBY,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_BY_"));
     std::string y_in = (layer == 0) ? std::string("I") : ("Y_" + std::to_string(layer - 1));
     FormulaLogger::instance().emit_step("BRI_BY_"+std::to_string(layer), "GEMM",
         std::vector<std::string>{"B", y_in}, "BY_" + std::to_string(layer), {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_BY_"+std::to_string(layer));
 
     // R = I - BY (residual)
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::ADD, .id = "BRI_RESIDUAL_"+std::to_string(layer),
         .dest_addr = aR, .compute_size = U*U, .src_addrs = {aReg, aBY},
-        .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+        .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aReg,0,0,U,U,false,false), view(aBY,0,0,U,U,false,false)}), view(aR,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_RESIDUAL_"));
     FormulaLogger::instance().emit_step("BRI_RESIDUAL_"+std::to_string(layer), "MATRIX_SUB",
         std::vector<std::string>{"I", "BY_" + std::to_string(layer)}, "R_" + std::to_string(layer), {{U,U},{U,U}}, {U,U}, tile->batch, "BRI_RESIDUAL_"+std::to_string(layer));
 
     // Y_{k+1} = Y_k + omega * R  (omega=1 in baseline Chebyshev)
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::ADD, .id = "BRI_Y_UPDATE_"+std::to_string(layer),
         .dest_addr = aYnext, .compute_size = U*U, .src_addrs = {aYk, aR},
-        .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+        .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aYk,0,0,U,U,false,false), view(aR,0,0,U,U,false,false)}), view(aYnext,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_Y_UPDATE_"));
     FormulaLogger::instance().emit_step("BRI_Y_UPDATE_"+std::to_string(layer), "MATRIX_ADD",
         std::vector<std::string>{y_in, "R_" + std::to_string(layer)}, "Y_" + std::to_string(layer), {{U,U},{U,U}}, {U,U}, tile->batch,
         "BRI_Y_UPDATE_"+std::to_string(layer));
@@ -202,17 +205,17 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   // (aYk and aYnext swapped an even number of times, so aYk holds result)
 
   // Phase 6: Output — W = Ainv @ H^H, X_hat = W @ Y
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::PIPE_BARRIER, .id = "BRI_INV2W",
-      .my_tile = tile, .is_barrier = true, .barrier_type = 6}));
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      .my_tile = tile, .is_barrier = true, .barrier_type = 6}, json::array({}), nullptr, "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_INV2W"));
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "BRI_W",
       .dest_addr = aW, .compute_size = M, .src_addrs = {aYk, aH},
-      .tile_m = U, .tile_k = U, .tile_n = M, .my_tile = tile}));
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      .tile_m = U, .tile_k = U, .tile_n = M, .my_tile = tile}, json::array({view(aYk,0,0,U,U,false,false), view(aH,0,0,M,U,true,true)}), view(aW,0,0,U,M,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_W"));
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "BRI_XHAT",
       .dest_addr = aXhat, .compute_size = U, .src_addrs = {aW, aYin},
-      .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}, json::array({view(aW,0,0,U,M,false,false), view(aYin,0,0,M,U,false,false)}), view(aXhat,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_XHAT"));
   // BRI_FINAL: simplified DAG representation; hardware computes W=Y_{L-1}@H then X_hat=W@Yin.
   // DAG approximates Ainv ≈ Y_{L-1} @ Y_{L-1} (Richardson converges to B^{-1}).
   FormulaLogger::instance().emit_step("BRI_FINAL", "GEMM",
@@ -223,10 +226,10 @@ void BlockRichardsonBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   for (uint32_t r = 0; r < U; ++r)
     for (uint32_t c = 0; c < U; c += epa)
       outs.insert(dOut + make_address({r, std::min(c, U-1)}, sUU));
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::MOVOUT, .id = "BRI_STORE",
       .dest_addr = aXhat, .size = static_cast<uint32_t>(outs.size()),
       .src_addrs = std::vector<addr_type>(outs.begin(), outs.end()),
       .operand_id = _OUTPUT_OPERAND, .tile_m = U, .tile_k = U, .tile_n = U,
-      .src_from_accum = true, .last_inst = true, .my_tile = tile}));
+      .src_from_accum = true, .last_inst = true, .my_tile = tile}, json::array({view(aXhat,0,0,U,U,false,false)}), view(dOut,0,0,U,U,false,false), "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_STORE"));
 }
