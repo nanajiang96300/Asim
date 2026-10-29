@@ -81,3 +81,11 @@
 来源：负责人明确以910B的24核及16³矩阵核建模，一般batch采用24倍数，常用96。决定：生产测试默认24核/batch96，batch24作覆盖样本，batch1保留诊断；核间batch分配与矩阵维度Cube对齐分别校验。每batch独立DRAM及实际dispatch/core/buffer/ID绑定，全部batch分别比较参考，不平均掩盖错误。
 
 状态：通用入口已扩展；45单元测试及24/96真实结构门禁通过。96输入24核6606周期、单核110456周期，是同FP64结构模型下内核周期对照，不能当实机或旧算子优化收益。旧NS96运行4647周期但重建仍UNSUPPORTED。完整精度/G4/通信统计/评分未完成，score=null。报告ASCEND24_VALIDATION.md，证据experiments/framework/2026-10-29-ascend24/run_manifest.json。
+
+## D011 — 2026-10-29：七旧入口源码views与失败证据归档
+
+来源：负责人要求先Asim，再为缺失语义补齐重建，检查全部原注册算子并隔离最新结果。决定：在真实Instruction构造点附加数值views，不改算术/数量/地址/调度让测试通过；不唯一的索引和归约显式SEMANTIC_AMBIGUITY，不能猜测。历史诊断全部入口在Asim成功后重放；优化候选仍必须通过冻结性能预筛。
+
+状态：七入口×96batch，24core每core4tile全部Asim结束，实际计算/屏障事件匹配；五入口歧义、BRI越界、NS数值/输入绑定错误，可信比较BLOCKED且score=null。68单元测试通过、限定范围独立审查通过。详细源码证据/逐batch首错/逐流水统计见LEGACY_RECONSTRUCTION_REPORT.md与experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen。v1探索证据保留，v2为最终冻结诊断；大trace/输入/二进制原位按hash保存，不提交大制品。
+
+这是logical complex128结构诊断，成本precision=2，非硬件精度认证；七旧入口独立同算法参考/FP16/G4/通信/G6仍缺证。框架诊断门禁通过不等于算子通过，也不将当前BRI入口缺陷推广为算法永久不可用。

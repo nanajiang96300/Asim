@@ -138,12 +138,14 @@
         "verification/tests/test_framework.py",
         "verification/tests/test_asim_adapter.py",
         "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
-        "experiments/framework/2026-10-29-ascend24/run_manifest.json"
+        "experiments/framework/2026-10-29-ascend24/run_manifest.json",
+        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending"
+        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending",
+        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification"
       ]
     },
     {
@@ -170,12 +172,14 @@
         "verification/tests/test_framework.py",
         "verification/tests/test_asim_adapter.py",
         "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
-        "experiments/framework/2026-10-29-ascend24/run_manifest.json"
+        "experiments/framework/2026-10-29-ascend24/run_manifest.json",
+        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending"
+        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending",
+        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification"
       ]
     },
     {
@@ -202,12 +206,14 @@
         "verification/tests/test_framework.py",
         "verification/tests/test_asim_adapter.py",
         "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
-        "experiments/framework/2026-10-29-ascend24/run_manifest.json"
+        "experiments/framework/2026-10-29-ascend24/run_manifest.json",
+        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending"
+        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending",
+        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification"
       ]
     },
     {
@@ -564,6 +570,69 @@
         "租约/中断恢复/预算/原子产物",
         "API版本兼容与最小部署验证",
         "框架收益对照实验"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "R01",
+      "title": "七注册入口真实指令结构重建与隔离诊断归档",
+      "status": "done",
+      "depends_on": [
+        "A04"
+      ],
+      "allowed_paths": [
+        "src/semantic/",
+        "src/inverse/ (metadata only)",
+        "verification/legacy/",
+        "verification/reporting/",
+        "experiments/reconstruction_campaigns/"
+      ],
+      "acceptance": [
+        "七入口96batch全部Asim后重建，原Instruction字段不变",
+        "显式拒绝歧义/缺证，未过正确性不出排名",
+        "原始trace/输入/二进制和完整流水统计按hash归档"
+      ],
+      "evidence": [
+        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json",
+        "DOCS/research/LEGACY_RECONSTRUCTION_REPORT.md"
+      ],
+      "concrete_operator_changes_allowed": "metadata only; no arithmetic or scheduling changes"
+    },
+    {
+      "id": "R02",
+      "title": "冻结统一任务范围，新增NS正确结构候选与独立同算法参考",
+      "status": "planned",
+      "depends_on": [
+        "R01"
+      ],
+      "allowed_paths": [
+        "isolated candidate worktree",
+        "verification/reference/",
+        "experiments/reconstruction_campaigns/"
+      ],
+      "acceptance": [
+        "明确H/λ/Y或A边界及统一预处理/初始化/恢复计时",
+        "同源残差与最终输出及槽位逐batch正确",
+        "Asim先行、三路径一致且全部96batch验证；其后继续FP16/G4门禁"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "R03",
+      "title": "消除NoBlock零源及Merge/Block归约歧义并统一BRI结构",
+      "status": "planned",
+      "depends_on": [
+        "R01"
+      ],
+      "allowed_paths": [
+        "isolated candidate worktrees",
+        "trusted primitive/cost profile",
+        "verification/reference/"
+      ],
+      "acceptance": [
+        "零源/切片/归约为真实共同原语，成本不得免费",
+        "BRI初值/预条件/迭代/输出恢复与独立参考一致",
+        "七入口全部数值与调度/质量门禁通过后才同口径排名"
       ],
       "evidence": []
     }

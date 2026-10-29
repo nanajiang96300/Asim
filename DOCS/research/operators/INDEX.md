@@ -76,3 +76,7 @@ timeout 120s env ONNXIM_HOME="$WORKTREE"   ONNXIM_TRACE_CSV="$RUN_DIR/trace.csv"
 ## 近期交叉验证证据
 
 主Agent的[小矩阵诊断制品](../../../experiments/audit/2026-10-28/diagnostics.json)复现了Python/DAG层的LDL方向差异，并给出NS最终平方的数学见证；详情见对应卡。它没有执行C++指令，不能称为算子重放通过。待办依赖与验收以[路线图](../ROADMAP.md)为准。
+
+## 最新实际重建（2026-10-29）
+
+当前七个注册入口已执行24核/batch96真实Asim及重建，详细结果见[统一报告](../LEGACY_RECONSTRUCTION_REPORT.md)。五入口因原索引/归约歧义停止，BRI越界、NS数值/输入绑定错误；没有入口完成全部正确性验收。历史状态卡不覆盖这些新事实，也不能据旧DAG PASS晋级。

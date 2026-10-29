@@ -1,8 +1,8 @@
 # 框架实际进度与门禁证据
 
-更新：2026-10-29（Asia/Hong_Kong）。本报告区分结构闭环、真实算法验证和完整框架验收。
+更新：2026-10-29（Asia/Hong_Kong）。最新状态：七个注册入口已补源码views并执行真实Asim重建，冻结批68、兼容回归69单元测试通过；算子正确性未全通过，性能晋级BLOCKED。详见 [七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)。下文21/29/45测试与未补语义描述为早期阶段，不能当成当前覆盖上限。
 
-## 本轮实现
+## 早期通用整块原型（阶段历史）
 
 新增通用 `semantic_program_test` mode，不修改src/inverse或legacy算子。受信通用Model从schema生成真实Instruction，将算术spec附着于对象；基础设施在Model向调度器交付Operation时导出真实队列。runner从导出对象恢复程序，核对实际opcode、地址、shape、size、compute_size、DMA请求及辅助barrier，再核对compute/barrier完成事件集合/单元/合法区间。
 
@@ -45,7 +45,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m verification.asim.g
 
 原始logs、trace、实际指令、输入/参考/重建快照在 `results/framework/asim-gates-v2-frozen/`；Git保存小型run_manifest、完整逐制品SHA-256及源码hash，原件不搬迁。代码路径：src/semantic/、verification/asim/、verification/shadow/。
 
-## 仍需完成
+## 早期原型的未完成项（view部分已有下述新进展）
 
 FW0完整五契约schema与数据集策略；FW1/FW2的typed view/stride/offset、部分初始化、独立同算法参考和复数/逐步精度；FW4异步读完成/写可见事件及hazard；权限隔离；通信质量/G6/新评分器。瑞利当前只为结构fixture提供复数H，原型通过实数块GEMM验证Gram，尚非完整MMSE均衡器。CDL-B仍显式UNSUPPORTED，后续需明确模型及归一化，不能静默回退瑞利。
 
@@ -54,3 +54,7 @@ FW0完整五契约schema与数据集策略；FW1/FW2的typed view/stride/offset�
 冻结runner提交7bc2dd49后，整批7个真实门禁再次串行运行，结果一致。最终清单的源码与79个原始制品hash逐项复核匹配；首次探针目录v1仍保留原样。
 
 2026-10-29多核更新：默认24核、batch96（24的倍数），Cube16³；24/96全batch的真实Asim→预筛→三路径数值闭环已运行，45项单元测试通过。计时为给定A/b/X0/C内核，仍非FP16/G4/通信统计验收。详见 [24核验证报告](ASCEND24_VALIDATION.md)。
+
+## 七入口结构诊断更新
+
+新增view/部分初始化/实际DMA槽位与完整输出检查，以及逐core/unit/name事件多重集合验证。全部七入口/每入口96batch已跑，未补算法答案，136个Instruction构造点原字段保持一致。五入口为显式歧义，BRI越界，NS输入绑定/数值失败，均未晋级。原始/详细流水资料专用目录与后续任务见 [七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)。独立同算法参考、FP16、G4和通信门禁仍未完成。

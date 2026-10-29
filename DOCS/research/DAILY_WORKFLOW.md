@@ -122,3 +122,7 @@ cd "$ASIM_ROOT"
 最新可执行结构门禁已实现：参见 [FRAMEWORK_PROGRESS](FRAMEWORK_PROGRESS.md) 的真实Asim重跑命令；尚不能替代本文完整候选晋级链。
 
 2026-10-29多核更新：默认24核、batch96（24的倍数），Cube16³；24/96全batch的真实Asim→预筛→三路径数值闭环已运行，45项单元测试通过。计时为给定A/b/X0/C内核，仍非FP16/G4/通信统计验收。详见 [24核验证报告](ASCEND24_VALIDATION.md)。
+
+## 2026-10-29七入口重建更新
+
+[七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)记录最新实际覆盖：真实Instruction附加views、逐元素初始化/部分写、DMA batch范围、完整输出与事件覆盖检查已落地；七入口正确性未全通过，score=null。独立同算法参考、精度/G4/通信仍缺证，不能用周期正常结束替代验收。专用原件目录`results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/`，Git小清单在`experiments/reconstruction_campaigns/`；重跑命令与hash检查见报告，旧数据不移动。

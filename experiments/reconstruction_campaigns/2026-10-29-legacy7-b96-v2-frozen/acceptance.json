@@ -1,0 +1,19 @@
+{
+  "status": "DIAGNOSTIC_CAMPAIGN_GATES_PASSED",
+  "operator_correctness": "CORRECTNESS_BLOCKED",
+  "unit_tests": 68,
+  "checks": {
+    "exact_seven_entries": true,
+    "all_asim_completed": true,
+    "all96_per_entry": true,
+    "all24core_four_tiles": true,
+    "trace_compute_barrier_multiplicity": "7/7 TRACE_VALID",
+    "all_actual_instructions_have_semantic_or_explicit_ambiguity": true,
+    "original_instruction_initializers_unchanged": true,
+    "no_scores_or_verified_ranking": true
+  },
+  "limitations": [
+    "expected detection of legacy failures is framework success, not operator correctness",
+    "same-algorithm independent path missing; FP16/G4/communication/G6 not certified"
+  ]
+}

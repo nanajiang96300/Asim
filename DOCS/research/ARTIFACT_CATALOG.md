@@ -58,3 +58,7 @@ python3 scripts/research_inventory.py check experiments/inventory/2026-10-28-bas
 缺文件、hash变化、未支持文件类型或清单自身损坏返回非零。全量核对发现本轮正常的研究文档更新也会报变化，应通过Git差异解释，不能覆盖旧快照。原始资料核对必须保持全通过。
 
 现存10个运行包的配置、摘要解析状态、版本、制品摘要另见 [legacy_runs.json](../../experiments/history/legacy_runs.json)，便于按算法和run追溯；它与本清单是不同视图，必须交叉一致。
+
+## 2026-10-29七入口重建更新
+
+[七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)记录最新实际覆盖：真实Instruction附加views、逐元素初始化/部分写、DMA batch范围、完整输出与事件覆盖检查已落地；七入口正确性未全通过，score=null。独立同算法参考、精度/G4/通信仍缺证，不能用周期正常结束替代验收。专用原件目录`results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/`，Git小清单在`experiments/reconstruction_campaigns/`；重跑命令与hash检查见报告，旧数据不移动。

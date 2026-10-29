@@ -160,3 +160,7 @@ r=\frac{\|A\hat{x}-b\|_F}{\|A\|_2\|\hat{x}\|_F+\|b\|_F+\epsilon}.
 ## 当前执行顺序更新（2026-10-29）
 
 按负责人最新要求：静态完整性检查后先运行Asim；仅运行成功且通过冻结的性能合理性/竞争力筛选，才执行候选数值重建。不具竞争力/异常加速候选可以跳过数值，必须记录NOT_RUN、score=null，不能称正确或数值失败。首批测试信道为瑞利，CDL-B接口后续版本化增加。原语单元测试可独立运行；真实Asim适配尚未接通。
+
+## 2026-10-29七入口重建更新
+
+[七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)记录最新实际覆盖：真实Instruction附加views、逐元素初始化/部分写、DMA batch范围、完整输出与事件覆盖检查已落地；七入口正确性未全通过，score=null。独立同算法参考、精度/G4/通信仍缺证，不能用周期正常结束替代验收。专用原件目录`results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/`，Git小清单在`experiments/reconstruction_campaigns/`；重跑命令与hash检查见报告，旧数据不移动。

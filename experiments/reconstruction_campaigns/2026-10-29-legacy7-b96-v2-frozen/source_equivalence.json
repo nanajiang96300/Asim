@@ -1,0 +1,68 @@
+{
+  "baseline_commit": "57b422fdbff70e18902f0d6904a85395c56c795e",
+  "method": "balanced braces around every Instruction initializer; ordered exact text equality, including opcode, addresses, dimensions, ordering fields; wrapper metadata only",
+  "status": "PASS",
+  "sites": 136,
+  "operators": [
+    {
+      "operator": "cholesky_block",
+      "path": "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc",
+      "initializer_sites": 19,
+      "all_initializer_text_unchanged": true,
+      "current_sha256": "5ec45601ad517b4a1f8f408006f2043ca9648a21efb9be529b146a1961496028",
+      "build_worktree_source_matches": true
+    },
+    {
+      "operator": "cholesky_noblock",
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc",
+      "initializer_sites": 20,
+      "all_initializer_text_unchanged": true,
+      "current_sha256": "af8f2777f26e22cf54b92f8c9e1c197be7fab216eac2c174ad7aaaebf8dca842",
+      "build_worktree_source_matches": true
+    },
+    {
+      "operator": "cholesky_noblock_merge",
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc",
+      "initializer_sites": 20,
+      "all_initializer_text_unchanged": true,
+      "current_sha256": "2bcee68ccaaa637b628251f395bf5f70ce29316060f6395c75a4049eb7e9ccdd",
+      "build_worktree_source_matches": true
+    },
+    {
+      "operator": "ldl_block",
+      "path": "src/inverse/ldl_block/LDLBlockBaselineOp.cc",
+      "initializer_sites": 25,
+      "all_initializer_text_unchanged": true,
+      "current_sha256": "f2e5e70a18550afdc5109d7efd968ba61e77be9ccad30f01876f4445330e52cb",
+      "build_worktree_source_matches": true
+    },
+    {
+      "operator": "ldl_noblock",
+      "path": "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc",
+      "initializer_sites": 26,
+      "all_initializer_text_unchanged": true,
+      "current_sha256": "c2a462dc77f78e9fc52ef4cdbfd3025df5207494dc93b396e5a8d7fadd60b30d",
+      "build_worktree_source_matches": true
+    },
+    {
+      "operator": "block_richardson",
+      "path": "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc",
+      "initializer_sites": 19,
+      "all_initializer_text_unchanged": true,
+      "current_sha256": "de56cca3a67dca01483c293a60b1ce0ae77186131c7512f6e87b2bcd855493bd",
+      "build_worktree_source_matches": true
+    },
+    {
+      "operator": "newton_schulz",
+      "path": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc",
+      "initializer_sites": 7,
+      "all_initializer_text_unchanged": true,
+      "current_sha256": "121b3296dca9607ead63ed7b5780df6da3ba69807bc0730132db69ccecff720c",
+      "build_worktree_source_matches": true
+    }
+  ],
+  "limitations": [
+    "not a full C++ AST proof; run-level cycles also unchanged vs exploratory v1",
+    "does not certify new metadata as unique physical index semantics; ambiguous sites explicitly rejected"
+  ]
+}

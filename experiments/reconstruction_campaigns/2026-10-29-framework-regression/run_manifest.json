@@ -1,0 +1,621 @@
+{
+  "status": "GATES_PASSED",
+  "scope": "structure prototype; no G4/precision/quality/promotion certification",
+  "score": null,
+  "cases": [
+    {
+      "case": "rayleigh_gram",
+      "expected_status": "STRUCTURE_CHECKED",
+      "status": "STRUCTURE_CHECKED",
+      "numeric_status": "EXECUTED",
+      "cycle": 137,
+      "gate_passed": true
+    },
+    {
+      "case": "not_competitive",
+      "expected_status": "SKIPPED_NOT_COMPETITIVE",
+      "status": "SKIPPED_NOT_COMPETITIVE",
+      "numeric_status": "NOT_RUN",
+      "cycle": 137,
+      "gate_passed": true
+    },
+    {
+      "case": "implausible",
+      "expected_status": "QUARANTINED_IMPLAUSIBLE_SPEEDUP",
+      "status": "QUARANTINED_IMPLAUSIBLE_SPEEDUP",
+      "numeric_status": "NOT_RUN",
+      "cycle": 137,
+      "gate_passed": true
+    },
+    {
+      "case": "wrong_arithmetic",
+      "expected_status": "NUMERIC_FAILED",
+      "status": "NUMERIC_FAILED",
+      "numeric_status": "EXECUTED",
+      "relative_error": 1.0000000000000002,
+      "gate_passed": true
+    },
+    {
+      "case": "missing_load",
+      "expected_status": "SKIPPED_ASIM_FAILED",
+      "status": "SKIPPED_ASIM_FAILED",
+      "numeric_status": "NOT_RUN",
+      "gate_passed": true
+    },
+    {
+      "case": "legacy_ns",
+      "asim_status": "COMPLETED",
+      "cycle": 1708,
+      "score": null,
+      "numeric_status": "NOT_RUN",
+      "actual_instruction_count": 102,
+      "status": "UNSUPPORTED",
+      "reason": "NUMERIC_SCHEMA_REQUIRES_SEPARATE_ADAPTER: legacy-source-views-v1",
+      "gate_passed": true
+    },
+    {
+      "case": "legacy_cholesky",
+      "asim_status": "COMPLETED",
+      "cycle": 232,
+      "score": null,
+      "numeric_status": "NOT_RUN",
+      "actual_instruction_count": 28,
+      "status": "UNSUPPORTED",
+      "reason": "NUMERIC_SCHEMA_REQUIRES_SEPARATE_ADAPTER: legacy-source-views-v1",
+      "gate_passed": true
+    }
+  ],
+  "binary_sha256": "5fa673028353eb1031c1921629eb902eb5c465432f323e3051442181e323ba2c",
+  "binary_source_commit": "add6ba38d4c280ec03d8033ac0e927ade3119a0c",
+  "runner_base_commit": "0ee63e5008c80b4405448f80758440b4bb2483f9",
+  "sources": [
+    {
+      "path": "src/semantic/InstructionExport.cc",
+      "sha256": "1946248f986087064ac8424b322e578fed50f191dc9c3c970bea9d31abdaffed"
+    },
+    {
+      "path": "src/semantic/InstructionExport.h",
+      "sha256": "e3c785d3ba0c3991acc1f49dd69f0e404b6080654996dbbcf5d63789815c007b"
+    },
+    {
+      "path": "src/semantic/ProgramModel.cc",
+      "sha256": "c5e0a4c56ca2db3a8dada6eba240885460838e6efa71ed9b6aa5bd96b3761299"
+    },
+    {
+      "path": "src/semantic/ProgramModel.h",
+      "sha256": "11292e493b06332cb5073eba878144a392c4b258cc574dd2fd5f74fd14be4220"
+    },
+    {
+      "path": "src/semantic/SourceViews.h",
+      "sha256": "8e92c6f8423b2a4843fc209a130c6f2d76392afe6f7985b5f4cc7809288eb320"
+    },
+    {
+      "path": "verification/__init__.py",
+      "sha256": "efa11418ea24fc336cfedbbb6006a97b7357432a97797bc05e61825f32a992e7"
+    },
+    {
+      "path": "verification/asim/batch.py",
+      "sha256": "c1647388777798aa806aa0b175632f4c5ada472d880186b7426a9f5d421d0ce0"
+    },
+    {
+      "path": "verification/asim/batch_gates.py",
+      "sha256": "8ecc574881630d51e5e8f76367f08603a767acb3c0a2298672a4997bb74bdc58"
+    },
+    {
+      "path": "verification/asim/gates.py",
+      "sha256": "0e43d5a9e12cb81a660b1e47d532d7ab45b92ced30cab4e840f3a3b835024922"
+    },
+    {
+      "path": "verification/asim/runner.py",
+      "sha256": "13a50d57e436712b48f00b97e05b239eba22d93667c839f832cab7b9cdb2e977"
+    },
+    {
+      "path": "verification/contracts/core.py",
+      "sha256": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116"
+    },
+    {
+      "path": "verification/fixtures/rayleigh.py",
+      "sha256": "6f94d96c42e4284dd1c923c9a52058dd40b2b4bad4e94b0b0896272b9c248834"
+    },
+    {
+      "path": "verification/fixtures/solve_program.py",
+      "sha256": "4b4dba26266ba23bc220aa902971554e2831a66531da792892854669d7528138"
+    },
+    {
+      "path": "verification/legacy/campaign.py",
+      "sha256": "0d16561ffcdb0dab7890a07166968402c21b32a0c6a7291aa7b734435ee494cf"
+    },
+    {
+      "path": "verification/legacy/replay.py",
+      "sha256": "6d430be64bc4758296dad9243a981091facd4bf86043e16420f37bdae0f6a8cc"
+    },
+    {
+      "path": "verification/reporting/pipeline.py",
+      "sha256": "f525bce96dd5cb36c241a5f98d850666f23b82e7d0361f4cda5fb0bd4eaa37e8"
+    },
+    {
+      "path": "verification/shadow/execute.py",
+      "sha256": "8523017abe4cb0079dcd247a3486054ce78d05666f241fab3760775e26e40285"
+    },
+    {
+      "path": "verification/shadow/metrics.py",
+      "sha256": "5531a1af2a2c0c5d8d2951627066e3fd0e9ed8dfcdcb1fd26637d27c5320aa5f"
+    },
+    {
+      "path": "verification/shadow/program.py",
+      "sha256": "58c7c836a62dc5f61b42290a35a013ff099bf0532ddd15fbc45415d826276e5e"
+    },
+    {
+      "path": "verification/tests/test_asim_adapter.py",
+      "sha256": "3d3e5aa3870c003746ae6f5ba7902ca7dd2b887ae57f825ad25fbc0d403399a5"
+    },
+    {
+      "path": "verification/tests/test_batch.py",
+      "sha256": "308aa9bd5e95a888ff960de85a1ebbb432f42f5afd458224f726601e3ca108f8"
+    },
+    {
+      "path": "verification/tests/test_framework.py",
+      "sha256": "26c40d0c67d8107209cb760ac23a92ca385ff1236d261911acfefa380e7041a7"
+    },
+    {
+      "path": "verification/tests/test_legacy_replay.py",
+      "sha256": "df11b8aa7c97602fbc3420f6dfaedb8d7dcd1b8120d42b622b67ce09930ceff4"
+    }
+  ],
+  "raw_root": "/home/nanajiang/Asim/results/reconstruction_campaigns/2026-10-29-framework-regression",
+  "artifacts": [
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/calibration/asim.json",
+      "bytes": 1743,
+      "sha256": "0500b9a68df347283dbb27c01fe7829d9d923da6b6b7e04cda2fe6b6da2dcecf"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/calibration/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/calibration/dispatch.jsonl",
+      "bytes": 169,
+      "sha256": "4bc8e4c21fcbad27714b83c4aca8d5cfdcceddb357245765fbd6abb7f99587f7"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/calibration/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/calibration/instructions.jsonl",
+      "bytes": 2537,
+      "sha256": "fb4d70fb665f8347164fd84db7f0c629b1019f316776bcf854dc07ab4778d835"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/calibration/models.json",
+      "bytes": 2037,
+      "sha256": "60687b034769fd4f3be40fc895f050f40bc589b3986de8b9bd8a6455ec0e2110"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/calibration/simulator.log",
+      "bytes": 16447,
+      "sha256": "d8750f3363134e68c66523eb96e5a81261f7e381e1f8655434c24927aa7b89e0"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/calibration/trace.csv",
+      "bytes": 478,
+      "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/actual_program.json",
+      "bytes": 1393,
+      "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/asim.json",
+      "bytes": 1743,
+      "sha256": "20ce0af7816926024ed05eea6cab77676613991768598cddeee4e715d341d39e"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/dispatch.jsonl",
+      "bytes": 169,
+      "sha256": "4bc8e4c21fcbad27714b83c4aca8d5cfdcceddb357245765fbd6abb7f99587f7"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/instructions.jsonl",
+      "bytes": 2537,
+      "sha256": "fb4d70fb665f8347164fd84db7f0c629b1019f316776bcf854dc07ab4778d835"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/models.json",
+      "bytes": 2042,
+      "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/result.json",
+      "bytes": 3811,
+      "sha256": "d2b48cdbd299507b4ca779521090335db2b3303a1a9fe6da0a1d9469c5501a5b"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/simulator.log",
+      "bytes": 16462,
+      "sha256": "3cb5b9668b4a5e7e79eb106ea16791edbdf648989d9fb48f017f1a96350eeb3a"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/implausible/trace.csv",
+      "bytes": 478,
+      "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/asim.json",
+      "bytes": 1760,
+      "sha256": "7c5c47996f9e47bb8a170745669d9f2e02bde07902f17a82e0d4ff8084956424"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/config.json",
+      "bytes": 1304,
+      "sha256": "37483d97130358860f2c30bef19d95b68ccb1dddcaddcb1db2fa16792ccd9c6d"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/dispatch.jsonl",
+      "bytes": 594,
+      "sha256": "6f7dedfb6776a5d8fcfa3f87d170c9898ad05f6c10b1f7a590d068c8db32511b"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/formula.json",
+      "bytes": 2348,
+      "sha256": "8cba5d4a351181013aa3b1232c9a69396cc59e80894955cff18b2d6f834ca2a6"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/instructions.jsonl",
+      "bytes": 16422,
+      "sha256": "a958c6acab02a372a6885e14b30a5d40b92aa6a54548989126f77814fc52fe7a"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/models.json",
+      "bytes": 130,
+      "sha256": "6e3823ef2325912e2880df2a68f251658ab4d34d7ac4730947e7b5b2bbc8bd18"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/reconstruction.json",
+      "bytes": 289,
+      "sha256": "2cf5f3f6171932e6c69db9f49a6f45b38c26f139a2f470cd82b05b12854812d8"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/simulator.log",
+      "bytes": 16693,
+      "sha256": "b3df3583a928167aebf51b98b4465aa640615bc1dc37f20608bf966b3d8a89f2"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_cholesky/trace.csv",
+      "bytes": 1220,
+      "sha256": "912264af9bc88feee560450c5068e49f13bf2edb574f4bbc585e0f6babd6e755"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/asim.json",
+      "bytes": 1745,
+      "sha256": "ce75e583262e4a85f5c850afabb5c09600078f77359480a7864f1053742cc503"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/config.json",
+      "bytes": 1304,
+      "sha256": "37483d97130358860f2c30bef19d95b68ccb1dddcaddcb1db2fa16792ccd9c6d"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/dispatch.jsonl",
+      "bytes": 1138,
+      "sha256": "7e4dbef3bda545ed9589e4acb2e7c1fd222aeee7430df2cb600b04968fc9adab"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/formula.json",
+      "bytes": 19164,
+      "sha256": "be0de98f079644f9caef3f8bdca7cc6847c9124b5db2ad5c136f071accb8b88e"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/instructions.jsonl",
+      "bytes": 50326,
+      "sha256": "4f53a5432be54b9b5627a22c93fbd3fbf9d75b3473ce8aa53d56c7874daed023"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/models.json",
+      "bytes": 124,
+      "sha256": "9f2aeea6365aba3475e90486c000da87d1a14f77a2672ee593802b8dc5638fbf"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/reconstruction.json",
+      "bytes": 285,
+      "sha256": "30237190ce06e9717c018bc7c9a626b5f1e7199c7b515aa65c3403eaeca64467"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/simulator.log",
+      "bytes": 16672,
+      "sha256": "9b92cf9d9120d520e3d729731fef41cc164193bb08823f5b749bc8067b4ff8a4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/legacy_ns/trace.csv",
+      "bytes": 3978,
+      "sha256": "f1c8eed64a907082360473edd871948f7bac4f233012c8690504c869ea370892"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/asim.json",
+      "bytes": 1743,
+      "sha256": "729b39b2f519c37d07dc92be9ab23bad95d47107c8c3759e4ebea53d554b3f8a"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/dispatch.jsonl",
+      "bytes": 142,
+      "sha256": "21e34804d6c8d2ab89c42b7874b726abd5963c197090e27f5640b8e91ee26430"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/instructions.jsonl",
+      "bytes": 2013,
+      "sha256": "61f2e00f95b9fb8145caae52d37123baa44919f591eea50706d5f57e45d9994c"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/models.json",
+      "bytes": 1885,
+      "sha256": "537937dd853b89077e05c4280444be9074c4e165eacaed33f9a30e4e48860d6e"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/result.json",
+      "bytes": 3643,
+      "sha256": "fa87e8fdf9ecd6a489bb04b3b35086457db23c5867ac7ebe1783779420ebdaaa"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/simulator.log",
+      "bytes": 17255,
+      "sha256": "2ef8053265533fef1a013bb7b5c23d51331c4e3859d039ca30715511645e2493"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/missing_load/trace.csv",
+      "bytes": 174,
+      "sha256": "6e9b1a9845dcabc579fdf7f649d02e9ce84d3c9564b3f67007fb52f329b26794"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/actual_program.json",
+      "bytes": 1393,
+      "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/asim.json",
+      "bytes": 1751,
+      "sha256": "3885f339323f6516de77703ed2ca41dc3e23fa36356c6b1482634079bb0c10cb"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/dispatch.jsonl",
+      "bytes": 169,
+      "sha256": "4bc8e4c21fcbad27714b83c4aca8d5cfdcceddb357245765fbd6abb7f99587f7"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/instructions.jsonl",
+      "bytes": 2537,
+      "sha256": "fb4d70fb665f8347164fd84db7f0c629b1019f316776bcf854dc07ab4778d835"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/models.json",
+      "bytes": 2042,
+      "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/result.json",
+      "bytes": 3824,
+      "sha256": "ef04bda137d3e68b18cc0310d4229a612f09960ce60ee7c58b81eb4aeac6f9ff"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/simulator.log",
+      "bytes": 16470,
+      "sha256": "a2d4179cae6c4ea4b451ed528bc82385f8bca21d6facac878323fa28d5a8e821"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/not_competitive/trace.csv",
+      "bytes": 478,
+      "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/actual_program.json",
+      "bytes": 1393,
+      "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/asim.json",
+      "bytes": 1747,
+      "sha256": "f5c98a582fc51c921952e5e2c0e5f1b48a23c149e1e71d0d0c3d7443d1fe94c3"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/dispatch.jsonl",
+      "bytes": 169,
+      "sha256": "4bc8e4c21fcbad27714b83c4aca8d5cfdcceddb357245765fbd6abb7f99587f7"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/instructions.jsonl",
+      "bytes": 2537,
+      "sha256": "fb4d70fb665f8347164fd84db7f0c629b1019f316776bcf854dc07ab4778d835"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/models.json",
+      "bytes": 2042,
+      "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/numerics_started.json",
+      "bytes": 84,
+      "sha256": "29df5e3c21fed0a60476495538a3e27f90b6a495e0a08a12744c6f8cc38ad8cd"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/result.json",
+      "bytes": 8709,
+      "sha256": "081a9511a187c0d35e98e1a81bd7564170946d6640dd73c6e0387758b1c54b77"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/simulator.log",
+      "bytes": 16466,
+      "sha256": "f080d610af8d25c8fc029c937c8dfa94ed98a38f5ab51aa793aed12de0a91944"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/rayleigh_gram/trace.csv",
+      "bytes": 478,
+      "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/summary.json",
+      "bytes": 19536,
+      "sha256": "9a69df4cfa80130b6e19ba18021504c4746c2e5aa963bb7449a7502da2d80128"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/actual_program.json",
+      "bytes": 1524,
+      "sha256": "fdb92d78812a86af7cdc0bcc1442b4ca5a160d93e5e29a727e0b5b14209b3bd0"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/asim.json",
+      "bytes": 1753,
+      "sha256": "8c923cfc1f9b44de5ea6dfa2bfd23438cf6019267013c90d548b7bdbdaf5f4b2"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/dispatch.jsonl",
+      "bytes": 206,
+      "sha256": "842e9979c8fa9b5906fd1ba6ca87d90fe15f1616f6c390bedcac9e102a90d8fc"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/instructions.jsonl",
+      "bytes": 3082,
+      "sha256": "463d4aefde01fa5d4df260eadbc1cc8e89113b90efd3862f41a3cdfff44d80a1"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/models.json",
+      "bytes": 2227,
+      "sha256": "4707dbb3c0f48281d7d5477b0c6284091d1f119e243a2f40cecefa0ea336bda1"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/numerics_started.json",
+      "bytes": 84,
+      "sha256": "4447d3fefe1758a71e4403eea8f844959fea6a76d03038dbdae21e2a72b43291"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/result.json",
+      "bytes": 9410,
+      "sha256": "16a78cc3528c43b43df415f1f7015a2c8c7133c84cf39bd4c2e48d0eb265a621"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/simulator.log",
+      "bytes": 16472,
+      "sha256": "88b9d9780e61be388bafa11167d11d68eb1579050f9adefdafed51c3aa5332b1"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-framework-regression/wrong_arithmetic/trace.csv",
+      "bytes": 561,
+      "sha256": "2ebeb57527df1feb070e8528bb7ea17484c916f0d9c3478fb8dde0f1ce08d466"
+    }
+  ],
+  "supporting_artifacts": [
+    {
+      "path": "results/legacy-semantic-regression-unit.log",
+      "bytes": 6802,
+      "sha256": "8538ddd3f2a2c94439459b2b7723f8bf142c73b2af310f76244c12f185c3e5af"
+    },
+    {
+      "path": "results/legacy-semantic-regression-asim.log",
+      "bytes": 1753,
+      "sha256": "ab219d5672c7188de8c3aa82e375a82f227175783d7771cbd5971bf887e467c1"
+    }
+  ],
+  "unit_test_count": 69
+}

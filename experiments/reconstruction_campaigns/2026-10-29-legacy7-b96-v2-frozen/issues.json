@@ -1,0 +1,416 @@
+[
+  {
+    "id": "RECON-BLOCK_RICHARDSON",
+    "operator": "block_richardson",
+    "status": "OPEN",
+    "kind": "OBSERVED_STRUCTURAL_FAILURE",
+    "counts": {
+      "BOUNDS_ERROR": 96
+    },
+    "examples": {
+      "BOUNDS_ERROR": {
+        "batch": 0,
+        "status": "BOUNDS_ERROR",
+        "reason": "view exceeds region aW: {'base': 268443136, 'col': 0, 'cols': 64, 'conjugate': False, 'row': 0, 'rows': 16, 'transpose': False}",
+        "first_bad": {
+          "index": 107,
+          "id": "BRI_W",
+          "batch": 0,
+          "opcode": 3,
+          "site": "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc:BRI_W"
+        },
+        "executed": 107,
+        "total": 111,
+        "cost_issues": []
+      }
+    },
+    "contract_issues": [
+      {
+        "code": "DECLARED_OUTPUT_SHAPE_MISMATCH",
+        "declared": [
+          16,
+          16
+        ],
+        "task": [
+          96,
+          16,
+          16
+        ]
+      }
+    ],
+    "evidence": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/block_richardson/reconstruction.json",
+    "source": "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc",
+    "promoted": false,
+    "source_locations": [
+      {
+        "path": "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc",
+        "line": 70,
+        "finding": "W allocated UxU but actual W GEMM output UxM; observed BOUNDS_ERROR",
+        "source_sha256": "de56cca3a67dca01483c293a60b1ce0ae77186131c7512f6e87b2bcd855493bd",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      },
+      {
+        "path": "src/inverse/block_richardson/BlockRichardsonBaselineModel.cc",
+        "line": 25,
+        "finding": "output missing batch dimension",
+        "source_sha256": "b10671123ba885b55b5c25a69b974d21ad9b0b22b6fe96584de5b830b43487d1",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      },
+      {
+        "path": "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc",
+        "line": 200,
+        "finding": "comment-only swap; no corresponding swap/copy in loop",
+        "source_sha256": "de56cca3a67dca01483c293a60b1ce0ae77186131c7512f6e87b2bcd855493bd",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      },
+      {
+        "path": "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc",
+        "line": 185,
+        "finding": "actual ADD and RegI, not intended I-BY",
+        "source_sha256": "de56cca3a67dca01483c293a60b1ce0ae77186131c7512f6e87b2bcd855493bd",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      }
+    ]
+  },
+  {
+    "id": "RECON-CHOLESKY_BLOCK",
+    "operator": "cholesky_block",
+    "status": "OPEN",
+    "kind": "SEMANTICS_INCOMPLETE",
+    "counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "examples": {
+      "SEMANTIC_AMBIGUITY": {
+        "batch": 0,
+        "status": "SEMANTIC_AMBIGUITY",
+        "reason": "block operation lacks complete element/column or weighted reduction indices in original code",
+        "first_bad": {
+          "index": 11,
+          "id": "CHOL_BLK_TRSM_DIV_1_0_0",
+          "batch": 0,
+          "opcode": 20,
+          "site": "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_TRSM_DIV_"
+        },
+        "executed": 11,
+        "total": 454,
+        "cost_issues": []
+      }
+    },
+    "contract_issues": [],
+    "evidence": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/cholesky_block/reconstruction.json",
+    "source": "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc",
+    "promoted": false,
+    "source_locations": [
+      {
+        "path": "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc",
+        "line": 173,
+        "finding": "incomplete TRSM column indices",
+        "source_sha256": "5ec45601ad517b4a1f8f408006f2043ca9648a21efb9be529b146a1961496028",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      }
+    ]
+  },
+  {
+    "id": "RECON-CHOLESKY_NOBLOCK",
+    "operator": "cholesky_noblock",
+    "status": "OPEN",
+    "kind": "SEMANTICS_INCOMPLETE",
+    "counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "examples": {
+      "SEMANTIC_AMBIGUITY": {
+        "batch": 0,
+        "status": "SEMANTIC_AMBIGUITY",
+        "reason": "zero-source row/column is not uniquely specified by legacy base address; diagonal lambda and off-diagonal zero differ",
+        "first_bad": {
+          "index": 1524,
+          "id": "CHOL_NB_FWD_NEG_1_0",
+          "batch": 0,
+          "opcode": 18,
+          "site": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc:CHOL_NB_FWD_NEG_"
+        },
+        "executed": 1524,
+        "total": 2492,
+        "cost_issues": []
+      }
+    },
+    "contract_issues": [
+      {
+        "code": "DECLARED_OUTPUT_SHAPE_MISMATCH",
+        "declared": [
+          96,
+          64,
+          16
+        ],
+        "task": [
+          96,
+          16,
+          16
+        ]
+      }
+    ],
+    "evidence": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/cholesky_noblock/reconstruction.json",
+    "source": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc",
+    "promoted": false,
+    "source_locations": [
+      {
+        "path": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc",
+        "line": 208,
+        "finding": "zero-source scalar index ambiguous",
+        "source_sha256": "af8f2777f26e22cf54b92f8c9e1c197be7fab216eac2c174ad7aaaebf8dca842",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      },
+      {
+        "path": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.cc",
+        "line": 32,
+        "finding": "Ainv declared shape_MU",
+        "source_sha256": "46f83d65c305382c123221247d15d5ffc93d4bb5dfdbf7ad6a3b0789dc977be4",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      }
+    ]
+  },
+  {
+    "id": "RECON-CHOLESKY_NOBLOCK_MERGE",
+    "operator": "cholesky_noblock_merge",
+    "status": "OPEN",
+    "kind": "SEMANTICS_INCOMPLETE",
+    "counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "examples": {
+      "SEMANTIC_AMBIGUITY": {
+        "batch": 0,
+        "status": "SEMANTIC_AMBIGUITY",
+        "reason": "SCALAR batch/fusion lacks explicit reduction semantics; cannot assume dot or sum",
+        "first_bad": {
+          "index": 26,
+          "id": "CHOL_NB_POTRF_SQ_1",
+          "batch": 0,
+          "opcode": 19,
+          "site": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_POTRF_SQ_"
+        },
+        "executed": 26,
+        "total": 812,
+        "cost_issues": []
+      }
+    },
+    "contract_issues": [
+      {
+        "code": "DECLARED_OUTPUT_SHAPE_MISMATCH",
+        "declared": [
+          96,
+          64,
+          16
+        ],
+        "task": [
+          96,
+          16,
+          16
+        ]
+      }
+    ],
+    "evidence": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/cholesky_noblock_merge/reconstruction.json",
+    "source": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc",
+    "promoted": false,
+    "source_locations": [
+      {
+        "path": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc",
+        "line": 132,
+        "finding": "batched scalar has no explicit reduction",
+        "source_sha256": "2bcee68ccaaa637b628251f395bf5f70ce29316060f6395c75a4049eb7e9ccdd",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      },
+      {
+        "path": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.cc",
+        "line": 32,
+        "finding": "Ainv declared shape_MU",
+        "source_sha256": "41e9bf17268af8f48fca8bfc3fdfd46d68b10c0be7626b9cfc937c890021567d",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      }
+    ]
+  },
+  {
+    "id": "RECON-LDL_BLOCK",
+    "operator": "ldl_block",
+    "status": "OPEN",
+    "kind": "SEMANTICS_INCOMPLETE",
+    "counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "examples": {
+      "SEMANTIC_AMBIGUITY": {
+        "batch": 0,
+        "status": "SEMANTIC_AMBIGUITY",
+        "reason": "block operation lacks complete element/column or weighted reduction indices in original code",
+        "first_bad": {
+          "index": 20,
+          "id": "LDL_BLK_LAPPLY_1_0_0",
+          "batch": 0,
+          "opcode": 19,
+          "site": "src/inverse/ldl_block/LDLBlockBaselineOp.cc:LDL_BLK_LAPPLY_"
+        },
+        "executed": 20,
+        "total": 374,
+        "cost_issues": []
+      }
+    },
+    "contract_issues": [],
+    "evidence": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/ldl_block/reconstruction.json",
+    "source": "src/inverse/ldl_block/LDLBlockBaselineOp.cc",
+    "promoted": false,
+    "source_locations": [
+      {
+        "path": "src/inverse/ldl_block/LDLBlockBaselineOp.cc",
+        "line": 188,
+        "finding": "missing weighted/reduction column indices",
+        "source_sha256": "f2e5e70a18550afdc5109d7efd968ba61e77be9ccad30f01876f4445330e52cb",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      }
+    ]
+  },
+  {
+    "id": "RECON-LDL_NOBLOCK",
+    "operator": "ldl_noblock",
+    "status": "OPEN",
+    "kind": "SEMANTICS_INCOMPLETE",
+    "counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "examples": {
+      "SEMANTIC_AMBIGUITY": {
+        "batch": 0,
+        "status": "SEMANTIC_AMBIGUITY",
+        "reason": "zero-source row/column is not uniquely specified by legacy base address; diagonal lambda and off-diagonal zero differ",
+        "first_bad": {
+          "index": 2237,
+          "id": "LDL_NB_FWD_NEG_1_0",
+          "batch": 0,
+          "opcode": 18,
+          "site": "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc:LDL_NB_FWD_NEG_"
+        },
+        "executed": 2237,
+        "total": 3102,
+        "cost_issues": []
+      }
+    },
+    "contract_issues": [
+      {
+        "code": "DECLARED_OUTPUT_SHAPE_MISMATCH",
+        "declared": [
+          96,
+          64,
+          16
+        ],
+        "task": [
+          96,
+          16,
+          16
+        ]
+      }
+    ],
+    "evidence": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/ldl_noblock/reconstruction.json",
+    "source": "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc",
+    "promoted": false,
+    "source_locations": [
+      {
+        "path": "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc",
+        "line": 254,
+        "finding": "zero-source scalar index ambiguous",
+        "source_sha256": "c2a462dc77f78e9fc52ef4cdbfd3025df5207494dc93b396e5a8d7fadd60b30d",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      },
+      {
+        "path": "src/inverse/ldl_noblock/LDLNoBlockBaselineModel.cc",
+        "line": 32,
+        "finding": "Ainv declared shape_MU",
+        "source_sha256": "5020c6d3a5c3dd88540d84bd83f53d107b940458d40535d301d7493e5424a1fd",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      }
+    ]
+  },
+  {
+    "id": "RECON-NEWTON_SCHULZ",
+    "operator": "newton_schulz",
+    "status": "OPEN",
+    "kind": "OBSERVED_STRUCTURAL_FAILURE",
+    "counts": {
+      "NUMERIC_FAILED": 1,
+      "TENSOR_BOUNDS_ERROR": 1,
+      "INPUT_BINDING_MISMATCH": 94
+    },
+    "examples": {
+      "NUMERIC_FAILED": {
+        "batch": 0,
+        "status": "NUMERIC_FAILED",
+        "relative_error": 1.0,
+        "executed": 102,
+        "total": 102,
+        "cost_issues": []
+      },
+      "TENSOR_BOUNDS_ERROR": {
+        "batch": 1,
+        "status": "TENSOR_BOUNDS_ERROR",
+        "reason": "DMA view outside declared tensors",
+        "first_bad": {
+          "index": 1,
+          "id": "",
+          "batch": 1,
+          "opcode": 0,
+          "site": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:MOVIN"
+        },
+        "executed": 1,
+        "total": 102,
+        "cost_issues": []
+      },
+      "INPUT_BINDING_MISMATCH": {
+        "batch": 2,
+        "status": "INPUT_BINDING_MISMATCH",
+        "reason": "DMA crossed into another tensor",
+        "first_bad": {
+          "index": 1,
+          "id": "",
+          "batch": 2,
+          "opcode": 0,
+          "site": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc:MOVIN"
+        },
+        "executed": 1,
+        "total": 102,
+        "cost_issues": []
+      }
+    },
+    "contract_issues": [
+      {
+        "code": "INPUT_ROLE_MISMATCH",
+        "detail": "Model supplies H/RegI/X_init/C; Op consumes first three as A/X0/C"
+      }
+    ],
+    "evidence": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/newton_schulz/reconstruction.json",
+    "source": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc",
+    "promoted": false,
+    "source_locations": [
+      {
+        "path": "src/inverse/newton_schulz/NewtonSchulzBaselineModel.cc",
+        "line": 18,
+        "finding": "Model H/RegI/X_init/C versus Op A/X0/C; observed binding failures",
+        "source_sha256": "42f0ac76c2bc3559de8edb8306516c748181bb9580ae885cdfa245b66b66bfa5",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      },
+      {
+        "path": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc",
+        "line": 106,
+        "finding": "actual ADD versus intended residual subtraction",
+        "source_sha256": "121b3296dca9607ead63ed7b5780df6da3ba69807bc0730132db69ccecff720c",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      },
+      {
+        "path": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc",
+        "line": 137,
+        "finding": "actual final X@X, not X",
+        "source_sha256": "121b3296dca9607ead63ed7b5780df6da3ba69807bc0730132db69ccecff720c",
+        "evidence_level": "source_present; observe per-batch failure separately"
+      }
+    ]
+  }
+]
