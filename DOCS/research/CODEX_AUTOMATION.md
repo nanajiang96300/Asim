@@ -1,3 +1,5 @@
+当前实现进度：通用真实Asim→性能筛选→实际Instruction重建已接通，29单元测试与7项真实门禁达到预期；仅结构原型。参见 [FRAMEWORK_PROGRESS](FRAMEWORK_PROGRESS.md)，下文完整协调器/评分/隔离仍待实现。
+
 # Codex 平行自动化框架设计
 
 状态：完整控制器/adapter/可信执行链仍为拟议架构。本轮已经使用当前服务器上的原生主/子Agent完成系统审计，盘点/诊断/资料校验脚本落地；未启动无人值守搜索，也未独立核验CLI安装、认证和SDK接口。当前操作规程以 [DAILY_WORKFLOW](DAILY_WORKFLOW.md) 为准。

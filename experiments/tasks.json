@@ -4,7 +4,7 @@
   "audit_base_commit": "7cf9c5088ccc030ee3bf478468660b3cdf46cee3",
   "status_meaning": "done denotes documentation/audit delivery only; implementation gates require their own evidence",
   "plan_base_commit": "29e56bb84695cfc51f44f3b4f5941db1dbd71400",
-  "current_priority": "FW0–FW7 generic framework on synthetic programs; concrete operator work deferred",
+  "current_priority": "Expand trusted whole-region replay to typed views and independent algorithm comparisons; retain Asim-first screening",
   "tasks": [
     {
       "id": "A00",
@@ -135,12 +135,14 @@
       ],
       "evidence": [
         "verification/contracts/README.md",
-        "verification/tests/test_framework.py"
+        "verification/tests/test_framework.py",
+        "verification/tests/test_asim_adapter.py",
+        "experiments/framework/2026-10-29-asim-gates/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "Initial Python library only; trusted real Asim adapter not implemented; no full phase acceptance"
+        "FW0–FW2 remain in_progress: whole-region real structure prototype only; full views/precision/algorithm references/quality and G4 still pending"
       ]
     },
     {
@@ -164,12 +166,14 @@
       ],
       "evidence": [
         "verification/contracts/README.md",
-        "verification/tests/test_framework.py"
+        "verification/tests/test_framework.py",
+        "verification/tests/test_asim_adapter.py",
+        "experiments/framework/2026-10-29-asim-gates/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "Initial Python library only; trusted real Asim adapter not implemented; no full phase acceptance"
+        "FW0–FW2 remain in_progress: whole-region real structure prototype only; full views/precision/algorithm references/quality and G4 still pending"
       ]
     },
     {
@@ -193,12 +197,14 @@
       ],
       "evidence": [
         "verification/contracts/README.md",
-        "verification/tests/test_framework.py"
+        "verification/tests/test_framework.py",
+        "verification/tests/test_asim_adapter.py",
+        "experiments/framework/2026-10-29-asim-gates/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "Initial Python library only; trusted real Asim adapter not implemented; no full phase acceptance"
+        "FW0–FW2 remain in_progress: whole-region real structure prototype only; full views/precision/algorithm references/quality and G4 still pending"
       ]
     },
     {

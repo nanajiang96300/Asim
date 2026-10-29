@@ -4,7 +4,7 @@
 
 工程：`/home/nanajiang/Asim/`
 
-状态：系统审计与证据整理v0.3已落地，通用框架实施计划v0.4已归档；数值影子执行、可信门禁与持久化控制器尚未实现。当前先建设框架并以合成程序验收，暂不修改具体算子。完整IR与无人值守控制器后置。
+状态：系统审计与证据整理v0.3已落地，通用框架实施计划v0.4已归档；通用Asim同源结构重放与局部门禁已实现；完整精度/异步/通信门禁及持久化控制器尚未实现。当前先建设框架并以合成程序验收，暂不修改具体算子。完整IR与无人值守控制器后置。
 
 ## 当前目标
 
@@ -59,3 +59,5 @@
 历史材料入口：`DOCS/zhongqi/kaiti.md`、`DOCS/zhongqi/zhongqi.md`、`DOCS/zhongqi/qianyan_diaoyan.md`。它们原文归档，不因新判断而回写历史。
 
 当前开发状态（2026-10-29）：FW0–FW2已开始实现Python契约、构建器、结构重放和瑞利独立参考，见 [实现范围](../../verification/contracts/README.md)。21项单元测试通过，真实Asim程序适配尚未接通。候选先Asim及性能预筛，随后才数值；筛掉的候选NOT_RUN且无分。
+
+最新运行证据（2026-10-29）：通用程序已接通真实Asim并从实际Instruction导出重放；29单元测试与7项真实Asim门禁达到预期。旧NS/Cholesky小样例运行成功，但数值语义不足明确UNSUPPORTED。见 [框架实际进度](FRAMEWORK_PROGRESS.md)。FW0–FW2仍in_progress，完整view/精度/G4/通信/晋级未完成。

@@ -118,3 +118,5 @@ cd "$ASIM_ROOT"
 下一轮输入只引用冻结证据与未决问题。每周更新研究索引与决定；跨天控制器、SQLite租约、SDK适配器在最小受信闭环完成后建设。
 
 当前实施更新（2026-10-29）：FW0–FW2初始库已开始开发，详见 [实现范围](../../verification/contracts/README.md)。候选执行顺序以最新决定为准：静态检查 → Asim运行与性能预筛 → 数值重建；不竞争/异常/运行失败时数值NOT_RUN、score=null。先瑞利，后续扩展CDL-B。完整Asim接入和框架验收尚未完成。
+
+最新可执行结构门禁已实现：参见 [FRAMEWORK_PROGRESS](FRAMEWORK_PROGRESS.md) 的真实Asim重跑命令；尚不能替代本文完整候选晋级链。

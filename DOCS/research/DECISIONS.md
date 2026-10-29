@@ -69,3 +69,9 @@
 来源：负责人要求先Asim再数值，跳过无竞争力或性能离谱候选，首批瑞利，后续增加CDL-B。决定：静态检查后Asim运行及冻结阈值预筛，合格才进入数值；跳过或隔离不代表数值错误/正确，score=null。对照复现和新算法需匹配基线，异常收益可独立复核。
 
 状态：契约/筛选库、严格builder、实数FP64整块重放和瑞利参考初版落地，21项单元测试通过；FW0–FW2均in_progress。真实Asim adapter/receipt认证与切片/复数等尚未实现，未运行具体算子，未完成框架验收。CDL-B当前显式UNSUPPORTED。
+
+## D009 — 2026-10-29：真实Asim门禁与旧算子拒绝验证
+
+通用语义程序新增独立Asim入口，从实际Instruction导出typed语义并交叉核对计时字段；先真实Asim及性能筛选再数值。7项真实门禁得到预期结果，29项单元测试通过，受限范围独立审查通过。旧NS/Cholesky周期运行成功，但无数值views/header，必须UNSUPPORTED，不用公式日志或标准算法补答案。
+
+状态：实数FP64整块结构闭环已运行；五契约/view/精度/异步/通信/权限隔离和完整框架验收未完成，score=null。构建使用隔离工作区与本地依赖副本，不宣称G6。具体算子源码保持不变。详见FRAMEWORK_PROGRESS.md及experiments/framework/2026-10-29-asim-gates/run_manifest.json。

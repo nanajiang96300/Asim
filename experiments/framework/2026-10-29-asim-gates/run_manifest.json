@@ -1,0 +1,580 @@
+{
+  "schema_version": "asim-gate-run-v1",
+  "status": "GATES_PASSED",
+  "raw_root": "/home/nanajiang/Asim/results/framework/asim-gates-v2-frozen",
+  "summary": {
+    "status": "GATES_PASSED",
+    "scope": "structure prototype; no G4/precision/quality/promotion certification",
+    "score": null,
+    "cases": [
+      {
+        "case": "rayleigh_gram",
+        "expected_status": "STRUCTURE_CHECKED",
+        "status": "STRUCTURE_CHECKED",
+        "numeric_status": "EXECUTED",
+        "cycle": 137,
+        "gate_passed": true
+      },
+      {
+        "case": "not_competitive",
+        "expected_status": "SKIPPED_NOT_COMPETITIVE",
+        "status": "SKIPPED_NOT_COMPETITIVE",
+        "numeric_status": "NOT_RUN",
+        "cycle": 137,
+        "gate_passed": true
+      },
+      {
+        "case": "implausible",
+        "expected_status": "QUARANTINED_IMPLAUSIBLE_SPEEDUP",
+        "status": "QUARANTINED_IMPLAUSIBLE_SPEEDUP",
+        "numeric_status": "NOT_RUN",
+        "cycle": 137,
+        "gate_passed": true
+      },
+      {
+        "case": "wrong_arithmetic",
+        "expected_status": "NUMERIC_FAILED",
+        "status": "NUMERIC_FAILED",
+        "numeric_status": "EXECUTED",
+        "relative_error": 1.0000000000000002,
+        "gate_passed": true
+      },
+      {
+        "case": "missing_load",
+        "expected_status": "SKIPPED_ASIM_FAILED",
+        "status": "SKIPPED_ASIM_FAILED",
+        "numeric_status": "NOT_RUN",
+        "gate_passed": true
+      },
+      {
+        "case": "legacy_ns",
+        "asim_status": "COMPLETED",
+        "cycle": 1708,
+        "score": null,
+        "numeric_status": "NOT_RUN",
+        "actual_instruction_count": 102,
+        "status": "UNSUPPORTED",
+        "reason": "LEGACY_MISSING_NUMERIC_SEMANTICS: no executable header/views",
+        "gate_passed": true
+      },
+      {
+        "case": "legacy_cholesky",
+        "asim_status": "COMPLETED",
+        "cycle": 232,
+        "score": null,
+        "numeric_status": "NOT_RUN",
+        "actual_instruction_count": 28,
+        "status": "UNSUPPORTED",
+        "reason": "LEGACY_MISSING_NUMERIC_SEMANTICS: no executable header/views",
+        "gate_passed": true
+      }
+    ],
+    "binary_sha256": "524e2ae6a8e0918871c913aba1efa5ce73a72547e0f43a96c7d53bde009dd0f3",
+    "binary_source_commit": "9e21068565fda24464dc2d68cd240b3cba2f23a7",
+    "runner_base_commit": "7bc2dd49eaf6bfe21e4defec2e17a6db9f92d352",
+    "sources": [
+      {
+        "path": "src/semantic/InstructionExport.cc",
+        "sha256": "55bde97a80892a89fb55ea3e41f576d866818518123c259591cad704d3e167cc"
+      },
+      {
+        "path": "src/semantic/InstructionExport.h",
+        "sha256": "e3c785d3ba0c3991acc1f49dd69f0e404b6080654996dbbcf5d63789815c007b"
+      },
+      {
+        "path": "src/semantic/ProgramModel.cc",
+        "sha256": "6bdd45e1fde6873298770a9538fa112aa380a1de3d33ea28f99f79d3d3cc5b50"
+      },
+      {
+        "path": "src/semantic/ProgramModel.h",
+        "sha256": "11292e493b06332cb5073eba878144a392c4b258cc574dd2fd5f74fd14be4220"
+      },
+      {
+        "path": "verification/__init__.py",
+        "sha256": "efa11418ea24fc336cfedbbb6006a97b7357432a97797bc05e61825f32a992e7"
+      },
+      {
+        "path": "verification/asim/gates.py",
+        "sha256": "0e43d5a9e12cb81a660b1e47d532d7ab45b92ced30cab4e840f3a3b835024922"
+      },
+      {
+        "path": "verification/asim/runner.py",
+        "sha256": "d27f142b5f886a0619b3e15c537646249a0bbc318cf07cb7bf2808bfb1654b84"
+      },
+      {
+        "path": "verification/contracts/core.py",
+        "sha256": "adeea2160d35bbc9cd5eda74f15e7ffd974f471a1783999c8a30e49018b8ee6a"
+      },
+      {
+        "path": "verification/fixtures/rayleigh.py",
+        "sha256": "bb943a183a8ba255b0abe8c03b5b4c995d098ef52e88b3cc0b8d851a99dd44f3"
+      },
+      {
+        "path": "verification/shadow/execute.py",
+        "sha256": "8523017abe4cb0079dcd247a3486054ce78d05666f241fab3760775e26e40285"
+      },
+      {
+        "path": "verification/shadow/program.py",
+        "sha256": "58c7c836a62dc5f61b42290a35a013ff099bf0532ddd15fbc45415d826276e5e"
+      },
+      {
+        "path": "verification/tests/test_asim_adapter.py",
+        "sha256": "63256701e7c31f54d5c4bf6771fb3b8d3904e211272d29c522272ae6b86adfd7"
+      },
+      {
+        "path": "verification/tests/test_framework.py",
+        "sha256": "26c40d0c67d8107209cb760ac23a92ca385ff1236d261911acfefa380e7041a7"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "calibration/asim.json",
+        "bytes": 1486,
+        "sha256": "06c03e6d88cd957262fc2dd5f3e4c146b889d329afe29b4032e7e6700221e5cb"
+      },
+      {
+        "path": "calibration/config.json",
+        "bytes": 1304,
+        "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+      },
+      {
+        "path": "calibration/formula.json",
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      },
+      {
+        "path": "calibration/instructions.jsonl",
+        "bytes": 2234,
+        "sha256": "d53b15e782a85a421cf5021af74f3a157773c8df91db632929bcb09eb95e0b92"
+      },
+      {
+        "path": "calibration/models.json",
+        "bytes": 2037,
+        "sha256": "60687b034769fd4f3be40fc895f050f40bc589b3986de8b9bd8a6455ec0e2110"
+      },
+      {
+        "path": "calibration/simulator.log",
+        "bytes": 16395,
+        "sha256": "2c28b4f43edb9193fba7c32f796a75277590593c246d6ab84f169d60f37f75b8"
+      },
+      {
+        "path": "calibration/trace.csv",
+        "bytes": 478,
+        "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+      },
+      {
+        "path": "implausible/actual_program.json",
+        "bytes": 1393,
+        "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+      },
+      {
+        "path": "implausible/asim.json",
+        "bytes": 1486,
+        "sha256": "31573853d170e60a6efd7a40c24915893a40e4ce03bd27dcbe7f42d317bd8b1c"
+      },
+      {
+        "path": "implausible/config.json",
+        "bytes": 1304,
+        "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+      },
+      {
+        "path": "implausible/expected.json",
+        "bytes": 272,
+        "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+      },
+      {
+        "path": "implausible/formula.json",
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      },
+      {
+        "path": "implausible/inputs.json",
+        "bytes": 1394,
+        "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+      },
+      {
+        "path": "implausible/instructions.jsonl",
+        "bytes": 2234,
+        "sha256": "d53b15e782a85a421cf5021af74f3a157773c8df91db632929bcb09eb95e0b92"
+      },
+      {
+        "path": "implausible/models.json",
+        "bytes": 2042,
+        "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+      },
+      {
+        "path": "implausible/result.json",
+        "bytes": 3394,
+        "sha256": "1951edc6af7623f93158fbe4339fe46fef652700060f8fbfa5c294b3d6c79d93"
+      },
+      {
+        "path": "implausible/simulator.log",
+        "bytes": 16410,
+        "sha256": "39a23e8242002095ccf9ae643a5ca01683ce1c56f16f0308c86bab48d40f351f"
+      },
+      {
+        "path": "implausible/trace.csv",
+        "bytes": 478,
+        "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+      },
+      {
+        "path": "legacy_cholesky/asim.json",
+        "bytes": 1502,
+        "sha256": "8f9040352742fa4917113c1cdd1994e77b45f1f9b20ea27720c5b9c1be6a08ad"
+      },
+      {
+        "path": "legacy_cholesky/config.json",
+        "bytes": 1304,
+        "sha256": "37483d97130358860f2c30bef19d95b68ccb1dddcaddcb1db2fa16792ccd9c6d"
+      },
+      {
+        "path": "legacy_cholesky/formula.json",
+        "bytes": 2348,
+        "sha256": "8cba5d4a351181013aa3b1232c9a69396cc59e80894955cff18b2d6f834ca2a6"
+      },
+      {
+        "path": "legacy_cholesky/instructions.jsonl",
+        "bytes": 5907,
+        "sha256": "0c98d404e95fe46057e700810202cea22a6234ef71282ca1c57ab6a7b80b35f2"
+      },
+      {
+        "path": "legacy_cholesky/models.json",
+        "bytes": 130,
+        "sha256": "6e3823ef2325912e2880df2a68f251658ab4d34d7ac4730947e7b5b2bbc8bd18"
+      },
+      {
+        "path": "legacy_cholesky/reconstruction.json",
+        "bytes": 285,
+        "sha256": "a811b1964a9f981eb8a5bceed04e44c5505e380fb3b46fc1eef3f27d772d655f"
+      },
+      {
+        "path": "legacy_cholesky/simulator.log",
+        "bytes": 16641,
+        "sha256": "7b5fdd27e541136fdad2f80e8cf753865413b5c0c30641781bb4862d105f028a"
+      },
+      {
+        "path": "legacy_cholesky/trace.csv",
+        "bytes": 1220,
+        "sha256": "912264af9bc88feee560450c5068e49f13bf2edb574f4bbc585e0f6babd6e755"
+      },
+      {
+        "path": "legacy_ns/asim.json",
+        "bytes": 1487,
+        "sha256": "9ee1e73ff5eb59237043675bc24fa868409f6525405d1751dd7efec71250fea5"
+      },
+      {
+        "path": "legacy_ns/config.json",
+        "bytes": 1304,
+        "sha256": "37483d97130358860f2c30bef19d95b68ccb1dddcaddcb1db2fa16792ccd9c6d"
+      },
+      {
+        "path": "legacy_ns/formula.json",
+        "bytes": 19164,
+        "sha256": "be0de98f079644f9caef3f8bdca7cc6847c9124b5db2ad5c136f071accb8b88e"
+      },
+      {
+        "path": "legacy_ns/instructions.jsonl",
+        "bytes": 19907,
+        "sha256": "6b443891bcf151394e1b097c82252f462e5af70509317c88cb8d1c2d1bf76e46"
+      },
+      {
+        "path": "legacy_ns/models.json",
+        "bytes": 124,
+        "sha256": "9f2aeea6365aba3475e90486c000da87d1a14f77a2672ee593802b8dc5638fbf"
+      },
+      {
+        "path": "legacy_ns/reconstruction.json",
+        "bytes": 281,
+        "sha256": "eb0439dfb526b5e482badba54a613d4e17fd017c06f715ef2895c8a309d1ef38"
+      },
+      {
+        "path": "legacy_ns/simulator.log",
+        "bytes": 16620,
+        "sha256": "de5649e8b10216b803216e709c6118cff759e34834d276153fabc619b6a131d2"
+      },
+      {
+        "path": "legacy_ns/trace.csv",
+        "bytes": 3978,
+        "sha256": "f1c8eed64a907082360473edd871948f7bac4f233012c8690504c869ea370892"
+      },
+      {
+        "path": "missing_load/asim.json",
+        "bytes": 1486,
+        "sha256": "ff1455b8bc0763b618ee39c5e3dc8853b1f80b3dfdefcbedd017df52c6583f88"
+      },
+      {
+        "path": "missing_load/config.json",
+        "bytes": 1304,
+        "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+      },
+      {
+        "path": "missing_load/expected.json",
+        "bytes": 272,
+        "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+      },
+      {
+        "path": "missing_load/formula.json",
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      },
+      {
+        "path": "missing_load/inputs.json",
+        "bytes": 1394,
+        "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+      },
+      {
+        "path": "missing_load/instructions.jsonl",
+        "bytes": 1774,
+        "sha256": "ed8203ebd19316d3d7414ef5a50fe40dbc1560ea2b86ed2ef8f6ed7cac92b6be"
+      },
+      {
+        "path": "missing_load/models.json",
+        "bytes": 1885,
+        "sha256": "537937dd853b89077e05c4280444be9074c4e165eacaed33f9a30e4e48860d6e"
+      },
+      {
+        "path": "missing_load/result.json",
+        "bytes": 3226,
+        "sha256": "d09de0fa950f75e9b790dee66d4dde7f7ec297a060a7f85c06dd3bc2a24c87cd"
+      },
+      {
+        "path": "missing_load/simulator.log",
+        "bytes": 17203,
+        "sha256": "dc29a2f299c96ae531436d59693793937c67ab8a2f638e95ba960870f492a5d8"
+      },
+      {
+        "path": "missing_load/trace.csv",
+        "bytes": 174,
+        "sha256": "6e9b1a9845dcabc579fdf7f649d02e9ce84d3c9564b3f67007fb52f329b26794"
+      },
+      {
+        "path": "not_competitive/actual_program.json",
+        "bytes": 1393,
+        "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+      },
+      {
+        "path": "not_competitive/asim.json",
+        "bytes": 1494,
+        "sha256": "4866b3300c32c2b081169d5d8f09550378769c0e79692177af816ea701d4f18e"
+      },
+      {
+        "path": "not_competitive/config.json",
+        "bytes": 1304,
+        "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+      },
+      {
+        "path": "not_competitive/expected.json",
+        "bytes": 272,
+        "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+      },
+      {
+        "path": "not_competitive/formula.json",
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      },
+      {
+        "path": "not_competitive/inputs.json",
+        "bytes": 1394,
+        "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+      },
+      {
+        "path": "not_competitive/instructions.jsonl",
+        "bytes": 2234,
+        "sha256": "d53b15e782a85a421cf5021af74f3a157773c8df91db632929bcb09eb95e0b92"
+      },
+      {
+        "path": "not_competitive/models.json",
+        "bytes": 2042,
+        "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+      },
+      {
+        "path": "not_competitive/result.json",
+        "bytes": 3407,
+        "sha256": "00f44397267bab7209f17144e7ebc1c1ce0839e6555d49cb54c69a9739909987"
+      },
+      {
+        "path": "not_competitive/simulator.log",
+        "bytes": 16418,
+        "sha256": "a875e45e96fd1ff26160f334e021894f89625c6f0eb57d77a92d8e18f56a74db"
+      },
+      {
+        "path": "not_competitive/trace.csv",
+        "bytes": 478,
+        "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+      },
+      {
+        "path": "rayleigh_gram/actual_program.json",
+        "bytes": 1393,
+        "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+      },
+      {
+        "path": "rayleigh_gram/asim.json",
+        "bytes": 1490,
+        "sha256": "cfd4264ee21a01f7bac6dafb6ec860ffb9aa39febdb740fb9189726f37e1a395"
+      },
+      {
+        "path": "rayleigh_gram/config.json",
+        "bytes": 1304,
+        "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+      },
+      {
+        "path": "rayleigh_gram/expected.json",
+        "bytes": 272,
+        "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+      },
+      {
+        "path": "rayleigh_gram/formula.json",
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      },
+      {
+        "path": "rayleigh_gram/inputs.json",
+        "bytes": 1394,
+        "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+      },
+      {
+        "path": "rayleigh_gram/instructions.jsonl",
+        "bytes": 2234,
+        "sha256": "d53b15e782a85a421cf5021af74f3a157773c8df91db632929bcb09eb95e0b92"
+      },
+      {
+        "path": "rayleigh_gram/models.json",
+        "bytes": 2042,
+        "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+      },
+      {
+        "path": "rayleigh_gram/numerics_started.json",
+        "bytes": 84,
+        "sha256": "29df5e3c21fed0a60476495538a3e27f90b6a495e0a08a12744c6f8cc38ad8cd"
+      },
+      {
+        "path": "rayleigh_gram/result.json",
+        "bytes": 8292,
+        "sha256": "e04e8034cd6dee9981e23ab6376ce70c4c411aa372965e11b8e78ae4340a9eea"
+      },
+      {
+        "path": "rayleigh_gram/simulator.log",
+        "bytes": 16414,
+        "sha256": "707b509a9d75acf21342ff60c5318871bbb9da29d447d178b1e8de512a773fb6"
+      },
+      {
+        "path": "rayleigh_gram/trace.csv",
+        "bytes": 478,
+        "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+      },
+      {
+        "path": "wrong_arithmetic/actual_program.json",
+        "bytes": 1524,
+        "sha256": "fdb92d78812a86af7cdc0bcc1442b4ca5a160d93e5e29a727e0b5b14209b3bd0"
+      },
+      {
+        "path": "wrong_arithmetic/asim.json",
+        "bytes": 1496,
+        "sha256": "1d6f3a41c4a68556a17f6dfd68ab43ebccd013ae3993baf56ab34d514bb92005"
+      },
+      {
+        "path": "wrong_arithmetic/config.json",
+        "bytes": 1304,
+        "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+      },
+      {
+        "path": "wrong_arithmetic/expected.json",
+        "bytes": 272,
+        "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+      },
+      {
+        "path": "wrong_arithmetic/formula.json",
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      },
+      {
+        "path": "wrong_arithmetic/inputs.json",
+        "bytes": 1394,
+        "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+      },
+      {
+        "path": "wrong_arithmetic/instructions.jsonl",
+        "bytes": 2715,
+        "sha256": "37fdf9b3313d4bee4eae55f02acd469a406054c36d18c792eb7fb3e64a9def28"
+      },
+      {
+        "path": "wrong_arithmetic/models.json",
+        "bytes": 2227,
+        "sha256": "4707dbb3c0f48281d7d5477b0c6284091d1f119e243a2f40cecefa0ea336bda1"
+      },
+      {
+        "path": "wrong_arithmetic/numerics_started.json",
+        "bytes": 84,
+        "sha256": "4447d3fefe1758a71e4403eea8f844959fea6a76d03038dbdae21e2a72b43291"
+      },
+      {
+        "path": "wrong_arithmetic/result.json",
+        "bytes": 8993,
+        "sha256": "94daa1b54c0d65debc84a4f1aa5d2f9fdcfc6a74e9c9d1e887f49d4864249062"
+      },
+      {
+        "path": "wrong_arithmetic/simulator.log",
+        "bytes": 16420,
+        "sha256": "9437dc1b36cf5068eac5bbb6084307a4514812cd184b9f5a1e140731104a2c49"
+      },
+      {
+        "path": "wrong_arithmetic/trace.csv",
+        "bytes": 561,
+        "sha256": "2ebeb57527df1feb070e8528bb7ea17484c916f0d9c3478fb8dde0f1ce08d466"
+      }
+    ]
+  },
+  "source_summary": {
+    "path": "/home/nanajiang/Asim/results/framework/asim-gates-v2-frozen/summary.json",
+    "bytes": 16774,
+    "sha256": "0b37d4de88d754aece34b6a1a179d265a66c0ae9cd34f70af820d46557d09b00"
+  },
+  "build_artifacts": [
+    {
+      "path": "/home/nanajiang/Asim/results/fw-configure-offline.log",
+      "bytes": 6130,
+      "sha256": "963c281b2502ba01e6367091822ca4d0262527d6d04a50a812e5270b9d27d095"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/fw-build.log",
+      "bytes": 127960,
+      "sha256": "d5694c4df4e47cd6ad69bafc5c69753e9e33e2be52d1f0e974e7b6b441ba7bed"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build/CMakeCache.txt",
+      "bytes": 33623,
+      "sha256": "4996792023e3f9ed40128da9f787d56e2edf0365684978c68dec5157528f9686"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build/conanbuildinfo.cmake",
+      "bytes": 119696,
+      "sha256": "3486e77da7072329d1bd0b07b03f6ea2bab70c030bab2a1a6f8169b2456c1282"
+    }
+  ],
+  "runner_commit": "7bc2dd49eaf6bfe21e4defec2e17a6db9f92d352",
+  "unit_tests": {
+    "count": 29,
+    "status": "PASSED",
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -s verification/tests -v"
+  },
+  "review": {
+    "status": "PASSED_LIMITED_SCOPE",
+    "scope": "supervised local trusted runner, real FP64 whole-region structure; no G4/security/quality certification",
+    "initial_findings": [
+      "region/space budgets",
+      "exact auxiliary barrier projection",
+      "structured failure archive",
+      "completion event units/intervals"
+    ],
+    "resolution": "all four fixed and independently re-reviewed"
+  },
+  "limitations": [
+    "cached local dependency sources reused; not G6 clean rebuild",
+    "Asim structure precision=8 cost not calibrated native FP64",
+    "Rayleigh complex H realified for Gram; no full MMSE/SER certification",
+    "legacy NS and Cholesky not numerically replayed; missing semantics UNSUPPORTED",
+    "all scores null"
+  ],
+  "earlier_probe_root": "/home/nanajiang/Asim/results/framework/asim-gates-v1",
+  "frozen_source_hashes_verified": true
+}

@@ -2,7 +2,7 @@
 
 更新：2026-10-29（Asia/Hong_Kong）。计划基点：`29e56bb84695cfc51f44f3b4f5941db1dbd71400`。
 
-状态：FW0–FW2初始Python库已开始实现，真实Asim同源程序适配尚未实现，不能整体验收。具体范围见 verification/contracts/README.md；不修改具体算子，不启动搜索。
+状态：FW0–FW2初始库与通用真实Asim同源程序适配已接通；完整view/精度/异步/质量尚未完成，不能整体验收。具体范围见 verification/contracts/README.md；不修改具体算子，不启动搜索。
 
 负责人本轮调整：先建设“协调器生成策略 → Agent按方向生成候选 → Asim → 重建验证 → 打分反馈”的通用框架。第一批以独立合成小程序验收基础设施，真实NS等算子迁移排在框架验收之后。[验证体系](VERIFICATION_DESIGN.md)的G0–G6及三条数值路径继续有效；[NS实施包](audits/NS_SHADOW_EXECUTION_PLAN.md)保留为后续真实接入说明，不再是当前必须修改NS的前置任务。
 
@@ -215,8 +215,10 @@ Asim提供每个实际op及DMA fragment的发射、读完成、写可见、完�
 
 ## 11. 首批实现与Asim先行筛选（2026-10-29）
 
-负责人调整：候选先Asim，再数值。初始实现提供Contract/ScreenPolicy、严格结构program builder、逻辑工作量统计、整块DRAM/SPAD/ACCUM实数FP64重放和瑞利参考生成器；21项单元测试通过。真实Asim适配、receipt来源认证、完整五契约与view/精度/事件仍待实施；FW0–FW2保持in_progress，不将测试receipt冒充真实仿真。
+负责人调整：候选先Asim，再数值。初始实现提供Contract/ScreenPolicy、严格结构program builder、逻辑工作量统计、整块DRAM/SPAD/ACCUM实数FP64重放和瑞利参考生成器；21项单元测试通过。通用真实Asim本地runner已接通并校验实际导出；完整五契约与view/精度/异步事件仍待实施；FW0–FW2保持in_progress，不将测试receipt冒充真实仿真。
 
 campaign冻结有效baseline_cycles、minimum_speedup与maximum_speedup；默认库参数仅为开发示例，不是校准过的性能阈值。已存在有效对照后，未达到最小收益的候选SKIPPED_NOT_COMPETITIVE；异常加速QUARANTINED_IMPLAUSIBLE_SPEEDUP；运行失败SKIPPED_ASIM_FAILED。均不执行数值、不评分。边界允许相等以便复现对照；新算法/新范围须重新建立匹配对照，无有效基线时不能随意套历史周期拒绝。必要时独立复核异常候选，以免永久丢弃真正突破。
 
 第一批信道固定归一化瑞利：H实虚方差各1/(2Nr)，独立生成y、显式λ，oracle=solve(HᴴH+λI,Hᴴy)。它是任务数值样本而非已完成QAM/噪声/SER套件。后续新增CDL-B provider及独立版本/归一化/相关度配置；当前请求CDL-B明确UNSUPPORTED，不静默回退瑞利，也不把现有相关代理自动宣称完整标准模型。
+
+实际运行进度与范围以 [FRAMEWORK_PROGRESS](FRAMEWORK_PROGRESS.md) 为准：29单元测试、7项真实Asim门禁；旧算子缺语义仍拒绝，不能整体晋级。

@@ -1,0 +1,54 @@
+# 框架实际进度与门禁证据
+
+更新：2026-10-29（Asia/Hong_Kong）。本报告区分结构闭环、真实算法验证和完整框架验收。
+
+## 本轮实现
+
+新增通用 `semantic_program_test` mode，不修改src/inverse或legacy算子。受信通用Model从schema生成真实Instruction，将算术spec附着于对象；基础设施在Model向调度器交付Operation时导出真实队列。runner从导出对象恢复程序，核对实际opcode、地址、shape、size、compute_size、DMA请求及辅助barrier，再核对compute/barrier完成事件集合/单元/合法区间。
+
+执行顺序：静态完整性 → 独立Asim子进程 → 真实导出/事件核对 → 冻结性能预筛 → 数值重放 → 独立参考比较。失败/不竞争/异常速度保持数值NOT_RUN、score=null。新目录拒绝覆盖，失败也生成result.json与原始证据摘要。runner只接收本次真实进程产物，不接受Agent提供的receipt作为可信证明；目前是有人监督的本地可信运行器，尚无OS权限隔离。
+
+FP64实数整块原型支持LOAD/STORE、GEMM、ADD/SUB/MUL；Asim配置明确precision=8。region最多32、操作最多256、每空间声明区域最多64KiB；barrier额外最多16KiB，二者地址不交叠。工作量与时序字段由views推导。该模型成本不代表硬件原生FP64校准；COPY/view/stride/partial-write/归约等未覆盖项不自动支持。
+
+## 实际执行的门禁
+
+独立工作区 `/home/nanajiang/asim-worktrees/fw-asim-gate-20261029`，build和日志独立，-j1构建Simulator成功。首次configure网络获取spdlog停滞后停止自己的进程树，改用既有本地依赖源码的独立副本离线配置。该构建不是G6完整干净依赖复现。构建源码commit和二进制/config/cache/日志摘要记录于 [run_manifest.json](../../experiments/framework/2026-10-29-asim-gates/run_manifest.json)。
+
+29项单元测试通过，包含辅助barrier删除/篡改、低报size、区域总量、错误memory方向、缺/坏trace与错误单元、缺输入、未知算术、非法精度、别名和性能预筛不进入数值等。独立审查首轮指出四类边界问题，全部修复，复审在本报告限定范围内通过。
+
+| 实际子进程门禁 | Asim结果 | 数值/门禁结果 |
+|---|---|---|
+| 瑞利H派生Gram，实数块表示 | 137周期，成功 | 重建与独立复数Gram参考一致，STRUCTURE_CHECKED |
+| 同程序不具竞争力阈值 | 137周期，成功 | SKIPPED_NOT_COMPETITIVE；数值NOT_RUN |
+| 同程序异常加速阈值 | 137周期，成功 | QUARANTINED_IMPLAUSIBLE_SPEEDUP；数值NOT_RUN |
+| 真实程序插入重复相加 | 成功 | NUMERIC_FAILED，相对误差约1 |
+| 真实程序漏LOAD | 触发100,000周期看门狗 | SKIPPED_ASIM_FAILED；数值NOT_RUN |
+| 旧NS，4×4、batch1、默认K16 | 1,708周期，102条真实指令 | UNSUPPORTED：无typed数值header/views；未进行数值重放 |
+| 旧Cholesky NoBlock v2，M4/U2、batch1 | 232周期，28条真实指令 | UNSUPPORTED：无typed数值header/views；未进行数值重放 |
+
+表中性能阈值是预先定义的门禁探针，用来验证两条拒绝分支，不是实际优化收益。所有周期来自不同task/shape/精度，不构成算子排行榜。旧算子未补语义、未修正算法；不能拿FormulaLogger或标准算法算出的值冒充真实指令重放。
+
+本轮`GATES_PASSED`表示这7个案例得到预期结果，其中负例成功拒绝。它不表示旧算子通过、G4通过、通信质量达标或FW0–FW2已经完整验收。所有score仍为null。
+
+## 重跑命令
+
+从工程根目录调用；output必须是不存在的新目录，依赖当前构建工作区仍保留。
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -s verification/tests -v
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m verification.asim.gates \
+  --binary /home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build/bin/Simulator \
+  --config configs/ascend_910b_quiet.json \
+  --cwd /home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build \
+  --output results/framework/<new-run-id>
+```
+
+原始logs、trace、实际指令、输入/参考/重建快照在 `results/framework/asim-gates-v2-frozen/`；Git保存小型run_manifest、完整逐制品SHA-256及源码hash，原件不搬迁。代码路径：src/semantic/、verification/asim/、verification/shadow/。
+
+## 仍需完成
+
+FW0完整五契约schema与数据集策略；FW1/FW2的typed view/stride/offset、部分初始化、独立同算法参考和复数/逐步精度；FW4异步读完成/写可见事件及hazard；权限隔离；通信质量/G6/新评分器。瑞利当前只为结构fixture提供复数H，原型通过实数块GEMM验证Gram，尚非完整MMSE均衡器。CDL-B仍显式UNSUPPORTED，后续需明确模型及归一化，不能静默回退瑞利。
+
+下一项：先把全矩阵region扩展为明确的typed views及部分初始化掩码，为真实算子补数值语义提供基础；再选择一个实际算法做独立接入，不根据旧周期表宣布冠军。
+
+冻结runner提交7bc2dd49后，整批7个真实门禁再次串行运行，结果一致。最终清单的源码与79个原始制品hash逐项复核匹配；首次探针目录v1仍保留原样。
