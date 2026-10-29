@@ -202,11 +202,11 @@ void CholeskyNoBlockMergeOp::initialize_instructions(Tile* tile, Mapping) {
             .src_addrs = {aL, aY}, .tile_m = 1, .tile_k = len, .tile_n = 1, .my_tile = tile}, "SCALAR batch/fusion lacks explicit reduction semantics; cannot assume dot or sum", "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_FWD_MUL_"));
       }
       // Y[i,c] = -sum / L[i,i]
-      tile->instructions.push_back(source_instruction(Instruction{
+      tile->instructions.push_back(ambiguous_instruction(Instruction{
           .opcode = Opcode::SCALAR_SUB,
           .id = "CHOL_NB_FWD_NEG_" + std::to_string(i) + "_" + std::to_string(c),
           .dest_addr = aTmp, .compute_size = 1,
-          .src_addrs = {aReg, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aReg,c,c,1,1,false,false), view(aTmp,0,0,1,1,false,false)}), view(aTmp,0,0,1,1,false,false), "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_FWD_NEG_"));
+          .src_addrs = {aReg, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, "zero-source row/column is not uniquely specified by legacy base address; diagonal lambda and off-diagonal zero differ", "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_FWD_NEG_"));
       tile->instructions.push_back(source_instruction(Instruction{
           .opcode = Opcode::SCALAR_DIV,
           .id = "CHOL_NB_FWD_DIV_" + std::to_string(i) + "_" + std::to_string(c),

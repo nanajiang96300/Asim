@@ -232,6 +232,8 @@ void Operation::record_source_regions(json regions,uint32_t M,uint32_t U) {
   json inputs=json::array(),outputs=json::array();
   for(uint32_t n=0;n<_inputs.size();++n) { auto* t=get_input(n); inputs.push_back({{"name",t->get_name()},{"base",t->get_address()},{"shape",t->get_dims()},{"bytes",t->get_size()}}); }
   for(uint32_t n=0;n<_outputs.size();++n) { auto* t=get_output(n); outputs.push_back({{"name",t->get_name()},{"base",t->get_address()},{"shape",t->get_dims()},{"bytes",t->get_size()}}); }
-  _numeric_header={{"schema","legacy-source-views-v1"},{"regions",regions},{"inputs",inputs},{"outputs",outputs},
+  json capacities=json::array();
+  for(uint32_t core=0;core<_config.num_cores;++core) capacities.push_back({{"core",core},{"spad_bytes",static_cast<uint64_t>(_config.core_config[core].spad_size)*1024/2},{"accum_bytes",static_cast<uint64_t>(_config.core_config[core].accum_spad_size)*1024/2}});
+  _numeric_header={{"capacities",capacities},{"schema","legacy-source-views-v1"},{"regions",regions},{"inputs",inputs},{"outputs",outputs},
                    {"M",M},{"U",U},{"precision_bytes",_config.precision},{"profile","logical_complex128_structure"}};
 }

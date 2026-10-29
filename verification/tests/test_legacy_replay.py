@@ -62,3 +62,34 @@ class LegacyTests(unittest.TestCase):
             r=statistics(p,instructions,20,1)
             self.assertEqual(r['status'],'TRACE_VALID');self.assertEqual(r['cores']['0']['busy_union'],15)
             self.assertEqual(r['cores']['0']['idle_in_makespan'],5);self.assertEqual(r['cores']['0']['multi_unit_overlap_union'],7)
+
+    def test_output_shape_must_not_broadcast(self):
+        h,ops,inputs=fixture()
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.full((2,2),7.1))['status'],'OUTPUT_SHAPE_MISMATCH')
+    def test_multiple_store_is_not_last_store_wins(self):
+        h,ops,inputs=fixture();ops.append(copy.deepcopy(ops[-1]))
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'OUTPUT_COVERAGE_UNSUPPORTED')
+    def test_duplicate_region_not_silent_alias(self):
+        h,ops,inputs=fixture();h['regions'].append(copy.deepcopy(h['regions'][0]))
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'REGION_ALIAS')
+    def test_physical_overlap_rejected(self):
+        h,ops,inputs=fixture();h['regions'][1]['base']=h['regions'][0]['base']+2
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'REGION_ALIAS')
+    def test_configured_capacity_not_allocation_only(self):
+        h,ops,inputs=fixture();h['capacities']=[{'spad_bytes':4,'accum_bytes':4}]
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'CAPACITY_ERROR')
+    def test_empty_trace_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'trace.csv';p.write_text('name,unit,start_cycle,end_cycle\n')
+            self.assertEqual(statistics(p,[],20,1)['status'],'TRACE_INVALID')
+    def test_missing_core_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'trace.csv';p.write_text('name,unit,start_cycle,end_cycle\ngemm,Core0_Cube,0,10\n')
+            self.assertEqual(statistics(p,[],20,2)['status'],'TRACE_INVALID')
+
+    def test_compute_trace_coverage_checks_multiplicity(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'trace.csv';p.write_text('name,unit,start_cycle,end_cycle\ngemm,Core0_Cube,0,10\n')
+            i={'batch':0,'opcode':3,'id':'gemm','barrier':False};dispatch=[{'batch':0,'core':0}]
+            self.assertEqual(statistics(p,[i],20,1,dispatch)['status'],'TRACE_VALID')
+            self.assertEqual(statistics(p,[i,i],20,1,dispatch)['status'],'TRACE_INVALID')

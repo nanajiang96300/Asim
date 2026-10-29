@@ -34,6 +34,18 @@ class Memory:
     def __init__(self,header,inputs):
         self.header=header;self.inputs=inputs;self.p=header['precision_bytes']
         self.regions={r['base']:r for r in header['regions']}
+        if len(self.regions)!=len(header['regions']):raise ReplayFault('REGION_ALIAS','duplicate region base')
+        ranges=[]
+        for base,r in self.regions.items():
+            if min(r['rows'],r['cols'])<=0:raise ReplayFault('VIEW_INVALID','invalid region shape')
+            end=base+r['rows']*r['cols']*self.p
+            if any(base<hi and lo<end for lo,hi in ranges):raise ReplayFault('REGION_ALIAS','overlapping physical local regions')
+            ranges.append((base,end))
+            bank=0x10000000 if base<0x20000000 else 0x20000000
+            if base<bank or end>bank+0x10000000:raise ReplayFault('CAPACITY_ERROR','region crosses address bank')
+            key='spad_bytes' if bank==0x10000000 else 'accum_bytes'
+            for cap in header.get('capacities',[]):
+                if end-bank>cap[key]:raise ReplayFault('CAPACITY_ERROR','region exceeds configured Asim bank capacity')
         self.values={b:np.empty((r['rows'],r['cols']),dtype=np.complex128) for b,r in self.regions.items()}
         self.valid={b:np.zeros(v.shape,dtype=bool) for b,v in self.values.items()}
     def slice(self,v):
@@ -67,8 +79,9 @@ class Memory:
 
 def execute_batch(header,instructions,inputs,batch,expected,precision='structure_complex128'):
     if header.get('schema')!='legacy-source-views-v1':raise ReplayFault('SCHEMA_MISMATCH','missing source-view schema')
-    mem=Memory(header,inputs);executed=0;cost_issues=[];last=None;output=None
+    executed=0;cost_issues=[];last=None;output=None;stores=0
     try:
+        mem=Memory(header,inputs)
         for index,i in enumerate(instructions):
             last={'index':index,'id':i['id'],'batch':batch,'opcode':i['opcode']}
             s=i.get('semantic')
@@ -98,6 +111,8 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
                     value=inputs[slot].reshape(-1)[offset:offset+count].reshape(remote['rows'],remote['cols'])
                     mem.write(dst,value)
                 else:
+                    stores+=1
+                    if stores!=1:raise ReplayFault('OUTPUT_COVERAGE_UNSUPPORTED','multiple STORE reconstruction not implemented')
                     output=mem.read(src[0]);
                     if output.shape!=(dst['rows'],dst['cols']):raise ReplayFault('SHAPE_MISMATCH','STORE shape')
                 executed+=1;continue
@@ -117,6 +132,7 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
             if 17<=code<=21 and value.size!=1:cost_issues.append({'index':index,'id':i['id'],'reason':'batched SCALAR fixed latency','elements':value.size})
             mem.write(dst,value);executed+=1
         if output is None:raise ReplayFault('MISSING_OUTPUT','no STORE executed')
+        if output.shape!=expected.shape:raise ReplayFault('OUTPUT_SHAPE_MISMATCH',f'output {output.shape}, task {expected.shape}')
         # Stable complex error via real/imag concatenation after scaling.
         scale=max(1.,float(np.max(np.abs(output))),float(np.max(np.abs(expected))))
         error=float(np.linalg.norm(output/scale-expected/scale)/max(np.linalg.norm(expected/scale),1e-15/scale))

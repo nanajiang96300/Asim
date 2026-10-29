@@ -23,12 +23,13 @@ def metrics(rows):
             'first_start':min((x[0] for x in rows),default=None),'last_end':max((x[1] for x in rows),default=None)}
 
 
-def statistics(trace_path,instructions,finish_cycle,num_cores):
+def statistics(trace_path,instructions,finish_cycle,num_cores,dispatch=None):
     opcode_counts=Counter(OPCODES[i['opcode']] for i in instructions)
     names=defaultdict(set);barriers=set()
     for i in instructions:
         if i['id']:names[i['id']].add(OPCODES[i['opcode']])
         if i['barrier']:barriers.add(i['id'])
+    observed=Counter()
     per_unit=defaultdict(list);per_core=defaultdict(lambda:defaultdict(list));detail=defaultdict(list);errors=[]
     with open(trace_path) as stream:
         for row in csv.DictReader(stream):
@@ -39,12 +40,24 @@ def statistics(trace_path,instructions,finish_cycle,num_cores):
                 if not match:raise ValueError('unknown pipeline unit')
                 core=int(match[1]);unit=match[2]
                 if core>=num_cores:raise ValueError('core outside config')
+                if unit not in ('MTE2','MTE3','Wait'):observed[(core,unit,row['name'])]+=1
                 kind='Barrier' if row['name'] in barriers and unit=='Vector' else unit
                 per_unit[kind].append((start,end));per_core[core][kind].append((start,end))
                 possible=names.get(row['name'],set())
                 opcode=next(iter(possible)) if len(possible)==1 else 'DMA_FRAGMENT' if unit in ('MTE2','MTE3') else 'WAIT' if unit=='Wait' else 'AMBIGUOUS'
                 detail[(core,unit,opcode,row['name'])].append((start,end))
             except (ValueError,KeyError) as error:errors.append(str(error))
+    if dispatch is not None:
+        cores_by_batch={d['batch']:d['core'] for d in dispatch}
+        expected=Counter()
+        for i in instructions:
+            if i['opcode'] in (0,1,2):continue
+            unit='Cube' if i['opcode'] in (3,4,5) else 'Scalar' if 17<=i['opcode']<=21 else 'Vector'
+            expected[(cores_by_batch[i['batch']],unit,i['id'])]+=1
+        if expected!=observed:errors.append(f'compute/barrier event coverage mismatch: missing={sum((expected-observed).values())}, extra={sum((observed-expected).values())}')
+    if not detail:errors.append('empty trace: no valid events')
+    for core in range(num_cores):
+        if not any(kind!='Wait' and spans for kind,spans in per_core[core].items()):errors.append(f'core {core} missing non-Wait events')
     rows=[{'core':key[0],'unit':key[1],'opcode':key[2],'name':key[3],**metrics(value)} for key,value in sorted(detail.items())]
     cores={}
     for core in range(num_cores):

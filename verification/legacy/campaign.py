@@ -39,7 +39,7 @@ def main():
             if set(groups)!=set(range(96)) or len(dispatch)!=96 or set(d['batch'] for d in dispatch)!=set(range(96)):raise ValueError('batch coverage missing')
             counts=Counter(d['core'] for d in dispatch)
             if set(counts)!=set(range(24)) or set(counts.values())!={4}:raise ValueError('24-core placement missing')
-            stats=statistics(path/'trace.csv',instructions,receipt['finish_cycle'],24)
+            stats=statistics(path/'trace.csv',instructions,receipt['finish_cycle'],24,dispatch)
             (path/'pipeline_statistics.json').write_text(json.dumps(stats,indent=2));write_detail(path/'instruction_pipeline_detail.csv',stats)
             if stats['status']!='TRACE_VALID':raise ValueError('trace invalid')
             result.update(core_tile_counts=dict(counts),instruction_count=len(instructions),semantic_annotated_count=sum(i['semantic'] is not None for i in instructions),
@@ -72,12 +72,12 @@ def main():
         'runner_commit':subprocess.check_output(['git','-C',str(source_root),'rev-parse','HEAD'],text=True).strip(),
         'sources':[{'path':str(p.relative_to(source_root)),'sha256':file_hash(p)} for base in ('src','verification') for p in sorted((source_root/base).rglob('*')) if p.suffix in ('.py','.cc','.h')],
         'artifacts':[{'path':str(p.relative_to(root)),'bytes':p.stat().st_size,'sha256':file_hash(p)} for p in sorted(root.rglob('*')) if p.is_file()],
-        'limitations':['structure complex128 replay is not hardware FP16','ambiguous source indices are explicit errors, not guessed','diagnostic inverse/BRI output scopes and NS dimensions differ; no unified performance ranking','full G4/quality/reproducibility not certified']}
+        'limitations':['structure complex128 replay is not hardware FP16','ambiguous source indices are explicit errors, not guessed','diagnostic inverse/BRI output scopes and NS dimensions differ; no unified performance ranking','full G4/quality/reproducibility not certified','independent same-algorithm path not implemented for seven legacy entries; task reference alone cannot certify full three-path validation','capacities follow current Asim SRAM model units, not calibrated physical 910B capacity']}
     (root/'summary.json').write_text(json.dumps(summary,indent=2,allow_nan=False))
     with (root/'UNVERIFIED_TIMING_DIAGNOSTICS.csv').open('w') as stream:
         writer=csv.DictWriter(stream,fieldnames=['operator','mode','finish_cycle','asim_status','numeric_status','correctness','verified_comparison_eligible']);writer.writeheader()
         writer.writerows({k:c.get(k) for k in writer.fieldnames} for c in cases)
-    print('ARCHIVED',root,'CORRECTNESS_BLOCKED; no verified ranking',flush=True)
+    print('ARCHIVED',root,summary['status'],'; no verified ranking',flush=True)
     return 0 if structure_passed else 1
 
 if __name__=='__main__':raise SystemExit(main())
