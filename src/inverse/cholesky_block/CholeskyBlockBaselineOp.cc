@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "FormulaLogger.h"
 #include <set>
+#include "semantic/SourceViews.h"
 
 CholeskyBlockBaselineOp::CholeskyBlockBaselineOp(
     SimulationConfig config, Model* model, const std::string& name,
@@ -63,6 +64,8 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   const addr_type aAinv= ACCUM_SPAD_BASE;
 
   const std::vector<uint32_t> sMU{M, U}, sUU{U, U};
+  record_source_regions(json::array({region(aH,M,U,"aH"), region(aReg,U,U,"aReg"), region(aG,U,U,"aG"), region(aA,U,U,"aA"), region(aL,U,U,"aL"), region(aTmp,U,U,"aTmp"), region(aY,U,U,"aY"), region(aAinv,U,U,"aAinv")}), M, U);
+
   FormulaLogger::instance().set_algorithm("cholesky_block_v3", B, 0, U);
 
   auto movin = [&](addr_type dram, addr_type spad, uint32_t rows, uint32_t cols,
@@ -71,18 +74,18 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     for (uint32_t r = 0; r < rows; ++r)
       for (uint32_t c = 0; c < cols; c += epa)
         addrs.insert(dram + make_address({r, std::min(c, cols-1)}, shape));
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::MOVIN, .dest_addr = spad,
         .size = static_cast<uint32_t>(addrs.size()),
         .src_addrs = std::vector<addr_type>(addrs.begin(), addrs.end()),
         .operand_id = op_id, .base_addr = 0,
-        .tile_m = rows, .tile_k = cols, .my_tile = tile}));
+        .tile_m = rows, .tile_k = cols, .my_tile = tile}, json::array({view(dram,0,0,rows,cols,false,false)}), view(spad,0,0,rows,cols,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:MOVIN"));
   };
 
   auto barrier = [&](const std::string& id, uint32_t type) {
-    tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+    tile->instructions.push_back(source_instruction(Instruction{
         .opcode = Opcode::PIPE_BARRIER, .id = id,
-        .my_tile = tile, .is_barrier = true, .barrier_type = type}));
+        .my_tile = tile, .is_barrier = true, .barrier_type = type}, json::array({}), nullptr, "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:PIPE_BARRIER"));
   };
 
   // Phase 1: MOVIN
@@ -91,38 +94,38 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   barrier("CHOL_BLK_LOAD", 1);
 
   // Phase 2: GRAM + REG
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "CHOL_BLK_GRAM",
       .dest_addr = aG, .compute_size = U, .src_addrs = {aH, aH},
-      .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = M, .tile_n = U, .my_tile = tile}, json::array({view(aH,0,0,M,U,true,true), view(aH,0,0,M,U,false,false)}), view(aG,0,0,U,U,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_GRAM"));
   FormulaLogger::instance().emit_step("CHOL_BLK_GRAM", "GEMM",
       {"H^H","H"}, "G", {{M,U},{U,M}}, {U,U}, tile->batch, "CHOL_BLK_GRAM");
 
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "CHOL_BLK_REG",
       .dest_addr = aA, .compute_size = U*U, .src_addrs = {aG, aReg},
-      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aG,0,0,U,U,false,false), view(aReg,0,0,U,U,false,false)}), view(aA,0,0,U,U,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_REG"));
   FormulaLogger::instance().emit_step("CHOL_BLK_REG", "DIAG_ADD",
       {"G","lambda*I"}, "A", {{U,U},{U,U}}, {U,U}, tile->batch, "CHOL_BLK_REG");
   barrier("CHOL_BLK_REG2DECOMP", 3);
 
   // Init L, Y, Tmp regions
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::ADD, .id = "CHOL_BLK_INIT_L",
       .dest_addr = aL, .compute_size = U*U, .src_addrs = {aReg, aReg},
-      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aReg,0,0,U,U,false,false), view(aReg,0,0,U,U,false,false)}), view(aL,0,0,U,U,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_INIT_L"));
 
   // Phase 3: Block Cholesky Decomposition
   for (uint32_t j = 0; j < nB; ++j) {
     // POTRF: diagonal block Cholesky L[j,j] = chol(A_jj - sum_{k<j} L_jk @ L_jk^H)
     // Step 1: Schur complement update via GEMM
     for (uint32_t k = 0; k < j; ++k) {
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      tile->instructions.push_back(source_instruction(Instruction{
           .opcode = Opcode::GEMM,
           .id = "CHOL_BLK_POTRF_GEMM_" + std::to_string(j) + "_" + std::to_string(k),
           .dest_addr = aTmp, .compute_size = B,
           .src_addrs = {aL, aL},
-          .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}));
+          .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}, json::array({view(aL,j*B,k*B,B,B,false,false), view(aL,j*B,k*B,B,B,true,true)}), view(aTmp,0,0,B,B,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_POTRF_GEMM_"));
       FormulaLogger::instance().emit_step("CHOL_BLK_POTRF_GEMM_" + std::to_string(j) + "_" + std::to_string(k),
           "GEMM", {"L","L"}, "schur", {{B,B},{B,B}}, {B,B}, tile->batch,
           "CHOL_BLK_POTRF_GEMM_" + std::to_string(j) + "_" + std::to_string(k));
@@ -132,22 +135,22 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     // Step 2: B×B Cholesky on diagonal block using SCALAR ops
     for (uint32_t jj = 0; jj < B; ++jj) {
       for (uint32_t kk = 0; kk < jj; ++kk) {
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        tile->instructions.push_back(source_instruction(Instruction{
             .opcode = Opcode::SCALAR_MUL,
             .id = "CHOL_BLK_POTRF_MUL_" + std::to_string(j)+"_"+std::to_string(jj)+"_"+std::to_string(kk),
             .dest_addr = aTmp, .compute_size = 1,
-            .src_addrs = {aA, aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+            .src_addrs = {aA, aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aA,j*B+jj,j*B+kk,1,1,false,false), view(aA,j*B+jj,j*B+kk,1,1,false,true)}), view(aTmp,0,0,1,1,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_POTRF_MUL_"));
+        tile->instructions.push_back(source_instruction(Instruction{
             .opcode = Opcode::SCALAR_SUB,
             .id = "CHOL_BLK_POTRF_SUB_" + std::to_string(j)+"_"+std::to_string(jj)+"_"+std::to_string(kk),
             .dest_addr = aA, .compute_size = 1,
-            .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+            .src_addrs = {aA, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aA,j*B+jj,j*B+jj,1,1,false,false), view(aTmp,0,0,1,1,false,false)}), view(aA,j*B+jj,j*B+jj,1,1,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_POTRF_SUB_"));
       }
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      tile->instructions.push_back(source_instruction(Instruction{
           .opcode = Opcode::SCALAR_SQRT,
           .id = "CHOL_BLK_POTRF_SQRT_" + std::to_string(j)+"_"+std::to_string(jj),
           .dest_addr = aL, .compute_size = 1,
-          .src_addrs = {aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+          .src_addrs = {aA}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aA,j*B+jj,j*B+jj,1,1,false,false)}), view(aL,j*B+jj,j*B+jj,1,1,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_POTRF_SQRT_"));
     }
     FormulaLogger::instance().emit_step("CHOL_BLK_POTRF_" + std::to_string(j), "CHOLESKY",
         {"A"}, "L", {{U,U}}, {U,U}, tile->batch, "CHOL_BLK_POTRF_SQRT_" + std::to_string(j));
@@ -156,20 +159,20 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     // DAG: single FWD_SOLVE after loop covers the full forward solve)
     for (uint32_t i = j + 1; i < nB; ++i) {
       for (uint32_t k = 0; k < j; ++k) {
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        tile->instructions.push_back(source_instruction(Instruction{
             .opcode = Opcode::GEMM,
             .id = "CHOL_BLK_TRSM_GEMM_" + std::to_string(i)+"_"+std::to_string(j)+"_"+std::to_string(k),
             .dest_addr = aTmp, .compute_size = B,
             .src_addrs = {aL, aL},
-            .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}));
+            .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}, json::array({view(aL,i*B,k*B,B,B,false,false), view(aL,j*B,k*B,B,B,true,true)}), view(aTmp,0,0,B,B,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_TRSM_GEMM_"));
       }
       // Triangular solve: L[i,j] = A[i,j] / L[j,j] (B×B triangular solve via SCALAR)
       for (uint32_t ii = 0; ii < B; ++ii) {
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        tile->instructions.push_back(ambiguous_instruction(Instruction{
             .opcode = Opcode::SCALAR_DIV,
             .id = "CHOL_BLK_TRSM_DIV_" + std::to_string(i)+"_"+std::to_string(j)+"_"+std::to_string(ii),
             .dest_addr = aL, .compute_size = 1,
-            .src_addrs = {aA, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+            .src_addrs = {aA, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, "block operation lacks complete element/column or weighted reduction indices in original code", "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_TRSM_DIV_"));
       }
       // Per-block TRSM tracked via single FWD_SOLVE emit_step after loop (below)
     }
@@ -177,12 +180,12 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
     // RK_UPDATE: trailing submatrix update
     for (uint32_t i = j + 1; i < nB; ++i)
       for (uint32_t k = i; k < nB; ++k)
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        tile->instructions.push_back(source_instruction(Instruction{
             .opcode = Opcode::GEMM,
             .id = "CHOL_BLK_RK_" + std::to_string(i)+"_"+std::to_string(k)+"_"+std::to_string(j),
             .dest_addr = aA, .compute_size = B,
             .src_addrs = {aL, aL},
-            .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}));
+            .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}, json::array({view(aL,i*B,j*B,B,B,false,false), view(aL,k*B,j*B,B,B,true,true)}), view(aA,i*B,k*B,B,B,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_RK_"));
 
     barrier("CHOL_BLK_COL_" + std::to_string(j), 4);
   }
@@ -191,35 +194,35 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   for (uint32_t c = 0; c < nB; ++c) {
     for (uint32_t ii = 0; ii < B; ++ii) {
       // Y[c,c] diagonal elements
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      tile->instructions.push_back(ambiguous_instruction(Instruction{
           .opcode = Opcode::SCALAR_DIV,
           .id = "CHOL_BLK_FWD_UNITY_" + std::to_string(c),
           .dest_addr = aTmp, .compute_size = 1,
-          .src_addrs = {aReg, aReg}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+          .src_addrs = {aReg, aReg}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, "block operation lacks complete element/column or weighted reduction indices in original code", "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_FWD_UNITY_"));
+      tile->instructions.push_back(ambiguous_instruction(Instruction{
           .opcode = Opcode::SCALAR_DIV,
           .id = "CHOL_BLK_FWD_DIAG_" + std::to_string(c),
           .dest_addr = aY, .compute_size = 1,
-          .src_addrs = {aTmp, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+          .src_addrs = {aTmp, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, "block operation lacks complete element/column or weighted reduction indices in original code", "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_FWD_DIAG_"));
     }
     for (uint32_t i = c + 1; i < nB; ++i) {
-      tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+      tile->instructions.push_back(ambiguous_instruction(Instruction{
           .opcode = Opcode::GEMM,
           .id = "CHOL_BLK_FWD_GEMM_" + std::to_string(i)+"_"+std::to_string(c),
           .dest_addr = aTmp, .compute_size = B,
           .src_addrs = {aL, aY},
-          .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}));
+          .tile_m = B, .tile_k = B, .tile_n = B, .my_tile = tile}, "block operation lacks complete element/column or weighted reduction indices in original code", "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_FWD_GEMM_"));
       for (uint32_t ii = 0; ii < B; ++ii) {
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+        tile->instructions.push_back(ambiguous_instruction(Instruction{
             .opcode = Opcode::SCALAR_SUB,
             .id = "CHOL_BLK_FWD_NEG_" + std::to_string(i)+"_"+std::to_string(c)+"_"+std::to_string(ii),
             .dest_addr = aTmp, .compute_size = 1,
-            .src_addrs = {aReg, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
-        tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+            .src_addrs = {aReg, aTmp}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, "block operation lacks complete element/column or weighted reduction indices in original code", "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_FWD_NEG_"));
+        tile->instructions.push_back(ambiguous_instruction(Instruction{
             .opcode = Opcode::SCALAR_DIV,
             .id = "CHOL_BLK_FWD_DIV_" + std::to_string(i)+"_"+std::to_string(c)+"_"+std::to_string(ii),
             .dest_addr = aY, .compute_size = 1,
-            .src_addrs = {aTmp, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}));
+            .src_addrs = {aTmp, aL}, .tile_m = 1, .tile_k = 1, .tile_n = 1, .my_tile = tile}, "block operation lacks complete element/column or weighted reduction indices in original code", "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_FWD_DIV_"));
       }
     }
     barrier("CHOL_BLK_FB_" + std::to_string(c), 5);
@@ -230,10 +233,10 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
       {"L"}, "Y", {{U,U}}, {U,U}, tile->batch, "CHOL_BLK_FWD_DIAG_0");
 
   // Phase 6: Backward Assembly Ainv = Y^H @ Y
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::GEMM_PRELOAD, .id = "CHOL_BLK_BWD",
       .dest_addr = aAinv, .compute_size = U, .src_addrs = {aY, aY},
-      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}));
+      .tile_m = U, .tile_k = U, .tile_n = U, .my_tile = tile}, json::array({view(aY,0,0,U,U,true,true), view(aY,0,0,U,U,false,false)}), view(aAinv,0,0,U,U,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_BWD"));
   FormulaLogger::instance().emit_step("CHOL_BLK_BWD_ASSEMBLE", "GEMM",
       {"Y^H","Y"}, "Ainv", {{U,U},{U,U}}, {U,U}, tile->batch, "CHOL_BLK_BWD");
   barrier("CHOL_BLK_PRE_MOVOUT", 6);
@@ -243,10 +246,10 @@ void CholeskyBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
   for (uint32_t r = 0; r < U; ++r)
     for (uint32_t c = 0; c < U; c += epa)
       outs.insert(dOut + make_address({r, std::min(c, U-1)}, sUU));
-  tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
+  tile->instructions.push_back(source_instruction(Instruction{
       .opcode = Opcode::MOVOUT, .id = "CHOL_BLK_STORE",
       .dest_addr = aAinv, .size = static_cast<uint32_t>(outs.size()),
       .src_addrs = std::vector<addr_type>(outs.begin(), outs.end()),
       .operand_id = _OUTPUT_OPERAND, .tile_m = U, .tile_k = U, .tile_n = U,
-      .src_from_accum = true, .last_inst = true, .my_tile = tile}));
+      .src_from_accum = true, .last_inst = true, .my_tile = tile}, json::array({view(aAinv,0,0,U,U,false,false)}), view(dOut,0,0,U,U,false,false), "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc:CHOL_BLK_STORE"));
 }

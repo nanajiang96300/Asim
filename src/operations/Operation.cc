@@ -227,3 +227,11 @@ addr_type Operation::make_address(std::vector<uint32_t> index, std::vector<uint3
     }
     return address;
 }
+
+void Operation::record_source_regions(json regions,uint32_t M,uint32_t U) {
+  json inputs=json::array(),outputs=json::array();
+  for(uint32_t n=0;n<_inputs.size();++n) { auto* t=get_input(n); inputs.push_back({{"name",t->get_name()},{"base",t->get_address()},{"shape",t->get_dims()},{"bytes",t->get_size()}}); }
+  for(uint32_t n=0;n<_outputs.size();++n) { auto* t=get_output(n); outputs.push_back({{"name",t->get_name()},{"base",t->get_address()},{"shape",t->get_dims()},{"bytes",t->get_size()}}); }
+  _numeric_header={{"schema","legacy-source-views-v1"},{"regions",regions},{"inputs",inputs},{"outputs",outputs},
+                   {"M",M},{"U",U},{"precision_bytes",_config.precision},{"profile","logical_complex128_structure"}};
+}

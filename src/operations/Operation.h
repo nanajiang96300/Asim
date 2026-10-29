@@ -35,13 +35,15 @@ class Operation {
   virtual void clear_tiles();
   virtual void initialize_tiles(MappingTable& mapping_table) = 0;
   virtual bool check_executable();
-  virtual json semantic_header() const { return nullptr; }
+  virtual json semantic_header() const { return _numeric_header; }
   virtual json semantic_execution() const { return nullptr; }
   bool check_finish() { return _finish; };
   uint32_t target_core=0; // Targeted core id
 
  protected:
   virtual void initialize_instructions(Tile* tile, Mapping mapping) {}
+  json _numeric_header = nullptr;
+  void record_source_regions(json regions, uint32_t M, uint32_t U);
   addr_type make_address(std::vector<uint32_t> index, std::vector<uint32_t> dims);
   addr_type get_operand_addr(uint32_t operand_id);
   std::string get_attribute(std::string key);
