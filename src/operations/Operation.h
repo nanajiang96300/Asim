@@ -35,6 +35,7 @@ class Operation {
   virtual void clear_tiles();
   virtual void initialize_tiles(MappingTable& mapping_table) = 0;
   virtual bool check_executable();
+  virtual json semantic_header() const { return nullptr; }
   bool check_finish() { return _finish; };
   uint32_t target_core=0; // Targeted core id
 

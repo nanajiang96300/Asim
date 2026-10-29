@@ -1,3 +1,4 @@
+#include "semantic/InstructionExport.h"
 #include <fstream>
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include "Model.h"
@@ -191,6 +192,7 @@ Operation* Model::get_executable_tile() {
   if (_executable_layer.size()){
     op = _executable_layer.front();
     _executable_layer.erase(_executable_layer.begin());
+    export_instructions(*op);
   }
   return op;
 }
