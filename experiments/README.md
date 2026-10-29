@@ -17,6 +17,8 @@
 
 历史cycle_kind包括reported_measured、estimated等，以逐项字段为准；复现命令null表示无法忠实重现，不生成“近似等同”实验冒充原run。历史score保留原值但不作为当前受信分数。
 
+2026-10-29新增FW0–FW7通用框架计划（全部planned），原S*和真实算法pilot延期；当前不修改具体算子。台账中的旧审计check是当时快照，不因任务数量变化重写历史结果。最新计划见 [FRAMEWORK_PLAN](../DOCS/research/FRAMEWORK_PLAN.md)。
+
 现阶段工具：`python3 scripts/research_inventory.py create/check ...`、`.venv/bin/python scripts/research_audit_checks.py --output <new-file>`、`python3 scripts/research_validate.py`。具体命令与失败边界见 [日常工作流](../DOCS/research/DAILY_WORKFLOW.md)。
 
 原制品继续保留在results等路径；清单与Git都不能恢复一个缺失的原始输入。将来归档迁移按 [制品规则](../DOCS/research/ARTIFACT_CATALOG.md) 校验副本，不自动删除原件。候选提交与结果提交分开，清单引用完整来源SHA，禁止自引用自身提交。

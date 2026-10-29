@@ -4,6 +4,8 @@
 
 状态：**可执行设计，尚未实现**。本轮只增加审计和设计文档；下述接口、目录、schema、命令均为后续实施约定，除非在任务表中明确标记，否则不能当作已有工具。上位契约、门禁与评分原则见 [VERIFICATION_DESIGN.md](../VERIFICATION_DESIGN.md)，问题依据见 [审计报告](VERIFICATION_AUTOMATION_AUDIT.md)。
 
+2026-10-29优先级调整：负责人要求先完善通用框架，当前不修改具体NS/其他算子。共同builder、解释器与门禁先按 [FRAMEWORK_PLAN](../FRAMEWORK_PLAN.md) 在合成程序上验收；本文S0–S6保留为框架完成后的真实NS接入/回归任务，复用已完成基础设施，避免重复实现。算法接入与修复不混入框架首批补丁。
+
 ## 1. 首个交付边界
 
 先迁移 `NewtonSchulzBaselineOp` 的小规模静态求逆内核，再扩展复数 MMSE 和异步事件检查。保留 C++ 算子及 Asim 周期模型；不建设完整 IR 编译器，不从周期 trace 或 FormulaLogger 猜数值。
