@@ -6,7 +6,7 @@ void export_instructions(Operation& op) {
   const char* path = std::getenv("ASIM_INSTRUCTION_EXPORT");
   if (!path) return;
   json record{{"format", "actual-instructions-v1"}, {"operation", op.get_name()},
-              {"header", op.semantic_header()}, {"instructions", json::array()}};
+              {"header", op.semantic_header()}, {"execution", op.semantic_execution()}, {"instructions", json::array()}};
   for (auto& tile : op.get_tiles()) {
     for (auto& ptr : tile->instructions) {
       const auto& i = *ptr;
@@ -14,7 +14,7 @@ void export_instructions(Operation& op) {
           {"dest_addr", i.dest_addr}, {"src_addrs", i.src_addrs}, {"size", i.size},
           {"compute_size", i.compute_size}, {"base_addr", i.base_addr},
           {"m", i.tile_m}, {"k", i.tile_k}, {"n", i.tile_n}, {"src_from_accum", i.src_from_accum},
-          {"barrier", i.is_barrier}, {"semantic", i.numeric_semantics}, {"batch", tile->batch}});
+          {"barrier", i.is_barrier}, {"semantic", i.numeric_semantics}, {"batch", tile->batch}, {"planned_core",tile->core_id}});
     }
   }
   std::ofstream stream(path, std::ios::app);

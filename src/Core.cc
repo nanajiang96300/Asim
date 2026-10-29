@@ -1,3 +1,6 @@
+#include <fstream>
+#include <cstdlib>
+#include <stdexcept>
 #include "Core.h"
 #include "SystolicWS.h"
 #include "SystolicOS.h"
@@ -63,6 +66,16 @@ void Core::issue(std::unique_ptr<Tile> op) {
 
   op->spad_id = spad_id;
   op->accum_spad_id = acc_spad_id;
+  if (const char* path=std::getenv("ASIM_DISPATCH_EXPORT")) {
+    json ids=json::array();
+    for(auto& i:op->instructions) ids.push_back(i->id);
+    json event{{"batch",op->batch},{"core",_id},{"spad_buffer",spad_id},{"accum_buffer",acc_spad_id},
+               {"cycle",_core_cycle},{"ids",ids},{"layer",op->layer_id}};
+    std::ofstream stream(path,std::ios::app);
+    if(!stream) throw std::runtime_error("dispatch export unavailable");
+    stream<<event.dump()<<'\n';
+    if(!stream) throw std::runtime_error("dispatch export failed");
+  }
   op->status = Tile::Status::RUNNING;
   if (op->skip) {
     op->status = Tile::Status::FINISH;
