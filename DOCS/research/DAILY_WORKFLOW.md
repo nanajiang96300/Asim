@@ -116,3 +116,5 @@ cd "$ASIM_ROOT"
 更新结构化台账、失败原因、制品路径/bytes/SHA-256与任务依赖；`git diff --check`，运行资料校验工具，审查 `git diff --cached --stat` 后按明确路径提交。源码与结果清单分开提交避免自引用commit。不执行共享stash/apply/pop、不自动推送、不改写旧历史。
 
 下一轮输入只引用冻结证据与未决问题。每周更新研究索引与决定；跨天控制器、SQLite租约、SDK适配器在最小受信闭环完成后建设。
+
+当前实施更新（2026-10-29）：FW0–FW2初始库已开始开发，详见 [实现范围](../../verification/contracts/README.md)。候选执行顺序以最新决定为准：静态检查 → Asim运行与性能预筛 → 数值重建；不竞争/异常/运行失败时数值NOT_RUN、score=null。先瑞利，后续扩展CDL-B。完整Asim接入和框架验收尚未完成。

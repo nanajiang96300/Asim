@@ -1,0 +1,34 @@
+{
+  "status": "UNIT_TESTS_PASSED",
+  "tests": 21,
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -s verification/tests -v",
+  "real_asim_integration": "NOT_IMPLEMENTED",
+  "operator_validation": "NOT_PERFORMED",
+  "score": null,
+  "sources": [
+    {
+      "path": "verification/__init__.py",
+      "sha256": "efa11418ea24fc336cfedbbb6006a97b7357432a97797bc05e61825f32a992e7"
+    },
+    {
+      "path": "verification/contracts/core.py",
+      "sha256": "d060de8a9789eb414412867fe6d24e7108aee36a2526d1c7da621a8830b3af07"
+    },
+    {
+      "path": "verification/fixtures/rayleigh.py",
+      "sha256": "bb943a183a8ba255b0abe8c03b5b4c995d098ef52e88b3cc0b8d851a99dd44f3"
+    },
+    {
+      "path": "verification/shadow/execute.py",
+      "sha256": "f63625e653d226c9ce641d1752729b78c6a7a93faaf2aa3c24fbad871e142ac0"
+    },
+    {
+      "path": "verification/shadow/program.py",
+      "sha256": "6acb21d3d50f9397439238e982e8018bc01ba88c77b5f106c3d24dccdb0bd0bc"
+    },
+    {
+      "path": "verification/tests/test_framework.py",
+      "sha256": "26c40d0c67d8107209cb760ac23a92ca385ff1236d261911acfefa380e7041a7"
+    }
+  ]
+}

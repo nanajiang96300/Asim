@@ -117,3 +117,5 @@ codex exec -C "$CANDIDATE_WORKTREE" \
 | UOBS | scorer v2 | 旧分数只保留历史；新分数要求独立验证证据 |
 
 迁移按 shadow → pilot → default：先新链旁路记录，不改历史结论；再用少量候选试运行；完整复现与负例验收后才成为新实验默认。Claude 和 Codex 若比较效率，应使用同一任务、模型预算计量方法、候选预算、评估器与留出集；区分模型差异与编排差异。
+
+当前实施更新（2026-10-29）：FW0–FW2初始库已开始开发，详见 [实现范围](../../verification/contracts/README.md)。候选执行顺序以最新决定为准：静态检查 → Asim运行与性能预筛 → 数值重建；不竞争/异常/运行失败时数值NOT_RUN、score=null。先瑞利，后续扩展CDL-B。完整Asim接入和框架验收尚未完成。

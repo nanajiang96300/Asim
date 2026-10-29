@@ -57,3 +57,5 @@
 本轮实际执行五项低成本Python诊断与资料完整性检查；没有构建或运行C++算子、通信大样本实验，没有证明历史候选可复现，也没有校准Asim与实机误差。全部算子保持legacy_unverified；局部负例复现不等于完整验证。历史材料中的“首次”“唯一”等文献判断未核验。
 
 历史材料入口：`DOCS/zhongqi/kaiti.md`、`DOCS/zhongqi/zhongqi.md`、`DOCS/zhongqi/qianyan_diaoyan.md`。它们原文归档，不因新判断而回写历史。
+
+当前开发状态（2026-10-29）：FW0–FW2已开始实现Python契约、构建器、结构重放和瑞利独立参考，见 [实现范围](../../verification/contracts/README.md)。21项单元测试通过，真实Asim程序适配尚未接通。候选先Asim及性能预筛，随后才数值；筛掉的候选NOT_RUN且无分。

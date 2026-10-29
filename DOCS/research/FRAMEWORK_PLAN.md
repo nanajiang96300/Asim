@@ -2,7 +2,7 @@
 
 更新：2026-10-29（Asia/Hong_Kong）。计划基点：`29e56bb84695cfc51f44f3b4f5941db1dbd71400`。
 
-状态：本文件是待实施计划。本轮只更新框架设计、任务依赖和决定，不修改任何具体算子，不启动搜索。现有盘点/审计工具不等于这里的runner、builder、数值执行器或评分器已经实现。
+状态：FW0–FW2初始Python库已开始实现，真实Asim同源程序适配尚未实现，不能整体验收。具体范围见 verification/contracts/README.md；不修改具体算子，不启动搜索。
 
 负责人本轮调整：先建设“协调器生成策略 → Agent按方向生成候选 → Asim → 重建验证 → 打分反馈”的通用框架。第一批以独立合成小程序验收基础设施，真实NS等算子迁移排在框架验收之后。[验证体系](VERIFICATION_DESIGN.md)的G0–G6及三条数值路径继续有效；[NS实施包](audits/NS_SHADOW_EXECUTION_PLAN.md)保留为后续真实接入说明，不再是当前必须修改NS的前置任务。
 
@@ -30,7 +30,9 @@ flowchart TD
     W --> F[冻结候选包与版本]
     F --> B[受信构建器/展开器]
     B --> L[最终可执行低层程序与摘要]
-    L --> N[数值影子执行器]
+    L --> S
+    S --> K[运行及性能预筛]
+    K --> N[数值影子执行器]
     L --> S[Asim周期与真实事件]
     T --> A[独立同算法仿真]
     T --> O[高精度任务参考]
@@ -44,7 +46,7 @@ flowchart TD
     E --> P
 ```
 
-数值与周期是同一程序的两个后端，不把“先仿真，再猜数值”设为依赖。先做快速结构重放可淘汰明显错误，节省仿真时间；通过后再做精度、事件、通信和复现。
+数值与周期消费同一程序，但候选评估顺序固定为：静态完整性检查 → Asim可运行性/事件完整性与性能筛选 → 数值重建 → 其余门禁/复现/评分。运行失败、明显不具竞争力或加速异常的候选不进入数值执行，保持numeric_status=NOT_RUN、score=null；性能不能证明数值正确。原语开发单元测试不属于候选评估，仍可独立执行。
 
 | 组件 | 有权做什么 | 无权做什么 |
 |---|---|---|
@@ -168,7 +170,7 @@ Asim提供每个实际op及DMA fragment的发射、读完成、写可见、完�
 4. 比较同质量组的有效结果，将首次坏操作/内存hazard反馈到修复任务，将稳定的成本瓶颈反馈到下一方向。多候选同样失败时先检查共同基础设施，暂停相应方向，不能逼Agent用高层捷径绕过UNSUPPORTED。
 5. 只有冻结版本的可复现收益才能更新前沿；预算耗尽保留当前有效对照和全部负结果。留出集只用于受控晋级，不让每轮策略无限查询。
 
-首个runner阶段：`PROPOSED → GENERATED → FROZEN → BUILT → STRUCTURE_CHECKED → NUMERIC_CHECKED → SIMULATED → HAZARD_CHECKED → QUALITY_CHECKED → REPRODUCED → SCORED → ARCHIVED/PROMOTED`。这是拟议框架状态机，与旧脚本状态无自动兼容承诺。实际流程可提前做Asim以获取事件，但任何必需门禁缺失都不得评分。
+首个runner阶段：`PROPOSED → GENERATED → FROZEN → BUILT → STATIC_CHECKED → SIMULATED → PERFORMANCE_SCREENED → STRUCTURE_CHECKED → NUMERIC_CHECKED → HAZARD_CHECKED → QUALITY_CHECKED → REPRODUCED → SCORED → ARCHIVED/PROMOTED`。这是拟议框架状态机，与旧脚本状态无自动兼容承诺。数值执行必须排在Asim通过与性能预筛之后；任何必需门禁缺失都不得评分。
 
 反馈包含status、failed_gate、first_bad_op/view、预期/观察摘要、覆盖数、首个阶段偏差、残差/输出误差/通信分组、cost_breakdown、版本hash和建议修复类别。不把留出集全部输入或参考矩阵回传给候选；开发集可给细节，晋级集限制反馈，最终留出集控制使用次数。Agent自报测试、分数和解释只作附注。
 
@@ -210,3 +212,11 @@ Asim提供每个实际op及DMA fragment的发射、读完成、写可见、完�
 本轮规划完成：本文件、上位设计链接、DECISIONS和结构化依赖同步，资料校验通过并提交Git；尚无新执行能力。
 
 框架v1完成：FW0–FW7有真实构建/运行/负例/正例/隔离/复现证据；能将实际低层程序的输出与独立参考比较，对漏洞给确定失败，并只为同契约下通过全部门禁的程序评分。随后真实NS迁移与算法修复另立任务，不把它混入框架基础设施提交。
+
+## 11. 首批实现与Asim先行筛选（2026-10-29）
+
+负责人调整：候选先Asim，再数值。初始实现提供Contract/ScreenPolicy、严格结构program builder、逻辑工作量统计、整块DRAM/SPAD/ACCUM实数FP64重放和瑞利参考生成器；21项单元测试通过。真实Asim适配、receipt来源认证、完整五契约与view/精度/事件仍待实施；FW0–FW2保持in_progress，不将测试receipt冒充真实仿真。
+
+campaign冻结有效baseline_cycles、minimum_speedup与maximum_speedup；默认库参数仅为开发示例，不是校准过的性能阈值。已存在有效对照后，未达到最小收益的候选SKIPPED_NOT_COMPETITIVE；异常加速QUARANTINED_IMPLAUSIBLE_SPEEDUP；运行失败SKIPPED_ASIM_FAILED。均不执行数值、不评分。边界允许相等以便复现对照；新算法/新范围须重新建立匹配对照，无有效基线时不能随意套历史周期拒绝。必要时独立复核异常候选，以免永久丢弃真正突破。
+
+第一批信道固定归一化瑞利：H实虚方差各1/(2Nr)，独立生成y、显式λ，oracle=solve(HᴴH+λI,Hᴴy)。它是任务数值样本而非已完成QAM/噪声/SER套件。后续新增CDL-B provider及独立版本/归一化/相关度配置；当前请求CDL-B明确UNSUPPORTED，不静默回退瑞利，也不把现有相关代理自动宣称完整标准模型。
