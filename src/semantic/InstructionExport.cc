@@ -12,7 +12,7 @@ void export_instructions(Operation& op) {
       const auto& i = *ptr;
       record["instructions"].push_back({{"id", i.id}, {"opcode", static_cast<int>(i.opcode)},
           {"dest_addr", i.dest_addr}, {"src_addrs", i.src_addrs}, {"size", i.size},
-          {"compute_size", i.compute_size}, {"base_addr", i.base_addr},
+          {"compute_size", i.compute_size}, {"operand_id",i.operand_id}, {"base_addr", i.base_addr},
           {"m", i.tile_m}, {"k", i.tile_k}, {"n", i.tile_n}, {"src_from_accum", i.src_from_accum},
           {"barrier", i.is_barrier}, {"semantic", i.numeric_semantics}, {"batch", tile->batch}, {"planned_core",tile->core_id}});
     }
