@@ -22,6 +22,8 @@ class ProjectionTests(unittest.TestCase):
         p=fixture();self.assertEqual(recover(exported(p),p),p)
     def test_legacy_rejected(self):
         with self.assertRaises(Unsupported):recover({'format':'actual-instructions-v1','header':None},fixture())
+    def test_legacy_typed_schema_not_routed_to_generic_adapter(self):
+        with self.assertRaises(Unsupported):recover({'format':'actual-instructions-v1','header':{'schema':'legacy-source-views-v1'}},fixture())
     def test_timing_size_mismatch(self):
         p=fixture();r=exported(p);r['instructions'][0]['size']=0
         with self.assertRaises(Invalid):recover(r,p)

@@ -27,6 +27,8 @@ def recover(record, requested, request_bytes=64):
     """Recover only typed semantics embedded in actual C++ Instructions."""
     if record.get('format') != 'actual-instructions-v1' or record.get('header') is None:
         raise Unsupported('LEGACY_MISSING_NUMERIC_SEMANTICS: no executable header/views')
+    if record['header'].get('schema')!='structure-program-v1':
+        raise Unsupported('NUMERIC_SCHEMA_REQUIRES_SEPARATE_ADAPTER: '+str(record['header'].get('schema')))
     actual=deepcopy(record['header']); actual['ops']=[]
     if actual != {k:v for k,v in requested.items() if k!='ops'} | {'ops': []}:
         raise Invalid('actual program header mismatch')
