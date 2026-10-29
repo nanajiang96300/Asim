@@ -16,6 +16,7 @@ import numpy as np
 from verification.contracts.core import Invalid, Unsupported, digest, screen_asim
 from verification.shadow.program import validate
 from verification.shadow.execute import _replay
+from verification.shadow.metrics import relative_error
 
 
 def file_hash(path):
@@ -79,7 +80,7 @@ def recover(record, requested, request_bytes=64):
     return actual
 
 
-def simulate(binary, config, models, mode, cwd, run_dir, timeout=120):
+def simulate(binary, config, models, mode, cwd, run_dir, timeout=120, max_cycles=100000):
     """Fresh artifact directory; export comes from this subprocess only."""
     run_dir=Path(run_dir).resolve();run_dir.mkdir(parents=True,exist_ok=False)
     binary=Path(binary).resolve();config=deepcopy(config)
@@ -87,7 +88,8 @@ def simulate(binary, config, models, mode, cwd, run_dir, timeout=120):
         config['dram_config_path']=str((Path(cwd)/config['dram_config_path']).resolve())
     (run_dir/'config.json').write_text(json.dumps(config,indent=2))
     (run_dir/'models.json').write_text(json.dumps(models,indent=2))
-    env=dict(os.environ,ONNXIM_HOME=str(Path(cwd).parent),ONNXIM_MAX_CORE_CYCLES='100000',
+    env=dict(os.environ,ONNXIM_HOME=str(Path(cwd).parent),ONNXIM_MAX_CORE_CYCLES=str(max_cycles),
+             ASIM_DISPATCH_EXPORT=str(run_dir/'dispatch.jsonl'),
              ASIM_INSTRUCTION_EXPORT=str(run_dir/'instructions.jsonl'),
              ONNXIM_TRACE_CSV=str(run_dir/'trace.csv'),ONNXIM_FORMULA_JSON=str(run_dir/'formula.json'))
     command=[str(binary),'--config',str(run_dir/'config.json'),'--models_list',str(run_dir/'models.json'),'--mode',mode,'--log_level','info']
@@ -103,8 +105,8 @@ def simulate(binary, config, models, mode, cwd, run_dir, timeout=120):
     complete=rc==0 and len(matches)==1 and 'Simulation aborted' not in text
     receipt={'status':'COMPLETED' if complete else 'FAILED','returncode':rc,
              'finish_cycle':int(matches[0]) if complete else None,'mode':mode,'command':command,
-             'binary_sha256':binary_before,'artifacts':[]}
-    for name in ('config.json','models.json','simulator.log','instructions.jsonl','trace.csv','formula.json'):
+             'binary_sha256':binary_before,'max_core_cycles':max_cycles,'artifacts':[]}
+    for name in ('config.json','models.json','simulator.log','instructions.jsonl','trace.csv','formula.json','dispatch.jsonl'):
         p=run_dir/name
         if p.is_file():receipt['artifacts'].append({'path':name,'bytes':p.stat().st_size,'sha256':file_hash(p)})
     (run_dir/'asim.json').write_text(json.dumps(receipt,indent=2))
@@ -150,7 +152,7 @@ def _evaluate(program, inputs, binary, config, cwd, run_dir, policy, expected):
             replay=_replay(actual,inputs)
             observed=np.array(replay['output']);expected=np.asarray(expected)
             if observed.shape!=expected.shape or not np.isfinite(expected).all():raise Invalid('invalid independent expected output')
-            error=float(np.linalg.norm(observed-expected)/max(np.linalg.norm(expected),1e-15))
+            error=relative_error(observed,expected)
             result.update(status='STRUCTURE_CHECKED' if error<=1e-12 else 'NUMERIC_FAILED',numeric_status='EXECUTED',relative_error=error,replay=replay)
         (run_dir/'actual_program.json').write_text(json.dumps(actual,indent=2))
     (run_dir/'inputs.json').write_text(json.dumps({k:np.asarray(v).tolist() for k,v in inputs.items()}))

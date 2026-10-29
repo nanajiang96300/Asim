@@ -64,3 +64,12 @@ def screen_asim(receipt, program_hash, policy):
     if ratio > policy.maximum_speedup:
         return 'QUARANTINED_IMPLAUSIBLE_SPEEDUP'
     return 'ELIGIBLE_FOR_NUMERICS'
+
+
+def json_safe(value):
+    """Diagnostic serialization only; invalid metadata never becomes valid policy."""
+    if isinstance(value,float) and not math.isfinite(value):return str(value)
+    if isinstance(value,dict):return {str(k):json_safe(v) for k,v in value.items()}
+    if isinstance(value,(tuple,list)):return [json_safe(v) for v in value]
+    if value is None or isinstance(value,(str,int,float,bool)):return value
+    return repr(value)
