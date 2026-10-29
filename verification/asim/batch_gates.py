@@ -9,6 +9,8 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import subprocess
+import sys
+import os
 import numpy as np
 from verification.asim.batch import recover_batch,check_events,evaluate_batch
 from verification.asim.runner import simulate,file_hash
@@ -66,7 +68,12 @@ def main():
     for batch_size,cores in [(24,24),(96,24),(96,1)]:
         key=f'b{batch_size}_c{cores}';c=deepcopy(config);c['num_cores']=cores
         if cores==1:c['core_config']={'core_0':c['core_config']['core_0']}
-        data=fixtures.setdefault(batch_size,mmse_batch(20261029,batch_size=batch_size))
+        if batch_size not in fixtures:
+            fixtures[batch_size]=mmse_batch(20261029,batch_size=batch_size)
+            f=fixtures[batch_size]
+            np.savez(root/f'rayleigh_b{batch_size}.npz',**{name:np.stack([c[name] for c in f['channels']]) for name in ('H','y','symbols','A','b','x_reference')})
+            (root/f'rayleigh_b{batch_size}.json').write_text(json.dumps(f['metadata'],indent=2))
+        data=fixtures[batch_size]
         calibration=root/(key+'_calibration')
         receipt=simulate(args.binary,c,{'models':[{'name':'control','program':program,'batch_size':batch_size}]},'semantic_program_test',args.cwd,calibration,max_cycles=1000000)
         validate_run(calibration,program,batch_size,cores,receipt)
@@ -97,7 +104,7 @@ def main():
     source_root=Path(__file__).resolve().parents[2]
     sources=[{'path':str(p.relative_to(source_root)),'sha256':file_hash(p)} for basepath in ('src','verification') for p in sorted((source_root/basepath).rglob('*')) if p.suffix in ('.py','.cc','.h')]
     summary={'schema_version':'batch-gates-v1','status':'GATES_PASSED' if all(r['gate_passed'] for r in cases) else 'GATES_FAILED',
-        'score':None,'G4':'NOT_RUN','fixture':data['metadata'],'precision_profile':'structure_f64; precision8 Asim cost uncalibrated',
+        'score':None,'G4':'NOT_RUN','runtime':{'python':sys.version,'numpy':np.__version__,'OPENBLAS_NUM_THREADS':os.getenv('OPENBLAS_NUM_THREADS'),'OMP_NUM_THREADS':os.getenv('OMP_NUM_THREADS')},'fixture':data['metadata'],'precision_profile':'structure_f64; precision8 Asim cost uncalibrated',
         'timed_scope':data['metadata']['measurement_scope'],'excluded_costs':['H/y preparation','Gram and regularization','X0 spectral norm and initialization'],
         'same_input_batch96_model_cycle_speedup_24_vs_1':serial/fast,'cases':cases,'binary_sha256':binary_hash,
         'binary_source_commit':subprocess.check_output(['git','-C',str(args.cwd),'rev-parse','HEAD'],text=True).strip(),
