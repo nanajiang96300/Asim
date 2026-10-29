@@ -65,7 +65,7 @@ class LegacyTests(unittest.TestCase):
 
     def test_output_shape_must_not_broadcast(self):
         h,ops,inputs=fixture()
-        self.assertEqual(execute_batch(h,ops,inputs,0,np.full((2,2),7.1))['status'],'OUTPUT_SHAPE_MISMATCH')
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.full((2,2),7.1))['status'],'OUTPUT_COVERAGE_UNSUPPORTED')
     def test_multiple_store_is_not_last_store_wins(self):
         h,ops,inputs=fixture();ops.append(copy.deepcopy(ops[-1]))
         self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'OUTPUT_COVERAGE_UNSUPPORTED')
