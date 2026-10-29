@@ -29,5 +29,18 @@
     "model_call_budget": null
   },
   "promotion_allowed": false,
-  "limitations": ["Template only. Missing contract, suite or supported gates prevents execution and promotion."]
+  "limitations": [
+    "Template only. Missing contract, suite or supported gates prevents execution and promotion."
+  ],
+  "preferred_workload": {
+    "num_cores": 24,
+    "batch_size": 96,
+    "batch_multiple": 24,
+    "cube_shape": [
+      16,
+      16,
+      16
+    ],
+    "note": "batch1 is a diagnostic option; matrix dimensions separately control cube alignment"
+  }
 }

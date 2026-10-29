@@ -61,3 +61,5 @@
 当前开发状态（2026-10-29）：FW0–FW2已开始实现Python契约、构建器、结构重放和瑞利独立参考，见 [实现范围](../../verification/contracts/README.md)。21项单元测试通过，真实Asim程序适配尚未接通。候选先Asim及性能预筛，随后才数值；筛掉的候选NOT_RUN且无分。
 
 最新运行证据（2026-10-29）：通用程序已接通真实Asim并从实际Instruction导出重放；29单元测试与7项真实Asim门禁达到预期。旧NS/Cholesky小样例运行成功，但数值语义不足明确UNSUPPORTED。见 [框架实际进度](FRAMEWORK_PROGRESS.md)。FW0–FW2仍in_progress，完整view/精度/G4/通信/晋级未完成。
+
+2026-10-29多核更新：默认24核、batch96（24的倍数），Cube16³；24/96全batch的真实Asim→预筛→三路径数值闭环已运行，45项单元测试通过。计时为给定A/b/X0/C内核，仍非FP16/G4/通信统计验收。详见 [24核验证报告](ASCEND24_VALIDATION.md)。

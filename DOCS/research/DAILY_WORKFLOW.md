@@ -120,3 +120,5 @@ cd "$ASIM_ROOT"
 当前实施更新（2026-10-29）：FW0–FW2初始库已开始开发，详见 [实现范围](../../verification/contracts/README.md)。候选执行顺序以最新决定为准：静态检查 → Asim运行与性能预筛 → 数值重建；不竞争/异常/运行失败时数值NOT_RUN、score=null。先瑞利，后续扩展CDL-B。完整Asim接入和框架验收尚未完成。
 
 最新可执行结构门禁已实现：参见 [FRAMEWORK_PROGRESS](FRAMEWORK_PROGRESS.md) 的真实Asim重跑命令；尚不能替代本文完整候选晋级链。
+
+2026-10-29多核更新：默认24核、batch96（24的倍数），Cube16³；24/96全batch的真实Asim→预筛→三路径数值闭环已运行，45项单元测试通过。计时为给定A/b/X0/C内核，仍非FP16/G4/通信统计验收。详见 [24核验证报告](ASCEND24_VALIDATION.md)。

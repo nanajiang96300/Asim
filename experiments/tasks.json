@@ -137,12 +137,13 @@
         "verification/contracts/README.md",
         "verification/tests/test_framework.py",
         "verification/tests/test_asim_adapter.py",
-        "experiments/framework/2026-10-29-asim-gates/run_manifest.json"
+        "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
+        "experiments/framework/2026-10-29-ascend24/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "FW0–FW2 remain in_progress: whole-region real structure prototype only; full views/precision/algorithm references/quality and G4 still pending"
+        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending"
       ]
     },
     {
@@ -168,12 +169,13 @@
         "verification/contracts/README.md",
         "verification/tests/test_framework.py",
         "verification/tests/test_asim_adapter.py",
-        "experiments/framework/2026-10-29-asim-gates/run_manifest.json"
+        "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
+        "experiments/framework/2026-10-29-ascend24/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "FW0–FW2 remain in_progress: whole-region real structure prototype only; full views/precision/algorithm references/quality and G4 still pending"
+        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending"
       ]
     },
     {
@@ -199,12 +201,13 @@
         "verification/contracts/README.md",
         "verification/tests/test_framework.py",
         "verification/tests/test_asim_adapter.py",
-        "experiments/framework/2026-10-29-asim-gates/run_manifest.json"
+        "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
+        "experiments/framework/2026-10-29-ascend24/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "FW0–FW2 remain in_progress: whole-region real structure prototype only; full views/precision/algorithm references/quality and G4 still pending"
+        "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending"
       ]
     },
     {
@@ -577,5 +580,15 @@
   "initial_channel": "rayleigh",
   "future_channels": [
     "cdl-b"
-  ]
+  ],
+  "preferred_workload": {
+    "num_cores": 24,
+    "batch_size": 96,
+    "batch_multiple": 24,
+    "cube_shape": [
+      16,
+      16,
+      16
+    ]
+  }
 }

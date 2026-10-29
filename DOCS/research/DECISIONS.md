@@ -75,3 +75,9 @@
 通用语义程序新增独立Asim入口，从实际Instruction导出typed语义并交叉核对计时字段；先真实Asim及性能筛选再数值。7项真实门禁得到预期结果，29项单元测试通过，受限范围独立审查通过。旧NS/Cholesky周期运行成功，但无数值views/header，必须UNSUPPORTED，不用公式日志或标准算法补答案。
 
 状态：实数FP64整块结构闭环已运行；五契约/view/精度/异步/通信/权限隔离和完整框架验收未完成，score=null。构建使用隔离工作区与本地依赖副本，不宣称G6。具体算子源码保持不变。详见FRAMEWORK_PROGRESS.md及experiments/framework/2026-10-29-asim-gates/run_manifest.json。
+
+## D010 — 2026-10-29：24核与batch96默认、分batch全覆盖
+
+来源：负责人明确以910B的24核及16³矩阵核建模，一般batch采用24倍数，常用96。决定：生产测试默认24核/batch96，batch24作覆盖样本，batch1保留诊断；核间batch分配与矩阵维度Cube对齐分别校验。每batch独立DRAM及实际dispatch/core/buffer/ID绑定，全部batch分别比较参考，不平均掩盖错误。
+
+状态：通用入口已扩展；45单元测试及24/96真实结构门禁通过。96输入24核6606周期、单核110456周期，是同FP64结构模型下内核周期对照，不能当实机或旧算子优化收益。旧NS96运行4647周期但重建仍UNSUPPORTED。完整精度/G4/通信统计/评分未完成，score=null。报告ASCEND24_VALIDATION.md，证据experiments/framework/2026-10-29-ascend24/run_manifest.json。

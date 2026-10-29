@@ -13,3 +13,5 @@
 运行：`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -s verification/tests -v`。
 
 最新门禁：29项单元测试、7项真实Asim门禁得到预期结果；旧NS/Cholesky成功运行后因缺数值语义返回UNSUPPORTED。详见 [实际进度](../../DOCS/research/FRAMEWORK_PROGRESS.md)。
+
+多batch接口：`verification.asim.batch.evaluate_batch`及`python -m verification.asim.batch_gates`已接通24核/batch24与96。每batch输入不同、实际dispatch/DRAM绑定、全部batch三路径比较；默认96、Cube16³对齐。45单元测试与真实门禁见 [24核报告](../../DOCS/research/ASCEND24_VALIDATION.md)。原始矩阵32×32/32×16为复数实块表示，仍结构FP64而非校准FP16。

@@ -22,3 +22,5 @@
 现阶段工具：`python3 scripts/research_inventory.py create/check ...`、`.venv/bin/python scripts/research_audit_checks.py --output <new-file>`、`python3 scripts/research_validate.py`。具体命令与失败边界见 [日常工作流](../DOCS/research/DAILY_WORKFLOW.md)。
 
 原制品继续保留在results等路径；清单与Git都不能恢复一个缺失的原始输入。将来归档迁移按 [制品规则](../DOCS/research/ARTIFACT_CATALOG.md) 校验副本，不自动删除原件。候选提交与结果提交分开，清单引用完整来源SHA，禁止自引用自身提交。
+
+24核/batch96最新证据：[run_manifest.json](framework/2026-10-29-ascend24/run_manifest.json)。含独立算法/任务参考、逐batch门禁、旧NS96拒绝证据、原始H/y/符号/输入/输出hash；完整FP16/G4/统计质量门禁仍未完成。

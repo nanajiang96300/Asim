@@ -222,3 +222,5 @@ campaign冻结有效baseline_cycles、minimum_speedup与maximum_speedup；默认
 第一批信道固定归一化瑞利：H实虚方差各1/(2Nr)，独立生成y、显式λ，oracle=solve(HᴴH+λI,Hᴴy)。它是任务数值样本而非已完成QAM/噪声/SER套件。后续新增CDL-B provider及独立版本/归一化/相关度配置；当前请求CDL-B明确UNSUPPORTED，不静默回退瑞利，也不把现有相关代理自动宣称完整标准模型。
 
 实际运行进度与范围以 [FRAMEWORK_PROGRESS](FRAMEWORK_PROGRESS.md) 为准：29单元测试、7项真实Asim门禁；旧算子缺语义仍拒绝，不能整体晋级。
+
+2026-10-29多核更新：默认24核、batch96（24的倍数），Cube16³；24/96全batch的真实Asim→预筛→三路径数值闭环已运行，45项单元测试通过。计时为给定A/b/X0/C内核，仍非FP16/G4/通信统计验收。详见 [24核验证报告](ASCEND24_VALIDATION.md)。
