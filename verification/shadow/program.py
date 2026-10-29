@@ -13,7 +13,7 @@ def validate(program):
         raise Invalid('invalid program schema')
     c = Contract(**program['contract']); c.validate()
     regions = program['regions']
-    if not regions or not isinstance(regions, dict):
+    if not regions or not isinstance(regions, dict) or len(regions)>32:
         raise Invalid('regions required')
     for name, r in regions.items():
         if set(r) != {'space', 'shape', 'dtype'} or r['space'] not in SPACES:
@@ -22,6 +22,12 @@ def validate(program):
             raise Unsupported('only real float64 structure mode supported')
         if len(r['shape']) != 2 or not all(positive_int(x) for x in r['shape']):
             raise Invalid('positive two dimensional shape required')
+    for space in SPACES:
+        allocated=sum(((r['shape'][0]*r['shape'][1]*8+63)//64)*64 for r in regions.values() if r['space']==space)
+        if allocated>65536:
+            raise Unsupported('prototype per-space allocation budget')
+    if not isinstance(program['ops'],list) or not 1<=len(program['ops'])<=256:
+        raise Unsupported('prototype requires 1..256 operations')
     ids = set()
     for op in program['ops']:
         if set(op) != {'id', 'opcode', 'src', 'dst'}:
@@ -29,7 +35,7 @@ def validate(program):
         code = op['opcode']
         if code not in ARITY:
             raise Unsupported('unsupported opcode: ' + str(code))
-        if not isinstance(op['id'], str) or not op['id'] or op['id'] in ids:
+        if not isinstance(op['id'], str) or not op['id'] or op['id'].startswith('semantic_barrier_') or op['id'] in ids:
             raise Invalid('duplicate or missing op id')
         ids.add(op['id'])
         if len(op['src']) != ARITY[code] or any(s not in regions for s in op['src']) or op['dst'] not in regions:

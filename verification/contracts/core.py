@@ -47,7 +47,8 @@ def screen_asim(receipt, program_hash, policy):
     """Trusted runner calls this with its own receipt, never an Agent self report.
 
     This is a screening rule, not authentication of receipt provenance.
-    The real Asim program adapter and artifact verification are still pending.
+    The supervised verification.asim.runner authenticates its own subprocess artifacts;
+    this standalone rule does not authenticate externally supplied receipts.
     """
     policy.validate()
     if receipt.get('program_hash') != program_hash:

@@ -39,7 +39,8 @@ def _replay(program, inputs):
 def execute_after_asim(program, inputs, receipt, policy):
     """Internal runner API; receipt provenance must be enforced by that runner.
 
-    No public CLI accepts an Agent-supplied receipt. Asim adapter is not yet implemented.
+    No public CLI accepts an Agent-supplied receipt. Production local runs use
+    verification.asim.runner, which creates and checks real subprocess artifacts.
     """
     program = deepcopy(program)
     validate(program)
