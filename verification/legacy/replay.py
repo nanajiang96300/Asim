@@ -33,6 +33,7 @@ def external_inputs(header,seed=42,regularization=.1):
 class Memory:
     def __init__(self,header,inputs):
         self.header=header;self.inputs=inputs;self.p=header['precision_bytes']
+        if not header.get('capacities'):raise ReplayFault('CAPACITY_MISSING','missing configured bank capacities')
         self.regions={r['base']:r for r in header['regions']}
         if len(self.regions)!=len(header['regions']):raise ReplayFault('REGION_ALIAS','duplicate region base')
         ranges=[]
@@ -87,6 +88,7 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
             s=i.get('semantic')
             if s is None:raise ReplayFault('MISSING_SEMANTICS','unannotated actual Instruction')
             last['site']=s.get('site')
+            if s.get('schema')!='source-views-v1':raise ReplayFault('SCHEMA_MISMATCH','unknown per-instruction semantic schema')
             if s['opcode']!=i['opcode']:raise ReplayFault('SEMANTIC_BINDING_MISMATCH','arithmetic identity mismatch')
             if 'invalid_reason' in s:raise ReplayFault('SEMANTIC_AMBIGUITY',s['invalid_reason'])
             code=i['opcode'];src=s['src'];dst=s['dst']
@@ -102,7 +104,7 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
                 declared_slot=i['operand_id']-(100 if code==0 else 200)
                 if slot!=declared_slot:raise ReplayFault('INPUT_BINDING_MISMATCH','DMA crossed into another tensor')
                 tshape=targets[slot]['shape']
-                if len(tshape)==3 and offset//(tshape[1]*tshape[2])!=batch:
+                if len(tshape)==3 and (offset//(tshape[1]*tshape[2])!=batch or (offset+count-1)//(tshape[1]*tshape[2])!=batch):
                     raise ReplayFault('BATCH_BINDING_MISMATCH','DMA crossed logical batch boundary')
                 covered=set(i['src_addrs']);request=64
                 for byte in range(remote['base'],remote['base']+count*mem.p,mem.p):
@@ -111,6 +113,7 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
                     value=inputs[slot].reshape(-1)[offset:offset+count].reshape(remote['rows'],remote['cols'])
                     mem.write(dst,value)
                 else:
+                    if slot!=0 or offset!=batch*expected.size or count!=expected.size:raise ReplayFault('OUTPUT_COVERAGE_UNSUPPORTED','STORE must cover precisely one complete task output')
                     stores+=1
                     if stores!=1:raise ReplayFault('OUTPUT_COVERAGE_UNSUPPORTED','multiple STORE reconstruction not implemented')
                     output=mem.read(src[0]);

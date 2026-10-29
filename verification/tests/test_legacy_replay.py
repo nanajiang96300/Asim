@@ -12,7 +12,7 @@ def v(base,row=0,col=0,rows=1,cols=1,transpose=False,conjugate=False):return dic
 
 def fixture():
     a=0x10000000;r=a+64;g=r+64;total=g+64
-    header={'schema':'legacy-source-views-v1','precision_bytes':2,
+    header={'schema':'legacy-source-views-v1','precision_bytes':2,'capacities':[{'spad_bytes':65536,'accum_bytes':65536}],
       'inputs':[{'name':'test.H','base':0x10000,'shape':[1,2,1],'bytes':4},{'name':'test.RegI','base':0x10040,'shape':[1,1],'bytes':2}],
       'outputs':[{'name':'test.A','base':0x10080,'shape':[1,1,1],'bytes':2}],
       'regions':[{'base':a,'rows':2,'cols':1,'name':'H'},*({'base':b,'rows':1,'cols':1,'name':n} for b,n in [(r,'Reg'),(g,'G'),(total,'A')])]}
@@ -93,3 +93,23 @@ class LegacyTests(unittest.TestCase):
             i={'batch':0,'opcode':3,'id':'gemm','barrier':False};dispatch=[{'batch':0,'core':0}]
             self.assertEqual(statistics(p,[i],20,1,dispatch)['status'],'TRACE_VALID')
             self.assertEqual(statistics(p,[i,i],20,1,dispatch)['status'],'TRACE_INVALID')
+
+    def test_unknown_instruction_schema_rejected(self):
+        h,ops,inputs=fixture();ops[0]['semantic']['schema']='future-unknown'
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'SCHEMA_MISMATCH')
+    def test_missing_capacity_not_certified(self):
+        h,ops,inputs=fixture();del h['capacities']
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'CAPACITY_MISSING')
+    def test_load_must_not_cross_batch(self):
+        h,ops,inputs=fixture();h['inputs'][0].update(shape=[2,2,1],bytes=8)
+        ops[0]['semantic']['src'][0]['base']+=2
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'BATCH_BINDING_MISMATCH')
+    def test_offset_store_must_not_cross_task_output(self):
+        h,ops,inputs=fixture();h['outputs'][0].update(shape=[1,1,2],bytes=4)
+        ops[-1]['semantic']['dst']['base']+=2
+        self.assertEqual(execute_batch(h,ops,inputs,0,np.array([[7.1]]))['status'],'OUTPUT_COVERAGE_UNSUPPORTED')
+    def test_campaign_requires_all_seven(self):
+        from verification.legacy.campaign import require_complete_registry,EXPECTED_ENTRIES
+        require_complete_registry(dict.fromkeys(EXPECTED_ENTRIES))
+        for registry in ({},{'newton_schulz':{}},dict.fromkeys(EXPECTED_ENTRIES|{'unknown'})):
+            with self.assertRaises(ValueError):require_complete_registry(registry)

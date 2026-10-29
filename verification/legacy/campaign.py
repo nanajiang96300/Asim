@@ -12,12 +12,18 @@ from verification.legacy.replay import external_inputs,execute_batch
 from verification.reporting.pipeline import statistics,write_detail
 
 
+EXPECTED_ENTRIES={'cholesky_block','cholesky_noblock','cholesky_noblock_merge','ldl_block','ldl_noblock','newton_schulz','block_richardson'}
+
+def require_complete_registry(registry):
+    if set(registry)!=EXPECTED_ENTRIES:raise ValueError('campaign requires exactly seven legacy entries')
+
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     for name in ('binary','config','registry','cwd','output'):ap.add_argument('--'+name,type=Path,required=True)
     args=ap.parse_args();root=args.output.resolve();root.mkdir(parents=True,exist_ok=False)
     config=json.loads(args.config.read_text());registry=json.loads(args.registry.read_text())['operators']
     if config['num_cores']!=24 or config['precision']!=2:raise ValueError('legacy campaign requires original24-core precision2 cost profile')
+    require_complete_registry(registry)
     source_root=Path(__file__).resolve().parents[2];cases=[]
     for name,entry in sorted(registry.items()):
         models=json.loads((source_root/entry['config']).read_text())
@@ -33,6 +39,7 @@ def main():
             if len(records)!=1:raise ValueError('expected one operation')
             record=records[0];header=record['header'];instructions=record['instructions']
             if not header or header.get('schema')!='legacy-source-views-v1':raise ValueError('source semantic migration missing')
+            if {c['core'] for c in header.get('capacities',[])}!=set(range(24)) or len(header['capacities'])!=24:raise ValueError('missing24-core capacity evidence')
             groups=defaultdict(list)
             for i in instructions:groups[i['batch']].append(i)
             dispatch=[json.loads(s) for s in (path/'dispatch.jsonl').read_text().splitlines()]
@@ -65,7 +72,7 @@ def main():
         print('DONE',name,result['asim_status'],result['finish_cycle'],result['correctness'],result.get('status_counts'),flush=True)
         records=record=header=instructions=groups=dispatch=stats=values=oracle=rows=None
         gc.collect()
-    structure_passed=all(c['correctness']=='STRUCTURE_MATCH' for c in cases)
+    structure_passed=len(cases)==7 and all(c['correctness']=='STRUCTURE_MATCH' for c in cases)
     summary={'schema_version':'legacy-reconstruction-campaign-v1','status':'STRUCTURE_MATCH_ONLY' if structure_passed else 'CORRECTNESS_BLOCKED','all_numerics_passed':structure_passed,
         'score':None,'verified_comparison':{'status':'BLOCKED','rows':[],'reason':'legacy correctness/precision/schedule gates not all passed'},
         'cases':cases,'binary_sha256':file_hash(args.binary),'binary_source_commit':subprocess.check_output(['git','-C',str(args.cwd),'rev-parse','HEAD'],text=True).strip(),
