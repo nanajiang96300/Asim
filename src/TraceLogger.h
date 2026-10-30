@@ -4,6 +4,7 @@
 #include <mutex>
 #include <string>
 #include <vector>
+#include <limits>
 
 // Lightweight global trace logger for pipeline visualization.
 // Usage:
@@ -16,6 +17,9 @@ class TraceLogger {
     std::string unit;       // e.g., "CubeCore", "VectorCore", "MTE2_Load", "MTE3_Store", "MTE1_Mov"
     std::uint64_t start_cycle;
     std::uint64_t end_cycle;
+    std::uint64_t request_id=std::numeric_limits<std::uint64_t>::max();
+    std::string op_id;
+    std::uint32_t fragment=0;
   };
 
   // Get singleton instance.
@@ -25,7 +29,9 @@ class TraceLogger {
   static void log_event(const std::string& unit,
                         const std::string& name,
                         std::uint64_t start_cycle,
-                        std::uint64_t end_cycle);
+                        std::uint64_t end_cycle,
+                        std::uint64_t request_id=std::numeric_limits<std::uint64_t>::max(),
+                        const std::string& op_id="",std::uint32_t fragment=0);
 
   // Dump all events to a CSV file with header:
   //   name,unit,start_cycle,end_cycle
@@ -42,7 +48,8 @@ class TraceLogger {
   void add_event(const std::string& unit,
                  const std::string& name,
                  std::uint64_t start_cycle,
-                 std::uint64_t end_cycle);
+                 std::uint64_t end_cycle,std::uint64_t request_id,
+                 const std::string& op_id,std::uint32_t fragment);
 
   std::mutex _mutex;
   std::vector<TraceEvent> _events;

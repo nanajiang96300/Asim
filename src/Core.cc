@@ -214,9 +214,11 @@ void Core::push_memory_response(MemoryAccess *response) {
     _spad.fill(response->spad_address, response->buffer_id);
   }
 
+  std::string rw_trace_owner;uint32_t rw_trace_fragment=0;
   if(rw_observer::enabled()) {
     auto it=_rw_dma_owners.find(response->id);
     if(it==_rw_dma_owners.end())throw std::runtime_error("RW response has no originating request");
+    rw_trace_owner=it->second["id"];rw_trace_fragment=it->second["fragment"];
     json e=it->second;e["kind"]="dma_response";e["dram_addr"]=response->dram_address;e["local_addr"]=response->spad_address;e["bytes"]=response->size;e["buffer"]=response->buffer_id;e["write"]=response->write;
     rw_observer::emit(e,_id,_core_cycle);_rw_dma_owners.erase(it);
   }
@@ -231,13 +233,13 @@ void Core::push_memory_response(MemoryAccess *response) {
           fmt::format("Core{}_MTE3", _id),
           "Store",
           start,
-          end);
+          end,response->id,rw_trace_owner,rw_trace_fragment);
     } else {
       TraceLogger::log_event(
           fmt::format("Core{}_MTE2", _id),
           "Load",
           start,
-          end);
+          end,response->id,rw_trace_owner,rw_trace_fragment);
     }
   }
   delete response;
