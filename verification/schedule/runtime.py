@@ -11,7 +11,7 @@ from verification.contracts.core import Invalid,Unsupported
 from verification.schedule.hazards import Access
 from verification.schedule.intervals import check_schedule_fast
 
-HEADER={'kind':'header','schema':'core-rw-v3','producer':'asim_core_observer_v3','clock':'homogeneous_core_cycle_v1','compute_reads':'conservative_issue_to_complete_v1','dma_reads':'request_snapshot_v1','dma_writes':'fragment_response_commit_v1','dma_identity':'trace_request_op_fragment_v1','compute_identity':'trace_issue_commit_cycle_v1'}
+HEADER={'kind':'header','schema':'core-rw-v4','producer':'asim_core_observer_v4','clock':'homogeneous_core_cycle_v1','compute_reads':'conservative_issue_to_complete_v1','dma_reads':'request_snapshot_v1','dma_writes':'fragment_response_commit_v1','dma_identity':'trace_request_op_fragment_v1','compute_identity':'trace_issue_commit_cycle_v1','dma_descriptor':'per_fragment_address_v1'}
 FIELDS=('id','opcode','dest_addr','src_addrs','size','compute_size','m','k','n','base_addr','src_from_accum','operand_id')
 
 
@@ -77,7 +77,9 @@ def check_runtime(record,dispatch,path,trace_path,config,finish):
         i=by_id.get(e.get('id'))
         if i is None:raise Invalid('observer event not in actual program')
         d=mapping[i['batch']]
-        if any(e.get(k)!=i[k] for k in FIELDS) or (e['core'],e['spad_buffer'],e['accum_buffer'])!=(d['core'],d['spad_buffer'],d['accum_buffer']) or e['cycle']<d['cycle']:raise Invalid('actual observer instruction/core/buffer binding mismatch')
+        fields=tuple(k for k in FIELDS if k!='src_addrs') if i['opcode'] in (0,1) else FIELDS
+        if i['opcode'] in (0,1) and 'src_addrs' in e:raise Unsupported('redundant/noncanonical DMA observer descriptor')
+        if any(e.get(k)!=i[k] for k in fields) or (e['core'],e['spad_buffer'],e['accum_buffer'])!=(d['core'],d['spad_buffer'],d['accum_buffer']) or e['cycle']<d['cycle']:raise Invalid('actual observer instruction/core/buffer binding mismatch')
         if kind in ('compute_read_begin','compute_read_done','compute_write_visible'):
             if i['opcode'] in (0,1) or kind in compute[i['id']]:raise Invalid('duplicate/wrong compute event')
             if kind=='compute_read_begin' and e.get('semantic')!=i['semantic']:raise Invalid('runtime views differ from exported instruction')
@@ -95,7 +97,7 @@ def check_runtime(record,dispatch,path,trace_path,config,finish):
     fragments={}
     for key,e in requests.items():
         r=responses[key]
-        if any(r.get(k)!=e.get(k) for k in (*FIELDS,'spad_buffer','accum_buffer','fragment','dram_addr','local_addr','bytes','buffer','write','core')) or stamp(r)<stamp(e):raise Invalid('DMA response changed owner/payload or preceded request')
+        if any(r.get(k)!=e.get(k) for k in (*(k for k in FIELDS if k!='src_addrs'),'spad_buffer','accum_buffer','fragment','dram_addr','local_addr','bytes','buffer','write','core')) or stamp(r)<stamp(e):raise Invalid('DMA response changed owner/payload or preceded request')
         token=e['id'],e['fragment']
         if token in fragments:raise Invalid('duplicate owner DMA fragment')
         fragments[token]=e,r
