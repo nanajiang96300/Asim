@@ -463,7 +463,7 @@ void Core::handle_ld_inst_queue() {
                               .start_cycle = _core_cycle,
                               .buffer_id = buffer_id});
         if(rw_observer::enabled()) {
-          json e=rw_observer::descriptor(*front);e["kind"]="dma_request";e["request_id"]=access->id;e["fragment"]=rw_fragment++;e["dram_addr"]=access->dram_address;e["local_addr"]=access->spad_address;e["bytes"]=access->size;e["buffer"]=access->buffer_id;e["write"]=access->write;
+          json e=rw_observer::descriptor(*front);e.erase("src_addrs");e["kind"]="dma_request";e["request_id"]=access->id;e["fragment"]=rw_fragment++;e["dram_addr"]=access->dram_address;e["local_addr"]=access->spad_address;e["bytes"]=access->size;e["buffer"]=access->buffer_id;e["write"]=access->write;
           _rw_dma_owners.emplace(access->id,e);rw_observer::emit(e,_id,_core_cycle);
         }
         _request_queue.push(access);
@@ -504,7 +504,7 @@ void Core::handle_st_inst_queue() {
                               .buffer_id = buffer_id};
           _waiting_write_reqs++;
           if(rw_observer::enabled()) {
-          json e=rw_observer::descriptor(*front);e["kind"]="dma_request";e["request_id"]=access->id;e["fragment"]=rw_fragment++;e["dram_addr"]=access->dram_address;e["local_addr"]=access->spad_address;e["bytes"]=access->size;e["buffer"]=access->buffer_id;e["write"]=access->write;
+          json e=rw_observer::descriptor(*front);e.erase("src_addrs");e["kind"]="dma_request";e["request_id"]=access->id;e["fragment"]=rw_fragment++;e["dram_addr"]=access->dram_address;e["local_addr"]=access->spad_address;e["bytes"]=access->size;e["buffer"]=access->buffer_id;e["write"]=access->write;
           _rw_dma_owners.emplace(access->id,e);rw_observer::emit(e,_id,_core_cycle);
         }
         _request_queue.push(access);
