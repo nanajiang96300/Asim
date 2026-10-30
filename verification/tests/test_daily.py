@@ -60,3 +60,24 @@ class DailyTests(unittest.TestCase):
             root,p,s=self.make(d);before=sha(p);loaded=load_runtime(p,root)
             p.write_text(p.read_text()+' ')
             self.assertEqual(loaded['_loaded_sha256'],before);self.assertNotEqual(loaded['_loaded_sha256'],sha(p))
+    def test_manifest_change_during_job_cannot_be_relabelled(self):
+        from unittest.mock import patch
+        from contextlib import redirect_stdout
+        import io,sys,numpy as np
+        from verification.reconstruction.daily import main
+        with tempfile.TemporaryDirectory() as d:
+            root,p,s=self.make(d);(root/'config').write_text('{}')
+            for e in s['files']:
+                f=root/e['path'];e.update(bytes=f.stat().st_size,sha256=sha(f))
+            s.update(profiles=['modeled_fp16_fp32_real_block_v1'],python_version=sys.version.split()[0],numpy_version=np.__version__)
+            for key in ('binary','config','cwd'):s[key]=str(root/s[key])
+            s['dependencies']=[str(root/x) for x in s['dependencies']]
+            for e in s['files']:e['path']=str(root/e['path'])
+            p.write_text(json.dumps(s));output=root/'job'
+            def changed(*args,**kwargs):
+                output.mkdir();r={'status':'MODELED_NUMERIC_CHECKED','numeric_status':'EXECUTED','artifacts':[]};(output/'result.json').write_text(json.dumps(r));p.write_text(p.read_text()+' ');return r
+            with patch('sys.argv',['daily','--runtime',str(p),'--output',str(output)]):
+                # evaluate is imported locally in main, so patch its source module.
+                with patch('verification.reconstruction.runner.evaluate',side_effect=changed),patch('verification.reconstruction.daily.load_runtime',side_effect=lambda path,repo:load_runtime(path,root)),redirect_stdout(io.StringIO()):
+                    self.assertEqual(main(),1)
+            r=json.loads((output/'result.json').read_text());self.assertEqual(r['status'],'RUN_OR_ARCHIVE_FAILED');self.assertIn('manifest changed',r['reason']);self.assertFalse((output/'runtime_pin.json').exists())
