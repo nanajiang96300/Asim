@@ -1,0 +1,6 @@
+{
+  "status": "EXPECTED_REFUSAL",
+  "returncode": 1,
+  "no_final_artifacts_created": true,
+  "reason": "verification.contracts.core.Invalid: FINAL_REPORT_BLOCKED: hardware_precision_cost_calibration,actual_async_G4,formal_communication,CDL_B,all_legacy_operators,clean_reproduction"
+}

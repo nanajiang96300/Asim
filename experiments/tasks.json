@@ -225,7 +225,7 @@
     {
       "id": "FW3",
       "title": "精度/复数/共同原语及成本注册",
-      "status": "planned",
+      "status": "in_progress",
       "depends_on": [
         "FW2"
       ],
@@ -241,14 +241,21 @@
         "未知融合不允许免费执行",
         "成本随真实工作量增长；模型符合性和实机结论分开"
       ],
-      "evidence": [],
+      "evidence": [
+        "experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/run_manifest.json",
+        "verification/profiles/README.md",
+        "verification/tests/test_precision.py"
+      ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
-      "concrete_operator_changes_allowed": false
+      "concrete_operator_changes_allowed": false,
+      "limitations": [
+        "Model conformance only; hardware and conversion cost calibration incomplete; no scores"
+      ]
     },
     {
       "id": "FW4",
       "title": "真实异步事件及成本闭合",
-      "status": "planned",
+      "status": "in_progress",
       "depends_on": [
         "FW1",
         "FW2",
@@ -269,9 +276,16 @@
         "删barrier/提前覆盖负例拒绝",
         "合法重叠可通过，阶段成本/请求数来自真实操作"
       ],
-      "evidence": [],
+      "evidence": [
+        "verification/schedule/hazards.py",
+        "verification/tests/test_schedule_model.py",
+        "DOCS/research/PAPER_REPORT.md"
+      ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
-      "concrete_operator_changes_allowed": false
+      "concrete_operator_changes_allowed": false,
+      "limitations": [
+        "Synthetic event checker only; real Core read-complete/write-visible/DMA binding missing; actual G4 UNSUPPORTED"
+      ]
     },
     {
       "id": "FW5",
@@ -647,6 +661,33 @@
         "七入口全部数值与调度/质量门禁通过后才同口径排名"
       ],
       "evidence": []
+    },
+    {
+      "id": "R04",
+      "title": "显式精度模型一致性与论文阶段报告归档",
+      "status": "done",
+      "depends_on": [
+        "R02"
+      ],
+      "allowed_paths": [
+        "verification/profiles/",
+        "verification/reconstruction/",
+        "verification/reference/",
+        "verification/reporting/",
+        "DOCS/research/paper_reports/"
+      ],
+      "acceptance": [
+        "三seed×96batch完整FP16位一致；结构P8回归通过",
+        "模型与硬件校准结论分离，G4缺事件不得PASS",
+        "论文阶段报告引用真实hash清单，未全通过--final拒绝"
+      ],
+      "evidence": [
+        "experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/run_manifest.json",
+        "DOCS/research/PAPER_REPORT.md"
+      ],
+      "limitations": [
+        "Full FW3/FW4/FW6 and legacy correctness not complete"
+      ]
     }
   ],
   "candidate_evaluation_order": [

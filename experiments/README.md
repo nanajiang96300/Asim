@@ -28,3 +28,5 @@
 七旧入口最新重建：[专用结果清单](reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/README.md)。含七入口96batch首错、流水摘要、136构造点原字段一致性证据；正确性BLOCKED，无受信排行榜。与framework合成样例和旧run分开。
 
 统一重建与独立NS证据：[2026-10-30清单](unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json)。三seed×96batch三路径结构通过，旧七入口共用核心诊断一致，完整硬件精度/异步/通信评分未通过。
+
+逐操作精度模型证据：[precision_campaigns/2026-10-30-fp16-v2-frozen](precision_campaigns/2026-10-30-fp16-v2-frozen/README.md)。论文阶段资料见[报告入口](../DOCS/research/PAPER_REPORT.md)，全部门禁未完成前禁止最终稿与评分。

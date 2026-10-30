@@ -1,0 +1,30 @@
+# 面向论文的重建验证报告与完成门禁
+
+2026-10-30最新归档：[阶段报告](paper_reports/2026-10-30-interim-v1/REPORT.md)、[机器完成状态](paper_reports/2026-10-30-interim-v1/readiness.json)、[论文小表CSV](paper_reports/2026-10-30-interim-v1/numerical_results.csv)、[证据索引](paper_reports/2026-10-30-interim-v1/evidence_index.json)。状态INTERIM，不能称为全部验证完成。
+
+已通过：实际指令结构重放、NS独立同算法与任务参考；三seed各96batch的FP16存储/FP32累加模型与独立参考全部FP16位模式一致，最大任务相对误差约0.106%。实际P2存储/P4 Vector工作量模型周期7,950；与P8的14,298为不同profile，不是同精度优化加速比。
+
+本轮继续实现FW3逐操作精度模型（含RNE、subnormal、逐指令写回与非有限拒绝）；FW4新增保守RAW/WAR/WAW检查器及合法重叠正例。最终106项单元测试通过。FW3仍缺硬件/转换成本校准，FW4缺真实Core读完成/写可见/DMA实例绑定，不能用合成检查器或pipeline CSV充当G4通过。旧七入口仍有歧义/失败；通信统计、CDL-B、干净复现未完成。
+
+报告可用于论文方法、实验设置、阶段性数值结果与失败案例；完整框架、全部算子正确、实机性能、通信质量及CDL-B结论仍缺证。
+
+## 可复现生成
+
+运行器是`verification.reporting.paper`。它逐件复核三批归档清单的SHA-256，再从实际gate summary生成报告、状态JSON、CSV和证据索引。每次使用新目录；不覆盖旧报告。
+
+```bash
+.venv/bin/python -m verification.reporting.paper \
+  --structure-manifest experiments/unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json \
+  --precision-manifest experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/run_manifest.json \
+  --legacy-manifest experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json \
+  --output DOCS/research/paper_reports/<new-report-id>
+```
+
+`--final`要求全部必需门禁PASS；缺门禁会在写入前拒绝。[实际拒绝探针](paper_reports/2026-10-30-interim-v1/FINAL_REPORT_GUARD.json)已经验证。后续门禁模块落地后，将其真实验收清单接入生成器，不能手填PASS或删除困难门禁生成最终稿。
+
+## 接下来按依赖执行
+
+1. 在Core实际发射/响应路径记录唯一op/DMA fragment与core/buffer绑定、读完成、写可见事件，接入调度检查器；验证删barrier/提前覆盖会拒绝，合法重叠能通过。
+2. 完成混合精度转换/成本模型闭合，校准实机声明的适用边界；当前模型周期保持诊断。
+3. 同契约修正其余独立算法候选，建立通信suite、CDL-B、干净环境复现，再开放评分与完整自动迭代。
+4. 全部必需门禁真实验收后，生成新版本最终报告与论文图表清单，继续保留所有阶段证据。

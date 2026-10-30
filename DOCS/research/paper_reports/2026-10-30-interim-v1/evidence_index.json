@@ -1,0 +1,26 @@
+{
+  "generator_commit": "d0a63ebb9bb7f5042a4c4437fd6e78effbd36038",
+  "evidence": [
+    {
+      "manifest": "/home/nanajiang/Asim/experiments/unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json",
+      "manifest_sha256": "89dd9ddb802d9ac24c5bc25955c25364879e56350ed06e91a6ba146164dbe415",
+      "raw_root": "/home/nanajiang/Asim/results/unified_reconstruction/2026-10-30-ns-v1-frozen",
+      "runner_commit": "c9f6edeb60bff1f461838497a16d1f69782fd52b",
+      "binary_source_commit": "5fd2ab814b67261f2ffd3cd0a762e333f8935f27"
+    },
+    {
+      "manifest": "/home/nanajiang/Asim/experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/run_manifest.json",
+      "manifest_sha256": "cb065f3bfa678af9e3609e1c540922f1b2c728b4d56ccc46b2c8b491dbf9b392",
+      "raw_root": "/home/nanajiang/Asim/results/precision_campaigns/2026-10-30-fp16-v2-frozen",
+      "runner_commit": "2aed2b8a3a90a819754b6f6e746755e12c71fd89",
+      "binary_source_commit": "3e8e9f741d8b8fc15db6f5321054ca997582b599"
+    },
+    {
+      "manifest": "/home/nanajiang/Asim/experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json",
+      "manifest_sha256": "7dd481afbea49295dc325f5baf296fd8e0fbf9e88ea10035aec45fc5875c7384",
+      "raw_root": "/home/nanajiang/Asim/results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen",
+      "runner_commit": "a0b059c0f0c7f10470fc6200af24b6ec05afe741",
+      "binary_source_commit": "add6ba38d4c280ec03d8033ac0e927ade3119a0c"
+    }
+  ]
+}

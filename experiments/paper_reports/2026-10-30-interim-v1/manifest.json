@@ -1,0 +1,31 @@
+{
+  "status": "INTERIM",
+  "final_eligible": false,
+  "artifacts": [
+    {
+      "path": "DOCS/research/paper_reports/2026-10-30-interim-v1/FINAL_REPORT_GUARD.json",
+      "bytes": 284,
+      "sha256": "d03ca560bf94ffe5c1164c9c9f819a266874ab32e09b722811e513bb1c6b4ab8"
+    },
+    {
+      "path": "DOCS/research/paper_reports/2026-10-30-interim-v1/REPORT.md",
+      "bytes": 4893,
+      "sha256": "530d0a7757a7cdfb8a1362668adf1ca3f8beff9c50383735afaa9d2f374e1d25"
+    },
+    {
+      "path": "DOCS/research/paper_reports/2026-10-30-interim-v1/evidence_index.json",
+      "bytes": 1494,
+      "sha256": "2b2e6ff60b25a2ef98cd2fa1d9c82e866d3b76d330bf23999d91d377ee0b047b"
+    },
+    {
+      "path": "DOCS/research/paper_reports/2026-10-30-interim-v1/numerical_results.csv",
+      "bytes": 397,
+      "sha256": "c0bbed32a8f3addeac9482d7ffa053da8b3433625cae64a2d2efafce9a43f205"
+    },
+    {
+      "path": "DOCS/research/paper_reports/2026-10-30-interim-v1/readiness.json",
+      "bytes": 548,
+      "sha256": "c2b7cbed484275646f0bf2ac79b763a62c5aa1c824f36617babc80fc237659e0"
+    }
+  ]
+}

@@ -1,0 +1,1130 @@
+{
+  "schema_version": "precision-model-campaign-v1",
+  "status": "GATES_PASSED",
+  "score": null,
+  "raw_root": "/home/nanajiang/Asim/results/precision_campaigns/2026-10-30-fp16-v2-frozen",
+  "binary_source_commit": "3e8e9f741d8b8fc15db6f5321054ca997582b599",
+  "runner_commit": "2aed2b8a3a90a819754b6f6e746755e12c71fd89",
+  "binary_sha256": "019068de45f1753ef993f7ee5bcc6d77cfd13d1f9dd77cf19e7ee7da5a62a91d",
+  "sources": [
+    {
+      "path": "src/Common.cc",
+      "sha256": "fefec6b9ed1f7ad390c28f63b9d1147eea1f5602edd0b51ed1f155cbc31efeac"
+    },
+    {
+      "path": "src/Common.h",
+      "sha256": "af54fe72d9bacee9ec80fc24241b26b35ac9638f41e65cef99a72f93f3d0e0e6"
+    },
+    {
+      "path": "src/Core.cc",
+      "sha256": "bbb11e54cf7a266a907cb04aa2d43af0af9857180f0bd05c6ff3539f37d9e635"
+    },
+    {
+      "path": "src/Core.h",
+      "sha256": "bf88695f8c130dc263d531fd44351daec2ebb64bccd2a93126d950b10f3c2684"
+    },
+    {
+      "path": "src/Dram.cc",
+      "sha256": "99b0362ca2d93e30f2f6fd049c4988194ed8b690096ea64a10862e7168836012"
+    },
+    {
+      "path": "src/Dram.h",
+      "sha256": "0347406ecc2234fe0595639c30afa248f10927402f15c97759ed161adc3fbc68"
+    },
+    {
+      "path": "src/FormulaLogger.cc",
+      "sha256": "055d20b2b79685f9045335aa52b239bbc4eb74cc01987392cbe9588133da4c5d"
+    },
+    {
+      "path": "src/FormulaLogger.h",
+      "sha256": "09c5a0557dcb14ab87c00d1a5c9b36ee5f51dfb344a7ad995501480227224f8d"
+    },
+    {
+      "path": "src/Hashing.cc",
+      "sha256": "f19def34c1b44325c60677e581e618cbe536a83dfb43e8102ccf71e3d1949395"
+    },
+    {
+      "path": "src/Hashing.h",
+      "sha256": "787389ccb11d93e0753a95c45f3f96cfda0fa719d1c0f283c26be64ed3113953"
+    },
+    {
+      "path": "src/Instruction.h",
+      "sha256": "96c1d4e3c3b35705e8746ad3d2d9274847580551bfde84727889a7787ec9a7b3"
+    },
+    {
+      "path": "src/Interconnect.cc",
+      "sha256": "5004fee1d03ac83e252f7614cba2dcbb34ae0c660149dd02ed4ec62ed11f53f8"
+    },
+    {
+      "path": "src/Interconnect.h",
+      "sha256": "ceba345f6c4149251a36c0d2fc95cc0364d927b9e2a691e602f4d98cc94335fe"
+    },
+    {
+      "path": "src/Mapping.cc",
+      "sha256": "17373f447fa55094b1515d0bde1b97e1adbdb65a3a33db5bbf54c60288751d87"
+    },
+    {
+      "path": "src/Mapping.h",
+      "sha256": "c857a06e1a5bafd5aeeefade8182e275998946326dcf78a05b9ef48ca12a9e01"
+    },
+    {
+      "path": "src/Model.cc",
+      "sha256": "e7500eff44079f3ec5cfc39f40c394d511387532dc6d8e7542232ba9634b8463"
+    },
+    {
+      "path": "src/Model.h",
+      "sha256": "d01ec0e8d79cdaef783384f5976d350a9b29d27948e78e2cade316dca90e3a58"
+    },
+    {
+      "path": "src/SimulationConfig.h",
+      "sha256": "b4c0fac56336436e29854deb08f81b039f49f3d5085a19748c0fb17eb4fb0434"
+    },
+    {
+      "path": "src/Simulator.cc",
+      "sha256": "fb1e1bef25e0bbb42f97ee25c4b4eed3c98a02c32b4e4bfbb17cb2e90a00c438"
+    },
+    {
+      "path": "src/Simulator.h",
+      "sha256": "36c33c9ac0f46e9c925e534e2755efe745251f8621c0989e2cb5254d480d3b8f"
+    },
+    {
+      "path": "src/Sram.cc",
+      "sha256": "60e19127502f93d70821eaec0219468e7985fd6f4967339c900505a0451b925e"
+    },
+    {
+      "path": "src/Sram.h",
+      "sha256": "6353b029dd9d0943e1cfc24219fe1b3337f57aab62ed545fc9ecfa0d6331302e"
+    },
+    {
+      "path": "src/Stat.h",
+      "sha256": "aefb08993e0972cc5e6db8a6bd4584f40cbc462c8465db867e3ffe8b78a453df"
+    },
+    {
+      "path": "src/SystolicOS.cc",
+      "sha256": "5fc02abc0fbcc101eae3a317d8a4e3b232d0d0ced1516e6a9218e35d50e20102"
+    },
+    {
+      "path": "src/SystolicOS.h",
+      "sha256": "39003bda4e2f7df2be13606a7da7d6bc17405c74b385c72cac71d5ce2677ec89"
+    },
+    {
+      "path": "src/SystolicWS.cc",
+      "sha256": "c9db7c6d70e86632892a949cfe19022276fc7b10e419de1d094a7482d2b97d0d"
+    },
+    {
+      "path": "src/SystolicWS.h",
+      "sha256": "be0c870ec16256a9cbca8efadeb2f143570aadd98db51dd37729558f1a3b6210"
+    },
+    {
+      "path": "src/Tensor.cc",
+      "sha256": "3a9580b016f163c5b693ae1e9c583571ed29dbedbc34b03fd14730915a7492b1"
+    },
+    {
+      "path": "src/Tensor.h",
+      "sha256": "dd8104354362fabe814c3ceb4de18bf18f2d4fc7ed3624ffc15aafabe980378e"
+    },
+    {
+      "path": "src/TraceLogger.cc",
+      "sha256": "582d257f527a705a0d4fcaaaaaf8985bd6b4988d2f0b6c7c51961b5425313a5a"
+    },
+    {
+      "path": "src/TraceLogger.h",
+      "sha256": "814eb136a339bd02b9002c4021f3c76dddb43b674d938a7a904b8b03eecb9af1"
+    },
+    {
+      "path": "src/allocator/AddressAllocator.h",
+      "sha256": "66ff42a6b613295a91b383af6dda723135b2035e39d5cd54f28a59481478f222"
+    },
+    {
+      "path": "src/helper/CommandLineParser.cc",
+      "sha256": "851278154ab74e1ff6ec9b279a87e7ddd54f924f42167deba07476bbfd252418"
+    },
+    {
+      "path": "src/helper/CommandLineParser.h",
+      "sha256": "1d55b2faf695e401331205ea8af4f84ba71a64567933ef8e5c1e90897a892c05"
+    },
+    {
+      "path": "src/helper/HelperFunctions.h",
+      "sha256": "310ad07d724ef8afcfa4d31a22dabc5d43d45cf93337d1e07925dd2a6a6a7ca1"
+    },
+    {
+      "path": "src/inverse/block_richardson/BlockRichardsonBaselineModel.cc",
+      "sha256": "b10671123ba885b55b5c25a69b974d21ad9b0b22b6fe96584de5b830b43487d1"
+    },
+    {
+      "path": "src/inverse/block_richardson/BlockRichardsonBaselineModel.h",
+      "sha256": "fb484212c31ff345176a0755aee02eb6d29dc2e8dc1100bcf99c3334ccc99ddd"
+    },
+    {
+      "path": "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc",
+      "sha256": "de56cca3a67dca01483c293a60b1ce0ae77186131c7512f6e87b2bcd855493bd"
+    },
+    {
+      "path": "src/inverse/block_richardson/BlockRichardsonBaselineOp.h",
+      "sha256": "cc175a526ac82caffb5bf1ecae5c68f2c73750be712750ce409bb9b6609c1c6d"
+    },
+    {
+      "path": "src/inverse/cholesky_block/CholeskyBlockBaselineModel.cc",
+      "sha256": "d7c10ea700f6c2bd29140f1d8ba21b0aad93db23dc7ca6a2a0913335fd342da6"
+    },
+    {
+      "path": "src/inverse/cholesky_block/CholeskyBlockBaselineModel.h",
+      "sha256": "43af1283ffb84e267f12603c5b2964774fb17f93d612f50adb5230fbcada5817"
+    },
+    {
+      "path": "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc",
+      "sha256": "5ec45601ad517b4a1f8f408006f2043ca9648a21efb9be529b146a1961496028"
+    },
+    {
+      "path": "src/inverse/cholesky_block/CholeskyBlockBaselineOp.h",
+      "sha256": "bf16049e3597ff051010cdd8dce36f7cb5f477cdeed2c8b36457b4e15bef2cd6"
+    },
+    {
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.cc",
+      "sha256": "46f83d65c305382c123221247d15d5ffc93d4bb5dfdbf7ad6a3b0789dc977be4"
+    },
+    {
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.h",
+      "sha256": "fa44a72a60c733025c23d5db48c55599915862142d36a22e26c2457775249479"
+    },
+    {
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc",
+      "sha256": "af8f2777f26e22cf54b92f8c9e1c197be7fab216eac2c174ad7aaaebf8dca842"
+    },
+    {
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.h",
+      "sha256": "c5f86c74b20902753853bf61fc3518e3568e1787e67430d09f672a2f96865f8a"
+    },
+    {
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.cc",
+      "sha256": "41e9bf17268af8f48fca8bfc3fdfd46d68b10c0be7626b9cfc937c890021567d"
+    },
+    {
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.h",
+      "sha256": "676f23fa8b87a66e4f82c9809f857e12f4f1f8d546b79c99fc1f05fa602804bb"
+    },
+    {
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc",
+      "sha256": "2bcee68ccaaa637b628251f395bf5f70ce29316060f6395c75a4049eb7e9ccdd"
+    },
+    {
+      "path": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.h",
+      "sha256": "001872d208fae0bb4f7a09c3303d5149633a9906a1c69dee8fa9ca87cc8eae96"
+    },
+    {
+      "path": "src/inverse/ldl_block/LDLBlockBaselineModel.cc",
+      "sha256": "b6cb48ffc480d8cfff5c5d7210c4000c538d4b752b2b46bd7e942f77cbb937d8"
+    },
+    {
+      "path": "src/inverse/ldl_block/LDLBlockBaselineModel.h",
+      "sha256": "820b591e6f3c9472ccc33862425557841fa8068b2fd1f8fea5bb1b28c15af880"
+    },
+    {
+      "path": "src/inverse/ldl_block/LDLBlockBaselineOp.cc",
+      "sha256": "f2e5e70a18550afdc5109d7efd968ba61e77be9ccad30f01876f4445330e52cb"
+    },
+    {
+      "path": "src/inverse/ldl_block/LDLBlockBaselineOp.h",
+      "sha256": "dc22f5002450473108610472a696157e644f8dcce74c42947f757c9e2d58c777"
+    },
+    {
+      "path": "src/inverse/ldl_noblock/LDLNoBlockBaselineModel.cc",
+      "sha256": "5020c6d3a5c3dd88540d84bd83f53d107b940458d40535d301d7493e5424a1fd"
+    },
+    {
+      "path": "src/inverse/ldl_noblock/LDLNoBlockBaselineModel.h",
+      "sha256": "5ddfae553f42282db2c51e8c6ba7d83f95e9f8c02e32a64068715b5669f488b6"
+    },
+    {
+      "path": "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc",
+      "sha256": "c2a462dc77f78e9fc52ef4cdbfd3025df5207494dc93b396e5a8d7fadd60b30d"
+    },
+    {
+      "path": "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.h",
+      "sha256": "aa1b8a2759e3e5c2b83bcf82de9e536e9a6a7597c5d8389dd4347da2baa07412"
+    },
+    {
+      "path": "src/inverse/newton_schulz/NewtonSchulzBaselineModel.cc",
+      "sha256": "42f0ac76c2bc3559de8edb8306516c748181bb9580ae885cdfa245b66b66bfa5"
+    },
+    {
+      "path": "src/inverse/newton_schulz/NewtonSchulzBaselineModel.h",
+      "sha256": "009164c3b189a2e91e82f59b4c060d223172e84697a5cd6521803dccf5eeb08b"
+    },
+    {
+      "path": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc",
+      "sha256": "121b3296dca9607ead63ed7b5780df6da3ba69807bc0730132db69ccecff720c"
+    },
+    {
+      "path": "src/inverse/newton_schulz/NewtonSchulzBaselineOp.h",
+      "sha256": "0d24ad2390cf033f322ca1f8da2bfd86ff69b037e80a417c4935cf9bfa237e2d"
+    },
+    {
+      "path": "src/inverse/newton_schulz/NewtonSchulzOp.cc",
+      "sha256": "373792f82c470ebd37681b20bf6339543802dc0072d7dcd69c185332a0cc0cc0"
+    },
+    {
+      "path": "src/inverse/newton_schulz/NewtonSchulzOp.h",
+      "sha256": "ed34af89b7263fb950b1d3a137ed813b1275167312f5dbbdea4156116dd08e80"
+    },
+    {
+      "path": "src/inverse/ns_corrected/NSCorrectedModel.cc",
+      "sha256": "5f74a925d02d615da981b687330527f02bd5c68efac2a12a9ad5f04e243c87ac"
+    },
+    {
+      "path": "src/inverse/ns_corrected/NSCorrectedModel.h",
+      "sha256": "89284811e7dd7cb85254c00d7162d52195900d8f81c79fd803696acfe933ec2f"
+    },
+    {
+      "path": "src/main.cc",
+      "sha256": "618a96002881f03692d5bacaafef5fee330d31e75f2079dd2a207ab06d9ad3bb"
+    },
+    {
+      "path": "src/models/LanguageModel.cc",
+      "sha256": "a86a9ea084bb8e6502a5f04634477b54ac3790be404c10057482561c7ecb8cfc"
+    },
+    {
+      "path": "src/models/LanguageModel.h",
+      "sha256": "92e50517f23846584e9013f428cadc188331f547dcc2599d2572e418bcafa2aa"
+    },
+    {
+      "path": "src/models/MatmulModel.cc",
+      "sha256": "1d32dd194624b4b016ed22f113fda8cd01edc8a383d838ac81e50829579160ef"
+    },
+    {
+      "path": "src/models/MatmulModel.h",
+      "sha256": "e2ffaf036017b165d44c00865fdc2761c1e95ae0e167ce3e755838291dcf84e8"
+    },
+    {
+      "path": "src/operations/AdaptiveAvgPool.cc",
+      "sha256": "12c1cba9fe24dd779eb75ee8dc0530afa8ded6dd178ebf805d9a52b52b9b22f3"
+    },
+    {
+      "path": "src/operations/AdaptiveAvgPool.h",
+      "sha256": "3715865f3475a2ca2be9654abff71ed102819d9b026dae5081563161921574b3"
+    },
+    {
+      "path": "src/operations/Attention.cc",
+      "sha256": "1eb10fd7121fe9a68127590a5826c0e80cae89462b2b7d86d3cf454520401727"
+    },
+    {
+      "path": "src/operations/Attention.h",
+      "sha256": "43491cee115f18bbf755a3671b1fedbc8b3348e0205df41936e4c4ac5348f90d"
+    },
+    {
+      "path": "src/operations/BiasAct.cc",
+      "sha256": "deb5977865b772378c5c6f3c26f2096d7e2b9e0b09eab64ef5380e4a8d355845"
+    },
+    {
+      "path": "src/operations/BiasAct.h",
+      "sha256": "2262f59e71288ef53b532ff5a834d962043c7b57c2b5a4ff6c143cd75c8f9a96"
+    },
+    {
+      "path": "src/operations/BiasGelu.cc",
+      "sha256": "d102e7f935d83f5334af94f9f205319f53e85ce16b9d6190d5134acf35b46f4e"
+    },
+    {
+      "path": "src/operations/BiasGelu.h",
+      "sha256": "f5dd4da2b9e42521a966e97088fd12a32f2448e8cbbdf01c67821f9bc4eaac1e"
+    },
+    {
+      "path": "src/operations/Concat.cc",
+      "sha256": "7ec5213c26e8e6301060e2fa5097f27a10dc53f010860e6213651870d9fef232"
+    },
+    {
+      "path": "src/operations/Concat.h",
+      "sha256": "d1a14f920f0bef43929a280bd8a4559f39e092416b1e994e70bce0fe0ab0cf7a"
+    },
+    {
+      "path": "src/operations/Conv.cc",
+      "sha256": "6ad2328ebc80ec4f2967e524614ab53292dfee02aabc94a3e79768b40cc3732b"
+    },
+    {
+      "path": "src/operations/Conv.h",
+      "sha256": "a9a9461c63fb1b0ee19e57223b07a27a4968f6d613f055ad8e326ad55728b4bc"
+    },
+    {
+      "path": "src/operations/ConvOS.cc",
+      "sha256": "18630f4b50e07affb879e0fc6b37d7789ef5af2d8ded8456c188926d0cd5f819"
+    },
+    {
+      "path": "src/operations/ConvOS.h",
+      "sha256": "e8302392cf3d016e02115df74200f32767bb7ac2c2eebb89e5efa81127204426"
+    },
+    {
+      "path": "src/operations/ConvWS.cc",
+      "sha256": "b9f24a2facebbfdc3f5ce8cb71bf2557d011f43ba7e91105da19c6fb4a5fe318"
+    },
+    {
+      "path": "src/operations/ConvWS.h",
+      "sha256": "f8bbcc71cfa6fcebc9a2de3e064bf5254b17b0f5f44a2136322c05863b01063a"
+    },
+    {
+      "path": "src/operations/Dummy.cc",
+      "sha256": "70f2ce5e97190cc39ce1fcc91ed6fbf72666052865ae8a536e878b97d8438a51"
+    },
+    {
+      "path": "src/operations/Dummy.h",
+      "sha256": "3f8db25189001dd18e2e8b70b8bd8f44aec85078d9d21c106a503ed176a63be4"
+    },
+    {
+      "path": "src/operations/EmbedLayerNorm.cc",
+      "sha256": "4869d7e37f7873976d714eba6165d245f163dcd34c48e6ca003095d88949bc9e"
+    },
+    {
+      "path": "src/operations/EmbedLayerNorm.h",
+      "sha256": "2bd554151ce10315c825595cacfc3b3b7b42ebaa6a843e8e4418f6cdac25f2b3"
+    },
+    {
+      "path": "src/operations/Flatten.cc",
+      "sha256": "bddaa66748ab234c19904f699999d894c954f436cdac40771e7013fb210de96d"
+    },
+    {
+      "path": "src/operations/Flatten.h",
+      "sha256": "2e3a7c645c06c52b9fb0367a6212c9d278d8e3617ace7867097340b4f34262fa"
+    },
+    {
+      "path": "src/operations/Gemm.cc",
+      "sha256": "6729730ead1181d973b965e8c53426eabc043dd92ddb43d8a8a0464c6f552764"
+    },
+    {
+      "path": "src/operations/Gemm.h",
+      "sha256": "840570bf594979f48cff64bd912d69e7b08db3fd4bbbce592abe5f6916bbd7f9"
+    },
+    {
+      "path": "src/operations/GemmOS.cc",
+      "sha256": "843b1fbd0663f322fb978904dd298b507a2605ffae4243f443b43861ad882e7f"
+    },
+    {
+      "path": "src/operations/GemmOS.h",
+      "sha256": "014993512701759bafcbec491587d5428c3b981eeb2963f5a453d25af7686560"
+    },
+    {
+      "path": "src/operations/GemmWS.cc",
+      "sha256": "f34b70076df1ebd9b855bb8dd6c4bf8064b966df69aa696050eacb1c40c594f7"
+    },
+    {
+      "path": "src/operations/GemmWS.h",
+      "sha256": "ef41f945bc70a4a615f5cb986cc1990b06791ac85c85138d5b54c94d9012d5f8"
+    },
+    {
+      "path": "src/operations/GlobalAvgPool.cc",
+      "sha256": "9b026d911ed64d0c0ce18c346cc2d1ba40c8658b5c2edd819f3c548171868ae2"
+    },
+    {
+      "path": "src/operations/GlobalAvgPool.h",
+      "sha256": "5984df0ca1575f6767bdca5f729724ca83b5c2036d0be9af958084382b063b77"
+    },
+    {
+      "path": "src/operations/KVCacheConcat.cc",
+      "sha256": "e010df56b0264f5d75d7aae4d3e2f327c6461c0efff2c622d11f64e5ed3a7728"
+    },
+    {
+      "path": "src/operations/KVCacheConcat.h",
+      "sha256": "23f111f40a464609164b82dce5049ceadbff6d246ab390ebe40c7b6e1cb6ee1e"
+    },
+    {
+      "path": "src/operations/MaxPool.cc",
+      "sha256": "22c6c948cc10f67fce25698ebe154b9b4d596df66742342a1b6ce21a05480aac"
+    },
+    {
+      "path": "src/operations/MaxPool.h",
+      "sha256": "937cae88057ef4ab4c514c78c605e8301293949d0c032b5fe14596fa41fdef00"
+    },
+    {
+      "path": "src/operations/Operation.cc",
+      "sha256": "bbe868f3c84426a32bb93f9f28e2f0974c8d10569073fd5fbe45149fcb50ec9c"
+    },
+    {
+      "path": "src/operations/Operation.h",
+      "sha256": "1d726e527fca6a63973f9203472c6aeaee461645d2b3112460c0cdf79c29966b"
+    },
+    {
+      "path": "src/operations/OperationFactory.cc",
+      "sha256": "636807cdbf38c832bb17db6cb0220de5f2002004c5381bd6b2fc6ca0d4611ad0"
+    },
+    {
+      "path": "src/operations/OperationFactory.h",
+      "sha256": "eeb69426e9ff13c3687018ae2c2b13db4f30a318279f35a286a2e146f7689e8c"
+    },
+    {
+      "path": "src/operations/SeriesInverseOp.cc",
+      "sha256": "bb12b5f199253ed6f89dbce01c29b20a18af7b5f1d44fd52e21b7188cdd9442e"
+    },
+    {
+      "path": "src/operations/SeriesInverseOp.h",
+      "sha256": "ecae54ef2ebb12d5b1430788a5a62bec23e1ff7f2b0c4495707d92ae0f93da86"
+    },
+    {
+      "path": "src/operations/SkipLayerNorm.cc",
+      "sha256": "c27f737295b7b16d1c64012a0b8e564f94bc4407bfcb639adc3c7f8958896798"
+    },
+    {
+      "path": "src/operations/SkipLayerNorm.h",
+      "sha256": "065dd0bc9c37da8ee77408aba69574f233bcd3b8ae7296d19566ea56e57c7280"
+    },
+    {
+      "path": "src/operations/Softmax.cc",
+      "sha256": "0aa6c1fa1c81dfced61231afc80c1b284326f021c0913d68b25098da9bad65a0"
+    },
+    {
+      "path": "src/operations/Softmax.h",
+      "sha256": "d8d85fbe7e38431a5366f28fe811fab7e276f259fbc3e5400ff8af593f6293e5"
+    },
+    {
+      "path": "src/scheduler/IterLevelScheduler.cc",
+      "sha256": "51072acf1bc4f1b74d7a2ca7a0a694ad76430aafc81948a7396202d8bbe98fb6"
+    },
+    {
+      "path": "src/scheduler/IterLevelScheduler.h",
+      "sha256": "86531e1bb33cdcd43d2dab4e1623fcf8dfea1296fb6de3e2396f4c838b90b5df"
+    },
+    {
+      "path": "src/scheduler/LanguageScheduler.cc",
+      "sha256": "c16fe61db79d6f44b79003f713011c5a4bc48cb546a6c28466da44948805af1b"
+    },
+    {
+      "path": "src/scheduler/LanguageScheduler.h",
+      "sha256": "880cf4b7137ad379fd14ecc7cb4967aa47b1c67a5cac4ba30c69b01f3cea896f"
+    },
+    {
+      "path": "src/scheduler/Scheduler.cc",
+      "sha256": "b4d40350c69ccfab7a5b9e975497088ce0edcd63f51e2e41bf1f18cdbd621bcf"
+    },
+    {
+      "path": "src/scheduler/Scheduler.h",
+      "sha256": "42c55774fc8c5ffb080a95c474d61b80f14cf559d32cbbb11fbc12873289b360"
+    },
+    {
+      "path": "src/semantic/InstructionExport.cc",
+      "sha256": "1946248f986087064ac8424b322e578fed50f191dc9c3c970bea9d31abdaffed"
+    },
+    {
+      "path": "src/semantic/InstructionExport.h",
+      "sha256": "e3c785d3ba0c3991acc1f49dd69f0e404b6080654996dbbcf5d63789815c007b"
+    },
+    {
+      "path": "src/semantic/ProgramModel.cc",
+      "sha256": "c5e0a4c56ca2db3a8dada6eba240885460838e6efa71ed9b6aa5bd96b3761299"
+    },
+    {
+      "path": "src/semantic/ProgramModel.h",
+      "sha256": "11292e493b06332cb5073eba878144a392c4b258cc574dd2fd5f74fd14be4220"
+    },
+    {
+      "path": "src/semantic/SourceViews.h",
+      "sha256": "8e92c6f8423b2a4843fc209a130c6f2d76392afe6f7985b5f4cc7809288eb320"
+    },
+    {
+      "path": "verification/__init__.py",
+      "sha256": "efa11418ea24fc336cfedbbb6006a97b7357432a97797bc05e61825f32a992e7"
+    },
+    {
+      "path": "verification/asim/batch.py",
+      "sha256": "1d7098c336d0b7573e97a4ed901dba0ce14d824136b118da54d7eb6c39caeb90"
+    },
+    {
+      "path": "verification/asim/batch_gates.py",
+      "sha256": "8ecc574881630d51e5e8f76367f08603a767acb3c0a2298672a4997bb74bdc58"
+    },
+    {
+      "path": "verification/asim/gates.py",
+      "sha256": "0e43d5a9e12cb81a660b1e47d532d7ab45b92ced30cab4e840f3a3b835024922"
+    },
+    {
+      "path": "verification/asim/runner.py",
+      "sha256": "71c9df883a0e803b930f83c0367fcb83f134e8892cf2bb61b9f19c1fdcaabd01"
+    },
+    {
+      "path": "verification/contracts/core.py",
+      "sha256": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116"
+    },
+    {
+      "path": "verification/contracts/mmse.py",
+      "sha256": "a9cb85657d509bee340bf875345d1c7a91f80e8322ebbe699a36f838073cfaac"
+    },
+    {
+      "path": "verification/fixtures/rayleigh.py",
+      "sha256": "6f94d96c42e4284dd1c923c9a52058dd40b2b4bad4e94b0b0896272b9c248834"
+    },
+    {
+      "path": "verification/fixtures/solve_program.py",
+      "sha256": "4b4dba26266ba23bc220aa902971554e2831a66531da792892854669d7528138"
+    },
+    {
+      "path": "verification/legacy/campaign.py",
+      "sha256": "0d16561ffcdb0dab7890a07166968402c21b32a0c6a7291aa7b734435ee494cf"
+    },
+    {
+      "path": "verification/legacy/replay.py",
+      "sha256": "2e43fb007e50a6d813a8c423b72a9bdce65a2b047e28564e651f7fe902f0b9f4"
+    },
+    {
+      "path": "verification/operators/catalog.py",
+      "sha256": "d55d51a2a0c7284ab1d88b0594745d67cc0b7ac7a67b2ae9cbbd6e00a92bff64"
+    },
+    {
+      "path": "verification/profiles/numeric.py",
+      "sha256": "965c32d6ac6558570bc3b51f21c764ab4f1c113d30ef8c495a7a791e001ec6e0"
+    },
+    {
+      "path": "verification/reconstruction/binding.py",
+      "sha256": "d16edfaff541b3661c1cd2afb541689b88ec755accc6286288f0d0dfbb06ca1e"
+    },
+    {
+      "path": "verification/reconstruction/engine.py",
+      "sha256": "a897b55ea874a0e83f6c89ad5ed566ada79241ea369218a380cc5707cb5cc144"
+    },
+    {
+      "path": "verification/reconstruction/gates.py",
+      "sha256": "f3a0f42212881acee27204ee00556803ff9070107fe6e72051cc157b5315c360"
+    },
+    {
+      "path": "verification/reconstruction/precision_gates.py",
+      "sha256": "f93b48636a7a72281f114be9390d582bd9fa2f3f576678866ae9ef40c05a4cfe"
+    },
+    {
+      "path": "verification/reconstruction/runner.py",
+      "sha256": "9dd94d9d214c585880090e3013222d4e835dd57d7c727fe722b42912c3054852"
+    },
+    {
+      "path": "verification/reconstruction/source_views.py",
+      "sha256": "c173e80722efa81a13604038d2f4a54bb8fa995e79dfac82b61e2db10bcbfddb"
+    },
+    {
+      "path": "verification/reference/ns.py",
+      "sha256": "59c047939ed2ed58e325c8370ebcd8110e1d921e45e2c51559303c4adb0a15e3"
+    },
+    {
+      "path": "verification/reporting/pipeline.py",
+      "sha256": "f525bce96dd5cb36c241a5f98d850666f23b82e7d0361f4cda5fb0bd4eaa37e8"
+    },
+    {
+      "path": "verification/shadow/execute.py",
+      "sha256": "767ec2644f7288759609fa5d4205a0d95c9f42f454ea0ed886a1e29e7f994322"
+    },
+    {
+      "path": "verification/shadow/metrics.py",
+      "sha256": "5531a1af2a2c0c5d8d2951627066e3fd0e9ed8dfcdcb1fd26637d27c5320aa5f"
+    },
+    {
+      "path": "verification/shadow/program.py",
+      "sha256": "58c7c836a62dc5f61b42290a35a013ff099bf0532ddd15fbc45415d826276e5e"
+    },
+    {
+      "path": "verification/tests/test_asim_adapter.py",
+      "sha256": "3d3e5aa3870c003746ae6f5ba7902ca7dd2b887ae57f825ad25fbc0d403399a5"
+    },
+    {
+      "path": "verification/tests/test_batch.py",
+      "sha256": "308aa9bd5e95a888ff960de85a1ebbb432f42f5afd458224f726601e3ca108f8"
+    },
+    {
+      "path": "verification/tests/test_framework.py",
+      "sha256": "26c40d0c67d8107209cb760ac23a92ca385ff1236d261911acfefa380e7041a7"
+    },
+    {
+      "path": "verification/tests/test_legacy_replay.py",
+      "sha256": "df11b8aa7c97602fbc3420f6dfaedb8d7dcd1b8120d42b622b67ce09930ceff4"
+    },
+    {
+      "path": "verification/tests/test_precision.py",
+      "sha256": "2c815005d7e293d37b299aed6e7f78151540dc14914a7f6e92227536d946b8b8"
+    },
+    {
+      "path": "verification/tests/test_unified.py",
+      "sha256": "795edb4cd0ae46e6c84f14ddb8107d81db700350ca96a3950bf98368190251f7"
+    },
+    {
+      "path": "orchestrator/codex_operators.json",
+      "sha256": "6268105e73ca1a273ae7baf481b325d39ecf5b3cb15d55d3efbb93aef9dca8a0"
+    },
+    {
+      "path": "orchestrator/operator_registry.json",
+      "sha256": "720c3beefdd602c6eb6b58160d1bd1d0dda6667b5ed3c3a3ebce0af93953439b"
+    },
+    {
+      "path": "orchestrator/pipeline.json",
+      "sha256": "04749b88b1e6bfdbfe47a0c8cf292cdfa579b4b5178fe878c2fe8d380e778d9f"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/bin/Simulator",
+      "bytes": 7060304,
+      "sha256": "019068de45f1753ef993f7ee5bcc6d77cfd13d1f9dd77cf19e7ee7da5a62a91d"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/environment.json",
+      "bytes": 262,
+      "sha256": "41b92775cf9477a31a97c56ef8e37e5937208fac619827cb4f868ceda2a4ef67"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/asim.json",
+      "bytes": 1711,
+      "sha256": "a1a4534c4fc7b039c0c5bb890d3d94c4ddd57f19def0b781a77543871b132a23"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/config.json",
+      "bytes": 12612,
+      "sha256": "fe7eca26737eae3b0b31e19f0cdf6cc881f3e1bddf99213720b118bfa7486a5a"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "d4f24c7de219fdef6283a56dd8258f9907b25f9b497f167bbabbdeeb937c1062"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/formula.json",
+      "bytes": 4299834,
+      "sha256": "a4df503d3c0fcdb7f41477955357c092be89e6227cccf90025409b58a0852aae"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/inputs.npz",
+      "bytes": 4735954,
+      "sha256": "37c6d25f8700f70c7fd775c2360c0775e428233e2edf5d3bfa87e7e068f7023b"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/instruction_pipeline_detail.csv",
+      "bytes": 1564112,
+      "sha256": "0875d2df8a1377e3211ac3d1013e17e0d2974d42a96edbfe696ee856599c056a"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/instructions.jsonl",
+      "bytes": 10490457,
+      "sha256": "abbf43693a4d1713ada12f9141f3d2db718034adc34c5e0aab074db69c884725"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/models.json",
+      "bytes": 1484,
+      "sha256": "b66b16b0cbfb9df4e2fbf468b217682c3e5496a81ba09cd6e024a248b4823ba8"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/numerics_started.json",
+      "bytes": 79,
+      "sha256": "0a8e10a16a02b82b9ebc4449c640c76e5df9a50b3c4afe3fe0dd9314b543fec1"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/outputs.npy",
+      "bytes": 393344,
+      "sha256": "cf5be6bfdc1afae5a5d1ac5a377bff16c312c8049772d5cc5e244fe0b06bebfa"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/pipeline_statistics.json",
+      "bytes": 6888766,
+      "sha256": "6405b8445a70ae50adb94d5dae09567ead50c17b00855ed97ee3e27675783825"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/references.npz",
+      "bytes": 984050,
+      "sha256": "b21370d890e4337649fa733c7e03e8fa86a6b41a8c309299ef2fb300e06807b4"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/result.json",
+      "bytes": 37569,
+      "sha256": "4fd4de94ab57ec943174c257a46b676c395eb14a651ef6e95dfc15f56f92a166"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/simulator.log",
+      "bytes": 34639,
+      "sha256": "93539853990d81334cd505813aab3596eea4c45f3aa1c4768de11b3f0d32a1a8"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/f64_regression/trace.csv",
+      "bytes": 4133648,
+      "sha256": "40e00d3fd4b8d01c2d332d56fb1d86036b7796c56fac896fbc5ba0138c5b88a9"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/asim.json",
+      "bytes": 1689,
+      "sha256": "84e6d92666a45f6907202989f65e403ae23636a959a0ee5dccd1f9c5d0152be6"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/dispatch.jsonl",
+      "bytes": 167892,
+      "sha256": "fdae6c7e8b398acde39d949778d5ed63eddc67e837664899815d78f42d1594cf"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/formula.json",
+      "bytes": 1791425,
+      "sha256": "895f317e98b5df3f908c9b1d9ef3cc1372ce9f2048610205fc2f450ab12e750b"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/instruction_pipeline_detail.csv",
+      "bytes": 652956,
+      "sha256": "6896402e8fb62f5153074d76f6372fb07049004e887f41b81a11de1bc6c20d5a"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/instructions.jsonl",
+      "bytes": 4434206,
+      "sha256": "ce99411cc4230531d0276acf39ffe9ae4724a34cbee8ca770923869e281fa0f9"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/models.json",
+      "bytes": 1513,
+      "sha256": "dbdfc44c4a15754045f92db6db681ffd7df032e3c65876cb67c792a83f362a2f"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/numerics_started.json",
+      "bytes": 79,
+      "sha256": "c3fe002fec025de6f86d8e8cee67664b99c0de08fa764c8c7c34c457255d93a4"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/outputs.npy",
+      "bytes": 393344,
+      "sha256": "7f1058c4a81f3e62892bb8952fa7331d2e5ef18044cc6f535be6b51650d08d98"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/pipeline_statistics.json",
+      "bytes": 3004145,
+      "sha256": "8731ace4f90c846b86ab6376e1b368c562ee335e510d1cd2163b6ad798d25811"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/references.npz",
+      "bytes": 689138,
+      "sha256": "ee5e17b423c424c57ceba591cb3802282321eda4965a8777d9524bd4a6d7d5ce"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/result.json",
+      "bytes": 37476,
+      "sha256": "889ef3a56e4c21033dc3da8353ad69eaa1b05014afb7aa181015e361f6dd2acc"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/simulator.log",
+      "bytes": 34248,
+      "sha256": "5d2ad297e878715e4249675923f7721e1fdff95996c9e5f484accba735ecc420"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/lowK/trace.csv",
+      "bytes": 1145785,
+      "sha256": "2fd58eef40b634494e3d728cbe8fef15c60904861805b0e5326b2e3f6fc03252"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/asim.json",
+      "bytes": 1695,
+      "sha256": "7f2b0b85d3cf0f214cbc715b2ab35086cfec3ea7f7f6d0dbaadbfa320a428c7c"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/channel.npz",
+      "bytes": 2556640,
+      "sha256": "4abcfcbb30281c161fc1539ff63303c8b7f538b91d8258a44ae2032601e3b442"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "7cd154e3efdcd09f4a134fce166016bf6cb72e181a86673a7d3079988a88bc17"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/numerics_started.json",
+      "bytes": 79,
+      "sha256": "d9c588fcfb5ce64f55366a889737f378fb33d44dfd82eadfd2d2cb6bd1554071"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/outputs.npy",
+      "bytes": 393344,
+      "sha256": "b2a8f1d76e962d8210f4a9fb71beaae030270181e16bb51d5edfec20a7a72bfa"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/references.npz",
+      "bytes": 689138,
+      "sha256": "d0c54fb770c6f384a9689f3adc6183e88f8e51486af65da25bf2769906b465a9"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/result.json",
+      "bytes": 37505,
+      "sha256": "f1870fdaa4200fdf19d5199b8fd7546b8a9ffd8ed9a79eb943d51336368edd83"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/simulator.log",
+      "bytes": 34349,
+      "sha256": "c280c56565485e08163e20d9d9e362d6b8c55d7b51202ca27901f2acea4e3e17"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed123/trace.csv",
+      "bytes": 1763737,
+      "sha256": "d45ec112fcacc54c77fe5abe9adb4ed27caeb122e840c7072f1eb41fd8d5dc4c"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/asim.json",
+      "bytes": 1693,
+      "sha256": "0c0ee7f63dca65ed4c731de01e81e1a7fa05c40744cacef9c55c5a49be17c7aa"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/numerics_started.json",
+      "bytes": 79,
+      "sha256": "18af3463d3d3a0caadc4d11a39a793aea064f8f0d393e332d2a1562bbfee8509"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/outputs.npy",
+      "bytes": 393344,
+      "sha256": "7988be9aa518f0d10c9e912965b8f6a81368168aabbcd5ca1fb400063858d5dd"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/references.npz",
+      "bytes": 689138,
+      "sha256": "c01fb36f688dfcd348b9a78444eb46b99b3291f4655e5043543cd4522737a9e1"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/result.json",
+      "bytes": 37482,
+      "sha256": "909c6b068f11f8d5f4b0db11d37ab29dce4a13aad005269479964036d4f7a2ab"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/simulator.log",
+      "bytes": 34347,
+      "sha256": "e01415ef2375cd2b27b1ba0e0fac86650614074394c7ff69dc800df030ebf9d4"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed42/trace.csv",
+      "bytes": 1763737,
+      "sha256": "d45ec112fcacc54c77fe5abe9adb4ed27caeb122e840c7072f1eb41fd8d5dc4c"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/asim.json",
+      "bytes": 1695,
+      "sha256": "199123bfb49b1f9fedeed89c959afe701825b3e176db18481523810ec384289b"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/channel.npz",
+      "bytes": 2556640,
+      "sha256": "e7e95206e358e59dedb5059231e8c4c614b41f985a93a07c5aeb525837d2cfcf"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "18edc7a7d332c22de2cc7a2c2e3d376a8ff5c82d06b4c3324f106ac2107dc72b"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/numerics_started.json",
+      "bytes": 79,
+      "sha256": "cffb74ec247580cae7c7dcec0e3073f7f57a36b7d60314b427eaa9be832dde74"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/outputs.npy",
+      "bytes": 393344,
+      "sha256": "6eba0f046f7e71cbb7bc3c59aa4f2e6d6199dfafd16133e2ebead62d2ec48091"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/references.npz",
+      "bytes": 689138,
+      "sha256": "aac827169634e9edb32cecbbf851e10da26eb20e4763d9232d1a148aa4a9271d"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/result.json",
+      "bytes": 37495,
+      "sha256": "e95e52d6e0a7d3987d8e02436b815f381267350c17706150be82ed0039c4d937"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/simulator.log",
+      "bytes": 34349,
+      "sha256": "6e83a46130c701f3f6f666d67108a9fbc1779567efbe70179bd9312625d4ba8c"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/seed456/trace.csv",
+      "bytes": 1763737,
+      "sha256": "d45ec112fcacc54c77fe5abe9adb4ed27caeb122e840c7072f1eb41fd8d5dc4c"
+    },
+    {
+      "path": "results/precision_campaigns/2026-10-30-fp16-v2-frozen/summary.json",
+      "bytes": 37416,
+      "sha256": "47d088ab7b49dc45301bb6f11f185a7130c992b6295185220b6fd719f16977e5"
+    }
+  ],
+  "supporting_artifacts": [
+    {
+      "path": "results/ns-precision-build-final.log",
+      "bytes": 873,
+      "sha256": "aee86f4cb5b368d0064501dc108649f45b3c85e2a23f3dc517a1a2869e39fc9f"
+    },
+    {
+      "path": "results/ns-precision-gates.log",
+      "bytes": 1182,
+      "sha256": "9502bcf469f183ea9448009c5328718c23497f1fb7b55949f47fce76a4e2eed5"
+    },
+    {
+      "path": "results/precision-unit.log",
+      "bytes": 190,
+      "sha256": "1f2dac9de7be70d35ab1281d0c8e36fb072e03f57e186ef3405a84519554f712"
+    },
+    {
+      "path": "results/precision-schedule-unit.log",
+      "bytes": 203,
+      "sha256": "c05095273d6a5f1708ded5ed8e8fcbffb9adeb0d2e36b3f059a741f6a56c0797"
+    },
+    {
+      "path": "results/precision-schedule-report-unit.log",
+      "bytes": 206,
+      "sha256": "c910ebc3d4f636315b655fa32745aea8c5fd0893432d67f46b8cff26afbbb8b1"
+    }
+  ],
+  "small_artifacts": [
+    {
+      "path": "experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/README.md",
+      "bytes": 491,
+      "sha256": "41d2ea7cf1ba2d8a78b9f2c88c457f6ade87069e03b477d4cb2f44689fa571b5"
+    },
+    {
+      "path": "experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/gates.json",
+      "bytes": 37416,
+      "sha256": "47d088ab7b49dc45301bb6f11f185a7130c992b6295185220b6fd719f16977e5"
+    },
+    {
+      "path": "experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/pipeline_summary.csv",
+      "bytes": 2545,
+      "sha256": "37ad566cdb547bb5d9856d2a4aad54f64dc3897d606a7d446814815a78ac5a14"
+    },
+    {
+      "path": "experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/review.md",
+      "bytes": 632,
+      "sha256": "549edd7d94278958b038e544285dd64076f8ad4eddd425800bb66b17743f5867"
+    }
+  ],
+  "preceded_by": {
+    "path": "results/precision_campaigns/2026-10-30-fp16-v1-smoke",
+    "status": "SUPERSEDED_EXPLORATORY",
+    "reason": "before wide comparison fix and separate FP32 Vector cost width; no final scientific conclusion"
+  },
+  "limitations": [
+    "explicit FP16 model conformance only; no hardware/FTZ/FMA calibration",
+    "standalone conversion cost not closed; no performance score",
+    "actual read-complete/write-visible events absent; no G4",
+    "formal communication/CDL-B/clean reproduction not complete"
+  ],
+  "unit_test_count": 106,
+  "unit_test_log": "results/precision-schedule-report-unit.log"
+}
