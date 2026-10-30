@@ -9,7 +9,8 @@ from verification.reconstruction.engine import full_view
 def capture_plan(header,instructions):
     regions={r['name']:r for r in header['regions']};plan={}
     def add(index,name,region):
-        r=regions[region];plan.setdefault(index,{})[name]=full_view(r['base'],(r['rows'],r['cols']))
+        r=regions[region];shape=(1,r['cols']) if name=='factor_D' else (r['rows'],r['cols'])
+        plan.setdefault(index,{})[name]=full_view(r['base'],shape)
     for n,i in enumerate(instructions):
         site=(i.get('semantic') or {}).get('site','').split(':')[-1]
         if site in ('CHOL_NB_REG','CHOL_BLK_REG','LDL_NB_REG','LDL_BLK_REG','BRI_REG'):add(n,'regularized_A','aA')
