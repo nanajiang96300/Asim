@@ -20,6 +20,8 @@ class TraceLogger {
     std::uint64_t request_id=std::numeric_limits<std::uint64_t>::max();
     std::string op_id;
     std::uint32_t fragment=0;
+    std::uint64_t issue_cycle=std::numeric_limits<std::uint64_t>::max();
+    std::uint64_t commit_cycle=std::numeric_limits<std::uint64_t>::max();
   };
 
   // Get singleton instance.
@@ -31,10 +33,12 @@ class TraceLogger {
                         std::uint64_t start_cycle,
                         std::uint64_t end_cycle,
                         std::uint64_t request_id=std::numeric_limits<std::uint64_t>::max(),
-                        const std::string& op_id="",std::uint32_t fragment=0);
+                        const std::string& op_id="",std::uint32_t fragment=0,
+                        std::uint64_t issue_cycle=std::numeric_limits<std::uint64_t>::max(),
+                        std::uint64_t commit_cycle=std::numeric_limits<std::uint64_t>::max());
 
   // Dump all events to a CSV file with header:
-  //   name,unit,start_cycle,end_cycle
+  //   name,unit,start_cycle,end_cycle,request_id,op_id,fragment,issue_cycle,commit_cycle
   void dump_to_csv(const std::string& filename);
 
   // Access to the in-memory event list (for tests or tooling).
@@ -49,7 +53,7 @@ class TraceLogger {
                  const std::string& name,
                  std::uint64_t start_cycle,
                  std::uint64_t end_cycle,std::uint64_t request_id,
-                 const std::string& op_id,std::uint32_t fragment);
+                 const std::string& op_id,std::uint32_t fragment,std::uint64_t issue_cycle,std::uint64_t commit_cycle);
 
   std::mutex _mutex;
   std::vector<TraceEvent> _events;

@@ -25,9 +25,11 @@ class RwProbeOp : public Operation {
       tile->instructions.push_back(source_instruction(std::move(raw),json::array({view(remote,0,0,16,16)}),view(local,0,0,16,16),"rw_probe:load"));
     }
     tile->instructions.push_back(source_instruction(Instruction{.opcode=Opcode::GEMM_PRELOAD,.id="cube",.dest_addr=c,.size=32,.compute_size=16,.src_addrs={a,b},.tile_m=16,.tile_k=16,.tile_n=16,.src_from_accum=true,.my_tile=tile},json::array({view(a,0,0,16,16),view(b,0,0,16,16)}),view(c,0,0,16,16),"rw_probe:cube"));
+    FormulaLogger::instance().emit_step("cube","GEMM",{"A","B"},"C",{{16,16},{16,16}},{16,16},0,"cube");
     if(scenario_=="serialized")tile->instructions.push_back(source_instruction(Instruction{.opcode=Opcode::PIPE_BARRIER,.id="sync",.dest_addr=sync,.size=1,.src_addrs={c},.src_from_accum=true,.my_tile=tile,.is_barrier=true},json::array(),nullptr,"rw_probe:sync"));
     addr_type target=scenario_=="independent"?d:scenario_=="overwrite_input"?a:c;
-    tile->instructions.push_back(source_instruction(Instruction{.opcode=Opcode::ADD,.id="vector",.dest_addr=target,.size=32,.compute_size=2048,.src_addrs={a,a},.tile_m=16,.tile_k=16,.tile_n=16,.src_from_accum=true,.my_tile=tile},json::array({view(a,0,0,16,16),view(a,0,0,16,16)}),view(target,0,0,16,16),"rw_probe:vector"));
+    tile->instructions.push_back(source_instruction(Instruction{.opcode=Opcode::DIV,.id="vector",.dest_addr=target,.size=32,.compute_size=2048,.src_addrs={a,a},.tile_m=16,.tile_k=16,.tile_n=16,.src_from_accum=true,.my_tile=tile},json::array({view(a,0,0,16,16),view(a,0,0,16,16)}),view(target,0,0,16,16),"rw_probe:vector"));
+    FormulaLogger::instance().emit_step("vector","DIV",{"A","A"},scenario_=="independent"?"D":scenario_=="overwrite_input"?"A":"C",{{16,16},{16,16}},{16,16},0,"vector");
     addr_type remote=get_operand_addr(_OUTPUT_OPERAND);
     Instruction raw{.opcode=Opcode::MOVOUT,.id="store",.dest_addr=c,.size=32,.operand_id=_OUTPUT_OPERAND,.base_addr=0,.tile_m=16,.tile_k=16,.src_from_accum=true,.last_inst=true,.my_tile=tile};
     for(uint32_t j=0;j<32;++j)raw.src_addrs.push_back(remote+j*64);
