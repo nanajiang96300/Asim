@@ -9,7 +9,8 @@ class ReplayFault(Invalid):
     def __init__(self,code,message):super().__init__(code+': '+message);self.code=code
 
 class ArrayMemory:
-    def __init__(self,regions,dtype=np.complex128):
+    def __init__(self,regions,dtype=np.complex128,precision=None):
+        self.precision=precision
         self.regions=regions
         self.values={b:np.empty((r['rows'],r['cols']),dtype=dtype) for b,r in regions.items()}
         self.valid={b:np.zeros(v.shape,dtype=bool) for b,v in self.values.items()}
@@ -33,12 +34,13 @@ class ArrayMemory:
         if value.shape!=shape:raise ReplayFault('SHAPE_MISMATCH',f'write {value.shape} into {shape}')
         if not np.isfinite(value).all():raise ReplayFault('NONFINITE_RESULT','nonfinite arithmetic')
         if np.iscomplexobj(value) and self.values[base].dtype==np.float64:raise ReplayFault('PRECISION_UNSUPPORTED','complex values in real profile')
+        if self.precision is not None:value=self.precision.store(value)
         self.values[base][sl]=value;self.valid[base][sl]=True
 
 def full_view(base,shape):
     return dict(base=base,row=0,col=0,rows=shape[0],cols=shape[1],transpose=False,conjugate=False)
 
-def arithmetic(code,values,broadcast='none'):
+def arithmetic(code,values,broadcast='none',precision=None):
     arities={'LOAD':1,'STORE':1,'COPY':1,'SQRT':1,'GEMM':2,'ADD':2,'SUB':2,'MUL':2,'DIV':2}
     if code not in arities:raise Unsupported('unknown numeric primitive: '+str(code))
     if len(values)!=arities[code]:raise ReplayFault('SHAPE_MISMATCH','primitive arity')
@@ -47,6 +49,8 @@ def arithmetic(code,values,broadcast='none'):
         raise ReplayFault('SHAPE_MISMATCH','explicit scalar_rhs requires scalar right operand')
     if code in ('ADD','SUB','MUL','DIV') and broadcast=='none' and values[0].shape!=values[1].shape:
         raise ReplayFault('SHAPE_MISMATCH','implicit broadcasting forbidden')
+    if code=='GEMM' and values[0].shape[1]!=values[1].shape[0]:raise ReplayFault('SHAPE_MISMATCH','GEMM inner dimension')
+    if precision is not None and precision.modeled:return precision.calculate(code,values)
     with np.errstate(divide='raise',invalid='raise',over='raise'):
         if code in ('LOAD','STORE','COPY'):result=values[0].copy()
         elif code=='GEMM':
@@ -61,6 +65,6 @@ def arithmetic(code,values,broadcast='none'):
     return result
 
 def execute_views(memory,code,src,dst,broadcast='none'):
-    result=arithmetic(code,[memory.read(v) for v in src],broadcast)
+    result=arithmetic(code,[memory.read(v) for v in src],broadcast,memory.precision)
     memory.write(dst,result)
     return result

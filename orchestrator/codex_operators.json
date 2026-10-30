@@ -7,7 +7,14 @@
       "scope": "mmse_h_y_to_xhat_v1",
       "profile": "structure_f64_real_block",
       "reference_module": "verification.reference.ns",
-      "reference_function": "simulate_ns"
+      "reference_function": "simulate_ns",
+      "profiles": [
+        "structure_f64_real_block",
+        "modeled_fp16_fp32_real_block_v1"
+      ],
+      "reference_profiles": {
+        "modeled_fp16_fp32_real_block_v1": "simulate_ns_fp16_model"
+      }
     }
   }
 }

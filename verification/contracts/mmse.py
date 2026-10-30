@@ -3,6 +3,7 @@ from dataclasses import dataclass,asdict
 import numpy as np
 from verification.contracts.core import Invalid,Unsupported,digest
 from verification.fixtures.rayleigh import real_block
+from verification.profiles.numeric import policy_for
 
 SCOPES={
  'mmse_h_y_to_xhat_v1':{'inputs':['H','Y','RegI','Identity'],'includes':['input DMA','Gram','regularization','H^H Y','algorithm initialization','iterations/factorization','inverse application/output recovery','output DMA'],'excludes':['common channel generation','common real-block encoding/decoding']},
@@ -21,7 +22,7 @@ class MMSETask:
     def validate(self):
         if self.channel!='rayleigh':raise Unsupported('CDL-B not implemented; no fallback')
         if self.scope not in SCOPES:raise Unsupported('unknown measurement scope')
-        if self.profile!='structure_f64_real_block':raise Unsupported('hardware precision not implemented')
+        policy_for(self.profile)
         if any(type(x) is not int or x<=0 for x in (self.batch_size,self.nr,self.nt,self.nrhs)) or self.batch_size%24 or self.batch_size>384 or self.nr<self.nt:
             raise Invalid('task requires batch multiple24<=384, Nr>=Nt>0, Nrhs>0')
         if not np.isfinite(self.regularization) or self.regularization<=0:raise Invalid('positive finite lambda required')
@@ -39,7 +40,10 @@ def fixture(task,seed):
     H=(rng.standard_normal((B,M,U))+1j*rng.standard_normal((B,M,U)))/np.sqrt(2*M)
     symbols=((2*rng.integers(0,2,(B,U,R))-1)+1j*(2*rng.integers(0,2,(B,U,R))-1))/np.sqrt(2)
     Y=H@symbols+np.sqrt(task.regularization/2)*(rng.standard_normal((B,M,R))+1j*rng.standard_normal((B,M,R)))
-    return {'inputs':{'H':np.stack([real_block(h) for h in H]),'Y':np.stack([real_block(y) for y in Y]),'RegI':task.regularization*np.eye(2*U),'Identity':np.eye(2*U)},'H':H,'Y':Y,'symbols':symbols,'task':task.frozen(),'seed':seed}
+    data={'inputs':{'H':np.stack([real_block(h) for h in H]),'Y':np.stack([real_block(y) for y in Y]),'RegI':task.regularization*np.eye(2*U),'Identity':np.eye(2*U)},'H':H,'Y':Y,'symbols':symbols,'task':task.frozen(),'seed':seed}
+    precision=policy_for(task.profile)
+    if precision.modeled:data['inputs']={k:precision.store(v) for k,v in data['inputs'].items()}
+    return data
 
 
 def task_reference(data,task):

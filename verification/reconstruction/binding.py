@@ -1,11 +1,14 @@
 """Trusted physical workload checks for source-view programs, before numerics."""
 from collections import Counter,defaultdict
 from verification.contracts.core import Invalid,Unsupported
+from verification.profiles.numeric import policy_for
 
 
 def validate_actual(record,dispatch,task,parameters,inputs,config):
     h=record['header'];B=task.batch_size;p=config['precision'];req=config['dram_req_size']
-    if h.get('schema')!='source-views-program-v1' or h.get('task_contract')!=task.frozen() or h.get('profile')!='structure_f64' or h['precision_bytes']!=p or p!=8 or req!=64:
+    policy=policy_for(task.profile)
+    if h.get('precision_policy',policy.frozen())!=policy.frozen():raise Invalid('numeric policy binding mismatch')
+    if h.get('schema')!='source-views-program-v1' or h.get('task_contract')!=task.frozen() or h.get('profile')!=policy.name or h['precision_bytes']!=p or p!=policy.bytes or req!=64:
         raise Invalid('actual task/profile/measurement binding mismatch')
     if h.get('algorithm')!=parameters:raise Invalid('algorithm parameters differ from frozen candidate')
     if len(h.get('capacities',[]))!=24 or {c['core'] for c in h['capacities']}!=set(range(24)):raise Invalid('missing core capacity evidence')
@@ -35,7 +38,7 @@ def validate_actual(record,dispatch,task,parameters,inputs,config):
         elif 17<=code<=21:
             if rows*cols!=1 or i['compute_size']!=1 or any(v['rows']*v['cols']!=1 for v in s['src']):raise Invalid('batched SCALAR is not a scalar instruction')
         elif code in (10,11,13,16):
-            if (i['m'],i['n'],i['compute_size'])!=(rows,cols,rows*cols*p):raise Invalid('vector workload mismatch')
+            if (i['m'],i['n'],i['compute_size'])!=(rows,cols,rows*cols*policy.vector_bytes):raise Invalid('vector workload mismatch')
         else:raise Unsupported('unimplemented raw opcode')
     if set(groups)!=set(range(B)) or len(dispatch)!=B:raise Invalid('missing batch instructions/dispatch')
     by_batch={d['batch']:d for d in dispatch}

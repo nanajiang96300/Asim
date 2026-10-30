@@ -48,3 +48,7 @@ set_algorithm(ns_corrected_v1)及逐算术emit_step仅为旧工具诊断，重�
 | 精度/异步/通信/G6 | 完整门禁待开发，score=null | 未通过 |
 
 FormulaLogger以ELEMENTWISE/GEMM记录算术构造；旧DAG不支持的op不作为新验收依据，不以旧可选数值规则替代新硬门禁。
+
+## 2026-10-30精度模型扩展设计
+
+同一NS公式新增modeled_fp16_fp32_v1：P=2的真实Asim请求/Vector工作量，与P=8结构模式分开。输入实块编码后一次FP16 RNE；GEMM内部按k升序非融合FP32乘后加，整条写回FP16；每条标量/Vector也单独写回FP16，保留subnormal，非有限拒绝。实际header绑定完整precision_policy，源视图执行器使用该冻结策略，独立参考自行实现同顺序，硬门禁逐FP16位一致（含signed zero）。任务参考仍为原始H/Y/λ的complex128 solve；2%任务目标只为模型工程目标，非硬件/通信验收。详见verification/profiles/README.md。

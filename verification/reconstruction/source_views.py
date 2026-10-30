@@ -1,6 +1,7 @@
 """Actual source-view adapter; no operator-name dispatch or reference algorithm."""
 import numpy as np
 from verification.reconstruction.engine import ArrayMemory,ReplayFault,execute_views
+from verification.profiles.numeric import policy_for
 
 class Memory(ArrayMemory):
     def __init__(self,header,inputs):
@@ -19,7 +20,8 @@ class Memory(ArrayMemory):
             key='spad_bytes' if bank==0x10000000 else 'accum_bytes'
             for cap in header.get('capacities',[]):
                 if end-bank>cap[key]:raise ReplayFault('CAPACITY_ERROR','region exceeds configured Asim bank capacity')
-        super().__init__(self.regions,np.float64 if header.get('profile')=='structure_f64' else np.complex128)
+        precision=policy_for(header['profile']) if header.get('schema')=='source-views-program-v1' else None
+        super().__init__(self.regions,np.float64 if precision else np.complex128,precision)
     def tensor_slice(self,v,tensors):
         count=v['rows']*v['cols'];address=v['base'];nbytes=count*self.p
         if v['row'] or v['col'] or v['transpose'] or v['conjugate']:raise ReplayFault('VIEW_INVALID','DMA must be contiguous view')
@@ -31,6 +33,7 @@ class Memory(ArrayMemory):
 
 def execute_batch(header,instructions,inputs,batch,expected,precision='structure_complex128',return_output=False):
     if header.get('schema') not in ('legacy-source-views-v1','source-views-program-v1'):raise ReplayFault('SCHEMA_MISMATCH','missing source-view schema')
+    expected=np.asarray(expected,dtype=np.complex128 if np.iscomplexobj(expected) else np.float64)
     executed=0;cost_issues=[];last=None;output=None;stores=0
     try:
         mem=Memory(header,inputs)
