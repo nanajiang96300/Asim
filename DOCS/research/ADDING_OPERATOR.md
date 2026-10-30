@@ -54,3 +54,5 @@ CLI显式选择precision8结构profile并写入receipt；不会把precision2模�
 新增精度模型`modeled_fp16_fp32_real_block_v1`已接通：FP16存储、FP32逐指令/逐k算术，独立参考必须输出完整output_block，按全部FP16位比较；P2分配/搬运与P4 Vector工作量分别校验。硬件校准与转换成本仍未验收，不能凭该模型晋级。见[论文阶段报告](PAPER_REPORT.md)。
 
 当前生产入口要求core-rw-v4及CSV请求身份/issue/commit字段；缺或旧schema时拒绝数值，不静默退回旧重放。固定日常runtime只白名单已验收NS；新增算子先跑独立campaign，再发布新runtime包。见[稳定入口](RUNTIME_STABILITY.md)。
+
+2026-10-30：旧七入口增加完整静态覆盖及只读阶段观测；见[阶段报告](LEGACY_SEMANTIC_STAGES.md)。`execute_batch(captures=...)`仅用于诊断，不创建指令、不继续越过歧义。新算法仍需独立生成端/算法参考，不将阶段目标当回放实现。硬件级认证由上板承担。

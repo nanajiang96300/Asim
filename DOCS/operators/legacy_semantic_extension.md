@@ -24,4 +24,4 @@ A=HᴴH+λI，逆矩阵任务为solve(A,I)，BRI均衡为solve(A,HᴴY)。Choles
 
 ## 6. 验证数据
 
-待实现后填写真实批次、测试、审查和结果路径。不覆盖旧报告；固定24核/batch96、瑞利seed42，按注册配置运行。编译与Asim串行，build -j1。
+已完成：24核/batch96七入口Asim及阶段重建，714,912条完整静态检查，130单元测试及独立复审通过；完整算子仍BLOCKED。记录见`DOCS/research/LEGACY_SEMANTIC_STAGES.md`与`experiments/legacy_semantics/2026-10-30-seven-b96-v1/run_manifest.json`。不覆盖旧报告；固定24核/batch96、瑞利seed42，按注册配置运行。编译与Asim串行，build -j1。

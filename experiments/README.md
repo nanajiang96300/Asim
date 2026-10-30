@@ -32,3 +32,5 @@
 逐操作精度模型证据：[precision_campaigns/2026-10-30-fp16-v2-frozen](precision_campaigns/2026-10-30-fp16-v2-frozen/README.md)。论文阶段资料见[报告入口](../DOCS/research/PAPER_REPORT.md)，全部门禁未完成前禁止最终稿与评分。
 
 受限Core事件与固定日常入口：[runtime_rw/2026-10-30-v4-frozen](runtime_rw/2026-10-30-v4-frozen/README.md)。完整11场景/8类制品破坏及重复一致性通过；默认NS私有cwd/TMPDIR与封存基线已实际运行，硬件G4/全部算法/通信/评分未完成。
+
+旧七入口完整语义覆盖与阶段重建：[legacy_semantics/2026-10-30-seven-b96-v1](legacy_semantics/2026-10-30-seven-b96-v1/README.md)。714,912条指令描述、各96batch阶段观察、原始Instruction一致性、130测试与NS双精度回归；整算子仍BLOCKED。板级认证外置。

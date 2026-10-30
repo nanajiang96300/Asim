@@ -731,6 +731,35 @@
       "limitations": [
         "Supported conservative model only; not all project gates completed"
       ]
+    },
+    {
+      "id": "R06",
+      "title": "七入口完整语义覆盖与实际阶段重建",
+      "status": "done",
+      "depends_on": [
+        "R05"
+      ],
+      "allowed_paths": [
+        "verification/legacy/",
+        "verification/reconstruction/source_views.py",
+        "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc",
+        "orchestrator/codex_runtime.json",
+        "scripts/check_legacy_semantic_archive.py"
+      ],
+      "acceptance": [
+        "24核batch96七入口Asim完成后逐batch重建，不猜测欠定义操作",
+        "714912条实际指令静态描述检查与真实阶段快照，阶段比较拒绝广播",
+        "源码原始Instruction一致性、130测试、审查与原件hash归档",
+        "固定日常NS两种精度回归通过；旧算子仍阻断且无分数"
+      ],
+      "evidence": [
+        "DOCS/research/LEGACY_SEMANTIC_STAGES.md",
+        "experiments/legacy_semantics/2026-10-30-seven-b96-v1/run_manifest.json"
+      ],
+      "limitations": [
+        "旧七入口完整数值仍未通过，缺定义需要独立新候选真实程序修正",
+        "硬件级时序认证由后续上板承担，不是软件任务前置"
+      ]
     }
   ],
   "candidate_evaluation_order": [
