@@ -23,11 +23,14 @@ def load_runtime(path,repo):
     return spec
 
 
-def baseline(path,operator,iterations,binary_sha):
+def baseline(path,operator,iterations,binary_sha,runtime_spec_sha=None):
     path=Path(path);r=json.loads(path.read_text())
     if r['status'] not in ('STRUCTURE_CHECKED','MODELED_NUMERIC_CHECKED') or r.get('schedule_status')!='MODEL_RW_CHECKED_CONSERVATIVE' or r['numeric_status']!='EXECUTED' or r['failed_batches']:
         raise Invalid('baseline must have passed numeric and runtime checks')
     if r['operator']!=operator or r['algorithm']['iterations']!=iterations or r['asim']['binary_sha256']!=binary_sha:raise Invalid('baseline operator/parameters/binary differs')
+    if runtime_spec_sha is not None:
+        pin=path.parent/'runtime_pin.json'
+        if not pin.is_file() or json.loads(pin.read_text()).get('spec_sha256')!=runtime_spec_sha:raise Invalid('baseline was not produced by the same pinned daily runtime')
     for e in r['artifacts']:
         p=path.parent/e['path']
         if not p.is_file() or p.stat().st_size!=e['bytes'] or sha(p)!=e['sha256']:raise Invalid('baseline artifact changed/missing: '+e['path'])
@@ -45,18 +48,21 @@ def main():
     phase="PREFLIGHT";r=None
     try:
         spec=load_runtime(a.runtime or repo/'orchestrator/codex_runtime.json',repo)
+        if a.profile not in spec.get('profiles',[]):raise Invalid('profile not accepted by pinned runtime')
         if a.operator not in spec['operators']:raise Invalid('operator not accepted by pinned runtime')
         if spec.get('library_dir'):os.environ['LD_LIBRARY_PATH']=str(repo/spec['library_dir'])
         os.environ['OPENBLAS_NUM_THREADS']='1';os.environ['OMP_NUM_THREADS']='1'
         from verification.reconstruction.runner import evaluate
         from verification.contracts.mmse import MMSETask
         from verification.profiles.numeric import policy_for
+        import sys,numpy as np
+        if spec.get('python_version')!=sys.version.split()[0] or spec.get('numpy_version')!=np.__version__:raise Invalid('verifier Python/NumPy version differs from accepted runtime')
         config=json.loads((repo/spec['config']).read_text());config['precision']=policy_for(a.profile).bytes
         for key in ('dram_config_path','icnt_config_path'):
             if config.get(key):config[key]=str((repo/spec['cwd']/config[key]).resolve())
         policy=identity=None
         if a.baseline:
-            cycles,identity=baseline(a.baseline,a.operator,a.iterations,sha(repo/spec['binary']));policy=ScreenPolicy(cycles,1,10)
+            cycles,identity=baseline(a.baseline,a.operator,a.iterations,sha(repo/spec['binary']),sha(a.runtime or repo/'orchestrator/codex_runtime.json'));policy=ScreenPolicy(cycles,1,10)
         phase='EVALUATE'
         r=evaluate(a.operator,MMSETask(profile=a.profile),a.iterations,a.seed,repo/spec['binary'],config,root,root,policy,identity)
         phase='SEAL'
