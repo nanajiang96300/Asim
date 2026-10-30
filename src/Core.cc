@@ -6,6 +6,7 @@
 #include "SystolicOS.h"
 
 #include "TraceLogger.h"
+#include "semantic/RwObserver.h"
 #include "helper/HelperFunctions.h"
 
 std::unique_ptr<Core> Core::create(uint32_t id, SimulationConfig config) {
@@ -56,10 +57,12 @@ void Core::issue(std::unique_ptr<Tile> op) {
   /* Double buffer */
   spad_id = (spad_id + 1) % 2;
   _spad.flush(spad_id);
+  rw_observer::emit({{"kind","buffer_reset"},{"space","SPAD"},{"buffer",spad_id},{"batch",op->batch},{"layer",op->layer_id}},_id,_core_cycle);
   if (!op->accum || !(_current_layer_id == op->layer_id && _current_fused_op_id == op->fused_op_id)) {
     /* Accumeulate tile uses same acc spad buffer */
     acc_spad_id = (acc_spad_id + 1) % 2;
     _acc_spad.flush(acc_spad_id);
+    rw_observer::emit({{"kind","buffer_reset"},{"space","ACCUM"},{"buffer",acc_spad_id},{"batch",op->batch},{"layer",op->layer_id}},_id,_core_cycle);
   }
   _current_layer_id = op->layer_id;
   _current_fused_op_id = op->fused_op_id;
@@ -211,6 +214,12 @@ void Core::push_memory_response(MemoryAccess *response) {
     _spad.fill(response->spad_address, response->buffer_id);
   }
 
+  if(rw_observer::enabled()) {
+    auto it=_rw_dma_owners.find(response->id);
+    if(it==_rw_dma_owners.end())throw std::runtime_error("RW response has no originating request");
+    json e=it->second;e["kind"]="dma_response";e["dram_addr"]=response->dram_address;e["local_addr"]=response->spad_address;e["bytes"]=response->size;e["buffer"]=response->buffer_id;e["write"]=response->write;
+    rw_observer::emit(e,_id,_core_cycle);_rw_dma_owners.erase(it);
+  }
   // Profiling: record memory transfer lifetime as seen by the core.
   // We approximate the end time as the current core cycle when the
   // response is consumed.
@@ -319,10 +328,12 @@ void Core::finish_compute_pipeline(){
   if (!_compute_pipeline.empty() &&
       _compute_pipeline.front()->finish_cycle <= _core_cycle) {
     std::unique_ptr<Instruction> inst = std::move(_compute_pipeline.front());
+    rw_observer::compute("compute_read_done",*inst,_id,_core_cycle);
     if (inst->dest_addr >= ACCUM_SPAD_BASE)
       _acc_spad.fill(inst->dest_addr, inst->accum_spad_id);
     else
       _spad.fill(inst->dest_addr, inst->spad_id);
+    rw_observer::compute("compute_write_visible",*inst,_id,_core_cycle);
     if(inst->last_inst) {
       spdlog::trace("Finished last GEMM {}", inst->spad_id);
       inst->my_tile->inst_finished = true;
@@ -346,6 +357,7 @@ void Core::finish_vector_pipeline() {
   if (!_vector_pipeline.empty() &&
       _vector_pipeline.front()->finish_cycle <= _core_cycle) {
     std::unique_ptr<Instruction> inst = std::move(_vector_pipeline.front());
+    rw_observer::compute("compute_read_done",*inst,_id,_core_cycle);
     if (inst->dest_addr >= ACCUM_SPAD_BASE) {
       if(!_acc_spad.check_allocated(inst->dest_addr, inst->accum_spad_id)) {
         spdlog::error("Vector pipeline -> accum");
@@ -361,6 +373,7 @@ void Core::finish_vector_pipeline() {
       _spad.fill(inst->dest_addr, inst->spad_id);
     }
       
+    rw_observer::compute("compute_write_visible",*inst,_id,_core_cycle);
     if(inst->last_inst)
       inst->my_tile->inst_finished = true;
     // Profiling: record VectorCore instruction lifetime
@@ -377,6 +390,7 @@ void Core::finish_scalar_pipeline() {
   if (!_scalar_pipeline.empty() &&
       _scalar_pipeline.front()->finish_cycle <= _core_cycle) {
     std::unique_ptr<Instruction> inst = std::move(_scalar_pipeline.front());
+    rw_observer::compute("compute_read_done",*inst,_id,_core_cycle);
     if (inst->dest_addr >= ACCUM_SPAD_BASE) {
       if(!_acc_spad.check_allocated(inst->dest_addr, inst->accum_spad_id)) {
         spdlog::error("Scalar pipeline -> accum");
@@ -391,6 +405,7 @@ void Core::finish_scalar_pipeline() {
       _spad.fill(inst->dest_addr, inst->spad_id);
     }
 
+    rw_observer::compute("compute_write_visible",*inst,_id,_core_cycle);
     if(inst->last_inst)
       inst->my_tile->inst_finished = true;
 
@@ -426,6 +441,7 @@ void Core::handle_ld_inst_queue() {
         spdlog::error("instruction panic opcode: {:x}, addr: {:x}, size: {} B", (int)front->opcode, front->dest_addr, front->size*_config.dram_req_size);
         std::exit(EXIT_FAILURE);
       }
+      uint32_t rw_fragment=0;
       for (addr_type addr : front->src_addrs) {
         assert(front->base_addr != GARBEGE_ADDR);
         MemoryAccess *access =
@@ -438,6 +454,10 @@ void Core::handle_ld_inst_queue() {
                               .core_id = _id,
                               .start_cycle = _core_cycle,
                               .buffer_id = buffer_id});
+        if(rw_observer::enabled()) {
+          json e=rw_observer::descriptor(*front);e["kind"]="dma_request";e["request_id"]=access->id;e["fragment"]=rw_fragment++;e["dram_addr"]=access->dram_address;e["local_addr"]=access->spad_address;e["bytes"]=access->size;e["buffer"]=access->buffer_id;e["write"]=access->write;
+          _rw_dma_owners.emplace(access->id,e);rw_observer::emit(e,_id,_core_cycle);
+        }
         _request_queue.push(access);
       }
       _ld_inst_queue.pop();
@@ -461,6 +481,7 @@ void Core::handle_st_inst_queue() {
         buffer_id = front->spad_id;
       }
       if(buffer->check_hit(front->dest_addr, buffer_id)) {
+        uint32_t rw_fragment=0;
         for (addr_type addr : front->src_addrs) {
           assert(front->base_addr != GARBEGE_ADDR);
           MemoryAccess *access =
@@ -474,7 +495,11 @@ void Core::handle_st_inst_queue() {
                               .start_cycle = _core_cycle,
                               .buffer_id = buffer_id};
           _waiting_write_reqs++;
-          _request_queue.push(access);
+          if(rw_observer::enabled()) {
+          json e=rw_observer::descriptor(*front);e["kind"]="dma_request";e["request_id"]=access->id;e["fragment"]=rw_fragment++;e["dram_addr"]=access->dram_address;e["local_addr"]=access->spad_address;e["bytes"]=access->size;e["buffer"]=access->buffer_id;e["write"]=access->write;
+          _rw_dma_owners.emplace(access->id,e);rw_observer::emit(e,_id,_core_cycle);
+        }
+        _request_queue.push(access);
         }
         if(front->last_inst) {
           spdlog::trace("Finished last store {}", front->spad_id);
