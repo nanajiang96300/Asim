@@ -29,12 +29,34 @@ class DailyTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'result.json';p.write_text(json.dumps({'status':'ALGORITHM_QUALITY_FAILED'}))
             with self.assertRaises(Invalid):baseline(p,'ns',16,'binary')
+    def sealed(self,d):
+        root=Path(d)
+        names={'asim.json','schedule.json','outputs.npy','inputs.npz','references.npz','channel.npz','instructions.jsonl','dispatch.jsonl','trace.csv','rw_events.jsonl','config.json','models.json','simulator.log'}
+        for n in names:(root/n).write_text(n)
+        (root/'asim.json').write_text(json.dumps({'status':'COMPLETED','returncode':0,'binary_sha256':'binary','finish_cycle':10}))
+        r={'status':'MODELED_NUMERIC_CHECKED','schedule_status':'MODEL_RW_CHECKED_CONSERVATIVE','numeric_status':'EXECUTED','failed_batches':[],'operator':'ns','algorithm':{'iterations':16},'asim':{'binary_sha256':'binary','finish_cycle':10},'comparison_identity':'task',
+           'artifacts':[{'path':n,'bytes':(root/n).stat().st_size,'sha256':sha(root/n)} for n in sorted(names)]}
+        (root/'evaluation_result.json').write_text(json.dumps(r));(root/'runtime_pin.json').write_text(json.dumps({'spec_sha256':'spec'}))
+        for n in ('evaluation_result.json','runtime_pin.json'):r['artifacts'].append({'path':n,'bytes':(root/n).stat().st_size,'sha256':sha(root/n)})
+        p=root/'result.json';p.write_text(json.dumps(r));return p,r
     def test_baseline_artifact_must_be_unchanged(self):
         from verification.reconstruction.daily import baseline
         with tempfile.TemporaryDirectory() as d:
-            f=Path(d)/'data';f.write_text('proof')
-            r={'status':'MODELED_NUMERIC_CHECKED','schedule_status':'MODEL_RW_CHECKED_CONSERVATIVE','numeric_status':'EXECUTED','failed_batches':[],'operator':'ns','algorithm':{'iterations':16},'asim':{'binary_sha256':'binary','finish_cycle':10},'comparison_identity':'task',
-               'artifacts':[{'path':'data','bytes':f.stat().st_size,'sha256':sha(f)}]}
-            p=Path(d)/'result.json';p.write_text(json.dumps(r));self.assertEqual(baseline(p,'ns',16,'binary'),(10,'task'))
-            f.write_text('tampered')
-            with self.assertRaises(Invalid):baseline(p,'ns',16,'binary')
+            p,r=self.sealed(d);self.assertEqual(baseline(p,'ns',16,'binary','spec'),(10,'task'))
+            (Path(d)/'outputs.npy').write_text('tampered')
+            with self.assertRaises(Invalid):baseline(p,'ns',16,'binary','spec')
+    def test_baseline_top_level_cannot_override_sealed_cycle(self):
+        from verification.reconstruction.daily import baseline
+        with tempfile.TemporaryDirectory() as d:
+            p,r=self.sealed(d);r['asim']['finish_cycle']=999;p.write_text(json.dumps(r))
+            with self.assertRaises(Invalid):baseline(p,'ns',16,'binary','spec')
+    def test_baseline_cannot_skip_required_evidence(self):
+        from verification.reconstruction.daily import baseline
+        with tempfile.TemporaryDirectory() as d:
+            p,r=self.sealed(d);r['artifacts']=[];p.write_text(json.dumps(r))
+            with self.assertRaises(Invalid):baseline(p,'ns',16,'binary','spec')
+    def test_manifest_hash_is_frozen_at_load(self):
+        with tempfile.TemporaryDirectory() as d:
+            root,p,s=self.make(d);before=sha(p);loaded=load_runtime(p,root)
+            p.write_text(p.read_text()+' ')
+            self.assertEqual(loaded['_loaded_sha256'],before);self.assertNotEqual(loaded['_loaded_sha256'],sha(p))
