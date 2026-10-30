@@ -16,6 +16,15 @@ def main():
             p=repo/item['path'];data=p.read_bytes()
             if len(data)!=item['bytes'] or hashlib.sha256(data).hexdigest()!=item['sha256']:raise ValueError('artifact changed: '+str(p))
             checked+=1
+    if manifest.get('schema_version')=='precision-model-campaign-v1':
+        gates=json.loads((args.manifest.parent/'gates.json').read_text())
+        if gates['status']!='GATES_PASSED' or gates['score'] is not None or len(gates['cases'])!=5 or not all(c['passed'] for c in gates['cases']):raise ValueError('precision model gates incomplete')
+        for seed in (42,123,456):
+            r=json.loads((Path(manifest['raw_root'])/f'seed{seed}/result.json').read_text())
+            if r['status']!='MODELED_NUMERIC_CHECKED' or r['score'] is not None or len(r['batches'])!=96 or not all(b.get('precision_bit_equal') is True for b in r['batches']):raise ValueError('missing exact FP16 bit-pattern evidence')
+        if gates['hardware_calibration']!='NOT_DONE' or gates['G4']!='NOT_DONE':raise ValueError('unexpected precision calibration or G4 claim')
+        print(json.dumps({'status':'PRECISION_MODEL_ARCHIVE_VALID','files_checked':checked,'bit_equal_batches':288,'hardware_calibration':'NOT_DONE','promotion':'BLOCKED'}))
+        return
     if manifest.get('schema_version')=='unified-reconstruction-campaign-v1':
         gates=json.loads((args.manifest.parent/'gates.json').read_text())
         if gates['status']!='GATES_PASSED' or gates['score'] is not None or len(gates['cases'])!=6 or not all(c['passed'] for c in gates['cases']+gates['offline_mutations']):raise ValueError('unified gates incomplete')
