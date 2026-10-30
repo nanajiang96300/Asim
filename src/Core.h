@@ -92,6 +92,8 @@ class Core {
   std::queue<MemoryAccess*> _response_queue;
   uint32_t _waiting_write_reqs;
   std::map<uint32_t,json> _rw_dma_owners;
+  std::map<const Instruction*,cycle_type> _rw_compute_issues;
+  cycle_type rw_take_issue(const Instruction* inst);
 
   uint32_t _current_layer_id;
   uint32_t _current_fused_op_id;

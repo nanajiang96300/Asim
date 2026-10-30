@@ -12,7 +12,7 @@ inline void emit(json e,uint32_t core,cycle_type cycle){
   static std::ofstream stream(std::getenv("ASIM_RW_EXPORT"));
   static uint64_t order=0;
   if(!stream)throw std::runtime_error("RW observer export unavailable");
-  if(order==0)stream<<json({{"kind","header"},{"schema","core-rw-v2"},{"producer","asim_core_observer_v2"},{"clock","homogeneous_core_cycle_v1"},{"compute_reads","conservative_issue_to_complete_v1"},{"dma_reads","request_snapshot_v1"},{"dma_writes","fragment_response_commit_v1"},{"dma_identity","trace_request_op_fragment_v1"}}).dump()<<'\n';
+  if(order==0)stream<<json({{"kind","header"},{"schema","core-rw-v3"},{"producer","asim_core_observer_v3"},{"clock","homogeneous_core_cycle_v1"},{"compute_reads","conservative_issue_to_complete_v1"},{"dma_reads","request_snapshot_v1"},{"dma_writes","fragment_response_commit_v1"},{"dma_identity","trace_request_op_fragment_v1"},{"compute_identity","trace_issue_commit_cycle_v1"}}).dump()<<'\n';
   e["order"]=order++;e["core"]=core;e["cycle"]=cycle;stream<<e.dump()<<'\n';
   if(!stream)throw std::runtime_error("RW observer export failed");
 }

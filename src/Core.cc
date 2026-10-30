@@ -326,6 +326,12 @@ void Core::update_stats() {
   _stat_matmul_cycle = 0;
 }
 
+cycle_type Core::rw_take_issue(const Instruction* inst) {
+  auto it=_rw_compute_issues.find(inst);
+  if(it==_rw_compute_issues.end())return std::numeric_limits<uint64_t>::max();
+  auto cycle=it->second;_rw_compute_issues.erase(it);return cycle;
+}
+
 void Core::finish_compute_pipeline(){
   if (!_compute_pipeline.empty() &&
       _compute_pipeline.front()->finish_cycle <= _core_cycle) {
@@ -350,7 +356,7 @@ void Core::finish_compute_pipeline(){
         fmt::format("Core{}_Cube", _id),
         inst->id.empty() ? "GEMM" : inst->id,
         inst->start_cycle,
-        inst->finish_cycle);
+        inst->finish_cycle,std::numeric_limits<uint64_t>::max(),"",0,rw_take_issue(inst.get()),_core_cycle);
     _compute_pipeline.pop();
   }
 }
@@ -383,7 +389,7 @@ void Core::finish_vector_pipeline() {
         fmt::format("Core{}_Vector", _id),
         inst->id.empty() ? "VectorOp" : inst->id,
         inst->start_cycle,
-        inst->finish_cycle);
+        inst->finish_cycle,std::numeric_limits<uint64_t>::max(),"",0,rw_take_issue(inst.get()),_core_cycle);
     _vector_pipeline.pop();
   }
 }
@@ -415,7 +421,7 @@ void Core::finish_scalar_pipeline() {
         fmt::format("Core{}_Scalar", _id),
         inst->id.empty() ? "ScalarOp" : inst->id,
         inst->start_cycle,
-        inst->finish_cycle);
+        inst->finish_cycle,std::numeric_limits<uint64_t>::max(),"",0,rw_take_issue(inst.get()),_core_cycle);
     _scalar_pipeline.pop();
   }
 }
