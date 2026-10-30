@@ -15,6 +15,7 @@
 #include "inverse/ldl_noblock/LDLNoBlockBaselineModel.h"
 #include "models/MatmulModel.h"
 #include "semantic/ProgramModel.h"
+#include "inverse/ns_corrected/NSCorrectedModel.h"
 
 namespace fs = std::filesystem;
 namespace po = boost::program_options;
@@ -103,6 +104,8 @@ int main(int argc, char** argv) {
   } else if (mode == "bri_v3_test") {
     spdlog::info("Running in Block-Richardson v3 baseline test mode");
     language_mode = false;
+  } else if (mode == "ns_corrected_test") {
+    language_mode = false;
   } else if (mode == "semantic_program_test") {
     language_mode = false;
   } else if (mode == "matmul_test") {
@@ -171,6 +174,9 @@ int main(int argc, char** argv) {
       std::string mn = model_config["name"];
       auto model = std::make_unique<LDLBlockBaselineModel>(model_config, config, mn);
       spdlog::info("Register LDLBlockBaselineModel: {}", mn);
+      simulator->register_model(std::move(model));
+    } else if (mode == "ns_corrected_test") {
+      auto model=std::make_unique<NSCorrectedModel>(model_config,config,model_config["name"]);
       simulator->register_model(std::move(model));
     } else if (mode == "semantic_program_test") {
       auto model = std::make_unique<ProgramModel>(model_config, config, model_config["name"]);
