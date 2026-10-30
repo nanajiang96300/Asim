@@ -1,6 +1,7 @@
 #include "SystolicWS.h"
 
 #include "TraceLogger.h"
+#include "semantic/RwObserver.h"
 
 SystolicWS::SystolicWS(uint32_t id, SimulationConfig config)
     : Core(id, config) {}
@@ -19,6 +20,7 @@ void SystolicWS::cycle() {
   /* EX instruction queue */
   if (!_ex_inst_queue.empty() && can_issue_compute(_ex_inst_queue.front())) { // execution dependecy check
     std::unique_ptr<Instruction> front = std::move(_ex_inst_queue.front());
+    rw_observer::compute("compute_read_begin",*front,_id,_core_cycle);
     if (front->dest_addr >= ACCUM_SPAD_BASE) {
       if (_acc_spad.check_allocated(front->dest_addr, front->accum_spad_id)) {
         _acc_spad.count_up(front->dest_addr, front->accum_spad_id);

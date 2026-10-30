@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <vector>
+#include <map>
 
 #include "Dram.h"
 #include "SimulationConfig.h"
@@ -90,6 +91,7 @@ class Core {
   std::queue<MemoryAccess*> _request_queue;
   std::queue<MemoryAccess*> _response_queue;
   uint32_t _waiting_write_reqs;
+  std::map<uint32_t,json> _rw_dma_owners;
 
   uint32_t _current_layer_id;
   uint32_t _current_fused_op_id;
