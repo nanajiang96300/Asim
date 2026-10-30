@@ -10,15 +10,17 @@ TraceLogger& TraceLogger::instance() {
 void TraceLogger::log_event(const std::string& unit,
                             const std::string& name,
                             std::uint64_t start_cycle,
-                            std::uint64_t end_cycle) {
+                            std::uint64_t end_cycle,std::uint64_t request_id,
+                            const std::string& op_id,std::uint32_t fragment) {
   // Delegate to the singleton instance to centralize locking.
-  TraceLogger::instance().add_event(unit, name, start_cycle, end_cycle);
+  TraceLogger::instance().add_event(unit, name, start_cycle, end_cycle, request_id, op_id, fragment);
 }
 
 void TraceLogger::add_event(const std::string& unit,
                             const std::string& name,
                             std::uint64_t start_cycle,
-                            std::uint64_t end_cycle) {
+                            std::uint64_t end_cycle,std::uint64_t request_id,
+                            const std::string& op_id,std::uint32_t fragment) {
   if (end_cycle < start_cycle) {
     // Ignore malformed events quietly; users can validate if needed.
     return;
@@ -28,7 +30,7 @@ void TraceLogger::add_event(const std::string& unit,
   _events.push_back(TraceEvent{.name = name,
                                .unit = unit,
                                .start_cycle = start_cycle,
-                               .end_cycle = end_cycle});
+                               .end_cycle = end_cycle,.request_id=request_id,.op_id=op_id,.fragment=fragment});
 }
 
 void TraceLogger::dump_to_csv(const std::string& filename) {
@@ -39,11 +41,14 @@ void TraceLogger::dump_to_csv(const std::string& filename) {
     return;  // For now, silently fail; caller can check filesystem separately.
   }
 
-  ofs << "name,unit,start_cycle,end_cycle\n";
+  ofs << "name,unit,start_cycle,end_cycle,request_id,op_id,fragment\n";
   for (const auto& ev : _events) {
     ofs << '"' << ev.name << '"' << ','
         << '"' << ev.unit << '"' << ','
         << ev.start_cycle << ','
-        << ev.end_cycle << '\n';
+        << ev.end_cycle << ',';
+    if(ev.request_id!=std::numeric_limits<std::uint64_t>::max())ofs<<ev.request_id<<','<<'"'<<ev.op_id<<'"'<<','<<ev.fragment;
+    else ofs<<",,";
+    ofs<<'\n';
   }
 }
