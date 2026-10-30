@@ -16,6 +16,16 @@ def main():
             p=repo/item['path'];data=p.read_bytes()
             if len(data)!=item['bytes'] or hashlib.sha256(data).hexdigest()!=item['sha256']:raise ValueError('artifact changed: '+str(p))
             checked+=1
+    if manifest.get('schema_version')=='runtime-rw-campaign-v1':
+        gates=json.loads((args.manifest.parent/'gates.json').read_text())
+        if gates['status']!='GATES_PASSED' or gates['score'] is not None or len(gates['cases'])!=11 or not all(c['passed'] for c in gates['cases']):raise ValueError('runtime gates incomplete')
+        if not all(gates['deterministic_repeat'].values()) or len(gates['corruptions'])!=8:raise ValueError('runtime repeat/corruption evidence incomplete')
+        for run in manifest['daily_runs']:
+            r=json.loads((repo/run['path']/'result.json').read_text())
+            pin=json.loads((repo/run['path']/'runtime_pin.json').read_text())
+            if r['status']!=run['status'] or r['schedule_status']!='MODEL_RW_CHECKED_CONSERVATIVE' or r['score'] is not None or len(r['batches'])!=96 or r['failed_batches'] or pin['spec_sha256']!=manifest['runtime_spec_sha256']:raise ValueError('daily acceptance mismatch')
+        print(json.dumps({'status':'RUNTIME_RW_AND_DAILY_ARCHIVE_VALID','files_checked':checked,'deterministic_repeat':True,'hardware_G4':'NOT_CERTIFIED','promotion':'BLOCKED'}))
+        return
     if manifest.get('schema_version')=='precision-model-campaign-v1':
         gates=json.loads((args.manifest.parent/'gates.json').read_text())
         if gates['status']!='GATES_PASSED' or gates['score'] is not None or len(gates['cases'])!=5 or not all(c['passed'] for c in gates['cases']):raise ValueError('precision model gates incomplete')
