@@ -52,3 +52,5 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m verification.recons
 CLI显式选择precision8结构profile并写入receipt；不会把precision2模拟结果冒充FP16数值。output必须不存在；构建/仿真都串行，-j1；原件按完整清单校验后才能标记归档，不覆盖旧run。
 
 新增精度模型`modeled_fp16_fp32_real_block_v1`已接通：FP16存储、FP32逐指令/逐k算术，独立参考必须输出完整output_block，按全部FP16位比较；P2分配/搬运与P4 Vector工作量分别校验。硬件校准与转换成本仍未验收，不能凭该模型晋级。见[论文阶段报告](PAPER_REPORT.md)。
+
+当前生产入口要求core-rw-v4及CSV请求身份/issue/commit字段；缺或旧schema时拒绝数值，不静默退回旧重放。固定日常runtime只白名单已验收NS；新增算子先跑独立campaign，再发布新runtime包。见[稳定入口](RUNTIME_STABILITY.md)。

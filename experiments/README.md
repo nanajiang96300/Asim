@@ -30,3 +30,5 @@
 统一重建与独立NS证据：[2026-10-30清单](unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json)。三seed×96batch三路径结构通过，旧七入口共用核心诊断一致，完整硬件精度/异步/通信评分未通过。
 
 逐操作精度模型证据：[precision_campaigns/2026-10-30-fp16-v2-frozen](precision_campaigns/2026-10-30-fp16-v2-frozen/README.md)。论文阶段资料见[报告入口](../DOCS/research/PAPER_REPORT.md)，全部门禁未完成前禁止最终稿与评分。
+
+受限Core事件与固定日常入口：[runtime_rw/2026-10-30-v4-frozen](runtime_rw/2026-10-30-v4-frozen/README.md)。完整11场景/8类制品破坏及重复一致性通过；默认NS私有cwd/TMPDIR与封存基线已实际运行，硬件G4/全部算法/通信/评分未完成。

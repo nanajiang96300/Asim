@@ -105,3 +105,11 @@
 FW3新增冻结FP16存储/FP32算术模型，实块编码后一次RNE量化，逐指令写回，GEMM逐k非融合FP32累加，完整FP16位模式比较（含signed zero）。Vector按P4运算宽度计费、P2存储；转换成本/硬件校准未闭合，不出性能分。三seed×96batch与独立参考全部位一致，最大任务相对误差约0.106%；P8结构回归保持14,298周期，模型P2/P4为7,950周期，不能写成同精度收益。
 
 FW4实现字节范围/core/buffer下的RAW/WAR/WAW合成检查，接受合法独立重叠；实际读完成/写可见及DMA实例绑定未接通时明确UNSUPPORTED。106项单元测试通过。论文资料阶段报告及自动生成命令见PAPER_REPORT.md；--final实际拒绝探针通过。FW3/FW4均in_progress，旧七入口正确性/通信/CDL-B/G6仍未通过。
+
+## D014 — 2026-10-30：受限Core模型检查与固定日常入口
+
+来源：负责人要求继续规划执行，使重建流程稳定可用。决定：在真实Core路径观察读保护、写提交、DMA fragment和buffer reset，严格绑定实际Instruction/dispatch/CSV；采用保守计算读窗口、DMA request快照/fragment response提交。明确标签MODEL_RW_CHECKED_CONSERVATIVE，不冒充硬件G4。tail/padding、DMA local变换、共享累加或未知时钟不猜测。
+
+状态：v4完整11场景门禁通过，8类离线制品损坏拒绝，同输入周期/输出/事件流完全一致；121单元测试通过。v3曾因冗余日志超256MiB而拒绝，v4以逐fragment地址保持线性日志量后通过，失败原件保留。日常入口固定binary/库/配置/源码及验证器版本，独立cwd/TMPDIR，完整基线制品与receipt一致性，冻结runtime身份并封存前复核。默认NS两种模型与基线复用实际通过。
+
+默认命令及完整边界见RUNTIME_STABILITY.md。新算子/代码或后端更新必须创建新验证版本；旧数据不搬迁、不覆盖，score=null。硬件精度/转换成本、通信/CDL-B、G6、恶意worker隔离和无人值守策略仍未完成。

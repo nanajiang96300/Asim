@@ -17,3 +17,5 @@ A/B置SPAD，C/D置ACCUM，sync单独64byte。真实LOAD、GEMM、DIV、barrier�
 设计先于编码；隔离build-j1；真实Asim正例结束且公共重放与矩阵参考一致，负例由真实读写流拒绝。独立审查Core observer与Python绑定器；大制品单独目录保存。FormulaLogger仅诊断。未知事件或模型不猜测。
 
 DIV采用非零非均匀A；其32周期Vector区间与Cube实际计算区间重叠，正例不得只把CubeWait当Cube计算重叠。
+
+验收完成：serialized/independent实际数值正例通过；missing_barrier WAW及overwrite_input保守WAR拒绝；independent实际Cube/Vector重叠2周期。独立审查与源码/运行证据见[稳定性报告](../research/RUNTIME_STABILITY.md)。

@@ -268,7 +268,8 @@
         "src/TraceLogger.cc",
         "src/semantic/",
         "verification/schedule/",
-        "verification/tests/"
+        "verification/tests/",
+        "src/Core.h"
       ],
       "acceptance": [
         "op/DMA fragment/program一一绑定",
@@ -279,25 +280,30 @@
       "evidence": [
         "verification/schedule/hazards.py",
         "verification/tests/test_schedule_model.py",
-        "DOCS/research/PAPER_REPORT.md"
+        "DOCS/research/PAPER_REPORT.md",
+        "experiments/runtime_rw/2026-10-30-v4-frozen/run_manifest.json",
+        "DOCS/research/RUNTIME_STABILITY.md"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
-        "Synthetic event checker only; real Core read-complete/write-visible/DMA binding missing; actual G4 UNSUPPORTED"
+        "Actual Core/fragment observer and conservative model checked; not hardware G4",
+        "Tail DMA, shared accumulation, arbitrary fusion and heterogeneous clocks unsupported"
       ]
     },
     {
       "id": "FW5",
       "title": "受监督协调器/任务协议/隔离runner",
-      "status": "planned",
+      "status": "in_progress",
       "depends_on": [
         "FW1"
       ],
       "allowed_paths": [
         "automation/",
         "experiments/framework/",
-        "verification/tests/"
+        "verification/tests/",
+        "verification/reconstruction/daily.py",
+        "orchestrator/codex_runtime.json"
       ],
       "acceptance": [
         "策略Agent建议、确定性协调器约束分派",
@@ -305,9 +311,16 @@
         "候选只写允许路径，评估进程隔离且重建产物",
         "独立worktree/build/TMPDIR/预算/有限重试/失败归档"
       ],
-      "evidence": [],
+      "evidence": [
+        "experiments/runtime_rw/2026-10-30-v4-frozen/run_manifest.json",
+        "verification/reconstruction/daily.py",
+        "orchestrator/codex_runtime.json"
+      ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
-      "concrete_operator_changes_allowed": false
+      "concrete_operator_changes_allowed": false,
+      "limitations": [
+        "Supervised pinned evaluator entry only; strategy/worker coordinator and malicious-worker OS isolation not implemented"
+      ]
     },
     {
       "id": "FW6",
@@ -687,6 +700,36 @@
       ],
       "limitations": [
         "Full FW3/FW4/FW6 and legacy correctness not complete"
+      ]
+    },
+    {
+      "id": "R05",
+      "title": "受限Core事件绑定与固定日常入口稳态验收",
+      "status": "done",
+      "depends_on": [
+        "R04"
+      ],
+      "allowed_paths": [
+        "src/Core.cc",
+        "src/Core.h",
+        "src/SystolicWS.cc",
+        "src/TraceLogger.*",
+        "src/semantic/",
+        "verification/schedule/",
+        "verification/reconstruction/daily.py",
+        "orchestrator/codex_runtime.json"
+      ],
+      "acceptance": [
+        "逐fragment/读保护/提交/epoch与真实指令/CSV绑定",
+        "真实正负例、损坏制品、私有cwd/TMPDIR与同输入重复通过",
+        "固定binary/lib/config/verifier，基线封存和runtime漂移拒绝"
+      ],
+      "evidence": [
+        "experiments/runtime_rw/2026-10-30-v4-frozen/run_manifest.json",
+        "DOCS/research/RUNTIME_STABILITY.md"
+      ],
+      "limitations": [
+        "Supported conservative model only; not all project gates completed"
       ]
     }
   ],
