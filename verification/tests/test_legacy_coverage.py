@@ -29,6 +29,11 @@ class CoverageTests(unittest.TestCase):
         l,d=ldl_reference(a);np.testing.assert_allclose((l*d)@l.conj().T,a,atol=1e-12)
         z=np.linalg.solve(l,np.eye(4));np.testing.assert_allclose(z.conj().T@np.diag(1/d)@z,np.linalg.inv(a),atol=1e-12)
         wrong=(z*np.sqrt(1/d));self.assertGreater(np.linalg.norm(wrong.conj().T@wrong-np.linalg.inv(a)),1e-4)
+    def test_campaign_cannot_omit_evidence_or_use_unsafe_paths(self):
+        from verification.legacy.extended import validate_manifest
+        for entries in ([],[dict(path='../outside')],[dict(path='/absolute')],[dict(path='x'),dict(path='x')]):
+            with self.assertRaises(ValueError):validate_manifest({'artifacts':entries})
+
     def test_not_reached_is_not_stage_pass(self):
         self.assertEqual(compare({},dict(x=np.eye(2)))['x']['status'],'NOT_REACHED')
 
