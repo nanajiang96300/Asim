@@ -86,12 +86,13 @@ def recover(record, requested, request_bytes=64):
 def simulate(binary, config, models, mode, cwd, run_dir, timeout=120, max_cycles=100000):
     """Fresh artifact directory; export comes from this subprocess only."""
     run_dir=Path(run_dir).resolve();run_dir.mkdir(parents=True,exist_ok=False)
+    private_tmp=run_dir/'tmp';private_tmp.mkdir()
     binary=Path(binary).resolve();config=deepcopy(config)
     if config.get('dram_config_path'):
         config['dram_config_path']=str((Path(cwd)/config['dram_config_path']).resolve())
     (run_dir/'config.json').write_text(json.dumps(config,indent=2))
     (run_dir/'models.json').write_text(json.dumps(models,indent=2))
-    env=dict(os.environ,ONNXIM_HOME=str(Path(cwd).parent),ONNXIM_MAX_CORE_CYCLES=str(max_cycles),
+    env=dict(os.environ,TMPDIR=str(private_tmp),ONNXIM_HOME=str(Path(cwd).parent),ONNXIM_MAX_CORE_CYCLES=str(max_cycles),
              ASIM_DISPATCH_EXPORT=str(run_dir/'dispatch.jsonl'),
              ASIM_INSTRUCTION_EXPORT=str(run_dir/'instructions.jsonl'),ASIM_RW_EXPORT=str(run_dir/'rw_events.jsonl'),
              ONNXIM_TRACE_CSV=str(run_dir/'trace.csv'),ONNXIM_FORMULA_JSON=str(run_dir/'formula.json'))
