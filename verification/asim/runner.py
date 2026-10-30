@@ -93,7 +93,7 @@ def simulate(binary, config, models, mode, cwd, run_dir, timeout=120, max_cycles
     (run_dir/'models.json').write_text(json.dumps(models,indent=2))
     env=dict(os.environ,ONNXIM_HOME=str(Path(cwd).parent),ONNXIM_MAX_CORE_CYCLES=str(max_cycles),
              ASIM_DISPATCH_EXPORT=str(run_dir/'dispatch.jsonl'),
-             ASIM_INSTRUCTION_EXPORT=str(run_dir/'instructions.jsonl'),
+             ASIM_INSTRUCTION_EXPORT=str(run_dir/'instructions.jsonl'),ASIM_RW_EXPORT=str(run_dir/'rw_events.jsonl'),
              ONNXIM_TRACE_CSV=str(run_dir/'trace.csv'),ONNXIM_FORMULA_JSON=str(run_dir/'formula.json'))
     command=[str(binary),'--config',str(run_dir/'config.json'),'--models_list',str(run_dir/'models.json'),'--mode',mode,'--log_level','info']
     binary_before=file_hash(binary)
@@ -109,7 +109,7 @@ def simulate(binary, config, models, mode, cwd, run_dir, timeout=120, max_cycles
     receipt={'status':'COMPLETED' if complete else 'FAILED','returncode':rc,
              'finish_cycle':int(matches[0]) if complete else None,'mode':mode,'command':command,
              'binary_sha256':binary_before,'max_core_cycles':max_cycles,'artifacts':[]}
-    for name in ('config.json','models.json','simulator.log','instructions.jsonl','trace.csv','formula.json','dispatch.jsonl'):
+    for name in ('config.json','models.json','simulator.log','instructions.jsonl','trace.csv','formula.json','dispatch.jsonl','rw_events.jsonl'):
         p=run_dir/name
         if p.is_file():receipt['artifacts'].append({'path':name,'bytes':p.stat().st_size,'sha256':file_hash(p)})
     (run_dir/'asim.json').write_text(json.dumps(receipt,indent=2))

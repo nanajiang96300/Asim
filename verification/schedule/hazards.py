@@ -34,7 +34,7 @@ def subtract(ranges,lo,hi):
     return result
 
 
-def check_schedule(operations,events,initial=()):
+def validate_schedule_events(operations,events,initial=()):
     ids=[o['id'] for o in operations]
     if not ids or len(set(ids))!=len(ids):raise Invalid('empty/duplicate op identities')
     by_id={o['id']:o for o in operations};seen={};stamps=set()
@@ -46,11 +46,18 @@ def check_schedule(operations,events,initial=()):
         if name not in by_id or kind not in ('read_begin','read_done','write_visible') or any(type(x) is not int or x<0 for x in (cycle,order)):raise Invalid('invalid runtime event')
         if (name,kind) in seen or order in stamps:raise Invalid('duplicate event or ambiguous event ordering')
         stamps.add(order);seen[(name,kind)]=(cycle,order)
+    coverage={name:set() for name in ids}
+    for name,kind in seen:coverage[name].add(kind)
     for o in operations:
         required=({'read_begin','read_done'} if o['reads'] else set())|({'write_visible'} if o['writes'] else set())
-        if {kind for name,kind in seen if name==o['id']}!=required:raise Unsupported('missing/extra read completion or visibility events')
+        if coverage[o['id']]!=required:raise Unsupported('missing/extra read completion or visibility events')
         if o['reads'] and seen[o['id'],'read_done']<seen[o['id'],'read_begin']:raise Invalid('read completes before beginning')
         if o['reads'] and o['writes'] and seen[o['id'],'write_visible']<seen[o['id'],'read_done']:raise Invalid('unsupported streaming write before complete read')
+    return seen
+
+
+def check_schedule(operations,events,initial=()):
+    seen=validate_schedule_events(operations,events,initial)
     faults=[]
     for index,o in enumerate(operations):
         name=o['id']

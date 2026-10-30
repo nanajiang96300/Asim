@@ -52,6 +52,7 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
             if code in (0,1):
                 if len(src)!=1:raise ReplayFault('SEMANTIC_BINDING_MISMATCH','DMA arity')
                 remote=src[0] if code==0 else dst;local=dst if code==0 else src[0]
+                if any(local[k] for k in ('row','col','transpose','conjugate')):raise ReplayFault('DMA_VIEW_UNSUPPORTED','local offset or transform requires explicit physical DMA support')
                 if local['base']!=i['dest_addr']:raise ReplayFault('SEMANTIC_BINDING_MISMATCH','DMA local address')
                 targets=header['inputs'] if code==0 else header['outputs']
                 slot,offset,count=mem.tensor_slice(remote,targets)

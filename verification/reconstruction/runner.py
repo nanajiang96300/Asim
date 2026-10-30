@@ -12,6 +12,7 @@ from verification.contracts.core import Invalid,Unsupported,ScreenPolicy,screen_
 from verification.contracts.mmse import MMSETask,fixture,task_reference,decode_checked
 from verification.fixtures.rayleigh import real_block
 from verification.profiles.numeric import policy_for,bit_equal
+from verification.schedule.runtime import check_runtime,HEADER as RUNTIME_CONTRACT
 from verification.shadow.metrics import relative_error
 from verification.operators.catalog import adapter
 from verification.reconstruction.binding import validate_actual
@@ -35,15 +36,21 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
         if config['num_cores']!=24 or config['precision']!=precision.bytes or config['dram_req_size']!=64:raise Invalid('expected24core/request64/precision8')
         cube=config.get('ascend_cube_model',{})
         if not cube.get('enabled') or [cube.get(k) for k in ('cube_m','cube_n','cube_k')]!=[16,16,16]:raise Invalid('expected enabled Cube16x16x16 cost model')
+        if any(rows*cols*precision.bytes%64 for rows,cols in ((2*task.nr,2*task.nt),(2*task.nr,2*task.nrhs),(2*task.nt,2*task.nt),(2*task.nt,2*task.nrhs))):raise Unsupported('runtime observer tail DMA semantics not implemented')
         data=fixture(task,seed)
-        comparison=digest({'task':task.frozen(),'hardware_config':config,'inputs':{k:hashlib.sha256(np.ascontiguousarray(v).tobytes()).hexdigest() for k,v in data['inputs'].items()}})
+        comparison=digest({'runtime_contract':RUNTIME_CONTRACT,'numeric_policy':precision.frozen(),'task':task.frozen(),'hardware_config':config,'inputs':{k:hashlib.sha256(np.ascontiguousarray(v).tobytes()).hexdigest() for k,v in data['inputs'].items()}})
         if policy is not None and baseline_identity!=comparison:raise Invalid('baseline task/input/hardware/measurement identity mismatch')
-        result['comparison_identity']=comparison
+        result['comparison_identity']=comparison;result['runtime_contract']=RUNTIME_CONTRACT
         receipt=simulate(binary,config,models,entry['mode'],cwd,directory,max_cycles=1000000)
         result.update(asim=receipt,task=task.frozen(),task_hash=task.identity,algorithm=parameters,seed=seed)
         np.savez(directory/'inputs.npz',**data['inputs']);np.savez(directory/'channel.npz',H=data['H'],Y=data['Y'],symbols=data['symbols'])
         if receipt['status']!='COMPLETED':result['status']='SKIPPED_ASIM_FAILED'
         else:
+            receipt_files={e['path'] for e in receipt['artifacts']}
+            if 'rw_events.jsonl' not in receipt_files:raise Unsupported('Asim binary did not produce required Core observer stream')
+            for e in receipt['artifacts']:
+                path=directory/e['path']
+                if not path.is_file() or path.stat().st_size!=e['bytes'] or file_hash(path)!=e['sha256']:raise Invalid('Asim artifact changed after process receipt: '+e['path'])
             records=[json.loads(line) for line in (directory/'instructions.jsonl').read_text().splitlines()]
             dispatch=[json.loads(line) for line in (directory/'dispatch.jsonl').read_text().splitlines()]
             if len(records)!=1:raise Invalid('one actual operation required')
@@ -60,6 +67,10 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
             stats=statistics(directory/'trace.csv',records[0]['instructions'],receipt['finish_cycle'],24,dispatch)
             (directory/'pipeline_statistics.json').write_text(json.dumps(stats,indent=2));write_detail(directory/'instruction_pipeline_detail.csv',stats)
             if stats['status']!='TRACE_VALID':raise Invalid('trace pipeline coverage failed')
+            schedule=check_runtime(records[0],dispatch,directory/'rw_events.jsonl',directory/'trace.csv',config,receipt['finish_cycle'])
+            (directory/'schedule.json').write_text(json.dumps(schedule,indent=2))
+            result['schedule_status']=schedule['status']
+            if schedule['status']!='MODEL_RW_CHECKED_CONSERVATIVE':raise Invalid('actual Core schedule rejected by declared conservative model')
             binding=digest({'task':task.frozen(),'algorithm':parameters,'record_sha256':file_hash(directory/'instructions.jsonl'),'seed':seed})
             receipt['program_hash']=binding
             screen=policy or ScreenPolicy(receipt['finish_cycle'],1,1)
