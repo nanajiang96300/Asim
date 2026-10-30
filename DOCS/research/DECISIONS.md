@@ -89,3 +89,11 @@
 状态：七入口×96batch，24core每core4tile全部Asim结束，实际计算/屏障事件匹配；五入口歧义、BRI越界、NS数值/输入绑定错误，可信比较BLOCKED且score=null。68单元测试通过、限定范围独立审查通过。详细源码证据/逐batch首错/逐流水统计见LEGACY_RECONSTRUCTION_REPORT.md与experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen。v1探索证据保留，v2为最终冻结诊断；大trace/输入/二进制原位按hash保存，不提交大制品。
 
 这是logical complex128结构诊断，成本precision=2，非硬件精度认证；七旧入口独立同算法参考/FP16/G4/通信/G6仍缺证。框架诊断门禁通过不等于算子通过，也不将当前BRI入口缺陷推广为算法永久不可用。
+
+## D012 — 2026-10-30：共同完整任务、共享重放与独立NS候选
+
+来源：负责人要求统一输入/计时、修正NS并建立同算法参考，统一重建便于新算法接入。决定：完整均衡scope以H/Y/λ和共同I常量为边界，计入Gram、正则、HᴴY、初始化、迭代、恢复及DMA；prepared A/b/X0/C scope单列。预筛基线绑定task/输入hash/硬件config/scope。结构FP64与硬件FP16不混用。
+
+旧与新source-views、通用结构程序共用ArrayMemory/execute_views。独立算法参考单列，禁止算法名求解替代实际重放；新算法只扩展生成/参考适配契约。旧generic SUB→raw ADD不能证明减法，现UNSUPPORTED；新NS显式MUL(-1)+ADD。
+
+状态：独立NS已编译，三瑞利seed各96batch三路径结构通过，14,298周期；K1重放正确但任务质量失败，两个性能预筛跳过分支符合预期。旧七入口共用核心的失败分类与冻结证据一致。79测试与限定范围独立审查通过。证据见NS_CORRECTED_VALIDATION.md；FP16/原生复数成本/G4/通信/G6未完成，无受信排名。

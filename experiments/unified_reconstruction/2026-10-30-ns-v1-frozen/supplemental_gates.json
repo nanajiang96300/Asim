@@ -1,0 +1,26 @@
+{
+  "status": "SUPPLEMENTAL_GATES_PASSED",
+  "scope": "two offline actual-record workload mutations and two static rejection probes; no mutant simulated timing claim",
+  "cases": [
+    {
+      "case": "undercounted_vector",
+      "status": "REJECTED",
+      "reason": "vector workload mismatch"
+    },
+    {
+      "case": "undercounted_gemm",
+      "status": "REJECTED",
+      "reason": "GEMM workload mismatch"
+    },
+    {
+      "case": "cross_seed_baseline",
+      "status": "REJECTED_BEFORE_ASIM",
+      "reason": "baseline task/input/hardware/measurement identity mismatch"
+    },
+    {
+      "case": "cube_profile_disabled",
+      "status": "REJECTED_BEFORE_ASIM",
+      "reason": "expected enabled Cube16x16x16 cost model"
+    }
+  ]
+}

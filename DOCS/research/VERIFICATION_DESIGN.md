@@ -164,3 +164,7 @@ r=\frac{\|A\hat{x}-b\|_F}{\|A\|_2\|\hat{x}\|_F+\|b\|_F+\epsilon}.
 ## 2026-10-29七入口重建更新
 
 [七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)记录最新实际覆盖：真实Instruction附加views、逐元素初始化/部分写、DMA batch范围、完整输出与事件覆盖检查已落地；七入口正确性未全通过，score=null。独立同算法参考、精度/G4/通信仍缺证，不能用周期正常结束替代验收。专用原件目录`results/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/`，Git小清单在`experiments/reconstruction_campaigns/`；重跑命令与hash检查见报告，旧数据不移动。
+
+## 2026-10-30统一重建更新
+
+[本轮报告](NS_CORRECTED_VALIDATION.md)为最新覆盖：共同H/Y/λ及计时scope、共享view/初始化/算术核心、新NS三seed×96batch三路径结构通过。79测试通过，旧七入口保留原失败。FP16/G4/通信/G6及评分尚未验收。按[接入指南](ADDING_OPERATOR.md)增加候选与独立参考，不在重建核心添加算法名分支。prepared内核与完整任务不得直接比较；旧generic SUB→raw ADD现显式UNSUPPORTED。

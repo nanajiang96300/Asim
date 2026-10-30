@@ -80,3 +80,5 @@ timeout 120s env ONNXIM_HOME="$WORKTREE"   ONNXIM_TRACE_CSV="$RUN_DIR/trace.csv"
 ## 最新实际重建（2026-10-29）
 
 当前七个注册入口已执行24核/batch96真实Asim及重建，详细结果见[统一报告](../LEGACY_RECONSTRUCTION_REPORT.md)。五入口因原索引/归约歧义停止，BRI越界、NS数值/输入绑定错误；没有入口完成全部正确性验收。历史状态卡不覆盖这些新事实，也不能据旧DAG PASS晋级。
+
+2026-10-30新增独立[NS corrected v1](../../operators/ns_corrected_v1.md)，三seed×96batch完整均衡FP64结构通过，见[报告](../NS_CORRECTED_VALIDATION.md)。旧NS卡及失败证据保留；新14,298与旧4,647不同scope，禁止混排。

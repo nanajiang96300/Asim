@@ -34,4 +34,17 @@ set_algorithm(ns_corrected_v1)及逐算术emit_step仅为旧工具诊断，重�
 
 先独立build -j1，再Asim smoke，独立子Agent审计，固定96batch三路径验证及流水归档。至少三个Rayleigh种子；actual/algorithm误差≤1e-10，task误差≤1e-10，逐batch不得平均。另实际序列变异：残差符号/最终平方/跨batch输入；低K区分算法与任务失败。初次正确性建立基线，非竞争候选仍跳过数值，离谱加速隔离。完整FP16/G4/G6/通信统计未验收不发分。
 
-状态：设计已落地，实现与门禁待执行。
+状态：实现与受限结构门禁完成，见[验收报告](../research/NS_CORRECTED_VALIDATION.md)。
+
+| op-flow阶段 | 实际执行证据 | 状态 |
+|---|---|---|
+| 设计/推导 | 本文编码前创建，τ=2trace(A)、残差展开及计时范围固定 | 完成 |
+| v3源码检查 | base_addr0、barrier、初始化检查、正确MOVOUT；I为共同契约提供并计DMA，非将Reg当单位元 | 结构范围完成 |
+| 构建 | 独立工作区-j1，[100%] Built target Simulator | 完成 |
+| smoke | 96batch实际Asim 14,298周期，三路径通过 | 完成 |
+| 独立审查 | legacy_semantic_review只读检查并复审Scalar修复 | 结构范围通过 |
+| benchmark/归档 | 共同runner替代缺task_contract的旧benchmark脚本；三seed/trace/结果JSON归档 | 完成 |
+| 数值 | 实际Instruction/独立NS/任务三个路径，全部96batch | 结构范围通过 |
+| 精度/异步/通信/G6 | 完整门禁待开发，score=null | 未通过 |
+
+FormulaLogger以ELEMENTWISE/GEMM记录算术构造；旧DAG不支持的op不作为新验收依据，不以旧可选数值规则替代新硬门禁。

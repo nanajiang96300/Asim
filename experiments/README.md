@@ -26,3 +26,5 @@
 24核/batch96最新证据：[run_manifest.json](framework/2026-10-29-ascend24/run_manifest.json)。含独立算法/任务参考、逐batch门禁、旧NS96拒绝证据、原始H/y/符号/输入/输出hash；完整FP16/G4/统计质量门禁仍未完成。
 
 七旧入口最新重建：[专用结果清单](reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/README.md)。含七入口96batch首错、流水摘要、136构造点原字段一致性证据；正确性BLOCKED，无受信排行榜。与framework合成样例和旧run分开。
+
+统一重建与独立NS证据：[2026-10-30清单](unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json)。三seed×96batch三路径结构通过，旧七入口共用核心诊断一致，完整硬件精度/异步/通信评分未通过。

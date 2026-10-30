@@ -139,13 +139,15 @@
         "verification/tests/test_asim_adapter.py",
         "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
         "experiments/framework/2026-10-29-ascend24/run_manifest.json",
-        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json"
+        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json",
+        "experiments/unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
         "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending",
-        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification"
+        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification",
+        "Shared view/arithmetic and full-scope corrected NS structure passed; hardware precision/G4 incomplete"
       ]
     },
     {
@@ -173,13 +175,15 @@
         "verification/tests/test_asim_adapter.py",
         "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
         "experiments/framework/2026-10-29-ascend24/run_manifest.json",
-        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json"
+        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json",
+        "experiments/unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
         "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending",
-        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification"
+        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification",
+        "Shared view/arithmetic and full-scope corrected NS structure passed; hardware precision/G4 incomplete"
       ]
     },
     {
@@ -207,13 +211,15 @@
         "verification/tests/test_asim_adapter.py",
         "experiments/framework/2026-10-29-asim-gates/run_manifest.json",
         "experiments/framework/2026-10-29-ascend24/run_manifest.json",
-        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json"
+        "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json",
+        "experiments/unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json"
       ],
       "plan": "DOCS/research/FRAMEWORK_PLAN.md",
       "concrete_operator_changes_allowed": false,
       "limitations": [
         "24-core batch24/96 whole-region FP64 inverse/apply structure verified; full typed views, hardware precision, G4 and production acceptance remain pending",
-        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification"
+        "Legacy7 source views tested; semantic ambiguities and observed failures block correctness; no FP16/G4/quality certification",
+        "Shared view/arithmetic and full-scope corrected NS structure passed; hardware precision/G4 incomplete"
       ]
     },
     {
@@ -601,7 +607,7 @@
     {
       "id": "R02",
       "title": "冻结统一任务范围，新增NS正确结构候选与独立同算法参考",
-      "status": "planned",
+      "status": "done",
       "depends_on": [
         "R01"
       ],
@@ -615,7 +621,13 @@
         "同源残差与最终输出及槽位逐batch正确",
         "Asim先行、三路径一致且全部96batch验证；其后继续FP16/G4门禁"
       ],
-      "evidence": []
+      "evidence": [
+        "experiments/unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json",
+        "DOCS/research/NS_CORRECTED_VALIDATION.md"
+      ],
+      "limitations": [
+        "R02 structure scope only; FP16/G4/communication/G6 and scoring pending"
+      ]
     },
     {
       "id": "R03",

@@ -8,6 +8,8 @@
 
 最新（2026-10-29）：七入口24核/batch96全部Asim结束并执行重建；五入口语义歧义、BRI边界错误、NS数值/输入绑定错误，可信排行榜BLOCKED。冻结批68、兼容回归69单元测试通过。[七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)与[归档清单](../../experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json)为最新证据；下文早期21/29/45测试和UNSUPPORTED描述保留为阶段历史。
 
+2026-10-30最新：统一任务/计时边界与共用重建核心已落地；独立NS三seed×96batch三路径结构通过，14,298周期包含Gram/初始化/恢复。旧七入口仍未全过，79测试通过，FP16/G4/通信及评分未验收。见[本轮报告](NS_CORRECTED_VALIDATION.md)及[新增算子指南](ADDING_OPERATOR.md)。
+
 ## 当前目标
 
 利用 Agent 自动迭代 NPU 上的通信算子，在通信质量约束下减少周期，并有效利用 AI Core。当前以 MIMO 均衡为试验任务，开展算法结构的外循环搜索和指令、流水调度的内循环优化。

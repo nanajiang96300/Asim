@@ -1,0 +1,638 @@
+{
+  "status": "GATES_PASSED",
+  "scope": "structure prototype; no G4/precision/quality/promotion certification",
+  "score": null,
+  "cases": [
+    {
+      "case": "rayleigh_gram",
+      "expected_status": "STRUCTURE_CHECKED",
+      "status": "STRUCTURE_CHECKED",
+      "numeric_status": "EXECUTED",
+      "cycle": 137,
+      "gate_passed": true
+    },
+    {
+      "case": "not_competitive",
+      "expected_status": "SKIPPED_NOT_COMPETITIVE",
+      "status": "SKIPPED_NOT_COMPETITIVE",
+      "numeric_status": "NOT_RUN",
+      "cycle": 137,
+      "gate_passed": true
+    },
+    {
+      "case": "implausible",
+      "expected_status": "QUARANTINED_IMPLAUSIBLE_SPEEDUP",
+      "status": "QUARANTINED_IMPLAUSIBLE_SPEEDUP",
+      "numeric_status": "NOT_RUN",
+      "cycle": 137,
+      "gate_passed": true
+    },
+    {
+      "case": "wrong_arithmetic",
+      "expected_status": "NUMERIC_FAILED",
+      "status": "NUMERIC_FAILED",
+      "numeric_status": "EXECUTED",
+      "relative_error": 1.0000000000000002,
+      "gate_passed": true
+    },
+    {
+      "case": "missing_load",
+      "expected_status": "SKIPPED_ASIM_FAILED",
+      "status": "SKIPPED_ASIM_FAILED",
+      "numeric_status": "NOT_RUN",
+      "gate_passed": true
+    },
+    {
+      "case": "legacy_ns",
+      "asim_status": "COMPLETED",
+      "cycle": 1708,
+      "score": null,
+      "numeric_status": "NOT_RUN",
+      "actual_instruction_count": 102,
+      "status": "UNSUPPORTED",
+      "reason": "NUMERIC_SCHEMA_REQUIRES_SEPARATE_ADAPTER: legacy-source-views-v1",
+      "gate_passed": true
+    },
+    {
+      "case": "legacy_cholesky",
+      "asim_status": "COMPLETED",
+      "cycle": 232,
+      "score": null,
+      "numeric_status": "NOT_RUN",
+      "actual_instruction_count": 28,
+      "status": "UNSUPPORTED",
+      "reason": "NUMERIC_SCHEMA_REQUIRES_SEPARATE_ADAPTER: legacy-source-views-v1",
+      "gate_passed": true
+    }
+  ],
+  "binary_sha256": "bc664dfe6c74dc682955128e8cd1c8d89c8a059a3eb5c686a2519e8341741f93",
+  "binary_source_commit": "5fd2ab814b67261f2ffd3cd0a762e333f8935f27",
+  "runner_base_commit": "b5df20695c7cb027fc8ac2cd001e65630a63bb5b",
+  "sources": [
+    {
+      "path": "src/semantic/InstructionExport.cc",
+      "sha256": "1946248f986087064ac8424b322e578fed50f191dc9c3c970bea9d31abdaffed"
+    },
+    {
+      "path": "src/semantic/InstructionExport.h",
+      "sha256": "e3c785d3ba0c3991acc1f49dd69f0e404b6080654996dbbcf5d63789815c007b"
+    },
+    {
+      "path": "src/semantic/ProgramModel.cc",
+      "sha256": "c5e0a4c56ca2db3a8dada6eba240885460838e6efa71ed9b6aa5bd96b3761299"
+    },
+    {
+      "path": "src/semantic/ProgramModel.h",
+      "sha256": "11292e493b06332cb5073eba878144a392c4b258cc574dd2fd5f74fd14be4220"
+    },
+    {
+      "path": "src/semantic/SourceViews.h",
+      "sha256": "8e92c6f8423b2a4843fc209a130c6f2d76392afe6f7985b5f4cc7809288eb320"
+    },
+    {
+      "path": "verification/__init__.py",
+      "sha256": "efa11418ea24fc336cfedbbb6006a97b7357432a97797bc05e61825f32a992e7"
+    },
+    {
+      "path": "verification/asim/batch.py",
+      "sha256": "1d7098c336d0b7573e97a4ed901dba0ce14d824136b118da54d7eb6c39caeb90"
+    },
+    {
+      "path": "verification/asim/batch_gates.py",
+      "sha256": "8ecc574881630d51e5e8f76367f08603a767acb3c0a2298672a4997bb74bdc58"
+    },
+    {
+      "path": "verification/asim/gates.py",
+      "sha256": "0e43d5a9e12cb81a660b1e47d532d7ab45b92ced30cab4e840f3a3b835024922"
+    },
+    {
+      "path": "verification/asim/runner.py",
+      "sha256": "71c9df883a0e803b930f83c0367fcb83f134e8892cf2bb61b9f19c1fdcaabd01"
+    },
+    {
+      "path": "verification/contracts/core.py",
+      "sha256": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116"
+    },
+    {
+      "path": "verification/contracts/mmse.py",
+      "sha256": "ea29a08a16869c2acc77afad8b5d789745443c57ac98195d3020f42a312a5261"
+    },
+    {
+      "path": "verification/fixtures/rayleigh.py",
+      "sha256": "6f94d96c42e4284dd1c923c9a52058dd40b2b4bad4e94b0b0896272b9c248834"
+    },
+    {
+      "path": "verification/fixtures/solve_program.py",
+      "sha256": "4b4dba26266ba23bc220aa902971554e2831a66531da792892854669d7528138"
+    },
+    {
+      "path": "verification/legacy/campaign.py",
+      "sha256": "0d16561ffcdb0dab7890a07166968402c21b32a0c6a7291aa7b734435ee494cf"
+    },
+    {
+      "path": "verification/legacy/replay.py",
+      "sha256": "2e43fb007e50a6d813a8c423b72a9bdce65a2b047e28564e651f7fe902f0b9f4"
+    },
+    {
+      "path": "verification/operators/catalog.py",
+      "sha256": "5dd216685387d459475ee38480c0e592aa8dc213891e01c81a0253f6de4de825"
+    },
+    {
+      "path": "verification/reconstruction/binding.py",
+      "sha256": "b263962189cff482ce3135bf30a5d382ddfad55eac0c73c4c8cb6e0db131f10a"
+    },
+    {
+      "path": "verification/reconstruction/engine.py",
+      "sha256": "7b3a032afcffad7ff37e1c9d5e5d461d7b18f8ec57dcedc35a9848a876713795"
+    },
+    {
+      "path": "verification/reconstruction/gates.py",
+      "sha256": "f3a0f42212881acee27204ee00556803ff9070107fe6e72051cc157b5315c360"
+    },
+    {
+      "path": "verification/reconstruction/runner.py",
+      "sha256": "f485f175b0424b1878456491eecf50760d5fd4ee1aaea8afcc06d96220ed6db0"
+    },
+    {
+      "path": "verification/reconstruction/source_views.py",
+      "sha256": "8428fbd1d4abd2f498e3c50bea36242cf745952c820bac69e31b2cfea91ed0bf"
+    },
+    {
+      "path": "verification/reference/ns.py",
+      "sha256": "015bd592300c4eb48c7095e529d206ec483a19344d24b4cbb43f1eca54565f17"
+    },
+    {
+      "path": "verification/reporting/pipeline.py",
+      "sha256": "f525bce96dd5cb36c241a5f98d850666f23b82e7d0361f4cda5fb0bd4eaa37e8"
+    },
+    {
+      "path": "verification/shadow/execute.py",
+      "sha256": "767ec2644f7288759609fa5d4205a0d95c9f42f454ea0ed886a1e29e7f994322"
+    },
+    {
+      "path": "verification/shadow/metrics.py",
+      "sha256": "5531a1af2a2c0c5d8d2951627066e3fd0e9ed8dfcdcb1fd26637d27c5320aa5f"
+    },
+    {
+      "path": "verification/shadow/program.py",
+      "sha256": "58c7c836a62dc5f61b42290a35a013ff099bf0532ddd15fbc45415d826276e5e"
+    },
+    {
+      "path": "verification/tests/test_asim_adapter.py",
+      "sha256": "3d3e5aa3870c003746ae6f5ba7902ca7dd2b887ae57f825ad25fbc0d403399a5"
+    },
+    {
+      "path": "verification/tests/test_batch.py",
+      "sha256": "308aa9bd5e95a888ff960de85a1ebbb432f42f5afd458224f726601e3ca108f8"
+    },
+    {
+      "path": "verification/tests/test_framework.py",
+      "sha256": "26c40d0c67d8107209cb760ac23a92ca385ff1236d261911acfefa380e7041a7"
+    },
+    {
+      "path": "verification/tests/test_legacy_replay.py",
+      "sha256": "df11b8aa7c97602fbc3420f6dfaedb8d7dcd1b8120d42b622b67ce09930ceff4"
+    },
+    {
+      "path": "verification/tests/test_unified.py",
+      "sha256": "795edb4cd0ae46e6c84f14ddb8107d81db700350ca96a3950bf98368190251f7"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "calibration/asim.json",
+      "bytes": 1724,
+      "sha256": "4b8ce8e8b51aa8182e689e4473071bd0f13cda68f36fe3d017420ec0f8767817"
+    },
+    {
+      "path": "calibration/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "calibration/dispatch.jsonl",
+      "bytes": 169,
+      "sha256": "4bc8e4c21fcbad27714b83c4aca8d5cfdcceddb357245765fbd6abb7f99587f7"
+    },
+    {
+      "path": "calibration/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "calibration/instructions.jsonl",
+      "bytes": 2537,
+      "sha256": "fb4d70fb665f8347164fd84db7f0c629b1019f316776bcf854dc07ab4778d835"
+    },
+    {
+      "path": "calibration/models.json",
+      "bytes": 2037,
+      "sha256": "60687b034769fd4f3be40fc895f050f40bc589b3986de8b9bd8a6455ec0e2110"
+    },
+    {
+      "path": "calibration/simulator.log",
+      "bytes": 16439,
+      "sha256": "3db9a70e7c73545a9a3d0bb0027b5f4ad8682d850ea82eccb8ab2aa1fd02c71f"
+    },
+    {
+      "path": "calibration/trace.csv",
+      "bytes": 478,
+      "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+    },
+    {
+      "path": "implausible/actual_program.json",
+      "bytes": 1393,
+      "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+    },
+    {
+      "path": "implausible/asim.json",
+      "bytes": 1724,
+      "sha256": "bf790cd1b9b46d8bf1c2ca414d062262563fd4ec21ede419e7eef4b447f43cff"
+    },
+    {
+      "path": "implausible/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "implausible/dispatch.jsonl",
+      "bytes": 169,
+      "sha256": "4bc8e4c21fcbad27714b83c4aca8d5cfdcceddb357245765fbd6abb7f99587f7"
+    },
+    {
+      "path": "implausible/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "implausible/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "implausible/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "implausible/instructions.jsonl",
+      "bytes": 2537,
+      "sha256": "fb4d70fb665f8347164fd84db7f0c629b1019f316776bcf854dc07ab4778d835"
+    },
+    {
+      "path": "implausible/models.json",
+      "bytes": 2042,
+      "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+    },
+    {
+      "path": "implausible/result.json",
+      "bytes": 3792,
+      "sha256": "e86425fea468d97661e3a731cd4fa140b91cd8c8284d0686884d933ef27b08ae"
+    },
+    {
+      "path": "implausible/simulator.log",
+      "bytes": 16454,
+      "sha256": "90a3233d7130dbcf25df5ccf7d354fbc52dc9c7ded1d9bdcb3b88d59339f9bb0"
+    },
+    {
+      "path": "implausible/trace.csv",
+      "bytes": 478,
+      "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+    },
+    {
+      "path": "legacy_cholesky/asim.json",
+      "bytes": 1741,
+      "sha256": "f2df80a126ea4452326260df47887061e304b4781e26d63975a7c5acf96b684b"
+    },
+    {
+      "path": "legacy_cholesky/config.json",
+      "bytes": 1304,
+      "sha256": "37483d97130358860f2c30bef19d95b68ccb1dddcaddcb1db2fa16792ccd9c6d"
+    },
+    {
+      "path": "legacy_cholesky/dispatch.jsonl",
+      "bytes": 594,
+      "sha256": "6f7dedfb6776a5d8fcfa3f87d170c9898ad05f6c10b1f7a590d068c8db32511b"
+    },
+    {
+      "path": "legacy_cholesky/formula.json",
+      "bytes": 2348,
+      "sha256": "8cba5d4a351181013aa3b1232c9a69396cc59e80894955cff18b2d6f834ca2a6"
+    },
+    {
+      "path": "legacy_cholesky/instructions.jsonl",
+      "bytes": 16422,
+      "sha256": "a958c6acab02a372a6885e14b30a5d40b92aa6a54548989126f77814fc52fe7a"
+    },
+    {
+      "path": "legacy_cholesky/models.json",
+      "bytes": 130,
+      "sha256": "6e3823ef2325912e2880df2a68f251658ab4d34d7ac4730947e7b5b2bbc8bd18"
+    },
+    {
+      "path": "legacy_cholesky/reconstruction.json",
+      "bytes": 289,
+      "sha256": "2cf5f3f6171932e6c69db9f49a6f45b38c26f139a2f470cd82b05b12854812d8"
+    },
+    {
+      "path": "legacy_cholesky/simulator.log",
+      "bytes": 16685,
+      "sha256": "6940e3032e84f60c261a205b5db7bdd2fc843bd810769e20bcbf32dd022db7ff"
+    },
+    {
+      "path": "legacy_cholesky/trace.csv",
+      "bytes": 1220,
+      "sha256": "912264af9bc88feee560450c5068e49f13bf2edb574f4bbc585e0f6babd6e755"
+    },
+    {
+      "path": "legacy_ns/asim.json",
+      "bytes": 1726,
+      "sha256": "70a182959d242a0758f3c7024fca83f4ed0fb60e885616100f6ce49f390d1d2b"
+    },
+    {
+      "path": "legacy_ns/config.json",
+      "bytes": 1304,
+      "sha256": "37483d97130358860f2c30bef19d95b68ccb1dddcaddcb1db2fa16792ccd9c6d"
+    },
+    {
+      "path": "legacy_ns/dispatch.jsonl",
+      "bytes": 1138,
+      "sha256": "7e4dbef3bda545ed9589e4acb2e7c1fd222aeee7430df2cb600b04968fc9adab"
+    },
+    {
+      "path": "legacy_ns/formula.json",
+      "bytes": 19164,
+      "sha256": "be0de98f079644f9caef3f8bdca7cc6847c9124b5db2ad5c136f071accb8b88e"
+    },
+    {
+      "path": "legacy_ns/instructions.jsonl",
+      "bytes": 50326,
+      "sha256": "4f53a5432be54b9b5627a22c93fbd3fbf9d75b3473ce8aa53d56c7874daed023"
+    },
+    {
+      "path": "legacy_ns/models.json",
+      "bytes": 124,
+      "sha256": "9f2aeea6365aba3475e90486c000da87d1a14f77a2672ee593802b8dc5638fbf"
+    },
+    {
+      "path": "legacy_ns/reconstruction.json",
+      "bytes": 285,
+      "sha256": "30237190ce06e9717c018bc7c9a626b5f1e7199c7b515aa65c3403eaeca64467"
+    },
+    {
+      "path": "legacy_ns/simulator.log",
+      "bytes": 16664,
+      "sha256": "233f4ef8e7bc0d702b98fc888ea7fa1308595fb718fb3b2ded5a8cd4f9c0989d"
+    },
+    {
+      "path": "legacy_ns/trace.csv",
+      "bytes": 3978,
+      "sha256": "f1c8eed64a907082360473edd871948f7bac4f233012c8690504c869ea370892"
+    },
+    {
+      "path": "missing_load/asim.json",
+      "bytes": 1724,
+      "sha256": "fd4194f00987642de314d703330e94da485b45b746283eda3965a3f3c9e87064"
+    },
+    {
+      "path": "missing_load/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "missing_load/dispatch.jsonl",
+      "bytes": 142,
+      "sha256": "21e34804d6c8d2ab89c42b7874b726abd5963c197090e27f5640b8e91ee26430"
+    },
+    {
+      "path": "missing_load/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "missing_load/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "missing_load/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "missing_load/instructions.jsonl",
+      "bytes": 2013,
+      "sha256": "61f2e00f95b9fb8145caae52d37123baa44919f591eea50706d5f57e45d9994c"
+    },
+    {
+      "path": "missing_load/models.json",
+      "bytes": 1885,
+      "sha256": "537937dd853b89077e05c4280444be9074c4e165eacaed33f9a30e4e48860d6e"
+    },
+    {
+      "path": "missing_load/result.json",
+      "bytes": 3624,
+      "sha256": "345d82c399a99aec031f089d7a02aa6204547108f82a9bf1b50794c6d49c998f"
+    },
+    {
+      "path": "missing_load/simulator.log",
+      "bytes": 17247,
+      "sha256": "65ec274389733498832fc60d87f21be388a182eed453f56837977f3932267fcb"
+    },
+    {
+      "path": "missing_load/trace.csv",
+      "bytes": 174,
+      "sha256": "6e9b1a9845dcabc579fdf7f649d02e9ce84d3c9564b3f67007fb52f329b26794"
+    },
+    {
+      "path": "not_competitive/actual_program.json",
+      "bytes": 1393,
+      "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+    },
+    {
+      "path": "not_competitive/asim.json",
+      "bytes": 1732,
+      "sha256": "94a9c4f04a93030d0edd1262d956d27da1da6311723066464c55dc893bb515da"
+    },
+    {
+      "path": "not_competitive/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "not_competitive/dispatch.jsonl",
+      "bytes": 169,
+      "sha256": "4bc8e4c21fcbad27714b83c4aca8d5cfdcceddb357245765fbd6abb7f99587f7"
+    },
+    {
+      "path": "not_competitive/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "not_competitive/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "not_competitive/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "not_competitive/instructions.jsonl",
+      "bytes": 2537,
+      "sha256": "fb4d70fb665f8347164fd84db7f0c629b1019f316776bcf854dc07ab4778d835"
+    },
+    {
+      "path": "not_competitive/models.json",
+      "bytes": 2042,
+      "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+    },
+    {
+      "path": "not_competitive/result.json",
+      "bytes": 3805,
+      "sha256": "3c8878410a3c7266dfa5b44fce0d17c4e59cd5eb022bac7aca41a3e58aa14074"
+    },
+    {
+      "path": "not_competitive/simulator.log",
+      "bytes": 16462,
+      "sha256": "30f3552f553694e7c6a0e0af6bfc8095bfcb09f5ff10ca51f2d7dfc5f13a829b"
+    },
+    {
+      "path": "not_competitive/trace.csv",
+      "bytes": 478,
+      "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+    },
+    {
+      "path": "rayleigh_gram/actual_program.json",
+      "bytes": 1393,
+      "sha256": "481c68605b6102f1beec0653553709a2c98f42343645bd8b4b034a8916711672"
+    },
+    {
+      "path": "rayleigh_gram/asim.json",
+      "bytes": 1728,
+      "sha256": "33ee3e2f26b5685061924028054b875f593be06326e3a5dbd44f3e42d8dfcba8"
+    },
+    {
+      "path": "rayleigh_gram/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "rayleigh_gram/dispatch.jsonl",
+      "bytes": 169,
+      "sha256": "4bc8e4c21fcbad27714b83c4aca8d5cfdcceddb357245765fbd6abb7f99587f7"
+    },
+    {
+      "path": "rayleigh_gram/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "rayleigh_gram/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "rayleigh_gram/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "rayleigh_gram/instructions.jsonl",
+      "bytes": 2537,
+      "sha256": "fb4d70fb665f8347164fd84db7f0c629b1019f316776bcf854dc07ab4778d835"
+    },
+    {
+      "path": "rayleigh_gram/models.json",
+      "bytes": 2042,
+      "sha256": "21a5bb2876109dd7902ee9981d8ee7b536d8ee03136497110ff2ca9c4ce4ffa4"
+    },
+    {
+      "path": "rayleigh_gram/numerics_started.json",
+      "bytes": 84,
+      "sha256": "29df5e3c21fed0a60476495538a3e27f90b6a495e0a08a12744c6f8cc38ad8cd"
+    },
+    {
+      "path": "rayleigh_gram/result.json",
+      "bytes": 8690,
+      "sha256": "eac40b549960445a487b2812ad78371fa7d413e4fd9c47019bd91e7d0d78aaba"
+    },
+    {
+      "path": "rayleigh_gram/simulator.log",
+      "bytes": 16458,
+      "sha256": "2c3689b344e01190916802b6ecc39d3324450e9ac392f073196f9a5441f5e720"
+    },
+    {
+      "path": "rayleigh_gram/trace.csv",
+      "bytes": 478,
+      "sha256": "2c2f64051f9c4f0917e33392c61244d37e496ab8982e35033692cf209c5fcbc0"
+    },
+    {
+      "path": "wrong_arithmetic/actual_program.json",
+      "bytes": 1524,
+      "sha256": "fdb92d78812a86af7cdc0bcc1442b4ca5a160d93e5e29a727e0b5b14209b3bd0"
+    },
+    {
+      "path": "wrong_arithmetic/asim.json",
+      "bytes": 1734,
+      "sha256": "8fb5a19cacb68d89561b83108b90ab65b22f8ebbbb6b06571582aa11f81ef06b"
+    },
+    {
+      "path": "wrong_arithmetic/config.json",
+      "bytes": 1304,
+      "sha256": "9c3e253fd6cfced2f77af50bbbb4f0bbeb3e7727ef759fd2c9043ab7707e2caa"
+    },
+    {
+      "path": "wrong_arithmetic/dispatch.jsonl",
+      "bytes": 206,
+      "sha256": "842e9979c8fa9b5906fd1ba6ca87d90fe15f1616f6c390bedcac9e102a90d8fc"
+    },
+    {
+      "path": "wrong_arithmetic/expected.json",
+      "bytes": 272,
+      "sha256": "3975f4bac0fb380b0d85ba4d595c241c6f4cba8129550c5a8efef5fe06dbf77d"
+    },
+    {
+      "path": "wrong_arithmetic/formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "wrong_arithmetic/inputs.json",
+      "bytes": 1394,
+      "sha256": "2af3e4c70eeed33b27c158649bec469c25c9fdfcba1f4deb753e1ce7336352bf"
+    },
+    {
+      "path": "wrong_arithmetic/instructions.jsonl",
+      "bytes": 3082,
+      "sha256": "463d4aefde01fa5d4df260eadbc1cc8e89113b90efd3862f41a3cdfff44d80a1"
+    },
+    {
+      "path": "wrong_arithmetic/models.json",
+      "bytes": 2227,
+      "sha256": "4707dbb3c0f48281d7d5477b0c6284091d1f119e243a2f40cecefa0ea336bda1"
+    },
+    {
+      "path": "wrong_arithmetic/numerics_started.json",
+      "bytes": 84,
+      "sha256": "4447d3fefe1758a71e4403eea8f844959fea6a76d03038dbdae21e2a72b43291"
+    },
+    {
+      "path": "wrong_arithmetic/result.json",
+      "bytes": 9391,
+      "sha256": "f4796b658d47372d123ec8828508adb2699ccf03bca4113e239abffaff507ea1"
+    },
+    {
+      "path": "wrong_arithmetic/simulator.log",
+      "bytes": 16464,
+      "sha256": "bf1ed298300267cf8923da626dbed072fffcdc883062f298b0f2f7d6701e91a1"
+    },
+    {
+      "path": "wrong_arithmetic/trace.csv",
+      "bytes": 561,
+      "sha256": "2ebeb57527df1feb070e8528bb7ea17484c916f0d9c3478fb8dde0f1ce08d466"
+    }
+  ]
+}

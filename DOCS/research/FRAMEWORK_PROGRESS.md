@@ -1,6 +1,8 @@
 # 框架实际进度与门禁证据
 
-更新：2026-10-29（Asia/Hong_Kong）。最新状态：七个注册入口已补源码views并执行真实Asim重建，冻结批68、兼容回归69单元测试通过；算子正确性未全通过，性能晋级BLOCKED。详见 [七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)。下文21/29/45测试与未补语义描述为早期阶段，不能当成当前覆盖上限。
+2026-10-30最新：统一重建核心与独立NS完整任务结构通过，79单元测试，三seed×96batch三路径及七旧入口回归。见[本轮报告](NS_CORRECTED_VALIDATION.md)。完整硬件精度/异步/通信/评分仍未验收。
+
+阶段历史（2026-10-29，Asia/Hong_Kong）：七个注册入口已补源码views并执行真实Asim重建，冻结批68、兼容回归69单元测试通过；算子正确性未全通过，性能晋级BLOCKED。详见 [七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)。下文21/29/45测试与未补语义描述为早期阶段，不能当成当前覆盖上限。
 
 ## 早期通用整块原型（阶段历史）
 
@@ -58,3 +60,7 @@ FW0完整五契约schema与数据集策略；FW1/FW2的typed view/stride/offset�
 ## 七入口结构诊断更新
 
 新增view/部分初始化/实际DMA槽位与完整输出检查，以及逐core/unit/name事件多重集合验证。全部七入口/每入口96batch已跑，未补算法答案，136个Instruction构造点原字段保持一致。五入口为显式歧义，BRI越界，NS输入绑定/数值失败，均未晋级。原始/详细流水资料专用目录与后续任务见 [七入口重建报告](LEGACY_RECONSTRUCTION_REPORT.md)。独立同算法参考、FP16、G4和通信门禁仍未完成。
+
+## 2026-10-30统一重建更新
+
+[本轮报告](NS_CORRECTED_VALIDATION.md)为最新覆盖：共同H/Y/λ及计时scope、共享view/初始化/算术核心、新NS三seed×96batch三路径结构通过。79测试通过，旧七入口保留原失败。FP16/G4/通信/G6及评分尚未验收。按[接入指南](ADDING_OPERATOR.md)增加候选与独立参考，不在重建核心添加算法名分支。prepared内核与完整任务不得直接比较；旧generic SUB→raw ADD现显式UNSUPPORTED。

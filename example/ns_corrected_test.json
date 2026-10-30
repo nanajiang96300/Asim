@@ -1,0 +1,46 @@
+{
+  "models": [
+    {
+      "name": "ns_corrected_v1",
+      "matrix_m": 64,
+      "matrix_k": 16,
+      "nrhs": 8,
+      "batch_size": 96,
+      "iterations": 16,
+      "task_contract": {
+        "batch_size": 96,
+        "nr": 64,
+        "nt": 16,
+        "nrhs": 8,
+        "regularization": 0.1,
+        "channel": "rayleigh",
+        "scope": "mmse_h_y_to_xhat_v1",
+        "profile": "structure_f64_real_block",
+        "schema": "mmse-task-v1",
+        "representation": "R(Z)=[[Re,-Im],[Im,Re]]",
+        "measurement": {
+          "inputs": [
+            "H",
+            "Y",
+            "RegI",
+            "Identity"
+          ],
+          "includes": [
+            "input DMA",
+            "Gram",
+            "regularization",
+            "H^H Y",
+            "algorithm initialization",
+            "iterations/factorization",
+            "inverse application/output recovery",
+            "output DMA"
+          ],
+          "excludes": [
+            "common channel generation",
+            "common real-block encoding/decoding"
+          ]
+        }
+      }
+    }
+  ]
+}
