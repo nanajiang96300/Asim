@@ -55,6 +55,8 @@ def compare(observations,expected):
         if obs['status']!='CAPTURED':rows[name]={k:v for k,v in obs.items() if k!='value'};continue
         value=obs['value']
         if name=='factor_D':value=value[:1,:]
+        if value.shape!=target.shape or not np.isfinite(value).all() or not np.isfinite(target).all():
+            rows[name]={'status':'STAGE_INVALID','reason':'shape or finite mismatch'};continue
         err=float(np.linalg.norm(value-target)/max(np.linalg.norm(target),1e-15))
         rows[name]={'status':'STAGE_MATCH' if err<=1e-10 else 'STAGE_MISMATCH','relative_error':err,'at_instruction':obs['index']}
         if name=='factor_L':

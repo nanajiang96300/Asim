@@ -38,7 +38,7 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
     def capture(index,mem):
         for name,v in (captures or {}).get(index,{}).items():
             try:observed[name]={'status':'CAPTURED','value':mem.read(v),'index':index}
-            except ReplayFault as e:observed[name]={'status':e.code,'reason':str(e),'index':index}
+            except (ReplayFault,KeyError,TypeError,ValueError) as e:observed[name]={'status':getattr(e,'code','CAPTURE_INVALID'),'reason':str(e),'index':index}
     def observations():return {'_observations':observed} if captures is not None else {}
     executed=0;cost_issues=[];last=None;output=None;stores=0
     try:

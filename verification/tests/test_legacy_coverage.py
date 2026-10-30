@@ -34,6 +34,14 @@ class CoverageTests(unittest.TestCase):
         for entries in ([],[dict(path='../outside')],[dict(path='/absolute')],[dict(path='x'),dict(path='x')]):
             with self.assertRaises(ValueError):validate_manifest({'artifacts':entries})
 
+    def test_invalid_capture_descriptor_cannot_break_replay(self):
+        h,ops,inputs=fixture();a=execute_batch(h,ops,inputs,0,np.array([[7.1]]),captures={2:{'bad':{}}})
+        self.assertEqual(a['status'],'STRUCTURE_MATCH');self.assertEqual(a['_observations']['bad']['status'],'CAPTURE_INVALID')
+    def test_stage_cannot_broadcast_or_accept_nonfinite(self):
+        for value in (np.ones((1,1)),np.full((2,2),np.nan)):
+            a=compare({'x':dict(status='CAPTURED',value=value,index=0)},dict(x=np.ones((2,2))))
+            self.assertEqual(a['x']['status'],'STAGE_INVALID')
+
     def test_not_reached_is_not_stage_pass(self):
         self.assertEqual(compare({},dict(x=np.eye(2)))['x']['status'],'NOT_REACHED')
 
