@@ -3,38 +3,30 @@ from copy import deepcopy
 import numpy as np
 from verification.contracts.core import Invalid, digest, screen_asim
 from verification.shadow.program import validate
+from verification.reconstruction.engine import ArrayMemory,full_view,execute_views
 
 def _replay(program, inputs):
     """Primitive test entry; not the public candidate evaluation path."""
     validate(program)
-    memory = {}
+    memory=ArrayMemory({n:{'rows':r['shape'][0],'cols':r['shape'][1],'name':n} for n,r in program['regions'].items()},np.float64)
+    views={n:full_view(n,r['shape']) for n,r in program['regions'].items()}
     for name, value in inputs.items():
         if name not in program['regions'] or program['regions'][name]['space'] != 'DRAM' or name == program['output']:
             raise Invalid('unexpected input: ' + name)
         a = np.asarray(value)
         if np.iscomplexobj(a) or a.dtype != np.float64 or list(a.shape) != program['regions'][name]['shape'] or not np.isfinite(a).all():
             raise Invalid('input shape/dtype/finite mismatch: ' + name)
-        memory[name] = a.copy()
+        memory.write(views[name],a.copy())
     snapshots = []
     stored = set()
     for op in program['ops']:
-        if any(s not in memory for s in op['src']):
-            raise Invalid('UNINITIALIZED_READ at ' + op['id'])
-        a = [memory[s].copy() for s in op['src']]
-        code = op['opcode']
-        if code in ('LOAD', 'STORE', 'COPY'): result = a[0]
-        elif code == 'ADD': result = a[0] + a[1]
-        elif code == 'SUB': result = a[0] - a[1]
-        elif code == 'MUL': result = a[0] * a[1]
-        elif code == 'GEMM': result = a[0] @ a[1]
-        if not np.isfinite(result).all():
-            raise Invalid('NONFINITE_RESULT at ' + op['id'])
-        memory[op['dst']] = result.copy()
+        code=op['opcode']
+        result=execute_views(memory,code,[views[n] for n in op['src']],views[op['dst']])
         if code == 'STORE': stored.add(op['dst'])
         snapshots.append({'op_id': op['id'], 'value': result.tolist()})
     if program['output'] not in stored:
         raise Invalid('missing final STORE')
-    return {'status': 'STRUCTURE_EXECUTED', 'program_hash': digest(program), 'output': memory[program['output']].tolist(), 'snapshots': snapshots, 'score': None, 'G4': 'NOT_RUN'}
+    return {'status': 'STRUCTURE_EXECUTED', 'program_hash': digest(program), 'output': memory.read(views[program['output']]).tolist(), 'snapshots': snapshots, 'score': None, 'G4': 'NOT_RUN'}
 
 def execute_after_asim(program, inputs, receipt, policy):
     """Internal runner API; receipt provenance must be enforced by that runner.

@@ -1,0 +1,13 @@
+{
+  "schema": "codex-operator-adapters-v1",
+  "operators": {
+    "ns_corrected_v1": {
+      "mode": "ns_corrected_test",
+      "source": "src/inverse/ns_corrected/NSCorrectedModel.cc",
+      "scope": "mmse_h_y_to_xhat_v1",
+      "profile": "structure_f64_real_block",
+      "reference_module": "verification.reference.ns",
+      "reference_function": "simulate_ns"
+    }
+  }
+}

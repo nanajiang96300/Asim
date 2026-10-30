@@ -84,7 +84,7 @@ def check_events(events, expected, dma, finish_cycle, dispatch=None):
         start=float(e['start_cycle']);end=float(e['end_cycle'])
         if not math.isfinite(start) or not math.isfinite(end) or not 0<=start<end<=finish_cycle:
             raise Invalid('invalid completion interval')
-        if re.fullmatch(r'Core\d+_(Cube|Vector)',e['unit']):
+        if re.fullmatch(r'Core\d+_(Cube|Vector|Scalar)',e['unit']):
             if expected.get(e['name'])!=e['unit']:raise Invalid('unexpected compute/barrier completion')
             if dispatch is not None and (e['name'] not in issued or start<issued[e['name']]):raise Invalid('completion before tile dispatch')
             seen.append(e['name'])

@@ -59,6 +59,7 @@ def recover(record, requested, request_bytes=64):
             raise Unsupported('untyped actual instruction')
         actual['ops'].append(op)
         code=op['opcode']; dst=op['dst']; src=op['src']
+        if code=='SUB':raise Unsupported('generic SUB mapped to raw ADD lacks explicit negate lowering; use source-view MUL(-1)+ADD')
         m,n=actual['regions'][dst]['shape']; k=n
         if i['id']!=op['id'] or i['batch']!=0 or i['base_addr']!=0:
             raise Invalid('instruction identity mismatch')
