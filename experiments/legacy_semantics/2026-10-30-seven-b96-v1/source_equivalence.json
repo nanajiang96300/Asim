@@ -1,0 +1,138 @@
+[
+  {
+    "operator": "block_richardson",
+    "instruction_count": 10656,
+    "raw_instructions_identical": true,
+    "semantic_changes": 0,
+    "semantic_change_example": [],
+    "frozen_v2_identical_to_initial_bytes": true,
+    "frozen_v2_instructions_sha256": "7b817b17710ba0347b24cb155f7f8f78124dbc7b8cf2681affa6ade2d28c4b1b"
+  },
+  {
+    "operator": "cholesky_block",
+    "instruction_count": 43584,
+    "raw_instructions_identical": true,
+    "semantic_changes": 0,
+    "semantic_change_example": [],
+    "frozen_v2_identical_to_initial_bytes": true,
+    "frozen_v2_instructions_sha256": "b1acf0f79d7a5658a966a43179b6019a4600206490729ede4add1bc6e9272320"
+  },
+  {
+    "operator": "cholesky_noblock",
+    "instruction_count": 239232,
+    "raw_instructions_identical": true,
+    "semantic_changes": 0,
+    "semantic_change_example": [],
+    "frozen_v2_identical_to_initial_bytes": true,
+    "frozen_v2_instructions_sha256": "052c7a9b78b222bb1ce96edd9e00e1f05b0671cf7eccbc636f3653674e977c82"
+  },
+  {
+    "operator": "cholesky_noblock_merge",
+    "instruction_count": 77952,
+    "raw_instructions_identical": true,
+    "semantic_changes": 0,
+    "semantic_change_example": [],
+    "frozen_v2_identical_to_initial_bytes": true,
+    "frozen_v2_instructions_sha256": "2f255f27d0d64ea5374e7b5e954aef634b8671eb5737b584947c4f659d45edfd"
+  },
+  {
+    "operator": "ldl_block",
+    "instruction_count": 35904,
+    "raw_instructions_identical": true,
+    "semantic_changes": 0,
+    "semantic_change_example": [],
+    "frozen_v2_identical_to_initial_bytes": true,
+    "frozen_v2_instructions_sha256": "ee55968cf1666d0fa919706cc6a3bf6580e210e1df7df59457b0a3bb1801c983"
+  },
+  {
+    "operator": "ldl_noblock",
+    "instruction_count": 297792,
+    "raw_instructions_identical": true,
+    "semantic_changes": 1536,
+    "semantic_change_example": [
+      {
+        "index": 3068,
+        "before": {
+          "dst": {
+            "base": 268441088,
+            "col": 0,
+            "cols": 1,
+            "conjugate": false,
+            "row": 0,
+            "rows": 16,
+            "transpose": false
+          },
+          "opcode": 19,
+          "schema": "source-views-v1",
+          "site": "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc:LDL_NB_SCALE_",
+          "src": [
+            {
+              "base": 268441088,
+              "col": 0,
+              "cols": 1,
+              "conjugate": false,
+              "row": 0,
+              "rows": 16,
+              "transpose": false
+            },
+            {
+              "base": 268440576,
+              "col": 0,
+              "cols": 1,
+              "conjugate": false,
+              "row": 0,
+              "rows": 1,
+              "transpose": false
+            }
+          ]
+        },
+        "after": {
+          "broadcast": "scalar_rhs",
+          "dst": {
+            "base": 268441088,
+            "col": 0,
+            "cols": 1,
+            "conjugate": false,
+            "row": 0,
+            "rows": 16,
+            "transpose": false
+          },
+          "opcode": 19,
+          "schema": "source-views-v1",
+          "site": "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc:LDL_NB_SCALE_",
+          "src": [
+            {
+              "base": 268441088,
+              "col": 0,
+              "cols": 1,
+              "conjugate": false,
+              "row": 0,
+              "rows": 16,
+              "transpose": false
+            },
+            {
+              "base": 268440576,
+              "col": 0,
+              "cols": 1,
+              "conjugate": false,
+              "row": 0,
+              "rows": 1,
+              "transpose": false
+            }
+          ]
+        }
+      }
+    ],
+    "frozen_v2_identical_to_initial_bytes": true,
+    "frozen_v2_instructions_sha256": "1d01d37bb9c7a04c666923207ade62c7058ae7e02ac0af4cc849c7a7b4782182"
+  },
+  {
+    "operator": "newton_schulz",
+    "instruction_count": 9792,
+    "raw_instructions_identical": true,
+    "semantic_changes": 0,
+    "semantic_change_example": [],
+    "frozen_v2_identical_to_initial_bytes": true,
+    "frozen_v2_instructions_sha256": "ccbc5fecbb1744c08f8ba38055b5a5c8b4aabc0ccca99c9c2da51094bcbad323"
+  }
+]

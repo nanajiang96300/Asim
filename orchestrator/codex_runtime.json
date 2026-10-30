@@ -1,15 +1,15 @@
 {
   "schema": "supervised-reconstruction-runtime-v1",
-  "binary": "results/runtime_rw/2026-10-30-v4-frozen/bin/Simulator",
-  "config": "results/runtime_rw/2026-10-30-v4-frozen/runtime_config.json",
-  "cwd": "results/runtime_rw/2026-10-30-v4-frozen",
-  "library_dir": "results/runtime_rw/2026-10-30-v4-frozen/lib",
+  "binary": "results/legacy_semantics/2026-10-30-runtime/bin/Simulator",
+  "config": "results/legacy_semantics/2026-10-30-runtime/runtime_config.json",
+  "cwd": "results/legacy_semantics/2026-10-30-runtime",
+  "library_dir": "results/legacy_semantics/2026-10-30-runtime/lib",
   "dependencies": [
-    "results/runtime_rw/2026-10-30-v4-frozen/lib/libramulator.so",
-    "results/runtime_rw/2026-10-30-v4-frozen/runtime/HBM2.yaml",
-    "results/runtime_rw/2026-10-30-v4-frozen/runtime/fly_c1_m2.icnt"
+    "results/legacy_semantics/2026-10-30-runtime/lib/libramulator.so",
+    "results/legacy_semantics/2026-10-30-runtime/runtime/HBM2.yaml",
+    "results/legacy_semantics/2026-10-30-runtime/runtime/fly_c1_m2.icnt"
   ],
-  "binary_source_commit": "c251612d968f391310841070ca168ffbbfad0e1f",
+  "binary_source_commit": "d569eff65aad1787350979eed481c1eb30da93c8",
   "runtime_contract": {
     "kind": "header",
     "schema": "core-rw-v4",
@@ -31,39 +31,9 @@
   ],
   "files": [
     {
-      "path": "results/runtime_rw/2026-10-30-v4-frozen/bin/Simulator",
-      "bytes": 7151328,
-      "sha256": "e0df1d4af2f1fa810068dc73d1c93a74d561cfbfa2a4bd3d8330a03b6e8397f5"
-    },
-    {
-      "path": "results/runtime_rw/2026-10-30-v4-frozen/lib/libramulator.so",
-      "bytes": 4092536,
-      "sha256": "c3e7a9bba805b79a4c2410217ba490350398cacf2bf8c7417b9e7882dc73fd84"
-    },
-    {
-      "path": "results/runtime_rw/2026-10-30-v4-frozen/runtime_config.json",
-      "bytes": 12520,
-      "sha256": "87c033833eb7117f8b786c7c0e52e24a256b54b2aa0977528b3160e491408137"
-    },
-    {
-      "path": "results/runtime_rw/2026-10-30-v4-frozen/runtime/HBM2.yaml",
-      "bytes": 354,
-      "sha256": "7c7ad9c374c3d08e0ad2cb081ab013b4f0c48a19d3dd1c7d547caf75943dd8f2"
-    },
-    {
-      "path": "results/runtime_rw/2026-10-30-v4-frozen/runtime/fly_c1_m2.icnt",
-      "bytes": 280,
-      "sha256": "dbf877e67e4436003dc689a512ffa8135402520676524f68a4be8c12c1ec00d2"
-    },
-    {
-      "path": "/lib/x86_64-linux-gnu/libstdc++.so.6",
-      "bytes": 2592224,
-      "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
-    },
-    {
-      "path": "/lib/x86_64-linux-gnu/libm.so.6",
-      "bytes": 952616,
-      "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
+      "path": "/lib/x86_64-linux-gnu/libc.so.6",
+      "bytes": 2129424,
+      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
     },
     {
       "path": "/lib/x86_64-linux-gnu/libgcc_s.so.1",
@@ -71,14 +41,49 @@
       "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
     },
     {
-      "path": "/lib/x86_64-linux-gnu/libc.so.6",
-      "bytes": 2129424,
-      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+      "path": "/lib/x86_64-linux-gnu/libm.so.6",
+      "bytes": 952616,
+      "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libstdc++.so.6",
+      "bytes": 2592224,
+      "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
     },
     {
       "path": "/lib64/ld-linux-x86-64.so.2",
       "bytes": 236616,
       "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
+    },
+    {
+      "path": "orchestrator/codex_operators.json",
+      "bytes": 591,
+      "sha256": "6268105e73ca1a273ae7baf481b325d39ecf5b3cb15d55d3efbb93aef9dca8a0"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-runtime/bin/Simulator",
+      "bytes": 7151352,
+      "sha256": "2927ee715334f84621fdea855af307184d75e2f63864cee76a54ba66c9253181"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-runtime/lib/libramulator.so",
+      "bytes": 4092536,
+      "sha256": "c3e7a9bba805b79a4c2410217ba490350398cacf2bf8c7417b9e7882dc73fd84"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-runtime/runtime/HBM2.yaml",
+      "bytes": 354,
+      "sha256": "7c7ad9c374c3d08e0ad2cb081ab013b4f0c48a19d3dd1c7d547caf75943dd8f2"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-runtime/runtime/fly_c1_m2.icnt",
+      "bytes": 280,
+      "sha256": "dbf877e67e4436003dc689a512ffa8135402520676524f68a4be8c12c1ec00d2"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-runtime/runtime_config.json",
+      "bytes": 12520,
+      "sha256": "87c033833eb7117f8b786c7c0e52e24a256b54b2aa0977528b3160e491408137"
     },
     {
       "path": "verification/__init__.py",
@@ -131,9 +136,24 @@
       "sha256": "0d16561ffcdb0dab7890a07166968402c21b32a0c6a7291aa7b734435ee494cf"
     },
     {
+      "path": "verification/legacy/coverage.py",
+      "bytes": 5071,
+      "sha256": "4123e7609e57de4196e2513a7d6ec92b2188c3a173962311f994ec31c31f6b1f"
+    },
+    {
+      "path": "verification/legacy/extended.py",
+      "bytes": 7666,
+      "sha256": "d3ed434af5e18674a6093ff66e06d9f195c2caac2e64c3fc6be79bfb00afa80f"
+    },
+    {
       "path": "verification/legacy/replay.py",
       "bytes": 1498,
       "sha256": "2e43fb007e50a6d813a8c423b72a9bdce65a2b047e28564e651f7fe902f0b9f4"
+    },
+    {
+      "path": "verification/legacy/stages.py",
+      "bytes": 3258,
+      "sha256": "053d23c6062fea06cb2044532d36531d62149309c14842189deddce63d1d5330"
     },
     {
       "path": "verification/operators/catalog.py",
@@ -177,8 +197,8 @@
     },
     {
       "path": "verification/reconstruction/source_views.py",
-      "bytes": 7653,
-      "sha256": "cbeb75328a910a2f8d3e99f4e549e550c9490e4a8700060ba5f0fad79a90bda9"
+      "bytes": 8200,
+      "sha256": "b0318dc7f9cfd034e144fd39a384fdc6fb811da778e5468c5bddb06caa5e2ae5"
     },
     {
       "path": "verification/reference/ns.py",
@@ -229,15 +249,10 @@
       "path": "verification/shadow/program.py",
       "bytes": 4667,
       "sha256": "58c7c836a62dc5f61b42290a35a013ff099bf0532ddd15fbc45415d826276e5e"
-    },
-    {
-      "path": "orchestrator/codex_operators.json",
-      "bytes": 591,
-      "sha256": "6268105e73ca1a273ae7baf481b325d39ecf5b3cb15d55d3efbb93aef9dca8a0"
     }
   ],
   "scope": "supervised default MMSE96/64/16/8 only; no hardware G4, no scoring; separate per-job cwd/TMPDIR",
   "python_version": "3.12.3",
   "numpy_version": "2.5.0",
-  "verifier_source_commit": "baea00ae16ce13ff79b89cf506dfed448b4cd135"
+  "verifier_source_commit": "4f46445860b306902c85b4022c2465cd93d6ce71"
 }

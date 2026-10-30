@@ -1,0 +1,185 @@
+[
+  {
+    "operator": "block_richardson",
+    "asim_finish_cycle": 1998,
+    "primary_status_counts": {
+      "BOUNDS_ERROR": 96
+    },
+    "coverage_counts": {
+      "instructions": 10656,
+      "explicit_views_valid": 10369,
+      "BOUNDS_ERROR": 192,
+      "TENSOR_BOUNDS_ERROR": 95
+    },
+    "stage_counts": {
+      "regularized_A": {
+        "STAGE_MATCH": 96
+      },
+      "preconditioner": {
+        "STAGE_MISMATCH": 96
+      },
+      "initializer": {
+        "STAGE_MISMATCH": 96
+      }
+    },
+    "complete_operator_passed": false,
+    "score": null,
+    "raw_receipt_sha256": "c7f0567c8913cafb532f0a71a93133ba0a4cfed4155c41fa2b8564412de5288f",
+    "raw_instruction_sha256": "7b817b17710ba0347b24cb155f7f8f78124dbc7b8cf2681affa6ade2d28c4b1b"
+  },
+  {
+    "operator": "cholesky_block",
+    "asim_finish_cycle": 6445,
+    "primary_status_counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "coverage_counts": {
+      "instructions": 43584,
+      "explicit_views_valid": 21696,
+      "SEMANTIC_AMBIGUITY": 21888
+    },
+    "stage_counts": {
+      "regularized_A": {
+        "STAGE_MATCH": 96
+      },
+      "factor_L": {
+        "NOT_REACHED": 96
+      }
+    },
+    "complete_operator_passed": false,
+    "score": null,
+    "raw_receipt_sha256": "98afc5ab55084a92c15420febe82e6b9d85fd054125ceee6f2277450c5aa745d",
+    "raw_instruction_sha256": "b1acf0f79d7a5658a966a43179b6019a4600206490729ede4add1bc6e9272320"
+  },
+  {
+    "operator": "cholesky_noblock",
+    "asim_finish_cycle": 23444,
+    "primary_status_counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "coverage_counts": {
+      "instructions": 239232,
+      "explicit_views_valid": 227617,
+      "SEMANTIC_AMBIGUITY": 11520,
+      "BATCH_BINDING_MISMATCH": 95
+    },
+    "stage_counts": {
+      "regularized_A": {
+        "STAGE_MATCH": 96
+      },
+      "factor_L": {
+        "STAGE_MATCH": 96
+      }
+    },
+    "complete_operator_passed": false,
+    "score": null,
+    "raw_receipt_sha256": "b12c81f934853ddc6ccb90688a89509c58da11482294add6c84fc79b79fa5eeb",
+    "raw_instruction_sha256": "052c7a9b78b222bb1ce96edd9e00e1f05b0671cf7eccbc636f3653674e977c82"
+  },
+  {
+    "operator": "cholesky_noblock_merge",
+    "asim_finish_cycle": 10004,
+    "primary_status_counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "coverage_counts": {
+      "instructions": 77952,
+      "explicit_views_valid": 31777,
+      "SEMANTIC_AMBIGUITY": 46080,
+      "BATCH_BINDING_MISMATCH": 95
+    },
+    "stage_counts": {
+      "regularized_A": {
+        "STAGE_MATCH": 96
+      },
+      "factor_L": {
+        "NOT_REACHED": 96
+      }
+    },
+    "complete_operator_passed": false,
+    "score": null,
+    "raw_receipt_sha256": "a4dde7200c37bf64944407f162a482331133b46b2044298c513f6fbfe4e25425",
+    "raw_instruction_sha256": "2f255f27d0d64ea5374e7b5e954aef634b8671eb5737b584947c4f659d45edfd"
+  },
+  {
+    "operator": "ldl_block",
+    "asim_finish_cycle": 4965,
+    "primary_status_counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "coverage_counts": {
+      "instructions": 35904,
+      "explicit_views_valid": 9792,
+      "SEMANTIC_AMBIGUITY": 26112
+    },
+    "stage_counts": {
+      "regularized_A": {
+        "STAGE_MATCH": 96
+      },
+      "factor_L": {
+        "NOT_REACHED": 96
+      },
+      "factor_D": {
+        "NOT_REACHED": 96
+      }
+    },
+    "complete_operator_passed": false,
+    "score": null,
+    "raw_receipt_sha256": "f65ec2729c62151ff6a5f7e8ba1d58489a13145928f3884bacf3ccd27af2835e",
+    "raw_instruction_sha256": "ee55968cf1666d0fa919706cc6a3bf6580e210e1df7df59457b0a3bb1801c983"
+  },
+  {
+    "operator": "ldl_noblock",
+    "asim_finish_cycle": 25633,
+    "primary_status_counts": {
+      "SEMANTIC_AMBIGUITY": 96
+    },
+    "coverage_counts": {
+      "instructions": 297792,
+      "explicit_views_valid": 286177,
+      "SEMANTIC_AMBIGUITY": 11520,
+      "SCALAR_WORKLOAD_UNSUPPORTED": 1536,
+      "BATCH_BINDING_MISMATCH": 95
+    },
+    "stage_counts": {
+      "regularized_A": {
+        "STAGE_MATCH": 96
+      },
+      "factor_L": {
+        "STAGE_MISMATCH": 96
+      },
+      "factor_D": {
+        "STAGE_MATCH": 96
+      }
+    },
+    "complete_operator_passed": false,
+    "score": null,
+    "raw_receipt_sha256": "c0589bec565ea8b03757abb778a8ce509d824c611d23684aea9141edf7815424",
+    "raw_instruction_sha256": "1d01d37bb9c7a04c666923207ade62c7058ae7e02ac0af4cc849c7a7b4782182"
+  },
+  {
+    "operator": "newton_schulz",
+    "asim_finish_cycle": 4647,
+    "primary_status_counts": {
+      "NUMERIC_FAILED": 1,
+      "TENSOR_BOUNDS_ERROR": 1,
+      "INPUT_BINDING_MISMATCH": 94
+    },
+    "coverage_counts": {
+      "instructions": 9792,
+      "explicit_views_valid": 9602,
+      "TENSOR_BOUNDS_ERROR": 1,
+      "BATCH_BINDING_MISMATCH": 95,
+      "INPUT_BINDING_MISMATCH": 94
+    },
+    "stage_counts": {
+      "regularized_A": {
+        "NOT_REACHED": 96
+      }
+    },
+    "complete_operator_passed": false,
+    "score": null,
+    "raw_receipt_sha256": "42a4ad565bce762dcd1bbb132e0e7e0a075bcb8fae1ce40b7a0f714a6c96e7fb",
+    "raw_instruction_sha256": "ccbc5fecbb1744c08f8ba38055b5a5c8b4aabc0ccca99c9c2da51094bcbad323"
+  }
+]
