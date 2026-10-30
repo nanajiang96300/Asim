@@ -16,6 +16,15 @@ def main():
             p=repo/item['path'];data=p.read_bytes()
             if len(data)!=item['bytes'] or hashlib.sha256(data).hexdigest()!=item['sha256']:raise ValueError('artifact changed: '+str(p))
             checked+=1
+    if manifest.get('schema_version')=='unified-reconstruction-campaign-v1':
+        gates=json.loads((args.manifest.parent/'gates.json').read_text())
+        if gates['status']!='GATES_PASSED' or gates['score'] is not None or len(gates['cases'])!=6 or not all(c['passed'] for c in gates['cases']+gates['offline_mutations']):raise ValueError('unified gates incomplete')
+        for seed in (42,123,456):
+            r=json.loads((Path(manifest['raw_root'])/f'seed{seed}/result.json').read_text())
+            if r['status']!='STRUCTURE_CHECKED' or r['score'] is not None or len(r['batches'])!=96 or r['failed_batches']:raise ValueError('missing three-path batch evidence')
+        if len(gates['legacy_shared_replay'])!=7 or not all(c['same_as_frozen'] for c in gates['legacy_shared_replay']):raise ValueError('legacy replay changed')
+        print(json.dumps({'status':'ARCHIVE_HASHES_AND_STRUCTURE_GATES_VALID','files_checked':checked,'NS_seeds':3,'batches_per_seed':96,'legacy_entries':7,'promotion':'BLOCKED_PENDING_PRECISION_G4_QUALITY'}))
+        return
     cases=json.loads((args.manifest.parent/'cases.json').read_text())
     expected={'cholesky_block','cholesky_noblock','cholesky_noblock_merge','ldl_block','ldl_noblock','newton_schulz','block_richardson'}
     if len(cases)!=7 or {c['operator'] for c in cases}!=expected:raise ValueError('incomplete campaign')
