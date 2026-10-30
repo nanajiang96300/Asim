@@ -1,0 +1,7 @@
+# Core真实事件与稳定入口审查
+
+Agent legacy_semantic_review只读分轮审查。修复：逐fragment提交；严格拒绝tail/padding；request_id/op_id/fragment与CSV生命周期精确绑定；compute issue/commit实际周期绑定；DMA local偏移/转置/共轭拒绝；epoch reset覆盖LOAD与计算，STORE请求快照后ack可异步。最终受限审查通过。日志v4以单fragment地址避免重复全请求列表；默认正负例及重复运行均实际执行。
+
+标签仅MODEL_RW_CHECKED_CONSERVATIVE，不扩展硬件G4。主Agent执行实际门禁，审查Agent未运行实验。
+
+日常封存追加审查：修复空/缺/重复基线制品、顶层周期/状态与封存evaluation不一致，以及runtime SHA重复读取导致的重新标记风险。一次冻结manifest字节与SHA，seal复核文件、manifest及实际binary；新增竞态回归。最终限定范围只读确认通过。最终单元测试121项由主Agent执行，非子Agent自报实验。

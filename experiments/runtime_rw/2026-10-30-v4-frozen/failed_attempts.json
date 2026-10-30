@@ -1,0 +1,14 @@
+{
+  "scope": "preserved budget rejection, not operator correctness conclusion",
+  "attempts": [
+    {
+      "summary_path": "results/runtime_rw/2026-10-30-v3-frozen/summary.json",
+      "summary_sha256": "2d7edd3d3f3aa9db62ce2eba937fcc2064200dfdb19f80edaed9b890ee4cb894",
+      "status": "GATES_FAILED",
+      "ns64_result_path": "results/runtime_rw/2026-10-30-v3-frozen/ns64/result.json",
+      "ns64_result_sha256": "d649251d61de41a9f264b3ab844cb217b8cd1071df1ae04e0e9ba5a9d14e00ba",
+      "reason": "observer byte budget exceeded",
+      "numeric_status": "NOT_RUN"
+    }
+  ]
+}
