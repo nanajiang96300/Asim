@@ -31,9 +31,15 @@ class Memory(ArrayMemory):
         raise ReplayFault('TENSOR_BOUNDS_ERROR','DMA view outside declared tensors')
 
 
-def execute_batch(header,instructions,inputs,batch,expected,precision='structure_complex128',return_output=False):
+def execute_batch(header,instructions,inputs,batch,expected,precision='structure_complex128',return_output=False,captures=None):
     if header.get('schema') not in ('legacy-source-views-v1','source-views-program-v1'):raise ReplayFault('SCHEMA_MISMATCH','missing source-view schema')
     expected=np.asarray(expected,dtype=np.complex128 if np.iscomplexobj(expected) else np.float64)
+    observed={}
+    def capture(index,mem):
+        for name,v in (captures or {}).get(index,{}).items():
+            try:observed[name]={'status':'CAPTURED','value':mem.read(v),'index':index}
+            except ReplayFault as e:observed[name]={'status':e.code,'reason':str(e),'index':index}
+    def observations():return {'_observations':observed} if captures is not None else {}
     executed=0;cost_issues=[];last=None;output=None;stores=0
     try:
         mem=Memory(header,inputs)
@@ -48,7 +54,7 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
             code=i['opcode'];src=s['src'];dst=s['dst']
             if code==25:
                 if src or dst is not None:raise ReplayFault('SEMANTIC_BINDING_MISMATCH','barrier views')
-                executed+=1;continue
+                capture(index,mem);executed+=1;continue
             if code in (0,1):
                 if len(src)!=1:raise ReplayFault('SEMANTIC_BINDING_MISMATCH','DMA arity')
                 remote=src[0] if code==0 else dst;local=dst if code==0 else src[0]
@@ -73,7 +79,7 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
                     if stores!=1:raise ReplayFault('OUTPUT_COVERAGE_UNSUPPORTED','multiple STORE reconstruction not implemented')
                     output=mem.read(src[0]);
                     if output.shape!=(dst['rows'],dst['cols']):raise ReplayFault('SHAPE_MISMATCH','STORE shape')
-                executed+=1;continue
+                capture(index,mem);executed+=1;continue
             if len(src)!=len(i['src_addrs']) or [v['base'] for v in src]!=i['src_addrs'] or dst['base']!=i['dest_addr']:
                 raise ReplayFault('SEMANTIC_BINDING_MISMATCH','view/actual operand address mismatch')
             codes={3:'GEMM',4:'GEMM',10:'ADD',17:'ADD',18:'SUB',11:'MUL',19:'MUL',13:'DIV',20:'DIV',16:'SQRT',21:'SQRT'}
@@ -83,13 +89,13 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
                 if [*shapes[0],shapes[1][1]]!=[i['m'],i['k'],i['n']]:raise ReplayFault('SHAPE_MISMATCH','GEMM dimensions')
             value=execute_views(mem,codes[code],src,dst,s.get('broadcast','none'))
             if 17<=code<=21 and value.size!=1:cost_issues.append({'index':index,'id':i['id'],'reason':'batched SCALAR fixed latency','elements':value.size})
-            executed+=1
+            capture(index,mem);executed+=1
         if output is None:raise ReplayFault('MISSING_OUTPUT','no STORE executed')
         if output.shape!=expected.shape:raise ReplayFault('OUTPUT_SHAPE_MISMATCH',f'output {output.shape}, task {expected.shape}')
         # Stable complex error via real/imag concatenation after scaling.
         scale=max(1.,float(np.max(np.abs(output))),float(np.max(np.abs(expected))))
         error=float(np.linalg.norm(output/scale-expected/scale)/max(np.linalg.norm(expected/scale),1e-15/scale))
         if not np.isfinite(error):raise ReplayFault('NONFINITE_METRIC','relative error is not finite')
-        return ({'_output':output} if return_output else {}) | {'batch':batch,'status':'STRUCTURE_MATCH' if error<=1e-10 else 'NUMERIC_FAILED','relative_error':error,'executed':executed,'total':len(instructions),'cost_issues':cost_issues}
+        return observations() | ({'_output':output} if return_output else {}) | {'batch':batch,'status':'STRUCTURE_MATCH' if error<=1e-10 else 'NUMERIC_FAILED','relative_error':error,'executed':executed,'total':len(instructions),'cost_issues':cost_issues}
     except (ReplayFault,FloatingPointError,ValueError) as e:
-        return {'batch':batch,'status':getattr(e,'code','NUMERIC_FAILED'),'reason':str(e),'first_bad':last,'executed':executed,'total':len(instructions),'cost_issues':cost_issues}
+        return observations() | {'batch':batch,'status':getattr(e,'code','NUMERIC_FAILED'),'reason':str(e),'first_bad':last,'executed':executed,'total':len(instructions),'cost_issues':cost_issues}

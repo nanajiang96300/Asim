@@ -273,6 +273,7 @@ void LDLNoBlockBaselineOp::initialize_instructions(Tile* tile, Mapping) {
         .id = "LDL_NB_SCALE_" + std::to_string(c),
         .dest_addr = aY, .compute_size = U,
         .src_addrs = {aY, aTmp}, .tile_m = U, .tile_k = 1, .tile_n = 1, .my_tile = tile}, json::array({view(aY,0,c,U,1,false,false), view(aTmp,0,0,1,1,false,false)}), view(aY,0,c,U,1,false,false), "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc:LDL_NB_SCALE_"));
+    tile->instructions.back()->numeric_semantics["broadcast"] = "scalar_rhs";
   }
 
   // ===== Phase 6: Backward Assembly Ainv = Y^H @ Y =====
