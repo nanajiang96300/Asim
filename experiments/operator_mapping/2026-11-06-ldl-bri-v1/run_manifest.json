@@ -1,0 +1,1781 @@
+{
+  "schema": "solver-mapping-archive-v1",
+  "status": "SUPPORTED_MAPPING_GATES_PASSED",
+  "campaign": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign",
+  "stages": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2",
+  "exploratory_stages": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages",
+  "daily_runs": [
+    "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl",
+    "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri",
+    "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline",
+    "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns"
+  ],
+  "effort": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/effort.json",
+  "core_identity": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/common_core_identity.json",
+  "software_verifier_commit": "c8832669",
+  "stage_auditor_commit": "67489a2a",
+  "binary_source_commit": "076cf713de172260b7b909e801c0b8539e5c88eb",
+  "score": null,
+  "artifacts": [
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/README.md",
+      "bytes": 2097,
+      "sha256": "4eaa32375d3460c1b106ad12f7fa0ecc5d19b8cde8c23bdcef94ec131a47430b"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/case_summary.csv",
+      "bytes": 2504,
+      "sha256": "a5cfb67d8df7de20e141c02488b2b5c29b2c63f577edf349c870c79e9e6315bd"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/case_summary.json",
+      "bytes": 8726,
+      "sha256": "55bf1ca04f9cf9f96306f8c11859eb30558f3d7a9c20cf0bc556089190343569"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/common_core_identity.json",
+      "bytes": 712,
+      "sha256": "4a98a6fd0736f5f09eaad991667ab8a984c996303864e2c6e6fd8ce4043a1db0"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/effort.json",
+      "bytes": 11052,
+      "sha256": "0ffbd5a00296c427c37cac3f702cd23c513ce986cd1cd44ae55e56e1ed320ebe"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/effort_summary.md",
+      "bytes": 1291,
+      "sha256": "ab8bbeca754ca799b3973c60f3abd7d361493cce03acd571f37db8137d0bbf15"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/offline_negatives.json",
+      "bytes": 382,
+      "sha256": "ec24730aa8318c8e41f52533ff98d201875bd676a8c9aa0a9f0ef92e3b772f6c"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/pipeline_summary.csv",
+      "bytes": 5952,
+      "sha256": "9b630c9d2fb2eb2eb98859058faa93d97434df3575166332f298aef6b7614813"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/previous_runtime.json",
+      "bytes": 10006,
+      "sha256": "f85e8c13598f9001e57563acd0980d0f78f56fa33a8dcc1e45264f5ead346c05"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/review.json",
+      "bytes": 995,
+      "sha256": "74ee46bae49aec8cec973843fe29406eb8acededd4127eadeb7d3a148a55586a"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/runtime_spec.json",
+      "bytes": 10419,
+      "sha256": "3209f735a5f76efbf472717aaa5cf9c912b8588eb1058bf6c49cfb1b6d903f94"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/bri_parameter_probe.json",
+      "bytes": 354,
+      "sha256": "45c059491aac7765824bf6ec4dbbf8358a6724d41b190bbc424bc2c7d4a8e6e9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/build.log",
+      "bytes": 7204,
+      "sha256": "f0753e60dd2764ef17dc46ebe54d27a2534973feb29949aa0786b65911aa3c7c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/asim.json",
+      "bytes": 1866,
+      "sha256": "6c255830e0e0f3b05635bf53fbb4475d87de05160460ca67930eb0358d502782"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/channel.npz",
+      "bytes": 2556640,
+      "sha256": "4abcfcbb30281c161fc1539ff63303c8b7f538b91d8258a44ae2032601e3b442"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/dispatch.jsonl",
+      "bytes": 2274740,
+      "sha256": "1a731cf157ab692a57ec76ae27561ad7970c13956b9c9453f6bac22e173620c4"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "7cd154e3efdcd09f4a134fce166016bf6cb72e181a86673a7d3079988a88bc17"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/instruction_pipeline_detail.csv",
+      "bytes": 8269811,
+      "sha256": "bf640d415a87214911a2799bf650bdccce292ac593df090ae5a975abe2f850d8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/models.json",
+      "bytes": 1515,
+      "sha256": "17399251f47fa2f01f36340501217fc7155981ece9408012131a1749bdb5067b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/numerics_started.json",
+      "bytes": 79,
+      "sha256": "e8eb116d74ac6ea2c2741b677434af6c3b4fa12f0217649494b6128a6b0517e3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/outputs.npy",
+      "bytes": 393344,
+      "sha256": "1c07ecf54a04c1eab131230ee8a9dcbda18fe9dc424735c3c4c14f17b2cec1d3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/references.npz",
+      "bytes": 689174,
+      "sha256": "3f4683eea9f86647205c1766149c3f30d17f47c088207be23feffd5b62e1fa1a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/result.json",
+      "bytes": 39070,
+      "sha256": "17811dc53d34e07724f11c9304791ec6e2031f188ec2883b6c0fb59a3e9f0874"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/rw_events.jsonl",
+      "bytes": 134218140,
+      "sha256": "fbf977d8f6650477cb2a7c2611f7efb689ca503daf25b1f1e312963812d06f5c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/schedule.json",
+      "bytes": 17666,
+      "sha256": "df2fe57fb5fb2512788731c04609724051c9e28dd8cd50a13a0f7ffeef7137ae"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/simulator.log",
+      "bytes": 34696,
+      "sha256": "5c5ee0d1e4d7df35010be5f8ba93195ff6aae2dca7844ead5dcc9b0b631e28bf"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/trace.csv",
+      "bytes": 7978988,
+      "sha256": "3d0e178b50ab5295b51970f728a238b4a4e0a8c58761e0ca2cbd129cdb947737"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/asim.json",
+      "bytes": 1864,
+      "sha256": "675d18784ec721cc8beb61288afd7f44a70c7b3062914f0636edaaadb59b0b36"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/dispatch.jsonl",
+      "bytes": 2274740,
+      "sha256": "1a731cf157ab692a57ec76ae27561ad7970c13956b9c9453f6bac22e173620c4"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/instruction_pipeline_detail.csv",
+      "bytes": 8269811,
+      "sha256": "bf640d415a87214911a2799bf650bdccce292ac593df090ae5a975abe2f850d8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/models.json",
+      "bytes": 1515,
+      "sha256": "17399251f47fa2f01f36340501217fc7155981ece9408012131a1749bdb5067b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/numerics_started.json",
+      "bytes": 79,
+      "sha256": "27d7042c150bc8fcf9f0d31c20b2bdefcff0e47a196c0974c9ed2a81314b5def"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/outputs.npy",
+      "bytes": 393344,
+      "sha256": "e0fee9c2f6b52efc57fe83d8d3cb5cd8284690c955be6435c4ace197c1be0f34"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/references.npz",
+      "bytes": 689174,
+      "sha256": "e74867fb2634ae6636b0a5b4b3afadd429b138106690c67914edcfc868ee0120"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/result.json",
+      "bytes": 39072,
+      "sha256": "80e73440849499f927d6f5ea77689528403c8a0b30316047d43182e3f16a70fb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/rw_events.jsonl",
+      "bytes": 134218140,
+      "sha256": "fbf977d8f6650477cb2a7c2611f7efb689ca503daf25b1f1e312963812d06f5c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/schedule.json",
+      "bytes": 17666,
+      "sha256": "df2fe57fb5fb2512788731c04609724051c9e28dd8cd50a13a0f7ffeef7137ae"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/simulator.log",
+      "bytes": 34694,
+      "sha256": "d57d7239510d64a7d5afce179ffbbb0dfc6e6d99059254c6a06f65209d2e448c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/trace.csv",
+      "bytes": 7978988,
+      "sha256": "3d0e178b50ab5295b51970f728a238b4a4e0a8c58761e0ca2cbd129cdb947737"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/asim.json",
+      "bytes": 1859,
+      "sha256": "77a81ad29ff45bcfd83d4dff650737ef831b59b6981dc24f29f0b6e8597ebcb4"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/config.json",
+      "bytes": 12612,
+      "sha256": "fe7eca26737eae3b0b31e19f0cdf6cc881f3e1bddf99213720b118bfa7486a5a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/dispatch.jsonl",
+      "bytes": 2274740,
+      "sha256": "9bc94aeb50804d2806c2491efc2b6cedf32aa18743c7bdd7f89eb4ffdbeddb2e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/formula.json",
+      "bytes": 23008843,
+      "sha256": "48cc73205db690a7b09d464b6b45b63aa8b0e48cede70cdc1e7e318aedb5b48b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/inputs.npz",
+      "bytes": 4735954,
+      "sha256": "37c6d25f8700f70c7fd775c2360c0775e428233e2edf5d3bfa87e7e068f7023b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/instruction_pipeline_detail.csv",
+      "bytes": 8406489,
+      "sha256": "e5ff464e7b47e4f87381656805d7435661c5ff92cbaffe9f0ece35022d452463"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/instructions.jsonl",
+      "bytes": 50235820,
+      "sha256": "3aa8060c364f176369284ab4ecfc4f8e6f3f82ed3b7ecfde84428134ca0510a6"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/models.json",
+      "bytes": 1485,
+      "sha256": "9017590fadc737ed41be97a8cc0fa1bf76cf3f1c10160ba9e3d5daf8ae63d4fb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/numerics_started.json",
+      "bytes": 79,
+      "sha256": "23d30d4616ebea21f8cdd096a4ceb8ed3af2a562f467332c0e30c65c9945b934"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/outputs.npy",
+      "bytes": 393344,
+      "sha256": "d12fe538cd281dc666eb859b46f179e56f06ba91e9bf599e35ef5d7169fbea43"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/pipeline_statistics.json",
+      "bytes": 35528143,
+      "sha256": "29ed24580f475b8efd1c4baa734462fbedd0bd17d49cfbc8e5769dc7dfc11fc1"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/references.npz",
+      "bytes": 1573910,
+      "sha256": "2a4f129be1148d4b0a18e58ac1a16c19d5911f3b1a4c57938e1a68c0ea7f1383"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/result.json",
+      "bytes": 39236,
+      "sha256": "ed28269ef8c7721eac34daa75cd2d1df4edb32975f83fe5ba090e27e8719d025"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/rw_events.jsonl",
+      "bytes": 191248243,
+      "sha256": "f7e42074a15200612b9d1eb1c5f80f83eaaadc6738d2f007f4c26aa0195a2e5f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/schedule.json",
+      "bytes": 17763,
+      "sha256": "de993314842624129933dde7e06ed76d9884b42420f0e9ae229ce4ba6397d5a1"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/simulator.log",
+      "bytes": 34931,
+      "sha256": "6ab86231035d5bdd18c5cacc21a93a8b34b200e174d784167b56db870b84535c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/trace.csv",
+      "bytes": 13414814,
+      "sha256": "07ccd1617bc0cf596b97af7769e866cfdfc29e2bc7033181512c084da92a7f8a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/asim.json",
+      "bytes": 1852,
+      "sha256": "a9a0b3e9213b316097191f0a8c14b774a42a30363ee0805bdfaea8b35fc163fd"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/channel.npz",
+      "bytes": 160480,
+      "sha256": "5ade3471cf24d06a14bcfe9d18b4ff616c988085690ca5f9564ead9a566ccdb3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/dispatch.jsonl",
+      "bytes": 84346,
+      "sha256": "d184b08c533fbcde61001d4335aa9c7d6c38161206129fb44e836621250d6333"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/formula.json",
+      "bytes": 924413,
+      "sha256": "0f0bbf1a7cfeabacff6797af71d7ed166301cbf2f3c5c9108aaa176917b14927"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/inputs.npz",
+      "bytes": 75730,
+      "sha256": "8678855cfc055d682359da856431abd5e3ec9e6b64c59f6c2d518df28cb71ae2"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/instruction_pipeline_detail.csv",
+      "bytes": 325585,
+      "sha256": "1eea1a012d88e5a3f226a76bfd813d836a26701f9a642c4a333893b2f46fceae"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/instructions.jsonl",
+      "bytes": 2092971,
+      "sha256": "b057223a0b14a00e3a62f796fbec4bb087301d1335a60274fd34b5ca7405ffc8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/models.json",
+      "bytes": 1511,
+      "sha256": "fa3dabb8463dc76920a1900c117f624919b84877766eb1ec8fdb54f2cb4835fa"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/numerics_started.json",
+      "bytes": 79,
+      "sha256": "92f54d1adb0a4e32d07ce67ee06a0f90b0f8447b578508ff5d650d443f829ad3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/outputs.npy",
+      "bytes": 24704,
+      "sha256": "a9db082c9564e271fd09def75069566c79f425bfbe14791e7bca348ca47b205d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/pipeline_statistics.json",
+      "bytes": 1536422,
+      "sha256": "eb965f6a8e3135c5ba97389e178792f4e396c3ae264d4594c8d382debeeaa714"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/references.npz",
+      "bytes": 44054,
+      "sha256": "396befe7b86555528e1fbc4ad004196364612325e83961b6d020242e17a4d5a1"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/result.json",
+      "bytes": 15605,
+      "sha256": "8adfe8751e10b4b1562c334e08ec8612c2d5558801916109c5ff12cc82c3bfa2"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/rw_events.jsonl",
+      "bytes": 5881238,
+      "sha256": "3262c8af444183ca87a1958e4a5833ede021fa56df368ce2d7b22abbfd32f35c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/schedule.json",
+      "bytes": 4893,
+      "sha256": "525b04eb423fb4779be893df0db5ee0fb1498ab519ebfad8dda62bf6e706b9da"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/simulator.log",
+      "bytes": 33889,
+      "sha256": "fa0ac3a56a462f1e0bf1653d7fcee8cae5a49a20bdda690a5097a04410e9d0a2"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_low_k/trace.csv",
+      "bytes": 320395,
+      "sha256": "5308fb2c701a327ac98ec44cae879a87e750a302118c314ec2a75d3d4f7286e9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/asim.json",
+      "bytes": 1860,
+      "sha256": "1b00cf0898f3b936eafe4b115bd061d2367084d6c2e8aede78384a57702b07dc"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/channel.npz",
+      "bytes": 320224,
+      "sha256": "491c34e0d79f952499e1af922cd98fc5052725650a9c1a9c1d80b96492d5bb9e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/config.json",
+      "bytes": 12612,
+      "sha256": "fe7eca26737eae3b0b31e19f0cdf6cc881f3e1bddf99213720b118bfa7486a5a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/dispatch.jsonl",
+      "bytes": 995752,
+      "sha256": "95e0eca45774c577788dfac39b6327f231e5ae30222ef6bbd0fc4081355c22d7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/formula.json",
+      "bytes": 9960379,
+      "sha256": "108986b3c2ab63ac43b393382b1af1745ce19493bddf6825e1d92dca19e9088a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/inputs.npz",
+      "bytes": 594898,
+      "sha256": "c39538a9291d62522c283893c904d9dac614abd5c9ef6ee79e52c030839371ed"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/instruction_pipeline_detail.csv",
+      "bytes": 3540433,
+      "sha256": "8b97d79dd93ed8bd0129b401fb9c9ddb8777588eae62ebf51e437107cb83131e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/instructions.jsonl",
+      "bytes": 21505545,
+      "sha256": "cb010560e19fe210aca12238d75768edb93a5cc4572fcb409f1530de1b4239bb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/models.json",
+      "bytes": 1483,
+      "sha256": "d7d11e13a39e2fea4d491012c042b93854d3b0a8d7a8291eef5f3bf9c0e91eca"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/numerics_started.json",
+      "bytes": 79,
+      "sha256": "df878c4df9d3b12d9eacdc30b797c7a711bdfbe2ca956c1bda9cda1e00e0521d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/outputs.npy",
+      "bytes": 49280,
+      "sha256": "a07ca0d04b2dfb8acefefb3a5de3642184be2ab03d0b322f46ddf4dc57a23807"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/pipeline_statistics.json",
+      "bytes": 15354026,
+      "sha256": "4b2eca443ea2267d1eb47f09cbb65c12c99ffaf3d0c50a66c36e676ccfd76272"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/references.npz",
+      "bytes": 197654,
+      "sha256": "af1638185a47b041668702b1f5ba122becc3da48b3214bf56a5b2ff6bb6655b4"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/result.json",
+      "bytes": 23425,
+      "sha256": "8d14e43c6b31ca7a8534f8e8c7e7e487b7acc90a8922beb6f05bfe6e2212bb96"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/rw_events.jsonl",
+      "bytes": 59191555,
+      "sha256": "710bff797368679127fdea0657df861d163c7d87a2d8a8d9a9b203ead8ef918e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/schedule.json",
+      "bytes": 9168,
+      "sha256": "53e7d7d526bd0d36ab8c53d6b878cda7fe94a426157bdfe2d4de8be53887cd4d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/simulator.log",
+      "bytes": 34312,
+      "sha256": "60f2de3ebc5802023200eb9b045948fa6bde9a058e04926246e82a26eb9cab47"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/trace.csv",
+      "bytes": 3415728,
+      "sha256": "2cac09b101ac6f00c03f854c697eb659257891e8eb32403c18e10696088abb2e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/asim.json",
+      "bytes": 1885,
+      "sha256": "e0d03e518ea99b39dc20ba330a01f429fbae408d86514c9132beed79ff15e5d2"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/dispatch.jsonl",
+      "bytes": 3721768,
+      "sha256": "b9bc1e40c404446197a272c463d09ae7d649fea4092472ec707a763e785cfac0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/models.json",
+      "bytes": 1518,
+      "sha256": "e81ca8d17c5bbc253695b4e0f63e38b3568a68797d27af0f623dc5560250947f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/numerics_started.json",
+      "bytes": 79,
+      "sha256": "291fb247601ebfe92bed695b88ba0146da32111ab2ebc6ca8cfc0d8d084e874b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/outputs.npy",
+      "bytes": 393344,
+      "sha256": "bc1cc249c5ea8c195f718fd69fdc7bec4d67dbb3a43ff14acb495f4c654efdff"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/references.npz",
+      "bytes": 689162,
+      "sha256": "cb71566a686d2a5e89a87ed1a21e2cfd855a6cc551094df5a16cc38ec901e2f1"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/result.json",
+      "bytes": 39004,
+      "sha256": "950c6a38e06e28d161b6c988f5fcef5e6200949d7a9435df4a2e02338acd66c8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/rw_events.jsonl",
+      "bytes": 205565124,
+      "sha256": "ff61c172c4f056630d6fcd66c0d2d7ae61a47f7ce486b99d40770cb69f1bc6e5"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/schedule.json",
+      "bytes": 17666,
+      "sha256": "1bb1ab50f0937c369ccf5893fd301801087c638530e75bccbd20cc2bd144fd40"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/simulator.log",
+      "bytes": 34657,
+      "sha256": "18921ecf3d241a464560e38fd9b43b0644be03043e8fe1c3c4f1342dffc5297e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/asim.json",
+      "bytes": 1866,
+      "sha256": "435536ad136eaffbbe5e0d9f973f891a52357ac7e75e25c920d2b0559557d058"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/channel.npz",
+      "bytes": 2556640,
+      "sha256": "4abcfcbb30281c161fc1539ff63303c8b7f538b91d8258a44ae2032601e3b442"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/dispatch.jsonl",
+      "bytes": 1925748,
+      "sha256": "dc26cd7b3f47619edf7edd48cc8ea0afb22e0512dac578f1f88e82d56e746061"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/formula.json",
+      "bytes": 19983521,
+      "sha256": "a7c354b8e5dc914ecb9438c8b07471474e4293f210ce686db92540bd1c5923ed"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "7cd154e3efdcd09f4a134fce166016bf6cb72e181a86673a7d3079988a88bc17"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/instruction_pipeline_detail.csv",
+      "bytes": 7016465,
+      "sha256": "e886f5d85794b63843bbfb89e4759d542cdded3a71c833272971ee596ae2a70f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/instructions.jsonl",
+      "bytes": 43884115,
+      "sha256": "bb5cf44e99e055e243a20945fc04662fe56cd5f33588a2e2e0f6493573e5a11e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/models.json",
+      "bytes": 1513,
+      "sha256": "9f1a207b8a71ec783aadf0ae1c6907cd7ef21603b9d52c859527fa294a5d2e19"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/numerics_started.json",
+      "bytes": 79,
+      "sha256": "57492b3946d7303f71646adbdbee848dfc2476e157d3b88b097a20ab205fd613"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/outputs.npy",
+      "bytes": 393344,
+      "sha256": "9026d38de52dc39d5239148bbb63a24e7ef9a3391126cad38f2857f54e69d89e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/pipeline_statistics.json",
+      "bytes": 30769003,
+      "sha256": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/references.npz",
+      "bytes": 695566,
+      "sha256": "169fcf0d2646169b0c13a308b88d9a136da213b2120d96296652a5b2e30fe925"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/result.json",
+      "bytes": 38817,
+      "sha256": "da46596ca1ad5f82d20434c6a46190f2c3e957b9df346618869e075d67c8998d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/rw_events.jsonl",
+      "bytes": 120004496,
+      "sha256": "b9a685354b310907d1bfb1698e36eda74fb044737a24945a54965b960a08232f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/schedule.json",
+      "bytes": 17665,
+      "sha256": "5d6d438f8a0e9a18573928d1276be0257e33e9c70924472cc3b886f48ee17be6"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/simulator.log",
+      "bytes": 34496,
+      "sha256": "0893b9f0fc37319a3a363665dd64c4abbb45dba56519de19b754a8fd86849bf0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/trace.csv",
+      "bytes": 7403442,
+      "sha256": "c9a7083c7c466abf958fd8ee9dc2219f2b721d25dd5fa30791e95ead09138bf0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/asim.json",
+      "bytes": 1864,
+      "sha256": "5e6eeb8d7105eadab9665cba3669bc47fa888d01ab65dd1723887267a5a46b23"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/dispatch.jsonl",
+      "bytes": 1925748,
+      "sha256": "dc26cd7b3f47619edf7edd48cc8ea0afb22e0512dac578f1f88e82d56e746061"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/formula.json",
+      "bytes": 19983521,
+      "sha256": "a7c354b8e5dc914ecb9438c8b07471474e4293f210ce686db92540bd1c5923ed"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/instruction_pipeline_detail.csv",
+      "bytes": 7016465,
+      "sha256": "e886f5d85794b63843bbfb89e4759d542cdded3a71c833272971ee596ae2a70f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/instructions.jsonl",
+      "bytes": 43884115,
+      "sha256": "bb5cf44e99e055e243a20945fc04662fe56cd5f33588a2e2e0f6493573e5a11e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/models.json",
+      "bytes": 1513,
+      "sha256": "9f1a207b8a71ec783aadf0ae1c6907cd7ef21603b9d52c859527fa294a5d2e19"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/numerics_started.json",
+      "bytes": 79,
+      "sha256": "d4e26e187a5fe105b58ee11498d95f6cc710094bfd167e60dd360a48b0294baf"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/outputs.npy",
+      "bytes": 393344,
+      "sha256": "d2671ff91f17bcc3e00f8b71f93ebe77c750acae3e81bc28778b448ea3a101dc"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/pipeline_statistics.json",
+      "bytes": 30769003,
+      "sha256": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/references.npz",
+      "bytes": 695566,
+      "sha256": "8b9a756b6ed15b958d2f412301fdd7ed8e0f99c93b01225111b4bc06ebda9f43"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/result.json",
+      "bytes": 38831,
+      "sha256": "174ebd4747b6957c988775e72ed66cc2b426d41e993b9d59485ffdc8ad9415c6"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/rw_events.jsonl",
+      "bytes": 120004496,
+      "sha256": "b9a685354b310907d1bfb1698e36eda74fb044737a24945a54965b960a08232f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/schedule.json",
+      "bytes": 17665,
+      "sha256": "5d6d438f8a0e9a18573928d1276be0257e33e9c70924472cc3b886f48ee17be6"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/simulator.log",
+      "bytes": 34494,
+      "sha256": "ba48584bae8ec876a67095d4dc142b8e4303c9445cef20933f0fe6a636b677be"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/trace.csv",
+      "bytes": 7403442,
+      "sha256": "c9a7083c7c466abf958fd8ee9dc2219f2b721d25dd5fa30791e95ead09138bf0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/asim.json",
+      "bytes": 1859,
+      "sha256": "d6b406f658f75a105c2f3622008ce66c6d2b65230ced3bd25e0c8eeb4b4e26ba"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/config.json",
+      "bytes": 12612,
+      "sha256": "fe7eca26737eae3b0b31e19f0cdf6cc881f3e1bddf99213720b118bfa7486a5a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/dispatch.jsonl",
+      "bytes": 1925796,
+      "sha256": "6fac67dd26bb387e66295f3b3cebfab4f5e9974a959022fee301275171368c82"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/formula.json",
+      "bytes": 19983521,
+      "sha256": "95046e36c9b1fb30f4573aa4d3b0a3dc7d5569298cb0c3177fdffb96454cad25"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/inputs.npz",
+      "bytes": 4735954,
+      "sha256": "37c6d25f8700f70c7fd775c2360c0775e428233e2edf5d3bfa87e7e068f7023b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/instruction_pipeline_detail.csv",
+      "bytes": 7074083,
+      "sha256": "ce30d45b530b2dbecfbafb6a1772a55ce0a11ae8f85af9e47f78e70a6949fd5c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/instructions.jsonl",
+      "bytes": 44538830,
+      "sha256": "aeebab20e38f8983504b94852df11e6e5bee0ebac7e9d3d831db0d6bfe87ebca"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/models.json",
+      "bytes": 1483,
+      "sha256": "2cffa742beff7d5ea635c766f767d203eda434f4aaeb63f883aba8fa8f704071"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/numerics_started.json",
+      "bytes": 79,
+      "sha256": "595ffd7b51082ed9dfab97bc461977de0fb59b375ef54ccc2e1eff5f32e2cd29"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/outputs.npy",
+      "bytes": 393344,
+      "sha256": "a2613186febf013c7069325986e3878b333dc1c005a3c1369988b612adec212b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/pipeline_statistics.json",
+      "bytes": 30827037,
+      "sha256": "1429bb4388f4e05a580f51b7f6d34465bd0ccdc09897e45aee68dc65c1ccb998"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/references.npz",
+      "bytes": 1205494,
+      "sha256": "01d90ae0eb3065b23cb0312c764e55b8fb5a44ef58f24af2605e2f773f2cc133"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/result.json",
+      "bytes": 38937,
+      "sha256": "1b59cfcd66b27049a61f535a75f63c1b3d4d131c66f77b3b5d34208fc76cbd24"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/rw_events.jsonl",
+      "bytes": 177114114,
+      "sha256": "3000b0fd7b33a02589ea755e5ff32969328d0ff20c964cb101797de7e655f4ba"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/schedule.json",
+      "bytes": 17762,
+      "sha256": "9af1cee4affc2287832f5cdc599cf07eb66df41d3ce665268183d76ee0461a22"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/simulator.log",
+      "bytes": 34727,
+      "sha256": "df34094b70b153e4a590df5ea6d90180d11c425d61ce837db28715503b059d5f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/trace.csv",
+      "bytes": 12084641,
+      "sha256": "e16a76da188260b07d3d32ea1d169bbdd46bf11f6f830d328be548aeb51336b1"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/asim.json",
+      "bytes": 1860,
+      "sha256": "7e96d934ec2b74dd279fd25675556aaf93ac9448e2e40f0453dd2372ba845563"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/channel.npz",
+      "bytes": 320224,
+      "sha256": "491c34e0d79f952499e1af922cd98fc5052725650a9c1a9c1d80b96492d5bb9e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/config.json",
+      "bytes": 12612,
+      "sha256": "fe7eca26737eae3b0b31e19f0cdf6cc881f3e1bddf99213720b118bfa7486a5a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/dispatch.jsonl",
+      "bytes": 472808,
+      "sha256": "72b86cdfb24702a55d55997fe6200b065d089aa1d52376a80f2e8df4198a123d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/formula.json",
+      "bytes": 4918097,
+      "sha256": "e594ce24b9bd63ec4d77f75fb3c569fd3527480025b6cdca08fac422ed0b0af7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/inputs.npz",
+      "bytes": 594898,
+      "sha256": "c39538a9291d62522c283893c904d9dac614abd5c9ef6ee79e52c030839371ed"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/instruction_pipeline_detail.csv",
+      "bytes": 1712718,
+      "sha256": "1b2f5e8594077c9b0bb22d214af9e4e423b792caa2e3e333c02d969d5ddff7d0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/instructions.jsonl",
+      "bytes": 10945211,
+      "sha256": "ae5754d83514fbe4dbe95f2058f88ec61c4547be30c0d4ee77d46baefad1b3a3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/models.json",
+      "bytes": 1481,
+      "sha256": "9139ff95dab1cce34e5a227fbf82b8fc827c130e44d47d7e698f533a69b46e15"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/numerics_started.json",
+      "bytes": 79,
+      "sha256": "c395b2c1ccaa425667a0b34607f65105543e41d2ad878e472c7e3e4abab0fc58"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/outputs.npy",
+      "bytes": 49280,
+      "sha256": "24ea66ce472e3265965002561468adce9c9416a90a637751dd7e984036f38221"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/pipeline_statistics.json",
+      "bytes": 7680923,
+      "sha256": "f17df435ca56c605e7a645e05573022d56b9da217f03ea8066df32995f22b62d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/references.npz",
+      "bytes": 154870,
+      "sha256": "9a6ffae20039cd47ef03add5066228d6a69182be2c945301fc54189b930bb7f7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/result.json",
+      "bytes": 23349,
+      "sha256": "1d0e96dedcf9d46dffc58b43c587690ea8df0194190cf7f8c211eacc63931dfe"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/rw_events.jsonl",
+      "bytes": 34270458,
+      "sha256": "70efb200c10af7997ede73fe66f4821338ef87e69fb4eced041f75eb4a9945aa"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/schedule.json",
+      "bytes": 9167,
+      "sha256": "b5628e99f0d97a0b37162fb9f97edad057420cf6983580bee50e28d627030714"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/simulator.log",
+      "bytes": 34168,
+      "sha256": "257c9f4ea3de86399c68900855b2008c49e6061dce91a0136ff9031e53d14ad5"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/trace.csv",
+      "bytes": 2109360,
+      "sha256": "450a43060bb14e42bf6c65f9438efaa50b0d96bd411faed41855aa16817f01d1"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/asim.json",
+      "bytes": 1865,
+      "sha256": "6a453c1cf5b150428c1d6cc4a0373ac9a7295f21ce3d95fd39f7650fa6aca4fd"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/numerics_started.json",
+      "bytes": 79,
+      "sha256": "18af3463d3d3a0caadc4d11a39a793aea064f8f0d393e332d2a1562bbfee8509"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/outputs.npy",
+      "bytes": 393344,
+      "sha256": "7988be9aa518f0d10c9e912965b8f6a81368168aabbcd5ca1fb400063858d5dd"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/references.npz",
+      "bytes": 689138,
+      "sha256": "c01fb36f688dfcd348b9a78444eb46b99b3291f4655e5043543cd4522737a9e1"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/result.json",
+      "bytes": 38811,
+      "sha256": "a336a2d27de0f8ecd0764d97dade7208e437d6bc6e5b37d49dc4857bd8995a1b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/schedule.json",
+      "bytes": 17665,
+      "sha256": "9330dc8b3b84f00ce7123ec8a35d4bbe986847e697a11758855348980657f5e2"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/simulator.log",
+      "bytes": 34365,
+      "sha256": "8dd898334c40facccb8cf30591d87ce930d901ee041cb58d4e0ceaedd08ade37"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/summary.json",
+      "bytes": 46306,
+      "sha256": "cc679a6fce44f558f5820e3a64b0cd5b6c4a1bc7d0333d99a3705c2ba003d7e8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign.log",
+      "bytes": 481,
+      "sha256": "36f42d952a864375524d308c695a77bbeb8a110c7e8e59f548384589fc5160f8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_acceptance.json",
+      "bytes": 2602,
+      "sha256": "ede42a4303e23ee92b2fae1f79fa2ea958268af08129b0a4b664ef95fd656f59"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/asim.json",
+      "bytes": 1861,
+      "sha256": "d7ef99e08d82e2747325b3967ac8e33c1ff802dd8d23fe6fb14f9bce105a809c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/config.json",
+      "bytes": 12672,
+      "sha256": "1353d7cd293b48db5c54b173e2186d7d5ed9329a76f0a7376ddfee414b4fcf3d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/dispatch.jsonl",
+      "bytes": 2274740,
+      "sha256": "1a731cf157ab692a57ec76ae27561ad7970c13956b9c9453f6bac22e173620c4"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/evaluation_result.json",
+      "bytes": 39069,
+      "sha256": "2edb5c5011b176e717cdc098e3e2431706ce97793a28abf61c7ccc403e3979f9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/instruction_pipeline_detail.csv",
+      "bytes": 8269811,
+      "sha256": "bf640d415a87214911a2799bf650bdccce292ac593df090ae5a975abe2f850d8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/models.json",
+      "bytes": 1515,
+      "sha256": "17399251f47fa2f01f36340501217fc7155981ece9408012131a1749bdb5067b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/numerics_started.json",
+      "bytes": 79,
+      "sha256": "27d7042c150bc8fcf9f0d31c20b2bdefcff0e47a196c0974c9ed2a81314b5def"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/outputs.npy",
+      "bytes": 393344,
+      "sha256": "e0fee9c2f6b52efc57fe83d8d3cb5cd8284690c955be6435c4ace197c1be0f34"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/references.npz",
+      "bytes": 689174,
+      "sha256": "e74867fb2634ae6636b0a5b4b3afadd429b138106690c67914edcfc868ee0120"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/result.json",
+      "bytes": 39417,
+      "sha256": "28c6710a96d8b6765df4585ea545b07646361b00a7f0167cc0337466ea831987"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/runtime_pin.json",
+      "bytes": 9411,
+      "sha256": "4f4a95bfc7d128225333d319bc29be797924700fdc1a5a1cbd47441147353ef5"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/rw_events.jsonl",
+      "bytes": 134218140,
+      "sha256": "fbf977d8f6650477cb2a7c2611f7efb689ca503daf25b1f1e312963812d06f5c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/schedule.json",
+      "bytes": 17666,
+      "sha256": "df2fe57fb5fb2512788731c04609724051c9e28dd8cd50a13a0f7ffeef7137ae"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/simulator.log",
+      "bytes": 34678,
+      "sha256": "6724913e3402b839ded0d23005730606b7e0e51ef26af12239b2876ebf2551dc"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/trace.csv",
+      "bytes": 7978988,
+      "sha256": "3d0e178b50ab5295b51970f728a238b4a4e0a8c58761e0ca2cbd129cdb947737"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri.log",
+      "bytes": 2739,
+      "sha256": "aa86cc6bec16e62107ec69dc40cf839745ddb691d782616b4e8f0771c532105a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/asim.json",
+      "bytes": 1879,
+      "sha256": "951d6114398c058b14844faaffb4180fd683bb6ebbd56edd8cb668f6e1dd31bb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/config.json",
+      "bytes": 12672,
+      "sha256": "1353d7cd293b48db5c54b173e2186d7d5ed9329a76f0a7376ddfee414b4fcf3d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/dispatch.jsonl",
+      "bytes": 2274740,
+      "sha256": "1a731cf157ab692a57ec76ae27561ad7970c13956b9c9453f6bac22e173620c4"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/evaluation_result.json",
+      "bytes": 39087,
+      "sha256": "5b1b95390b640d386a48f3506de45cfe183562ebb3d29dc27484dcc387a96e39"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/instruction_pipeline_detail.csv",
+      "bytes": 8269811,
+      "sha256": "bf640d415a87214911a2799bf650bdccce292ac593df090ae5a975abe2f850d8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/models.json",
+      "bytes": 1515,
+      "sha256": "17399251f47fa2f01f36340501217fc7155981ece9408012131a1749bdb5067b"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/numerics_started.json",
+      "bytes": 79,
+      "sha256": "27d7042c150bc8fcf9f0d31c20b2bdefcff0e47a196c0974c9ed2a81314b5def"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/outputs.npy",
+      "bytes": 393344,
+      "sha256": "e0fee9c2f6b52efc57fe83d8d3cb5cd8284690c955be6435c4ace197c1be0f34"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/references.npz",
+      "bytes": 689174,
+      "sha256": "e74867fb2634ae6636b0a5b4b3afadd429b138106690c67914edcfc868ee0120"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/result.json",
+      "bytes": 39435,
+      "sha256": "2db7c7f4538035d6f035b7eee93de6bf9574ba37a7b0ef573add5d448721956d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/runtime_pin.json",
+      "bytes": 9411,
+      "sha256": "4f4a95bfc7d128225333d319bc29be797924700fdc1a5a1cbd47441147353ef5"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/rw_events.jsonl",
+      "bytes": 134218140,
+      "sha256": "fbf977d8f6650477cb2a7c2611f7efb689ca503daf25b1f1e312963812d06f5c"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/schedule.json",
+      "bytes": 17666,
+      "sha256": "df2fe57fb5fb2512788731c04609724051c9e28dd8cd50a13a0f7ffeef7137ae"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/simulator.log",
+      "bytes": 34696,
+      "sha256": "cfe773d72b9eab09db1c59a88eda7d354c2ab00bf190b16cb417dee1b3cdae08"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/trace.csv",
+      "bytes": 7978988,
+      "sha256": "3d0e178b50ab5295b51970f728a238b4a4e0a8c58761e0ca2cbd129cdb947737"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline.log",
+      "bytes": 2748,
+      "sha256": "633f3c0bdfc0d72966051b7b3d7e034724e1d90d964b8e4ecca84ee6b3ec9337"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/asim.json",
+      "bytes": 1861,
+      "sha256": "11d4e8b21003dee27a4186073c1432e64cf7bee49e368f2b08532d7cc058c119"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/config.json",
+      "bytes": 12672,
+      "sha256": "1353d7cd293b48db5c54b173e2186d7d5ed9329a76f0a7376ddfee414b4fcf3d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/dispatch.jsonl",
+      "bytes": 1925748,
+      "sha256": "dc26cd7b3f47619edf7edd48cc8ea0afb22e0512dac578f1f88e82d56e746061"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/evaluation_result.json",
+      "bytes": 38827,
+      "sha256": "87fe5c54c177088324b1c6a662deb65ea12cb8aefb00a68e417c6ee01152b2e0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/formula.json",
+      "bytes": 19983521,
+      "sha256": "a7c354b8e5dc914ecb9438c8b07471474e4293f210ce686db92540bd1c5923ed"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/instruction_pipeline_detail.csv",
+      "bytes": 7016465,
+      "sha256": "e886f5d85794b63843bbfb89e4759d542cdded3a71c833272971ee596ae2a70f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/instructions.jsonl",
+      "bytes": 43884115,
+      "sha256": "bb5cf44e99e055e243a20945fc04662fe56cd5f33588a2e2e0f6493573e5a11e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/models.json",
+      "bytes": 1513,
+      "sha256": "9f1a207b8a71ec783aadf0ae1c6907cd7ef21603b9d52c859527fa294a5d2e19"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/numerics_started.json",
+      "bytes": 79,
+      "sha256": "d4e26e187a5fe105b58ee11498d95f6cc710094bfd167e60dd360a48b0294baf"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/outputs.npy",
+      "bytes": 393344,
+      "sha256": "d2671ff91f17bcc3e00f8b71f93ebe77c750acae3e81bc28778b448ea3a101dc"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/pipeline_statistics.json",
+      "bytes": 30769003,
+      "sha256": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/references.npz",
+      "bytes": 695566,
+      "sha256": "8b9a756b6ed15b958d2f412301fdd7ed8e0f99c93b01225111b4bc06ebda9f43"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/result.json",
+      "bytes": 39175,
+      "sha256": "821cfd6c4b199541801124532822a515b1c2a0ccae8f839656014a05c6eae9c3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/runtime_pin.json",
+      "bytes": 9411,
+      "sha256": "4f4a95bfc7d128225333d319bc29be797924700fdc1a5a1cbd47441147353ef5"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/rw_events.jsonl",
+      "bytes": 120004496,
+      "sha256": "b9a685354b310907d1bfb1698e36eda74fb044737a24945a54965b960a08232f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/schedule.json",
+      "bytes": 17665,
+      "sha256": "5d6d438f8a0e9a18573928d1276be0257e33e9c70924472cc3b886f48ee17be6"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/simulator.log",
+      "bytes": 34478,
+      "sha256": "d9bb5287566ed620b96ebc8cae07462f7fe62289004e6850a126c3bce9a3c9df"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/trace.csv",
+      "bytes": 7403442,
+      "sha256": "c9a7083c7c466abf958fd8ee9dc2219f2b721d25dd5fa30791e95ead09138bf0"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl.log",
+      "bytes": 2717,
+      "sha256": "06f35eda86cba5c8b2caa631ee5afb34168562fca1a1b4d629d4d1d315fc11bd"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/asim.json",
+      "bytes": 1854,
+      "sha256": "ec3ab4391a8ed20120d3784bc783f09b6cf50ea04a52ec135d4eccd664be566a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/config.json",
+      "bytes": 12672,
+      "sha256": "1353d7cd293b48db5c54b173e2186d7d5ed9329a76f0a7376ddfee414b4fcf3d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/evaluation_result.json",
+      "bytes": 38801,
+      "sha256": "2d17d157f63a57fd1b266606fbe323341c61306e3581069c1d0d0169061c47db"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/numerics_started.json",
+      "bytes": 79,
+      "sha256": "18af3463d3d3a0caadc4d11a39a793aea064f8f0d393e332d2a1562bbfee8509"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/outputs.npy",
+      "bytes": 393344,
+      "sha256": "7988be9aa518f0d10c9e912965b8f6a81368168aabbcd5ca1fb400063858d5dd"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/references.npz",
+      "bytes": 689138,
+      "sha256": "c01fb36f688dfcd348b9a78444eb46b99b3291f4655e5043543cd4522737a9e1"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/result.json",
+      "bytes": 39149,
+      "sha256": "994287824e80fdbe531d071f06210f6e9cf22b69599781a14c224f66c3cd50e3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/runtime_pin.json",
+      "bytes": 9411,
+      "sha256": "4f4a95bfc7d128225333d319bc29be797924700fdc1a5a1cbd47441147353ef5"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/schedule.json",
+      "bytes": 17665,
+      "sha256": "9330dc8b3b84f00ce7123ec8a35d4bbe986847e697a11758855348980657f5e2"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/simulator.log",
+      "bytes": 34341,
+      "sha256": "a986a4af07b1cc08462e4a6974080780acb8420cb0f12e94476d2358a4e9439f"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns.log",
+      "bytes": 2676,
+      "sha256": "95bc66df06cf111c08e6f5c802416fcaa921c4b747489d8482bd61b1cff5a68a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/effort.json",
+      "bytes": 11052,
+      "sha256": "0ffbd5a00296c427c37cac3f702cd23c513ce986cd1cd44ae55e56e1ed320ebe"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/orchestrator_spans.json",
+      "bytes": 2180,
+      "sha256": "7b8e2ec9027b1c8c485fa531cc01c9b85730c11ca3541744180c20a466f45877"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/runtime/bin/Simulator",
+      "bytes": 7403472,
+      "sha256": "bd8d44063155fb3a1db73475120d1678e82403487a154299ca6eff8a061ddbed"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/runtime/lib/libramulator.so",
+      "bytes": 4092536,
+      "sha256": "c3e7a9bba805b79a4c2410217ba490350398cacf2bf8c7417b9e7882dc73fd84"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/runtime/runtime/HBM2.yaml",
+      "bytes": 354,
+      "sha256": "7c7ad9c374c3d08e0ad2cb081ab013b4f0c48a19d3dd1c7d547caf75943dd8f2"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/runtime/runtime/fly_c1_m2.icnt",
+      "bytes": 280,
+      "sha256": "dbf877e67e4436003dc689a512ffa8135402520676524f68a4be8c12c1ec00d2"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/runtime/runtime_config.json",
+      "bytes": 12520,
+      "sha256": "87c033833eb7117f8b786c7c0e52e24a256b54b2aa0977528b3160e491408137"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/runtime_candidate.json",
+      "bytes": 10419,
+      "sha256": "3209f735a5f76efbf472717aaa5cf9c912b8588eb1058bf6c49cfb1b6d903f94"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/bri_f16_123/actual_stage_snapshots.npz",
+      "bytes": 1225902,
+      "sha256": "f777b1aff592c8077abad467f98978a293856eafae405a42604a8babaee40e9a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/bri_f16_123/batches.json",
+      "bytes": 13528,
+      "sha256": "fcbdae92f16465946291808562645852bc24fc5de9ff97a29ee3b560c0b95f88"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/bri_f16_42/actual_stage_snapshots.npz",
+      "bytes": 1225902,
+      "sha256": "3240a92d2c45e9147518075185aa1b6a4f5e8f1e1e1cf4929910c4a851c599d9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/bri_f16_42/batches.json",
+      "bytes": 13528,
+      "sha256": "fcbdae92f16465946291808562645852bc24fc5de9ff97a29ee3b560c0b95f88"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/bri_f64/actual_stage_snapshots.npz",
+      "bytes": 1225902,
+      "sha256": "adaa6a7fb4cad1450141e9d751aed69d885e7c08bd6bd7e4701f2dd52a5a55c7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/bri_f64/batches.json",
+      "bytes": 13528,
+      "sha256": "fcbdae92f16465946291808562645852bc24fc5de9ff97a29ee3b560c0b95f88"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/bri_shape2/actual_stage_snapshots.npz",
+      "bytes": 170574,
+      "sha256": "c73fde981a5ce25a4f26dd2ac848b3b69d7bca98f840b45265d42195bd0b09eb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/bri_shape2/batches.json",
+      "bytes": 6760,
+      "sha256": "a4febb4fddd173c335cd0a650b3f218394c37cf76d9c3a82685b6a531c3cb5bb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/ldl_f16_123/actual_stage_snapshots.npz",
+      "bytes": 857070,
+      "sha256": "198df9f04007ff7100fd20d3a7b4c28a5bd39eae58f4d16dc13ff68d85b28ed8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/ldl_f16_123/batches.json",
+      "bytes": 18712,
+      "sha256": "dd3687391f195103d8f0a00494bd105bcd508609bfe8119ec1ce239a6f1f0960"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/ldl_f16_42/actual_stage_snapshots.npz",
+      "bytes": 857070,
+      "sha256": "c6510e5c999fd9f93ecdfa673f641471dbd04e50e88e4fa1fde6f99ac254efdf"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/ldl_f16_42/batches.json",
+      "bytes": 18712,
+      "sha256": "dd3687391f195103d8f0a00494bd105bcd508609bfe8119ec1ce239a6f1f0960"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/ldl_f64/actual_stage_snapshots.npz",
+      "bytes": 857070,
+      "sha256": "cf9a7215754f39f558fd43812bcc97b724cf68d613996acd8a8695408c7c665d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/ldl_f64/batches.json",
+      "bytes": 21953,
+      "sha256": "e94edf19d56ee93aeb31deb2970c50335ea334ea8ef524df4d58c47814b79fe3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/ldl_shape2/actual_stage_snapshots.npz",
+      "bytes": 127470,
+      "sha256": "74aab897b3f78d827034427e2e98281dad6a841f937e1a3ed2b1cc847ce38ec7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/ldl_shape2/batches.json",
+      "bytes": 10965,
+      "sha256": "bea3c240a0373405582fd58d763f45532286554600ebbcda9619e4b49db3bc0a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages/summary.json",
+      "bytes": 978,
+      "sha256": "aa41a17c6895c2eaff32723fd52641ad7005aa403097fe7a4df3d2cbd51806d9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-retry.log",
+      "bytes": 180,
+      "sha256": "73893b1aa4d0396d80e5c31c3caf1ad4ce3b1d202b60e61aefe45a3062e8463e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/bri_f16_123/actual_stage_snapshots.npz",
+      "bytes": 1225902,
+      "sha256": "f777b1aff592c8077abad467f98978a293856eafae405a42604a8babaee40e9a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/bri_f16_123/batches.json",
+      "bytes": 13528,
+      "sha256": "fcbdae92f16465946291808562645852bc24fc5de9ff97a29ee3b560c0b95f88"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/bri_f16_42/actual_stage_snapshots.npz",
+      "bytes": 1225902,
+      "sha256": "3240a92d2c45e9147518075185aa1b6a4f5e8f1e1e1cf4929910c4a851c599d9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/bri_f16_42/batches.json",
+      "bytes": 13528,
+      "sha256": "fcbdae92f16465946291808562645852bc24fc5de9ff97a29ee3b560c0b95f88"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/bri_f64/actual_stage_snapshots.npz",
+      "bytes": 1225902,
+      "sha256": "adaa6a7fb4cad1450141e9d751aed69d885e7c08bd6bd7e4701f2dd52a5a55c7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/bri_f64/batches.json",
+      "bytes": 13528,
+      "sha256": "fcbdae92f16465946291808562645852bc24fc5de9ff97a29ee3b560c0b95f88"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/bri_shape2/actual_stage_snapshots.npz",
+      "bytes": 170574,
+      "sha256": "c73fde981a5ce25a4f26dd2ac848b3b69d7bca98f840b45265d42195bd0b09eb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/bri_shape2/batches.json",
+      "bytes": 6760,
+      "sha256": "a4febb4fddd173c335cd0a650b3f218394c37cf76d9c3a82685b6a531c3cb5bb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/ldl_f16_123/actual_stage_snapshots.npz",
+      "bytes": 857070,
+      "sha256": "198df9f04007ff7100fd20d3a7b4c28a5bd39eae58f4d16dc13ff68d85b28ed8"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/ldl_f16_123/batches.json",
+      "bytes": 18712,
+      "sha256": "dd3687391f195103d8f0a00494bd105bcd508609bfe8119ec1ce239a6f1f0960"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/ldl_f16_42/actual_stage_snapshots.npz",
+      "bytes": 857070,
+      "sha256": "c6510e5c999fd9f93ecdfa673f641471dbd04e50e88e4fa1fde6f99ac254efdf"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/ldl_f16_42/batches.json",
+      "bytes": 18712,
+      "sha256": "dd3687391f195103d8f0a00494bd105bcd508609bfe8119ec1ce239a6f1f0960"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/ldl_f64/actual_stage_snapshots.npz",
+      "bytes": 857070,
+      "sha256": "cf9a7215754f39f558fd43812bcc97b724cf68d613996acd8a8695408c7c665d"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/ldl_f64/batches.json",
+      "bytes": 21953,
+      "sha256": "e94edf19d56ee93aeb31deb2970c50335ea334ea8ef524df4d58c47814b79fe3"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/ldl_shape2/actual_stage_snapshots.npz",
+      "bytes": 127470,
+      "sha256": "74aab897b3f78d827034427e2e98281dad6a841f937e1a3ed2b1cc847ce38ec7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/ldl_shape2/batches.json",
+      "bytes": 10965,
+      "sha256": "bea3c240a0373405582fd58d763f45532286554600ebbcda9619e4b49db3bc0a"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2/summary.json",
+      "bytes": 978,
+      "sha256": "aa41a17c6895c2eaff32723fd52641ad7005aa403097fe7a4df3d2cbd51806d9"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2.log",
+      "bytes": 180,
+      "sha256": "73893b1aa4d0396d80e5c31c3caf1ad4ce3b1d202b60e61aefe45a3062e8463e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/stages.log",
+      "bytes": 220,
+      "sha256": "a0350092755daad5d59e2f8664ca6ed4bdf01ccc2f82c8f36117f50eadece030"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/tool_sources/archive_checks.py",
+      "bytes": 1726,
+      "sha256": "59f119f0d4248a1c584d13a1bf485cdd350ac75552ac40120dcb61aed88dd833"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/tool_sources/audit_solver_stages.py",
+      "bytes": 6400,
+      "sha256": "06301115fa83e907253597208fa468275889b11824e34aaf3898be6034e9d814"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/tool_sources/check_solver_mapping_archive.py",
+      "bytes": 4336,
+      "sha256": "73be9ffdd2f6ed3aa0c30dc59aac69def7bd25f943723d18575af29da85cc833"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/tool_spans.jsonl",
+      "bytes": 4330,
+      "sha256": "b37bbcc6c11bbb8a1cd3edac939763a10b727cca2ebfb565db13ca3509da9391"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/unit-review.log",
+      "bytes": 15947,
+      "sha256": "0f30bc5251d1ad958c6af7d182f4a740b802095e0f4cd95a53c5d6967fca95b7"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/unit.log",
+      "bytes": 15437,
+      "sha256": "fd98f2ef2e164fc7748518284db728fc8307bb27e3f9570161e560222690e06e"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/archive_negatives/bad_hash.json",
+      "bytes": 66257,
+      "sha256": "e56ae94c0d9d884bf4fad65aef12acd854acfecd8df7835d8b8fee81ca306aeb"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/archive_negatives/empty_manifest.json",
+      "bytes": 916,
+      "sha256": "4b5aec20f30b93f45a118874d34c64062b2c4d8627e3d6e2827f44b385aa0c93"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/archive_negatives/results.json",
+      "bytes": 291,
+      "sha256": "228094375b1fbe2a6b243a3334909b36c0e9dab6e6a7a1de5f914238eda53f7a"
+    }
+  ]
+}

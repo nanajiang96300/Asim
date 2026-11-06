@@ -1,0 +1,16 @@
+[
+  {
+    "case": "ldl_f16_42",
+    "mutation": "D_wrong_row_index",
+    "status": "NUMERIC_FAILED",
+    "relative_error": 0.03908976838219676,
+    "actual_mutant_simulated": false
+  },
+  {
+    "case": "bri_f16_42",
+    "mutation": "iteration_ADD_replaced_with_MUL",
+    "status": "NUMERIC_FAILED",
+    "relative_error": 1.005694388394849,
+    "actual_mutant_simulated": false
+  }
+]

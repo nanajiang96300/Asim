@@ -1,0 +1,386 @@
+{
+  "schema": "agent-effort-v1",
+  "session_wall_seconds": 1645.395790459,
+  "observed_tool_union_seconds": 806.451523975,
+  "agent_or_uninstrumented_seconds": 838.944266484,
+  "pure_model_thinking_seconds": null,
+  "definition": "residual includes reasoning, writing, scheduling, uninstrumented tools and waits; not pure thinking",
+  "start_utc": "2026-11-06T14:25:29+00:00",
+  "end_utc": "2026-11-06T14:52:54.395790+00:00",
+  "command_spans": [
+    {
+      "schema": "tool-span-v1",
+      "label": "unit",
+      "start_ns": 1793975434620035336,
+      "end_ns": 1793975435980031023,
+      "elapsed_seconds": 1.359995687,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/tests",
+        "-v"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "build",
+      "start_ns": 1793975476694331675,
+      "end_ns": 1793975505549060494,
+      "elapsed_seconds": 28.854728819,
+      "returncode": 0,
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--target",
+        "Simulator",
+        "-j1"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "mapping-campaign",
+      "start_ns": 1793975610651678977,
+      "end_ns": 1793976086082066394,
+      "elapsed_seconds": 475.430387417,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.mapping_campaign",
+        "--binary",
+        "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build/bin/Simulator",
+        "--config",
+        "configs/ascend_910b_quiet.json",
+        "--cwd",
+        "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "stage-witnesses",
+      "start_ns": 1793976103950459560,
+      "end_ns": 1793976104103314840,
+      "elapsed_seconds": 0.15285528,
+      "returncode": 1,
+      "command": [
+        ".venv/bin/python",
+        "scripts/audit_solver_stages.py",
+        "--campaign",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/stages"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "stage-witnesses",
+      "start_ns": 1793976142077742383,
+      "end_ns": 1793976142181544523,
+      "elapsed_seconds": 0.10380214,
+      "returncode": 1,
+      "command": [
+        ".venv/bin/python",
+        "scripts/audit_solver_stages.py",
+        "--campaign",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/stages"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "stage-witnesses-retry-entry",
+      "start_ns": 1793976166885062870,
+      "end_ns": 1793976223787370726,
+      "elapsed_seconds": 56.902307856,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "scripts/audit_solver_stages.py",
+        "--campaign",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/stages"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-ldl",
+      "start_ns": 1793976309890628038,
+      "end_ns": 1793976356165843844,
+      "elapsed_seconds": 46.275215806,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "ldl_explicit_v1",
+        "--iterations",
+        "1",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-bri",
+      "start_ns": 1793976356225834347,
+      "end_ns": 1793976416490250305,
+      "elapsed_seconds": 60.264415958,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "bri_explicit_v1",
+        "--iterations",
+        "192",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-bri-baseline",
+      "start_ns": 1793976416536449364,
+      "end_ns": 1793976477243632337,
+      "elapsed_seconds": 60.707182973,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "bri_explicit_v1",
+        "--iterations",
+        "192",
+        "--baseline",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/result.json",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-ns",
+      "start_ns": 1793976477284593510,
+      "end_ns": 1793976492424850593,
+      "elapsed_seconds": 15.140257083,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "unit-review-fixes",
+      "start_ns": 1793976535632069856,
+      "end_ns": 1793976536984901352,
+      "elapsed_seconds": 1.352831496,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/tests",
+        "-v"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "strict-stage-witnesses",
+      "start_ns": 1793976563943468356,
+      "end_ns": 1793976621174726187,
+      "elapsed_seconds": 57.231257831,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "scripts/audit_solver_stages.py",
+        "--campaign",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign",
+        "--output",
+        "results/operator_mapping/2026-11-06-ldl-bri-v1/stages-v2"
+      ]
+    },
+    {
+      "start_ns": 1793975264495000064,
+      "end_ns": 1793975264548000000,
+      "label": "design_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975336696000000,
+      "end_ns": 1793975336777999872,
+      "label": "candidate_mapping_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975397804000000,
+      "end_ns": 1793975397961999872,
+      "label": "reference_and_registry_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975434564999936,
+      "end_ns": 1793975435728999936,
+      "label": "unit_launch_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975476220000000,
+      "end_ns": 1793975476636000000,
+      "label": "freeze_candidates_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975506760999936,
+      "end_ns": 1793975507238000128,
+      "label": "bri_parameter_probe_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975610528999936,
+      "end_ns": 1793975611694000128,
+      "label": "campaign_launch_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975668004999936,
+      "end_ns": 1793975668135000064,
+      "label": "campaign_progress_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975901628000000,
+      "end_ns": 1793975901708999936,
+      "label": "mapping_progress_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793975947904999936,
+      "end_ns": 1793975948028000000,
+      "label": "stage_auditor_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976010657999872,
+      "end_ns": 1793976010833999872,
+      "label": "runtime_package_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976050942000128,
+      "end_ns": 1793976050995000064,
+      "label": "archive_checker_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976103888999936,
+      "end_ns": 1793976104116000000,
+      "label": "stage_audit_launch_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976142025999872,
+      "end_ns": 1793976142216000000,
+      "label": "actual_stage_audit_launch_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976166811000064,
+      "end_ns": 1793976167976999936,
+      "label": "stage_entry_fix_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976194440999936,
+      "end_ns": 1793976194527000064,
+      "label": "mapping_numeric_results_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976217998000128,
+      "end_ns": 1793976218046000128,
+      "label": "stage_progress_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976289128000000,
+      "end_ns": 1793976289176999936,
+      "label": "mapping_report_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976309796000000,
+      "end_ns": 1793976310959000064,
+      "label": "daily_acceptance_launch_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976396251000064,
+      "end_ns": 1793976399640000000,
+      "label": "mapping_summary_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976535544000000,
+      "end_ns": 1793976536710000128,
+      "label": "audit_gate_fix_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976563894000128,
+      "end_ns": 1793976565056999936,
+      "label": "strict_stage_rerun_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976599348999936,
+      "end_ns": 1793976599438000128,
+      "label": "final_gate_progress_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976628446000128,
+      "end_ns": 1793976629000999936,
+      "label": "daily_determinism_and_audit_freeze_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976671604999936,
+      "end_ns": 1793976671729999872,
+      "label": "strict_stage_and_pin_status_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793976732003000064,
+      "end_ns": 1793976732120000000,
+      "label": "report_and_decisions_tool",
+      "source": "orchestrator_tool_call"
+    }
+  ],
+  "scope": "LDL/BRI mapping development, independent references, review, gates/stages/daily and reports to this snapshot",
+  "instrumentation": "partial; residual includes reasoning, output, coordination, waits and uninstrumented tools",
+  "review_wall_seconds": [
+    88,
+    86,
+    41
+  ],
+  "reviews_parallel_not_additive": true,
+  "thinking_tokens": null
+}

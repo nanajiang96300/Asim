@@ -1,0 +1,292 @@
+[
+  {
+    "case": "ldl_f64",
+    "operator": "ldl_explicit_v1",
+    "profile": "structure_f64_real_block",
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "algorithm": {
+      "id": "ldl_explicit_v1",
+      "factorization": "right_looking_ldl",
+      "initialization": "L=I;D=diag(A_schur);row_weighted_solve"
+    },
+    "status": "STRUCTURE_CHECKED",
+    "expected_status": "STRUCTURE_CHECKED",
+    "cycles": 24647,
+    "max_task_error": 1.0023556060962934e-15,
+    "phase_timings_seconds": {
+      "setup": 0.035592444000940304,
+      "asim": 22.265955189002852,
+      "artifact_and_schedule_checks": 33.001539165001304,
+      "independent_references": 0.16256530699320138,
+      "instruction_replay_and_comparison": 10.120670631004032
+    }
+  },
+  {
+    "case": "ldl_f16_42",
+    "operator": "ldl_explicit_v1",
+    "profile": "modeled_fp16_fp32_real_block_v1",
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "algorithm": {
+      "id": "ldl_explicit_v1",
+      "factorization": "right_looking_ldl",
+      "initialization": "L=I;D=diag(A_schur);row_weighted_solve"
+    },
+    "status": "MODELED_NUMERIC_CHECKED",
+    "expected_status": "MODELED_NUMERIC_CHECKED",
+    "cycles": 18697,
+    "max_task_error": 0.0025429260086430846,
+    "phase_timings_seconds": {
+      "setup": 0.017297187994699925,
+      "asim": 13.714776221000648,
+      "artifact_and_schedule_checks": 25.427693821002322,
+      "independent_references": 0.9228499750024639,
+      "instruction_replay_and_comparison": 4.7346903159996145
+    }
+  },
+  {
+    "case": "ldl_f16_123",
+    "operator": "ldl_explicit_v1",
+    "profile": "modeled_fp16_fp32_real_block_v1",
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "algorithm": {
+      "id": "ldl_explicit_v1",
+      "factorization": "right_looking_ldl",
+      "initialization": "L=I;D=diag(A_schur);row_weighted_solve"
+    },
+    "status": "MODELED_NUMERIC_CHECKED",
+    "expected_status": "MODELED_NUMERIC_CHECKED",
+    "cycles": 18697,
+    "max_task_error": 0.002485626107812778,
+    "phase_timings_seconds": {
+      "setup": 0.01703820999682648,
+      "asim": 14.015553726996586,
+      "artifact_and_schedule_checks": 25.73377987200365,
+      "independent_references": 0.9132892720008385,
+      "instruction_replay_and_comparison": 4.935847859000205
+    }
+  },
+  {
+    "case": "ldl_shape2",
+    "operator": "ldl_explicit_v1",
+    "profile": "structure_f64_real_block",
+    "batch_size": 48,
+    "nr": 32,
+    "nt": 8,
+    "nrhs": 4,
+    "algorithm": {
+      "id": "ldl_explicit_v1",
+      "factorization": "right_looking_ldl",
+      "initialization": "L=I;D=diag(A_schur);row_weighted_solve"
+    },
+    "status": "STRUCTURE_CHECKED",
+    "expected_status": "STRUCTURE_CHECKED",
+    "cycles": 4689,
+    "max_task_error": 8.856446530149452e-16,
+    "phase_timings_seconds": {
+      "setup": 0.004136401003052015,
+      "asim": 3.5283259589996305,
+      "artifact_and_schedule_checks": 5.765718809998361,
+      "independent_references": 0.014788193002459593,
+      "instruction_replay_and_comparison": 0.790164530997572
+    }
+  },
+  {
+    "case": "bri_f64",
+    "operator": "bri_explicit_v1",
+    "profile": "structure_f64_real_block",
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "algorithm": {
+      "id": "bri_explicit_v1",
+      "iterations": 192,
+      "block_size_real": 2,
+      "omega": 0.5,
+      "recurrence": "precomputed_stationary",
+      "initialization": "x0=0"
+    },
+    "status": "STRUCTURE_CHECKED",
+    "expected_status": "STRUCTURE_CHECKED",
+    "cycles": 42037,
+    "max_task_error": 1.0465931661067513e-15,
+    "phase_timings_seconds": {
+      "setup": 0.01725653999892529,
+      "asim": 28.32393798999692,
+      "artifact_and_schedule_checks": 37.801422201002424,
+      "independent_references": 0.15171074599493295,
+      "instruction_replay_and_comparison": 10.724718233002932
+    }
+  },
+  {
+    "case": "bri_f16_42",
+    "operator": "bri_explicit_v1",
+    "profile": "modeled_fp16_fp32_real_block_v1",
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "algorithm": {
+      "id": "bri_explicit_v1",
+      "iterations": 192,
+      "block_size_real": 2,
+      "omega": 0.5,
+      "recurrence": "precomputed_stationary",
+      "initialization": "x0=0"
+    },
+    "status": "MODELED_NUMERIC_CHECKED",
+    "expected_status": "MODELED_NUMERIC_CHECKED",
+    "cycles": 23047,
+    "max_task_error": 0.0014970988110490763,
+    "phase_timings_seconds": {
+      "setup": 0.017089936998672783,
+      "asim": 16.246143240998208,
+      "artifact_and_schedule_checks": 30.36312728199846,
+      "independent_references": 5.308980517998862,
+      "instruction_replay_and_comparison": 8.501911698003823
+    }
+  },
+  {
+    "case": "bri_f16_123",
+    "operator": "bri_explicit_v1",
+    "profile": "modeled_fp16_fp32_real_block_v1",
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "algorithm": {
+      "id": "bri_explicit_v1",
+      "iterations": 192,
+      "block_size_real": 2,
+      "omega": 0.5,
+      "recurrence": "precomputed_stationary",
+      "initialization": "x0=0"
+    },
+    "status": "MODELED_NUMERIC_CHECKED",
+    "expected_status": "MODELED_NUMERIC_CHECKED",
+    "cycles": 23047,
+    "max_task_error": 0.001597234147297172,
+    "phase_timings_seconds": {
+      "setup": 0.016393596000852995,
+      "asim": 16.04712116200244,
+      "artifact_and_schedule_checks": 30.156127704998653,
+      "independent_references": 5.32131438000215,
+      "instruction_replay_and_comparison": 8.441981718999159
+    }
+  },
+  {
+    "case": "bri_shape2",
+    "operator": "bri_explicit_v1",
+    "profile": "structure_f64_real_block",
+    "batch_size": 48,
+    "nr": 32,
+    "nt": 8,
+    "nrhs": 4,
+    "algorithm": {
+      "id": "bri_explicit_v1",
+      "iterations": 192,
+      "block_size_real": 2,
+      "omega": 0.5,
+      "recurrence": "precomputed_stationary",
+      "initialization": "x0=0"
+    },
+    "status": "STRUCTURE_CHECKED",
+    "expected_status": "STRUCTURE_CHECKED",
+    "cycles": 9588,
+    "max_task_error": 8.579965278198224e-16,
+    "phase_timings_seconds": {
+      "setup": 0.003978175001975615,
+      "asim": 6.569924814000842,
+      "artifact_and_schedule_checks": 11.110697694995906,
+      "independent_references": 0.03789604200574104,
+      "instruction_replay_and_comparison": 1.3329467349976767
+    }
+  },
+  {
+    "case": "bri_low_k",
+    "operator": "bri_explicit_v1",
+    "profile": "modeled_fp16_fp32_real_block_v1",
+    "batch_size": 24,
+    "nr": 32,
+    "nt": 8,
+    "nrhs": 4,
+    "algorithm": {
+      "id": "bri_explicit_v1",
+      "iterations": 1,
+      "block_size_real": 2,
+      "omega": 0.5,
+      "recurrence": "precomputed_stationary",
+      "initialization": "x0=0"
+    },
+    "status": "ALGORITHM_QUALITY_FAILED",
+    "expected_status": "ALGORITHM_QUALITY_FAILED",
+    "cycles": 874,
+    "max_task_error": 0.5787744600445229,
+    "phase_timings_seconds": {
+      "setup": 0.0025425929998164065,
+      "asim": 0.6856473080042633,
+      "artifact_and_schedule_checks": 0.5904817859991454,
+      "independent_references": 0.056160137995902915,
+      "instruction_replay_and_comparison": 0.1808206890054862
+    }
+  },
+  {
+    "case": "ns_regression",
+    "operator": "ns_corrected_v1",
+    "profile": "modeled_fp16_fp32_real_block_v1",
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "algorithm": {
+      "id": "ns_corrected_v1",
+      "iterations": 16,
+      "initialization": "I/trace(real_block_A)"
+    },
+    "status": "MODELED_NUMERIC_CHECKED",
+    "expected_status": "MODELED_NUMERIC_CHECKED",
+    "cycles": 7950,
+    "max_task_error": 0.0010572646001804395,
+    "phase_timings_seconds": {
+      "setup": 0.01777806600148324,
+      "asim": 4.987855020997813,
+      "artifact_and_schedule_checks": 5.430454631001339,
+      "independent_references": 1.3749016049987404,
+      "instruction_replay_and_comparison": 3.776430685997184
+    }
+  },
+  {
+    "case": "chol_regression",
+    "operator": "cholesky_explicit_v1",
+    "profile": "modeled_fp16_fp32_real_block_v1",
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "algorithm": {
+      "id": "cholesky_explicit_v1",
+      "factorization": "right_looking_rank1",
+      "initialization": "L=0;rhs=H^T*Y"
+    },
+    "status": "MODELED_NUMERIC_CHECKED",
+    "expected_status": "MODELED_NUMERIC_CHECKED",
+    "cycles": 28006,
+    "max_task_error": 0.002540446411632566,
+    "phase_timings_seconds": {
+      "setup": 0.01768750300107058,
+      "asim": 23.029234463996545,
+      "artifact_and_schedule_checks": 39.04016053600208,
+      "independent_references": 1.4273602749963175,
+      "instruction_replay_and_comparison": 6.420495205005864
+    }
+  }
+]
