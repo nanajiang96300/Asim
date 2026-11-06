@@ -4,6 +4,7 @@ from collections import Counter
 import csv
 import json
 import hashlib
+from time import perf_counter
 from pathlib import Path
 import numpy as np
 from verification.asim.runner import simulate,file_hash
@@ -29,6 +30,10 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
     """Trusted catalog and references are outside the candidate modification scope."""
     directory=Path(directory).resolve()
     if directory.exists():raise Invalid('refusing existing directory')
+    started=last_time=perf_counter();phase='setup';timings={}
+    def mark(next_phase):
+        nonlocal last_time,phase
+        now=perf_counter();timings[phase]=timings.get(phase,0.)+now-last_time;last_time=now;phase=next_phase
     result={'status':'INVALID','numeric_status':'NOT_RUN','score':None,'G4':'NOT_CERTIFIED','precision':'structure_f64_real_block','operator':operator}
     try:
         task.validate();precision=policy_for(task.profile);result['precision']=task.profile;result['precision_policy']=precision.frozen()
@@ -41,7 +46,9 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
         comparison=digest({'runtime_contract':RUNTIME_CONTRACT,'numeric_policy':precision.frozen(),'task':task.frozen(),'hardware_config':config,'inputs':{k:hashlib.sha256(np.ascontiguousarray(v).tobytes()).hexdigest() for k,v in data['inputs'].items()}})
         if policy is not None and baseline_identity!=comparison:raise Invalid('baseline task/input/hardware/measurement identity mismatch')
         result['comparison_identity']=comparison;result['runtime_contract']=RUNTIME_CONTRACT
+        mark('asim')
         receipt=simulate(binary,config,models,entry['mode'],cwd,directory,max_cycles=1000000)
+        mark('artifact_and_schedule_checks')
         result.update(asim=receipt,task=task.frozen(),task_hash=task.identity,algorithm=parameters,seed=seed)
         np.savez(directory/'inputs.npz',**data['inputs']);np.savez(directory/'channel.npz',H=data['H'],Y=data['Y'],symbols=data['symbols'])
         if receipt['status']!='COMPLETED':result['status']='SKIPPED_ASIM_FAILED'
@@ -78,11 +85,13 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
             result.update(status=state,core_tile_counts=counts,policy=vars(screen),baseline_creation=policy is None)
             if state=='ELIGIBLE_FOR_NUMERICS':
                 result['numeric_status']='FAILED';(directory/'numerics_started.json').write_text(json.dumps({'binding':binding}))
+                mark('independent_references')
                 alg=reference(data['H'],data['Y'],task.regularization,iterations)
                 target=task_reference(data,task)
                 alg_blocks=alg.get('output_block',np.stack([real_block(z) for z in alg['output']]))
                 evidence={**alg.get('evidence',{}),**({'X0':alg['X0']} if 'X0' in alg else {})}
                 np.savez(directory/'references.npz',algorithm=alg['output'],algorithm_block=alg_blocks,task=target,**evidence)
+                mark('instruction_replay_and_comparison')
                 rows=[];outputs=[]
                 for b in range(task.batch_size):
                     r=execute_batch(h,groups[b],bound,b,alg_blocks[b],return_output=True)
@@ -103,6 +112,9 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
                     structural_reference_passed=structural,task_reference_passed=quality)
     except (Invalid,ValueError,KeyError,TypeError,OSError,IndexError,FloatingPointError) as e:
         result.update(status='UNSUPPORTED' if isinstance(e,Unsupported) else 'INVALID',reason=str(e))
+    mark('archive')
+    result['phase_timings_seconds']=timings
+    result['evaluation_wall_seconds_before_archive']=last_time-started
     directory.mkdir(parents=True,exist_ok=True)
     result['artifacts']=[{'path':str(p.relative_to(directory)),'bytes':p.stat().st_size,'sha256':file_hash(p)} for p in sorted(directory.rglob('*')) if p.is_file()]
     (directory/'result.json').write_text(json.dumps(result,indent=2,allow_nan=False));return result

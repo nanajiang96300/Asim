@@ -28,11 +28,12 @@ def load_runtime(path,repo):
     spec['_loaded_sha256']=hashlib.sha256(raw).hexdigest();return spec
 
 
-def baseline(path,operator,iterations,binary_sha,runtime_spec_sha=None):
+def baseline(path,operator,iterations,binary_sha,runtime_spec_sha=None,expected_algorithm=None):
     path=Path(path);r=json.loads(path.read_text())
     if r['status'] not in ('STRUCTURE_CHECKED','MODELED_NUMERIC_CHECKED') or r.get('schedule_status')!='MODEL_RW_CHECKED_CONSERVATIVE' or r['numeric_status']!='EXECUTED' or r['failed_batches']:
         raise Invalid('baseline must have passed numeric and runtime checks')
     if r['operator']!=operator or r['algorithm'].get('iterations',1)!=iterations or r['asim']['binary_sha256']!=binary_sha:raise Invalid('baseline operator/parameters/binary differs')
+    if expected_algorithm is not None and r['algorithm']!=expected_algorithm:raise Invalid('baseline full algorithm parameters differ')
     if runtime_spec_sha is not None:
         pin=path.parent/'runtime_pin.json'
         if not pin.is_file() or json.loads(pin.read_text()).get('spec_sha256')!=runtime_spec_sha:raise Invalid('baseline was not produced by the same pinned daily runtime')
@@ -77,7 +78,9 @@ def main():
             if config.get(key):config[key]=str((repo/spec['cwd']/config[key]).resolve())
         policy=identity=None
         if a.baseline:
-            cycles,identity=baseline(a.baseline,a.operator,a.iterations,sha(repo/spec['binary']),spec_sha);policy=ScreenPolicy(cycles,1,10)
+            from verification.operators.catalog import adapter
+            _,expected,_,_=adapter(a.operator,MMSETask(profile=a.profile),a.iterations)
+            cycles,identity=baseline(a.baseline,a.operator,a.iterations,sha(repo/spec['binary']),spec_sha,expected);policy=ScreenPolicy(cycles,1,10)
         phase='EVALUATE'
         r=evaluate(a.operator,MMSETask(profile=a.profile),a.iterations,a.seed,repo/spec['binary'],config,root,root,policy,identity)
         phase='SEAL'
