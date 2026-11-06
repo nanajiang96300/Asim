@@ -5,7 +5,7 @@ set(LIB_NAME "Simulator")
 
 # set source and headers
 # GLOB_RECURSE automatically finds all .h/.cc under src/ including inverse/ subdirs
-file(GLOB_RECURSE SRC_FILES
+file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
   "${CMAKE_SOURCE_DIR}/src/*.h"
   "${CMAKE_SOURCE_DIR}/src/*.cc"
 )
