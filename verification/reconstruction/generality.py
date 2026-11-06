@@ -24,8 +24,8 @@ def run(binary,config,cwd,output):
         rows.append(row);print(name,r['status'],row['finish_cycle'],r.get('reason'),flush=True)
         if r['status'] not in ('STRUCTURE_CHECKED','MODELED_NUMERIC_CHECKED'):continue
         if name in ('chol_f16_42','chol_shape2'):
-            rec=json.loads((root/name/'instructions.jsonl').read_text());assert len(rec)==1
-            rec=rec[0];ops=[i for i in rec['instructions'] if i['batch']==0]
+            records=[json.loads(line) for line in (root/name/'instructions.jsonl').read_text().splitlines()];assert len(records)==1
+            rec=records[0];ops=[i for i in rec['instructions'] if i['batch']==0]
             with np.load(root/name/'inputs.npz') as values:inputs=[values[t['name'].split('.')[-1]] for t in rec['header']['inputs']]
             with np.load(root/name/'references.npz') as ref:expected=ref['algorithm_block'][0]
             # Offline counterfactual of a real row division. It is not evidence
