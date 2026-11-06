@@ -20,4 +20,4 @@ Dj写入用单元素SCALAR_MUL；整列DIV/MUL为真实Vector，scalar_rhs显式
 
 ## 5. 验证
 
-独立高精度LDL参考和独立逐指令FP16/FP32模型；后者不导入共同engine/precision。同任务真值独立solve。默认与第二尺寸、两个seed，先Asim/检查再数值；错误行权重、单位对角和未知指令离线负例明确拒绝。编译-j1，独立工作区/build串行独占；日志和耗时在results/operator_mapping/2026-11-06-ldl-bri-v1。结果待补。
+独立高精度LDL参考和独立逐指令FP16/FP32模型；后者不导入共同engine/precision。同任务真值独立solve。默认与第二尺寸、两个seed，先Asim/检查再数值；错误行权重、单位对角和未知指令离线负例明确拒绝。编译-j1，独立工作区/build串行独占；日志和耗时在results/operator_mapping/2026-11-06-ldl-bri-v1。结果：默认FP64 24647周期、FP16模型18697周期；两seed模型最大任务误差0.2543%以内，逐位一致；第二尺寸F64 4689周期。阶段实际L/D见证及日常入口通过，144单元测试，详见DOCS/research/LDL_BRI_MAPPING.md。

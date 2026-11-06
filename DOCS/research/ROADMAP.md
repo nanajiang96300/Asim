@@ -109,3 +109,5 @@ pilot 不直接复用带共享 stash 的旧 eval 脚本。旧流程可运行历�
 2026-10-30最新优先级：按D015将板级时序认证外置；软件先完成其他算子真实语义/阶段重建，再独立Cholesky→LDL→Block→BRI候选的完整三路径接入。七入口原程序问题和验收条件统一见LEGACY_SEMANTIC_STAGES.md。
 
 2026-11-06：跨算法普适性首批完成（NS+独立Cholesky、双精度/两组尺寸），Agent耗时台账与脚本分阶段计时落地。下一步：独立LDL的单位对角/行权重恢复，以及接近256MiB观察日志的流式内存优化；再扩Block/BRI与通信/CDL-B。证据RECONSTRUCTION_GENERALITY.md。
+
+2026-11-06后续：LDL与BRI接入及阶段见证完成。后续依赖：Cholesky-block真实块内三角解/Schur更新→LDL-block显式D权重与恢复→Merge真实归约；同时推进观察日志流式内存优化。不要将旧入口欠定义操作直接解释为标准算法。见LDL_BRI_MAPPING.md。

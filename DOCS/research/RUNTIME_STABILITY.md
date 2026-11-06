@@ -100,3 +100,5 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -
 2026-10-30范围调整：硬件级时序认证由后续上板承担，不设为软件接入前置。本轮增加其他算子的完整语义扫描和只读阶段重建，并发布新固定runtime；原v4 runtime及回归原件保留，默认配置指向新包。见[阶段结果](LEGACY_SEMANTIC_STAGES.md)。日常入口仍只白名单已通过NS；已验收基线必须来自同runtime，不可跨新旧包复用。
 
 2026-11-06：固定runtime新增已验收Cholesky直接解，与NS复用同一核心；`daily --operator cholesky_explicit_v1 --iterations 1`可用。首次运行/同runtime基线复用及NS默认回归均实际通过。完整算法参数绑定，参考不再强制X0；新旧包基线不能混用。见RECONSTRUCTION_GENERALITY.md。
+
+2026-11-06后续：固定日常包新增LDL（--iterations 1）和BRI（--iterations 192），四次新包日常/基线验收通过，旧包继续归档。所有K仍需质量门禁；K1已实际质量拒绝。见LDL_BRI_MAPPING.md。

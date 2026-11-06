@@ -58,3 +58,5 @@ CLI显式选择precision8结构profile并写入receipt；不会把precision2模�
 2026-10-30：旧七入口增加完整静态覆盖及只读阶段观测；见[阶段报告](LEGACY_SEMANTIC_STAGES.md)。`execute_batch(captures=...)`仅用于诊断，不创建指令、不继续越过歧义。新算法仍需独立生成端/算法参考，不将阶段目标当回放实现。硬件级认证由上板承担。
 
 2026-11-06：Cholesky直接求解已接入同一核心。catalog通过受信`parameter_module/parameter_function`生成完整algorithm参数；参考可返回通用`evidence`，不再强制X0。NS兼容；直接法CLI当前需显式`--iterations 1`，冻结algorithm不包含迭代数。完整普适性范围与耗时口径见[本轮报告](RECONSTRUCTION_GENERALITY.md)。
+
+2026-11-06：新增LDL与B2实块BRI，仍不修改四个重放/绑定/事件核心。迭代上限通过受信adapter的max_iterations声明（NS32、BRI256）；直接法1占位。阶段观察只读，严格shape/finite与完整清单/覆盖绑定；见LDL_BRI_MAPPING.md。

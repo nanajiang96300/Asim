@@ -794,6 +794,41 @@
         "仅两类算法与瑞利已声明范围，不代表全部旧算子通过",
         "FP64日志251MiB接近预算，需流式内存优化"
       ]
+    },
+    {
+      "id": "R08",
+      "title": "LDL与BRI显式重建映射和实际内存阶段见证",
+      "status": "done",
+      "depends_on": [
+        "R07"
+      ],
+      "allowed_paths": [
+        "src/inverse/ldl_explicit/",
+        "src/inverse/bri_explicit/",
+        "src/main.cc",
+        "verification/reference/ldl.py",
+        "verification/reference/bri.py",
+        "verification/operators/",
+        "verification/reconstruction/mapping_campaign.py",
+        "scripts/audit_solver_stages.py",
+        "scripts/archive_checks.py",
+        "orchestrator/"
+      ],
+      "acceptance": [
+        "主批次864正例batch和24真实低K质量拒绝达预期",
+        "672严格阶段见证、384日常batch通过，BRI重复一致",
+        "144单元测试、代码/证据独立复审通过",
+        "四核心保持不变，真实指令/独立参考/任务真值与时间台账归档"
+      ],
+      "evidence": [
+        "DOCS/research/LDL_BRI_MAPPING.md",
+        "experiments/operator_mapping/2026-11-06-ldl-bri-v1/run_manifest.json"
+      ],
+      "limitations": [
+        "旧Block/LDL-block/Merge欠定义入口仍未通过",
+        "BRI K192是正确性参数，不是最优性能候选",
+        "硬件认证外置；通信与CDL-B尚未验收"
+      ]
     }
   ],
   "candidate_evaluation_order": [

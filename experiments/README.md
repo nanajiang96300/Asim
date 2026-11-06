@@ -36,3 +36,5 @@
 旧七入口完整语义覆盖与阶段重建：[legacy_semantics/2026-10-30-seven-b96-v1](legacy_semantics/2026-10-30-seven-b96-v1/README.md)。714,912条指令描述、各96batch阶段观察、原始Instruction一致性、130测试与NS双精度回归；整算子仍BLOCKED。板级认证外置。
 
 跨算法普适性与Agent耗时：[generality/2026-11-06-cholesky-v1](generality/2026-11-06-cholesky-v1/README.md)。NS+Cholesky复用核心，720batch（跨算法及日常）、135测试；Agent任务墙钟/工具并集/残差分开，纯思考时间null。
+
+LDL/BRI显式重建映射及中间内存见证：[operator_mapping/2026-11-06-ldl-bri-v1](operator_mapping/2026-11-06-ldl-bri-v1/README.md)。含低K实际质量拒绝、严格stages-v2、144测试、四次日常与时间台账。

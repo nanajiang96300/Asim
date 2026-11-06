@@ -136,3 +136,5 @@ cd "$ASIM_ROOT"
 2026-10-30稳定入口更新：实际Core读写/DMA事件已完成受限保守模型验收，固定runtime日常命令可用，121测试通过。详情及支持/拒绝边界见[稳定性报告](RUNTIME_STABILITY.md)。旧报告中的缺真实Core事件是当时状态；硬件G4/通信/全部旧算子/最终评分仍未通过，不能由该模型证书升级。
 
 2026-11-06：新增Cholesky稳定入口` .venv/bin/python -m verification.reconstruction.daily --operator cholesky_explicit_v1 --iterations 1`。参考/重放/Asim/制品与调度分阶段秒数写入result.json。新增算法接入需记录任务UTC开始/截止、工具monotonic spans并取并集、Agent+未埋点残差，纯内部思考时间设null；不得把脚本运行时间当Agent思考。工具命令可经`scripts/timed_command.py --ledger <new-file> --label <phase> -- <command>`记录，严禁在命令中传凭据。详细定义见RECONSTRUCTION_GENERALITY.md及effort_summary.md。
+
+2026-11-06：四算法日常白名单支持LDL（--operator ldl_explicit_v1 --iterations 1）、BRI（--operator bri_explicit_v1 --iterations 192），仍需每次全门禁。可用scripts/audit_solver_stages.py复核已验收LDL/BRI实际L/D与B/X0；该工具只读，不能绕过主门禁。见LDL_BRI_MAPPING.md。

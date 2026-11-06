@@ -74,3 +74,5 @@ python3 scripts/research_inventory.py check experiments/inventory/2026-10-28-bas
 2026-10-30：旧七入口阶段重建原件放在`results/legacy_semantics/`，与此前reconstruction_campaigns、runtime_rw分开。冻结v2-raw/v2-stages、新runtime与NS双精度回归均有独立清单；首轮探索原位保留。小型Git证据入口为`experiments/legacy_semantics/2026-10-30-seven-b96-v1/`。详细流水CSV留原件，Git跟踪摘要及SHA-256。硬件板级认证由负责人另行执行。
 
 2026-11-06：跨算法普适性原件独立放在results/generality/2026-11-06-cholesky-v1，包含首轮构建失败、固定runtime、五样本及日常三次、时间台账。Git摘要位于experiments/generality/2026-11-06-cholesky-v1。
+
+2026-11-06后续：LDL/BRI原件专用results/operator_mapping/2026-11-06-ldl-bri-v1，Git清单experiments/operator_mapping/2026-11-06-ldl-bri-v1。严格stages-v2为最终阶段证据；旧stages、入口失败与重试留存。
