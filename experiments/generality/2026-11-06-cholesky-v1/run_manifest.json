@@ -1,0 +1,948 @@
+{
+  "schema": "generality-archive-v1",
+  "status": "SUPPORTED_SCOPE_PASSED",
+  "campaign": "results/generality/2026-11-06-cholesky-v1/campaign",
+  "daily_runs": [
+    "results/generality/2026-11-06-cholesky-v1/daily_chol",
+    "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline",
+    "results/generality/2026-11-06-cholesky-v1/daily_ns"
+  ],
+  "effort": "experiments/generality/2026-11-06-cholesky-v1/effort.json",
+  "core_identity": "experiments/generality/2026-11-06-cholesky-v1/common_core_identity.json",
+  "software_verifier_commit": "d3b709df",
+  "binary_source_commit": "3c623bbece76b202015a99e12176129ede77ec3a",
+  "score": null,
+  "hardware_certification": "OUT_OF_SCOPE_USER_BOARD_VALIDATION",
+  "artifacts": [
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/README.md",
+      "bytes": 2028,
+      "sha256": "1e1edd0bcf6961858c17acf0099ae75a7bf378bdbb33d6631a5c001dbed7b9ea"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/case_summary.csv",
+      "bytes": 1120,
+      "sha256": "015040569085ac90666cb0796086d1abf31e2ff26a155ed090b9cd885c97b76b"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/case_summary.json",
+      "bytes": 3118,
+      "sha256": "2609b4a913dcf0dd822f8ab0f939c338bbe79611207971c588092993e32cf5c8"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/common_core_identity.json",
+      "bytes": 712,
+      "sha256": "ccb3275ab177c846f08b920f1e7375f8838db7413435aea2b57152a3452c0a9e"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/effort.json",
+      "bytes": 20044,
+      "sha256": "128c4fa18bd14bb806019f24c5f7df26f264997e639795f002b7428e6ad96c38"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/effort_summary.md",
+      "bytes": 1273,
+      "sha256": "1ba64faba0b8d07c5e410d18d75ad426fe8657cf492de78ff6dbf7e6da74f1dd"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/negative_cases.json",
+      "bytes": 699,
+      "sha256": "d901a4d086273019bdf4d1156354fd436ea41f006c429fdc96365fe29fd618ce"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/pipeline_summary.csv",
+      "bytes": 2851,
+      "sha256": "e4825cc252676d8b120a6e28de7035749e1fe5098793500bd8516d10c26d225f"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/previous_runtime.json",
+      "bytes": 9019,
+      "sha256": "dcb9182a75c5228c6ded8a60fc1e86d9508712e31cacff0547da2023f3b07f36"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/review.json",
+      "bytes": 427,
+      "sha256": "3cca1f62620bbc26dbe3e98fdb8c79f4ae72eb6c40c59b4a31b4495cb2d5ab10"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/runtime_spec.json",
+      "bytes": 10006,
+      "sha256": "f85e8c13598f9001e57563acd0980d0f78f56fa33a8dcc1e45264f5ead346c05"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/baseline_parameter_negative.json",
+      "bytes": 83,
+      "sha256": "c034cd301e6d4d896329d57888407af7660eeb5b2ccc7d9b6d7b133e957aa98b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/build-final.log",
+      "bytes": 883,
+      "sha256": "b40a3917ad953968f92039965299b319214d05c0625f85bcc74bd0983a074a23"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/build-retry.log",
+      "bytes": 7013,
+      "sha256": "c748c0d0cfe8fce844c57236bd79737b561e9853a0891de07dcfd18b4a8a8639"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/build.log",
+      "bytes": 3422,
+      "sha256": "f19d2bb61f90ee2cddab88b8f884fc50573f3e2e5837bc5970221d0b048b0558"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/asim.json",
+      "bytes": 1869,
+      "sha256": "868a88c262fb6cf57988baa9d239fd83eb60e7910937500ce04d40f23b535361"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/channel.npz",
+      "bytes": 2556640,
+      "sha256": "4abcfcbb30281c161fc1539ff63303c8b7f538b91d8258a44ae2032601e3b442"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/dispatch.jsonl",
+      "bytes": 3721768,
+      "sha256": "b9bc1e40c404446197a272c463d09ae7d649fea4092472ec707a763e785cfac0"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "7cd154e3efdcd09f4a134fce166016bf6cb72e181a86673a7d3079988a88bc17"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/models.json",
+      "bytes": 1518,
+      "sha256": "e81ca8d17c5bbc253695b4e0f63e38b3568a68797d27af0f623dc5560250947f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/numerics_started.json",
+      "bytes": 79,
+      "sha256": "c0736fb69bdaee6ee0a3af04701e715512cc281501063256919857d6ff2169ef"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/outputs.npy",
+      "bytes": 393344,
+      "sha256": "77c4b621fdcb7a73e7dd61a2982b2125c9f279e9d9cec5db00a983a083e0c7f5"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/references.npz",
+      "bytes": 689162,
+      "sha256": "a86f3dabdabab5f10311c199cf38baf677b809a30a7d0ac3c6916bec5b548637"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/result.json",
+      "bytes": 39011,
+      "sha256": "a6f2e38f502a4988d2e650294e4c61287bcf674bafda6e0441517314ce104482"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/rw_events.jsonl",
+      "bytes": 205565124,
+      "sha256": "ff61c172c4f056630d6fcd66c0d2d7ae61a47f7ce486b99d40770cb69f1bc6e5"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/schedule.json",
+      "bytes": 17666,
+      "sha256": "1bb1ab50f0937c369ccf5893fd301801087c638530e75bccbd20cc2bd144fd40"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/simulator.log",
+      "bytes": 34641,
+      "sha256": "5a94ba7697bb0b35d1df434bb7ec6dc8d2f5323848a24c76fc93046b493529ad"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/asim.json",
+      "bytes": 1867,
+      "sha256": "4ee902a189f1e6d014d0e8cb7c2e0506a4c9d022d436e2882acaef9fe39ed4fe"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/dispatch.jsonl",
+      "bytes": 3721768,
+      "sha256": "b9bc1e40c404446197a272c463d09ae7d649fea4092472ec707a763e785cfac0"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/models.json",
+      "bytes": 1518,
+      "sha256": "e81ca8d17c5bbc253695b4e0f63e38b3568a68797d27af0f623dc5560250947f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/numerics_started.json",
+      "bytes": 79,
+      "sha256": "291fb247601ebfe92bed695b88ba0146da32111ab2ebc6ca8cfc0d8d084e874b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/outputs.npy",
+      "bytes": 393344,
+      "sha256": "bc1cc249c5ea8c195f718fd69fdc7bec4d67dbb3a43ff14acb495f4c654efdff"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/references.npz",
+      "bytes": 689162,
+      "sha256": "cb71566a686d2a5e89a87ed1a21e2cfd855a6cc551094df5a16cc38ec901e2f1"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/result.json",
+      "bytes": 38987,
+      "sha256": "18902d4a1467e084c8e298747de5dd71a2fb3551fa70673c471b3f2f9c2f9d23"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/rw_events.jsonl",
+      "bytes": 205565124,
+      "sha256": "ff61c172c4f056630d6fcd66c0d2d7ae61a47f7ce486b99d40770cb69f1bc6e5"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/schedule.json",
+      "bytes": 17666,
+      "sha256": "1bb1ab50f0937c369ccf5893fd301801087c638530e75bccbd20cc2bd144fd40"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/simulator.log",
+      "bytes": 34639,
+      "sha256": "5df0145bf8c3840507d294f76cbaff491a10e4a87d348c14ec73d9866faca9e9"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/asim.json",
+      "bytes": 1867,
+      "sha256": "6e31abc5d25dd1eacd98401e025b863f53eb726a9c4f5063f1e4ca8f26a9d72c"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/config.json",
+      "bytes": 12612,
+      "sha256": "fe7eca26737eae3b0b31e19f0cdf6cc881f3e1bddf99213720b118bfa7486a5a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/dispatch.jsonl",
+      "bytes": 3721768,
+      "sha256": "1945f0aa11d26400b052f52f89396270341db80a72a2a9082ba974efc45c8e73"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/formula.json",
+      "bytes": 36977644,
+      "sha256": "360004e7a7c8ecc5d4b864cf9dc58146125fa0f6022138bf17043d3e57a11807"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/inputs.npz",
+      "bytes": 4735954,
+      "sha256": "37c6d25f8700f70c7fd775c2360c0775e428233e2edf5d3bfa87e7e068f7023b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/instruction_pipeline_detail.csv",
+      "bytes": 13436080,
+      "sha256": "6f2012d6f98071fefcf7a424b189cecd12f6206699e22c4dd33930ecbe5cf903"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/instructions.jsonl",
+      "bytes": 81238409,
+      "sha256": "172af7757014999750f6880e7c5b26a35f8adbe4e8f1cb894565b7d6b716061d"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/models.json",
+      "bytes": 1488,
+      "sha256": "034a9bf22f56375e26b0d445e6cba206e58f418245b69cc4df8532adefb81800"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/numerics_started.json",
+      "bytes": 79,
+      "sha256": "370dc4eb676864fa0160edb3a714141d5722455bcd7cede359c70ec46eda367f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/outputs.npy",
+      "bytes": 393344,
+      "sha256": "2cde591d9cba130ae06411fc706ce5fdbd6f3bde41d3821a4520951145cf940b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/pipeline_statistics.json",
+      "bytes": 57152089,
+      "sha256": "2314bfdb891819974ca8ffd2da14e8ad5dc27012e29614a4ee66b5b094491c8f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/references.npz",
+      "bytes": 1180670,
+      "sha256": "50fed75fcf861bdbe6c529790bca348df70464e415f54c30b08f4b75cda2d369"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/result.json",
+      "bytes": 39149,
+      "sha256": "c319ce0c8496de741c18aa3145b925a08ad7f4e76ba112885149e67adee62b91"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/rw_events.jsonl",
+      "bytes": 262643976,
+      "sha256": "71d1d17b4bc556b0722bb4003e240588e81420cc41b0c0b87f89bf7dcc679ba4"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/schedule.json",
+      "bytes": 17763,
+      "sha256": "542dd8b6803bc9ba5cef8288e3c0445275d8be1eb57518b8468c5291c46e9479"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/simulator.log",
+      "bytes": 34854,
+      "sha256": "57d69f969f51bdcca31b6e3422e4d44127c7902e4495c77f3b0b17353c62fbf1"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/trace.csv",
+      "bytes": 17113918,
+      "sha256": "1161aa0f52f57a66134e925f949546bdea4d675f9cd0fc3bedd06eb029ea611a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/asim.json",
+      "bytes": 1862,
+      "sha256": "bea4eb8754edb577d2f126ab44022cbc38d3a852cdc4f0d43f87b778ebee06df"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/channel.npz",
+      "bytes": 320224,
+      "sha256": "491c34e0d79f952499e1af922cd98fc5052725650a9c1a9c1d80b96492d5bb9e"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/config.json",
+      "bytes": 12612,
+      "sha256": "fe7eca26737eae3b0b31e19f0cdf6cc881f3e1bddf99213720b118bfa7486a5a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/dispatch.jsonl",
+      "bytes": 643724,
+      "sha256": "3bdb24b80072bd2211906752f3c08cae191b1fa8a53d1120c6b14e6334f5dc6d"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/formula.json",
+      "bytes": 6475372,
+      "sha256": "0e67362ee792c6fc4136b9d87fee93ef50c5cc0d9bc788c49f5c34323263cedc"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/inputs.npz",
+      "bytes": 594898,
+      "sha256": "c39538a9291d62522c283893c904d9dac614abd5c9ef6ee79e52c030839371ed"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/instruction_pipeline_detail.csv",
+      "bytes": 2306127,
+      "sha256": "f111034ee4eaadf1221c9e96ec0b475a49902c68ee7cd5624f2438fd2ae100ca"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/instructions.jsonl",
+      "bytes": 14352686,
+      "sha256": "75c7d2a23f80e7db2b9a6964a8273287758583f24e3c452dd80b047c4d1a0d1a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/models.json",
+      "bytes": 1486,
+      "sha256": "5060ef42057297ba519615794e62c5ac70e376c3e7205d7c8943843d755ad2bb"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/numerics_started.json",
+      "bytes": 79,
+      "sha256": "cb16df99060010fa18d147125e8aa9d1f4a68ac7570aa729a5e522d15c62b2a2"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/outputs.npy",
+      "bytes": 49280,
+      "sha256": "dad35e42d49000f1e248f20985196b43c75e51436bc1a14545db2486b827faae"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/pipeline_statistics.json",
+      "bytes": 10131781,
+      "sha256": "fd0651da6642989f63bb888988b5adcf9e913058d36ce44ffa67544408da8407"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/references.npz",
+      "bytes": 148478,
+      "sha256": "b8c081434de13942b6334f92f18ce6dff341b470abef9c799592af2883152bdf"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/result.json",
+      "bytes": 23324,
+      "sha256": "1deef4de51fede2b34fd48ecbd1ec52c7d0ee71bea9842eca8ff77aca42f117b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/rw_events.jsonl",
+      "bytes": 42195253,
+      "sha256": "085e40f56afee51feed4e297f391cad8121a1aa90beeb964af1d639e1354b31f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/schedule.json",
+      "bytes": 9168,
+      "sha256": "14601e378e4d57702a510336e91f6f42bf544a915a4588ac5f9e90cc9e4b2c52"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/simulator.log",
+      "bytes": 34259,
+      "sha256": "01404ffe73bd25c8c2ed3189d2766f4949028d87736eac49cc4afeca0610c3d8"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/trace.csv",
+      "bytes": 2563128,
+      "sha256": "7752f410d1b6f02fafdf3e71b8bdb42c998086a1e8348a01ecc3e2ceb0754ddc"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/asim.json",
+      "bytes": 1855,
+      "sha256": "6acc5df9b4dcedfbff92f629d6a9df445dfff9425f729efc951e1a273aad3cf2"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/config.json",
+      "bytes": 12612,
+      "sha256": "252ac03ba48bd3afb1fd875836e56a289aee4313a2b2ed9302b63dc2bc2bc1b8"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/numerics_started.json",
+      "bytes": 79,
+      "sha256": "18af3463d3d3a0caadc4d11a39a793aea064f8f0d393e332d2a1562bbfee8509"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/outputs.npy",
+      "bytes": 393344,
+      "sha256": "7988be9aa518f0d10c9e912965b8f6a81368168aabbcd5ca1fb400063858d5dd"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/references.npz",
+      "bytes": 689138,
+      "sha256": "c01fb36f688dfcd348b9a78444eb46b99b3291f4655e5043543cd4522737a9e1"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/result.json",
+      "bytes": 38804,
+      "sha256": "2f07579b5e0e20a265c3edd5c923cf9142a1c4b147f341431c9c028fa709140c"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/schedule.json",
+      "bytes": 17665,
+      "sha256": "9330dc8b3b84f00ce7123ec8a35d4bbe986847e697a11758855348980657f5e2"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/simulator.log",
+      "bytes": 34355,
+      "sha256": "bbce20e594c67d5d16c0765b82a4f96dccaa84db0ee9bf723a3f37ab6484cd3f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/summary.json",
+      "bytes": 19465,
+      "sha256": "e86b0b867f31c769e0324c80db3e0db308e56c1c78c77ca5b6b12ebf089effa2"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign.log",
+      "bytes": 224,
+      "sha256": "ebc072406bc7de2e1b97b4617c052d27a4bc2b2c2f2b09be4a841c4102e11094"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_acceptance.json",
+      "bytes": 1431,
+      "sha256": "5138be0c9c3762cdafd16aa3df6b3e44aa77d8204cfb60e64d346198eb988f40"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/asim.json",
+      "bytes": 1859,
+      "sha256": "2e3ef7099a9570ebdc926baf6f167c3b36af0a33d7277abd1a4da3dc8289a715"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/config.json",
+      "bytes": 12662,
+      "sha256": "007aaf86346bfe3c47555380583d2dc8337125286113b93dfb3ec70745e5340c"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/dispatch.jsonl",
+      "bytes": 3721768,
+      "sha256": "b9bc1e40c404446197a272c463d09ae7d649fea4092472ec707a763e785cfac0"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/evaluation_result.json",
+      "bytes": 38976,
+      "sha256": "3259ab55cc50b76e4b49f4d92e4cf3a4ce55db665724a3dfe353621b6461b14d"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/models.json",
+      "bytes": 1518,
+      "sha256": "e81ca8d17c5bbc253695b4e0f63e38b3568a68797d27af0f623dc5560250947f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/numerics_started.json",
+      "bytes": 79,
+      "sha256": "291fb247601ebfe92bed695b88ba0146da32111ab2ebc6ca8cfc0d8d084e874b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/outputs.npy",
+      "bytes": 393344,
+      "sha256": "bc1cc249c5ea8c195f718fd69fdc7bec4d67dbb3a43ff14acb495f4c654efdff"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/references.npz",
+      "bytes": 689162,
+      "sha256": "cb71566a686d2a5e89a87ed1a21e2cfd855a6cc551094df5a16cc38ec901e2f1"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/result.json",
+      "bytes": 39324,
+      "sha256": "cc272f571ddaf27e70c5faeeb2b32de53e1c00dde6e5ecdd0a8dc4949ce4ac47"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/runtime_pin.json",
+      "bytes": 9079,
+      "sha256": "cd9fcf4698907e619505d59861f32a5d40a73b6631df7d24e1fb13ab55d95e32"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/rw_events.jsonl",
+      "bytes": 205565124,
+      "sha256": "ff61c172c4f056630d6fcd66c0d2d7ae61a47f7ce486b99d40770cb69f1bc6e5"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/schedule.json",
+      "bytes": 17666,
+      "sha256": "1bb1ab50f0937c369ccf5893fd301801087c638530e75bccbd20cc2bd144fd40"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/simulator.log",
+      "bytes": 34618,
+      "sha256": "afb2bac499dcb852e90b05b4b67999f347d6138ba507e9ac9e8087b6dccbb538"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol.log",
+      "bytes": 2696,
+      "sha256": "879dcee17853d2a3ad4a3d93c4b04e00311d8dc8a6b501a4aa4f84e98889840f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/asim.json",
+      "bytes": 1877,
+      "sha256": "a661da8e0a2682a7589e120036f49cd665adc69a935f3bed1f7f3c62616fa057"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/config.json",
+      "bytes": 12662,
+      "sha256": "007aaf86346bfe3c47555380583d2dc8337125286113b93dfb3ec70745e5340c"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/dispatch.jsonl",
+      "bytes": 3721768,
+      "sha256": "b9bc1e40c404446197a272c463d09ae7d649fea4092472ec707a763e785cfac0"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/evaluation_result.json",
+      "bytes": 38997,
+      "sha256": "082792e1b5b0879b845a4c72b337b1a3338a66cc5edae6942a1bb9804d5fab12"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/models.json",
+      "bytes": 1518,
+      "sha256": "e81ca8d17c5bbc253695b4e0f63e38b3568a68797d27af0f623dc5560250947f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/numerics_started.json",
+      "bytes": 79,
+      "sha256": "291fb247601ebfe92bed695b88ba0146da32111ab2ebc6ca8cfc0d8d084e874b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/outputs.npy",
+      "bytes": 393344,
+      "sha256": "bc1cc249c5ea8c195f718fd69fdc7bec4d67dbb3a43ff14acb495f4c654efdff"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/references.npz",
+      "bytes": 689162,
+      "sha256": "cb71566a686d2a5e89a87ed1a21e2cfd855a6cc551094df5a16cc38ec901e2f1"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/result.json",
+      "bytes": 39345,
+      "sha256": "f38e797fa6c7abbf679e97dfd432f4a9e0fdd5f61d2b2342a1e9443b44a5fe82"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/runtime_pin.json",
+      "bytes": 9079,
+      "sha256": "cd9fcf4698907e619505d59861f32a5d40a73b6631df7d24e1fb13ab55d95e32"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/rw_events.jsonl",
+      "bytes": 205565124,
+      "sha256": "ff61c172c4f056630d6fcd66c0d2d7ae61a47f7ce486b99d40770cb69f1bc6e5"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/schedule.json",
+      "bytes": 17666,
+      "sha256": "1bb1ab50f0937c369ccf5893fd301801087c638530e75bccbd20cc2bd144fd40"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/simulator.log",
+      "bytes": 34636,
+      "sha256": "0f3326039bf99860620857ef513540f506ea906f4eaf594fba6ed375c6a45d8d"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline.log",
+      "bytes": 2708,
+      "sha256": "bdc4b3fd1aa12ea348b5ac13ebc07b15ac7c730812923d5585527f550b0878c4"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/asim.json",
+      "bytes": 1839,
+      "sha256": "04105b829a27a452738135278e28eb0eb3ff09b709315ff4277b5f824aa11a34"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/config.json",
+      "bytes": 12662,
+      "sha256": "007aaf86346bfe3c47555380583d2dc8337125286113b93dfb3ec70745e5340c"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/evaluation_result.json",
+      "bytes": 38785,
+      "sha256": "93fea601084e2a58ce5639e0d6866f2d3717855386e537590fc3a5f433d6a6f0"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/numerics_started.json",
+      "bytes": 79,
+      "sha256": "18af3463d3d3a0caadc4d11a39a793aea064f8f0d393e332d2a1562bbfee8509"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/outputs.npy",
+      "bytes": 393344,
+      "sha256": "7988be9aa518f0d10c9e912965b8f6a81368168aabbcd5ca1fb400063858d5dd"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/references.npz",
+      "bytes": 689138,
+      "sha256": "c01fb36f688dfcd348b9a78444eb46b99b3291f4655e5043543cd4522737a9e1"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/result.json",
+      "bytes": 39133,
+      "sha256": "1c8e6f33a1c444b3b6ca9cf5c1087d9a70ffb48e49ede6dedac8f0600b86d3e6"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/runtime_pin.json",
+      "bytes": 9079,
+      "sha256": "cd9fcf4698907e619505d59861f32a5d40a73b6631df7d24e1fb13ab55d95e32"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/schedule.json",
+      "bytes": 17665,
+      "sha256": "9330dc8b3b84f00ce7123ec8a35d4bbe986847e697a11758855348980657f5e2"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/simulator.log",
+      "bytes": 34326,
+      "sha256": "e054c254bfb493fae95b1cf90d818316992372ed0c7ac3e7beac85bc8709124f"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns.log",
+      "bytes": 2670,
+      "sha256": "d290eb7a18f99d537264c013b8c64aaaa09f1a08947d415cfa13e20316254f37"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/effort.json",
+      "bytes": 20044,
+      "sha256": "128c4fa18bd14bb806019f24c5f7df26f264997e639795f002b7428e6ad96c38"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/orchestrator_spans.json",
+      "bytes": 2470,
+      "sha256": "bbb3745d753a7dd500b6fff943648ab792421fd486e00483eb9b3206a72e54ce"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/runtime/bin/Simulator",
+      "bytes": 7238488,
+      "sha256": "9198b1a9a90db2906dde1ea89314d2ff7e45fb403f3870aa0222317cd1bc857d"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/runtime/build_identity.json",
+      "bytes": 257,
+      "sha256": "4d43aa0d3b4c6eb103b576c8beb4e0ffc8749a4832f6f26371c2972f2c80c427"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/runtime/lib/libramulator.so",
+      "bytes": 4092536,
+      "sha256": "c3e7a9bba805b79a4c2410217ba490350398cacf2bf8c7417b9e7882dc73fd84"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/runtime/runtime/HBM2.yaml",
+      "bytes": 354,
+      "sha256": "7c7ad9c374c3d08e0ad2cb081ab013b4f0c48a19d3dd1c7d547caf75943dd8f2"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/runtime/runtime/fly_c1_m2.icnt",
+      "bytes": 280,
+      "sha256": "dbf877e67e4436003dc689a512ffa8135402520676524f68a4be8c12c1ec00d2"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/runtime/runtime_config.json",
+      "bytes": 12520,
+      "sha256": "87c033833eb7117f8b786c7c0e52e24a256b54b2aa0977528b3160e491408137"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/runtime_candidate.json",
+      "bytes": 10006,
+      "sha256": "f85e8c13598f9001e57563acd0980d0f78f56fa33a8dcc1e45264f5ead346c05"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/tool_spans.jsonl",
+      "bytes": 2925,
+      "sha256": "a4d8f6f8ad3163efa70bb173da2c560052e996c70fad7c602dddfce3fb878144"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/unit-final.log",
+      "bytes": 14825,
+      "sha256": "9cc7814236b7fd7c29d677c15a727056b1d1ca716c22b2f9d7bde618fbb97e07"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/unit.log",
+      "bytes": 14825,
+      "sha256": "a93d42071690fcfc0b4ec0e0e8b3dff2cd40a01a55f95cd972f70465c3bb16c0"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/archive_negatives/bad_hash.json",
+      "bytes": 33839,
+      "sha256": "2e617ca718258e8be4728ba69025ae997fc2cb2699fb175e5db475fc8e0adcef"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/archive_negatives/empty_manifest.json",
+      "bytes": 695,
+      "sha256": "181d9f5bf4377e009b5b54e118b2c036041f3d11e50862580df15c794be8e494"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/archive_negatives/results.json",
+      "bytes": 264,
+      "sha256": "52a981312e253efa86b414f3b78e9d758934c97d0e6dde1cb50e9f6d8c442ba9"
+    }
+  ]
+}

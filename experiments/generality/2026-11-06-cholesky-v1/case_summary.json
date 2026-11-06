@@ -1,0 +1,102 @@
+[
+  {
+    "case": "chol_f64_42",
+    "status": "STRUCTURE_CHECKED",
+    "batch_size": 96,
+    "algorithm": {
+      "id": "cholesky_explicit_v1",
+      "factorization": "right_looking_rank1",
+      "initialization": "L=0;rhs=H^T*Y"
+    },
+    "phase_timings_seconds": {
+      "setup": 0.033333227002003696,
+      "asim": 30.597214538000117,
+      "artifact_and_schedule_checks": 45.05483505099983,
+      "independent_references": 0.013436626999464352,
+      "instruction_replay_and_comparison": 11.345232473999204
+    },
+    "max_task_error": 1.0642979788908676e-15,
+    "numeric_bit_equal": true,
+    "finish_cycle": 34154
+  },
+  {
+    "case": "chol_f16_42",
+    "status": "MODELED_NUMERIC_CHECKED",
+    "batch_size": 96,
+    "algorithm": {
+      "id": "cholesky_explicit_v1",
+      "factorization": "right_looking_rank1",
+      "initialization": "L=0;rhs=H^T*Y"
+    },
+    "phase_timings_seconds": {
+      "setup": 0.017252698002266698,
+      "asim": 22.36623350100126,
+      "artifact_and_schedule_checks": 37.367839867998555,
+      "independent_references": 1.3948408990036114,
+      "instruction_replay_and_comparison": 6.426036166994891
+    },
+    "max_task_error": 0.002540446411632566,
+    "numeric_bit_equal": true,
+    "finish_cycle": 28006
+  },
+  {
+    "case": "chol_f16_123",
+    "status": "MODELED_NUMERIC_CHECKED",
+    "batch_size": 96,
+    "algorithm": {
+      "id": "cholesky_explicit_v1",
+      "factorization": "right_looking_rank1",
+      "initialization": "L=0;rhs=H^T*Y"
+    },
+    "phase_timings_seconds": {
+      "setup": 0.016232392998063006,
+      "asim": 22.282491425001353,
+      "artifact_and_schedule_checks": 37.736986755000544,
+      "independent_references": 1.3947186869991128,
+      "instruction_replay_and_comparison": 6.539495466000517
+    },
+    "max_task_error": 0.0027324310986907227,
+    "numeric_bit_equal": true,
+    "finish_cycle": 28006
+  },
+  {
+    "case": "chol_shape2",
+    "status": "STRUCTURE_CHECKED",
+    "batch_size": 48,
+    "algorithm": {
+      "id": "cholesky_explicit_v1",
+      "factorization": "right_looking_rank1",
+      "initialization": "L=0;rhs=H^T*Y"
+    },
+    "phase_timings_seconds": {
+      "setup": 0.004008351002994459,
+      "asim": 4.440532201995666,
+      "artifact_and_schedule_checks": 6.683739992004121,
+      "independent_references": 0.004321829001128208,
+      "instruction_replay_and_comparison": 0.9083530279967817
+    },
+    "max_task_error": 8.663379108586197e-16,
+    "numeric_bit_equal": true,
+    "finish_cycle": 5677
+  },
+  {
+    "case": "ns_regression",
+    "status": "MODELED_NUMERIC_CHECKED",
+    "batch_size": 96,
+    "algorithm": {
+      "id": "ns_corrected_v1",
+      "iterations": 16,
+      "initialization": "I/trace(real_block_A)"
+    },
+    "phase_timings_seconds": {
+      "setup": 0.019339438003953546,
+      "asim": 5.18698848799977,
+      "artifact_and_schedule_checks": 5.0569428259987035,
+      "independent_references": 1.3107882080003037,
+      "instruction_replay_and_comparison": 3.5274133149941918
+    },
+    "max_task_error": 0.0010572646001804395,
+    "numeric_bit_equal": true,
+    "finish_cycle": 7950
+  }
+]

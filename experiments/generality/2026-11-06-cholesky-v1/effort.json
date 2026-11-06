@@ -1,0 +1,693 @@
+{
+  "schema": "agent-effort-v1",
+  "session_wall_seconds": 992.481179214,
+  "observed_tool_union_seconds": 445.79038766,
+  "agent_or_uninstrumented_seconds": 546.690791554,
+  "pure_model_thinking_seconds": null,
+  "definition": "residual includes reasoning, writing, scheduling, uninstrumented tools and waits; not pure thinking",
+  "start_utc": "2026-11-06T14:03:25+00:00",
+  "end_utc": "2026-11-06T14:19:57.481179+00:00",
+  "command_spans": [
+    {
+      "schema": "tool-span-v1",
+      "label": "unit-tests",
+      "start_ns": 1793974051175865262,
+      "end_ns": 1793974051783007609,
+      "elapsed_seconds": 0.607142347,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/tests",
+        "-v"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "build",
+      "start_ns": 1793974070816849504,
+      "end_ns": 1793974083029015257,
+      "elapsed_seconds": 12.212165753,
+      "returncode": 2,
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--target",
+        "Simulator",
+        "-j1"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "build-retry-source-registration",
+      "start_ns": 1793974098954924735,
+      "end_ns": 1793974108782229684,
+      "elapsed_seconds": 9.827304949,
+      "returncode": 0,
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--target",
+        "Simulator",
+        "-j1"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "build-final",
+      "start_ns": 1793974167952218913,
+      "end_ns": 1793974176984709768,
+      "elapsed_seconds": 9.032490855,
+      "returncode": 0,
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--target",
+        "Simulator",
+        "-j1"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "unit-final",
+      "start_ns": 1793974209684570346,
+      "end_ns": 1793974210253496199,
+      "elapsed_seconds": 0.568925853,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/tests",
+        "-v"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "cross-algorithm-campaign",
+      "start_ns": 1793974240166723829,
+      "end_ns": 1793974494544032281,
+      "elapsed_seconds": 254.377308452,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.generality",
+        "--binary",
+        "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build/bin/Simulator",
+        "--config",
+        "configs/ascend_910b_quiet.json",
+        "--cwd",
+        "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build",
+        "--output",
+        "results/generality/2026-11-06-cholesky-v1/campaign"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-cholesky",
+      "start_ns": 1793974529535649630,
+      "end_ns": 1793974599014476670,
+      "elapsed_seconds": 69.47882704,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "cholesky_explicit_v1",
+        "--iterations",
+        "1",
+        "--output",
+        "results/generality/2026-11-06-cholesky-v1/daily_chol"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-cholesky-baseline",
+      "start_ns": 1793974599059619679,
+      "end_ns": 1793974670104516198,
+      "elapsed_seconds": 71.044896519,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "cholesky_explicit_v1",
+        "--iterations",
+        "1",
+        "--baseline",
+        "results/generality/2026-11-06-cholesky-v1/daily_chol/result.json",
+        "--output",
+        "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-ns",
+      "start_ns": 1793974670145759099,
+      "end_ns": 1793974685589780180,
+      "elapsed_seconds": 15.444021081,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--output",
+        "results/generality/2026-11-06-cholesky-v1/daily_ns"
+      ]
+    },
+    {
+      "start_ns": 1793973900831000064,
+      "end_ns": 1793973900880000000,
+      "label": "design_and_read_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793973945062000128,
+      "end_ns": 1793973945144000000,
+      "label": "candidate_edit_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793973991446000128,
+      "end_ns": 1793973991527000064,
+      "label": "adapter_reference_edit_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974051119000064,
+      "end_ns": 1793974051793999872,
+      "label": "instrumentation_and_test_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974070433999872,
+      "end_ns": 1793974070758000128,
+      "label": "freeze_candidate_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974084852999936,
+      "end_ns": 1793974084900000000,
+      "label": "inspect_build_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974098734000128,
+      "end_ns": 1793974098904000000,
+      "label": "build_registration_fix_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974141062000128,
+      "end_ns": 1793974141108000000,
+      "label": "build_status_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974167721999872,
+      "end_ns": 1793974167900999936,
+      "label": "phase_timing_edit_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974209630000128,
+      "end_ns": 1793974210328999936,
+      "label": "campaign_setup_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974240024999936,
+      "end_ns": 1793974241190000128,
+      "label": "launch_campaign_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974263264000000,
+      "end_ns": 1793974263359000064,
+      "label": "campaign_status_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974298723000064,
+      "end_ns": 1793974298924000000,
+      "label": "freeze_runtime_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974308272000000,
+      "end_ns": 1793974308344999936,
+      "label": "resource_monitor_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974339720999936,
+      "end_ns": 1793974339776000000,
+      "label": "gate_status_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974390070000128,
+      "end_ns": 1793974390209999872,
+      "label": "runtime_candidate_and_core_identity_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974395756999936,
+      "end_ns": 1793974395820999936,
+      "label": "campaign_resource_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974431700000000,
+      "end_ns": 1793974431751000064,
+      "label": "archive_checker_edit_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974460276999936,
+      "end_ns": 1793974460372999936,
+      "label": "phase_results_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974484643000064,
+      "end_ns": 1793974484848999936,
+      "label": "progress_integrity_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974514094000128,
+      "end_ns": 1793974514147000064,
+      "label": "campaign_completion_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974529436000000,
+      "end_ns": 1793974530599000064,
+      "label": "launch_daily_checks_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974565361999872,
+      "end_ns": 1793974567712999936,
+      "label": "summarize_cross_algorithm_results_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974587644999936,
+      "end_ns": 1793974587699000064,
+      "label": "negative_and_daily_status_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974669208000000,
+      "end_ns": 1793974669302000128,
+      "label": "generality_report_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974678678000128,
+      "end_ns": 1793974678742000128,
+      "label": "daily_progress_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974708126000128,
+      "end_ns": 1793974708292999936,
+      "label": "baseline_parameter_negative_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974738612999936,
+      "end_ns": 1793974739422000128,
+      "label": "daily_acceptance_and_metadata_tool",
+      "source": "orchestrator_tool_call"
+    },
+    {
+      "start_ns": 1793974753895000064,
+      "end_ns": 1793974754646000128,
+      "label": "daily_determinism_acceptance_tool",
+      "source": "orchestrator_tool_call"
+    }
+  ],
+  "scope": "one-time design, candidate/reference/adapter development, review, build, simulation, verification and reporting to this snapshot",
+  "instrumentation": "partial; residual includes uninstrumented early reads, coordinator calls and waits",
+  "reviewer_wall_seconds": 66,
+  "reviewer_parallel_not_additive": true,
+  "thinking_token_count": null,
+  "first_runnable_freeze": {
+    "schema": "agent-effort-v1",
+    "session_wall_seconds": 435.166723829,
+    "observed_tool_union_seconds": 33.565684938,
+    "agent_or_uninstrumented_seconds": 401.601038891,
+    "pure_model_thinking_seconds": null,
+    "definition": "residual includes reasoning, writing, scheduling, uninstrumented tools and waits; not pure thinking",
+    "start_utc": "2026-11-06T14:03:25+00:00",
+    "end_utc": "2026-11-06T14:10:40.166724+00:00",
+    "command_spans": [
+      {
+        "schema": "tool-span-v1",
+        "label": "unit-tests",
+        "start_ns": 1793974051175865262,
+        "end_ns": 1793974051783007609,
+        "elapsed_seconds": 0.607142347,
+        "returncode": 0,
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "verification/tests",
+          "-v"
+        ]
+      },
+      {
+        "schema": "tool-span-v1",
+        "label": "build",
+        "start_ns": 1793974070816849504,
+        "end_ns": 1793974083029015257,
+        "elapsed_seconds": 12.212165753,
+        "returncode": 2,
+        "command": [
+          "cmake",
+          "--build",
+          "build",
+          "--target",
+          "Simulator",
+          "-j1"
+        ]
+      },
+      {
+        "schema": "tool-span-v1",
+        "label": "build-retry-source-registration",
+        "start_ns": 1793974098954924735,
+        "end_ns": 1793974108782229684,
+        "elapsed_seconds": 9.827304949,
+        "returncode": 0,
+        "command": [
+          "cmake",
+          "--build",
+          "build",
+          "--target",
+          "Simulator",
+          "-j1"
+        ]
+      },
+      {
+        "schema": "tool-span-v1",
+        "label": "build-final",
+        "start_ns": 1793974167952218913,
+        "end_ns": 1793974176984709768,
+        "elapsed_seconds": 9.032490855,
+        "returncode": 0,
+        "command": [
+          "cmake",
+          "--build",
+          "build",
+          "--target",
+          "Simulator",
+          "-j1"
+        ]
+      },
+      {
+        "schema": "tool-span-v1",
+        "label": "unit-final",
+        "start_ns": 1793974209684570346,
+        "end_ns": 1793974210253496199,
+        "elapsed_seconds": 0.568925853,
+        "returncode": 0,
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "verification/tests",
+          "-v"
+        ]
+      },
+      {
+        "schema": "tool-span-v1",
+        "label": "cross-algorithm-campaign",
+        "start_ns": 1793974240166723829,
+        "end_ns": 1793974494544032281,
+        "elapsed_seconds": 254.377308452,
+        "returncode": 0,
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "verification.reconstruction.generality",
+          "--binary",
+          "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build/bin/Simulator",
+          "--config",
+          "configs/ascend_910b_quiet.json",
+          "--cwd",
+          "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build",
+          "--output",
+          "results/generality/2026-11-06-cholesky-v1/campaign"
+        ]
+      },
+      {
+        "schema": "tool-span-v1",
+        "label": "daily-cholesky",
+        "start_ns": 1793974529535649630,
+        "end_ns": 1793974599014476670,
+        "elapsed_seconds": 69.47882704,
+        "returncode": 0,
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "verification.reconstruction.daily",
+          "--operator",
+          "cholesky_explicit_v1",
+          "--iterations",
+          "1",
+          "--output",
+          "results/generality/2026-11-06-cholesky-v1/daily_chol"
+        ]
+      },
+      {
+        "schema": "tool-span-v1",
+        "label": "daily-cholesky-baseline",
+        "start_ns": 1793974599059619679,
+        "end_ns": 1793974670104516198,
+        "elapsed_seconds": 71.044896519,
+        "returncode": 0,
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "verification.reconstruction.daily",
+          "--operator",
+          "cholesky_explicit_v1",
+          "--iterations",
+          "1",
+          "--baseline",
+          "results/generality/2026-11-06-cholesky-v1/daily_chol/result.json",
+          "--output",
+          "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline"
+        ]
+      },
+      {
+        "schema": "tool-span-v1",
+        "label": "daily-ns",
+        "start_ns": 1793974670145759099,
+        "end_ns": 1793974685589780180,
+        "elapsed_seconds": 15.444021081,
+        "returncode": 0,
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "verification.reconstruction.daily",
+          "--output",
+          "results/generality/2026-11-06-cholesky-v1/daily_ns"
+        ]
+      },
+      {
+        "start_ns": 1793973900831000064,
+        "end_ns": 1793973900880000000,
+        "label": "design_and_read_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793973945062000128,
+        "end_ns": 1793973945144000000,
+        "label": "candidate_edit_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793973991446000128,
+        "end_ns": 1793973991527000064,
+        "label": "adapter_reference_edit_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974051119000064,
+        "end_ns": 1793974051793999872,
+        "label": "instrumentation_and_test_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974070433999872,
+        "end_ns": 1793974070758000128,
+        "label": "freeze_candidate_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974084852999936,
+        "end_ns": 1793974084900000000,
+        "label": "inspect_build_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974098734000128,
+        "end_ns": 1793974098904000000,
+        "label": "build_registration_fix_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974141062000128,
+        "end_ns": 1793974141108000000,
+        "label": "build_status_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974167721999872,
+        "end_ns": 1793974167900999936,
+        "label": "phase_timing_edit_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974209630000128,
+        "end_ns": 1793974210328999936,
+        "label": "campaign_setup_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974240024999936,
+        "end_ns": 1793974241190000128,
+        "label": "launch_campaign_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974263264000000,
+        "end_ns": 1793974263359000064,
+        "label": "campaign_status_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974298723000064,
+        "end_ns": 1793974298924000000,
+        "label": "freeze_runtime_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974308272000000,
+        "end_ns": 1793974308344999936,
+        "label": "resource_monitor_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974339720999936,
+        "end_ns": 1793974339776000000,
+        "label": "gate_status_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974390070000128,
+        "end_ns": 1793974390209999872,
+        "label": "runtime_candidate_and_core_identity_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974395756999936,
+        "end_ns": 1793974395820999936,
+        "label": "campaign_resource_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974431700000000,
+        "end_ns": 1793974431751000064,
+        "label": "archive_checker_edit_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974460276999936,
+        "end_ns": 1793974460372999936,
+        "label": "phase_results_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974484643000064,
+        "end_ns": 1793974484848999936,
+        "label": "progress_integrity_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974514094000128,
+        "end_ns": 1793974514147000064,
+        "label": "campaign_completion_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974529436000000,
+        "end_ns": 1793974530599000064,
+        "label": "launch_daily_checks_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974565361999872,
+        "end_ns": 1793974567712999936,
+        "label": "summarize_cross_algorithm_results_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974587644999936,
+        "end_ns": 1793974587699000064,
+        "label": "negative_and_daily_status_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974669208000000,
+        "end_ns": 1793974669302000128,
+        "label": "generality_report_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974678678000128,
+        "end_ns": 1793974678742000128,
+        "label": "daily_progress_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974708126000128,
+        "end_ns": 1793974708292999936,
+        "label": "baseline_parameter_negative_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974738612999936,
+        "end_ns": 1793974739422000128,
+        "label": "daily_acceptance_and_metadata_tool",
+        "source": "orchestrator_tool_call"
+      },
+      {
+        "start_ns": 1793974753895000064,
+        "end_ns": 1793974754646000128,
+        "label": "daily_determinism_acceptance_tool",
+        "source": "orchestrator_tool_call"
+      }
+    ]
+  }
+}

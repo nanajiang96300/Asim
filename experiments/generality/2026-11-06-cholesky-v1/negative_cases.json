@@ -1,0 +1,28 @@
+[
+  {
+    "case": "chol_f16_42",
+    "mutation": "offline_wrong_diagonal",
+    "status": "NUMERIC_FAILED",
+    "relative_error": 0.02385484340647031,
+    "actual_mutant_simulated": false
+  },
+  {
+    "case": "chol_f16_42",
+    "mutation": "offline_unknown_opcode",
+    "status": "SEMANTIC_BINDING_MISMATCH",
+    "actual_mutant_simulated": false
+  },
+  {
+    "case": "chol_shape2",
+    "mutation": "offline_wrong_diagonal",
+    "status": "NUMERIC_FAILED",
+    "relative_error": 0.010780018165626017,
+    "actual_mutant_simulated": false
+  },
+  {
+    "case": "chol_shape2",
+    "mutation": "offline_unknown_opcode",
+    "status": "SEMANTIC_BINDING_MISMATCH",
+    "actual_mutant_simulated": false
+  }
+]
