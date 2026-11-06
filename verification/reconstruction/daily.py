@@ -32,7 +32,7 @@ def baseline(path,operator,iterations,binary_sha,runtime_spec_sha=None):
     path=Path(path);r=json.loads(path.read_text())
     if r['status'] not in ('STRUCTURE_CHECKED','MODELED_NUMERIC_CHECKED') or r.get('schedule_status')!='MODEL_RW_CHECKED_CONSERVATIVE' or r['numeric_status']!='EXECUTED' or r['failed_batches']:
         raise Invalid('baseline must have passed numeric and runtime checks')
-    if r['operator']!=operator or r['algorithm']['iterations']!=iterations or r['asim']['binary_sha256']!=binary_sha:raise Invalid('baseline operator/parameters/binary differs')
+    if r['operator']!=operator or r['algorithm'].get('iterations',1)!=iterations or r['asim']['binary_sha256']!=binary_sha:raise Invalid('baseline operator/parameters/binary differs')
     if runtime_spec_sha is not None:
         pin=path.parent/'runtime_pin.json'
         if not pin.is_file() or json.loads(pin.read_text()).get('spec_sha256')!=runtime_spec_sha:raise Invalid('baseline was not produced by the same pinned daily runtime')

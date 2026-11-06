@@ -81,7 +81,8 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
                 alg=reference(data['H'],data['Y'],task.regularization,iterations)
                 target=task_reference(data,task)
                 alg_blocks=alg.get('output_block',np.stack([real_block(z) for z in alg['output']]))
-                np.savez(directory/'references.npz',algorithm=alg['output'],algorithm_block=alg_blocks,task=target,X0=alg['X0'])
+                evidence={**alg.get('evidence',{}),**({'X0':alg['X0']} if 'X0' in alg else {})}
+                np.savez(directory/'references.npz',algorithm=alg['output'],algorithm_block=alg_blocks,task=target,**evidence)
                 rows=[];outputs=[]
                 for b in range(task.batch_size):
                     r=execute_batch(h,groups[b],bound,b,alg_blocks[b],return_output=True)
