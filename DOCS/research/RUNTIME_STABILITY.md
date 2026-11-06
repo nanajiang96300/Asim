@@ -98,3 +98,5 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -
 下一步是受监督候选协调器与工作区隔离策略，并在相同TaskContract下接入其他独立候选；继续补混合精度转换成本、真实通信suite/CDL-B及干净复现。更复杂DMA/融合/异构时钟需要新事件模型与正负例后才开放。论文最终稿仍由完整门禁控制，本报告只声明上述受限范围可用。
 
 2026-10-30范围调整：硬件级时序认证由后续上板承担，不设为软件接入前置。本轮增加其他算子的完整语义扫描和只读阶段重建，并发布新固定runtime；原v4 runtime及回归原件保留，默认配置指向新包。见[阶段结果](LEGACY_SEMANTIC_STAGES.md)。日常入口仍只白名单已通过NS；已验收基线必须来自同runtime，不可跨新旧包复用。
+
+2026-11-06：固定runtime新增已验收Cholesky直接解，与NS复用同一核心；`daily --operator cholesky_explicit_v1 --iterations 1`可用。首次运行/同runtime基线复用及NS默认回归均实际通过。完整算法参数绑定，参考不再强制X0；新旧包基线不能混用。见RECONSTRUCTION_GENERALITY.md。

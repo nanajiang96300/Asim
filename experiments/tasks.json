@@ -760,6 +760,40 @@
         "旧七入口完整数值仍未通过，缺定义需要独立新候选真实程序修正",
         "硬件级时序认证由后续上板承担，不是软件任务前置"
       ]
+    },
+    {
+      "id": "R07",
+      "title": "跨算法重建复用与可观测Agent耗时验收",
+      "status": "done",
+      "depends_on": [
+        "R06"
+      ],
+      "allowed_paths": [
+        "src/inverse/cholesky_explicit/",
+        "src/main.cc",
+        "src/CMakeLists.txt",
+        "verification/operators/",
+        "verification/reference/cholesky.py",
+        "verification/reconstruction/",
+        "verification/reporting/effort.py",
+        "scripts/timed_command.py",
+        "orchestrator/codex_operators.json",
+        "orchestrator/codex_runtime.json"
+      ],
+      "acceptance": [
+        "四个重放/绑定/Core检查核心与7ea3405e逐字节相同",
+        "NS+Cholesky、双精度/两组尺寸、720batch含日常通过",
+        "135测试、4离线拒绝及完整参数基线拒绝、独立审查",
+        "任务墙钟与工具并集/Agent残差归档，纯思考时间null"
+      ],
+      "evidence": [
+        "DOCS/research/RECONSTRUCTION_GENERALITY.md",
+        "experiments/generality/2026-11-06-cholesky-v1/run_manifest.json"
+      ],
+      "limitations": [
+        "仅两类算法与瑞利已声明范围，不代表全部旧算子通过",
+        "FP64日志251MiB接近预算，需流式内存优化"
+      ]
     }
   ],
   "candidate_evaluation_order": [

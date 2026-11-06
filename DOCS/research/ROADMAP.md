@@ -107,3 +107,5 @@ pilot 不直接复用带共享 stash 的旧 eval 脚本。旧流程可运行历�
 2026-10-30稳定入口更新：实际Core读写/DMA事件已完成受限保守模型验收，固定runtime日常命令可用，121测试通过。详情及支持/拒绝边界见[稳定性报告](RUNTIME_STABILITY.md)。旧报告中的缺真实Core事件是当时状态；硬件G4/通信/全部旧算子/最终评分仍未通过，不能由该模型证书升级。
 
 2026-10-30最新优先级：按D015将板级时序认证外置；软件先完成其他算子真实语义/阶段重建，再独立Cholesky→LDL→Block→BRI候选的完整三路径接入。七入口原程序问题和验收条件统一见LEGACY_SEMANTIC_STAGES.md。
+
+2026-11-06：跨算法普适性首批完成（NS+独立Cholesky、双精度/两组尺寸），Agent耗时台账与脚本分阶段计时落地。下一步：独立LDL的单位对角/行权重恢复，以及接近256MiB观察日志的流式内存优化；再扩Block/BRI与通信/CDL-B。证据RECONSTRUCTION_GENERALITY.md。

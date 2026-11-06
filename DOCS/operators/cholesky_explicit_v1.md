@@ -24,4 +24,4 @@ Gram/rhs与秩一更新用GEMM；分解单元素DIV/SQRT用真实SCALAR，comput
 
 ## 6. 验收
 
-默认24核/batch96/Nr64/Nt16/RHS8，瑞利seed42/123；先Asim及指令/事件/预筛，再数值三路径。用改变标量索引/未知指令的负例验证拒绝，不改核心迁就候选。独立审查、串行-j1构建、数值/工具耗时、制品SHA-256均归档到results/generality/2026-11-06-cholesky-v1及experiments对应目录。硬件级认证外置。本节结果待运行后补齐。
+默认24核/batch96/Nr64/Nt16/RHS8，瑞利seed42/123；先Asim及指令/事件/预筛，再数值三路径。用改变标量索引/未知指令的负例验证拒绝，不改核心迁就候选。独立审查、串行-j1构建、数值/工具耗时、制品SHA-256均归档到results/generality/2026-11-06-cholesky-v1及experiments对应目录。硬件级认证外置。已完成：135单元测试、独立审查、串行构建；默认F64 34154周期，FP16模型28006周期（seed42/123均逐位一致），第二组尺寸F64 5677周期；NS回归7950周期。5样本432batch与3次日常288batch均通过，详情见DOCS/research/RECONSTRUCTION_GENERALITY.md。首次CMake源码注册链接失败及重试均留日志。
