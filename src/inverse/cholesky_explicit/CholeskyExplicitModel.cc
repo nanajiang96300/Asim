@@ -32,7 +32,7 @@ class CholeskyExplicitOperation : public Operation {
     addr_type out=ACCUM_SPAD_BASE;regions.push_back(region(out,U,R,"xhat"));
     record_source_regions(regions,M,U);_numeric_header["profile"]=P==8?"structure_f64":"modeled_fp16_fp32_v1";if(!policy_.is_null())_numeric_header["precision_policy"]=policy_;_numeric_header["schema"]="source-views-program-v1";
     _numeric_header["task_contract"]=task_;_numeric_header["algorithm"]={{"id","cholesky_explicit_v1"},{"factorization","right_looking_rank1"},{"initialization","L=0;rhs=H^T*Y"}};
-    FormulaLogger::instance().set_algorithm("cholesky_explicit_v1",0,K,U);
+    FormulaLogger::instance().set_algorithm("cholesky_explicit_v1",1,0,U);
     uint32_t serial=0;std::string prefix="batch"+std::to_string(tile->batch)+".";
     auto barrier=[&](addr_type written){
       auto i=source_instruction(Instruction{.opcode=Opcode::PIPE_BARRIER,.id=prefix+"sync"+std::to_string(serial++),.dest_addr=sync,.size=1,.src_addrs={written},.src_from_accum=true,.my_tile=tile,.is_barrier=true},json::array(),nullptr,"cholesky_explicit:sync");
