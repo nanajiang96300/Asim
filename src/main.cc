@@ -17,6 +17,7 @@
 #include "semantic/ProgramModel.h"
 #include "semantic/RwProbeModel.h"
 #include "inverse/ns_corrected/NSCorrectedModel.h"
+#include "inverse/cholesky_explicit/CholeskyExplicitModel.h"
 
 namespace fs = std::filesystem;
 namespace po = boost::program_options;
@@ -107,6 +108,8 @@ int main(int argc, char** argv) {
     language_mode = false;
   } else if (mode == "rw_probe_test") {
     language_mode=false;
+  } else if (mode == "cholesky_explicit_test") {
+    language_mode = false;
   } else if (mode == "ns_corrected_test") {
     language_mode = false;
   } else if (mode == "semantic_program_test") {
@@ -180,6 +183,9 @@ int main(int argc, char** argv) {
       simulator->register_model(std::move(model));
     } else if (mode == "rw_probe_test") {
       auto model=std::make_unique<RwProbeModel>(model_config,config,model_config["name"]);
+      simulator->register_model(std::move(model));
+    } else if (mode == "cholesky_explicit_test") {
+      auto model=std::make_unique<CholeskyExplicitModel>(model_config,config,model_config["name"]);
       simulator->register_model(std::move(model));
     } else if (mode == "ns_corrected_test") {
       auto model=std::make_unique<NSCorrectedModel>(model_config,config,model_config["name"]);
