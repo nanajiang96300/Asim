@@ -34,6 +34,41 @@
       },
       "parameter_module": "verification.operators.parameters",
       "parameter_function": "cholesky_parameters"
+    },
+    "ldl_explicit_v1": {
+      "mode": "ldl_explicit_test",
+      "source": "src/inverse/ldl_explicit/LDLExplicitModel.cc",
+      "scope": "mmse_h_y_to_xhat_v1",
+      "profile": "structure_f64_real_block",
+      "reference_module": "verification.reference.ldl",
+      "reference_function": "simulate_ldl",
+      "profiles": [
+        "structure_f64_real_block",
+        "modeled_fp16_fp32_real_block_v1"
+      ],
+      "reference_profiles": {
+        "modeled_fp16_fp32_real_block_v1": "simulate_ldl_fp16_model"
+      },
+      "parameter_module": "verification.operators.parameters",
+      "parameter_function": "ldl_parameters"
+    },
+    "bri_explicit_v1": {
+      "mode": "bri_explicit_test",
+      "source": "src/inverse/bri_explicit/BRIExplicitModel.cc",
+      "scope": "mmse_h_y_to_xhat_v1",
+      "profile": "structure_f64_real_block",
+      "reference_module": "verification.reference.bri",
+      "reference_function": "simulate_bri",
+      "profiles": [
+        "structure_f64_real_block",
+        "modeled_fp16_fp32_real_block_v1"
+      ],
+      "reference_profiles": {
+        "modeled_fp16_fp32_real_block_v1": "simulate_bri_fp16_model"
+      },
+      "parameter_module": "verification.operators.parameters",
+      "parameter_function": "bri_parameters",
+      "max_iterations": 256
     }
   }
 }
