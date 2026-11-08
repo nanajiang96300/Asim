@@ -43,8 +43,9 @@ def validate(contract,result,out):
             inv=np.linalg.solve(A,np.broadcast_to(np.eye(16),A.shape));error=errs(x,inv)
             applied=dot(actual,dot(q(rb(H)).transpose(0,2,1),q(rb(Y))));output=applied[:,:16,:8].astype(float)+1j*applied[:,16:,:8].astype(float)
         else:error=errs(x,truth);output=x
-        task=errs(output,truth);claimed=case['rows'][-1]['inverse_error_max' if inverse else 'task_error_max']
+        task=errs(applied.astype(float),rb(truth)) if inverse else errs(output,truth);claimed=case['rows'][-1]['inverse_error_max' if inverse else 'task_error_max']
         if abs(float(error.max())-claimed)>1e-10:raise ValueError('independent metric mismatch')
+        if inverse and abs(float(task.max())-case['rows'][-1]['task_error_max'])>1e-10:raise ValueError('independent full-block application metric mismatch')
         candidate_bits=np.stack((output.real>=0,output.imag>=0),axis=-1);mmse_bits=np.stack((truth.real>=0,truth.imag>=0),axis=-1)
         rows.append(dict(goal=s['goal'],regularization=lam,K=s['evaluation_K'],channels=len(H),precision_bit_equal=True,max_goal_error=float(error.max()),goal_passed=bool(error.max()<=.02),inverse_then_apply_task_error_max=float(task.max()) if inverse else None,
                          candidate_bit_errors=int(np.count_nonzero(candidate_bits!=bits)),mmse_bit_errors=int(np.count_nonzero(mmse_bits!=bits)),bits=bits.size,communication_scope='BER diagnostic only; no formal communication confidence gate'))
