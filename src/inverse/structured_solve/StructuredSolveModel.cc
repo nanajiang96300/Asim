@@ -11,8 +11,8 @@ class StructuredSolveOperation : public Operation {
   StructuredSolveOperation(SimulationConfig c,Model* m,uint32_t nr,uint32_t nt,uint32_t rhs,uint32_t batches,uint32_t k,json task,json policy,std::map<std::string,std::string>& attrs,std::string variant)
     :Operation(c,m,variant,attrs,0),M(2*nr),U(2*nt),R(2*rhs),B(batches),K(k),task_(task),policy_(policy),variant_(variant){_optype=variant;}
   void initialize_tiles(MappingTable&) override {
-    if((_config.precision!=8 && _config.precision!=2) || _config.dram_req_size!=64 || _config.num_cores!=24 || !B || B%24 || B>384 || K!=1 || !U || U>32 || U%4 || !R || M<U)
-      throw std::runtime_error("Cholesky explicit requires structure precision8/request64/core24 and valid dimensions");
+    if((_config.precision!=8 && _config.precision!=2) || _config.dram_req_size!=64 || _config.num_cores!=24 || !B || B%24 || B>384 || (variant_!="cholesky_block_explicit_v1" && variant_!="ldl_block_explicit_v1" && variant_!="cholesky_merge_explicit_v1") || K!=1 || !U || U>32 || U%4 || !R || M<U)
+      throw std::runtime_error("structured solve requires precision2/8, request64, core24, real size multiple4<=32 and valid dimensions");
     for(uint32_t b=0;b<B;++b){
       auto tile=std::make_unique<Tile>(Tile{.status=Tile::Status::INITIALIZED,.optype=_optype,.layer_id=_id,.batch=b,.core_id=static_cast<int>(b%24)});
       initialize_instructions(tile.get(),Mapping{});_tiles.push_back(std::move(tile));
