@@ -1,0 +1,126 @@
+{
+  "schema": "fp16-primitive-study-v1",
+  "source_commit": "f673870d48dd48d2e0fd743537caa1fae79ef0e0",
+  "sources": {
+    "verification/studies/fp16_campaign.py": "2794e8c1e3ac57272a962e2d14eca7f99e94187a86507c0c5528f4f8ee720771",
+    "verification/studies/fp16_primitives.py": "ca41668e275a1d74232f5dadf12db1b18a150f6a8378aa895d13c05fcdfba2df",
+    "verification/studies/bri_math.py": "9c297556ad60cdc6f82a9d754c2533f4a454c8bc6169bd4fc3e5330c587d0851",
+    "verification/profiles/numeric.py": "965c32d6ac6558570bc3b51f21c764ab4f1c113d30ef8c495a7a791e001ec6e0",
+    "verification/contracts/core.py": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116"
+  },
+  "role": "calibration_smoke_only",
+  "inputs": [
+    {
+      "path": "results/fp16_implicit/2026-11-08-v1/calibration_inputs.npz",
+      "sha256": "9205b09e417bb175a3bd368153a6525849257b7af1bcfccc405f02ce287c87f5",
+      "slice": [
+        0,
+        24
+      ]
+    }
+  ],
+  "steps": 256,
+  "max_wall_seconds": 1800,
+  "cases": [
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "restart": 0,
+      "compensated": false,
+      "momentum": 1.0
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "restart": 64,
+      "compensated": false,
+      "momentum": 1.0
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "restart": 0,
+      "compensated": true,
+      "momentum": 1.0
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "restart": 64,
+      "compensated": true,
+      "momentum": 1.0
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "restart": 0,
+      "compensated": false,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "restart": 0,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.01,
+      "block": 4,
+      "kind": "implicit_inverse_add",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "hermitian": false
+    },
+    {
+      "lambda": 0.01,
+      "block": 4,
+      "kind": "implicit_inverse_add",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "hermitian": true
+    }
+  ]
+}
