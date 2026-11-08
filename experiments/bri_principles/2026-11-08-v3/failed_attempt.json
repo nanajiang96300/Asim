@@ -1,0 +1,6 @@
+{
+  "status": "PARTIAL_STUDY_NO_COMPLETE_VERDICT",
+  "completed_scenarios": 88,
+  "reason": "FP32 modeled Hermitian assumption rejected at lambda .01/block4; v4 preserves scenario outputs and records unsupported groups instead of aborting remaining independent cases",
+  "log_sha256": "e67095e63976bcf6cd59a6f92bedd0afe2e2f3e77dc0284ea8a319b4e0725c73"
+}
