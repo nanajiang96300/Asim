@@ -1,0 +1,8 @@
+{
+  "python": "3.12.3",
+  "numpy": "2.5.0",
+  "scipy": "1.18.0",
+  "matplotlib": "3.11.0",
+  "runtime_manifest": "orchestrator/codex_runtime.json",
+  "runtime_sha256": "bbb5819878599b5764db320981dfe02228c2e114b379e73dcb664706416f3371"
+}

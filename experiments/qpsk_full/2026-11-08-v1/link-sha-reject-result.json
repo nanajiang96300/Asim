@@ -1,0 +1,11 @@
+{
+  "schema": "uncoded-qpsk-link-result-v1",
+  "status": "LINK_RUN_REJECTED",
+  "reason": "approved link contract changed",
+  "uncoded_qpsk_suite_complete": false,
+  "full_communication_certified": false,
+  "score": null,
+  "elapsed_seconds": 0.00019457901362329721,
+  "pure_model_thinking_seconds": null,
+  "approved_contract_sha256": "incorrect"
+}

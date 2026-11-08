@@ -1,0 +1,2292 @@
+{
+  "schema": "complete-uncoded-qpsk-campaign-v1",
+  "status": "UNCODED_QPSK_SUITE_CHECKED",
+  "unit_tests": 212,
+  "producer_commit": "be404cb0",
+  "link_evaluator_commit": "8bdbb001",
+  "reporter_commit": "131a6ffc",
+  "group_count": 21,
+  "frames": 168,
+  "new_asim_runs": 14,
+  "reused_asim_sources": 7,
+  "batch_replays": 16128,
+  "bits": 4128768,
+  "symbols": 2064384,
+  "independent_H_per_group": 192,
+  "distinct_H_over_entire_paired_dataset": 192,
+  "unique_transmitted_bits": 196608,
+  "max_task_error": 0.0027441810209093125,
+  "all_precision_bit_equal": true,
+  "max_absolute_bit_error_count_difference": 6,
+  "total_joint_outages": 0,
+  "max_joint_outage_upper": 0.041408332492877745,
+  "source_wall_seconds": 672.2494617750053,
+  "link_wall_seconds": 1278.323153092002,
+  "pure_model_thinking_seconds": null,
+  "independent_audit": {
+    "status": "INDEPENDENT_QPSK_AUDIT_PASSED",
+    "groups": 21,
+    "frame_records": 168,
+    "bits_recounted": 4128768,
+    "method": "minimum-distance demap, recomputed FP64 MMSE, exact bit/symbol/confusion/per-H EVM counts; independent SciPy CP intervals"
+  },
+  "groups": [
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case000/result.json",
+      "operator": "ns_corrected_v1",
+      "iterations": 16,
+      "regularization": 1.0,
+      "es_no_db": -0.0,
+      "eb_no_db": -3.010299956639812,
+      "expected_receive_snr_db": -6.020599913279624,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 34516,
+      "mmse_bit_errors": 34518,
+      "candidate_symbol_errors": 31413,
+      "mmse_symbol_errors": 31414,
+      "candidate_ber": 0.17555745442708334,
+      "mmse_ber": 0.175567626953125,
+      "candidate_ser": 0.319549560546875,
+      "mmse_ser": 0.3195597330729167,
+      "mean_candidate_raw_evm": 0.7306683618686464,
+      "mean_mmse_raw_evm": 0.7306690996415804,
+      "candidate_confusion": [
+        [
+          16676,
+          3572,
+          3627,
+          768
+        ],
+        [
+          3495,
+          16802,
+          807,
+          3481
+        ],
+        [
+          3435,
+          759,
+          16656,
+          3478
+        ],
+        [
+          769,
+          3583,
+          3639,
+          16757
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          16677,
+          3571,
+          3627,
+          768
+        ],
+        [
+          3495,
+          16803,
+          807,
+          3480
+        ],
+        [
+          3436,
+          760,
+          16654,
+          3478
+        ],
+        [
+          769,
+          3583,
+          3640,
+          16756
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 7950
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ns_corrected_v1_regression/result.json",
+      "operator": "ns_corrected_v1",
+      "iterations": 16,
+      "regularization": 0.1,
+      "es_no_db": 10.0,
+      "eb_no_db": 6.9897000433601875,
+      "expected_receive_snr_db": 3.979400086720376,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 599,
+      "mmse_bit_errors": 600,
+      "candidate_symbol_errors": 599,
+      "mmse_symbol_errors": 600,
+      "candidate_ber": 0.0030466715494791665,
+      "mmse_ber": 0.0030517578125,
+      "candidate_ser": 0.006093343098958333,
+      "mmse_ser": 0.006103515625,
+      "mean_candidate_raw_evm": 0.33876918336361567,
+      "mean_mmse_raw_evm": 0.33877014698871394,
+      "candidate_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24172,
+          84
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24171,
+          85
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 7950
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case002/result.json",
+      "operator": "ns_corrected_v1",
+      "iterations": 16,
+      "regularization": 0.01,
+      "es_no_db": 20.0,
+      "eb_no_db": 16.989700043360187,
+      "expected_receive_snr_db": 13.979400086720377,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 0,
+      "mmse_bit_errors": 0,
+      "candidate_symbol_errors": 0,
+      "mmse_symbol_errors": 0,
+      "candidate_ber": 0.0,
+      "mmse_ber": 0.0,
+      "candidate_ser": 0.0,
+      "mmse_ser": 0.0,
+      "mean_candidate_raw_evm": 0.11488634658817716,
+      "mean_mmse_raw_evm": 0.11488659086629209,
+      "candidate_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 7950
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case003/result.json",
+      "operator": "cholesky_explicit_v1",
+      "iterations": 1,
+      "regularization": 1.0,
+      "es_no_db": -0.0,
+      "eb_no_db": -3.010299956639812,
+      "expected_receive_snr_db": -6.020599913279624,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 34517,
+      "mmse_bit_errors": 34518,
+      "candidate_symbol_errors": 31414,
+      "mmse_symbol_errors": 31414,
+      "candidate_ber": 0.17556254069010416,
+      "mmse_ber": 0.175567626953125,
+      "candidate_ser": 0.3195597330729167,
+      "mmse_ser": 0.3195597330729167,
+      "mean_candidate_raw_evm": 0.7306737888525253,
+      "mean_mmse_raw_evm": 0.7306690996415804,
+      "candidate_confusion": [
+        [
+          16679,
+          3568,
+          3630,
+          766
+        ],
+        [
+          3499,
+          16797,
+          806,
+          3483
+        ],
+        [
+          3436,
+          759,
+          16655,
+          3478
+        ],
+        [
+          772,
+          3581,
+          3636,
+          16759
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          16677,
+          3571,
+          3627,
+          768
+        ],
+        [
+          3495,
+          16803,
+          807,
+          3480
+        ],
+        [
+          3436,
+          760,
+          16654,
+          3478
+        ],
+        [
+          769,
+          3583,
+          3640,
+          16756
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 28006
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/result.json",
+      "operator": "cholesky_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.1,
+      "es_no_db": 10.0,
+      "eb_no_db": 6.9897000433601875,
+      "expected_receive_snr_db": 3.979400086720376,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 601,
+      "mmse_bit_errors": 600,
+      "candidate_symbol_errors": 601,
+      "mmse_symbol_errors": 600,
+      "candidate_ber": 0.0030568440755208335,
+      "mmse_ber": 0.0030517578125,
+      "candidate_ser": 0.006113688151041667,
+      "mmse_ser": 0.006103515625,
+      "mean_candidate_raw_evm": 0.3387761955493791,
+      "mean_mmse_raw_evm": 0.33877014698871394,
+      "candidate_confusion": [
+        [
+          24480,
+          77,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24172,
+          84
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24171,
+          85
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 28006
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case005/result.json",
+      "operator": "cholesky_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.01,
+      "es_no_db": 20.0,
+      "eb_no_db": 16.989700043360187,
+      "expected_receive_snr_db": 13.979400086720377,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 0,
+      "mmse_bit_errors": 0,
+      "candidate_symbol_errors": 0,
+      "mmse_symbol_errors": 0,
+      "candidate_ber": 0.0,
+      "mmse_ber": 0.0,
+      "candidate_ser": 0.0,
+      "mmse_ser": 0.0,
+      "mean_candidate_raw_evm": 0.1149058429595472,
+      "mean_mmse_raw_evm": 0.11488659086629209,
+      "candidate_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 28006
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case006/result.json",
+      "operator": "ldl_explicit_v1",
+      "iterations": 1,
+      "regularization": 1.0,
+      "es_no_db": -0.0,
+      "eb_no_db": -3.010299956639812,
+      "expected_receive_snr_db": -6.020599913279624,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 34514,
+      "mmse_bit_errors": 34518,
+      "candidate_symbol_errors": 31411,
+      "mmse_symbol_errors": 31414,
+      "candidate_ber": 0.17554728190104166,
+      "mmse_ber": 0.175567626953125,
+      "candidate_ser": 0.3195292154947917,
+      "mmse_ser": 0.3195597330729167,
+      "mean_candidate_raw_evm": 0.7306722309320065,
+      "mean_mmse_raw_evm": 0.7306690996415804,
+      "candidate_confusion": [
+        [
+          16677,
+          3570,
+          3628,
+          768
+        ],
+        [
+          3497,
+          16801,
+          806,
+          3481
+        ],
+        [
+          3435,
+          759,
+          16655,
+          3479
+        ],
+        [
+          770,
+          3581,
+          3637,
+          16760
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          16677,
+          3571,
+          3627,
+          768
+        ],
+        [
+          3495,
+          16803,
+          807,
+          3480
+        ],
+        [
+          3436,
+          760,
+          16654,
+          3478
+        ],
+        [
+          769,
+          3583,
+          3640,
+          16756
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 18697
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/result.json",
+      "operator": "ldl_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.1,
+      "es_no_db": 10.0,
+      "eb_no_db": 6.9897000433601875,
+      "expected_receive_snr_db": 3.979400086720376,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 601,
+      "mmse_bit_errors": 600,
+      "candidate_symbol_errors": 601,
+      "mmse_symbol_errors": 600,
+      "candidate_ber": 0.0030568440755208335,
+      "mmse_ber": 0.0030517578125,
+      "candidate_ser": 0.006113688151041667,
+      "mmse_ser": 0.006103515625,
+      "mean_candidate_raw_evm": 0.3387790668573761,
+      "mean_mmse_raw_evm": 0.33877014698871394,
+      "candidate_confusion": [
+        [
+          24481,
+          76,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24171,
+          85
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24171,
+          85
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 18697
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case008/result.json",
+      "operator": "ldl_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.01,
+      "es_no_db": 20.0,
+      "eb_no_db": 16.989700043360187,
+      "expected_receive_snr_db": 13.979400086720377,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 0,
+      "mmse_bit_errors": 0,
+      "candidate_symbol_errors": 0,
+      "mmse_symbol_errors": 0,
+      "candidate_ber": 0.0,
+      "mmse_ber": 0.0,
+      "candidate_ser": 0.0,
+      "mmse_ser": 0.0,
+      "mean_candidate_raw_evm": 0.1149019193930635,
+      "mean_mmse_raw_evm": 0.11488659086629209,
+      "candidate_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 18697
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case009/result.json",
+      "operator": "bri_explicit_v1",
+      "iterations": 192,
+      "regularization": 1.0,
+      "es_no_db": -0.0,
+      "eb_no_db": -3.010299956639812,
+      "expected_receive_snr_db": -6.020599913279624,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 34515,
+      "mmse_bit_errors": 34518,
+      "candidate_symbol_errors": 31413,
+      "mmse_symbol_errors": 31414,
+      "candidate_ber": 0.1755523681640625,
+      "mmse_ber": 0.175567626953125,
+      "candidate_ser": 0.319549560546875,
+      "mmse_ser": 0.3195597330729167,
+      "mean_candidate_raw_evm": 0.730654207708981,
+      "mean_mmse_raw_evm": 0.7306690996415804,
+      "candidate_confusion": [
+        [
+          16677,
+          3571,
+          3628,
+          767
+        ],
+        [
+          3495,
+          16800,
+          807,
+          3483
+        ],
+        [
+          3435,
+          759,
+          16656,
+          3478
+        ],
+        [
+          769,
+          3582,
+          3639,
+          16758
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          16677,
+          3571,
+          3627,
+          768
+        ],
+        [
+          3495,
+          16803,
+          807,
+          3480
+        ],
+        [
+          3436,
+          760,
+          16654,
+          3478
+        ],
+        [
+          769,
+          3583,
+          3640,
+          16756
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 23047
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/result.json",
+      "operator": "bri_explicit_v1",
+      "iterations": 192,
+      "regularization": 0.1,
+      "es_no_db": 10.0,
+      "eb_no_db": 6.9897000433601875,
+      "expected_receive_snr_db": 3.979400086720376,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 599,
+      "mmse_bit_errors": 600,
+      "candidate_symbol_errors": 599,
+      "mmse_symbol_errors": 600,
+      "candidate_ber": 0.0030466715494791665,
+      "mmse_ber": 0.0030517578125,
+      "candidate_ser": 0.006093343098958333,
+      "mmse_ser": 0.006103515625,
+      "mean_candidate_raw_evm": 0.3387277307436493,
+      "mean_mmse_raw_evm": 0.33877014698871394,
+      "candidate_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24172,
+          84
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24171,
+          85
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 23047
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case011/result.json",
+      "operator": "bri_explicit_v1",
+      "iterations": 192,
+      "regularization": 0.01,
+      "es_no_db": 20.0,
+      "eb_no_db": 16.989700043360187,
+      "expected_receive_snr_db": 13.979400086720377,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 0,
+      "mmse_bit_errors": 0,
+      "candidate_symbol_errors": 0,
+      "mmse_symbol_errors": 0,
+      "candidate_ber": 0.0,
+      "mmse_ber": 0.0,
+      "candidate_ser": 0.0,
+      "mmse_ser": 0.0,
+      "mean_candidate_raw_evm": 0.11489013108504469,
+      "mean_mmse_raw_evm": 0.11488659086629209,
+      "candidate_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 23047
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case012/result.json",
+      "operator": "cholesky_block_explicit_v1",
+      "iterations": 1,
+      "regularization": 1.0,
+      "es_no_db": -0.0,
+      "eb_no_db": -3.010299956639812,
+      "expected_receive_snr_db": -6.020599913279624,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 34521,
+      "mmse_bit_errors": 34518,
+      "candidate_symbol_errors": 31418,
+      "mmse_symbol_errors": 31414,
+      "candidate_ber": 0.1755828857421875,
+      "mmse_ber": 0.175567626953125,
+      "candidate_ser": 0.3196004231770833,
+      "mmse_ser": 0.3195597330729167,
+      "mean_candidate_raw_evm": 0.7306711084292555,
+      "mean_mmse_raw_evm": 0.7306690996415804,
+      "candidate_confusion": [
+        [
+          16675,
+          3573,
+          3628,
+          767
+        ],
+        [
+          3497,
+          16800,
+          807,
+          3481
+        ],
+        [
+          3437,
+          759,
+          16654,
+          3478
+        ],
+        [
+          770,
+          3583,
+          3638,
+          16757
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          16677,
+          3571,
+          3627,
+          768
+        ],
+        [
+          3495,
+          16803,
+          807,
+          3480
+        ],
+        [
+          3436,
+          760,
+          16654,
+          3478
+        ],
+        [
+          769,
+          3583,
+          3640,
+          16756
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 21338
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/result.json",
+      "operator": "cholesky_block_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.1,
+      "es_no_db": 10.0,
+      "eb_no_db": 6.9897000433601875,
+      "expected_receive_snr_db": 3.979400086720376,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 599,
+      "mmse_bit_errors": 600,
+      "candidate_symbol_errors": 599,
+      "mmse_symbol_errors": 600,
+      "candidate_ber": 0.0030466715494791665,
+      "mmse_ber": 0.0030517578125,
+      "candidate_ser": 0.006093343098958333,
+      "mmse_ser": 0.006103515625,
+      "mean_candidate_raw_evm": 0.33878047961214347,
+      "mean_mmse_raw_evm": 0.33877014698871394,
+      "candidate_confusion": [
+        [
+          24481,
+          76,
+          86,
+          0
+        ],
+        [
+          72,
+          24445,
+          0,
+          68
+        ],
+        [
+          72,
+          0,
+          24172,
+          84
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24171,
+          85
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 21338
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case014/result.json",
+      "operator": "cholesky_block_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.01,
+      "es_no_db": 20.0,
+      "eb_no_db": 16.989700043360187,
+      "expected_receive_snr_db": 13.979400086720377,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 0,
+      "mmse_bit_errors": 0,
+      "candidate_symbol_errors": 0,
+      "mmse_symbol_errors": 0,
+      "candidate_ber": 0.0,
+      "mmse_ber": 0.0,
+      "candidate_ser": 0.0,
+      "mmse_ser": 0.0,
+      "mean_candidate_raw_evm": 0.114904314331217,
+      "mean_mmse_raw_evm": 0.11488659086629209,
+      "candidate_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 21338
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case015/result.json",
+      "operator": "ldl_block_explicit_v1",
+      "iterations": 1,
+      "regularization": 1.0,
+      "es_no_db": -0.0,
+      "eb_no_db": -3.010299956639812,
+      "expected_receive_snr_db": -6.020599913279624,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 34517,
+      "mmse_bit_errors": 34518,
+      "candidate_symbol_errors": 31413,
+      "mmse_symbol_errors": 31414,
+      "candidate_ber": 0.17556254069010416,
+      "mmse_ber": 0.175567626953125,
+      "candidate_ser": 0.319549560546875,
+      "mmse_ser": 0.3195597330729167,
+      "mean_candidate_raw_evm": 0.7306692432264903,
+      "mean_mmse_raw_evm": 0.7306690996415804,
+      "candidate_confusion": [
+        [
+          16676,
+          3572,
+          3627,
+          768
+        ],
+        [
+          3496,
+          16802,
+          807,
+          3480
+        ],
+        [
+          3436,
+          759,
+          16655,
+          3478
+        ],
+        [
+          770,
+          3581,
+          3639,
+          16758
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          16677,
+          3571,
+          3627,
+          768
+        ],
+        [
+          3495,
+          16803,
+          807,
+          3480
+        ],
+        [
+          3436,
+          760,
+          16654,
+          3478
+        ],
+        [
+          769,
+          3583,
+          3640,
+          16756
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 21665
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/result.json",
+      "operator": "ldl_block_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.1,
+      "es_no_db": 10.0,
+      "eb_no_db": 6.9897000433601875,
+      "expected_receive_snr_db": 3.979400086720376,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 599,
+      "mmse_bit_errors": 600,
+      "candidate_symbol_errors": 599,
+      "mmse_symbol_errors": 600,
+      "candidate_ber": 0.0030466715494791665,
+      "mmse_ber": 0.0030517578125,
+      "candidate_ser": 0.006093343098958333,
+      "mmse_ser": 0.006103515625,
+      "mean_candidate_raw_evm": 0.33877810192733254,
+      "mean_mmse_raw_evm": 0.33877014698871394,
+      "candidate_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24172,
+          84
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24171,
+          85
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 21665
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case017/result.json",
+      "operator": "ldl_block_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.01,
+      "es_no_db": 20.0,
+      "eb_no_db": 16.989700043360187,
+      "expected_receive_snr_db": 13.979400086720377,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 0,
+      "mmse_bit_errors": 0,
+      "candidate_symbol_errors": 0,
+      "mmse_symbol_errors": 0,
+      "candidate_ber": 0.0,
+      "mmse_ber": 0.0,
+      "candidate_ser": 0.0,
+      "mmse_ser": 0.0,
+      "mean_candidate_raw_evm": 0.1149054931188291,
+      "mean_mmse_raw_evm": 0.11488659086629209,
+      "candidate_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 21665
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case018/result.json",
+      "operator": "cholesky_merge_explicit_v1",
+      "iterations": 1,
+      "regularization": 1.0,
+      "es_no_db": -0.0,
+      "eb_no_db": -3.010299956639812,
+      "expected_receive_snr_db": -6.020599913279624,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 34512,
+      "mmse_bit_errors": 34518,
+      "candidate_symbol_errors": 31410,
+      "mmse_symbol_errors": 31414,
+      "candidate_ber": 0.175537109375,
+      "mmse_ber": 0.175567626953125,
+      "candidate_ser": 0.31951904296875,
+      "mmse_ser": 0.3195597330729167,
+      "mean_candidate_raw_evm": 0.730669364785208,
+      "mean_mmse_raw_evm": 0.7306690996415804,
+      "candidate_confusion": [
+        [
+          16675,
+          3572,
+          3629,
+          767
+        ],
+        [
+          3495,
+          16802,
+          807,
+          3481
+        ],
+        [
+          3434,
+          759,
+          16657,
+          3478
+        ],
+        [
+          769,
+          3582,
+          3637,
+          16760
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          16677,
+          3571,
+          3627,
+          768
+        ],
+        [
+          3495,
+          16803,
+          807,
+          3480
+        ],
+        [
+          3436,
+          760,
+          16654,
+          3478
+        ],
+        [
+          769,
+          3583,
+          3640,
+          16756
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 19028
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/result.json",
+      "operator": "cholesky_merge_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.1,
+      "es_no_db": 10.0,
+      "eb_no_db": 6.9897000433601875,
+      "expected_receive_snr_db": 3.979400086720376,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 599,
+      "mmse_bit_errors": 600,
+      "candidate_symbol_errors": 599,
+      "mmse_symbol_errors": 600,
+      "candidate_ber": 0.0030466715494791665,
+      "mmse_ber": 0.0030517578125,
+      "candidate_ser": 0.006093343098958333,
+      "mmse_ser": 0.006103515625,
+      "mean_candidate_raw_evm": 0.33877219447837376,
+      "mean_mmse_raw_evm": 0.33877014698871394,
+      "candidate_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24172,
+          84
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24482,
+          75,
+          86,
+          0
+        ],
+        [
+          72,
+          24444,
+          0,
+          69
+        ],
+        [
+          72,
+          0,
+          24171,
+          85
+        ],
+        [
+          0,
+          70,
+          71,
+          24607
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 19028
+    },
+    {
+      "source": "/home/nanajiang/Asim/results/qpsk_full/2026-11-08-v1/sources/case020/result.json",
+      "operator": "cholesky_merge_explicit_v1",
+      "iterations": 1,
+      "regularization": 0.01,
+      "es_no_db": 20.0,
+      "eb_no_db": 16.989700043360187,
+      "expected_receive_snr_db": 13.979400086720377,
+      "status": "QPSK_GROUP_CHECKED",
+      "bits": 196608,
+      "symbols": 98304,
+      "independent_channels": 192,
+      "candidate_bit_errors": 0,
+      "mmse_bit_errors": 0,
+      "candidate_symbol_errors": 0,
+      "mmse_symbol_errors": 0,
+      "candidate_ber": 0.0,
+      "mmse_ber": 0.0,
+      "candidate_ser": 0.0,
+      "mmse_ser": 0.0,
+      "mean_candidate_raw_evm": 0.11488686743556194,
+      "mean_mmse_raw_evm": 0.11488659086629209,
+      "candidate_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "mmse_confusion": [
+        [
+          24643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          24585,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24328,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          24748
+        ]
+      ],
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.041408332492877745,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "tail_alpha": 0.00029761904761904765,
+      "source_finish_cycle": 19028
+    }
+  ],
+  "full_communication_certified": false,
+  "score": null,
+  "limitations": [
+    "finite frozen uncoded QPSK/perfect CSI/ideal synchronization/IID flat Rayleigh suite only",
+    "relative engineering limits, not an absolute BER business target",
+    "fixed existing K16 NS/K192 BRI; no optimal-K claim",
+    "fresh payload functional replays use validated fixed templates; no Asim rerun per frame",
+    "multiple algorithms/SNRs/frames do not multiply independent H count",
+    "no FEC/BLER/CDL-B or hardware claim"
+  ]
+}

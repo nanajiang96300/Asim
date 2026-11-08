@@ -1,0 +1,48 @@
+{
+  "schema": "uncoded-qpsk-link-v1",
+  "runtime": {
+    "path": "orchestrator/codex_runtime.json",
+    "sha256": "bbb5819878599b5764db320981dfe02228c2e114b379e73dcb664706416f3371"
+  },
+  "source_index": {
+    "path": "results/qpsk_full/2026-11-08-v1/sources/result.json",
+    "sha256": "fd8ca5f2f80d3da31fc1136fd73df849103209200a734048e33a6effdf79210f",
+    "contract_sha256": "d5a2e3a52b987bf2b9d3fcf5ae74509b00b3bb419a9a015296cd0631bd7d4f0a"
+  },
+  "evaluator_sources": {
+    "verification/communication/__init__.py": "eec9fc020ccfc58ad053a54b7ed4931a12616a4c0c3bc580f75fa6902e065fee",
+    "verification/communication/metrics.py": "7464a6b61ecedcc92891b2a8c45bf208bdcbefc0f3ed8be2f5b8c436bc624008",
+    "verification/communication/probe.py": "db10552d3743b8dbc6e2a53ba529d74bbbff2fc545434cef9328dc54f23f6b5d",
+    "verification/communication/qpsk.py": "f3fc753318e9b2e10cd6527399ebebd8224de5427472f2c632e4780c7bd45c40",
+    "verification/communication/qpsk_link.py": "9472860f1042097ad7e80d262590802549dc6ae1b08502001cff7ca70aad75a4",
+    "verification/communication/qpsk_sources.py": "e9eb34bd50702f9faceefd36bb702a7a661fb3790edac348a75b3ccda3090349",
+    "verification/communication/response.py": "f12ce7409458be48fb0d334c61010b37e736103bec3948fe8a5ace5ad857894b",
+    "verification/communication/runner.py": "b56b190286d183a1ea30e10abfae5f507c3ced371123f52984c50faafb405dab"
+  },
+  "channel_seeds": [
+    22001,
+    22002
+  ],
+  "frame_seeds": [
+    33001,
+    33002,
+    33003,
+    33004
+  ],
+  "limits": {
+    "max_ber_increase": 0.01,
+    "max_ser_increase": 0.02,
+    "max_evm_increase": 0.01,
+    "max_outage_probability": 0.05,
+    "family_alpha": 0.05,
+    "min_independent_channels": 192
+  },
+  "budget": {
+    "max_batch_replays": 16128,
+    "max_output_bytes": 300000000,
+    "min_free_bytes": 1500000000,
+    "max_wall_seconds": 5400
+  },
+  "control_seed": 91001,
+  "control_symbols": 200000
+}

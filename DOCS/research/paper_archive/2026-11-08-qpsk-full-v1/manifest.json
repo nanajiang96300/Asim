@@ -1,0 +1,96 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-qpsk-full-v1",
+  "capture_commit": "131a6ffc22dcdff6879ab89dc45496645fb11f5c",
+  "status": "UNCODED_QPSK_SUITE_CHECKED",
+  "snapshots": [
+    {
+      "source": "experiments/qpsk_full/2026-11-08-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/experiments/qpsk_full/2026-11-08-v1/README.md",
+      "bytes": 6127,
+      "sha256": "3c45889e637ee6bdce5131996a524398557908e2cca7d306349eb5ecb1a409df"
+    },
+    {
+      "source": "verification/communication/QPSK_LINK.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/verification/communication/QPSK_LINK.md",
+      "bytes": 6896,
+      "sha256": "a043107bae284b29b1538790345e10e57691009f692a576fcae3ad70e7f65093"
+    },
+    {
+      "source": "DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "bytes": 11310,
+      "sha256": "03a8a141f67a1f428560563096d0310d0a506789ee7a24ae943b02df8c9066df"
+    },
+    {
+      "source": "DOCS/research/COMMUNICATION_VERIFICATION.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/DOCS/research/COMMUNICATION_VERIFICATION.md",
+      "bytes": 6021,
+      "sha256": "bd406561112ea603966a9210a28ff86a30b96b510effab64df294c856dcdd9e6"
+    },
+    {
+      "source": "experiments/qpsk_full/2026-11-08-v1/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/experiments/qpsk_full/2026-11-08-v1/summary.json",
+      "bytes": 51883,
+      "sha256": "a620ca26fc10690f3fd05bc7ba2fd364f09a2db776db533de9c6be787fa72ec6"
+    },
+    {
+      "source": "experiments/qpsk_full/2026-11-08-v1/audit.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/experiments/qpsk_full/2026-11-08-v1/audit.json",
+      "bytes": 254,
+      "sha256": "7cb682e5aaad638dbd728d78f31c671785fcc73ac96d6dd72db63d75393829b0"
+    },
+    {
+      "source": "experiments/qpsk_full/2026-11-08-v1/quality.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/experiments/qpsk_full/2026-11-08-v1/quality.csv",
+      "bytes": 5039,
+      "sha256": "628babbde95b998d8c904a2bfa6134751ac1338784c1cdcb920ec733145e7cca"
+    },
+    {
+      "source": "experiments/qpsk_full/2026-11-08-v1/per_stream.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/experiments/qpsk_full/2026-11-08-v1/per_stream.csv",
+      "bytes": 27344,
+      "sha256": "582a75f0e103552f89921095a7bd55fecac7ad37527f34056cea712e3c0114c4"
+    },
+    {
+      "source": "experiments/qpsk_full/2026-11-08-v1/pipeline_cycles.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/experiments/qpsk_full/2026-11-08-v1/pipeline_cycles.csv",
+      "bytes": 15981,
+      "sha256": "d7e1387bba128341ed46048a64252af4ec5300b118f376d72e71c1a4cc5b95e7"
+    },
+    {
+      "source": "experiments/qpsk_full/2026-11-08-v1/modem_controls.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/experiments/qpsk_full/2026-11-08-v1/modem_controls.json",
+      "bytes": 2521,
+      "sha256": "289e4f7bce76c3651f04b4eabbcf95c16ecb63a0f5e05a8eac7a32001a4933ca"
+    },
+    {
+      "source": "experiments/qpsk_full/2026-11-08-v1/toolchain.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/snapshots/experiments/qpsk_full/2026-11-08-v1/toolchain.json",
+      "bytes": 237,
+      "sha256": "96e43ac479f9c574fc01bac43152052c5ffce320ef1f7bc4fcb68580a3f99b1b"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/qpsk_full/2026-11-08-v1/run_manifest.json",
+      "bytes": 94024,
+      "sha256": "da36215626ded252285fd9810e2c6f5e0ad2a5eca232d4290d6f4d41c59d9e92"
+    },
+    {
+      "path": "experiments/qpsk_full/2026-11-08-v1/report_manifest.json",
+      "bytes": 2550,
+      "sha256": "b1c39cbf8643bd4893c8cdc8112a296211e773122eacb1ef3100f1dbfefcec79"
+    },
+    {
+      "path": "experiments/qpsk_full/2026-11-08-v1/source-contract.json",
+      "bytes": 3331,
+      "sha256": "d5a2e3a52b987bf2b9d3fcf5ae74509b00b3bb419a9a015296cd0631bd7d4f0a"
+    },
+    {
+      "path": "experiments/qpsk_full/2026-11-08-v1/link-contract.json",
+      "bytes": 1911,
+      "sha256": "4572170ba2c5097d7616ce79931642810471ee7d6128f53db4f67288e0a54015"
+    }
+  ]
+}

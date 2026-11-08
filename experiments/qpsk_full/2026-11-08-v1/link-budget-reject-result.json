@@ -1,0 +1,11 @@
+{
+  "schema": "uncoded-qpsk-link-result-v1",
+  "status": "LINK_RUN_REJECTED",
+  "reason": "batch replay budget exceeded",
+  "uncoded_qpsk_suite_complete": false,
+  "full_communication_certified": false,
+  "score": null,
+  "elapsed_seconds": 0.054304939025314525,
+  "pure_model_thinking_seconds": null,
+  "approved_contract_sha256": "34cef7cb9dde82abcbc482b38a6e9684b39deb636bb7a9b8aae7fd9cc5678bb1"
+}

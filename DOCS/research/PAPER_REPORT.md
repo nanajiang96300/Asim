@@ -1,5 +1,8 @@
 # 面向论文的重建验证报告与完成门禁
 
+2026-11-08 Q3c当前：完成声明范围内未编码QPSK完整bit-to-bit链路。七新入口×Es/N0 0/10/20dB共21配置，14次新Asim、168帧、16,128次batch重放通过；212测试与独立4,128,768bit复核通过，全部同算法精度参考位一致，最大MMSE任务误差0.2744%。每组192独立H，全实验配对复用同192个H。该试验通过相对BER/SER/raw EVM门禁，不签发FEC/BLER、CDL-B、总体SE或最终晋级。见[验收报告](../../experiments/qpsk_full/2026-11-08-v1/README.md)及[可执行协议](../../verification/communication/QPSK_LINK.md)。
+
+
 2026-11-08 Q3b：新增 [实际响应与线性SE代理有限样本档案](paper_archive/2026-11-08-response-proxy-v2/README.md)，200测试和375次正例实际重放通过。没有新增Asim周期、总体SE置信或有限调制吞吐结论；完整完成门禁不变。
 
 2026-11-08 Q3a：固定论文档案新增 [实际输出的QPSK通信试验](paper_archive/2026-11-08-communication-v1/README.md)，包括历史七新入口只读诊断及NS batch96双噪声新留出置信门禁。187测试通过，但SE/BLER/CDL-B与完整晋级未完成；旧最终报告生成器不能因此签发全部完成。

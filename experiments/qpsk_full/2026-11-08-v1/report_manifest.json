@@ -1,0 +1,81 @@
+{
+  "schema": "qpsk-report-v1",
+  "source_result": "results/qpsk_full/2026-11-08-v1/link/result.json",
+  "source_sha256": "44cead815803949862aaebfff2b8fe8963e2be9272a78d1d65ed877ea42a4cee",
+  "audit": {
+    "status": "INDEPENDENT_QPSK_AUDIT_PASSED",
+    "groups": 21,
+    "frame_records": 168,
+    "bits_recounted": 4128768,
+    "method": "minimum-distance demap, recomputed FP64 MMSE, exact bit/symbol/confusion/per-H EVM counts; independent SciPy CP intervals"
+  },
+  "matplotlib": "3.11.0",
+  "reporter_sha256": "033ed73c80a30ff093ad66bc02bf5ac19f9ae49ae2a61e4fb75df3a0638e99b1",
+  "artifacts": [
+    {
+      "path": "AWGN_controls.pdf",
+      "bytes": 18333,
+      "sha256": "0f44d32e653a0b68a1c19ad9fdd5e162555d77ee77f7165cdf3a5fbc2ce068d0"
+    },
+    {
+      "path": "AWGN_controls.png",
+      "bytes": 118768,
+      "sha256": "730e47e431c4f87049b76ac9446207ecbbd8f10678af874a516185d1de18f933"
+    },
+    {
+      "path": "BER.pdf",
+      "bytes": 23932,
+      "sha256": "13d11bcff3f7b215eb038414d46bc3c26c92a4cf7ab3a1992944831c92ab722b"
+    },
+    {
+      "path": "BER.png",
+      "bytes": 136330,
+      "sha256": "f527f30474f9199f98bd1bba0f93b62ccabc2b2882305da36eec015b7b63065e"
+    },
+    {
+      "path": "SER.pdf",
+      "bytes": 23906,
+      "sha256": "2f3ea1e7f7cbe9833531dc9137d9dfe1d50a67bdfee24e0c5cc1613a75ce8d39"
+    },
+    {
+      "path": "SER.png",
+      "bytes": 139093,
+      "sha256": "9048c4d332cd10aceb8fc2f8192e1a2b34dd54abf0d7c5a52260903d6fd32fda"
+    },
+    {
+      "path": "audit.json",
+      "bytes": 254,
+      "sha256": "7cb682e5aaad638dbd728d78f31c671785fcc73ac96d6dd72db63d75393829b0"
+    },
+    {
+      "path": "constellation_mapping.csv",
+      "bytes": 193,
+      "sha256": "177cd279b8da50d268fce07d9f0c7fac8125b92e329b7604e9b517bb3c512245"
+    },
+    {
+      "path": "constellations.pdf",
+      "bytes": 580702,
+      "sha256": "b03af64b78057b64c70207cff2a5a1eae08f9d81f9b0c5f085e602b5e9a01f36"
+    },
+    {
+      "path": "constellations.png",
+      "bytes": 967130,
+      "sha256": "16b7641de77f0259621d51f2c8286baa1248c7050c1cc6a60ca864b0a5082343"
+    },
+    {
+      "path": "per_stream.csv",
+      "bytes": 27344,
+      "sha256": "582a75f0e103552f89921095a7bd55fecac7ad37527f34056cea712e3c0114c4"
+    },
+    {
+      "path": "pipeline_cycles.csv",
+      "bytes": 15981,
+      "sha256": "d7e1387bba128341ed46048a64252af4ec5300b118f376d72e71c1a4cc5b95e7"
+    },
+    {
+      "path": "quality.csv",
+      "bytes": 5039,
+      "sha256": "628babbde95b998d8c904a2bfa6134751ac1338784c1cdcb920ec733145e7cca"
+    }
+  ]
+}

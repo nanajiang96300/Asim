@@ -1,5 +1,8 @@
 # 有人监督的日常研究工作流
 
+2026-11-08 Q3c当前：完成声明范围内未编码QPSK完整bit-to-bit链路。七新入口×Es/N0 0/10/20dB共21配置，14次新Asim、168帧、16,128次batch重放通过；212测试与独立4,128,768bit复核通过，全部同算法精度参考位一致，最大MMSE任务误差0.2744%。每组192独立H，全实验配对复用同192个H。该试验通过相对BER/SER/raw EVM门禁，不签发FEC/BLER、CDL-B、总体SE或最终晋级。见[验收报告](../../experiments/qpsk_full/2026-11-08-v1/README.md)及[可执行协议](../../verification/communication/QPSK_LINK.md)。
+
+
 ## 2026-11-08当前入口
 
 新增写算子前的 [质量驱动工作流](QUALITY_DRIVEN_WORKFLOW.md) 和 [选K工具命令](../../verification/planning/README.md)。先冻结校准/留出集、阈值与预算，筛选算法参数，再在独立工作区编写候选。已有日常运行器仍先Asim再重建；选K结果已能由handoff重新核验并冻结计划，通过独立execution入口执行；旧daily保持原状，新C++候选仍需独立构建和受信runtime发布。Q3a可在重建后使用独立communication入口检查已批准留出数据的QPSK BER/EVM，见COMMUNICATION_VERIFICATION.md；Q3b另有probe入口检查实际I/Q响应和高斯线性SE代理，见verification/communication/RESPONSE_PROBES.md；只作有限样本诊断。总体SE质量/BLER/CDL-B与晋级未完成，不发分数。固定论文资料入口：[paper_archive](paper_archive/README.md)。

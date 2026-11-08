@@ -1,0 +1,11 @@
+{
+  "schema": "uncoded-qpsk-link-result-v1",
+  "status": "LINK_RUN_REJECTED",
+  "reason": "link evaluator changed after freeze",
+  "uncoded_qpsk_suite_complete": false,
+  "full_communication_certified": false,
+  "score": null,
+  "elapsed_seconds": 0.004854370024986565,
+  "pure_model_thinking_seconds": null,
+  "approved_contract_sha256": "0b81fbaf6b88bc77a587930cb5ab7b3bc840e76ebecbe6fcd4bce293ec323f10"
+}

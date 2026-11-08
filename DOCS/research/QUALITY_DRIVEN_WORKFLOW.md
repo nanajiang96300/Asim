@@ -1,6 +1,6 @@
 # 精度约束下的迭代算法与算子生成
 
-版本：2026-11-08 / QW3b。来源：负责人关于按精度选 K、MMSE/SE 分工和先算法后算子的讨论。
+版本：2026-11-08 / QW3c。来源：负责人关于按精度选 K、MMSE/SE 分工和先算法后算子的讨论。
 本文是当前架构说明；固定历史版本与论文检索入口为 [paper_archive](paper_archive/README.md)。
 
 ## 目标与当前实现边界
@@ -13,7 +13,7 @@
 \]
 
 已实现**离线算法选 K**和**受监督的计划冻结/执行交接**，复用 Asim 先行、真实指令重建、独立同算法参考和高精度任务参考。
-已实现Q3a工程试验下瑞利/QPSK相对BER、原始软符号EVM与留出置信门禁；Q3b已有实际I/Q响应和高斯线性SE代理的有限样本诊断。总体SE质量/BLER、CDL-B、无人值守协调器、评分及自动晋级仍未完成。
+已实现Q3a工程试验下瑞利/QPSK相对BER、原始软符号EVM与留出置信门禁；Q3b已有实际I/Q响应和高斯线性SE代理的有限样本诊断。Q3c已完成七新入口三SNR的未编码QPSK完整链路与独立复核，详见[验收报告](../../experiments/qpsk_full/2026-11-08-v1/README.md)。总体SE质量/BLER、CDL-B、无人值守协调器、评分及自动晋级仍未完成。
 新工具不授予完整通信通过，也不修改算子、重建核心或固定 runtime。计划当前绑定已验收二进制，新的C++候选仍需独立构建和受信runtime发布。
 NS K16、BRI K192 是此前重建链路的验证参数，不是统一质量约束下的最优配置。
 
@@ -126,3 +126,9 @@ SE 对部分输出缩放不敏感，不能证明输出契约正确；MMSE 误差
 
 Q2证据见 [计划交接验收](../../experiments/quality_handoff/2026-11-08-v2/README.md)，入口见 [planning/README](../../verification/planning/README.md)。
 Q3a/Q3b证据见 [通信验收](COMMUNICATION_VERIFICATION.md)及[响应代理协议](../../verification/communication/RESPONSE_PROBES.md)；下一优先级Q3c，Q4可独立推进。硬件级认证由负责人上板，继续作为外部研究证据。
+
+## Q3c完整未编码QPSK及下一步
+
+2026-11-08 Q3c当前：完成声明范围内未编码QPSK完整bit-to-bit链路。七新入口×Es/N0 0/10/20dB共21配置，14次新Asim、168帧、16,128次batch重放通过；212测试与独立4,128,768bit复核通过，全部同算法精度参考位一致，最大MMSE任务误差0.2744%。每组192独立H，全实验配对复用同192个H。该试验通过相对BER/SER/raw EVM门禁，不签发FEC/BLER、CDL-B、总体SE或最终晋级。见[验收报告](../../experiments/qpsk_full/2026-11-08-v1/README.md)及[可执行协议](../../verification/communication/QPSK_LINK.md)。
+
+新增SER及有限四帧块门禁；置信统计单位为H，跨算法/SNR配对数据不扩充独立H。当前K沿用冻结正确性基线。下一阶段先冻结业务相对/绝对质量及采样预算，再用完整链路开展校准集选K、全新独立留出；扩大维度和CDL-B分版本执行，失败停止，不在留出失败后自行加K。

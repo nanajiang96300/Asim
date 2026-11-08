@@ -1,5 +1,8 @@
 # 通信质量验证：Q3a与受限Q3b响应代理
 
+2026-11-08 Q3c当前：完成声明范围内未编码QPSK完整bit-to-bit链路。七新入口×Es/N0 0/10/20dB共21配置，14次新Asim、168帧、16,128次batch重放通过；212测试与独立4,128,768bit复核通过，全部同算法精度参考位一致，最大MMSE任务误差0.2744%。每组192独立H，全实验配对复用同192个H。该试验通过相对BER/SER/raw EVM门禁，不签发FEC/BLER、CDL-B、总体SE或最终晋级。见[验收报告](../../experiments/qpsk_full/2026-11-08-v1/README.md)及[可执行协议](../../verification/communication/QPSK_LINK.md)。
+
+
 日期：2026-11-08。活规范：[质量驱动工作流](QUALITY_DRIVEN_WORKFLOW.md)。
 代码与契约：[communication/README](../../verification/communication/README.md)。
 Q3a证据：[报告](../../experiments/communication/2026-11-08-v1/README.md)。

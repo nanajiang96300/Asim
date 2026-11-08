@@ -1,5 +1,8 @@
 当前实现进度（2026-11-08）：七个新入口已有真实Asim与三路径逐操作精度验证；已有离线选K、独立留出与受监督计划冻结/执行交接，Q2验收通过；Q3a受限瑞利/QPSK相对BER/EVM和留出置信门禁已接通，Q3b有限I/Q响应与线性SE代理已接通，200测试通过。当前阶段契约以 [QUALITY_DRIVEN_WORKFLOW](QUALITY_DRIVEN_WORKFLOW.md) 为准；总体SE质量/BLER/CDL-B、无人值守协调器、完整评分与晋级仍待实现，Q3a不是完整通信认证。下文日期版本保留研究演进背景，旧“尚未创建”不代表当前源码状态。
 
+2026-11-08 Q3c当前：完成声明范围内未编码QPSK完整bit-to-bit链路。七新入口×Es/N0 0/10/20dB共21配置，14次新Asim、168帧、16,128次batch重放通过；212测试与独立4,128,768bit复核通过，全部同算法精度参考位一致，最大MMSE任务误差0.2744%。每组192独立H，全实验配对复用同192个H。该试验通过相对BER/SER/raw EVM门禁，不签发FEC/BLER、CDL-B、总体SE或最终晋级。见[验收报告](../../experiments/qpsk_full/2026-11-08-v1/README.md)及[可执行协议](../../verification/communication/QPSK_LINK.md)。
+
+
 # Codex 平行自动化框架设计
 
 状态：完整控制器/adapter/可信执行链仍为拟议架构。本轮已经使用当前服务器上的原生主/子Agent完成系统审计，盘点/诊断/资料校验脚本落地；未启动无人值守搜索，也未独立核验CLI安装、认证和SDK接口。当前操作规程以 [DAILY_WORKFLOW](DAILY_WORKFLOW.md) 为准。
