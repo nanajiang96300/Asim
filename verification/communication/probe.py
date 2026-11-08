@@ -30,8 +30,10 @@ LIMITS={'max_prediction_error','max_complex_leakage','max_cross_rhs_leakage','ma
 
 
 def validate(c):
-    if set(c)!={'schema','runtime','cases','batch_indices','probe_seed','max_replay_calls','limits'} or c['schema']!='actual-response-se-proxy-v1':
+    if set(c)!={'schema','runtime','cases','batch_indices','probe_seed','max_replay_calls','limits','evaluator_sources'} or c['schema']!='actual-response-se-proxy-v2':
         raise Invalid('unknown/incomplete response probe contract')
+    if not isinstance(c['evaluator_sources'],dict) or not c['evaluator_sources'] or any(not isinstance(v,str) or len(v)!=64 for v in c['evaluator_sources'].values()):
+        raise Invalid('approved evaluator source hashes required')
     if set(c['limits'])!=LIMITS: raise Invalid('incomplete response limits')
     if any(type(v) not in (float,int) or not math.isfinite(v) or v<0 for v in c['limits'].values()):
         raise Invalid('finite nonnegative response limits required')
@@ -87,6 +89,7 @@ class ActualResponse:
 def evaluate(c,repo,output):
     validate(c);repo=Path(repo).resolve();output=Path(output)
     own={str(p.relative_to(repo)):sha(p) for p in sorted((repo/'verification/communication').glob('*.py'))}
+    if own!=c['evaluator_sources']: raise Invalid('approved response evaluator sources changed')
     rp=repo/c['runtime']['path']
     if sha(rp)!=c['runtime']['sha256']: raise Invalid('approved runtime changed')
     runtime=load_runtime(rp,repo)

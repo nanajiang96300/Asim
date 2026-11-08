@@ -28,9 +28,10 @@ def inputs():
 
 
 def contract(path='source.json'):
-    return dict(schema='actual-response-se-proxy-v1',runtime=dict(path='runtime.json',sha256='0'*64),
+    return dict(schema='actual-response-se-proxy-v2',runtime=dict(path='runtime.json',sha256='0'*64),
                 cases=[dict(path=path,sha256='0'*64,role='historical_diagnostic')],batch_indices=[0],
-                probe_seed=1,max_replay_calls=100,limits=dict(LIMITS))
+                probe_seed=1,max_replay_calls=100,limits=dict(LIMITS),
+                evaluator_sources={str(p.relative_to(REPO)):sha(p) for p in sorted((REPO/'verification/communication').glob('*.py'))})
 
 
 class ResponseTests(unittest.TestCase):
@@ -99,6 +100,12 @@ class ResponseTests(unittest.TestCase):
             with patch('verification.communication.probe.load_runtime',return_value=rt),patch('verification.communication.probe.load_case') as intake:
                 with self.assertRaisesRegex(Invalid,'budget exceeded'):evaluate(c,REPO,root)
                 intake.assert_not_called()
+
+    def test_evaluator_change_after_contract_freeze_rejected(self):
+        c=contract();c['evaluator_sources']['verification/communication/probe.py']='0'*64
+        with tempfile.TemporaryDirectory() as d,patch('verification.communication.probe.load_case') as intake:
+            with self.assertRaisesRegex(Invalid,'evaluator sources changed'):evaluate(c,REPO,Path(d))
+            intake.assert_not_called()
 
     def response_fixture(self):
         x=object.__new__(ActualResponse);x.task=MMSETask(batch_size=24,nr=4,nt=2,nrhs=2);x.batch=0
