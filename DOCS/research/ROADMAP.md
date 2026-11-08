@@ -119,3 +119,7 @@ pilot 不直接复用带共享 stash 的旧 eval 脚本。旧流程可运行历�
 2026-11-08 Q2验收：受监督计划交接、源码/runtime/参数绑定和Asim先行预筛已通过171测试及8场景192batch真实验证，见experiments/quality_handoff/2026-11-08-v2。下一步Q3通信指标与实际重建输出/系数的可信关联；之后扩大默认batch96多SNR及新留出集。Q2没有实现无人值守协调器，不以现有2%误差代替SE/BER门禁。
 
 2026-11-08 Q3a验收：187测试、七入口历史通用诊断和新NS batch96双噪声新留出相对QPSK BER/EVM门禁通过；SE明确未支持。当前剩余Q3b：实际程序的均衡响应/系数协议与FP16非线性检查→SE代理/有限调制口径→其他算法新留出与高阶调制/BLER。细节COMMUNICATION_VERIFICATION.md；完整通信、CDL-B和晋级仍未完成。
+
+2026-11-08 Q3b有限样本试点：实际I/Q响应、逐流预测/RHS/共轭检查与Gaussian线性SE代理已实现，199测试、375次正例重放覆盖七新入口及NS留出；严格线性/预算负例按预期拒绝。下一阶段Q3c扩大独立H和输入域、明确代理失配统计及有限调制/GMI/BLER；完整SE质量、CDL-B和晋级仍未完成。协议verification/communication/RESPONSE_PROBES.md，证据experiments/response_proxy/2026-11-08-v1。
+
+2026-11-08 Q3b v2：增加启动前评估器源码预绑定，200测试和全套探针重跑通过；最新证据experiments/response_proxy/2026-11-08-v2。v1保留为历史，不增加独立样本。

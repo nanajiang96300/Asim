@@ -69,6 +69,38 @@
       "manifest": "DOCS/research/paper_archive/2026-11-08-communication-v1/manifest.json",
       "manifest_sha256": "e12a7039869941ea78cdd303d5a22fd71aec2562392480e5dff09c60b59251ba",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-08-response-proxy-v1",
+      "status": "BOUNDED_RESPONSE_PROXY_GATES_PASSED",
+      "keywords": [
+        "Q3b",
+        "actual-IQ-response",
+        "complex-leakage",
+        "prediction",
+        "linear-SE-proxy",
+        "FP16",
+        "probe-budget"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-response-proxy-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-response-proxy-v1/manifest.json",
+      "manifest_sha256": "eda17a5c5943e6e018f82326a4091a69441f99334e7db3436dbe348a3b90f25d",
+      "supersedes": null
+    },
+    {
+      "id": "2026-11-08-response-proxy-v2",
+      "status": "BOUNDED_RESPONSE_PROXY_GATES_PASSED",
+      "keywords": [
+        "Q3b",
+        "v2",
+        "frozen-evaluator",
+        "IQ-response",
+        "linear-SE-proxy"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-response-proxy-v2/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-response-proxy-v2/manifest.json",
+      "manifest_sha256": "c8ed3c4a7e61b54d9e3ef0f6d84ee05346b34a89c53b325d5abdf5c369e82a23",
+      "supersedes": "2026-11-08-response-proxy-v1"
     }
   ]
 }

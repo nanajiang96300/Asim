@@ -10,6 +10,8 @@
 | 最小K、NS、BRI、MMSE、SE、质量契约、Agent约束 | [精度驱动架构与实施记录](2026-11-08-quality-driven-v1/README.md) | 算法先筛选、Asim先于候选重建、质量与一致性分离 | DESIGN_AND_OFFLINE_SCREEN |
 | Q2、计划绑定、版本一致、Asim预筛、数值NOT_RUN | [计划交接验收](2026-11-08-quality-handoff-v1/README.md) | 192batch真实Asim与重建、真实性能拒绝、封存失败修正 | SUPPORTED_PLAN_HANDOFF_GATES_PASSED |
 | Q3a、QPSK、BER、原始EVM、MMSE配对、信道置信界 | [通信试验验收](2026-11-08-communication-v1/README.md) | 七入口历史只诊断、新NS batch96双噪声留出通过；SE未支持 | Q3A_TRIAL_GATES_PASSED |
+| Q3b初始v1、I/Q响应、共轭分量、SE代理 | [初始响应试点](2026-11-08-response-proxy-v1/README.md) | 历史原件保留；v2进一步补强启动前评估器绑定 | HISTORICAL_BOUNDED_PROXY |
+| Q3b当前v2、冻结评估器、I/Q响应、线性SE代理 | [响应与代理v2验收](2026-11-08-response-proxy-v2/README.md) | 200测试；375次正例及100次负例重跑，不是总体SE认证 | BOUNDED_RESPONSE_PROXY_GATES_PASSED |
 | 最早论文阶段稿与机器完成门禁 | [2026-10-30阶段稿](../paper_reports/2026-10-30-interim-v1/REPORT.md) | 当时NS验证方法和有限数据 | HISTORICAL_INTERIM |
 
 ## 固定归档规则

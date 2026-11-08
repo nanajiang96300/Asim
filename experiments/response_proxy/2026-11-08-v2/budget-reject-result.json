@@ -1,0 +1,12 @@
+{
+  "status": "PROBE_REJECTED",
+  "reason": "probe replay budget exceeded",
+  "score": null,
+  "full_communication_certified": false,
+  "population_quality_certified": false,
+  "elapsed_seconds": 0.027275836997432634,
+  "pure_model_thinking_seconds": null,
+  "approved_contract_sha256": "f573481c72a19411c3295f7b257e3eb2cf3fa0aa0d49a20da30f192e207e620b",
+  "python": "3.12.3",
+  "numpy": "2.5.0"
+}

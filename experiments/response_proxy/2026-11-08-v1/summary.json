@@ -1,0 +1,303 @@
+{
+  "schema": "response-proxy-campaign-v1",
+  "status": "BOUNDED_RESPONSE_PROXY_GATES_PASSED",
+  "implementation_commit": "5e3b86678c2c57fd92a79e80853f7e3013f8cdc0",
+  "unit_tests": 199,
+  "sampled_configurations": 15,
+  "positive_actual_replays": 375,
+  "negative_actual_replays": 100,
+  "new_asim_runs": 0,
+  "operator_modified": false,
+  "samples": [
+    {
+      "source": "historical-seven",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 16,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "historical_diagnostic",
+      "prediction_error": 0.0008507163587243482,
+      "complex_leakage": 0.00012253981515478752,
+      "superposition_error": 0.0005808669471377374,
+      "candidate_linear_se": 50.25385836761159,
+      "mmse_linear_se": 50.253876912362806,
+      "rate_loss": 1.8544751213767086e-05
+    },
+    {
+      "source": "historical-seven",
+      "operator": "cholesky_explicit_v1",
+      "algorithm": {
+        "id": "cholesky_explicit_v1",
+        "factorization": "right_looking_rank1",
+        "initialization": "L=0;rhs=H^T*Y"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "historical_diagnostic",
+      "prediction_error": 0.0032061304488887445,
+      "complex_leakage": 0.0013764119355031685,
+      "superposition_error": 0.0022571870895483283,
+      "candidate_linear_se": 50.25376831868145,
+      "mmse_linear_se": 50.253876912362806,
+      "rate_loss": 0.00010859368135385239
+    },
+    {
+      "source": "historical-seven",
+      "operator": "ldl_explicit_v1",
+      "algorithm": {
+        "id": "ldl_explicit_v1",
+        "factorization": "right_looking_ldl",
+        "initialization": "L=I;D=diag(A_schur);row_weighted_solve"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "historical_diagnostic",
+      "prediction_error": 0.002997703554706847,
+      "complex_leakage": 0.0012123772571020447,
+      "superposition_error": 0.002131091570730399,
+      "candidate_linear_se": 50.25377677269035,
+      "mmse_linear_se": 50.253876912362806,
+      "rate_loss": 0.00010013967245470212
+    },
+    {
+      "source": "historical-seven",
+      "operator": "bri_explicit_v1",
+      "algorithm": {
+        "id": "bri_explicit_v1",
+        "iterations": 192,
+        "block_size_real": 2,
+        "omega": 0.5,
+        "recurrence": "precomputed_stationary",
+        "initialization": "x0=0"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "historical_diagnostic",
+      "prediction_error": 0.001669521157037312,
+      "complex_leakage": 4.089650055096023e-05,
+      "superposition_error": 0.0009188513474895659,
+      "candidate_linear_se": 50.25382416393408,
+      "mmse_linear_se": 50.253876912362806,
+      "rate_loss": 5.2748428728932595e-05
+    },
+    {
+      "source": "historical-seven",
+      "operator": "cholesky_block_explicit_v1",
+      "algorithm": {
+        "id": "cholesky_block_explicit_v1",
+        "factorization": "blocked_right_looking_cholesky",
+        "block_size_real": 4,
+        "initialization": "L=0;row_triangular_solve"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "historical_diagnostic",
+      "prediction_error": 0.003109499408882614,
+      "complex_leakage": 0.0011494158619117345,
+      "superposition_error": 0.0022031458099870003,
+      "candidate_linear_se": 50.25379935877752,
+      "mmse_linear_se": 50.253876912362806,
+      "rate_loss": 7.755358528527267e-05
+    },
+    {
+      "source": "historical-seven",
+      "operator": "ldl_block_explicit_v1",
+      "algorithm": {
+        "id": "ldl_block_explicit_v1",
+        "factorization": "blocked_right_looking_ldl",
+        "block_size_real": 4,
+        "initialization": "L=I;D;row_weighted_solve"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "historical_diagnostic",
+      "prediction_error": 0.002253464809414427,
+      "complex_leakage": 0.0010092518042804138,
+      "superposition_error": 0.0021887108460980345,
+      "candidate_linear_se": 50.253808283000154,
+      "mmse_linear_se": 50.253876912362806,
+      "rate_loss": 6.862936265150665e-05
+    },
+    {
+      "source": "historical-seven",
+      "operator": "cholesky_merge_explicit_v1",
+      "algorithm": {
+        "id": "cholesky_merge_explicit_v1",
+        "factorization": "left_looking_gemm_reduction",
+        "block_size_real": 1,
+        "initialization": "L=0;gemm_triangular_solve"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "historical_diagnostic",
+      "prediction_error": 0.001480809107074078,
+      "complex_leakage": 0.0005360373291698969,
+      "superposition_error": 0.0008139947981797254,
+      "candidate_linear_se": 50.253849791026454,
+      "mmse_linear_se": 50.253876912362806,
+      "rate_loss": 2.7121336351854097e-05
+    },
+    {
+      "source": "ns-heldout",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 0,
+      "regularization": 0.01,
+      "source_role": "holdout",
+      "prediction_error": 0.0010241926579693749,
+      "complex_leakage": 3.8347579338029715e-05,
+      "superposition_error": 0.0005271569481815036,
+      "candidate_linear_se": 100.39684757881507,
+      "mmse_linear_se": 100.39749006124845,
+      "rate_loss": 0.0006424824333777224
+    },
+    {
+      "source": "ns-heldout",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 1,
+      "regularization": 0.01,
+      "source_role": "holdout",
+      "prediction_error": 0.0006615253820800543,
+      "complex_leakage": 6.7119629533272665e-06,
+      "superposition_error": 0.0005756485643686847,
+      "candidate_linear_se": 100.22504022289846,
+      "mmse_linear_se": 100.22551291072674,
+      "rate_loss": 0.00047268782827813993
+    },
+    {
+      "source": "ns-heldout",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 0,
+      "regularization": 0.01,
+      "source_role": "holdout",
+      "prediction_error": 0.0006375930783936809,
+      "complex_leakage": 5.455064373086108e-08,
+      "superposition_error": 0.0005627558755746207,
+      "candidate_linear_se": 101.62320125920878,
+      "mmse_linear_se": 101.62354735258143,
+      "rate_loss": 0.000346093372641576
+    },
+    {
+      "source": "ns-heldout",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 1,
+      "regularization": 0.01,
+      "source_role": "holdout",
+      "prediction_error": 0.001028775591259788,
+      "complex_leakage": 2.06739788346502e-06,
+      "superposition_error": 0.0006356692450510108,
+      "candidate_linear_se": 101.3740811763245,
+      "mmse_linear_se": 101.37452102126724,
+      "rate_loss": 0.0004398449427469586
+    },
+    {
+      "source": "ns-heldout",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "holdout",
+      "prediction_error": 0.0007184796009648019,
+      "complex_leakage": 2.423499213393195e-07,
+      "superposition_error": 0.0005198356447282938,
+      "candidate_linear_se": 50.46766269993863,
+      "mmse_linear_se": 50.46772561798417,
+      "rate_loss": 6.291804554336977e-05
+    },
+    {
+      "source": "ns-heldout",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 1,
+      "regularization": 0.1,
+      "source_role": "holdout",
+      "prediction_error": 0.0007834552672679351,
+      "complex_leakage": 6.022720928389233e-08,
+      "superposition_error": 0.0006123208938002924,
+      "candidate_linear_se": 50.27271376301256,
+      "mmse_linear_se": 50.272758962906664,
+      "rate_loss": 4.519989410312064e-05
+    },
+    {
+      "source": "ns-heldout",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 0,
+      "regularization": 0.1,
+      "source_role": "holdout",
+      "prediction_error": 0.0008289013350901726,
+      "complex_leakage": 1.9772182987510357e-05,
+      "superposition_error": 0.0005434066193316245,
+      "candidate_linear_se": 51.413672459800665,
+      "mmse_linear_se": 51.41369675659608,
+      "rate_loss": 2.4296795416489658e-05
+    },
+    {
+      "source": "ns-heldout",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "batch": 1,
+      "regularization": 0.1,
+      "source_role": "holdout",
+      "prediction_error": 0.0009161240633729619,
+      "complex_leakage": 3.929293435850887e-06,
+      "superposition_error": 0.0005790532623901122,
+      "candidate_linear_se": 51.27993418336375,
+      "mmse_linear_se": 51.27996505099803,
+      "rate_loss": 3.086763427972983e-05
+    }
+  ],
+  "negative_checks": {
+    "exact_linearity": "PROBE_GATE_FAILED; no SE emitted",
+    "budget": "PROBE_REJECTED before replay"
+  },
+  "population_quality_certified": false,
+  "full_communication_certified": false,
+  "performance_claim": false,
+  "score": null,
+  "limitations": [
+    "frozen finite probes only; 1 historical H across 7 algorithms and 4 new NS H reused across two noise settings",
+    "Gaussian-input linear proxy, not finite-QPSK/coded throughput",
+    "FP16 nonlinearity screened but not globally bounded",
+    "no new runtime/hardware certification or promotion"
+  ]
+}

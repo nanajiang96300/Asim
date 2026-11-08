@@ -1,0 +1,123 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-response-proxy-v2",
+  "capture_commit": "6236224c597ffaa6329d9046bf11af00e3cd17b6",
+  "status": "BOUNDED_RESPONSE_PROXY_GATES_PASSED",
+  "snapshots": [
+    {
+      "source": "verification/communication/RESPONSE_PROBES.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-response-proxy-v2/RESPONSE_PROBES.md",
+      "bytes": 5167,
+      "sha256": "bd324c0c99a34b15da44e8e069e6fe3e806e5ffff7442ebf62bd89f8412893b9"
+    },
+    {
+      "source": "DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-response-proxy-v2/QUALITY_DRIVEN_WORKFLOW.md",
+      "bytes": 10175,
+      "sha256": "c8bfb52f87e3a4b241640702150d4e0b6ff898c96af7972debe6c6c22f174006"
+    },
+    {
+      "source": "DOCS/research/COMMUNICATION_VERIFICATION.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-response-proxy-v2/COMMUNICATION_VERIFICATION.md",
+      "bytes": 5432,
+      "sha256": "edce67d37f345154b41dee5bddbfcb2c7bb0c5439ff71fc3c4bcfe3e40538589"
+    },
+    {
+      "source": "experiments/response_proxy/2026-11-08-v2/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-response-proxy-v2/snapshots/experiments/response_proxy/2026-11-08-v2/README.md",
+      "bytes": 5127,
+      "sha256": "84763fa267845f804f75298520bb117b6c29548d1ab515972ef731d4969aff5b"
+    },
+    {
+      "source": "experiments/response_proxy/2026-11-08-v2/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-response-proxy-v2/snapshots/experiments/response_proxy/2026-11-08-v2/summary.json",
+      "bytes": 10399,
+      "sha256": "e7951eefc72a734293e1164d20b0de772deb4071cbb27e1006aa97fc0d744062"
+    },
+    {
+      "source": "experiments/response_proxy/2026-11-08-v2/run_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-response-proxy-v2/snapshots/experiments/response_proxy/2026-11-08-v2/run_manifest.json",
+      "bytes": 6689,
+      "sha256": "1e893ecd811a8b17dc0be96e9f47c7cb0399741d6a50fa23f443932ac41d819a"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/budget-reject-contract.json",
+      "bytes": 1886,
+      "sha256": "f573481c72a19411c3295f7b257e3eb2cf3fa0aa0d49a20da30f192e207e620b"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/budget-reject-result.json",
+      "bytes": 398,
+      "sha256": "4c983a10d8bd42fe423aa9ae7204c2ea542d747261bee0e7b3564b6656b31b38"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/evaluator-change-contract.json",
+      "bytes": 1895,
+      "sha256": "22b9b10dfe30ce635cf9a7a71b5e1f644567547f9f93d588a38113470efee082"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/evaluator-change-result.json",
+      "bytes": 413,
+      "sha256": "e8f1db9eeae15b4763ce7aa0eb16bb2f51494b719f9326b364ccea47f6c4c85f"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/historical-seven/contract.json",
+      "bytes": 2809,
+      "sha256": "452181a83bd684c21bdc7fa4c24f96b72b554d4e2355c6755ce9f27d69bb2d93"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/historical-seven/result.json",
+      "bytes": 123127,
+      "sha256": "36214a8eb42116324afc0a99527e4a1c4523647ae3643fe36a429938adab7f7f"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/historical-seven-contract.json",
+      "bytes": 2809,
+      "sha256": "452181a83bd684c21bdc7fa4c24f96b72b554d4e2355c6755ce9f27d69bb2d93"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/ns-heldout/contract.json",
+      "bytes": 1895,
+      "sha256": "71bc1e765450ee0bbdcf1f49ba8eee70694a6334b31884c3969962dd9b95949e"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/ns-heldout/result.json",
+      "bytes": 139775,
+      "sha256": "6c08def21d23db1a505252f5f7f5e2d2fe5af6e835180c7b274aee9d938d2f7a"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/ns-heldout-contract.json",
+      "bytes": 1895,
+      "sha256": "71bc1e765450ee0bbdcf1f49ba8eee70694a6334b31884c3969962dd9b95949e"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/run_manifest.json",
+      "bytes": 6689,
+      "sha256": "1e893ecd811a8b17dc0be96e9f47c7cb0399741d6a50fa23f443932ac41d819a"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/strict-linearity-contract.json",
+      "bytes": 1887,
+      "sha256": "fddaa87af0d9ebd00281b61b4d3ca09d0328fded638861b311c508b4bb1f795b"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/strict-linearity-result.json",
+      "bytes": 56171,
+      "sha256": "6d2106e88ac2c243fb7201e2343352f1770f7ea15be1462ed6b8e26d52b61e77"
+    },
+    {
+      "path": "experiments/response_proxy/2026-11-08-v2/summary.json",
+      "bytes": 10399,
+      "sha256": "e7951eefc72a734293e1164d20b0de772deb4071cbb27e1006aa97fc0d744062"
+    }
+  ],
+  "supersedes": "2026-11-08-response-proxy-v1",
+  "limitations": [
+    "finite sampled response model only",
+    "Gaussian-input linear proxy, not exact FP16/finite alphabet achievable rate",
+    "v2 repeats v1 inputs; no increase of independent H",
+    "no new cycles/hardware/population certificate or promotion"
+  ]
+}

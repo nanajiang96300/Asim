@@ -1,5 +1,7 @@
 # Q3a：实际重建输出的瑞利/QPSK相对质量门禁
 
+Q3b另有[实际I/Q响应与高斯线性SE代理](RESPONSE_PROBES.md)的显式有限样本接口；本页Q3a契约和状态不变，不将该代理静默替代必需SE。
+
 当前支持配对的未编码QPSK BER和**原始软符号EVM**，不计算SE、BLER或高阶QAM。
 它位于已有Asim/事件/数值重建之后，不改变算子或固定runtime，不重跑Asim。
 候选通信输出始终来自实际`outputs.npy`；独立MMSE只作配对参考，不替代候选。

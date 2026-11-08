@@ -4,7 +4,9 @@
 
 **当前架构入口：[精度驱动选K与算子工作流](QUALITY_DRIVEN_WORKFLOW.md)。论文资料固定检索：[paper_archive/README.md](paper_archive/README.md)。**
 
-2026-11-08 Q3a最新：187测试通过；新增实际重建输出的瑞利/QPSK相对BER/EVM和联合超限置信门禁。七个新入口的10份历史case只作诊断；新NS K10 batch96双噪声6场景576batch真实Asim/重建通过，通信只用4份留出case，每噪声192独立H通过工程试验门禁。SE仍UNSUPPORTED、完整通信未完成。见 [通信规范与证据](COMMUNICATION_VERIFICATION.md)。下一步Q3b实际响应/系数与SE。
+2026-11-08 Q3b当前：新增实际指令I/Q响应与高斯线性SE代理试点，200测试通过。七新入口及NS留出有限样本共375次重放全部与独立精度参考位一致；检查零偏置、预测误差、共轭分量、RHS串扰及叠加性后才计算代理。原周期未改、未新增Asim；不是总体SE或有限调制吞吐认证。见 [协议](../../verification/communication/RESPONSE_PROBES.md)与[证据](../../experiments/response_proxy/2026-11-08-v2/README.md)。下一步扩大H/输入域及失配统计、有限调制/BLER。
+
+2026-11-08 Q3a历史：187测试通过；新增实际重建输出的瑞利/QPSK相对BER/EVM和联合超限置信门禁。七个新入口的10份历史case只作诊断；新NS K10 batch96双噪声6场景576batch真实Asim/重建通过，通信只用4份留出case，每噪声192独立H通过工程试验门禁。SE仍UNSUPPORTED、完整通信未完成。见 [通信规范与证据](COMMUNICATION_VERIFICATION.md)。下一步Q3b实际响应/系数与SE。
 
 2026-11-08 Q1历史：新增独立FP16算法选K工具、冻结数值门限/预算与校准/留出分离；NS/BRI小规模瑞利烟测通过，159测试通过。七个新入口此前的重建验收继续有效；当时选K交接尚未完成，现由Q2补齐受监督入口；正式SE/BER、CDL-B与评分晋级仍待完成。旧重建设计、阶段稿和证据已按版本快照归档，未改动算子或固定运行器。下列日期段为阶段历史，当前优先级以新工作流为准。
 

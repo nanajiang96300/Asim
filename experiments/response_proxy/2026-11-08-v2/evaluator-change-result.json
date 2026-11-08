@@ -1,0 +1,12 @@
+{
+  "status": "PROBE_REJECTED",
+  "reason": "approved response evaluator sources changed",
+  "score": null,
+  "full_communication_certified": false,
+  "population_quality_certified": false,
+  "elapsed_seconds": 0.002161115000490099,
+  "pure_model_thinking_seconds": null,
+  "approved_contract_sha256": "22b9b10dfe30ce635cf9a7a71b5e1f644567547f9f93d588a38113470efee082",
+  "python": "3.12.3",
+  "numpy": "2.5.0"
+}

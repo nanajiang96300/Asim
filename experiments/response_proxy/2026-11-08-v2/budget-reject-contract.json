@@ -1,0 +1,48 @@
+{
+  "schema": "actual-response-se-proxy-v2",
+  "runtime": {
+    "path": "orchestrator/codex_runtime.json",
+    "sha256": "bbb5819878599b5764db320981dfe02228c2e114b379e73dcb664706416f3371"
+  },
+  "cases": [
+    {
+      "path": "results/communication/2026-11-08-v1/ns-execution/case002/result.json",
+      "sha256": "a5af3f0597083cb7a97e0d7b4fd09d474c01656348157508ea2f43bbccc872db",
+      "role": "holdout"
+    },
+    {
+      "path": "results/communication/2026-11-08-v1/ns-execution/case003/result.json",
+      "sha256": "38a6991785222ee61d287a3c43d4d211fb7086808da12c2b4583a84d9d206845",
+      "role": "holdout"
+    },
+    {
+      "path": "results/communication/2026-11-08-v1/ns-execution/case004/result.json",
+      "sha256": "46e7ebb3a3585e316f5e0039bdbd7f19a289fed9410d42f1fd2dd5e9581ca8b5",
+      "role": "holdout"
+    },
+    {
+      "path": "results/communication/2026-11-08-v1/ns-execution/case005/result.json",
+      "sha256": "a999c1eda24da9ef85346045132890686d7bbda71d5ac6fe5ac24aa9f33c6bb0",
+      "role": "holdout"
+    }
+  ],
+  "batch_indices": [
+    0
+  ],
+  "probe_seed": 2718,
+  "max_replay_calls": 1,
+  "limits": {
+    "max_prediction_error": 0.01,
+    "max_complex_leakage": 0.01,
+    "max_cross_rhs_leakage": 0.01,
+    "max_zero_offset": 0.0,
+    "max_rate_loss": 0.05
+  },
+  "evaluator_sources": {
+    "verification/communication/__init__.py": "eec9fc020ccfc58ad053a54b7ed4931a12616a4c0c3bc580f75fa6902e065fee",
+    "verification/communication/metrics.py": "7464a6b61ecedcc92891b2a8c45bf208bdcbefc0f3ed8be2f5b8c436bc624008",
+    "verification/communication/probe.py": "db10552d3743b8dbc6e2a53ba529d74bbbff2fc545434cef9328dc54f23f6b5d",
+    "verification/communication/response.py": "f12ce7409458be48fb0d334c61010b37e736103bec3948fe8a5ace5ad857894b",
+    "verification/communication/runner.py": "b56b190286d183a1ea30e10abfae5f507c3ced371123f52984c50faafb405dab"
+  }
+}
