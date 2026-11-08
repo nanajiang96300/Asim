@@ -1,0 +1,43 @@
+{
+  "reviewer": "merge_anomaly_audit",
+  "legacy_review": {
+    "start_utc": "2026-11-08T01:05:53Z",
+    "end_utc": "2026-11-08T01:06:55Z",
+    "observable_wall_seconds": 62
+  },
+  "code_review": {
+    "status": "CODE_REVIEW_PASS_RUNTIME_SEPARATE",
+    "start_utc": "2026-11-08T01:10:09Z",
+    "end_utc": "2026-11-08T01:11:58Z",
+    "observable_wall_seconds": 109
+  },
+  "pure_model_thinking_seconds": null,
+  "findings": [
+    "old SCALAR ignores compute_size/k",
+    "old reductions undefined; old baseline also fails",
+    "new block TRSM/Schur and GEMM reduction mapping reviewed",
+    "probe init diagnostics and error message suggestions fixed"
+  ],
+  "gate_reviews": [
+    {
+      "status": "ISSUES_FOUND",
+      "start_utc": "2026-11-08T01:20:06Z",
+      "end_utc": "2026-11-08T01:22:56Z",
+      "observable_wall_seconds": 170,
+      "findings": [
+        "bind actual case contract",
+        "nonempty exact factor role checks",
+        "legacy raw/receipt/stat identity",
+        "daily batch/runtime identity",
+        "whole probe record difference"
+      ]
+    },
+    {
+      "status": "GATE_REVIEW_PASS",
+      "start_utc": "2026-11-08T01:24:15Z",
+      "end_utc": "2026-11-08T01:24:47Z",
+      "observable_wall_seconds": 32,
+      "regression_tests": 4
+    }
+  ]
+}

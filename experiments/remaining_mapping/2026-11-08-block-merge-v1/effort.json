@@ -1,0 +1,402 @@
+{
+  "schema": "agent-effort-v1",
+  "session_wall_seconds": 1886.287157875,
+  "observed_tool_union_seconds": 1037.230485483,
+  "agent_or_uninstrumented_seconds": 849.0566723920001,
+  "pure_model_thinking_seconds": null,
+  "definition": "residual includes reasoning, writing, scheduling, uninstrumented tools and waits; not pure thinking",
+  "start_utc": "2026-11-08T01:03:36+00:00",
+  "end_utc": "2026-11-08T01:35:02.287158+00:00",
+  "command_spans": [
+    {
+      "schema": "tool-span-v1",
+      "label": "unit",
+      "start_ns": 1794100227720881589,
+      "end_ns": 1794100230015564537,
+      "elapsed_seconds": 2.294682948,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/tests",
+        "-v"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "build",
+      "start_ns": 1794100258629942057,
+      "end_ns": 1794100283432791075,
+      "elapsed_seconds": 24.802849018,
+      "returncode": 2,
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--target",
+        "Simulator",
+        "-j1"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "reviewed-build",
+      "start_ns": 1794100329382185435,
+      "end_ns": 1794100342618800163,
+      "elapsed_seconds": 13.236614728,
+      "returncode": 2,
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--target",
+        "Simulator",
+        "-j1"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "final-build",
+      "start_ns": 1794100358840397385,
+      "end_ns": 1794100366744007897,
+      "elapsed_seconds": 7.903610512,
+      "returncode": 0,
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--target",
+        "Simulator",
+        "-j1"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "merge-forensics",
+      "start_ns": 1794100504640444019,
+      "end_ns": 1794100553252419985,
+      "elapsed_seconds": 48.611975966,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "scripts/merge_forensics.py",
+        "--binary",
+        "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build/bin/Simulator",
+        "--config",
+        "configs/ascend_910b_quiet.json",
+        "--cwd",
+        "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build",
+        "--output",
+        "results/remaining_mapping/2026-11-08-block-merge-v1/forensics"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "unit-review",
+      "start_ns": 1794101026713293985,
+      "end_ns": 1794101029254476757,
+      "elapsed_seconds": 2.541182772,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/tests",
+        "-v"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "remaining-mapping",
+      "start_ns": 1794100553305584700,
+      "end_ns": 1794101304311327251,
+      "elapsed_seconds": 751.005742551,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.remaining_campaign",
+        "--binary",
+        "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build/bin/Simulator",
+        "--config",
+        "configs/ascend_910b_quiet.json",
+        "--cwd",
+        "/home/nanajiang/asim-worktrees/fw-asim-gate-20261029/build",
+        "--output",
+        "results/remaining_mapping/2026-11-08-block-merge-v1/campaign"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-cholesky-block",
+      "start_ns": 1794101326207082221,
+      "end_ns": 1794101373721291396,
+      "elapsed_seconds": 47.514209175,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "cholesky_block_explicit_v1",
+        "--iterations",
+        "1",
+        "--output",
+        "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-ldl-block",
+      "start_ns": 1794101373774366069,
+      "end_ns": 1794101426954571648,
+      "elapsed_seconds": 53.180205579,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "ldl_block_explicit_v1",
+        "--iterations",
+        "1",
+        "--output",
+        "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-merge",
+      "start_ns": 1794101426995274061,
+      "end_ns": 1794101470018938762,
+      "elapsed_seconds": 43.023664701,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "cholesky_merge_explicit_v1",
+        "--iterations",
+        "1",
+        "--output",
+        "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge"
+      ]
+    },
+    {
+      "schema": "tool-span-v1",
+      "label": "daily-merge-baseline",
+      "start_ns": 1794101470058574144,
+      "end_ns": 1794101513330388144,
+      "elapsed_seconds": 43.271814,
+      "returncode": 0,
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "verification.reconstruction.daily",
+        "--operator",
+        "cholesky_merge_explicit_v1",
+        "--iterations",
+        "1",
+        "--baseline",
+        "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/result.json",
+        "--output",
+        "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline"
+      ]
+    },
+    {
+      "start_ns": 1794099977060999936,
+      "end_ns": 1794099977108999936,
+      "label": "design_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100071580999936,
+      "end_ns": 1794100071656999936,
+      "label": "structured_candidate_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100112696000000,
+      "end_ns": 1794100112827000064,
+      "label": "probe_and_mode_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100182748999936,
+      "end_ns": 1794100182825999872,
+      "label": "reference_adapters_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100227616000000,
+      "end_ns": 1794100228828000000,
+      "label": "unit_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100245108999936,
+      "end_ns": 1794100245180000000,
+      "label": "prebuild_check_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100258192999936,
+      "end_ns": 1794100258571000064,
+      "label": "freeze_build_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100329127000064,
+      "end_ns": 1794100329321999872,
+      "label": "review_metadata_fix_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100358616999936,
+      "end_ns": 1794100358792999936,
+      "label": "build_api_fix_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100443470000128,
+      "end_ns": 1794100443556999936,
+      "label": "remaining_campaign_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100504515000064,
+      "end_ns": 1794100505680000000,
+      "label": "forensics_and_campaign_launch_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100560775000064,
+      "end_ns": 1794100560817999872,
+      "label": "first_runtime_progress_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100604812000000,
+      "end_ns": 1794100604990000128,
+      "label": "main_progress_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100648012000000,
+      "end_ns": 1794100648190000128,
+      "label": "gate_progress_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100717273999872,
+      "end_ns": 1794100717329999872,
+      "label": "archive_checker_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100788315000064,
+      "end_ns": 1794100788400000000,
+      "label": "strict_checker_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794100864228000000,
+      "end_ns": 1794100864414000128,
+      "label": "freeze_runtime_package_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101026623000064,
+      "end_ns": 1794101027795000064,
+      "label": "archive_contract_fix_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101088720999936,
+      "end_ns": 1794101088884999936,
+      "label": "review_and_case_status_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101136020999936,
+      "end_ns": 1794101136095000064,
+      "label": "final_case_coverage_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101206838000128,
+      "end_ns": 1794101206907000064,
+      "label": "forensic_report_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101251212999936,
+      "end_ns": 1794101251251000064,
+      "label": "campaign_final_status_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101306030000128,
+      "end_ns": 1794101306084999936,
+      "label": "last_regression_status_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101326097999872,
+      "end_ns": 1794101327263000064,
+      "label": "daily_validation_launch_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101368723000064,
+      "end_ns": 1794101373744999936,
+      "label": "seven_entry_comparison_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101419768999936,
+      "end_ns": 1794101419956999936,
+      "label": "daily_and_quality_progress_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101475224000000,
+      "end_ns": 1794101475319000064,
+      "label": "last_daily_status_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101515612000000,
+      "end_ns": 1794101515790000128,
+      "label": "audited_tools_freeze_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101575732999936,
+      "end_ns": 1794101576163000064,
+      "label": "daily_repeat_acceptance_tool",
+      "source": "orchestrator_tool"
+    },
+    {
+      "start_ns": 1794101654315000064,
+      "end_ns": 1794101654435000064,
+      "label": "final_report_and_decisions_tool",
+      "source": "orchestrator_tool"
+    }
+  ],
+  "scope": "remaining three mappings, old Merge investigation, references, reviews, builds, main and daily gates, reports to this snapshot",
+  "instrumentation": "partial; residual includes reasoning, output, scheduling, waits and uninstrumented tools",
+  "parallel_review_wall_seconds": [
+    62,
+    109,
+    170,
+    32
+  ],
+  "thinking_tokens": null
+}

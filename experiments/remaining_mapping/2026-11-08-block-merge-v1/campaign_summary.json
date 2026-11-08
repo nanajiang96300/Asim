@@ -1,0 +1,243 @@
+{
+  "schema": "remaining-mapping-campaign-v1",
+  "status": "REMAINING_MAPPING_GATES_PASSED",
+  "cases": [
+    {
+      "case": "cholesky_block_f64",
+      "status": "STRUCTURE_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_block_explicit_v1",
+      "batch_size": 96,
+      "cycles": 26037,
+      "reason": null
+    },
+    {
+      "case": "cholesky_block_f16_42",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_block_explicit_v1",
+      "batch_size": 96,
+      "cycles": 21338,
+      "reason": null
+    },
+    {
+      "case": "cholesky_block_f16_123",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_block_explicit_v1",
+      "batch_size": 96,
+      "cycles": 21338,
+      "reason": null
+    },
+    {
+      "case": "cholesky_block_shape2",
+      "status": "STRUCTURE_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_block_explicit_v1",
+      "batch_size": 48,
+      "cycles": 5371,
+      "reason": null
+    },
+    {
+      "case": "ldl_block_f64",
+      "status": "STRUCTURE_CHECKED",
+      "accepted": true,
+      "operator": "ldl_block_explicit_v1",
+      "batch_size": 96,
+      "cycles": 26942,
+      "reason": null
+    },
+    {
+      "case": "ldl_block_f16_42",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "ldl_block_explicit_v1",
+      "batch_size": 96,
+      "cycles": 21665,
+      "reason": null
+    },
+    {
+      "case": "ldl_block_f16_123",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "ldl_block_explicit_v1",
+      "batch_size": 96,
+      "cycles": 21665,
+      "reason": null
+    },
+    {
+      "case": "ldl_block_shape2",
+      "status": "STRUCTURE_CHECKED",
+      "accepted": true,
+      "operator": "ldl_block_explicit_v1",
+      "batch_size": 48,
+      "cycles": 5391,
+      "reason": null
+    },
+    {
+      "case": "cholesky_merge_f64",
+      "status": "STRUCTURE_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_merge_explicit_v1",
+      "batch_size": 96,
+      "cycles": 19852,
+      "reason": null
+    },
+    {
+      "case": "cholesky_merge_f16_42",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_merge_explicit_v1",
+      "batch_size": 96,
+      "cycles": 19028,
+      "reason": null
+    },
+    {
+      "case": "cholesky_merge_f16_123",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_merge_explicit_v1",
+      "batch_size": 96,
+      "cycles": 19028,
+      "reason": null
+    },
+    {
+      "case": "cholesky_merge_shape2",
+      "status": "STRUCTURE_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_merge_explicit_v1",
+      "batch_size": 48,
+      "cycles": 5005,
+      "reason": null
+    },
+    {
+      "case": "ns_corrected_v1_regression",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "ns_corrected_v1",
+      "batch_size": 96,
+      "cycles": 7950,
+      "reason": null
+    },
+    {
+      "case": "cholesky_explicit_v1_regression",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "cholesky_explicit_v1",
+      "batch_size": 96,
+      "cycles": 28006,
+      "reason": null
+    },
+    {
+      "case": "ldl_explicit_v1_regression",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "ldl_explicit_v1",
+      "batch_size": 96,
+      "cycles": 18697,
+      "reason": null
+    },
+    {
+      "case": "bri_explicit_v1_regression",
+      "status": "MODELED_NUMERIC_CHECKED",
+      "accepted": true,
+      "operator": "bri_explicit_v1",
+      "batch_size": 96,
+      "cycles": 23047,
+      "reason": null
+    }
+  ],
+  "stage_cases": [
+    {
+      "case": "cholesky_block_f64",
+      "batch_size": 96,
+      "passed": true
+    },
+    {
+      "case": "cholesky_block_f16_42",
+      "batch_size": 96,
+      "passed": true
+    },
+    {
+      "case": "ldl_block_f64",
+      "batch_size": 96,
+      "passed": true
+    },
+    {
+      "case": "ldl_block_f16_42",
+      "batch_size": 96,
+      "passed": true
+    },
+    {
+      "case": "cholesky_merge_f64",
+      "batch_size": 96,
+      "passed": true
+    },
+    {
+      "case": "cholesky_merge_f16_42",
+      "batch_size": 96,
+      "passed": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "kind": "scalar_width16_cost_admission",
+      "status": "REJECTED",
+      "reason": "batched SCALAR is not a scalar instruction",
+      "actual_mutant_simulated": false
+    },
+    {
+      "kind": "dropped_reduction_term",
+      "status": "NUMERIC_FAILED",
+      "relative_error": 0.00279909529851299,
+      "actual_mutant_simulated": false
+    }
+  ],
+  "source_hashes": {
+    "verification/__init__.py": "efa11418ea24fc336cfedbbb6006a97b7357432a97797bc05e61825f32a992e7",
+    "verification/asim/batch.py": "1d7098c336d0b7573e97a4ed901dba0ce14d824136b118da54d7eb6c39caeb90",
+    "verification/asim/batch_gates.py": "8ecc574881630d51e5e8f76367f08603a767acb3c0a2298672a4997bb74bdc58",
+    "verification/asim/gates.py": "0e43d5a9e12cb81a660b1e47d532d7ab45b92ced30cab4e840f3a3b835024922",
+    "verification/asim/runner.py": "9aae2aebaf99c81fecb09c49c1c3ccc139c99396612ef7f5aad31dacb80a287f",
+    "verification/contracts/core.py": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116",
+    "verification/contracts/mmse.py": "a9cb85657d509bee340bf875345d1c7a91f80e8322ebbe699a36f838073cfaac",
+    "verification/fixtures/rayleigh.py": "6f94d96c42e4284dd1c923c9a52058dd40b2b4bad4e94b0b0896272b9c248834",
+    "verification/fixtures/solve_program.py": "4b4dba26266ba23bc220aa902971554e2831a66531da792892854669d7528138",
+    "verification/legacy/campaign.py": "0d16561ffcdb0dab7890a07166968402c21b32a0c6a7291aa7b734435ee494cf",
+    "verification/legacy/coverage.py": "4123e7609e57de4196e2513a7d6ec92b2188c3a173962311f994ec31c31f6b1f",
+    "verification/legacy/extended.py": "d3ed434af5e18674a6093ff66e06d9f195c2caac2e64c3fc6be79bfb00afa80f",
+    "verification/legacy/replay.py": "2e43fb007e50a6d813a8c423b72a9bdce65a2b047e28564e651f7fe902f0b9f4",
+    "verification/legacy/stages.py": "053d23c6062fea06cb2044532d36531d62149309c14842189deddce63d1d5330",
+    "verification/operators/catalog.py": "542dff1e60ed08bf4db66b48718cd814fca71f39c3fefd5f79818428d0d8584b",
+    "verification/operators/parameters.py": "8f2eefbb59085804ac53e2836e7087f03be7d0c7671a6e4a0b52b392d0b2293e",
+    "verification/profiles/numeric.py": "965c32d6ac6558570bc3b51f21c764ab4f1c113d30ef8c495a7a791e001ec6e0",
+    "verification/reconstruction/binding.py": "d16edfaff541b3661c1cd2afb541689b88ec755accc6286288f0d0dfbb06ca1e",
+    "verification/reconstruction/daily.py": "72416ecd5344f8f19ff70247d545f1aa679ad3c578542dcaae8391a1d564187f",
+    "verification/reconstruction/engine.py": "a897b55ea874a0e83f6c89ad5ed566ada79241ea369218a380cc5707cb5cc144",
+    "verification/reconstruction/gates.py": "f3a0f42212881acee27204ee00556803ff9070107fe6e72051cc157b5315c360",
+    "verification/reconstruction/generality.py": "2de62f5c2aa4e0314a166af93f09a9e3ae1c645181e5b814b72ca21d6b4b00c2",
+    "verification/reconstruction/mapping_campaign.py": "310b3fb571a87fcdd5f8261b1e672a0dd240702e0e94897c256807a5e931fd20",
+    "verification/reconstruction/precision_gates.py": "f93b48636a7a72281f114be9390d582bd9fa2f3f576678866ae9ef40c05a4cfe",
+    "verification/reconstruction/remaining_campaign.py": "9eb2807f2c4661c5bb2ae56f820c2b8da1c30799af259d7f0e4a67b9a5f4894e",
+    "verification/reconstruction/runner.py": "cbb15da68fc57183385a760c57d96bb045843d6b6e2ffef48c1f765c6feb1955",
+    "verification/reconstruction/source_views.py": "b0318dc7f9cfd034e144fd39a384fdc6fb811da778e5468c5bddb06caa5e2ae5",
+    "verification/reference/bri.py": "186a29df95f5220678df970241e86366cacae9611dc78d640599cc24fdb71640",
+    "verification/reference/cholesky.py": "42817adbc72fdedfe800e789cd006d54aaddca905c9d512490efbf6afdbe25f0",
+    "verification/reference/ldl.py": "5d9c625d6a65b6ade452bb0e55440bf7c692660283e4a5ffb3c017fdb38f6820",
+    "verification/reference/ns.py": "59c047939ed2ed58e325c8370ebcd8110e1d921e45e2c51559303c4adb0a15e3",
+    "verification/reference/structured.py": "36a5bc50e4bc7745ae0497a025b9103943b3e219f55c9622a759fe738f19b6b4",
+    "verification/reporting/effort.py": "836befe385718ccfa828bc80dce368f92a06c507e9ebf919ad783679bc936b64",
+    "verification/reporting/paper.py": "bf41f18d17e76fb68bc63dff9225cfdcebee7fb0e416809cc45a2ec623c306e3",
+    "verification/reporting/pipeline.py": "f525bce96dd5cb36c241a5f98d850666f23b82e7d0361f4cda5fb0bd4eaa37e8",
+    "verification/schedule/gates.py": "9273d5bc3be9c5e09d8eb273c405ee58908e78515efe657be07c39fe756380d9",
+    "verification/schedule/hazards.py": "010a3b17d587b8d8b11349fe7cecb8f509a59cf25b5ed2182441335be02c9337",
+    "verification/schedule/intervals.py": "f9c91432620dee2e1e56736c89af8de60b84b5119b6cedb69140f51d32714c64",
+    "verification/schedule/runtime.py": "59e1da6e1cc47791555677f3651159d11f18196bd7d9485fab55d264c20a1334",
+    "verification/shadow/execute.py": "767ec2644f7288759609fa5d4205a0d95c9f42f454ea0ed886a1e29e7f994322",
+    "verification/shadow/metrics.py": "5531a1af2a2c0c5d8d2951627066e3fd0e9ed8dfcdcb1fd26637d27c5320aa5f",
+    "verification/shadow/program.py": "58c7c836a62dc5f61b42290a35a013ff099bf0532ddd15fbc45415d826276e5e"
+  },
+  "score": null,
+  "binary_sha256": "bc07b2beafe4caee9b91404aa0accf8e1ed053e01e5c1f4851985540de07afbd",
+  "runner_commit": "0aa788acfb951a4d6c533a47e9b4e98a99e9cd79"
+}

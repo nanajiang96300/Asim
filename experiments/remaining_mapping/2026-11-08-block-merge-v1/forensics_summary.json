@@ -1,0 +1,75 @@
+{
+  "schema": "merge-forensics-v1",
+  "status": "ANOMALY_REPRODUCED",
+  "legacy_cases": [
+    {
+      "operator": "cholesky_noblock",
+      "cycles": 23444,
+      "instruction_count": 239232,
+      "scalar_instructions": 235008,
+      "scalar_declared_elements": 235008,
+      "illegal_scalar_width_count": 0,
+      "scalar_duration_sum": 317952.0,
+      "status_counts": {
+        "SEMANTIC_AMBIGUITY": 96
+      },
+      "first_bad": {
+        "index": 1524,
+        "id": "CHOL_NB_FWD_NEG_1_0",
+        "batch": 0,
+        "opcode": 18,
+        "site": "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc:CHOL_NB_FWD_NEG_"
+      },
+      "actual_source_sha256": "af8f2777f26e22cf54b92f8c9e1c197be7fab216eac2c174ad7aaaebf8dca842",
+      "scope": "legacy logical complex128/precision2 timing; unverified inverse output",
+      "score": null
+    },
+    {
+      "operator": "cholesky_noblock_merge",
+      "cycles": 10004,
+      "instruction_count": 77952,
+      "scalar_instructions": 73728,
+      "scalar_declared_elements": 235008,
+      "illegal_scalar_width_count": 30240,
+      "scalar_duration_sum": 156672.0,
+      "status_counts": {
+        "SEMANTIC_AMBIGUITY": 96
+      },
+      "first_bad": {
+        "index": 26,
+        "id": "CHOL_NB_POTRF_SQ_1",
+        "batch": 0,
+        "opcode": 19,
+        "site": "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc:CHOL_NB_POTRF_SQ_"
+      },
+      "actual_source_sha256": "2bcee68ccaaa637b628251f395bf5f70ce29316060f6395c75a4049eb7e9ccdd",
+      "scope": "legacy logical complex128/precision2 timing; unverified inverse output",
+      "score": null
+    }
+  ],
+  "scalar_probes": [
+    {
+      "width": 1,
+      "cycles": 51,
+      "scalar_duration": 1.0,
+      "actual_compute_size": 1,
+      "declared_view_elements": 1,
+      "workload_status": "ONE_SCALAR_DIAGNOSTIC",
+      "numeric_certified": false,
+      "score": null
+    },
+    {
+      "width": 16,
+      "cycles": 51,
+      "scalar_duration": 1.0,
+      "actual_compute_size": 16,
+      "declared_view_elements": 1,
+      "workload_status": "INVALID_SCALAR_WORKLOAD",
+      "numeric_certified": false,
+      "score": null
+    }
+  ],
+  "score": null,
+  "binary_sha256": "bc07b2beafe4caee9b91404aa0accf8e1ed053e01e5c1f4851985540de07afbd",
+  "conclusion": "legacy Merge has undefined reduction plus scalar fixed-latency under-accounting; no certified speedup or guessed numeric answer"
+}
