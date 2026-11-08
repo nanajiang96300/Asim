@@ -1,0 +1,7 @@
+{
+  "status": "MODELED_SYSTEM_REJECTED_NO_COMPLETE_VERDICT",
+  "reason": "naive complex64 GEMM followed by elementwise half storage violates Hermitian model check; no symmetrization applied to v2",
+  "next": "2026-11-08-v3 explicitly different Hermitian storage design; not a repaired old operator",
+  "completed_scenarios": 8,
+  "log_sha256": "15825f51d627feee2c8be74a00204c50c3a114f2d2f5b095c6d1a83667109846"
+}
