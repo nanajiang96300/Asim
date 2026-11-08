@@ -19,6 +19,8 @@
 #include "inverse/ns_corrected/NSCorrectedModel.h"
 #include "inverse/cholesky_explicit/CholeskyExplicitModel.h"
 #include "inverse/ldl_explicit/LDLExplicitModel.h"
+#include "inverse/structured_solve/StructuredSolveModel.h"
+#include "semantic/ScalarCostProbeModel.h"
 #include "inverse/bri_explicit/BRIExplicitModel.h"
 
 namespace fs = std::filesystem;
@@ -110,6 +112,8 @@ int main(int argc, char** argv) {
     language_mode = false;
   } else if (mode == "rw_probe_test") {
     language_mode=false;
+  } else if (mode == "cholesky_block_explicit_test" || mode == "ldl_block_explicit_test" || mode == "cholesky_merge_explicit_test" || mode == "scalar_cost_probe_test") {
+    language_mode = false;
   } else if (mode == "ldl_explicit_test" || mode == "bri_explicit_test") {
     language_mode = false;
   } else if (mode == "cholesky_explicit_test") {
@@ -187,6 +191,13 @@ int main(int argc, char** argv) {
       simulator->register_model(std::move(model));
     } else if (mode == "rw_probe_test") {
       auto model=std::make_unique<RwProbeModel>(model_config,config,model_config["name"]);
+      simulator->register_model(std::move(model));
+    } else if (mode == "scalar_cost_probe_test") {
+      auto model=std::make_unique<ScalarCostProbeModel>(model_config,config,model_config["name"]);
+      simulator->register_model(std::move(model));
+    } else if (mode == "cholesky_block_explicit_test" || mode == "ldl_block_explicit_test" || mode == "cholesky_merge_explicit_test") {
+      std::string variant=mode.substr(0,mode.size()-5)+"_v1";
+      auto model=std::make_unique<StructuredSolveModel>(model_config,config,model_config["name"],variant);
       simulator->register_model(std::move(model));
     } else if (mode == "ldl_explicit_test") {
       auto model=std::make_unique<LDLExplicitModel>(model_config,config,model_config["name"]);
