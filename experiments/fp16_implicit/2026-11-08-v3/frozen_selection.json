@@ -1,0 +1,81 @@
+{
+  "schema": "frozen-fp16-selection-v1",
+  "calibration": {
+    "path": "results/fp16_implicit/2026-11-08-v3/calibration/result.json",
+    "sha256": "569cd1caa1e4eabd059107c1eb7ba201e8375ef39fc3b5327826bfdba5214473"
+  },
+  "calibration_threshold": 0.01,
+  "acceptance_threshold": 0.02,
+  "holdout_channel_seeds": [
+    55002,
+    55003
+  ],
+  "holdout_payload_seeds": [
+    55012,
+    55013
+  ],
+  "cases": [
+    {
+      "lambda": 1.0,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9,
+      "evaluation_K": 13,
+      "goal": "mmse_output"
+    },
+    {
+      "lambda": 0.1,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9,
+      "evaluation_K": 33,
+      "goal": "mmse_output"
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9,
+      "evaluation_K": 76,
+      "goal": "mmse_output"
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_inverse_add",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9,
+      "evaluation_K": 135,
+      "goal": "inverse_only_mmse_application_diagnostic"
+    }
+  ],
+  "source_commit": "a1c1ac00db529323153fc0a4b95b9367b5a59bfc",
+  "independent_reference": {
+    "path": "verification/studies/fp16_independent.py",
+    "sha256": "3f53e687d29abc8674c561d1869c384b1aa94928e62a638ea92c0a5166c9f10a"
+  },
+  "no_holdout_retuning": true
+}
