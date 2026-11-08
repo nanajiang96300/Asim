@@ -27,6 +27,11 @@ def metrics(X,truth,inv,hh,rhs,kind):
 def execute(c,repo,out):
     if c['sources']!=sources(repo):raise Invalid('frozen FP16 study code changed')
     if c['schema']!='fp16-primitive-study-v1' or c['steps']>256 or c['steps']<1 or len(c['cases'])>12 or c['max_wall_seconds']>3600:raise Invalid('study limits')
+    if 'frozen_selection' in c:
+        f=repo/c['frozen_selection']['path']
+        if sha(f)!=c['frozen_selection']['sha256']:raise Invalid('frozen selection changed')
+        if json.loads(f.read_text())['cases']!=c['cases']:raise Invalid('holdout cases differ from selected goals/K')
+        if sha(repo/c['independent_reference']['path'])!=c['independent_reference']['sha256']:raise Invalid('independent reference changed')
     if out.exists():raise Invalid('refusing existing study')
     hs=[];bits=[];noises=[]
     for a in c['inputs']:
