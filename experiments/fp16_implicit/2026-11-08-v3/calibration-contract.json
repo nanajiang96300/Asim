@@ -1,0 +1,171 @@
+{
+  "schema": "fp16-primitive-study-v1",
+  "source_commit": "aabdd8bf1d5c5e12585948989f7af3d0cabf6084",
+  "sources": {
+    "verification/studies/fp16_campaign.py": "5cb757a1d66c2a4ce9131bbb00b610a312469049fc4b96cdb4c701aac6093761",
+    "verification/studies/fp16_primitives.py": "ca41668e275a1d74232f5dadf12db1b18a150f6a8378aa895d13c05fcdfba2df",
+    "verification/studies/bri_math.py": "9c297556ad60cdc6f82a9d754c2533f4a454c8bc6169bd4fc3e5330c587d0851",
+    "verification/profiles/numeric.py": "965c32d6ac6558570bc3b51f21c764ab4f1c113d30ef8c495a7a791e001ec6e0",
+    "verification/contracts/core.py": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116"
+  },
+  "role": "calibration_full96",
+  "inputs": [
+    {
+      "path": "results/fp16_implicit/2026-11-08-v1/calibration_inputs.npz",
+      "sha256": "9205b09e417bb175a3bd368153a6525849257b7af1bcfccc405f02ce287c87f5",
+      "slice": [
+        0,
+        96
+      ]
+    }
+  ],
+  "steps": 256,
+  "max_wall_seconds": 1800,
+  "cases": [
+    {
+      "lambda": 1.0,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.1,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 1.0,
+      "block": 4,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.1,
+      "block": 4,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.01,
+      "block": 4,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 1.0,
+      "block": 8,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.1,
+      "block": 8,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.01,
+      "block": 8,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_inverse_add",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.01,
+      "block": 4,
+      "kind": "implicit_inverse_add",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    },
+    {
+      "lambda": 0.01,
+      "block": 8,
+      "kind": "implicit_inverse_add",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9
+    }
+  ],
+  "selection_rule": "Choose smallest block passing calibration at all three lambda; K is first with task/quadrant<=1% margin; holdout acceptance remains2%; no holdout retuning"
+}
