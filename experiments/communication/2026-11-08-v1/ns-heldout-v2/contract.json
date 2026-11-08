@@ -1,0 +1,39 @@
+{
+  "schema": "rayleigh-qpsk-quality-v1",
+  "policy_level": "engineering_trial",
+  "required_metrics": [
+    "paired_uncoded_qpsk_ber",
+    "raw_symbol_evm"
+  ],
+  "runtime": {
+    "path": "orchestrator/codex_runtime.json",
+    "sha256": "bbb5819878599b5764db320981dfe02228c2e114b379e73dcb664706416f3371"
+  },
+  "cases": [
+    {
+      "path": "results/communication/2026-11-08-v1/ns-execution/case002/result.json",
+      "sha256": "a5af3f0597083cb7a97e0d7b4fd09d474c01656348157508ea2f43bbccc872db",
+      "role": "holdout"
+    },
+    {
+      "path": "results/communication/2026-11-08-v1/ns-execution/case003/result.json",
+      "sha256": "38a6991785222ee61d287a3c43d4d211fb7086808da12c2b4583a84d9d206845",
+      "role": "holdout"
+    },
+    {
+      "path": "results/communication/2026-11-08-v1/ns-execution/case004/result.json",
+      "sha256": "46e7ebb3a3585e316f5e0039bdbd7f19a289fed9410d42f1fd2dd5e9581ca8b5",
+      "role": "holdout"
+    },
+    {
+      "path": "results/communication/2026-11-08-v1/ns-execution/case005/result.json",
+      "sha256": "a999c1eda24da9ef85346045132890686d7bbda71d5ac6fe5ac24aa9f33c6bb0",
+      "role": "holdout"
+    }
+  ],
+  "family_alpha": 0.05,
+  "max_channel_ber_increase": 0.01,
+  "max_channel_evm_increase": 0.01,
+  "max_outage_probability": 0.05,
+  "min_independent_channels": 96
+}

@@ -4,9 +4,11 @@
 
 **当前架构入口：[精度驱动选K与算子工作流](QUALITY_DRIVEN_WORKFLOW.md)。论文资料固定检索：[paper_archive/README.md](paper_archive/README.md)。**
 
+2026-11-08 Q3a最新：187测试通过；新增实际重建输出的瑞利/QPSK相对BER/EVM和联合超限置信门禁。七个新入口的10份历史case只作诊断；新NS K10 batch96双噪声6场景576batch真实Asim/重建通过，通信只用4份留出case，每噪声192独立H通过工程试验门禁。SE仍UNSUPPORTED、完整通信未完成。见 [通信规范与证据](COMMUNICATION_VERIFICATION.md)。下一步Q3b实际响应/系数与SE。
+
 2026-11-08 Q1历史：新增独立FP16算法选K工具、冻结数值门限/预算与校准/留出分离；NS/BRI小规模瑞利烟测通过，159测试通过。七个新入口此前的重建验收继续有效；当时选K交接尚未完成，现由Q2补齐受监督入口；正式SE/BER、CDL-B与评分晋级仍待完成。旧重建设计、阶段稿和证据已按版本快照归档，未改动算子或固定运行器。下列日期段为阶段历史，当前优先级以新工作流为准。
 
-2026-11-08 Q2最新：受监督计划冻结/执行交接已验收，绑定筛选证据、参数、任务/输入种子、源码/注册表与固定runtime；171测试、NS/BRI真实Asim 8场景/192batch通过，真实性能筛选负例证明数值NOT_RUN。见 [验收记录](../../experiments/quality_handoff/2026-11-08-v2/README.md)。下一步为真实重建结果的瑞利通信门禁，不等于通信或完整自动化完成。
+2026-11-08 Q2历史：受监督计划冻结/执行交接已验收，绑定筛选证据、参数、任务/输入种子、源码/注册表与固定runtime；171测试、NS/BRI真实Asim 8场景/192batch通过，真实性能筛选负例证明数值NOT_RUN。见 [验收记录](../../experiments/quality_handoff/2026-11-08-v2/README.md)。下一步为真实重建结果的瑞利通信门禁，不等于通信或完整自动化完成。
 
 工程：`/home/nanajiang/Asim/`
 

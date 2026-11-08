@@ -51,6 +51,24 @@
       "manifest": "DOCS/research/paper_archive/2026-11-08-quality-handoff-v1/manifest.json",
       "manifest_sha256": "0837bd37b4b6369de970975e967bcdc4a24e31ebe84eb83d69b5df07e1cc6782",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-08-communication-v1",
+      "status": "Q3A_TRIAL_GATES_PASSED",
+      "keywords": [
+        "Q3a",
+        "QPSK",
+        "BER",
+        "raw-EVM",
+        "paired-MMSE",
+        "channel-confidence",
+        "historical-diagnostic",
+        "SE-unsupported"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-communication-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-communication-v1/manifest.json",
+      "manifest_sha256": "e12a7039869941ea78cdd303d5a22fd71aec2562392480e5dff09c60b59251ba",
+      "supersedes": null
     }
   ]
 }

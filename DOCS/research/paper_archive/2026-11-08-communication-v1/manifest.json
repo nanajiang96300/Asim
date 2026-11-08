@@ -1,0 +1,133 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-communication-v1",
+  "capture_commit": "360d6723b34d48143f106942076219f930c6e0f2",
+  "status": "Q3A_TRIAL_GATES_PASSED",
+  "snapshots": [
+    {
+      "source": "DOCS/research/COMMUNICATION_VERIFICATION.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-communication-v1/COMMUNICATION_VERIFICATION.md",
+      "bytes": 4656,
+      "sha256": "fde084949aee413a4daad459217c87e1bfa67fbfe9c331ebbbd1a4023a2dcaca"
+    },
+    {
+      "source": "DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-communication-v1/QUALITY_DRIVEN_WORKFLOW.md",
+      "bytes": 9786,
+      "sha256": "b59ce05c1aed22dbb683aa944735ec36b3ca329cca42f94283dd761a9fe5b631"
+    },
+    {
+      "source": "verification/communication/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-communication-v1/snapshots/verification/communication/README.md",
+      "bytes": 4232,
+      "sha256": "0efff52d31aef88e03a3e656731d917703ded2e33b7ab2988196e72547e50a76"
+    },
+    {
+      "source": "experiments/communication/2026-11-08-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-communication-v1/snapshots/experiments/communication/2026-11-08-v1/README.md",
+      "bytes": 4881,
+      "sha256": "36d9b00b3053a00607bb0ea2cb985916080d7f9b3092d760b1197da75942f8fb"
+    },
+    {
+      "source": "experiments/communication/2026-11-08-v1/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-communication-v1/snapshots/experiments/communication/2026-11-08-v1/summary.json",
+      "bytes": 8731,
+      "sha256": "f1337418e99ab872a120a27cccdb1e80728e5aca4a5c701e4705975962f10801"
+    },
+    {
+      "source": "experiments/communication/2026-11-08-v1/run_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-communication-v1/snapshots/experiments/communication/2026-11-08-v1/run_manifest.json",
+      "bytes": 30966,
+      "sha256": "3aec900d3cfe36511c3e24a30d320e27258a3b6f9be332fb462d7128fe601619"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/communication/2026-11-08-v1/summary.json",
+      "bytes": 8731,
+      "sha256": "f1337418e99ab872a120a27cccdb1e80728e5aca4a5c701e4705975962f10801"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/historical-seven-contract.json",
+      "bytes": 2980,
+      "sha256": "1a05fb0e87d884daee7893862851975cb7563c4b48bbe083894da19e05988c42"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/failed-prerequisite-contract.json",
+      "bytes": 724,
+      "sha256": "9ac148b62ae9ef119f1bd6ae73b7823fcf249edb61e413878f762fabda842db8"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/ns-screen-contract.json",
+      "bytes": 528,
+      "sha256": "776310082bb3568bd3e1d6e0e7e7634708fe233960e784224fcc7c6f3aadce90"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/run_manifest.json",
+      "bytes": 30966,
+      "sha256": "3aec900d3cfe36511c3e24a30d320e27258a3b6f9be332fb462d7128fe601619"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/unsupported-se-contract.json",
+      "bytes": 1330,
+      "sha256": "30066b3981c9775a170b4a92e00f2621175a4d4e3cf5f815e3ae779790544267"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/omitted-holdout-contract.json",
+      "bytes": 1113,
+      "sha256": "dbeee63ca723b43e57838caec13b496efb919e6ae9c4b82acd5ec34bd23a0162"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/unsupported-se-result.json",
+      "bytes": 822,
+      "sha256": "15460af44f2aac291cead4ac8bfbde9d988ed7a708e1f0c44376a695440a13b5"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/failed-prerequisite-result.json",
+      "bytes": 826,
+      "sha256": "051671b142519ed043f5607a55f2ea8122da189d0e130533aa2fe8fb9461f7d7"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/ns-heldout-contract.json",
+      "bytes": 1320,
+      "sha256": "39f3e2d29b80dd9ed2d626444942997b321e4cbc045566408805944665f80871"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/ns-screen-contract-v2.json",
+      "bytes": 529,
+      "sha256": "73214720607df65c7baa9ce97487bf49e3897274931c791214b50119910d706c"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/omitted-holdout-result.json",
+      "bytes": 825,
+      "sha256": "37f643c2a7559cd38de1fdc8d84775d8716896c8f1af1c135d8e6bf768ec1adf"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/historical-seven-v2/contract.json",
+      "bytes": 2980,
+      "sha256": "1a05fb0e87d884daee7893862851975cb7563c4b48bbe083894da19e05988c42"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/historical-seven-v2/result.json",
+      "bytes": 629831,
+      "sha256": "1baecf022f37d00ebcbaca0db4e963ebd107144acee2aef849127672b576f931"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/ns-heldout-v2/contract.json",
+      "bytes": 1320,
+      "sha256": "39f3e2d29b80dd9ed2d626444942997b321e4cbc045566408805944665f80871"
+    },
+    {
+      "path": "experiments/communication/2026-11-08-v1/ns-heldout-v2/result.json",
+      "bytes": 240240,
+      "sha256": "82153fa280edecdcc7b2b9b13f43d5ce806a92422dd6801bce78607af8a4896a"
+    }
+  ],
+  "limitations": [
+    "relative uncoded QPSK BER/raw-symbol EVM engineering trial only",
+    "SE/BLER/CDL-B unsupported",
+    "historical diagnostics not new quality validation",
+    "no absolute BER or per-user reliability or hardware claim",
+    "full promotion/scoring still disabled"
+  ]
+}

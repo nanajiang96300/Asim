@@ -1,0 +1,69 @@
+{
+  "schema": "rayleigh-qpsk-quality-v1",
+  "policy_level": "engineering_trial",
+  "required_metrics": [
+    "paired_uncoded_qpsk_ber",
+    "raw_symbol_evm"
+  ],
+  "runtime": {
+    "path": "orchestrator/codex_runtime.json",
+    "sha256": "bbb5819878599b5764db320981dfe02228c2e114b379e73dcb664706416f3371"
+  },
+  "cases": [
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ns_corrected_v1_regression/result.json",
+      "sha256": "6e555b45019c39d218177f8f29303f6abeae1bd6a9ea543f80d4c850fee14b80",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/result.json",
+      "sha256": "9b7d39a5dc278d71be167ec8270d6c541c5a506044776ef274c00425e0d7759e",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/result.json",
+      "sha256": "5e213e4bdb07e982a6a18088d657203a900fd4fefed814a2a4835c5ece9db779",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/result.json",
+      "sha256": "3269e55c5e82823e9f8a9ba029a5bf172eb2ac73d22bca4e050526db6cf1924d",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/result.json",
+      "sha256": "00400a516fdd5796773edcc717f2205c8c6efc8c44a4738c0ab43e046d78f4d8",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/result.json",
+      "sha256": "ff331eafa772a7bf707cc126cde5729591d3748c9ff88dbfa26519f228a51fef",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/result.json",
+      "sha256": "59f9ccb642b4e1c03b17e5cd84aa41776c2883d990b5338126b536317ac88a50",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/result.json",
+      "sha256": "cccce5155a0f51c8bf0d21222a1b7215552ef80d362b7cdbe13b0b162dbdb23f",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/result.json",
+      "sha256": "2424372367486904fd16f1c93e55f25b014d51238fc1a4966795d0bf8c385c65",
+      "role": "historical_diagnostic"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/result.json",
+      "sha256": "181ec44ef9ae8c6486ff7bde72f778e0b04e86fef2f54df0ce41d23e0b7d6fb8",
+      "role": "historical_diagnostic"
+    }
+  ],
+  "family_alpha": 0.05,
+  "max_channel_ber_increase": 0.01,
+  "max_channel_evm_increase": 0.01,
+  "max_outage_probability": 0.05,
+  "min_independent_channels": 96
+}

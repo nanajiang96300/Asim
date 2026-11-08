@@ -1,5 +1,7 @@
 # 面向论文的重建验证报告与完成门禁
 
+2026-11-08 Q3a：固定论文档案新增 [实际输出的QPSK通信试验](paper_archive/2026-11-08-communication-v1/README.md)，包括历史七新入口只读诊断及NS batch96双噪声新留出置信门禁。187测试通过，但SE/BLER/CDL-B与完整晋级未完成；旧最终报告生成器不能因此签发全部完成。
+
 2026-11-08固定检索位置迁入 [paper_archive/README.md](paper_archive/README.md)：原报告原位保留，重建设计/验收材料另存SHA-256快照，新增精度驱动选K架构及小规模烟测。本文以下2026-10-30生成器与完成门禁是历史阶段能力，不自动覆盖七新入口或新通信方案。新架构未完成正式通信验收，仍不能生成“全部完成”的最终结论。
 
 2026-10-30最新归档：[阶段报告](paper_reports/2026-10-30-interim-v1/REPORT.md)、[机器完成状态](paper_reports/2026-10-30-interim-v1/readiness.json)、[论文小表CSV](paper_reports/2026-10-30-interim-v1/numerical_results.csv)、[证据索引](paper_reports/2026-10-30-interim-v1/evidence_index.json)。状态INTERIM，不能称为全部验证完成。

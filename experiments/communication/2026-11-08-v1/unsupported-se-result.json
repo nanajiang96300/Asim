@@ -1,0 +1,19 @@
+{
+  "status": "UNSUPPORTED",
+  "reason": "SE/BLER/CDL-B/high-order QAM are not supported; no metric substitution",
+  "score": null,
+  "full_communication_certified": false,
+  "se_status": "UNSUPPORTED",
+  "elapsed_seconds": 0.00024073600070551038,
+  "pure_model_thinking_seconds": null,
+  "approved_contract_sha256": "30066b3981c9775a170b4a92e00f2621175a4d4e3cf5f815e3ae779790544267",
+  "provenance": {
+    "python": "3.12.3",
+    "numpy": "2.5.0",
+    "sources": {
+      "verification/communication/__init__.py": "eec9fc020ccfc58ad053a54b7ed4931a12616a4c0c3bc580f75fa6902e065fee",
+      "verification/communication/metrics.py": "7464a6b61ecedcc92891b2a8c45bf208bdcbefc0f3ed8be2f5b8c436bc624008",
+      "verification/communication/runner.py": "b56b190286d183a1ea30e10abfae5f507c3ced371123f52984c50faafb405dab"
+    }
+  }
+}

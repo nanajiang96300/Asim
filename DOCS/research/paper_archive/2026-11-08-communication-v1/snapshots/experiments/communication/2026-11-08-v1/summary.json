@@ -1,0 +1,273 @@
+{
+  "schema": "communication-campaign-v1",
+  "status": "Q3A_TRIAL_GATES_PASSED",
+  "implementation_commit": "360d6723b34d48143f106942076219f930c6e0f2",
+  "unit_tests": 187,
+  "new_asim_cases": 6,
+  "new_asim_batch_tasks": 576,
+  "heldout_batch_tasks": 384,
+  "distinct_heldout_H": 192,
+  "independent_H_per_noise_group": 192,
+  "historical_diagnostic_cases": 10,
+  "historical_batch_tasks": 960,
+  "ns_iterations": 10,
+  "ns_cycles": 5862,
+  "ns_max_task_error": 0.0014052942009781008,
+  "groups": [
+    {
+      "source": "historical-seven-v2",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 16,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "regularization": 0.1,
+      "independent_channels": 96,
+      "bits": 24576,
+      "status": "DIAGNOSTIC_ONLY",
+      "statistical_status": "INCONCLUSIVE",
+      "candidate_ber": 0.0027669270833333335,
+      "mmse_ber": 0.0027669270833333335,
+      "mean_candidate_raw_symbol_evm": 0.33803461347266905,
+      "mean_mmse_raw_symbol_evm": 0.338035372974578,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.06773633602046933,
+        "count": 0,
+        "independent_channels": 96,
+        "observed_rate": 0.0
+      }
+    },
+    {
+      "source": "historical-seven-v2",
+      "operator": "cholesky_explicit_v1",
+      "algorithm": {
+        "id": "cholesky_explicit_v1",
+        "factorization": "right_looking_rank1",
+        "initialization": "L=0;rhs=H^T*Y"
+      },
+      "regularization": 0.1,
+      "independent_channels": 96,
+      "bits": 24576,
+      "status": "DIAGNOSTIC_ONLY",
+      "statistical_status": "INCONCLUSIVE",
+      "candidate_ber": 0.0027669270833333335,
+      "mmse_ber": 0.0027669270833333335,
+      "mean_candidate_raw_symbol_evm": 0.3380396571578788,
+      "mean_mmse_raw_symbol_evm": 0.338035372974578,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.06773633602046933,
+        "count": 0,
+        "independent_channels": 96,
+        "observed_rate": 0.0
+      }
+    },
+    {
+      "source": "historical-seven-v2",
+      "operator": "ldl_explicit_v1",
+      "algorithm": {
+        "id": "ldl_explicit_v1",
+        "factorization": "right_looking_ldl",
+        "initialization": "L=I;D=diag(A_schur);row_weighted_solve"
+      },
+      "regularization": 0.1,
+      "independent_channels": 96,
+      "bits": 24576,
+      "status": "DIAGNOSTIC_ONLY",
+      "statistical_status": "INCONCLUSIVE",
+      "candidate_ber": 0.0028076171875,
+      "mmse_ber": 0.0027669270833333335,
+      "mean_candidate_raw_symbol_evm": 0.3380371124237862,
+      "mean_mmse_raw_symbol_evm": 0.338035372974578,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.06773633602046933,
+        "count": 0,
+        "independent_channels": 96,
+        "observed_rate": 0.0
+      }
+    },
+    {
+      "source": "historical-seven-v2",
+      "operator": "bri_explicit_v1",
+      "algorithm": {
+        "id": "bri_explicit_v1",
+        "iterations": 192,
+        "block_size_real": 2,
+        "omega": 0.5,
+        "recurrence": "precomputed_stationary",
+        "initialization": "x0=0"
+      },
+      "regularization": 0.1,
+      "independent_channels": 96,
+      "bits": 24576,
+      "status": "DIAGNOSTIC_ONLY",
+      "statistical_status": "INCONCLUSIVE",
+      "candidate_ber": 0.0027262369791666665,
+      "mmse_ber": 0.0027669270833333335,
+      "mean_candidate_raw_symbol_evm": 0.33798070918131584,
+      "mean_mmse_raw_symbol_evm": 0.338035372974578,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.06773633602046933,
+        "count": 0,
+        "independent_channels": 96,
+        "observed_rate": 0.0
+      }
+    },
+    {
+      "source": "historical-seven-v2",
+      "operator": "cholesky_block_explicit_v1",
+      "algorithm": {
+        "id": "cholesky_block_explicit_v1",
+        "factorization": "blocked_right_looking_cholesky",
+        "block_size_real": 4,
+        "initialization": "L=0;row_triangular_solve"
+      },
+      "regularization": 0.1,
+      "independent_channels": 192,
+      "bits": 49152,
+      "status": "DIAGNOSTIC_ONLY",
+      "statistical_status": "QPSK_QUALITY_CHECKED",
+      "candidate_ber": 0.0026652018229166665,
+      "mmse_ber": 0.0027058919270833335,
+      "mean_candidate_raw_symbol_evm": 0.337752485600229,
+      "mean_mmse_raw_symbol_evm": 0.3377520598457114,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.03446198211591343,
+        "count": 0,
+        "independent_channels": 192,
+        "observed_rate": 0.0
+      }
+    },
+    {
+      "source": "historical-seven-v2",
+      "operator": "ldl_block_explicit_v1",
+      "algorithm": {
+        "id": "ldl_block_explicit_v1",
+        "factorization": "blocked_right_looking_ldl",
+        "block_size_real": 4,
+        "initialization": "L=I;D;row_weighted_solve"
+      },
+      "regularization": 0.1,
+      "independent_channels": 192,
+      "bits": 49152,
+      "status": "DIAGNOSTIC_ONLY",
+      "statistical_status": "QPSK_QUALITY_CHECKED",
+      "candidate_ber": 0.0026652018229166665,
+      "mmse_ber": 0.0027058919270833335,
+      "mean_candidate_raw_symbol_evm": 0.33774624805398296,
+      "mean_mmse_raw_symbol_evm": 0.3377520598457114,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.03446198211591343,
+        "count": 0,
+        "independent_channels": 192,
+        "observed_rate": 0.0
+      }
+    },
+    {
+      "source": "historical-seven-v2",
+      "operator": "cholesky_merge_explicit_v1",
+      "algorithm": {
+        "id": "cholesky_merge_explicit_v1",
+        "factorization": "left_looking_gemm_reduction",
+        "block_size_real": 1,
+        "initialization": "L=0;gemm_triangular_solve"
+      },
+      "regularization": 0.1,
+      "independent_channels": 192,
+      "bits": 49152,
+      "status": "DIAGNOSTIC_ONLY",
+      "statistical_status": "QPSK_QUALITY_CHECKED",
+      "candidate_ber": 0.0027058919270833335,
+      "mmse_ber": 0.0027058919270833335,
+      "mean_candidate_raw_symbol_evm": 0.3377604547318726,
+      "mean_mmse_raw_symbol_evm": 0.3377520598457114,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.03446198211591343,
+        "count": 0,
+        "independent_channels": 192,
+        "observed_rate": 0.0
+      }
+    },
+    {
+      "source": "ns-heldout-v2",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "regularization": 0.01,
+      "independent_channels": 192,
+      "bits": 49152,
+      "status": "QPSK_QUALITY_CHECKED",
+      "statistical_status": "QPSK_QUALITY_CHECKED",
+      "candidate_ber": 0.0,
+      "mmse_ber": 0.0,
+      "mean_candidate_raw_symbol_evm": 0.1143363898187051,
+      "mean_mmse_raw_symbol_evm": 0.11433656311023777,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.028141435023275662,
+        "count": 0,
+        "independent_channels": 192,
+        "observed_rate": 0.0
+      }
+    },
+    {
+      "source": "ns-heldout-v2",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 10,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "regularization": 0.1,
+      "independent_channels": 192,
+      "bits": 49152,
+      "status": "QPSK_QUALITY_CHECKED",
+      "statistical_status": "QPSK_QUALITY_CHECKED",
+      "candidate_ber": 0.00274658203125,
+      "mmse_ber": 0.00274658203125,
+      "mean_candidate_raw_symbol_evm": 0.3372150064430377,
+      "mean_mmse_raw_symbol_evm": 0.33721414288526597,
+      "joint_outage": {
+        "lower": 0.0,
+        "upper": 0.028141435023275662,
+        "count": 0,
+        "independent_channels": 192,
+        "observed_rate": 0.0
+      }
+    }
+  ],
+  "negative_checks": {
+    "unsupported-se": {
+      "status": "UNSUPPORTED",
+      "reason": "SE/BLER/CDL-B/high-order QAM are not supported; no metric substitution"
+    },
+    "omitted-holdout": {
+      "status": "PREREQUISITE_REJECTED",
+      "reason": "communication contract omitted heldout jobs from the approved plan"
+    },
+    "failed-prerequisite": {
+      "status": "PREREQUISITE_REJECTED",
+      "reason": "communication requires successful actual numeric and schedule gates"
+    }
+  },
+  "full_communication_certified": false,
+  "se_status": "UNSUPPORTED",
+  "score": null,
+  "limitations": [
+    "engineering relative QPSK BER/raw-symbol EVM contract only",
+    "historical data cannot certify new quality",
+    "cross-noise H reuse is not independent extra samples",
+    "K10 is frozen-grid minimum, not all-integer optimality",
+    "SE/BLER/CDL-B and other algorithms fresh holdout evaluation pending"
+  ]
+}

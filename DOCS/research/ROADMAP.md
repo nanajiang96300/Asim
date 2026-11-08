@@ -117,3 +117,5 @@ pilot 不直接复用带共享 stash 的旧 eval 脚本。旧流程可运行历�
 2026-11-08质量驱动更新：依照D019，离线FP16选K/独立留出筛选已实现，159测试及NS/BRI小规模烟测通过。下一优先级调整为Q2计划与执行器身份绑定→Q3真实重建结果的正式瑞利通信门禁→默认batch96多场景验收→CDL-B/评分晋级；前缀复用及日志内存优化可独立推进。阶段输入/退出条件和验收标准以QUALITY_DRIVEN_WORKFLOW.md的Q1–Q5为准，论文检索固定为paper_archive/README.md。
 
 2026-11-08 Q2验收：受监督计划交接、源码/runtime/参数绑定和Asim先行预筛已通过171测试及8场景192batch真实验证，见experiments/quality_handoff/2026-11-08-v2。下一步Q3通信指标与实际重建输出/系数的可信关联；之后扩大默认batch96多SNR及新留出集。Q2没有实现无人值守协调器，不以现有2%误差代替SE/BER门禁。
+
+2026-11-08 Q3a验收：187测试、七入口历史通用诊断和新NS batch96双噪声新留出相对QPSK BER/EVM门禁通过；SE明确未支持。当前剩余Q3b：实际程序的均衡响应/系数协议与FP16非线性检查→SE代理/有限调制口径→其他算法新留出与高阶调制/BLER。细节COMMUNICATION_VERIFICATION.md；完整通信、CDL-B和晋级仍未完成。
