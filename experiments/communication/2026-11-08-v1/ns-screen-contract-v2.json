@@ -1,0 +1,34 @@
+{
+  "schema": "iteration-screen-v1",
+  "operator": "ns_corrected_v1",
+  "task": {
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "regularization": 0.01,
+    "profile": "modeled_fp16_fp32_real_block_v1"
+  },
+  "regularizations": [
+    0.01,
+    0.1
+  ],
+  "calibration_seeds": [
+    8101
+  ],
+  "holdout_seeds": [
+    8102,
+    8103
+  ],
+  "iterations": [
+    1,
+    8,
+    10,
+    12
+  ],
+  "max_task_error": 0.02,
+  "max_reference_calls": 12,
+  "required_metrics": [
+    "mmse_output_relative_error"
+  ]
+}
