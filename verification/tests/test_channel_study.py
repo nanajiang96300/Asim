@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 from verification.channels.cdlb import generate,normalize,frequency_response,SPEC
-from verification.planning.channel_study import payload
+from verification.planning.channel_study import payload,replay_accounting
 from verification.contracts.core import Invalid
 from verification.contracts.mmse import MMSETask,task_reference
 from verification.profiles.numeric import policy_for
@@ -32,3 +32,11 @@ class ChannelStudyTests(unittest.TestCase):
         np.testing.assert_array_equal(d['inputs']['Y'],p.store(np.stack([real_block(y) for y in d['Y']])))
         target=task_reference(d,t);self.assertEqual(target.shape,(24,4,2))
         with self.assertRaises(Invalid):payload(t,H[:1],12,13)
+
+    def test_rejected_frame_slots_are_not_counted_as_completed_batches(self):
+        r=replay_accounting(8064,84,29,96)
+        self.assertEqual(r['completed_batch_count'],2784)
+        self.assertEqual(r['planned_batch_slots'],8064)
+        self.assertIsNone(r['partial_frame_completed_batches'])
+        self.assertNotIn('batch_attempts',r)
+        with self.assertRaises(Invalid):replay_accounting(96,1,2,96)

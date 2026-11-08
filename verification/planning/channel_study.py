@@ -138,8 +138,17 @@ def plot_curves(rows,out):
         fig.tight_layout();fig.savefig(out/f'{channel}_K_error.png',dpi=160);fig.savefig(out/f'{channel}_K_error.pdf');plt.close(fig)
 
 
+def replay_accounting(planned_batch_slots,frame_attempts,completed_frames,batch_size):
+    if any(type(x) is not int or x<0 for x in (planned_batch_slots,frame_attempts,completed_frames)) or type(batch_size) is not int or batch_size<=0 or completed_frames>frame_attempts or frame_attempts*batch_size>planned_batch_slots:
+        raise Invalid('inconsistent replay accounting')
+    return dict(planned_batch_slots=planned_batch_slots,frame_attempts=frame_attempts,
+                completed_frames=completed_frames,completed_batch_count=completed_frames*batch_size,
+                partial_frame_completed_batches=None,
+                accounting_note='planned slots are not completed batches; partial rejected frames are not instrumented')
+
+
 def replay(c,runtime,index,source_spec,data,out,repo):
-    out.mkdir(parents=True,exist_ok=False);start=time.perf_counter();rows=[];ledger=[];replays=0;cache={}
+    out.mkdir(parents=True,exist_ok=False);start=time.perf_counter();rows=[];ledger=[];replays=0;frame_attempts=0;cache={}
     expected={(o['operator'],lam) for o in source_spec['algorithms'] for lam in source_spec['noise_variances']}
     if {(s['operator'],s['regularization']) for s in index['cases']}!=expected or len(index['cases'])!=len(expected):raise Invalid('source coverage mismatch')
     count=len(expected)*len(c['channel_seeds'])*len(c['frame_seeds'])*96
@@ -163,7 +172,7 @@ def replay(c,runtime,index,source_spec,data,out,repo):
                     folder=out/'inputs';folder.mkdir(exist_ok=True);p=folder/f'lambda{task.regularization}-h{hs}-f{fs}.npz'
                     np.savez_compressed(p,**{k:d[k] for k in ('H','Y','bits','symbols','noise')},**{n+'_input':v for n,v in d['inputs'].items()},mmse=target)
                     cache[key]=(d,dict(path=str(p.relative_to(out)),bytes=p.stat().st_size,sha256=sha(p)))
-                d,a=cache[key];replays+=task.batch_size
+                d,a=cache[key];replays+=task.batch_size;frame_attempts+=1
                 try:v=executor.execute(d)
                 except (Invalid,ValueError,FloatingPointError,OverflowError) as exc:
                     rejected.append(dict(channel_seed=hs,frame_seed=fs,reason=str(exc),status='REPLAY_REJECTED'));continue
@@ -192,7 +201,7 @@ def replay(c,runtime,index,source_spec,data,out,repo):
             p=out/e[key]['path']
             if p.stat().st_size!=e[key]['bytes'] or sha(p)!=e[key]['sha256']:raise Invalid('replay artifact changed')
     passed=all(g['status']=='QPSK_GROUP_CHECKED' for g in rows)
-    result=dict(status='CDLB_DOMAIN_CHECKED' if passed else 'CDLB_QUALITY_NOT_VERIFIED',groups=rows,frames=ledger,batch_attempts=replays,
+    result=dict(status='CDLB_DOMAIN_CHECKED' if passed else 'CDLB_QUALITY_NOT_VERIFIED',groups=rows,frames=ledger,**replay_accounting(count,frame_attempts,len(ledger),96),
                 elapsed_seconds=time.perf_counter()-start,pure_model_thinking_seconds=None,score=None,
                 note='unchanged Asim-accepted matrix templates; explicit external CDL-B H/Y domain; no hardware or complete multi-carrier assertion')
     (out/'result.json').write_text(json.dumps(result,indent=2)+'\n')
