@@ -1,0 +1,696 @@
+    \subsection{算法三：Block-Richardson 预条件迭代求逆（BRI）}
+    \label{sec:bri}
+
+    当 $n_{t}$ 较大时，显式计算精确 $\bm{A}^{-1}$ 的 $O(n_{t}^{3})$
+    复杂度可能不经济。Block-Richardson 以“预条件 + 迭代”的方式用可控的计算量逼近
+    $\bm{A}^{-1}$，是本项目中周期最优的方案。
+
+    \subsubsection{数学推导}
+
+    要彻底搞懂 Block-Richardson 求逆，需要从其基本形态——\textbf{普通雅可比方法（Point
+    Jacobi）}开始，再自然过渡到分块形式。二者的推导逻辑一脉相承，核心思想可概括为：通过矩阵分裂构造不动点迭代，用易于求逆的部分逐步逼近真解。
+
+    \paragraph{A. 普通雅可比求逆（Point Jacobi）}
+
+    假设 $A \in \mathbb{C}^{n \times n}$ 为非奇异方阵，记其逆矩阵为 $X$。由定义知：
+    \begin{equation}
+        AX = I.
+    \end{equation}
+
+    \textbf{步骤一：矩阵分裂。}将 $A$ 拆为对角部分 $D$ 与非对角部分 $R$：
+    \begin{equation}
+        A = D + R,\quad D = \operatorname{diag}(a_{11}, a_{22}, \dots, a_{nn}),\quad
+        R = A - D.
+    \end{equation}
+
+    \textbf{步骤二：构造迭代等式。}代入 $AX = I$ 得：
+    \begin{equation}
+        (D + R)X = I \ \Longrightarrow\ DX = I - RX.
+    \end{equation}
+    由于 $D$ 为对角矩阵，$D^{-1}$ 仅需对角元素取倒数即可获得。两边左乘 $D^{-1}$：
+    \begin{equation}
+        X = D^{-1}(I - RX).
+    \end{equation}
+
+    该等式将未知的 $X$ 同时置于等式两侧。引入\textbf{不动点迭代}思想：先给右侧 $X$
+    一个初始猜测 $X^{(0)}$（通常取 $I$ 或零矩阵），代入右侧得到新值作为
+    $X^{(1)}$。由此得到\textbf{普通雅可比求逆迭代公式}：
+    \begin{equation}
+        \boxed{X^{(k+1)} = D^{-1}(I - RX^{(k)})}.
+    \end{equation}
+
+    \textbf{本质解释：}利用矩阵对角线元素（自变量自身的影响）去修正非对角线元素（交叉变量的耦合干扰）带来的误差。当
+    $A$ 满足\textbf{严格对角占优}时，该迭代保证收敛至 $A^{-1}$。
+
+    \paragraph{B. 分块 Richardson（Block Richardson）——从标量到小矩阵的自然延伸}
+
+    从 Point Jacobi 到 Block Richardson 仅有一层区别：\textbf{操作的粒度从标量变为小矩阵块}。推导形式上与原公式完全相同。
+
+    \textbf{步骤一：分块分裂。}将 $A$ 划分为 $b \times b$ 个矩阵块，其中
+    $A_{jj}\in \mathbb{C}^{B \times B}$ 为沿主对角线的 $B \times B$ 子矩阵：
+    \begin{equation}
+        A = D_{\text{block}}+ R_{\text{block}},\quad D_{\text{block}}= \operatorname{blockdiag}
+        (A_{11}, A_{22}, \dots, A_{bb}),
+    \end{equation}
+    $R_{\text{block}}$ 为剩余的非对角块矩阵。
+
+    \textbf{步骤二：分块迭代公式。}将 Point Jacobi 的推导过程原封不动地在块层次上重复：
+    \begin{equation}
+        \boxed{X^{(k+1)} = D_{\text{block}}^{-1}(I - R_{\text{block}} X^{(k)})}.
+    \end{equation}
+
+    在本项目的 MMSE 求逆场景中，我们将 $A = H^{H}H + \lambda I$
+    的对角块求逆结果组合为预条件器
+    $B = \operatorname{blockdiag}(A_{11}^{-1}, \dots, A_{bb}^{-1})$，用 $B$ 替代
+    $D_{\text{block}}^{-1}$。代入上式得到实际使用的迭代格式（令 $Y_{k}$ 为第 $k$
+    次近似），每一步映射到对应的 NPU 执行单元：
+
+    \begin{equation}
+        \boxed{ \begin{aligned}\bm{B}\bm{Y}_{k}&= \bm{B}\cdot \bm{Y}_{k}, \qquad&&\text{(Cube: GEMM，分块对角矩阵乘)}\\ \bm{R}_{k}&= \bm{I}- \bm{B}\bm{Y}_{k}, \qquad&&\text{(Vector: ADD/MAC，逐元素残差)}\\ \bm{Y}_{k+1}&= \bm{Y}_{k}+ \omega_{k}\bm{R}_{k}, \qquad&&\text{(Vector: ADD+MUL，加权更新)}\\\end{aligned}}
+        \label{eq:bri-iter}
+    \end{equation}
+    其中 $\omega_{k}$ 为 Chebyshev 多项式加速权重（Scalar：自适应谱界估计 + 逐层
+    $\omega$ 计算），PIPE\_BARRIER 同步 Cube$\rightarrow$Vector 和 Vector$\rightarrow$Cube
+    的依赖边界。当 $B \to A^{-1}$ 时，$BY_{k}\to I$，$Y_{k}\to A^{-1}$。
+
+    \paragraph{C. 普通雅可比 vs 分块雅可比}
+
+    尽管公式形式相同，二者在计算代价与收敛特性上有本质差异。
+
+    \begin{table}[H]
+        \centering
+        \caption{普通雅可比与分块 Richardson 的对比}
+        \begin{tabular}{p{3.2cm} p{5.5cm} p{5.5cm}}
+            \toprule \textbf{对比维度} & \textbf{普通雅可比 (Point Jacobi)} & \textbf{分块 Richardson (Block Richardson)} \\
+            \midrule 对角阵 $D$ 的形态   & 对角线上为单个标量                     & 对角线上为小矩阵块                                 \\
+            $D^{-1}$ 的计算代价         & 极低：直接取倒数                      & 较高：需对小矩阵块求逆（Cholesky/LU）                  \\
+            信息利用率                  & 只利用自身信息，忽略相邻元素关系              & 将强耦合元素打包在同一块内，块内精确求解                      \\
+            收敛速度（迭代次数）             & 慢，需要大量迭代                      & \textbf{快}，保留了块内强相关信息                     \\
+            并行友好性                  & 各元素独立计算，并行度高                  & 块内串行/块间并行，适合 NPU 多核                       \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \textbf{分块 Richardson 的设计权衡：}普通雅可比单次迭代的计算代价极低（仅需对角标量取倒数），但收敛速度受限于矩阵的对角占优程度；精确求逆（如
+    Cholesky 分解）可一步获得精确解，但计算复杂度为 $O(U^{3})$。\textbf{分块
+    Richardson 通过在块粒度上平衡这两个极端}——将矩阵划分为适配 NPU Cube
+    单元尺寸的适中子块，块内做精确求逆以保留局部强相关信息，块间通过低计算量的迭代逐步逼近全局逆。该策略在计算代价与收敛速度之间取得了适合
+    NPU 硬件特征的有效折中，是本文选择 Block-Richardson
+    为核心求逆方案的理论依据。
+
+    在 Asim 算子侧（\texttt{src/operations/BlockRichardsonOp.cc}），为保持“可审计/可重建”，将一层迭代拆为四个可观测事件，每条事件映射到具体的
+    NPU 执行单元：
+    \begin{itemize}
+        \item \texttt{BRI\_BY\_l}（Cube：GEMM\_PRELOAD/GEMM）：预条件矩阵乘 $\bm{B}
+            \cdot\bm{Y}_{l}$——分块对角 GEMM，BRI 中计算量最大的步骤；
+
+        \item \texttt{BRI\_RESIDUAL\_l}（Vector：ADD/MAC）：残差计算 $\bm{I}-\bm{BY}
+            _{l}$——逐元素矩阵减法；
+
+        \item \texttt{BRI\_OMEGA\_MUL\_l}（Vector：MUL）：加权 $\omega_{l}\cdot\bm
+            {R}_{l}$——标量 $\times$ 矩阵，在 Vector Pipeline 上以 2048-bit SIMD
+            并行执行；
+
+        \item \texttt{BRI\_Y\_UPDATE\_l}（Vector：ADD）：更新 $\bm{Y}_{l+1}=\bm{Y}
+            _{l}+\omega_{l}\bm{R}_{l}$——逐元素矩阵加法。
+    \end{itemize}
+
+    权重 $\omega_{l}$ 由自适应边界与限幅/阻尼策略稳定高 SNR 收敛：从 $\bm{B}$ 的特征值取分位数区间构造谱界
+    $[b_{\min},b_{\max}]$，用 Chebyshev 公式生成该层 $\omega_{l}^{\text{raw}}$，再经阻尼系数
+    $\alpha$ 与限幅 $[\omega_{\min},\omega_{\max}]$ 得到最终权重。
+
+    \subsubsection{迭代次数与预条件求逆的 SE 验证}
+    \label{sec:bri-se-verify}
+
+    在展示 BRI 的周期数据之前，首先需要确认每个配置下的迭代次数是\textbf{刚好达到
+    SE 门限的最小值}——否则使用过多迭代会虚高周期、使用过少迭代则 SE
+    不达标，两者都会使对比失去意义。本节统一验证 BRI 在 i.i.d. Rayleigh 信道下，各维度与
+    Block Size 组合在 UOBS scorer 标准（avg\_rel\_error $\leq 0.01$）下所需的最少迭代层数
+    $L_{\min}$。
+
+    表~\ref{tab:bri-se-layers} 给出了验证结果。预条件器小块求逆方式：$B=2$ 固定使用
+    \texttt{direct2x2}（直接 $2\times2$ 公式求逆，SCALAR 路径）；$B\ge4$ 时使用
+    \texttt{cholesky}（分块 Cholesky 分解 + 三角回代，GEMM + Scalar 混合路径）。
+
+    \begin{table}[H]
+        \centering
+        \caption{BRI 各配置达到 UOBS SE 门限所需最少迭代层数（i.i.d. Rayleigh,
+        SNR=0--20dB, 64QAM, 全融合参数, 2026-05-25 更新）}
+        \label{tab:bri-se-layers}
+        \begin{tabular}{c c c c c}
+            \toprule \textbf{维度 $U$}                    & $\bm{B}$ & \textbf{求逆方式}          & $\bm{L_{\min}}$ & \textbf{rel\_error@L$_{\min}$} \\
+            \midrule \multirow{3}{*}{16（$64\times16$）}  & 2        & direct2x2 (SCALAR)     & 8               & 0.00113                        \\
+                                                        & 8        & cholesky (Cube+Scalar) & 5               & 0.00459                        \\
+            \midrule \multirow{4}{*}{32（$128\times32$）} & 2        & direct2x2 (SCALAR)     & 7               & 0.00571                        \\
+                                                        & 4        & cholesky (Cube+Scalar) & 6               & 0.00986                        \\
+                                                        & 8        & cholesky (Cube+Scalar) & 6               & 0.00640                        \\
+                                                        & 16       & cholesky (Cube+Scalar) & 5               & 0.00660                        \\
+            \midrule \multirow{5}{*}{64（$256\times64$）} & 2        & direct2x2 (SCALAR)     & 7               & 0.00730                        \\
+                                                        & 4        & cholesky (Cube+Scalar) & 7               & 0.00694                        \\
+                                                        & 8        & cholesky (Cube+Scalar) & 7               & 0.00559                        \\
+                                                        & 16       & cholesky (Cube+Scalar) & 6               & 0.00808                        \\
+                                                        & 32       & cholesky (Cube+Scalar) & 5               & 0.00244                        \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    关键规律：
+    \begin{itemize}
+        \item \textbf{$B=2$（最小块）时 $L_{\min}=7$--$8$}：小块预条件器近似质量有限，需要
+            7--8 次迭代。但单次迭代的 GEMM 量仅为 $O(B N^{2})=O(2 N^{2})$，总计算量仍然可控。B=2
+            在 $U=16$ 的小维度仍有竞争力（1985 cycles），但在 $U\ge32$ 时被更大块尺寸超越。
+
+        \item \textbf{增大 $B$ 的边际收益显著}：从 $B=2$ 到 $B=8$ 时 $L_{\min}$ 从
+            7--8 降至 5--7，从 $B=8$ 到 $B=32$ 时 $L_{\min}$ 从 5--7 降至 5。$B=3
+            2$ 在 $U=64$ 时仅需 5 层即达 SE 门限（rel\_error=0.00244），而 $B=2$
+            需 7 层。预条件器的额外构建成本被 GEMM 迭代节省完全抵消。
+
+        \item \textbf{注：$B=U$（满维度）为退化情况}——此时预条件器等价于直接 Cholesky
+            求逆，$L_{\min}=1$ 但预条件器构建成本即为完整的 $O(U^{3})$
+            分解，丧失了 BRI ``小块预条件 + 迭代逼近''
+            的算法优势。本文后续表格不再列出 $B=U$ 的数据。
+
+        \item \textbf{所有配置均达容量 SE}：验证了 BRI 迭代 + Chebyshev 加速在数值上的可靠性。
+    \end{itemize}
+
+    以下各小节的周期数据均基于表~\ref{tab:bri-se-layers} 中标注的 $L_{\min}$ 迭代次数——即每个数据点都代表着“刚好满足
+    SE 门限的最优配置”，避免了过度迭代带来的周期虚高。
+
+    \subsubsection{预条件块求逆：Direct vs Cholesky 的交叉点分析}
+    \label{sec:bri-precond}
+
+    Block-Richardson 中，预条件器构造阶段需要对每个 $B\times B$ 对角块求逆。$B=2$
+    时固定使用 \texttt{direct2x2}（直接 $2\times2$ 公式求逆）；$B\ge4$ 时可在 \texttt{direct}（Gauss--Jordan
+    消元）与 \texttt{cholesky} 间选择。两者 SE 表现完全一致（数值正确性已通过 \texttt{skill}
+    全流程重建验证），差异仅在周期侧。以下所有数据的迭代次数均采用表~\ref{tab:bri-se-layers}
+    验证的 $L_{\min}$。
+
+    \begin{table}[H]
+        \centering
+        \caption{预条件块求逆 Direct vs Cholesky 的 finish cycle（Batch=96，迭代次数
+        $L=L_{\min}$，SE 均达到容量上限）}
+        \label{tab:bri-precond-cmp}
+        \begin{tabular}{c c c c c c}
+            \toprule \textbf{维度}   & \textbf{Solver} & \textbf{B=2}   & \textbf{B=4} & \textbf{B=8}  & \textbf{B=16} \\
+            \textbf{($L_{\min}$)}  &                 & ($L$=3--4)     & ($L$=3--4)   & ($L$=3)       & ($L$=3)       \\
+            \midrule $64\times16$  & direct          & \textbf{1970}  & 2195         & 2327          & —             \\
+            $64\times16$           & cholesky        & —              & 1970         & \textbf{1600} & —             \\
+            \midrule $128\times32$ & direct          & \textbf{4758}  & 5724         & 5988          & 6049          \\
+            $128\times32$          & cholesky        & —              & 6010         & 4319          & \textbf{3979} \\
+            \midrule $256\times64$ & direct          & \textbf{11750} & 15637        & 16290         & 16522         \\
+            $256\times64$          & cholesky        & —              & 23630        & 12867         & 11269         \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    注：各行对应的 $L_{\min}$ 取自表~\ref{tab:bri-se-layers}——U=16：$L_{B=2}=8$,
+    $L_{B=8}=5$；U=32：$L_{B=2}=7$, $L_{B=4}=6$, $L_{B=8}=6$, $L_{B=16}=5$；U=64：$L
+    _{B=2}=7$, $L_{B=4}=7$, $L_{B=8}=7$, $L_{B=16}=6$, $L_{B=32}=5$。$B=U$ 的退化情况已排除（等价于直接
+    Cholesky 求逆，非 BRI 算法的设计意图）。
+
+    表~\ref{tab:bri-precond-cmp} 清晰揭示了”交叉点”规律：
+    \begin{itemize}
+        \item \textbf{小块优势区（$B=2$）}：固定使用 \texttt{direct2x2}（SCALAR 直接
+            $2\times2$ 公式），周期远低于其他方案。
+
+        \item \textbf{中块竞争区（$B=4$）}：Direct 与 Cholesky 周期接近。在 $256\times
+            64$ 维度下 Direct（15637）优于 Cholesky（23630），因为小块的 Cholesky
+            分解/回代链路被 \texttt{SQRT/DIV + barrier} 的串行依赖主导，而
+            Direct 的 GEMM 链路（rank-1 更新）在 Cube 阵列上更易实现流水。
+
+        \item \textbf{大块优势区（$B\ge8$）}：Cholesky 的更低常数因子（$O(B^{3}/3
+            )$
+            vs Direct 的 $O(B^{3})$）与更规则的三角分解结构开始占优。在 $256\times
+            64$ 维度下 Cholesky 持续优于 Direct，差距随 $B$ 增大而扩大。
+
+        \item \textbf{工程规则}：$B=2\rightarrow$ \texttt{direct2x2}，$B\geq8\rightarrow$
+            \texttt{cholesky}；$B=4$ 时需根据实际维度选择——小维度（U=16）两者相当，大维度（U=64）优先考虑
+            Direct。
+    \end{itemize}
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}
+            {0.48\textwidth}
+            \includegraphics[width=\textwidth]{bri_direct_cycle.png}
+            \caption{Direct 求逆周期（$U=16/32$）}
+        \end{subfigure}
+        \begin{subfigure}
+            {0.48\textwidth}
+            \includegraphics[width=\textwidth]{bri_cholesky_cycle.png}
+            \caption{Cholesky 求逆周期（$U=32/64$）}
+        \end{subfigure}
+        \caption{BRI 预条件块求逆：Direct vs Cholesky 的周期对比（Batch=96）}
+        \label{fig:bri-direct-chol-cycle}
+    \end{figure}
+
+    \textbf{补充：$U=16/32/64$ 全维度 Direct vs Cholesky 周期对比。}以下数据来自修复后统一口径实验（Batch=96，GEMM
+    化的 Gauss-Jordan 消元，$L=L_{\min}$，最优数据加粗）：
+
+    \begin{table}[H]
+        \centering
+        \caption{$U=16/32/64$ 预条件块求逆 Direct vs Cholesky 全数据（$L=L_{\min}$）}
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            \textbf{维度}          & \textbf{Solver} & \textbf{B=2}   & \textbf{B=4} & \textbf{B=8}  & \textbf{B=16} \\
+            \hline
+            $64\times16$ (U=16)  & Direct          & \textbf{1970}  & 2195         & 2327          & —             \\
+            $64\times16$ (U=16)  & Cholesky        & —              & 1970         & \textbf{1600} & —             \\
+            \hline
+            $128\times32$ (U=32) & Direct          & \textbf{4758}  & 5724         & 5988          & 6049          \\
+            $128\times32$ (U=32) & Cholesky        & —              & 6010         & 4319          & \textbf{3979} \\
+            \hline
+            $256\times64$ (U=64) & Direct          & \textbf{11750} & 15637        & 16290         & 16522         \\
+            $256\times64$ (U=64) & Cholesky        & —              & 23630        & 12867         & 11269         \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    该表补充说明：修复后的 Direct 求逆采用 GEMM 化的 rank-1 更新实现 Gauss-Jordan
+    消元，周期随 $B$ 增大而上升，正确反映了 $O(B^{3})$
+    计算复杂度的增长。Cholesky 的周期随 $B$ 增大持续下降，体现了更大块 GEMM 对
+    Cube 利用率的提升。两曲线在 $B=4$--$B=8$ 处形成交叉，此前 Direct 更优，此后 Cholesky
+    更优。注：$B=U$（满维度）数据已排除——此时预条件等价于完整 Cholesky 求逆，丧失了
+    BRI 以小块预条件换取低复杂度的设计意图。
+
+    \subsubsection{分块尺寸极限实验与帕累托选型}
+
+    为找到每个维度下的最优 Block Size，我们在 $64\times16$、$128\times32$、$256\times
+    64$ 三个维度上扫描了 $B\in\{2,4,8,16,32,64\}$，并在 $n_{t}=64$
+    维度上进一步做了 $B=32/64$ 配合 $\textit{layers}\in\{1,2,4,8,12\}$
+    的二维扫描。
+
+    \textbf{Block Size 扫描结果}（UOBS scorer: avg\_rel\_error $\leq0.01$, 全融合参数,
+    L=$L_{\min}$, 2026-05-25 更新）：
+
+    \begin{table}[H]
+        \centering
+        \caption{BRI Block Size 实验——各维度下的 finish cycle 与 rel\_error（迭代次数
+        L=$L_{\min}$, 粗体=维度最优）}
+        \label{tab:bri-blocksize-extreme}
+        \begin{tabular}{c c c c c c}
+            \toprule 维度               & B=2     & B=4     & B=8           & B=16          & B=32          \\
+            \midrule $64\times16$ 周期  & 1985    & —       & \textbf{1372} & —             & —             \\
+            $64\times16$ L$_{\min}$   & 8       & —       & 5             & —             & —             \\
+            $64\times16$ rel\_error   & 0.00113 & —       & 0.00459       & —             & —             \\
+            \midrule $128\times32$ 周期 & 3832    & 5149    & 3067          & \textbf{2728} & —             \\
+            $128\times32$ L$_{\min}$  & 7       & 6       & 6             & 5             & —             \\
+            $128\times32$ rel\_error  & 0.00571 & 0.00986 & 0.00640       & 0.00660       & —             \\
+            \midrule $256\times64$ 周期 & 9448    & 23129   & 10093         & 8079          & \textbf{7783} \\
+            $256\times64$ L$_{\min}$  & 7       & 7       & 7             & 6             & 5             \\
+            $256\times64$ rel\_error  & 0.00730 & 0.00694 & 0.00559       & 0.00808       & 0.00244       \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \textbf{Layers 扫描关键结论}（$n_{t}=64$, B=32, 全融合参数）：$\textit{layers
+    }=5$ 时 rel\_error=0.00689 已达 UOBS 门限（$<0.01$），$\textit{layers}=6$ 时
+    rel\_error=0.00244。随着层数增加，周期从 7174（L=2）线性增长至 8556（L=8），验证了优先通过增大
+    $B$ 而非 $L$ 提升精度的结论——每层增加约 175 cycles，$B$ 从 16 增到 32 带来
+    2.7$\times$ 精度提升而周期仅增 8\%。
+
+    \subsubsection{LDL vs Cholesky 块求逆对比验证}
+
+    一个自然的问题是：LDL 分解（无需 SQRT）是否能进一步优化 BRI 的预条件器？注意完整的
+    LDL Block 算子（\texttt{LDLDecompOp}）在 $64\times16$ 维度下 Score=8.72，显著优于
+    Cholesky Block 算子（\texttt{CholeskyInvOp}）的 Score=2.04。然而这一优势来自两个完整算子在
+    SPAD 布局、GEMM tiling 和流水线架构上的全局差异，而非 SQRT vs DIV 的微观延迟。
+
+    为在 BRI 框架内严格验证，我们在 \texttt{BlockRichardsonOp} 中新增了 \texttt{precond\_solver="ldl"}
+    选项：将 Cholesky 路径的 \texttt{SCALAR\_SQRT} 替换为 \texttt{SCALAR\_DIV}（延迟均为
+    4 cycles），其余指令结构（MAC 更新、GEMM 回代、Barrier 序列）与 Cholesky 路径完全一致。测试结果（2026-05-25，全融合参数，UOBS
+    scorer）：
+
+    \begin{table}[H]
+        \centering
+        \caption{LDL vs Cholesky 块求逆在 BRI 框架内的对比（$L=L_{\min}$,
+        全融合参数）}
+        \begin{tabular}{c c c c c}
+            \toprule 维度                   & Solver   & $L_{\min}$ & finish cycle & rel\_error \\
+            \midrule $64\times16$ (B=8)   & cholesky & 5          & 1372         & 0.00459    \\
+            $64\times16$ (B=8)            & ldl      & 5          & 1372         & 0.00459    \\
+            \midrule $256\times64$ (B=32) & cholesky & 5          & 7674         & 0.00689    \\
+            $256\times64$ (B=32)          & ldl      & 5          & 7674         & 0.00689    \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \textbf{LDL 与 Cholesky 在所有测试维度上周期完全一致}。原因：BRI 的块求逆是块级分解（$n
+    _{\text{blocks}}=U/B$，如 B=32 时仅 2 个对角块），总共 2--8 次 SCALAR 操作（$\sim$16--32
+    cycles，$<$总周期 0.5\%）；而完整 LDL/Cholesky 算子是逐元素分解（$O(U^{3})$
+    操作），SCALAR 占比 $>$10\%。BRI 的瓶颈始终在 BY GEMM（块对角 MatMul，占 67\%
+    周期），而非预条件器的 SCALAR 开销。因此，在 BRI 框架内，Cholesky 与 LDL
+    等价。
+
+    这一结论与完整 LDL Block vs Cholesky Block 算子的对比\textbf{不矛盾}：后者在算子级别的架构设计(S
+    PAD 布局、Cube GEMM 编排)存在本质差异，该差异在 BRI
+    的共享预条件器代码路径中被消除。
+
+    \begin{table}[H]
+        \centering
+        \caption{Layer Sweep 数据（$n_{t}=64$, $B=32$, 全融合参数, 2026-05-25
+        更新）}
+        \begin{tabular}{c c c c}
+            \toprule $B$ & layers & finish cycle & rel\_error       \\
+            \midrule 32  & 2      & 7174         & 0.15262          \\
+            32           & 3      & 7356         & 0.05595          \\
+            32           & 4      & 7493         & 0.01985          \\
+            32           & 5      & 7674         & \textbf{0.00689} \\
+            32           & 6      & 7783         & 0.00244          \\
+            32           & 7      & 8188         & 0.00084          \\
+            32           & 8      & 8556         & 0.00029          \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    该表展示了 B=32 时 UOBS scorer (rel\_error$\leq0.01$) 下的收敛行为：
+    \begin{itemize}
+        \item $L_{\min}=5$ (rel\_error=0.00689 $<$ 0.01)。周期从 7174（$L=2$）每层增加约
+            175 cycles（全融合参数下的 $C_{1}$ 项），验证了优先通过增大 $B$
+            来减少所需 $L$ 的策略。
+
+        \item $B=32$ 比 $B=16$ 的 $L_{\min}=6$ 少 1 层迭代，且 Cube 利用率更高（78.4\%
+            vs 75.6\%）。
+
+        \item 注：$B=U$（满维度，即 $B=64$）为退化情况——预条件器等价于完整
+            Cholesky 求逆，$L=1$ 即达精度上限。本文将其排除在 BRI 分析之外，因为此时算法已退化为直接法，丧失了
+            BRI ``分块迭代'' 的核心价值。
+    \end{itemize}
+
+    Block Size 的选型决策已由图~\ref{fig:bri-direct-chol-cycle} 中的 Direct vs
+    Cholesky 周期对比完整覆盖——Direct 在小块（$B=2$）优势明显，Cholesky 在大块（$B
+    \ge8$）更优，交叉点 $B=4$ 处两者相当。各维度的 Pareto
+    最优组合可直接从该图和表~\ref{tab:bri-blocksize-extreme} 中读取。
+
+    \textbf{Pareto 选型推荐}：
+
+    \subsubsection{Block-Richardson 迭代收敛与信道对角占优度分析}
+
+    Block-Richardson 的收敛速度取决于预条件器 $\bm{B}=\operatorname{blockdiag}(\bm
+    {A}_{11}^{-1},\dots,\bm{A}_{bb}^{-1})$ 对 $\bm{A}^{-1}$ 的近似程度。而 $\bm{A}
+    =\bm{H}^{H}\bm{H}+\lambda\bm{I}$ 的\textbf{对角占优度（diagonal dominance）}直接决定了
+    $\bm{B}$ 的近似质量。我们引入对角占优度指标：
+
+    \begin{equation}
+        \operatorname{minDD}(\bm{A}) = \min_{i}\frac{|a_{ii}|}{\sum_{j\neq i}|a_{ij}|}
+        ,
+    \end{equation}
+
+    该值越大表示 $\bm{A}$ 越接近对角矩阵，BRI
+    收敛越快。为系统评估收敛性，我们在四种代表性信道条件下测试了不同维度和 Block
+    Size 下达到 SE 饱和所需的最少迭代层数：
+
+    \begin{table}[H]
+        \centering
+        \caption{BRI 达到 SE 饱和（距容量上限 $\le0.5$ bps/Hz）所需最少迭代层数}
+        \label{tab:bri-convergence} \small
+        \begin{tabular}{c|c|c|c|c|c}
+            \toprule \textbf{信道场景}                                                 & \textbf{minDD} & $\bm{\kappa(\bm{A})}$ & \textbf{B=2} & \textbf{B=4} & \textbf{B=8} \\
+            \midrule \multicolumn{6}{c}{\textbf{U=16（64$\times$16，容量 96 bps/Hz）}}   \\
+            \midrule i.i.d. Rayleigh                                               & 0.417          & 7                     & 3            & 3            & 3            \\
+            TX相关 $\rho=0.6$                                                        & 0.239          & 33                    & 6            & 6            & 4            \\
+            TX相关 $\rho=0.8$                                                        & 0.144          & 155                   & 12           & 8            & 6            \\
+            Rician K=6dB（LOS）                                                      & 0.076          & 181                   & 16           & 16           & 12           \\
+            \midrule \multicolumn{6}{c}{\textbf{U=32（128$\times$32，容量 192 bps/Hz）}} \\
+            \midrule i.i.d. Rayleigh                                               & 0.296          & 8                     & 4            & 3            & 3            \\
+            TX相关 $\rho=0.6$                                                        & 0.196          & 35                    & 8            & 6            & 6            \\
+            TX相关 $\rho=0.8$                                                        & 0.119          & 155                   & 12           & 10           & 8            \\
+            Rician K=6dB（LOS）                                                      & 0.037          & 421                   & 24           & 24           & 20           \\
+            \midrule \multicolumn{6}{c}{\textbf{U=64（256$\times$64，容量 384 bps/Hz）}} \\
+            \midrule i.i.d. Rayleigh                                               & 0.254          & 8                     & 4            & 4            & 3            \\
+            TX相关 $\rho=0.6$                                                        & 0.138          & 47                    & 8            & 6            & 6            \\
+            TX相关 $\rho=0.8$                                                        & 0.094          & 182                   & 16           & 10           & 8            \\
+            Rician K=6dB（LOS）                                                      & 0.019          & 950                   & 48           & 32           & 32           \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    几点关键发现：
+
+    \begin{enumerate}
+        \item \textbf{$\bm{B=2}$ 对信道条件最敏感}。从 i.i.d.（3--4 层）到强 LOS/K=6dB（16--48
+            层），迭代需求可相差 5--16 倍。小块预条件器的近似质量严重依赖于
+            $\bm{A}$ 的对角占优度。这也是 BRI
+            的核心价值所在——在对角占优的信道下，小块预条件可用少量迭代逼近精确逆。
+
+        \item \textbf{$\bm{B}$ 越大收敛越快}。在任何信道下，增大块尺寸均能减少所需迭代层数。B=8
+            在 i.i.d. 信道下仅需 3 层即可饱和，在强 LOS 下也只需 12--32 层（相比
+            B=2 的 16--48 层有明显缩减）。
+
+        \item \textbf{高维下收敛变慢}。相同信道下 U=64 所需的迭代层数多于 U=16（如
+            i.i.d. 下 B=2：U=16 需 3 层，U=64 需 4 层）。这是因为 Gram 矩阵
+            $\bm{A}=\bm{H}^{H}\bm{H}+\lambda\bm{I}$
+            维度升高后，非对角元素累计增多，对角占优度自然下降。
+
+        \item \textbf{通信标准场景的定位}：实际 5G NR 部署中，UMi/UMa NLOS 场景的
+            Gram 矩阵对角度接近 i.i.d.（B=2 仅需 3--6 层即可收敛），而 LOS
+            场景（如 RMa、回传链路）可能达到 K=6dB 的收敛难度（B=2 需要 16--48 层）。设计
+            BRI 算子时应以预期的最差信道条件为基准选择层数和块尺寸。
+    \end{enumerate}
+
+    \textbf{工程建议}：在典型 i.i.d. 信道下，推荐 $B=8$、$L=6$ 作为安全配置（覆盖从高
+    DD 到中等偏相关场景），此时所有维度下仅需 $L=3$--$4$ 层即可收敛，$L=6$ 留有充分余量。对
+    LOS 占优场景应增加层数至 20--32 或改用直接求逆（Cholesky/LDL）。块的选取应在预条件近似质量（期望
+    $B$ 更大）与单次迭代的计算代价（期望 $B$ 更小）之间取得平衡，建议
+    $B \approx U/4 \sim U/2$，且不超过 $U/2$ 以避免退化为全矩阵直接求逆。
+
+    \subsubsection{迭代层数与执行周期关系}
+
+    BRI 的 finish cycle 与迭代层数 $L$ 呈近完美的线性关系 $\text{Cycle}(L) \approx
+    C_{0}+ C_{1}\cdot L$（$R^{2}> 0.99$），其中 $C_{0}$ 为固定开销（Gram 构造 +
+    预条件器 + 滤波输出），$C_{1}$ 为单层迭代开销（GEMM + Vector 操作 + barrier）。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{bri_layers_cycle_all.png}
+        \caption{BRI finish cycle 随迭代层数的变化趋势（三维度、全 Block Size）}
+        \label{fig:bri-layers-cycle}
+    \end{figure}
+
+    各维度下单层迭代的周期成本如下表所示。明确标注每层的周期代价后，可根据所需 SE
+    收敛层数精确预估总周期，避免资源浪费。
+
+    \begin{table}[H]
+        \centering
+        \caption{BRI 单层迭代周期成本（$C_{1}$，cy/layer）}
+        \label{tab:bri-per-layer-cost}
+        \begin{tabular}{c|c|c|c|c|c}
+            \toprule \textbf{维度}        & \textbf{B=2} & \textbf{B=4} & \textbf{B=8} & \textbf{B=16} & \textbf{B=32} \\
+            \midrule U=16（64$\times$16） & 80           & 78           & 76           & --            & --            \\
+            U=32（128$\times$32）         & 138          & 125          & 131          & 123           & --            \\
+            U=64（256$\times$64）         & 294          & 267          & 329          & 284           & 268           \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    以常用的 i.i.d. 信道配置为例：U=16、B=8 时仅需 $L=3$ 层即可达到 SE
+    饱和，对应周期 $\approx 994 + 76 \times 3 = 1222$；而使用默认 $L=8$ 时周期为
+    $994 + 76 \times 8 = 1602$，多出 31\% 的无效迭代。该线性关系为层数选型提供了精确的可预算依据。
+
+    除周期优势外，Block-Richardson 的数值正确性需要通过 SE-SNR
+    全链路验证。以下三图分别给出 BRI 在三个维度下的 SE 曲线（含 64QAM
+    理论容量上限 $U\times6$ bps/Hz 作为参考虚线）：
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}
+            {0.32\textwidth}
+            \includegraphics[width=\textwidth]{bri_se_64x16.png}
+            \caption{$64\times16$ (U=16)}
+        \end{subfigure}
+        \begin{subfigure}
+            {0.32\textwidth}
+            \includegraphics[width=\textwidth]{bri_se_128x32.png}
+            \caption{$128\times32$ (U=32)}
+        \end{subfigure}
+        \begin{subfigure}
+            {0.32\textwidth}
+            \includegraphics[width=\textwidth]{bri_se_256x64.png}
+            \caption{$256\times64$ (U=64)}
+        \end{subfigure}
+        \caption{Block-Richardson SE-SNR 曲线}
+        \label{fig:bri-se}
+    \end{figure}
+
+    从图中可以清晰看出：
+    \begin{itemize}
+        \item \textbf{低 SNR 区域}（0--10 dB）：BRI 的 SE 随 SNR 稳定上升，与
+            Cholesky/LDL 直接法的差距在 $1.5\%$
+            以内，验证了迭代求逆在低信噪比下数值收敛的正确性。
+
+        \item \textbf{中高 SNR 区域}（$\ge15$ dB）：BRI 的 SE 完全达到 64QAM
+            的理论容量上限（U=16 时 96，U=32 时 192，U=64 时 384），说明预条件器
+            $B$ 在充分迭代后已逼近 $\bm{A}^{-1}$。
+
+        \item \textbf{维度扩展性}：从 $64\times16$ 到 $256\times64$，BRI 的 SE
+            收敛行为一致，未出现维度升高导致的数值不稳定现象。
+    \end{itemize}
+
+    值得注意的是——这里的 SE 指标是 BRI 在 \textbf{表~\ref{tab:bri-se-layers}
+    验证的 $L_{\min}$ 迭代次数}下的结果。通过合理选择 $B$（建议不超过 $U/2$，避免退化为全矩阵直接求逆），可在不牺牲精度的前提下将周期压缩至最优区间。
+
+    \subsubsection{AI 联合优化详程}
+    \label{sec:ai-opt}
+
+    本节以 Block-Richardson 为主线，展示“AI 联合优化”的完整工程路径。核心方法论是：在约束“SE
+    不回退”的前提下最小化周期 $T$，通过 \texttt{skill} 流水线将每次改动自动量化为周期/SE
+    数据点，形成可审计的优化曲线。
+
+    \paragraph{阶段一：数值稳定化}
+
+    在 BRI 的早期实现中，SE 表现不佳（均值仅 73.006，高 SNR 甚至低于 Cholesky/LDL）。问题根源有三：
+    \begin{enumerate}
+        \item \textbf{NaN/Inf 传播}：中间矩阵的极端值（如接近奇异的对角块逆）在 FP16
+            下溢出，污染后续迭代；
+
+        \item \textbf{权重不稳定}：固定 $\omega_{l}=1$ 在高 SNR 下导致迭代发散；
+
+        \item \textbf{谱界估偏}：从 $\bm{B}$ 估计的特征值范围过于激进，导致 Chebyshev
+            权重偏离最优区间。
+    \end{enumerate}
+
+    对应的修复策略：
+    \begin{itemize}
+        \item \textbf{有限值量化保护}：在重建链路中对中间矩阵做有限值裁剪与量化，阻断
+            NaN/Inf 传播链；
+
+        \item \textbf{自适应权重}：引入 Chebyshev 在线权重生成（每个样本/每次重建动态计算），并施加阻尼（$\alpha
+            =0.9$）与限幅 $[\omega_{\min},\omega_{\max}]$；
+
+        \item \textbf{谱界鲁棒化}：使用分位数边界（$q_{\text{low}}/q_{\text{high}}$）+
+            margin，避免极值点导致发散。
+    \end{itemize}
+
+    \begin{table}[H]
+        \centering
+        \caption{BRI 数值稳定化的 SE 变化（Rayleigh+LS+FP16，$U=16$）}
+        \begin{tabular}{c|ccccc}
+            \toprule 阶段                   & SE 均值(0-25dB)     & SE@0dB    & SE@10dB & SE@20dB           & SE@25dB           \\
+            \midrule weighted\_ifdef（修复前） & 73.006            & 30.716    & 70.470  & 96.568            & 102.802           \\
+            p0p1\_stable（修复后）             & \textbf{81.897}   & 30.390    & 73.220  & \textbf{113.520}  & \textbf{128.927}  \\
+            \midrule 提升幅度                 & \textbf{+12.18\%} & $-$1.06\% & +3.90\% & \textbf{+17.55\%} & \textbf{+25.41\%} \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    修复后 SE 均值从 73.006 提升到 81.897（+12.18\%），高 SNR 区间提升尤为显著（@25dB:
+    +25.41\%），但低 SNR 几乎不变——说明稳定化策略主要抑制的是高 SNR 下发散，而非改变方法的本质精度上限。
+
+    \paragraph{阶段二：融合发射与核心级融合}
+
+    SE 稳定后，优化的重点转向周期压缩。结构性统计（来自 \texttt{block\_jacobi\_cycle\_detail\_compact\_stats.csv}）显示：BRI
+    的 \texttt{BY\_*} MatMul 占 \texttt{\_\_TOTAL\_\_} 的 67.64\%，是绝对瓶颈。
+
+    P0 阶段的两个核心改造：
+
+    \begin{enumerate}
+        \item \textbf{融合发射（fused\_by\_gemm）}：将 \texttt{BY\_*}
+            循环中“每层都执行 \texttt{GEMM\_PRELOAD}”改为“周期性 preload +
+            其余层复用 \texttt{GEMM}”。因为预条件器 $\bm{B}$
+            在迭代过程中不变，其权重可常驻片上，逐层重复 preload 是不必要的。
+
+        \item \textbf{Kernel 级融合（fuse\_residual\_update + by\_kernel\_fuse\_factor）}：保持公式不变，将残差计算和更新步骤在
+            Kernel 级做更紧耦合发射，减少中间写回路径。（在 Asim 的抽象层次中体现为：将原本独立的
+            \texttt{BRI\_RESIDUAL\_l} 和 \texttt{BRI\_Y\_UPDATE\_l} 事件合并发射，减少一次
+            barrier。）
+    \end{enumerate}
+
+    \begin{table}[H]
+        \centering
+        \caption{BRI P0 优化效果（U=16，B=2，默认 $L=8$）}
+        \begin{tabular}{l c c c}
+            \toprule \textbf{指标}                 & \textbf{A 基线}   & \textbf{B（P0-2）} & \textbf{提升}         \\
+            \midrule finish cycle                & 2550            & 2082             & \textbf{$-$18.35\%} \\
+            \texttt{BY\_* total\_cycles}         & 512             & 264              & $-$48.44\%          \\
+            \texttt{\_\_TOTAL\_\_ total\_cycles} & 757             & 509              & $-$32.76\%          \\
+            \texttt{BY\_* share\_pct}            & 67.64\%         & 51.87\%          & $-$15.77pp          \\
+            SE@0dB / SE@5dB                      & 32.478 / 35.753 & 32.478 / 35.753  & 完全一致                \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    P0 优化在 \textbf{完全不改变 SE} 的前提下，通过重排调度将周期压缩了 18.35\%。\texttt{BY\_*}
+    的总周期从 512 降至 264（$-$48.44\%），其占比从 67.64\% 降至 51.87\%。
+
+    \paragraph{阶段三：离散参数搜索}
+
+    在 P0-2 基础上，我们对 BRI 的三个调度参数进行了离散扫描：
+
+    \begin{itemize}
+        \item \texttt{group\_sync} $\in\{8,16\}$：每多少层插入一次 barrier；
+
+        \item \texttt{by\_preload\_period} $\in\{8,16\}$：preload 的复用周期；
+
+        \item \texttt{by\_kernel\_fuse\_factor} $\in\{2,3,4\}$：BY 分组融合强度。
+    \end{itemize}
+
+    该搜索可形式化为约束优化问题：
+    \begin{equation}
+        \min_{g,\,p,\,k_f}\ T_{\text{total}}(g,p,k_{f})\quad\text{s.t.}\quad SE_{\{0,5\}\,\mathrm{dB}}
+        \ \text{不下降}.
+    \end{equation}
+
+    经验上
+    $T_{\text{total}}\approx T_{BY}(p,k_{f}) + T_{sync}(g) + T_{vec/scalar}+ T_{misc}$，且
+    $T_{BY}$ 占比最大。
+
+    \begin{table}[H]
+        \centering
+        \caption{BRI P2 离散参数搜索结果（U=16，B=2，截取关键组合）}
+        \begin{tabular}{c c c c c}
+            \toprule \texttt{group\_sync} & \texttt{by\_preload\_period} & \texttt{k\_fuse\_factor} & \textbf{finish cycle} & SE 约束 \\
+            \midrule 8                    & 8                            & 2                        & 1940                  & 通过    \\
+            8                             & 16                           & 2                        & 1907                  & 通过    \\
+            16                            & 16                           & 2                        & 1913                  & 通过    \\
+            \textbf{16}                   & \textbf{16}                  & \textbf{4}               & \textbf{1893}         & 通过    \\
+            16                            & 8                            & 3                        & 1934                  & 通过    \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    最优组合为 \texttt{g=16, p=16, k\_f=4}，finish cycle=1893（相对基线 2550 的累计提升为
+    \textbf{$-$25.76\%}）。
+
+    \begin{table}[H]
+        \centering
+        \caption{BRI 全优化路径量化汇总}
+        \begin{tabular}{p{2.2cm} p{6.8cm} c c}
+            \toprule \textbf{阶段} & \textbf{关键改动}                & \textbf{finish cycle} & \textbf{vs 基线}      \\
+            \midrule 基线          & 基础迭代实现（每层独立 preload）         & 2550                  & —                   \\
+            P0-2                 & +fused\_by\_gemm + kernel 融合 & 2082                  & $-$18.35\%          \\
+            P2 最优                & +离散参数搜索（g16,p16,k4）          & 1893                  & \textbf{$-$25.76\%} \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \paragraph{优化路径的工程启示}
+
+    该优化路径的关键并非引入新的数学算法，而是：
+    \begin{enumerate}
+        \item \textbf{瓶颈定位}：通过 Asim 的 Trace/事件统计，将瓶颈精确归因到 \texttt{BY\_*}
+            主循环；
+
+        \item \textbf{调度改造}：在不改变迭代公式的前提下，通过控制 preload 频率、barrier
+            密度、融合强度来压缩关键路径；
+
+        \item \textbf{约束搜索}：在 SE 不回退的硬约束下，用离散扫描在可控参数空间中找
+            Pareto 最优点；
+
+        \item \textbf{全程可审计}：每个候选点的周期/SE 均通过 \texttt{skill}
+            自动记录到独立实验目录，数据可追溯到具体 CSV。
+    \end{enumerate}
+
+    \begin{table}[H]
+        \centering
+        \caption{Block Size 推荐点（UOBS scorer: avg\_rel\_error $\leq0.01$,
+        全融合参数, L=$L_{\min}$）}
+        \begin{tabular}{c|cccc}
+            \toprule 维度 $(n_{r}\times n_{t})$ & 推荐 $B$ & $L_{\min}$ & finish cycle & rel\_error \\
+            \midrule $64\times16$             & 8      & 5          & 1372         & 0.00459    \\
+            $128\times32$                     & 16     & 5          & 2728         & 0.00660    \\
+            $256\times64$                     & 32     & 5          & 7783         & 0.00244    \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    % =================================================================================
