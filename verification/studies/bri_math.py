@@ -12,17 +12,25 @@ def store(z,precision):
         return z.real.astype(np.float16).astype(np.float32)+1j*z.imag.astype(np.float16).astype(np.float32)
 
 
-def system(H,lam,block,precision):
+def hermitian_store(z,precision):
+    # Explicit alternative algorithm: compute/store upper triangle once, mirror it.
+    # This is not silent averaging/repair of an external matrix.
+    u=store(np.triu(z),precision);idx=np.arange(u.shape[-1]);u[:,idx,idx]=store(z[:,idx,idx].real,precision)
+    return u+np.triu(u,1).conj().transpose(0,2,1)
+
+
+def system(H,lam,block,precision,hermitian_storage=False):
     if H.ndim!=3 or not np.isfinite(H).all() or not np.isfinite(lam) or lam<=0:raise Invalid('invalid H/lambda')
     n=H.shape[-1]
     if type(block) is not int or block<1 or n%block:raise Invalid('complex block must divide Nt')
     q=lambda z:store(z,precision);hh=q(H);eye=q(np.broadcast_to(np.eye(n),(len(H),n,n)))
-    A=q(q(hh.conj().transpose(0,2,1)@hh)+q(lam*eye));P=np.zeros_like(A)
+    matrix_store=(lambda z:hermitian_store(z,precision)) if hermitian_storage else q
+    A=matrix_store(matrix_store(hh.conj().transpose(0,2,1)@hh)+q(lam*eye));P=np.zeros_like(A)
     for j in range(0,n,block):
         b=A[:,j:j+block,j:j+block]
         if np.min(np.linalg.eigvalsh(b.astype(np.complex128)))<=0:raise Invalid('non-SPD modeled block, no repair')
         L=np.linalg.cholesky(b);invL=np.linalg.solve(L,np.broadcast_to(np.eye(block,dtype=b.dtype),b.shape))
-        P[:,j:j+block,j:j+block]=q(invL.conj().transpose(0,2,1)@invL)
+        P[:,j:j+block,j:j+block]=matrix_store(invL.conj().transpose(0,2,1)@invL)
     if not np.isfinite(P).all() or np.min(np.linalg.eigvalsh(P.astype(np.complex128)))<=0:raise Invalid('non-SPD/nonfinite stored P')
     # PA is generally not Hermitian: obtain its real positive spectrum by similarity.
     lp=np.linalg.cholesky(P.astype(np.complex128));C=lp.conj().transpose(0,2,1)@A.astype(np.complex128)@lp

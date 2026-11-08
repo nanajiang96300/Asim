@@ -48,3 +48,10 @@ class BRIPrinciplesTests(unittest.TestCase):
         r=measure(X,A,X,A,X,rhs,truth,rhs,'fp64',bits)
         json.dumps(r,allow_nan=False)
         self.assertIs(type(r['passed']),bool)
+
+    def test_explicit_hermitian_storage_is_separate_precision_design(self):
+        rng=np.random.default_rng(103);H=rng.normal(size=(12,64,16))+1j*rng.normal(size=(12,64,16))
+        A,P,_=system(H,.1,4,'half_storage',hermitian_storage=True)
+        np.testing.assert_array_equal(A,A.conj().transpose(0,2,1))
+        np.testing.assert_array_equal(P,P.conj().transpose(0,2,1))
+        self.assertEqual(A.dtype,np.complex64)

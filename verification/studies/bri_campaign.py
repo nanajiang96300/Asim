@@ -14,6 +14,7 @@ def sources(repo):return {p:sha(repo/p) for p in FILES}
 def guard(c,repo):
     if sha(repo/c['chapter']['path'])!=c['chapter']['sha256']:raise Invalid('chapter evidence changed')
     if c['schema']!='bri-principles-v1' or c['sources']!=sources(repo) or c['channel_spec']!=SPEC or c['toolchain']!=provenance():raise Invalid('frozen math/channel/toolchain changed')
+    if c['half_model']!='explicit_upper_triangle_gram_and_block_inverse':raise Invalid('unknown finite-precision design')
     if c['batch']!=96 or c['channel_seeds']!=[48001,48002] or c['complex_blocks']!=[2,4,8] or c['regularizations']!=[1.,.1,.01] or c['steps']!=256:raise Invalid('unapproved study extent')
     if c['max_scenarios']!=108 or c['max_wall_seconds']!=3600:raise Invalid('unapproved study budget')
 
@@ -55,7 +56,7 @@ def run(c,repo,out):
         Atrue=H.conj().transpose(0,2,1)@H+lam*I;Xtrue=np.linalg.solve(Atrue,I);Y=H@s+math.sqrt(lam)*noise;rhs=H.conj().transpose(0,2,1)@Y;truth=np.linalg.solve(Atrue,rhs)
         for block in c['complex_blocks']:
             for precision in ('fp64','fp32','half_storage'):
-                A,P,ev=system(H,lam,block,precision);lo,hi=enclosure(ev);Xmodel=np.linalg.inv(A.astype(np.complex128));hq=store(H,precision);yq=store(Y,precision);model_rhs=store(hq.conj().transpose(0,2,1)@yq,precision)
+                A,P,ev=system(H,lam,block,precision,hermitian_storage=(precision=='half_storage'));lo,hi=enclosure(ev);Xmodel=np.linalg.inv(A.astype(np.complex128));hq=store(H,precision);yq=store(Y,precision);model_rhs=store(hq.conj().transpose(0,2,1)@yq,precision)
                 rho=np.max(abs(1-.5*ev),axis=1)
                 spectra.append(dict(regularization=lam,complex_block=block,precision=precision,eigen_min=float(ev.min()),eigen_max=float(ev.max()),unstable_half_channels=int(np.sum(rho>=1)),rho_half_max=float(rho.max()),quantized_system_inverse_error_max=float(relative(Xmodel,Xtrue).max()),bound_source='per-sample exact diagnostic eigendecomposition of Lp^H A Lp, expanded 1%; oracle cost not an NPU implementation'))
                 variants=[('fixed_half','half','direct'),('stable_stationary','optimal','direct'),('chebyshev_X','chebyshev','direct'),('chebyshev_Y_recover','chebyshev','scaled')]
@@ -83,7 +84,7 @@ def run(c,repo,out):
             rr=[r for r in rows if (r['regularization'],r['complex_block'],r['precision'],r['method'])==(sp['regularization'],sp['complex_block'],sp['precision'],method)]
             first=next((r['K'] for r in rr if r['passed']),None)
             summaries.append(dict(**sp,method=method,first_passing_K=first,final=rr[-1],scope='fixed 192-H dataset, both worst inverse and task error<=2%; not operator acceptance or independent holdout'))
-    result=dict(status='BRI_PRINCIPLE_SIMULATION_COMPLETE',source_commit=c['source_commit'],scenarios=scenarios,channels=N,regularizations=c['regularizations'],summaries=summaries,spectra=spectra,negative_diagnostics=negative,channel_artifacts=data_rows,elapsed_seconds=time.perf_counter()-start,pure_model_thinking_seconds=None,operator_verified=False,score=None)
+    result=dict(status='BRI_PRINCIPLE_SIMULATION_COMPLETE',source_commit=c['source_commit'],half_model=c['half_model'],scenarios=scenarios,channels=N,regularizations=c['regularizations'],summaries=summaries,spectra=spectra,negative_diagnostics=negative,channel_artifacts=data_rows,elapsed_seconds=time.perf_counter()-start,pure_model_thinking_seconds=None,operator_verified=False,score=None)
     (out/'result.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
     with (out/'curves.csv').open('w',newline='') as f:
         w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
