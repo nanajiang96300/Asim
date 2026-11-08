@@ -15,3 +15,15 @@ def ldl_parameters(iterations):
 def bri_parameters(iterations):
     if type(iterations) is not int or not 1<=iterations<=256:raise Invalid('BRI iteration budget 1..256')
     return {'iterations':iterations,'block_size_real':2,'omega':.5,'recurrence':'precomputed_stationary','initialization':'x0=0'}
+
+def cholesky_block_parameters(iterations):
+    if iterations!=1:raise Invalid('direct blocked solver requires iterations=1')
+    return {'factorization':'blocked_right_looking_cholesky','block_size_real':4,'initialization':'L=0;row_triangular_solve'}
+
+def ldl_block_parameters(iterations):
+    if iterations!=1:raise Invalid('direct blocked solver requires iterations=1')
+    return {'factorization':'blocked_right_looking_ldl','block_size_real':4,'initialization':'L=I;D;row_weighted_solve'}
+
+def merge_parameters(iterations):
+    if iterations!=1:raise Invalid('direct merged solver requires iterations=1')
+    return {'factorization':'left_looking_gemm_reduction','block_size_real':1,'initialization':'L=0;gemm_triangular_solve'}

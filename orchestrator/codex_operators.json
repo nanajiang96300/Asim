@@ -69,6 +69,57 @@
       "parameter_module": "verification.operators.parameters",
       "parameter_function": "bri_parameters",
       "max_iterations": 256
+    },
+    "cholesky_block_explicit_v1": {
+      "mode": "cholesky_block_explicit_test",
+      "source": "src/inverse/structured_solve/StructuredSolveModel.cc",
+      "scope": "mmse_h_y_to_xhat_v1",
+      "profile": "structure_f64_real_block",
+      "reference_module": "verification.reference.structured",
+      "reference_function": "simulate_cholesky_block",
+      "profiles": [
+        "structure_f64_real_block",
+        "modeled_fp16_fp32_real_block_v1"
+      ],
+      "reference_profiles": {
+        "modeled_fp16_fp32_real_block_v1": "simulate_cholesky_block_fp16"
+      },
+      "parameter_module": "verification.operators.parameters",
+      "parameter_function": "cholesky_block_parameters"
+    },
+    "ldl_block_explicit_v1": {
+      "mode": "ldl_block_explicit_test",
+      "source": "src/inverse/structured_solve/StructuredSolveModel.cc",
+      "scope": "mmse_h_y_to_xhat_v1",
+      "profile": "structure_f64_real_block",
+      "reference_module": "verification.reference.structured",
+      "reference_function": "simulate_ldl_block",
+      "profiles": [
+        "structure_f64_real_block",
+        "modeled_fp16_fp32_real_block_v1"
+      ],
+      "reference_profiles": {
+        "modeled_fp16_fp32_real_block_v1": "simulate_ldl_block_fp16"
+      },
+      "parameter_module": "verification.operators.parameters",
+      "parameter_function": "ldl_block_parameters"
+    },
+    "cholesky_merge_explicit_v1": {
+      "mode": "cholesky_merge_explicit_test",
+      "source": "src/inverse/structured_solve/StructuredSolveModel.cc",
+      "scope": "mmse_h_y_to_xhat_v1",
+      "profile": "structure_f64_real_block",
+      "reference_module": "verification.reference.structured",
+      "reference_function": "simulate_merge",
+      "profiles": [
+        "structure_f64_real_block",
+        "modeled_fp16_fp32_real_block_v1"
+      ],
+      "reference_profiles": {
+        "modeled_fp16_fp32_real_block_v1": "simulate_merge_fp16"
+      },
+      "parameter_module": "verification.operators.parameters",
+      "parameter_function": "merge_parameters"
     }
   }
 }
