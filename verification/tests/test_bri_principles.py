@@ -39,3 +39,12 @@ class BRIPrinciplesTests(unittest.TestCase):
         self.assertEqual(store([1.+2j],'fp32').dtype,np.complex64)
         self.assertFalse(np.isfinite(store([1e10+0j],'half_storage')).all())
         with self.assertRaises(Invalid):store([1.],'fp16_hardware')
+
+    def test_campaign_measurements_are_strict_json_serializable(self):
+        import json
+        from verification.studies.bri_campaign import measure
+        A,P,ev=self.matrices();X=np.linalg.inv(A);rhs=np.ones((3,4,2),complex);truth=X@rhs
+        bits=np.ones((3,4,2,2),dtype=np.uint8)
+        r=measure(X,A,X,A,X,rhs,truth,rhs,'fp64',bits)
+        json.dumps(r,allow_nan=False)
+        self.assertIs(type(r['passed']),bool)

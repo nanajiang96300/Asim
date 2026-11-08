@@ -26,7 +26,7 @@ def measure(X,Atrue,Xtrue,Amodel,Xmodel,rhs,truth,model_rhs,precision,bits):
     xhat=store(store(value,precision)@model_rhs[good],precision);finite=np.isfinite(xhat).all(axis=(1,2))
     if not finite.all():return {**r,'inverse_error_max':float(ie.max()),'inverse_error_median':float(np.median(ie)),'inverse_model_error_max':float(me.max()),'residual_max':float(res.max()),'task_error_max':None,'ber':None,'passed':False}
     te=relative(xhat,truth[good]);rx=np.stack([xhat.real>=0,xhat.imag>=0],axis=-1)
-    return dict(**r,inverse_error_max=float(ie.max()),inverse_error_median=float(np.median(ie)),inverse_model_error_max=float(me.max()),residual_max=float(res.max()),task_error_max=float(te.max()),ber=float(np.mean(rx!=bits[good])),passed=n==len(X) and max(ie.max(),te.max())<=.02)
+    return dict(**r,inverse_error_max=float(ie.max()),inverse_error_median=float(np.median(ie)),inverse_model_error_max=float(me.max()),residual_max=float(res.max()),task_error_max=float(te.max()),ber=float(np.mean(rx!=bits[good])),passed=bool(n==len(X) and max(ie.max(),te.max())<=.02))
 
 
 def old_helper_check(H,out):
