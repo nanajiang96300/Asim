@@ -1,0 +1,80 @@
+{
+  "schema": "fp16-primitive-study-v1",
+  "source_commit": "41ab067862cc44b22dc13ce5a277895354281f92",
+  "sources": {
+    "verification/studies/fp16_campaign.py": "086afb64789684e2e0a9a20740f0c2fe7e3c614c645295dbb88430ac25eaab43",
+    "verification/studies/fp16_primitives.py": "8c0f064888ad16db3e5cbfa50fd64a346ba26cfbd89a2098c12704868dddcf76",
+    "verification/studies/bri_math.py": "9c297556ad60cdc6f82a9d754c2533f4a454c8bc6169bd4fc3e5330c587d0851",
+    "verification/profiles/numeric.py": "965c32d6ac6558570bc3b51f21c764ab4f1c113d30ef8c495a7a791e001ec6e0",
+    "verification/contracts/core.py": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116"
+  },
+  "role": "calibration_smoke_only",
+  "inputs": [
+    {
+      "path": "results/fp16_implicit/2026-11-08-v1/calibration_inputs.npz",
+      "sha256": "9205b09e417bb175a3bd368153a6525849257b7af1bcfccc405f02ce287c87f5",
+      "slice": [
+        0,
+        24
+      ]
+    }
+  ],
+  "steps": 256,
+  "max_wall_seconds": 1800,
+  "cases": [
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_inverse",
+      "bounds": [
+        0.25,
+        8.0
+      ]
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ]
+    },
+    {
+      "lambda": 0.01,
+      "block": 4,
+      "kind": "explicit_inverse",
+      "bounds": [
+        0.25,
+        8.0
+      ]
+    },
+    {
+      "lambda": 0.01,
+      "block": 4,
+      "kind": "implicit_inverse",
+      "bounds": [
+        0.25,
+        8.0
+      ]
+    },
+    {
+      "lambda": 0.01,
+      "block": 4,
+      "kind": "implicit_inverse_add",
+      "bounds": [
+        0.25,
+        8.0
+      ]
+    },
+    {
+      "lambda": 0.01,
+      "block": 4,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ]
+    }
+  ]
+}
