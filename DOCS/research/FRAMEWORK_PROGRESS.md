@@ -74,3 +74,5 @@ FW0完整五契约schema与数据集策略；FW1/FW2的typed view/stride/offset�
 2026-11-06：共同核心不变接入Cholesky直接解；参数适配和通用evidence移除NS专属假设。5样本432batch、日常3次288batch、4项离线拒绝及基线参数负例通过，135单元测试；工具/重放/Agent工作耗时分开归档，纯思考不可观测。见RECONSTRUCTION_GENERALITY.md。
 
 2026-11-06后续：LDL/BRI显式映射通过主批次（864正例batch及24低K质量拒绝）、672严格阶段见证及384日常batch；144测试、独立复审通过，四核心不变。见LDL_BRI_MAPPING.md。
+
+2026-11-08：剩余Block/合法Merge映射已接入，同核7入口，16主case/1392batch+576因素见证+384日常通过；151测试及证据复审通过。旧Merge低估Scalar工作量和缺归约，实际51周期探针证实成本不随compute_size变化。见MERGE_AND_REMAINING_MAPPING.md。

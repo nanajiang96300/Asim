@@ -76,3 +76,5 @@ python3 scripts/research_inventory.py check experiments/inventory/2026-10-28-bas
 2026-11-06：跨算法普适性原件独立放在results/generality/2026-11-06-cholesky-v1，包含首轮构建失败、固定runtime、五样本及日常三次、时间台账。Git摘要位于experiments/generality/2026-11-06-cholesky-v1。
 
 2026-11-06后续：LDL/BRI原件专用results/operator_mapping/2026-11-06-ldl-bri-v1，Git清单experiments/operator_mapping/2026-11-06-ldl-bri-v1。严格stages-v2为最终阶段证据；旧stages、入口失败与重试留存。
+
+2026-11-08：本轮原件独立results/remaining_mapping/2026-11-08-block-merge-v1，Git清单experiments/remaining_mapping/2026-11-08-block-merge-v1。旧Merge/NoBlock重跑与成本probe放forensics，新候选放campaign，daily另分目录；统一七入口周期与详细流水摘要不混用历史数据。

@@ -829,6 +829,41 @@
         "BRI K192是正确性参数，不是最优性能候选",
         "硬件认证外置；通信与CDL-B尚未验收"
       ]
+    },
+    {
+      "id": "R09",
+      "title": "Block及合法Merge映射与旧Merge异常归档",
+      "status": "done",
+      "depends_on": [
+        "R08"
+      ],
+      "allowed_paths": [
+        "src/inverse/structured_solve/",
+        "src/semantic/ScalarCostProbeModel.*",
+        "src/main.cc",
+        "verification/reference/structured.py",
+        "verification/operators/parameters.py",
+        "verification/reconstruction/remaining_campaign.py",
+        "scripts/merge_forensics.py",
+        "scripts/check_remaining_archive.py",
+        "scripts/remaining_contracts.py",
+        "orchestrator/"
+      ],
+      "acceptance": [
+        "16case1392batch主门禁、576完整因素见证与384日常batch通过",
+        "旧NoBlock/Merge实际拒绝及Scalar width1/16同51cycle诊断复现",
+        "151测试、case/证据/探针严格复审通过",
+        "七入口统一comparison identity周期/流水/误差及耗时归档"
+      ],
+      "evidence": [
+        "DOCS/research/MERGE_AND_REMAINING_MAPPING.md",
+        "experiments/remaining_mapping/2026-11-08-block-merge-v1/run_manifest.json"
+      ],
+      "limitations": [
+        "旧Merge不获得正确性或优化通过",
+        "七新入口为受限模型验收，不是正式通信/CDL-B或晋级评分",
+        "硬件认证外置，日志/内存优化与闭环控制器后续"
+      ]
     }
   ],
   "candidate_evaluation_order": [

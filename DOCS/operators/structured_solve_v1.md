@@ -28,4 +28,4 @@ Merge：左看Cholesky，Ajj←Ajj−L[j,:j]L[j,:j]ᵀ；列尾Aij←Aij−L[i,:
 
 F64独立高精度Cholesky/LDL参考与任务真值；F16独立实块实现对应分组、逐指令RNE和逐k FP32累加，不导入重放核心/策略。默认24核、96batch、64×16、8RHS；第二组48batch、32×8、4RHS；瑞利seed42/123。先Asim/真实事件与成本再数值。未知归约、欠定义操作、非法SCALAR工作量都拒绝。
 
-实际L/D阶段快照比对独立F16位模式，F64检查分解残差；输出三路径。负例删除Schur、改变归约等在离线记录中明确标注，不宣称运行错误候选二进制。编译/仿真串行，独立workspace/build；硬件认证外置。结果待实际验收补充。
+实际L/D阶段快照比对独立F16位模式，F64检查分解残差；输出三路径。负例删除Schur、改变归约等在离线记录中明确标注，不宣称运行错误候选二进制。编译/仿真串行，独立workspace/build；硬件认证外置。结果：主批次16case/1392batch、6case/576因素见证、4次日常384batch全部通过，151测试及独立审查通过。默认FP16 Cholesky-block21338、LDL-block21665、Merge19028周期；见DOCS/research/MERGE_AND_REMAINING_MAPPING.md与experiments/remaining_mapping/2026-11-08-block-merge-v1。

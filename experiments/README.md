@@ -38,3 +38,5 @@
 跨算法普适性与Agent耗时：[generality/2026-11-06-cholesky-v1](generality/2026-11-06-cholesky-v1/README.md)。NS+Cholesky复用核心，720batch（跨算法及日常）、135测试；Agent任务墙钟/工具并集/残差分开，纯思考时间null。
 
 LDL/BRI显式重建映射及中间内存见证：[operator_mapping/2026-11-06-ldl-bri-v1](operator_mapping/2026-11-06-ldl-bri-v1/README.md)。含低K实际质量拒绝、严格stages-v2、144测试、四次日常与时间台账。
+
+剩余映射与Merge异常：[remaining_mapping/2026-11-08-block-merge-v1](remaining_mapping/2026-11-08-block-merge-v1/README.md)。七新入口统一周期/流水、151测试、实际旧Merge拒绝与Scalar成本探针，耗时和完整hash独立归档。

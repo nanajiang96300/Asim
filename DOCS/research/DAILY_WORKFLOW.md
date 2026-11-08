@@ -138,3 +138,5 @@ cd "$ASIM_ROOT"
 2026-11-06：新增Cholesky稳定入口` .venv/bin/python -m verification.reconstruction.daily --operator cholesky_explicit_v1 --iterations 1`。参考/重放/Asim/制品与调度分阶段秒数写入result.json。新增算法接入需记录任务UTC开始/截止、工具monotonic spans并取并集、Agent+未埋点残差，纯内部思考时间设null；不得把脚本运行时间当Agent思考。工具命令可经`scripts/timed_command.py --ledger <new-file> --label <phase> -- <command>`记录，严禁在命令中传凭据。详细定义见RECONSTRUCTION_GENERALITY.md及effort_summary.md。
 
 2026-11-06：四算法日常白名单支持LDL（--operator ldl_explicit_v1 --iterations 1）、BRI（--operator bri_explicit_v1 --iterations 192），仍需每次全门禁。可用scripts/audit_solver_stages.py复核已验收LDL/BRI实际L/D与B/X0；该工具只读，不能绕过主门禁。见LDL_BRI_MAPPING.md。
+
+2026-11-08：七新入口固定包已验收；三个新block/merge入口均显式--iterations 1，见MERGE_AND_REMAINING_MAPPING.md。未知融合/SCALAR批工作量不能按注释补数值；ScalarCostProbe仅诊断，不计分。

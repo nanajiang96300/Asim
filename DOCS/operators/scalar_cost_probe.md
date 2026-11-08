@@ -12,4 +12,4 @@ src/semantic/ScalarCostProbeModel.{h,cc}。相同LOAD、Vector初始化、单元
 
 ## 3. 验证
 
-两探针真实Asim/Scalar trace对比，width16明确INVALID_SCALAR_WORKLOAD，无数值/性能通过声明；它与旧Merge源码/重建拒绝一起提供异常来源证据。不得给旧Merge猜测dot语义。构建与只读审查后归档。结果待补。
+两探针真实Asim/Scalar trace对比，width16明确INVALID_SCALAR_WORKLOAD，无数值/性能通过声明；它与旧Merge源码/重建拒绝一起提供异常来源证据。不得给旧Merge猜测dot语义。构建与只读审查后归档。实际两个probe均51周期，Scalar事件均1周期；整套record只差声明宽度和scalar.compute_size。旧Merge仍全96batch拒绝，正常入口宽度16也被共同成本绑定器拒绝；详见MERGE_AND_REMAINING_MAPPING.md。

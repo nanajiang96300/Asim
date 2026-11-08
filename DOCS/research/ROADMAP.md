@@ -111,3 +111,5 @@ pilot 不直接复用带共享 stash 的旧 eval 脚本。旧流程可运行历�
 2026-11-06：跨算法普适性首批完成（NS+独立Cholesky、双精度/两组尺寸），Agent耗时台账与脚本分阶段计时落地。下一步：独立LDL的单位对角/行权重恢复，以及接近256MiB观察日志的流式内存优化；再扩Block/BRI与通信/CDL-B。证据RECONSTRUCTION_GENERALITY.md。
 
 2026-11-06后续：LDL与BRI接入及阶段见证完成。后续依赖：Cholesky-block真实块内三角解/Schur更新→LDL-block显式D权重与恢复→Merge真实归约；同时推进观察日志流式内存优化。不要将旧入口欠定义操作直接解释为标准算法。见LDL_BRI_MAPPING.md。
+
+2026-11-08：七个独立新入口受限映射验收完成，旧Merge异常已复现，旧历史数据继续留存。下一步优先日志/内存流式优化→正式瑞利通信质量指标→CDL-B→正确性门禁后的评分/Agent迭代闭环；不把当前任务误差通过扩张为正式通信或硬件结论。见MERGE_AND_REMAINING_MAPPING.md。

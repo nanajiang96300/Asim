@@ -102,3 +102,5 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -
 2026-11-06：固定runtime新增已验收Cholesky直接解，与NS复用同一核心；`daily --operator cholesky_explicit_v1 --iterations 1`可用。首次运行/同runtime基线复用及NS默认回归均实际通过。完整算法参数绑定，参考不再强制X0；新旧包基线不能混用。见RECONSTRUCTION_GENERALITY.md。
 
 2026-11-06后续：固定日常包新增LDL（--iterations 1）和BRI（--iterations 192），四次新包日常/基线验收通过，旧包继续归档。所有K仍需质量门禁；K1已实际质量拒绝。见LDL_BRI_MAPPING.md。
+
+2026-11-08：新固定包白名单七新入口，新增cholesky_block_explicit_v1、ldl_block_explicit_v1、cholesky_merge_explicit_v1（均--iterations 1）。三次日常及Merge基线复用通过，重复字节一致。Scalar成本探针不进入白名单；旧Merge仍拒绝。见MERGE_AND_REMAINING_MAPPING.md。

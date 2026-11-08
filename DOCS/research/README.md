@@ -20,6 +20,8 @@
 
 2026-11-06后续：新增LDL/BRI显式映射及实际中间内存见证，四算法复用核心；144测试通过。见[映射验收](LDL_BRI_MAPPING.md)。
 
+2026-11-08：补齐独立Cholesky-block、LDL-block和合法GEMM归约Merge，七个新入口统一任务重建通过。旧Merge异常已由实际Scalar探针和重建拒绝复现；151测试通过。见[完整报告与七入口周期对照](MERGE_AND_REMAINING_MAPPING.md)。
+
 ## 当前目标
 
 利用 Agent 自动迭代 NPU 上的通信算子，在通信质量约束下减少周期，并有效利用 AI Core。当前以 MIMO 均衡为试验任务，开展算法结构的外循环搜索和指令、流水调度的内循环优化。
