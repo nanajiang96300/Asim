@@ -12,7 +12,7 @@ def check(path):
     repo=Path(__file__).resolve().parents[1];m=json.loads(Path(path).read_text())
     if m['schema']!='remaining-mapping-archive-v1':raise ValueError('unknown archive schema')
     outer=indexed(m['artifacts']);verify_files(repo,outer)
-    required={m['campaign']+'/summary.json',m['forensics']+'/summary.json',m['effort'],m['core_identity'],m['daily_acceptance']}
+    required={m['campaign']+'/summary.json',m['forensics']+'/summary.json',m['effort'],m['core_identity'],m['daily_acceptance'],m['cycle_comparison']}
     if not required<=outer.keys():raise ValueError('unbound primary evidence')
     summary=json.loads((repo/m['campaign']/'summary.json').read_text())
     expected={f'{f}_{s}' for f in FAMILIES for s in ('f64','f16_42','f16_123','shape2')}|{p+'_regression' for p in ('ns_corrected_v1','cholesky_explicit_v1','ldl_explicit_v1','bri_explicit_v1')}
@@ -25,6 +25,13 @@ def check(path):
         nested(outer,root,r['artifacts'],CASE_REQUIRED)
         if r['status'] not in ('STRUCTURE_CHECKED','MODELED_NUMERIC_CHECKED') or r['numeric_status']!='EXECUTED' or r['schedule_status']!='MODEL_RW_CHECKED_CONSERVATIVE' or r['failed_batches'] or r['score'] is not None or len(r['batches'])!=r['task']['batch_size'] or {b['batch'] for b in r['batches']}!=set(range(r['task']['batch_size'])):raise ValueError('positive case failed')
         if r['status']=='MODELED_NUMERIC_CHECKED' and not all(b['precision_bit_equal'] for b in r['batches']):raise ValueError('precision mismatch')
+    comparison=json.loads((repo/m['cycle_comparison']).read_text());cr=comparison['rows']
+    default_names={f'{f}_f16_42' for f in FAMILIES}|{p+'_regression' for p in ('ns_corrected_v1','cholesky_explicit_v1','ldl_explicit_v1','bri_explicit_v1')}
+    if len(cr)!=7 or {r['case'] for r in cr}!=default_names:raise ValueError('seven-entry comparison coverage incomplete')
+    if {by_case[n]['comparison_identity'] for n in default_names}!={comparison['comparison_identity']}:raise ValueError('comparison crosses task/input/hardware/profile identity')
+    for r in cr:
+        actual=by_case[r['case']]
+        if r['cycles']!=actual['asim']['finish_cycle'] or r['operator']!=actual['operator'] or r['max_task_error']!=max(b['task_error'] for b in actual['batches']):raise ValueError('comparison metrics differ from actual result')
     stage_names={f'{f}_{s}' for f in FAMILIES for s in ('f64','f16_42')}
     stages=summary['stage_cases']
     if len(stages)!=6 or {s['case'] for s in stages}!=stage_names or sum(s['batch_size'] for s in stages)!=576 or not all(s['passed'] for s in stages):raise ValueError('incomplete factor stage coverage')
