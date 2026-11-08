@@ -1,0 +1,18 @@
+{
+  "schema": "paper-readiness-v1",
+  "status": "INTERIM",
+  "final_eligible": false,
+  "gates": {
+    "actual_instruction_replay": "PASS",
+    "independent_algorithm": "PASS",
+    "high_precision_task": "PASS",
+    "declared_precision_model": "PASS",
+    "hardware_precision_cost_calibration": "PENDING",
+    "actual_async_G4": "UNSUPPORTED_MISSING_RUNTIME_RW_EVENTS",
+    "formal_communication": "PENDING",
+    "CDL_B": "UNSUPPORTED",
+    "all_legacy_operators": "FAILED_OR_UNSUPPORTED",
+    "clean_reproduction": "PENDING"
+  },
+  "score": null
+}

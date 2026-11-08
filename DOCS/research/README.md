@@ -1,6 +1,10 @@
 # Asim 研究与 Codex 自动化计划
 
-更新：2026-10-29（Asia/Hong_Kong）
+更新：2026-11-08（Asia/Hong_Kong）
+
+**当前架构入口：[精度驱动选K与算子工作流](QUALITY_DRIVEN_WORKFLOW.md)。论文资料固定检索：[paper_archive/README.md](paper_archive/README.md)。**
+
+2026-11-08本轮：新增独立FP16算法选K工具、冻结数值门限/预算与校准/留出分离；NS/BRI小规模瑞利烟测通过，159测试通过。七个新入口此前的重建验收继续有效；正式SE/BER、CDL-B、选K计划自动交接与评分晋级尚未完成。旧重建设计、阶段稿和证据已按版本快照归档，未改动算子或固定运行器。下列日期段为阶段历史，当前优先级以新工作流为准。
 
 工程：`/home/nanajiang/Asim/`
 
@@ -41,7 +45,7 @@
 | [算子状态卡](operators/INDEX.md) | 六族＋Merge七卡，入口/公式/指令/参数/证据/待复现命令 |
 | [历史台账说明](history/README.md)、[NS谱系](history/NS_LINEAGE.md) | 49项记录、其中17项NS；10个旧run，缺证显式保留 |
 | [验证与自动化审计](audits/VERIFICATION_AUTOMATION_AUDIT.md) | 25项问题，源码位置与负例，旧Claude流程保留 |
-| [NS影子执行实施包](audits/NS_SHADOW_EXECUTION_PLAN.md) | 同一操作对象、最小原语、三路径、变异测试；设计尚未实现 |
+| [NS影子执行实施包](audits/NS_SHADOW_EXECUTION_PLAN.md) | 历史设计起点；后续实现与验收见固定论文档案索引 |
 | [制品目录与规则](ARTIFACT_CATALOG.md) | 9,140文件hash、211原始/历史制品原位保留映射 |
 | [日常工作流](DAILY_WORKFLOW.md) | 已有工具命令、隔离/预算/失败状态，尚缺门禁不得晋级 |
 | [结构化台账](../../experiments/README.md) | 历史、盘点、诊断、模板及依赖任务表 |

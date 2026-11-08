@@ -1,0 +1,75 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-quality-driven-v1",
+  "capture_commit": "d5903d6f529aa79642715f8fcfce9e90c77a111a",
+  "status": "DESIGN_AND_OFFLINE_SCREEN",
+  "snapshots": [
+    {
+      "source": "DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/QUALITY_DRIVEN_WORKFLOW.md",
+      "bytes": 9024,
+      "sha256": "6b29dbe469d1108bec5bf0d9847a066c9a3bcc387323cccccba4d2a6b8d366fe"
+    },
+    {
+      "source": "verification/planning/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/verification/planning/README.md",
+      "bytes": 2652,
+      "sha256": "e4ad8c6241bbf6e93511b24deb26f98ab75ec2327d1da37e54336ba44bc5267c"
+    },
+    {
+      "source": "experiments/quality_planning/2026-11-08-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/experiments/quality_planning/2026-11-08-v1/README.md",
+      "bytes": 2700,
+      "sha256": "0938a0675a492756c9339012a2ef3152a7585bb2777819e1b5c7bbbe446e2312"
+    },
+    {
+      "source": "experiments/quality_planning/2026-11-08-v1/run_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/experiments/quality_planning/2026-11-08-v1/run_manifest.json",
+      "bytes": 1345,
+      "sha256": "0ccc4ad498b08a2d0000b9c70962db726c86a2c4b2883fc26801a5e8c49f5800"
+    },
+    {
+      "source": "experiments/quality_planning/2026-11-08-v1/ns_corrected_v1.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/experiments/quality_planning/2026-11-08-v1/ns_corrected_v1.json",
+      "bytes": 601,
+      "sha256": "75eaf1ab15dd11136dbf60a5e3aa632526eab598c73172e1adf4f12fbe84d49c"
+    },
+    {
+      "source": "experiments/quality_planning/2026-11-08-v1/bri_explicit_v1.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/experiments/quality_planning/2026-11-08-v1/bri_explicit_v1.json",
+      "bytes": 986,
+      "sha256": "9cfb7ca247ea8ede6097d0ac65df1a07b2034631615e3c12e6af78b27e5315fc"
+    },
+    {
+      "source": "experiments/quality_planning/2026-11-08-v1/bri/contract.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/experiments/quality_planning/2026-11-08-v1/bri/contract.json",
+      "bytes": 986,
+      "sha256": "9cfb7ca247ea8ede6097d0ac65df1a07b2034631615e3c12e6af78b27e5315fc"
+    },
+    {
+      "source": "experiments/quality_planning/2026-11-08-v1/bri/result.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/experiments/quality_planning/2026-11-08-v1/bri/result.json",
+      "bytes": 148682,
+      "sha256": "539751543fe5fc78b831e009c5d4f0c0b82cfa75a25c548a9629f89c0fc2f186"
+    },
+    {
+      "source": "experiments/quality_planning/2026-11-08-v1/ns/contract.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/experiments/quality_planning/2026-11-08-v1/ns/contract.json",
+      "bytes": 601,
+      "sha256": "75eaf1ab15dd11136dbf60a5e3aa632526eab598c73172e1adf4f12fbe84d49c"
+    },
+    {
+      "source": "experiments/quality_planning/2026-11-08-v1/ns/result.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/snapshots/experiments/quality_planning/2026-11-08-v1/ns/result.json",
+      "bytes": 40309,
+      "sha256": "e0fca0dff1b275884f5c7ffa8d574ae61c6d6b001218b3b365b30a73bb8750d7"
+    }
+  ],
+  "evidence_manifests": [],
+  "limitations": [
+    "small shape only",
+    "no operator changed or Asim rerun",
+    "SE/BER/CDL-B not certified",
+    "plan to runtime binding pending"
+  ]
+}

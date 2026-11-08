@@ -1,0 +1,39 @@
+{
+  "schema": "paper-archive-catalog-v1",
+  "fixed_entry": "DOCS/research/paper_archive/README.md",
+  "archives": [
+    {
+      "id": "2026-11-08-reconstruction-v1",
+      "status": "INTERIM_MODEL_VALIDATION",
+      "keywords": [
+        "reconstruction",
+        "actual-instructions",
+        "three-path",
+        "FP16",
+        "Merge",
+        "generality"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/manifest.json",
+      "manifest_sha256": "8b595775c43e6317963d3e93a83927baa38be992d91995d44d8ea9a52035f794",
+      "supersedes": null
+    },
+    {
+      "id": "2026-11-08-quality-driven-v1",
+      "status": "DESIGN_AND_OFFLINE_SCREEN",
+      "keywords": [
+        "NS",
+        "BRI",
+        "iteration-selection",
+        "MMSE",
+        "SE",
+        "holdout",
+        "Agent-constraints"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/manifest.json",
+      "manifest_sha256": "781aa933895d99dea496cf0ce495cc36fd02937a16fc75fff71a5e467e30397f",
+      "supersedes": null
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 # Git、研究证据与实验版本管理
 
+## 2026-11-08论文资料归档约定
+
+固定索引为 [paper_archive/README.md](paper_archive/README.md)，机器目录为 [catalog.json](paper_archive/catalog.json)。里程碑按日期/主题/版本保存小型文档快照、证据路径、字节数和SHA-256；历史版本不覆盖。活文档维持单一当前标准。原始大制品继续留在独立results目录，Git只跟踪小摘要和manifest，不移动原始数据，也不因论文归档升级实验结论。
+
 日期：2026-10-28。盘点/校验脚本、历史台账、制品清单及模板已落地；候选执行器、受信门禁和晋级控制仍需按路线图实现。当前实例见 [制品目录](ARTIFACT_CATALOG.md)、[日常工作流](DAILY_WORKFLOW.md)。
 
 ## 1. 当前仓库与本次整理

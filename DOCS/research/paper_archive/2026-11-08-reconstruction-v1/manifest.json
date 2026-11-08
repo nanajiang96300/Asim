@@ -1,0 +1,146 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-reconstruction-v1",
+  "capture_commit": "d5903d6f529aa79642715f8fcfce9e90c77a111a",
+  "status": "INTERIM_MODEL_VALIDATION",
+  "snapshots": [
+    {
+      "source": "DOCS/research/audits/NS_SHADOW_EXECUTION_PLAN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/audits/NS_SHADOW_EXECUTION_PLAN.md",
+      "bytes": 15424,
+      "sha256": "8155aba55a79d26affd06893fdf77627e055ffb4f5dc1cad856af355144bc1ea"
+    },
+    {
+      "source": "DOCS/research/FRAMEWORK_PLAN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/FRAMEWORK_PLAN.md",
+      "bytes": 25033,
+      "sha256": "161a8fcec487dabadd08dc6c5d11df8c1629e7218539646e18ff043c565b197e"
+    },
+    {
+      "source": "DOCS/research/VERIFICATION_DESIGN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/VERIFICATION_DESIGN.md",
+      "bytes": 16020,
+      "sha256": "c49ac64369ddde0adfb44b86e38930267c2d9cda0051cf0d4aab1ec80b5e0d1e"
+    },
+    {
+      "source": "DOCS/research/LEGACY_RECONSTRUCTION_REPORT.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/LEGACY_RECONSTRUCTION_REPORT.md",
+      "bytes": 10394,
+      "sha256": "a3e24b52ab2a7b3e3d561bb2ec2c0364e55aaccc9ed30695c09790456900b9c1"
+    },
+    {
+      "source": "DOCS/research/NS_CORRECTED_VALIDATION.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/NS_CORRECTED_VALIDATION.md",
+      "bytes": 6993,
+      "sha256": "6342e3f8bde9b954a4caee706df47933d8f8ff770bee57388b9da1fa279b277b"
+    },
+    {
+      "source": "DOCS/research/RUNTIME_STABILITY.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/RUNTIME_STABILITY.md",
+      "bytes": 8548,
+      "sha256": "8a32a8d7f60ee7e90d631eeb838dc036cc88e18f114175ccdcf152f3d208e40e"
+    },
+    {
+      "source": "DOCS/research/RECONSTRUCTION_GENERALITY.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/RECONSTRUCTION_GENERALITY.md",
+      "bytes": 6573,
+      "sha256": "92cdd2960f1ad6b39a5fbee4237efcaca17f0667bc8fafd3be0f86497c0744a9"
+    },
+    {
+      "source": "DOCS/research/LDL_BRI_MAPPING.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/LDL_BRI_MAPPING.md",
+      "bytes": 5690,
+      "sha256": "bdc1128d384350e6a64beabe4ad6a58f6ad7b7e7008d35fb35932b2f8021ee41"
+    },
+    {
+      "source": "DOCS/research/MERGE_AND_REMAINING_MAPPING.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/MERGE_AND_REMAINING_MAPPING.md",
+      "bytes": 7299,
+      "sha256": "8fab55e26b69579259bcb2e35ea01d6fc81dc5d29e6964ba8eef30d1cfae54c2"
+    },
+    {
+      "source": "DOCS/research/PAPER_REPORT.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/PAPER_REPORT.md",
+      "bytes": 3279,
+      "sha256": "544b3354d8050b41aae508d109070898b4dd1a36a147cf26a3d1822c6e6dbc74"
+    },
+    {
+      "source": "DOCS/research/paper_reports/2026-10-30-interim-v1/REPORT.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/paper_reports/2026-10-30-interim-v1/REPORT.md",
+      "bytes": 4893,
+      "sha256": "530d0a7757a7cdfb8a1362668adf1ca3f8beff9c50383735afaa9d2f374e1d25"
+    },
+    {
+      "source": "DOCS/research/paper_reports/2026-10-30-interim-v1/readiness.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/paper_reports/2026-10-30-interim-v1/readiness.json",
+      "bytes": 548,
+      "sha256": "c2b7cbed484275646f0bf2ac79b763a62c5aa1c824f36617babc80fc237659e0"
+    },
+    {
+      "source": "DOCS/research/paper_reports/2026-10-30-interim-v1/numerical_results.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/paper_reports/2026-10-30-interim-v1/numerical_results.csv",
+      "bytes": 397,
+      "sha256": "c0bbed32a8f3addeac9482d7ffa053da8b3433625cae64a2d2efafce9a43f205"
+    },
+    {
+      "source": "DOCS/research/paper_reports/2026-10-30-interim-v1/evidence_index.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/paper_reports/2026-10-30-interim-v1/evidence_index.json",
+      "bytes": 1494,
+      "sha256": "2b2e6ff60b25a2ef98cd2fa1d9c82e866d3b76d330bf23999d91d377ee0b047b"
+    },
+    {
+      "source": "DOCS/research/paper_reports/2026-10-30-interim-v1/FINAL_REPORT_GUARD.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-reconstruction-v1/snapshots/DOCS/research/paper_reports/2026-10-30-interim-v1/FINAL_REPORT_GUARD.json",
+      "bytes": 284,
+      "sha256": "d03ca560bf94ffe5c1164c9c9f819a266874ab32e09b722811e513bb1c6b4ab8"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/unified_reconstruction/2026-10-30-ns-v1-frozen/run_manifest.json",
+      "bytes": 67445,
+      "sha256": "89dd9ddb802d9ac24c5bc25955c25364879e56350ed06e91a6ba146164dbe415"
+    },
+    {
+      "path": "experiments/precision_campaigns/2026-10-30-fp16-v2-frozen/run_manifest.json",
+      "bytes": 43662,
+      "sha256": "cb065f3bfa678af9e3609e1c540922f1b2c728b4d56ccc46b2c8b491dbf9b392"
+    },
+    {
+      "path": "experiments/reconstruction_campaigns/2026-10-29-framework-regression/run_manifest.json",
+      "bytes": 25920,
+      "sha256": "10d91df76ee8fa23027ed8e17ff8e75d70bcf72e2213cd31d74112b56a6c6a2f"
+    },
+    {
+      "path": "experiments/reconstruction_campaigns/2026-10-29-legacy7-b96-v2-frozen/run_manifest.json",
+      "bytes": 47023,
+      "sha256": "7dd481afbea49295dc325f5baf296fd8e0fbf9e88ea10035aec45fc5875c7384"
+    },
+    {
+      "path": "experiments/runtime_rw/2026-10-30-v4-frozen/run_manifest.json",
+      "bytes": 73423,
+      "sha256": "df1033d8ca24adb93bdad7ea136d2aa513f737e409e39673109da2d940383f69"
+    },
+    {
+      "path": "experiments/generality/2026-11-06-cholesky-v1/run_manifest.json",
+      "bytes": 39636,
+      "sha256": "df3b3fc85da5a58f0614fb20b16015c2fbb67573d752d0b41df364b890d940c0"
+    },
+    {
+      "path": "experiments/operator_mapping/2026-11-06-ldl-bri-v1/run_manifest.json",
+      "bytes": 76725,
+      "sha256": "291426972872effe4b6f488261bebad29d0ab039f09decca47c57c35d716d990"
+    },
+    {
+      "path": "experiments/remaining_mapping/2026-11-08-block-merge-v1/run_manifest.json",
+      "bytes": 109061,
+      "sha256": "8c7c2847a91e9aa80b7630a408fcd437f9063c95fbeb0112a9c09dcfea26b188"
+    }
+  ],
+  "limitations": [
+    "communication/SE/BER not certified",
+    "CDL-B not certified",
+    "hardware certification external",
+    "old legacy failures retained"
+  ]
+}

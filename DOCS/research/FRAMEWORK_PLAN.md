@@ -1,8 +1,12 @@
 # 自动迭代框架实施计划：先建立可信数值执行边界
 
+## 2026-11-08增量架构
+
+当前选K/质量分层及后续依赖见 [QUALITY_DRIVEN_WORKFLOW](QUALITY_DRIVEN_WORKFLOW.md)。写算子前新增独立FP16算法筛选；候选仍先Asim后重建。以下FW历史计划不代表所有模块已完成；当前事实及论文资料从 [固定档案入口](paper_archive/README.md) 检索。
+
 更新：2026-10-29（Asia/Hong_Kong）。计划基点：`29e56bb84695cfc51f44f3b4f5941db1dbd71400`。
 
-状态：FW0–FW2初始库与通用真实Asim同源程序适配已接通；完整view/精度/异步/质量尚未完成，不能整体验收。具体范围见 verification/contracts/README.md；不修改具体算子，不启动搜索。
+2026-10-29阶段状态（历史）：FW0–FW2初始库与通用真实Asim同源程序适配已接通；完整view/精度/异步/质量尚未完成，不能整体验收。具体范围见 verification/contracts/README.md；不修改具体算子，不启动搜索。
 
 负责人本轮调整：先建设“协调器生成策略 → Agent按方向生成候选 → Asim → 重建验证 → 打分反馈”的通用框架。第一批以独立合成小程序验收基础设施，真实NS等算子迁移排在框架验收之后。[验证体系](VERIFICATION_DESIGN.md)的G0–G6及三条数值路径继续有效；[NS实施包](audits/NS_SHADOW_EXECUTION_PLAN.md)保留为后续真实接入说明，不再是当前必须修改NS的前置任务。
 

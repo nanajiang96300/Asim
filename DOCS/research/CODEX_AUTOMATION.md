@@ -1,4 +1,4 @@
-当前实现进度：通用真实Asim→性能筛选→实际Instruction重建已接通，29单元测试与7项真实门禁达到预期；仅结构原型。参见 [FRAMEWORK_PROGRESS](FRAMEWORK_PROGRESS.md)，下文完整协调器/评分/隔离仍待实现。
+当前实现进度（2026-11-08）：七个新入口已有真实Asim与三路径逐操作精度验证；新增离线算法选K与独立留出验收。当前阶段契约以 [QUALITY_DRIVEN_WORKFLOW](QUALITY_DRIVEN_WORKFLOW.md) 为准；正式通信门禁、计划自动交接、完整评分与晋级仍待实现。下文日期版本保留研究演进背景，旧“尚未创建”不代表当前源码状态。
 
 # Codex 平行自动化框架设计
 
@@ -44,19 +44,20 @@
 
 ```mermaid
 flowchart LR
-    Q[任务契约与预算] --> P[规划／均衡搜索资源]
-    P --> A[多个候选 Agent]
+    Q[任务契约与预算] --> P[独立FP16算法筛选与选K]
+    P --> H[独立留出验收与参数冻结]
+    H --> A[多个候选 Agent]
     A --> F[冻结候选与摘要]
     F --> C[静态检查与构建]
-    C --> V[功能验证]
-    V --> S[Asim 与调度检查]
-    S --> E[通信质量验收]
+    C --> S[Asim 与事件及性能预筛]
+    S --> V[实际指令重建 同算法及MMSE比较]
+    V --> E[通信质量验收]
     E --> R[评分与前沿]
     R --> P
     R --> M[复现后晋级／归档]
 ```
 
-每个候选经过 `PROPOSED → GENERATING → FROZEN → BUILDING → VALIDATING → SIMULATING → QUALITY_CHECK → SCORED → CONFIRMED → PROMOTED/ARCHIVED`。所有失败边都有状态：`BUILD_FAILED`、`NUMERIC_FAILED`、`HAZARD_FAILED`、`QUALITY_FAILED`、`UNSUPPORTED`、`INCONCLUSIVE`、`TIMEOUT`、`INFRA_ERROR`、`CANCELLED`。
+目标候选状态机为 `ALGORITHM_SCREENED → GENERATING → FROZEN → BUILDING → SIMULATING → RECONSTRUCTING → QUALITY_CHECK → SCORED → CONFIRMED → PROMOTED/ARCHIVED`；这是目标集成接口，不是完整控制器已实现。独立筛选失败为 `NO_FEASIBLE_K/HOLDOUT_FAILED`。其余失败包括 `BUILD_FAILED`、`NUMERIC_FAILED`、`HAZARD_FAILED`、`QUALITY_FAILED`、`UNSUPPORTED`、`INCONCLUSIVE`、`TIMEOUT`、`INFRA_ERROR`、`CANCELLED`；实际执行器仍使用其已验收的具体状态名。
 
 原始假设保留不变；修复产生新的 attempt，记录 parent_attempt。相同基础设施故障有限重试；数值或调度错误回给 Agent 形成新候选。每个候选最多 2 次修复为首版建议值，启动 campaign 时冻结。
 

@@ -1,0 +1,35 @@
+{
+  "schema": "offline-quality-screen-archive-v1",
+  "implementation_commit": "d5903d6f529aa79642715f8fcfce9e90c77a111a",
+  "artifacts": [
+    {
+      "source": "results/quality_planning/2026-11-08-v1/ns/contract.json",
+      "copy": "experiments/quality_planning/2026-11-08-v1/ns/contract.json",
+      "bytes": 601,
+      "sha256": "75eaf1ab15dd11136dbf60a5e3aa632526eab598c73172e1adf4f12fbe84d49c"
+    },
+    {
+      "source": "results/quality_planning/2026-11-08-v1/ns/result.json",
+      "copy": "experiments/quality_planning/2026-11-08-v1/ns/result.json",
+      "bytes": 40309,
+      "sha256": "e0fca0dff1b275884f5c7ffa8d574ae61c6d6b001218b3b365b30a73bb8750d7"
+    },
+    {
+      "source": "results/quality_planning/2026-11-08-v1/bri/contract.json",
+      "copy": "experiments/quality_planning/2026-11-08-v1/bri/contract.json",
+      "bytes": 986,
+      "sha256": "9cfb7ca247ea8ede6097d0ac65df1a07b2034631615e3c12e6af78b27e5315fc"
+    },
+    {
+      "source": "results/quality_planning/2026-11-08-v1/bri/result.json",
+      "copy": "experiments/quality_planning/2026-11-08-v1/bri/result.json",
+      "bytes": 148682,
+      "sha256": "539751543fe5fc78b831e009c5d4f0c0b82cfa75a25c548a9629f89c0fc2f186"
+    }
+  ],
+  "unit_tests": 159,
+  "operator_modified": false,
+  "asim_rerun": false,
+  "communication_status": "NOT_RUN",
+  "score": null
+}
