@@ -8,7 +8,7 @@
 
 Codex 自动化框架已有受限结构实现：统一任务/计时、Asim先行与共用重建核心、独立NS/Cholesky/LDL/BRI及Block/Merge新入口三路径结构及显式FP16/FP32数值模型验证；真实Core事件的保守模型检查与固定日常入口已验收；硬件级认证由负责人后续上板，不作为软件重建前置；通信与完整晋级仍未完成。`DOCS/research/` 中其余拟议接口不代表已有实现，以最新验收报告为准。保留 Claude 流程；不因迁移而覆盖旧结果或批量清理未跟踪文件。
 
-当前质量驱动架构见 `DOCS/research/QUALITY_DRIVEN_WORKFLOW.md`；写算子前已有独立FP16选K/留出筛选，不能把算法筛选当算子或通信验收，候选仍先Asim后重建。计划自动绑定、正式SE/BER与CDL-B仍待完成。论文资料固定检索 `DOCS/research/paper_archive/README.md`，按版本保存快照和证据，不覆盖旧归档。
+当前质量驱动架构见 `DOCS/research/QUALITY_DRIVEN_WORKFLOW.md`；写算子前已有独立FP16选K/留出筛选，不能把算法筛选当算子或通信验收，候选仍先Asim后重建。受监督的计划冻结/执行绑定已验收，正式SE/BER、CDL-B及无人值守协调器仍待完成。论文资料固定检索 `DOCS/research/paper_archive/README.md`，按版本保存快照和证据，不覆盖旧归档。
 
 修改算子之前阅读 `CLAUDE.md`、`DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md` 和适用的 `.claude/skills/op-flow/SKILL.md`，落实设计、公式、构建、审计与验证要求。Codex 中不能仅声明已调用不可用的 slash command；实际执行并记录对应步骤。
 

@@ -34,6 +34,23 @@
       "manifest": "DOCS/research/paper_archive/2026-11-08-quality-driven-v1/manifest.json",
       "manifest_sha256": "781aa933895d99dea496cf0ce495cc36fd02937a16fc75fff71a5e467e30397f",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-08-quality-handoff-v1",
+      "status": "SUPPORTED_PLAN_HANDOFF_GATES_PASSED",
+      "keywords": [
+        "Q2",
+        "plan-binding",
+        "Asim-first",
+        "numeric-NOT_RUN",
+        "NS",
+        "BRI",
+        "provenance"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-quality-handoff-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-quality-handoff-v1/manifest.json",
+      "manifest_sha256": "0837bd37b4b6369de970975e967bcdc4a24e31ebe84eb83d69b5df07e1cc6782",
+      "supersedes": null
     }
   ]
 }

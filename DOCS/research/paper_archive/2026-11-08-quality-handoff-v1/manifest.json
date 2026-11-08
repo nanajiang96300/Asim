@@ -1,0 +1,51 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-quality-handoff-v1",
+  "capture_commit": "ac25b98767bd9525a94a4b0c7d96b870e00673d4",
+  "status": "SUPPORTED_PLAN_HANDOFF_GATES_PASSED",
+  "snapshots": [
+    {
+      "source": "DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-handoff-v1/QUALITY_DRIVEN_WORKFLOW.md",
+      "bytes": 9381,
+      "sha256": "bdfac681d4cf5118f660442b81dc5043690f0e9be5f679fba5895d8f962c4ed0"
+    },
+    {
+      "source": "verification/planning/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-handoff-v1/snapshots/verification/planning/README.md",
+      "bytes": 5194,
+      "sha256": "26360ff817d89a68d9fa00d2f513ca6f1d390f66551ca0a91635387e4607ccd1"
+    },
+    {
+      "source": "experiments/quality_handoff/2026-11-08-v2/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-handoff-v1/snapshots/experiments/quality_handoff/2026-11-08-v2/README.md",
+      "bytes": 4282,
+      "sha256": "0ad2b76091f808c6a9fc8201b989d07be542e80f3278fcfef2b177a263060870"
+    },
+    {
+      "source": "experiments/quality_handoff/2026-11-08-v2/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-handoff-v1/snapshots/experiments/quality_handoff/2026-11-08-v2/summary.json",
+      "bytes": 12180,
+      "sha256": "e2e381ebeabcb68c3b15e270dffe3abdd04bf52e351ef10cc7909dfb7c56ba32"
+    },
+    {
+      "source": "experiments/quality_handoff/2026-11-08-v2/run_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-quality-handoff-v1/snapshots/experiments/quality_handoff/2026-11-08-v2/run_manifest.json",
+      "bytes": 43871,
+      "sha256": "894f25a83f47d784fe3e9db9d4ebeec62df9ace8483a78a58c69c3dd47e2e9b0"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/quality_handoff/2026-11-08-v2/run_manifest.json",
+      "bytes": 43871,
+      "sha256": "894f25a83f47d784fe3e9db9d4ebeec62df9ace8483a78a58c69c3dd47e2e9b0"
+    }
+  ],
+  "limitations": [
+    "small shape and accepted binary only",
+    "no SE/BER/CDL-B",
+    "no OS isolation or unattended controller",
+    "no hardware claim"
+  ]
+}

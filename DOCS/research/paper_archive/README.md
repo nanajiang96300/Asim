@@ -8,6 +8,7 @@
 |---|---|---|---|
 | 真实指令、影子执行、三路径、FP16、Merge负例、跨算法 | [重建方案与证据索引](2026-11-08-reconstruction-v1/README.md) | 从公式声明到真实指令语义；七个新入口的受限模型验收 | INTERIM_MODEL_VALIDATION |
 | 最小K、NS、BRI、MMSE、SE、质量契约、Agent约束 | [精度驱动架构与实施记录](2026-11-08-quality-driven-v1/README.md) | 算法先筛选、Asim先于候选重建、质量与一致性分离 | DESIGN_AND_OFFLINE_SCREEN |
+| Q2、计划绑定、版本一致、Asim预筛、数值NOT_RUN | [计划交接验收](2026-11-08-quality-handoff-v1/README.md) | 192batch真实Asim与重建、真实性能拒绝、封存失败修正 | SUPPORTED_PLAN_HANDOFF_GATES_PASSED |
 | 最早论文阶段稿与机器完成门禁 | [2026-10-30阶段稿](../paper_reports/2026-10-30-interim-v1/REPORT.md) | 当时NS验证方法和有限数据 | HISTORICAL_INTERIM |
 
 ## 固定归档规则

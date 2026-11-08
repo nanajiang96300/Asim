@@ -1,0 +1,334 @@
+{
+  "schema": "quality-handoff-validation-v1",
+  "status": "SUPPORTED_PLAN_HANDOFF_GATES_PASSED",
+  "implementation_commit": "ac25b98767bd9525a94a4b0c7d96b870e00673d4",
+  "unit_tests": 171,
+  "pinned_runtime_files_verified": 53,
+  "accepted_batch_count": 192,
+  "cases": [
+    {
+      "family": "ns",
+      "case": "case000",
+      "seed": 42,
+      "regularization": 0.1,
+      "iterations": 7,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "plan_quality_status": "PASSED",
+      "finish_cycle": 1344,
+      "batch_size": 24,
+      "worst_task_error": 0.011967513630379602,
+      "worst_algorithm_error": 0.0,
+      "all_fp16_bits_equal": true,
+      "relative_result_path": "results/quality_handoff/2026-11-08-v2/ns/case000/result.json"
+    },
+    {
+      "family": "ns",
+      "case": "case001",
+      "seed": 42,
+      "regularization": 1.0,
+      "iterations": 7,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "plan_quality_status": "PASSED",
+      "finish_cycle": 1344,
+      "batch_size": 24,
+      "worst_task_error": 0.0013515937119883735,
+      "worst_algorithm_error": 0.0,
+      "all_fp16_bits_equal": true,
+      "relative_result_path": "results/quality_handoff/2026-11-08-v2/ns/case001/result.json"
+    },
+    {
+      "family": "ns",
+      "case": "case002",
+      "seed": 123,
+      "regularization": 0.1,
+      "iterations": 7,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "plan_quality_status": "PASSED",
+      "finish_cycle": 1344,
+      "batch_size": 24,
+      "worst_task_error": 0.018011010993969682,
+      "worst_algorithm_error": 0.0,
+      "all_fp16_bits_equal": true,
+      "relative_result_path": "results/quality_handoff/2026-11-08-v2/ns/case002/result.json"
+    },
+    {
+      "family": "ns",
+      "case": "case003",
+      "seed": 123,
+      "regularization": 1.0,
+      "iterations": 7,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "plan_quality_status": "PASSED",
+      "finish_cycle": 1344,
+      "batch_size": 24,
+      "worst_task_error": 0.0011677258668673835,
+      "worst_algorithm_error": 0.0,
+      "all_fp16_bits_equal": true,
+      "relative_result_path": "results/quality_handoff/2026-11-08-v2/ns/case003/result.json"
+    },
+    {
+      "family": "bri",
+      "case": "case000",
+      "seed": 42,
+      "regularization": 0.1,
+      "iterations": 28,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "plan_quality_status": "PASSED",
+      "finish_cycle": 2535,
+      "batch_size": 24,
+      "worst_task_error": 0.01923054021974261,
+      "worst_algorithm_error": 0.0,
+      "all_fp16_bits_equal": true,
+      "relative_result_path": "results/quality_handoff/2026-11-08-v2/bri/case000/result.json"
+    },
+    {
+      "family": "bri",
+      "case": "case001",
+      "seed": 42,
+      "regularization": 1.0,
+      "iterations": 28,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "plan_quality_status": "PASSED",
+      "finish_cycle": 2535,
+      "batch_size": 24,
+      "worst_task_error": 0.0014077405219174687,
+      "worst_algorithm_error": 0.0,
+      "all_fp16_bits_equal": true,
+      "relative_result_path": "results/quality_handoff/2026-11-08-v2/bri/case001/result.json"
+    },
+    {
+      "family": "bri",
+      "case": "case002",
+      "seed": 123,
+      "regularization": 0.1,
+      "iterations": 28,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "plan_quality_status": "PASSED",
+      "finish_cycle": 2535,
+      "batch_size": 24,
+      "worst_task_error": 0.012067085983740747,
+      "worst_algorithm_error": 0.0,
+      "all_fp16_bits_equal": true,
+      "relative_result_path": "results/quality_handoff/2026-11-08-v2/bri/case002/result.json"
+    },
+    {
+      "family": "bri",
+      "case": "case003",
+      "seed": 123,
+      "regularization": 1.0,
+      "iterations": 28,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "plan_quality_status": "PASSED",
+      "finish_cycle": 2535,
+      "batch_size": 24,
+      "worst_task_error": 0.0014983236683776843,
+      "worst_algorithm_error": 0.0,
+      "all_fp16_bits_equal": true,
+      "relative_result_path": "results/quality_handoff/2026-11-08-v2/bri/case003/result.json"
+    }
+  ],
+  "plans": [
+    {
+      "family": "ns",
+      "path": "results/quality_handoff/2026-11-08-v2/ns-plan.json",
+      "sha256": "49414303a496551bf4ab7b947b5aeebaf3966952caac962849ec0b02946b10fc",
+      "operator": "ns_corrected_v1",
+      "algorithm": {
+        "id": "ns_corrected_v1",
+        "iterations": 7,
+        "initialization": "I/trace(real_block_A)"
+      },
+      "jobs": [
+        {
+          "id": "case000",
+          "split": "calibration",
+          "seed": 42,
+          "task": {
+            "batch_size": 24,
+            "nr": 8,
+            "nt": 4,
+            "nrhs": 2,
+            "regularization": 0.1,
+            "channel": "rayleigh",
+            "scope": "mmse_h_y_to_xhat_v1",
+            "profile": "modeled_fp16_fp32_real_block_v1"
+          }
+        },
+        {
+          "id": "case001",
+          "split": "calibration",
+          "seed": 42,
+          "task": {
+            "batch_size": 24,
+            "nr": 8,
+            "nt": 4,
+            "nrhs": 2,
+            "regularization": 1.0,
+            "channel": "rayleigh",
+            "scope": "mmse_h_y_to_xhat_v1",
+            "profile": "modeled_fp16_fp32_real_block_v1"
+          }
+        },
+        {
+          "id": "case002",
+          "split": "holdout",
+          "seed": 123,
+          "task": {
+            "batch_size": 24,
+            "nr": 8,
+            "nt": 4,
+            "nrhs": 2,
+            "regularization": 0.1,
+            "channel": "rayleigh",
+            "scope": "mmse_h_y_to_xhat_v1",
+            "profile": "modeled_fp16_fp32_real_block_v1"
+          }
+        },
+        {
+          "id": "case003",
+          "split": "holdout",
+          "seed": 123,
+          "task": {
+            "batch_size": 24,
+            "nr": 8,
+            "nt": 4,
+            "nrhs": 2,
+            "regularization": 1.0,
+            "channel": "rayleigh",
+            "scope": "mmse_h_y_to_xhat_v1",
+            "profile": "modeled_fp16_fp32_real_block_v1"
+          }
+        }
+      ],
+      "runtime_sha256": "bbb5819878599b5764db320981dfe02228c2e114b379e73dcb664706416f3371",
+      "binding_sources": {
+        "verification/planning/iterations.py": "fdeacc215510083c8b2c14bfa83c8011153a72c369ff32dcbdc0d06400e4dbc9",
+        "verification/planning/__init__.py": "0d2fb4da89f0aa5a2d4df246991daa7eaea2a1b1088ef5c977c28f96b7e5c48f",
+        "verification/contracts/core.py": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116",
+        "verification/contracts/mmse.py": "a9cb85657d509bee340bf875345d1c7a91f80e8322ebbe699a36f838073cfaac",
+        "verification/fixtures/rayleigh.py": "6f94d96c42e4284dd1c923c9a52058dd40b2b4bad4e94b0b0896272b9c248834",
+        "verification/profiles/numeric.py": "965c32d6ac6558570bc3b51f21c764ab4f1c113d30ef8c495a7a791e001ec6e0",
+        "verification/operators/parameters.py": "8f2eefbb59085804ac53e2836e7087f03be7d0c7671a6e4a0b52b392d0b2293e",
+        "verification/reference/ns.py": "59c047939ed2ed58e325c8370ebcd8110e1d921e45e2c51559303c4adb0a15e3",
+        "verification/reference/bri.py": "186a29df95f5220678df970241e86366cacae9611dc78d640599cc24fdb71640",
+        "verification/planning/handoff.py": "4a3ad463f79597314652af63e78bfd57cd35a555710ecec564862aeb7898d6f6",
+        "verification/planning/execution.py": "b33fc861c7dc1efd4b0106e1aa6c4fd51807073766612a5bf074ef12299fcc66",
+        "verification/operators/catalog.py": "542dff1e60ed08bf4db66b48718cd814fca71f39c3fefd5f79818428d0d8584b",
+        "orchestrator/codex_operators.json": "0ccadaedb24eb93044344dd4f0dd4868938972b3b6c5255dbf3ed2800d107a0b"
+      }
+    },
+    {
+      "family": "bri",
+      "path": "results/quality_handoff/2026-11-08-v2/bri-plan.json",
+      "sha256": "85072dac0755f445ece76ff42c756277716ffda6bcaf7ec8c9d6dbefe2c19703",
+      "operator": "bri_explicit_v1",
+      "algorithm": {
+        "id": "bri_explicit_v1",
+        "iterations": 28,
+        "block_size_real": 2,
+        "omega": 0.5,
+        "recurrence": "precomputed_stationary",
+        "initialization": "x0=0"
+      },
+      "jobs": [
+        {
+          "id": "case000",
+          "split": "calibration",
+          "seed": 42,
+          "task": {
+            "batch_size": 24,
+            "nr": 8,
+            "nt": 4,
+            "nrhs": 2,
+            "regularization": 0.1,
+            "channel": "rayleigh",
+            "scope": "mmse_h_y_to_xhat_v1",
+            "profile": "modeled_fp16_fp32_real_block_v1"
+          }
+        },
+        {
+          "id": "case001",
+          "split": "calibration",
+          "seed": 42,
+          "task": {
+            "batch_size": 24,
+            "nr": 8,
+            "nt": 4,
+            "nrhs": 2,
+            "regularization": 1.0,
+            "channel": "rayleigh",
+            "scope": "mmse_h_y_to_xhat_v1",
+            "profile": "modeled_fp16_fp32_real_block_v1"
+          }
+        },
+        {
+          "id": "case002",
+          "split": "holdout",
+          "seed": 123,
+          "task": {
+            "batch_size": 24,
+            "nr": 8,
+            "nt": 4,
+            "nrhs": 2,
+            "regularization": 0.1,
+            "channel": "rayleigh",
+            "scope": "mmse_h_y_to_xhat_v1",
+            "profile": "modeled_fp16_fp32_real_block_v1"
+          }
+        },
+        {
+          "id": "case003",
+          "split": "holdout",
+          "seed": 123,
+          "task": {
+            "batch_size": 24,
+            "nr": 8,
+            "nt": 4,
+            "nrhs": 2,
+            "regularization": 1.0,
+            "channel": "rayleigh",
+            "scope": "mmse_h_y_to_xhat_v1",
+            "profile": "modeled_fp16_fp32_real_block_v1"
+          }
+        }
+      ],
+      "runtime_sha256": "bbb5819878599b5764db320981dfe02228c2e114b379e73dcb664706416f3371",
+      "binding_sources": {
+        "verification/planning/iterations.py": "fdeacc215510083c8b2c14bfa83c8011153a72c369ff32dcbdc0d06400e4dbc9",
+        "verification/planning/__init__.py": "0d2fb4da89f0aa5a2d4df246991daa7eaea2a1b1088ef5c977c28f96b7e5c48f",
+        "verification/contracts/core.py": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116",
+        "verification/contracts/mmse.py": "a9cb85657d509bee340bf875345d1c7a91f80e8322ebbe699a36f838073cfaac",
+        "verification/fixtures/rayleigh.py": "6f94d96c42e4284dd1c923c9a52058dd40b2b4bad4e94b0b0896272b9c248834",
+        "verification/profiles/numeric.py": "965c32d6ac6558570bc3b51f21c764ab4f1c113d30ef8c495a7a791e001ec6e0",
+        "verification/operators/parameters.py": "8f2eefbb59085804ac53e2836e7087f03be7d0c7671a6e4a0b52b392d0b2293e",
+        "verification/reference/ns.py": "59c047939ed2ed58e325c8370ebcd8110e1d921e45e2c51559303c4adb0a15e3",
+        "verification/reference/bri.py": "186a29df95f5220678df970241e86366cacae9611dc78d640599cc24fdb71640",
+        "verification/planning/handoff.py": "4a3ad463f79597314652af63e78bfd57cd35a555710ecec564862aeb7898d6f6",
+        "verification/planning/execution.py": "b33fc861c7dc1efd4b0106e1aa6c4fd51807073766612a5bf074ef12299fcc66",
+        "verification/operators/catalog.py": "542dff1e60ed08bf4db66b48718cd814fca71f39c3fefd5f79818428d0d8584b",
+        "orchestrator/codex_operators.json": "0ccadaedb24eb93044344dd4f0dd4868938972b3b6c5255dbf3ed2800d107a0b"
+      }
+    }
+  ],
+  "negative_checks": {
+    "real_performance_rejection": "SKIPPED_NOT_COMPETITIVE",
+    "numeric_status": "NOT_RUN",
+    "no_numeric_artifacts": true,
+    "remaining_jobs_not_run": true,
+    "wrong_approved_sha": "PREFLIGHT_REJECTED",
+    "asim_failure_numeric_skip": "unit_mock_only"
+  },
+  "initial_attempt": {
+    "path": "results/quality_handoff/2026-11-08-v1/ns/result.json",
+    "status": "RUN_OR_ARCHIVE_FAILED",
+    "cause": "JSON integer-key/tuple normalization; fixed in ac25b987; raw attempt retained"
+  },
+  "communication_status": "NOT_RUN",
+  "score": null,
+  "limitations": [
+    "small Rayleigh fixture B24/Nr8/Nt4/RHS2 only",
+    "accepted binary only; new C++ candidates require new runtime release",
+    "no SE/BER/CDL-B claim",
+    "SHA binding is supervised integrity, not a signature or OS isolation"
+  ]
+}

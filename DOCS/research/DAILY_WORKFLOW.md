@@ -2,7 +2,7 @@
 
 ## 2026-11-08当前入口
 
-新增写算子前的 [质量驱动工作流](QUALITY_DRIVEN_WORKFLOW.md) 和 [选K工具命令](../../verification/planning/README.md)。先冻结校准/留出集、阈值与预算，筛选算法参数，再在独立工作区编写候选。已有日常运行器仍先Asim再重建；选K输出需人工冻结交接，尚未自动绑定到daily入口。正式SE/BER和晋级未完成，不发分数。固定论文资料入口：[paper_archive](paper_archive/README.md)。
+新增写算子前的 [质量驱动工作流](QUALITY_DRIVEN_WORKFLOW.md) 和 [选K工具命令](../../verification/planning/README.md)。先冻结校准/留出集、阈值与预算，筛选算法参数，再在独立工作区编写候选。已有日常运行器仍先Asim再重建；选K结果已能由handoff重新核验并冻结计划，通过独立execution入口执行；旧daily保持原状，新C++候选仍需独立构建和受信runtime发布。正式SE/BER和晋级未完成，不发分数。固定论文资料入口：[paper_archive](paper_archive/README.md)。
 
 生效日期：2026-10-28（Asia/Hong_Kong）。资源基线：2 vCPU、约3.8 GiB内存。
 
