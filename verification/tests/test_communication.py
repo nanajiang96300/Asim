@@ -150,5 +150,15 @@ class CommunicationTests(unittest.TestCase):
             with patch('verification.communication.runner.load_runtime',return_value=runtime):
                 with self.assertRaisesRegex(Invalid,'duplicate channel'): evaluate(c,REPO)
 
+    def test_cannot_cherry_pick_heldout_jobs(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);c=contract();c['cases'][0]['role']='holdout'
+            p=root/'runtime.json';p.write_text('{}');c['runtime']=dict(path=str(p),sha256=sha(p))
+            import platform
+            runtime=dict(python_version=platform.python_version(),numpy_version=np.__version__)
+            g=dict(identity='group',required_holdout_paths=[str(root/'missing/result.json')])
+            with patch('verification.communication.runner.load_runtime',return_value=runtime),patch('verification.communication.runner.load_case',return_value=g):
+                with self.assertRaisesRegex(Invalid,'omitted heldout'): evaluate(c,REPO)
+
 
 if __name__=='__main__': unittest.main()

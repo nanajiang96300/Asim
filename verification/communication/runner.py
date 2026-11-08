@@ -87,6 +87,7 @@ def load_case(item,runtime,repo):
     if receipt['status']!='COMPLETED' or receipt['returncode']!=0 or receipt['binary_sha256']!=sha(repo/runtime['binary']) or receipt['finish_cycle']!=r['asim']['finish_cycle'] or schedule['status']!=r['schedule_status']:
         raise Invalid('actual Asim receipt/schedule/runtime mismatch')
     if json.loads((directory/'models.json').read_text())!=models: raise Invalid('actual Asim model differs from task')
+    required_holdout_paths=[]
     if item['role']=='holdout':
         plan=json.loads((directory.parent/'approved_plan.json').read_text())
         verify_plan(plan,repo)
@@ -97,6 +98,8 @@ def load_case(item,runtime,repo):
             job['split']!='holdout' or job['seed']!=r['seed'] or MMSETask(**job['task']).frozen()!=task.frozen() or
             plan['algorithm']!=params):
             raise Invalid('heldout role/task/parameter plan binding mismatch')
+        required_holdout_paths=[str((directory.parent/j['id']/'result.json').resolve())
+                                for j in plan['jobs'] if j['split']=='holdout']
     data=fixture(task,r['seed'])
     with np.load(directory/'channel.npz',allow_pickle=False) as stored:
         if set(stored.files)!={'H','Y','symbols'} or any(not np.array_equal(stored[k],data[k]) for k in stored.files):
@@ -119,7 +122,8 @@ def load_case(item,runtime,repo):
                    source_result=item['path'],seed=r['seed'])
     # Only diagnostics use the independent task solve. Candidate metrics use actual outputs.
     return dict(identity=digest({'task':task.frozen(),'algorithm':params}),task=task.frozen(),
-                algorithm=params,channels=rows,finish_cycle=receipt['finish_cycle'],sample_role=item['role'])
+                algorithm=params,channels=rows,finish_cycle=receipt['finish_cycle'],sample_role=item['role'],
+                required_holdout_paths=required_holdout_paths)
 
 
 def evaluate(contract,repo):
@@ -131,8 +135,11 @@ def evaluate(contract,repo):
     if runtime['python_version']!=platform.python_version() or runtime['numpy_version']!=np.__version__:
         raise Invalid('communication/runtime toolchain mismatch')
     groups={}
+    approved_holdouts={str((repo/c['path']).resolve()) for c in contract['cases'] if c['role']=='holdout'}
     for item in contract['cases']:
         g=load_case(item,runtime,repo);key=g['identity']
+        if not set(g['required_holdout_paths'])<=approved_holdouts:
+            raise Invalid('communication contract omitted heldout jobs from the approved plan')
         if key not in groups: groups[key]={k:v for k,v in g.items() if k!='channels'} | dict(channels=[])
         if groups[key]['sample_role']!=g['sample_role']: raise Invalid('cannot mix historical and heldout samples')
         seen={r['channel_sha256'] for r in groups[key]['channels']}
