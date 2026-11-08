@@ -39,9 +39,20 @@ def audit(root):
                         dev=float(rel(actual,expected).max())
                         if not math.isfinite(dev) or dev>1e-8:raise ValueError('independent polynomial mismatch '+key+': '+str(dev))
                         records.append(dict(snapshot=key,worst_relative_difference=dev,individual_matrices=N))
+    comparison=[]
+    for lam in r['regularizations']:
+        A=H.conj().transpose(0,2,1)@H+lam*I
+        for domain in ('complex_block2','contiguous_real_block2'):
+            if domain=='complex_block2':a=A
+            else:a=np.concatenate((np.concatenate((A.real,-A.imag),axis=2),np.concatenate((A.imag,A.real),axis=2)),axis=1)
+            p=np.zeros_like(a)
+            for j in range(0,a.shape[-1],2):p[:,j:j+2,j:j+2]=np.linalg.inv(a[:,j:j+2,j:j+2])
+            lp=np.linalg.cholesky(p);C=lp.conj().transpose(0,2,1)@a@lp;eigen=np.linalg.eigvalsh(C)
+            rho=np.max(abs(1-.5*eigen),axis=1)
+            comparison.append(dict(regularization=lam,preconditioner=domain,channels=N,unstable_half_channels=int(sum(rho>=1)),max_spectral_radius=float(rho.max()),scope='same H, FP64 nominal spectrum, omega=0.5; not old instruction replay'))
     rows=list(__import__('csv').DictReader((root/'curves.csv').open()))
     if len(rows)!=108*256 or len({(a['regularization'],a['complex_block'],a['precision'],a['method'],a['K']) for a in rows})!=len(rows):raise ValueError('incomplete curve grid')
-    return dict(status='INDEPENDENT_BRI_SPECTRAL_AUDIT_PASSED',snapshots=len(records),individual_inverse_matrices=sum(r['individual_matrices'] for r in records),max_relative_difference=max(r['worst_relative_difference'] for r in records),method='separate block solve, Hermitian eigendecomposition, closed-form stationary/Chebyshev polynomial; no iterative solver imported',scope='FP64 algebraic correctness only; not finite-precision or instruction certification',records=records)
+    return dict(status='INDEPENDENT_BRI_SPECTRAL_AUDIT_PASSED',preconditioner_comparison=comparison,snapshots=len(records),individual_inverse_matrices=sum(r['individual_matrices'] for r in records),max_relative_difference=max(r['worst_relative_difference'] for r in records),method='separate block solve, Hermitian eigendecomposition, closed-form stationary/Chebyshev polynomial; no iterative solver imported',scope='FP64 algebraic correctness only; not finite-precision or instruction certification',records=records)
 
 
 def main():
