@@ -34,6 +34,7 @@ class ScalarProbeOp : public Operation {
 void ScalarCostProbeModel::initialize_model(std::vector<std::unique_ptr<Tensor>>&) {
  uint32_t width=_model_config.at("width");if((width!=1 && width!=16) || _config.precision!=2)throw std::runtime_error("probe supports precision2 and width1/16 only");
  std::map<std::string,std::string> attrs;auto op=std::make_unique<ScalarProbeOp>(_config,this,width,attrs);
- for(bool input:{true,false}){auto tensor=std::make_unique<Tensor>(get_root_node_id(),name_gen(get_name(),input?"input":"output"),std::vector<uint32_t>{1,32},_config.precision,input);auto id=tensor->get_id();if(input)tensor->set_produced();add_tensor(std::move(tensor));if(input)op->add_input(id);else op->add_output(id);}
+ std::vector<uint32_t> shape{1,32};
+ for(bool input:{true,false}){auto tensor=std::make_unique<Tensor>(get_root_node_id(),name_gen(get_name(),input?"input":"output"),shape,_config.precision,input);auto id=tensor->get_id();if(input)tensor->set_produced();add_tensor(std::move(tensor));if(input)op->add_input(id);else op->add_output(id);}
  op->initialize_tiles(_mapping_table);_executable_layer.push_back(op.get());_operation_map[op->get_id()]=std::move(op);
 }
