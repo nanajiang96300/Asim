@@ -1,0 +1,44 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-fp16-first-v1",
+  "capture_commit": "6ad8d786c5d3b79d3a56c17d50958cae288eb9e8",
+  "status": "REFERENCE_DIAGNOSTIC_AND_FP16_FIRST_DESIGN",
+  "snapshots": [
+    {
+      "source": "DOCS/research/FP16_FIRST_PLAN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-first-v1/snapshots/DOCS/research/FP16_FIRST_PLAN.md",
+      "bytes": 5007,
+      "sha256": "218799010452f74bb0c0c2f3745db752cdc233e7f7fb70355a7bf94f7ff68236"
+    },
+    {
+      "source": "DOCS/research/BRI_PRINCIPLES.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-first-v1/snapshots/DOCS/research/BRI_PRINCIPLES.md",
+      "bytes": 6174,
+      "sha256": "dc1fc0df4646f57e1dcf0f2a5fd5868f47eaab421a06d6d9cb8ac8609f935640"
+    },
+    {
+      "source": "experiments/fp16_constraints/2026-11-08-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-first-v1/snapshots/experiments/fp16_constraints/2026-11-08-v1/README.md",
+      "bytes": 1772,
+      "sha256": "e074777e5566fc822d24fb9d3ebe958d96925603037a8355ec1ab78af6fb4329"
+    },
+    {
+      "source": "experiments/fp16_constraints/2026-11-08-v1/result.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-first-v1/snapshots/experiments/fp16_constraints/2026-11-08-v1/result.json",
+      "bytes": 3381,
+      "sha256": "84faa277854082fcc55b1beae91762547005b94ec4f5088e4ab6b2e32bfa7c9c"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/fp16_constraints/2026-11-08-v1/run_manifest.json",
+      "bytes": 515,
+      "sha256": "cc2e899ae2ab0b99a43a3cc8009288174d48acddd1d54da791f3eba3df8208a7"
+    },
+    {
+      "path": "experiments/fp16_constraints/2026-11-08-v1/unit-tests.log",
+      "bytes": 327,
+      "sha256": "334fdbcf9bef2bf67048674f3878512f8bc7288af25063063d208254d09bb891"
+    }
+  ]
+}

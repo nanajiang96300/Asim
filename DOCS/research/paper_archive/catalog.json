@@ -155,6 +155,22 @@
       "manifest": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/manifest.json",
       "manifest_sha256": "368140b81ea839a208ebf4e740763fce1be4a67393c00028b8d5a05b74e72c98",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-08-fp16-first-v1",
+      "status": "REFERENCE_DIAGNOSTIC_AND_FP16_FIRST_DESIGN",
+      "keywords": [
+        "FP16-first",
+        "no-Asim-change",
+        "Gram-quantization",
+        "reference-only",
+        "implicit-Gram",
+        "BRI"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-fp16-first-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-fp16-first-v1/manifest.json",
+      "manifest_sha256": "f093e65e5e9770ed735cf2a2dcd35d4dc148e56829ebfd4c3d93f759c4fbeffe",
+      "supersedes": null
     }
   ]
 }

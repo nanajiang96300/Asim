@@ -1,0 +1,74 @@
+{
+  "schema": "fp16-information-diagnostic-v1",
+  "status": "REFERENCE_DIAGNOSTIC_COMPLETE",
+  "candidate_verified": false,
+  "score": null,
+  "source_result": {
+    "path": "results/bri_principles/2026-11-08-v4/result.json",
+    "sha256": "d59eec671dd23e5d9214de996a296704b696b38eb20ac657082bf7f425086c61"
+  },
+  "inputs": [
+    {
+      "seed": 48001,
+      "path": "results/bri_principles/2026-11-08-v4/cdlb-48001.npz",
+      "bytes": 36136720,
+      "sha256": "d1eb889990af147e8730eb3be666376efa277aac0cb305b4fd6f4b7f3cd023d8",
+      "conversion_max_abs_error": 9.155133597044475e-16
+    },
+    {
+      "seed": 48002,
+      "path": "results/bri_principles/2026-11-08-v4/cdlb-48002.npz",
+      "bytes": 36135958,
+      "sha256": "df8c661795417f9077c86323d2dfa314c40962c5898b47d70fd6f6224189fa5f",
+      "conversion_max_abs_error": 1.3368855554576669e-15
+    }
+  ],
+  "payload": {
+    "path": "results/bri_principles/2026-11-08-v4/payload.npz",
+    "sha256": "5d9c7ea3c2262406501ba58dd59b108fc82ea83a443d77256acceba09852a015"
+  },
+  "sources": {
+    "verification/studies/fp16_constraints.py": "a6285976d28d003636cb6899e802197f058a480c13210236aa2414b33f0fd7dc",
+    "verification/studies/bri_math.py": "9c297556ad60cdc6f82a9d754c2533f4a454c8bc6169bd4fc3e5330c587d0851",
+    "verification/contracts/core.py": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116",
+    "verification/reconstruction/daily.py": "72416ecd5344f8f19ff70247d545f1aa679ad3c578542dcaae8391a1d564187f"
+  },
+  "python": "3.12.3",
+  "numpy": "2.5.0",
+  "source_commit": "6ad8d786c5d3b79d3a56c17d50958cae288eb9e8",
+  "rows": [
+    {
+      "regularization": 1.0,
+      "channels": 192,
+      "reference_only": true,
+      "candidate_verified": false,
+      "output_inverse_fp16_storage_error_max": 0.0002387456632808115,
+      "input_fp16_then_fp64_oracle_inverse_error_max": 5.663812990340744e-05,
+      "input_fp16_then_fp64_oracle_task_error_max": 0.0004657572619938732,
+      "stored_gram_fp16_then_fp64_oracle_inverse_error_max": 0.0007634472757903352,
+      "note": "FP64 solve used only to diagnose information loss; all oracle paths are forbidden as candidate implementations; no cycles or acceptance"
+    },
+    {
+      "regularization": 0.1,
+      "channels": 192,
+      "reference_only": true,
+      "candidate_verified": false,
+      "output_inverse_fp16_storage_error_max": 0.0002450503098885997,
+      "input_fp16_then_fp64_oracle_inverse_error_max": 0.0002793423422954014,
+      "input_fp16_then_fp64_oracle_task_error_max": 0.0007902950182012177,
+      "stored_gram_fp16_then_fp64_oracle_inverse_error_max": 0.005533063750477911,
+      "note": "FP64 solve used only to diagnose information loss; all oracle paths are forbidden as candidate implementations; no cycles or acceptance"
+    },
+    {
+      "regularization": 0.01,
+      "channels": 192,
+      "reference_only": true,
+      "candidate_verified": false,
+      "output_inverse_fp16_storage_error_max": 0.00024300263585508866,
+      "input_fp16_then_fp64_oracle_inverse_error_max": 0.0005355642897742133,
+      "input_fp16_then_fp64_oracle_task_error_max": 0.0015711414071862564,
+      "stored_gram_fp16_then_fp64_oracle_inverse_error_max": 0.04973891013282092,
+      "note": "FP64 solve used only to diagnose information loss; all oracle paths are forbidden as candidate implementations; no cycles or acceptance"
+    }
+  ]
+}

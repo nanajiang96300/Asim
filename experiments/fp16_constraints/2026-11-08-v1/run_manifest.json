@@ -1,0 +1,17 @@
+{
+  "schema": "fp16-reference-diagnostic-manifest-v1",
+  "status": "REFERENCE_DIAGNOSTIC_COMPLETE",
+  "unit_tests": 227,
+  "artifacts": [
+    {
+      "path": "results/fp16_constraints/2026-11-08-v1/result.json",
+      "bytes": 3381,
+      "sha256": "84faa277854082fcc55b1beae91762547005b94ec4f5088e4ab6b2e32bfa7c9c"
+    },
+    {
+      "path": "results/fp16_constraints/2026-11-08-v1/unit-tests.log",
+      "bytes": 327,
+      "sha256": "334fdbcf9bef2bf67048674f3878512f8bc7288af25063063d208254d09bb891"
+    }
+  ]
+}

@@ -15,6 +15,7 @@
 | Q3c、完整未编码QPSK、BER/SER、真实重放、独立判决 | [完整QPSK验收](2026-11-08-qpsk-full-v1/README.md) | 七新入口三SNR、212测试与412万bit独立复核；有限范围通过 | UNCODED_QPSK_SUITE_CHECKED |
 | CDL-B、K曲线、精度平台、BRI谱半径、清理 | [信道与迭代研究](2026-11-08-cdlb-iteration-v1/README.md) | 21组6通过/1数值失败/14拒绝；真实失败及FP16/FP64曲线 | CDLB_QUALITY_NOT_VERIFIED |
 | BRI原理、P/T、逆矩阵、Chebyshev谱界、K/精度 | [原理与CDL-B仿真](2026-11-08-bri-principles-v1/README.md) | 正确公式与独立谱审计；有限精度/模型拒绝保留，非算子通过 | BRI_PRINCIPLES_CHECKED_WITH_PRECISION_LIMITATIONS |
+| FP16优先、不改Asim、Gram量化、参考误差拆分 | [FP16约束修订](2026-11-08-fp16-first-v1/README.md) | 只验证误差来源，不签发新候选；混合精度后置 | REFERENCE_DIAGNOSTIC_AND_FP16_FIRST_DESIGN |
 | 最早论文阶段稿与机器完成门禁 | [2026-10-30阶段稿](../paper_reports/2026-10-30-interim-v1/REPORT.md) | 当时NS验证方法和有限数据 | HISTORICAL_INTERIM |
 
 ## 固定归档规则
