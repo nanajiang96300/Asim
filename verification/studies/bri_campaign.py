@@ -12,6 +12,7 @@ FILES=['verification/studies/bri_math.py','verification/studies/bri_campaign.py'
 def sources(repo):return {p:sha(repo/p) for p in FILES}
 
 def guard(c,repo):
+    if sha(repo/c['chapter']['path'])!=c['chapter']['sha256']:raise Invalid('chapter evidence changed')
     if c['schema']!='bri-principles-v1' or c['sources']!=sources(repo) or c['channel_spec']!=SPEC or c['toolchain']!=provenance():raise Invalid('frozen math/channel/toolchain changed')
     if c['batch']!=96 or c['channel_seeds']!=[48001,48002] or c['complex_blocks']!=[2,4,8] or c['regularizations']!=[1.,.1,.01] or c['steps']!=256:raise Invalid('unapproved study extent')
     if c['max_scenarios']!=108 or c['max_wall_seconds']!=3600:raise Invalid('unapproved study budget')
@@ -62,6 +63,7 @@ def run(c,repo,out):
                     scenarios+=1
                     if scenarios>c['max_scenarios'] or time.perf_counter()-start>c['max_wall_seconds']:raise Invalid('study resource budget exceeded')
                     for k,X in iterate(A,P,ev,c['steps'],precision,method,form):
+                        if time.perf_counter()-start>c['max_wall_seconds']:raise Invalid('study wall budget exceeded')
                         r=dict(regularization=lam,complex_block=block,precision=precision,method=name,K=k,channels=N,**measure(X,Atrue,Xtrue,A,Xmodel,rhs,truth,model_rhs,precision,bits));rows.append(r)
                         if k in (8,16,32,64,128,256):saved[f'l{lam}-b{block}-{precision}-{name}-k{k}']=X
                     print(json.dumps({k:rows[-1][k] for k in ('regularization','complex_block','precision','method','K','inverse_error_max','task_error_max','failed_channels','passed')}),flush=True)
