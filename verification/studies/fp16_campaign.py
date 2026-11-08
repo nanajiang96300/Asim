@@ -43,14 +43,17 @@ def execute(c,repo,out):
         inv=block(np.linalg.solve(A,np.broadcast_to(np.eye(16),A.shape)));truth=block(np.linalg.solve(A,Ht@Y))
         e=Primitives();hh=e.const(block(H));yy=e.const(block(Y));rhs=e.op('GEMM',hh.transpose(0,2,1),yy)
         rows=[];snap={};first=None;begin=time.perf_counter();counts=None;failure=None
+        run_steps=s.get('evaluation_K',c['steps'])
+        if type(run_steps) is not int or not 1<=run_steps<=c['steps']:raise Invalid('frozen evaluation K')
         try:
-            for k,X,counts in run(H,Y,lam,s['block'],s['kind'],c['steps'],tuple(s['bounds']),**{k:s[k] for k in ('left','restart','compensated','momentum','hermitian') if k in s}):
+            for k,X,counts in run(H,Y,lam,s['block'],s['kind'],run_steps,tuple(s['bounds']),**{k:s[k] for k in ('left','restart','compensated','momentum','hermitian') if k in s}):
                 if time.perf_counter()-start>c['max_wall_seconds']:raise Invalid('wall budget exceeded')
                 m=metrics(X,truth,inv,hh,rhs,s['kind']);rows.append(dict(K=k,**m))
                 if first is None and m['passed']:first=k;snap['first_passing']=X.copy()
                 if k in (16,32,64,128,256):snap['K'+str(k)]=X.copy()
                 if k%32==0:(out/'live.json').write_text(json.dumps(dict(case=cid,K=k,first_passing=first,latest=m),indent=2)+'\n')
         except (Invalid,FloatingPointError,ValueError,OverflowError) as exc:failure=type(exc).__name__+': '+str(exc)
+        if rows:snap['final']=X.copy()
         np.savez_compressed(out/f'case{cid:02d}.npz',**snap)
         result=dict(case=cid,**s,channels=N,first_passing_K=first,rows=rows,failure=failure,primitive_work=counts,seconds=time.perf_counter()-begin)
         results.append(result);(out/f'case{cid:02d}.json').write_text(json.dumps(result,indent=2)+'\n');(out/'progress.json').write_text(json.dumps(results,indent=2)+'\n')
