@@ -120,15 +120,21 @@ SE 对部分输出缩放不敏感，不能证明输出契约正确；MMSE 误差
 | Q2 已完成受监督版 | 计划与已验收候选运行器的受信交接 | 171测试；NS/BRI真实Asim 8场景/192batch；改K/精度/输入/版本拒绝；真实性能预筛不通过数值NOT_RUN |
 | Q3a 已完成受限版 | 真实输出的瑞利/QPSK BER/EVM与联合超限置信界 | 187测试；七入口历史只诊断；新NS batch96双噪声全部留出通过；必需SE拒绝 |
 | Q3b 有限样本试点已实现 | 实际I/Q响应、复线性/预测/RHS检查、高斯线性SE代理 | 200测试；七新入口及NS留出共375次实际重放、独立参考位一致；未通过响应模型不输出代理 |
-| Q3c 待实施 | 扩大H/输入域和失配统计；其他算法新留出；有限调制/GMI/BLER | 不把有限探针当全域线性或SE保证；明确编码/调制口径和总体质量门禁 |
+| Q3c 未编码瑞利版已完成 | 七新入口三SNR实际重放、BER/SER/EVM、独立判决 | 212测试、21组通过；CDL-B/K曲线见CHANNEL_DOMAINS；不要求编码 |
 | Q4 | 前缀状态复用与预算执行 | 与当前独立模型各 K 逐位一致，测量时间/内存收益；不改变选择结果 |
-| Q5 | CDL-B 及正式评分/晋级 | 真正模型与参数可追溯、同门禁通过；缺证 score=null；干净复现通过后晋级 |
+| Q5 诊断已执行、验收未过 | 真CDL-B输入域/K曲线；后续修正候选和正式晋级 | 21组6通过/1数值失败/14拒绝；见CHANNEL_DOMAINS；score=null |
 
 Q2证据见 [计划交接验收](../../experiments/quality_handoff/2026-11-08-v2/README.md)，入口见 [planning/README](../../verification/planning/README.md)。
-Q3a/Q3b证据见 [通信验收](COMMUNICATION_VERIFICATION.md)及[响应代理协议](../../verification/communication/RESPONSE_PROBES.md)；下一优先级Q3c，Q4可独立推进。硬件级认证由负责人上板，继续作为外部研究证据。
+Q3a/Q3b证据见 [通信验收](COMMUNICATION_VERIFICATION.md)及[响应代理协议](../../verification/communication/RESPONSE_PROBES.md)；下一优先级CDL-B与K/精度研究，编码不是求逆算子验证前置，Q4可独立推进。硬件级认证由负责人上板，继续作为外部研究证据。
 
 ## Q3c完整未编码QPSK及下一步
 
 2026-11-08 Q3c当前：完成声明范围内未编码QPSK完整bit-to-bit链路。七新入口×Es/N0 0/10/20dB共21配置，14次新Asim、168帧、16,128次batch重放通过；212测试与独立4,128,768bit复核通过，全部同算法精度参考位一致，最大MMSE任务误差0.2744%。每组192独立H，全实验配对复用同192个H。该试验通过相对BER/SER/raw EVM门禁，不签发FEC/BLER、CDL-B、总体SE或最终晋级。见[验收报告](../../experiments/qpsk_full/2026-11-08-v1/README.md)及[可执行协议](../../verification/communication/QPSK_LINK.md)。
 
 新增SER及有限四帧块门禁；置信统计单位为H，跨算法/SNR配对数据不扩充独立H。当前K沿用冻结正确性基线。下一阶段先冻结业务相对/绝对质量及采样预算，再用完整链路开展校准集选K、全新独立留出；扩大维度和CDL-B分版本执行，失败停止，不在留出失败后自行加K。
+
+## 当前范围修订：编码后置
+
+负责人确认本阶段以求逆/均衡精度为目标，编码不作为前置或必须补齐的门禁。优先执行真实CDL-B输入域和K/精度曲线，见[信道与精度协议](CHANNEL_DOMAINS.md)。既有历史段落中的BLER/FEC为可选未来任务，不影响声明范围的算子数值验收。
+
+2026-11-08 CDL-B/K曲线更新：编码不是求逆/均衡精度的前置。新增真正Sionna CDL-B静态频域输入，21组中6组通过、BRI 1组数值失败、14组象限/溢出拒绝，整体未通过；独立复核7个完整组688,128bit。FP16/FP64的K—误差曲线已归档，显示NS精度平台及固定BRI的收敛问题；不能只加K。216测试通过，仅清理约3.02GB可再下载缓存，旧研究原件保留。见[报告与图](../../experiments/channel_validation/2026-11-08-v1/README.md)及[输入域/精度协议](CHANNEL_DOMAINS.md)。

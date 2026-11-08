@@ -13,6 +13,7 @@
 | Q3b初始v1、I/Q响应、共轭分量、SE代理 | [初始响应试点](2026-11-08-response-proxy-v1/README.md) | 历史原件保留；v2进一步补强启动前评估器绑定 | HISTORICAL_BOUNDED_PROXY |
 | Q3b当前v2、冻结评估器、I/Q响应、线性SE代理 | [响应与代理v2验收](2026-11-08-response-proxy-v2/README.md) | 200测试；375次正例及100次负例重跑，不是总体SE认证 | BOUNDED_RESPONSE_PROXY_GATES_PASSED |
 | Q3c、完整未编码QPSK、BER/SER、真实重放、独立判决 | [完整QPSK验收](2026-11-08-qpsk-full-v1/README.md) | 七新入口三SNR、212测试与412万bit独立复核；有限范围通过 | UNCODED_QPSK_SUITE_CHECKED |
+| CDL-B、K曲线、精度平台、BRI谱半径、清理 | [信道与迭代研究](2026-11-08-cdlb-iteration-v1/README.md) | 21组6通过/1数值失败/14拒绝；真实失败及FP16/FP64曲线 | CDLB_QUALITY_NOT_VERIFIED |
 | 最早论文阶段稿与机器完成门禁 | [2026-10-30阶段稿](../paper_reports/2026-10-30-interim-v1/REPORT.md) | 当时NS验证方法和有限数据 | HISTORICAL_INTERIM |
 
 ## 固定归档规则

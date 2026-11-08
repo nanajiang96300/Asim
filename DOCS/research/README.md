@@ -1,5 +1,8 @@
 # Asim 研究与 Codex 自动化计划
 
+2026-11-08 CDL-B/K曲线更新：编码不是求逆/均衡精度的前置。新增真正Sionna CDL-B静态频域输入，21组中6组通过、BRI 1组数值失败、14组象限/溢出拒绝，整体未通过；独立复核7个完整组688,128bit。FP16/FP64的K—误差曲线已归档，显示NS精度平台及固定BRI的收敛问题；不能只加K。216测试通过，仅清理约3.02GB可再下载缓存，旧研究原件保留。见[报告与图](../../experiments/channel_validation/2026-11-08-v1/README.md)及[输入域/精度协议](CHANNEL_DOMAINS.md)。
+
+
 更新：2026-11-08（Asia/Hong_Kong）
 
 **当前架构入口：[精度驱动选K与算子工作流](QUALITY_DRIVEN_WORKFLOW.md)。论文资料固定检索：[paper_archive/README.md](paper_archive/README.md)。**

@@ -1,5 +1,8 @@
 # 通信质量验证：Q3a与受限Q3b响应代理
 
+2026-11-08 CDL-B/K曲线更新：编码不是求逆/均衡精度的前置。新增真正Sionna CDL-B静态频域输入，21组中6组通过、BRI 1组数值失败、14组象限/溢出拒绝，整体未通过；独立复核7个完整组688,128bit。FP16/FP64的K—误差曲线已归档，显示NS精度平台及固定BRI的收敛问题；不能只加K。216测试通过，仅清理约3.02GB可再下载缓存，旧研究原件保留。见[报告与图](../../experiments/channel_validation/2026-11-08-v1/README.md)及[输入域/精度协议](CHANNEL_DOMAINS.md)。
+
+
 2026-11-08 Q3c当前：完成声明范围内未编码QPSK完整bit-to-bit链路。七新入口×Es/N0 0/10/20dB共21配置，14次新Asim、168帧、16,128次batch重放通过；212测试与独立4,128,768bit复核通过，全部同算法精度参考位一致，最大MMSE任务误差0.2744%。每组192独立H，全实验配对复用同192个H。该试验通过相对BER/SER/raw EVM门禁，不签发FEC/BLER、CDL-B、总体SE或最终晋级。见[验收报告](../../experiments/qpsk_full/2026-11-08-v1/README.md)及[可执行协议](../../verification/communication/QPSK_LINK.md)。
 
 

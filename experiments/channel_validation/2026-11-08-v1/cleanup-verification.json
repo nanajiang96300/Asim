@@ -1,0 +1,16 @@
+{
+  "schema": "cache-cleanup-verification-v2",
+  "original_inventory_sha256": "6cbae1929bb0d1af9fd9a8aee9b471443c05d8286a383c96ccde3b99aae3b2d5",
+  "deleted_file_count": 672,
+  "deleted_logical_bytes": 3017934716,
+  "retained_entries": [
+    {
+      "path": "/home/nanajiang/.cache/pip/selfcheck/f4db03bfb69d90e71f390228a3164d48c8d9763c54255744dc23fee5",
+      "bytes": 108,
+      "sha256": "b63678ad74faa626cb1c2eafce86df951ad6f70eb557de66ea5af85e19f8168d",
+      "reason": "re-downloadable pip cache; not installed package or research evidence"
+    }
+  ],
+  "correction": "Original deleted array was pre-purge inventory; pip purge leaves selfcheck metadata. Original retained, this record reports actual missing files.",
+  "research_files_deleted": 0
+}

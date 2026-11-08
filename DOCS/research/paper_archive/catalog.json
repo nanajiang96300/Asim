@@ -119,6 +119,24 @@
       "manifest": "DOCS/research/paper_archive/2026-11-08-qpsk-full-v1/manifest.json",
       "manifest_sha256": "a16d0f280a6c76e8e349e488495a5be9df987aefd0debccc0df9010ee16c70f6",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-08-cdlb-iteration-v1",
+      "status": "CDLB_QUALITY_NOT_VERIFIED",
+      "keywords": [
+        "CDL-B",
+        "K",
+        "iteration",
+        "FP16",
+        "precision-floor",
+        "spectral-radius",
+        "expected-rejection",
+        "cache-cleanup"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/manifest.json",
+      "manifest_sha256": "a0092b3de462ec0c021a33577de62f3c5d24ac5b9f3f79c24a285c6456764682",
+      "supersedes": null
     }
   ]
 }

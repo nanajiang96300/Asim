@@ -1,5 +1,8 @@
 # 验证体系：任务契约、可执行程序与独立参考
 
+2026-11-08 CDL-B/K曲线更新：编码不是求逆/均衡精度的前置。新增真正Sionna CDL-B静态频域输入，21组中6组通过、BRI 1组数值失败、14组象限/溢出拒绝，整体未通过；独立复核7个完整组688,128bit。FP16/FP64的K—误差曲线已归档，显示NS精度平台及固定BRI的收敛问题；不能只加K。216测试通过，仅清理约3.02GB可再下载缓存，旧研究原件保留。见[报告与图](../../experiments/channel_validation/2026-11-08-v1/README.md)及[输入域/精度协议](CHANNEL_DOMAINS.md)。
+
+
 2026-11-08 Q3b：在成功的原Asim/数值结果之后，新增固定实际指令的I/Q输入响应探针，200测试、375次正例实际重放与独立参考位一致。通过有限复线性/预测/RHS检查才计算Gaussian线性SE代理，不改变原周期或签发总体SE保证。协议/边界见 [RESPONSE_PROBES](../../verification/communication/RESPONSE_PROBES.md)，Q3a真实BER/EVM门禁仍保留。
 
 2026-11-08 Q3a：已有实际重建输出的受限瑞利/QPSK相对BER/原始软符号EVM与留出置信门禁，187测试通过。它不替代独立算法一致性，也不推断尚未支持的SE。历史数据只诊断、校准集不签发通信通过，联合超限使用独立H统计；具体规范和证据见 [COMMUNICATION_VERIFICATION](COMMUNICATION_VERIFICATION.md)。以下日期段保留阶段历史。

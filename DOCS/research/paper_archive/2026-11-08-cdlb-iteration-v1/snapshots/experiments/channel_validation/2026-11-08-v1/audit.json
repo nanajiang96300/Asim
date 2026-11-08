@@ -1,0 +1,8 @@
+{
+  "status": "INDEPENDENT_QPSK_AUDIT_PASSED",
+  "groups": 7,
+  "frame_records": 28,
+  "bits_recounted": 688128,
+  "method": "minimum-distance demap, recomputed FP64 MMSE, exact bit/symbol/confusion/per-H EVM counts; independent SciPy CP intervals",
+  "scope": "all complete groups, including numeric quality failures; rejected groups excluded explicitly"
+}

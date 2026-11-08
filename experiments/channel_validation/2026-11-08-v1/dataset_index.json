@@ -1,0 +1,38 @@
+[
+  {
+    "seed": 45001,
+    "split": "curve",
+    "seconds": 7.668064711993793,
+    "cdlb_path": "results/channel_validation/2026-11-08-v1/dataset/cdlb-45001.npz",
+    "cdlb_sha256": "8c8d247e7ee4a4073de618b5bef3de006a7205e41ce01c7a3ade407f4ccd54fb",
+    "rayleigh_path": "results/channel_validation/2026-11-08-v1/dataset/rayleigh-45001.npz",
+    "rayleigh_sha256": "2182acd50706fdb8b366675632049607be4a2b28314706742a72405abed452c1",
+    "cdlb_gram_min_eigenvalue": 2.240869541747515e-05,
+    "cdlb_H_condition_max": 591.4109843474541,
+    "conversion_max_abs_error": 9.155133597044475e-16
+  },
+  {
+    "seed": 44001,
+    "split": "reconstruction_holdout",
+    "seconds": 4.425928130018292,
+    "cdlb_path": "results/channel_validation/2026-11-08-v1/dataset/cdlb-44001.npz",
+    "cdlb_sha256": "b126ae265751166b9331e18e149ae27dd0db176e29467e1cbf41dfae5b6cf460",
+    "rayleigh_path": "results/channel_validation/2026-11-08-v1/dataset/rayleigh-44001.npz",
+    "rayleigh_sha256": "f6b933aa9e560773ee7e94cb856c9bf7e7a04944e206d7a0f43ad699f383627c",
+    "cdlb_gram_min_eigenvalue": 2.3049401900748222e-05,
+    "cdlb_H_condition_max": 506.15918830820806,
+    "conversion_max_abs_error": 9.155133597044475e-16
+  },
+  {
+    "seed": 44002,
+    "split": "reconstruction_holdout",
+    "seconds": 6.848044201004086,
+    "cdlb_path": "results/channel_validation/2026-11-08-v1/dataset/cdlb-44002.npz",
+    "cdlb_sha256": "8e822d12d15e64815baad58e7db62d4e6f22412e45c61f98d995bd17ddd932b3",
+    "rayleigh_path": "results/channel_validation/2026-11-08-v1/dataset/rayleigh-44002.npz",
+    "rayleigh_sha256": "d14e1d6416060e22d67be3a4467656d65569c0706d38d95d0ce75bc48619b2f0",
+    "cdlb_gram_min_eigenvalue": 3.489650677940117e-05,
+    "cdlb_H_condition_max": 440.1296468788344,
+    "conversion_max_abs_error": 9.155133597044475e-16
+  }
+]

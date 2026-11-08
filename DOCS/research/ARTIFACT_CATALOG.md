@@ -78,3 +78,11 @@ python3 scripts/research_inventory.py check experiments/inventory/2026-10-28-bas
 2026-11-06后续：LDL/BRI原件专用results/operator_mapping/2026-11-06-ldl-bri-v1，Git清单experiments/operator_mapping/2026-11-06-ldl-bri-v1。严格stages-v2为最终阶段证据；旧stages、入口失败与重试留存。
 
 2026-11-08：本轮原件独立results/remaining_mapping/2026-11-08-block-merge-v1，Git清单experiments/remaining_mapping/2026-11-08-block-merge-v1。旧Merge/NoBlock重跑与成本probe放forensics，新候选放campaign，daily另分目录；统一七入口周期与详细流水摘要不混用历史数据。
+
+## 2026-11-08 清理授权与本次执行
+
+负责人允许删除过时且不再使用的中间结果以节省空间。本次只清理可重新下载的pip下载/wheel缓存，未删除安装包、源码、运行器、研究trace或留出输入。逐文件路径/大小/SHA、清理原因和实际释放空间见[cleanup.json](../../experiments/channel_validation/2026-11-08-v1/cleanup.json)。
+
+后续将未引用、可确定再生的临时缓存与已归档证据区分。历史失败实验仍有证明价值；不能只因被新版本替代就删除。删除研究制品前先列引用与替代证据，保留清理台账；如果历史manifest引用的原件被压缩/转存，需另立可逆映射并验hash，不改写旧manifest。
+
+清理后复核：pip保留1份selfcheck元数据；清理前清单中672条文件路径已消失（pip报告669个缓存制品，计数单位不同）。原清理候选清单不覆盖，准确口径见[cleanup-verification.json](../../experiments/channel_validation/2026-11-08-v1/cleanup-verification.json)。

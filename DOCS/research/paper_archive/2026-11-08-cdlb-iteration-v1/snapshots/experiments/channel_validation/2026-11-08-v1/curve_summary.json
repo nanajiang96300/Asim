@@ -1,0 +1,194 @@
+[
+  {
+    "channel": "rayleigh",
+    "algorithm": "ns",
+    "regularization": 1.0,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": 8,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "ns",
+    "regularization": 1.0,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 8,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "ns",
+    "regularization": 0.1,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": 10,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "ns",
+    "regularization": 0.1,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 10,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "ns",
+    "regularization": 0.01,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": 10,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "ns",
+    "regularization": 0.01,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 10,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "bri",
+    "regularization": 1.0,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": 8,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "bri",
+    "regularization": 1.0,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 8,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "bri",
+    "regularization": 0.1,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": 16,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "bri",
+    "regularization": 0.1,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 16,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "bri",
+    "regularization": 0.01,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": 32,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "rayleigh",
+    "algorithm": "bri",
+    "regularization": 0.01,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 32,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "ns",
+    "regularization": 1.0,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": 8,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "ns",
+    "regularization": 1.0,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 8,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "ns",
+    "regularization": 0.1,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": 10,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "ns",
+    "regularization": 0.1,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 10,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "ns",
+    "regularization": 0.01,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": null,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "ns",
+    "regularization": 0.01,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": 14,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "bri",
+    "regularization": 1.0,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": null,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "bri",
+    "regularization": 1.0,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": null,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "bri",
+    "regularization": 0.1,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": null,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "bri",
+    "regularization": 0.1,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": null,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "bri",
+    "regularization": 0.01,
+    "precision": "fp16_fp32",
+    "first_passing_frozen_grid_K": null,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  },
+  {
+    "channel": "cdlb",
+    "algorithm": "bri",
+    "regularization": 0.01,
+    "precision": "fp64",
+    "first_passing_frozen_grid_K": null,
+    "meaning": "descriptive 96-H curve; not independent holdout or minimum over untested integers"
+  }
+]

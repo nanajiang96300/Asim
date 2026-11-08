@@ -1,0 +1,89 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-cdlb-iteration-v1",
+  "capture_commit": "ec3d930582baefa334f228c73d634c4c02d41dd1",
+  "status": "CDLB_QUALITY_NOT_VERIFIED",
+  "snapshots": [
+    {
+      "source": "experiments/channel_validation/2026-11-08-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/experiments/channel_validation/2026-11-08-v1/README.md",
+      "bytes": 8174,
+      "sha256": "5ba06a5975c6439e35634fbf240f20b1a954c3a8aaa5fd5bd47ce8c81940b7d9"
+    },
+    {
+      "source": "experiments/channel_validation/2026-11-08-v1/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/experiments/channel_validation/2026-11-08-v1/summary.json",
+      "bytes": 8041,
+      "sha256": "272da7fd7f97e9c6daed3c6acc5736a2217c7107a27e4f60521d5af0b1bf518d"
+    },
+    {
+      "source": "experiments/channel_validation/2026-11-08-v1/quality.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/experiments/channel_validation/2026-11-08-v1/quality.csv",
+      "bytes": 2000,
+      "sha256": "299a3f2a4d4711c2e144234e4611ec637630fb71178e79c4953022fc923aa277"
+    },
+    {
+      "source": "experiments/channel_validation/2026-11-08-v1/curves.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/experiments/channel_validation/2026-11-08-v1/curves.csv",
+      "bytes": 33876,
+      "sha256": "8786f21b0be896bfe8f8a55b23e148d07aaf6e6e4389a88482411c18ba6e3086"
+    },
+    {
+      "source": "experiments/channel_validation/2026-11-08-v1/curve_summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/experiments/channel_validation/2026-11-08-v1/curve_summary.json",
+      "bytes": 6019,
+      "sha256": "7f2d9157f256b6a9a3f66b6d3d528d06d6bbd549913cbbe1aeb4843bdc7c4144"
+    },
+    {
+      "source": "experiments/channel_validation/2026-11-08-v1/diagnostics.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/experiments/channel_validation/2026-11-08-v1/diagnostics.json",
+      "bytes": 7156,
+      "sha256": "d0727ead7ced9c5e4332c98d74366309c72120b3266b11e74b0d88ed4cf033ae"
+    },
+    {
+      "source": "experiments/channel_validation/2026-11-08-v1/audit.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/experiments/channel_validation/2026-11-08-v1/audit.json",
+      "bytes": 358,
+      "sha256": "d18e1463c72ae0420bd631cb0acfb89299433b21b1eb86999242f6b759bb519c"
+    },
+    {
+      "source": "DOCS/research/CHANNEL_DOMAINS.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/DOCS/research/CHANNEL_DOMAINS.md",
+      "bytes": 4241,
+      "sha256": "f4f80c1365e11ecf0375d379bb624e6fc878ddb5d909fb61d15631480733ef1a"
+    },
+    {
+      "source": "DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/snapshots/DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "bytes": 12296,
+      "sha256": "72613a16c2364106f64c4a3234e2a4fe9cdc003bddfeb9d9ed708742fbc7814c"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/channel_validation/2026-11-08-v1/run_manifest.json",
+      "bytes": 15263,
+      "sha256": "c1ac0144acc088d24ba01880d49bcca080bfaf96dbba0c38f321b0c02556d6f4"
+    },
+    {
+      "path": "experiments/channel_validation/2026-11-08-v1/contract.json",
+      "bytes": 24990,
+      "sha256": "c697b50a8c6dd10f316e7a699e6a10b0b25e5ee98cea3d5efd6549b58b274f21"
+    },
+    {
+      "path": "experiments/channel_validation/2026-11-08-v1/cleanup.json",
+      "bytes": 221107,
+      "sha256": "6cbae1929bb0d1af9fd9a8aee9b471443c05d8286a383c96ccde3b99aae3b2d5"
+    },
+    {
+      "path": "experiments/channel_validation/2026-11-08-v1/cleanup-verification.json",
+      "bytes": 755,
+      "sha256": "d17121a6f07ad8adc38b0761cf4a851d6accb2917a7a0bd4c92150230fa9c623"
+    },
+    {
+      "path": "experiments/channel_validation/2026-11-08-v1/old-contract-reject.json",
+      "bytes": 251,
+      "sha256": "008f32885893a3f5060e1340d11a11178e18f361714e57ddd7b45fe025fdd8e6"
+    }
+  ]
+}

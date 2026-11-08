@@ -1,0 +1,8 @@
+{
+  "status": "EXPECTED_OLD_EVALUATOR_REJECTED",
+  "exit_code": 1,
+  "reason": "study evaluator changed after freeze",
+  "dataset_created": false,
+  "numerics_started": false,
+  "code_change": "ec3d9305 accounting only; original contract unchanged"
+}
