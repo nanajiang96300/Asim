@@ -85,6 +85,7 @@ def run(path,expected,output):
                          joint_outages=g['outage_bounds']['joint']['count'],joint_upper=g['outage_bounds']['joint']['upper'],status=g['status'],source_cycles=g['source_finish_cycle']))
         for s in g['stream_metrics']:streams.append(dict(operator=g['operator'],es_no_db=g['es_no_db'],**s))
     table(output/'quality.csv',rows);table(output/'per_stream.csv',streams)
+    table(output/'constellation_mapping.csv',[dict(bit_I=i,bit_Q=q,I=(2*i-1)/math.sqrt(2),Q=(2*q-1)/math.sqrt(2)) for i in (0,1) for q in (0,1)])
     source=json.loads(Path(c['source_index']['path']).read_text());pipelines=[]
     for item in source['cases']:
         p=Path(item['result_path']).parent/'pipeline_statistics.json';stats=json.loads(p.read_text())
@@ -124,8 +125,10 @@ def run(path,expected,output):
             with np.load(root/f['output_artifact']['path']) as n:raw=n['actual_output_block'].astype(float)
             U=raw.shape[1]//2;R=raw.shape[2]//2;z=(raw[:,:U,:R]+1j*raw[:,U:,:R]).reshape(-1)[:2000]
             ax=axes[i,j];ax.scatter(z.real,z.imag,s=2,alpha=.15);ax.set_xlim(-1.8,1.8);ax.set_ylim(-1.8,1.8);ax.set_aspect('equal');ax.grid(True,alpha=.2)
+            ideal=(np.array([-1,-1,1,1])+1j*np.array([-1,1,-1,1]))/math.sqrt(2)
+            ax.scatter(ideal.real,ideal.imag,marker='x',c='red',s=20)
             ax.set_title(op+' / '+str(int(db))+' dB',fontsize=7)
-    fig.suptitle('Actual soft outputs: deterministic plot subset; no oracle gain fitting',fontsize=10)
+    fig.suptitle('Actual soft outputs (subset, axes +/-1.8); red crosses: ideal QPSK; no gain fitting',fontsize=9)
     fig.tight_layout(rect=(0,0,1,.98));fig.savefig(output/'constellations.png',dpi=180);fig.savefig(output/'constellations.pdf');plt.close(fig)
     if sha(path)!=expected:raise ValueError('source result changed during report')
     manifest=dict(schema='qpsk-report-v1',source_result=str(path),source_sha256=expected,audit=checks,
