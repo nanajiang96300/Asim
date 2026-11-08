@@ -1,0 +1,6 @@
+{
+  "status": "ENGINEERING_FAILURE_NO_NUMERICAL_VERDICT",
+  "reason": "numpy boolean JSON serialization failed after first scenario; fixed in new version, original output preserved",
+  "superseded_by": "2026-11-08-v2",
+  "log_sha256": "d0aae2c5c0737bd5ffd193c34a6ce4021a6637575f6d4c21d6f5d81f4bf0fb49"
+}
