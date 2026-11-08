@@ -57,6 +57,17 @@ def run(root,c,out):
     for g in r['groups']:
         row={k:g.get(k) for k in ('operator','iterations','regularization','status','max_task_error','candidate_ber','mmse_ber','candidate_ser','mmse_ser','source_finish_cycle')}
         row['rejected_frames']=len(g['rejected_frames']);quality.append(row)
+        if g['operator']=='bri_explicit_v1':
+            radii=[]
+            for seed in c['channel_seeds']:
+                for h in load_H(root/'dataset','cdlb',seed):
+                    hh=np.block([[h.real,-h.imag],[h.imag,h.real]])
+                    a=hh.T@hh+g['regularization']*np.eye(32);b=np.zeros_like(a)
+                    for j in range(0,32,2):b[j:j+2,j:j+2]=np.linalg.inv(a[j:j+2,j:j+2])
+                    radii.append(float(max(abs(np.linalg.eigvals(np.eye(32)-.5*b@a)))))
+            diagnostics.append(dict(operator=g['operator'],regularization=g['regularization'],independent_issue='NOMINAL_FP64_STATIONARY_SPECTRUM',
+                spectral_radius_max=max(radii),spectral_radius_median=float(np.median(radii)),channels_with_radius_ge_one=sum(x>=1 for x in radii),channels=len(radii),
+                meaning='high-precision same-initialization/preconditioner diagnostic, not actual-instruction certification'))
         if not g['rejected_frames']:continue
         hs=g['rejected_frames'][0]['channel_seed'];fs=g['rejected_frames'][0]['frame_seed'];t=MMSETask(**{k:g['template_task'][k] for k in MMSETask.__dataclass_fields__})
         H=load_H(root/'dataset','cdlb',hs);d=payload(t,H,hs,fs);_,_,_,fn=adapter(g['operator'],t,g['iterations']);pol=policy_for(t.profile)
