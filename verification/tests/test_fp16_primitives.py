@@ -26,3 +26,13 @@ class FP16PrimitiveTests(unittest.TestCase):
         a=list(run(H,Y,.1,2,'explicit_inverse',12,storage='float64'));b=list(run(H,Y,.1,2,'implicit_inverse',12,storage='float64'))
         for x,y in zip(a,b):np.testing.assert_allclose(x[1],y[1],rtol=1e-11,atol=1e-11)
         self.assertEqual(list(run(H,Y,.1,2,'implicit_solve',2))[-1][1].dtype,np.float16)
+
+    def test_single_sided_representation_and_half_compensation_are_explicit(self):
+        rng=np.random.default_rng(147);H=(rng.normal(size=(2,8,4))+1j*rng.normal(size=(2,8,4)))/6;Y=rng.normal(size=(2,8,2))+1j*rng.normal(size=(2,8,2))
+        x=list(run(H,Y,.1,1,'implicit_solve',8,left=True,compensated=True,restart=4))[-1]
+        self.assertEqual(x[1].dtype,np.float16);self.assertEqual(x[2]['compensation_storage'],'float16')
+        np.testing.assert_array_equal(x[1][:,:4,:2],x[1][:,4:,2:])
+        np.testing.assert_array_equal(x[1][:,:4,2:],-x[1][:,4:,:2])
+        a=list(run(H,Y,.1,2,'implicit_inverse',8,storage='float64',left=True,hermitian=True))[-1][1]
+        b=list(run(H,Y,.1,2,'implicit_inverse',8,storage='float64'))[-1][1]
+        np.testing.assert_allclose(a,b,rtol=1e-10,atol=1e-10)

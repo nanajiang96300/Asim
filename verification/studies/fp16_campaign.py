@@ -21,7 +21,7 @@ def metrics(X,truth,inv,hh,rhs,kind):
     q=quadrant(X);task=relative(value.astype(float),truth)
     ie=relative(X.astype(float),inv) if inverse else None
     good=max(task.max(),q.max(),ie.max() if ie is not None else 0)<=.02
-    return dict(task_error_max=float(task.max()),task_error_median=float(np.median(task)),inverse_error_max=float(ie.max()) if ie is not None else None,quadrant_error_max=float(q.max()),passed=bool(good))
+    return dict(task_error_max=float(task.max()),task_error_median=float(np.median(task)),inverse_error_max=float(ie.max()) if ie is not None else None,quadrant_error_max=float(q.max()),inverse_gate=bool(ie is not None and ie.max()<=.02 and q.max()<=.02),task_gate=bool(task.max()<=.02 and q.max()<=.02),passed=bool(good))
 
 
 def execute(c,repo,out):
@@ -44,7 +44,7 @@ def execute(c,repo,out):
         e=Primitives();hh=e.const(block(H));yy=e.const(block(Y));rhs=e.op('GEMM',hh.transpose(0,2,1),yy)
         rows=[];snap={};first=None;begin=time.perf_counter();counts=None;failure=None
         try:
-            for k,X,counts in run(H,Y,lam,s['block'],s['kind'],c['steps'],tuple(s['bounds'])):
+            for k,X,counts in run(H,Y,lam,s['block'],s['kind'],c['steps'],tuple(s['bounds']),**{k:s[k] for k in ('left','restart','compensated','momentum','hermitian') if k in s}):
                 if time.perf_counter()-start>c['max_wall_seconds']:raise Invalid('wall budget exceeded')
                 m=metrics(X,truth,inv,hh,rhs,s['kind']);rows.append(dict(K=k,**m))
                 if first is None and m['passed']:first=k;snap['first_passing']=X.copy()
