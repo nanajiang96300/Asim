@@ -71,6 +71,16 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(one['status'],'QPSK_QUALITY_CHECKED')
         self.assertEqual(many['status'],'INCONCLUSIVE')
 
+    def test_joint_outage_does_not_hide_disjoint_metric_failures(self):
+        truth=np.full((500,2,4),(1+1j)/math.sqrt(2));rows=paired(truth,truth,truth)
+        for r in rows[:10]: r['ber_increase']=.02
+        for r in rows[10:20]: r['evm_increase']=.02
+        r=summarize([dict(channels=rows)],contract())
+        b=r['groups'][0]['outage_bounds']
+        self.assertLess(b['ber']['upper'],.05);self.assertLess(b['evm']['upper'],.05)
+        self.assertGreater(b['joint']['upper'],.05)
+        self.assertEqual(r['status'],'INCONCLUSIVE')
+
     def test_nonfinite_shapes_and_non_qpsk_rejected(self):
         x=np.ones((24,2,4),complex)*(1+1j)/math.sqrt(2)
         for bad in [x[:1],x*np.nan]:
@@ -149,6 +159,18 @@ class CommunicationTests(unittest.TestCase):
             runtime.update(python_version=platform.python_version(),numpy_version=np.__version__)
             with patch('verification.communication.runner.load_runtime',return_value=runtime):
                 with self.assertRaisesRegex(Invalid,'duplicate channel'): evaluate(c,REPO)
+
+    def test_historical_statistics_never_issue_group_quality_pass(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);item,r,seal,runtime=self.case(root)
+            c=contract();c['cases']=[item];p=root/'runtime.json';p.write_text('{}');c['runtime']=dict(path=str(p),sha256=sha(p))
+            import platform
+            runtime.update(python_version=platform.python_version(),numpy_version=np.__version__)
+            with patch('verification.communication.runner.load_runtime',return_value=runtime):
+                result=evaluate(c,REPO)
+            self.assertEqual(result['status'],'DIAGNOSTIC_ONLY')
+            self.assertEqual(result['groups'][0]['status'],'DIAGNOSTIC_ONLY')
+            self.assertFalse(result['full_communication_certified'])
 
     def test_cannot_cherry_pick_heldout_jobs(self):
         with tempfile.TemporaryDirectory() as d:

@@ -58,9 +58,9 @@ def paired(candidate, mmse, symbols):
 
 
 def summarize(groups, contract):
-    """Simultaneous bounds across both metrics, all groups, and both tails."""
+    """Simultaneous bounds for BER, EVM, their union, all groups and both tails."""
     if not groups: raise Invalid('no communication groups')
-    alpha = contract['family_alpha'] / (4*len(groups))
+    alpha = contract['family_alpha'] / (6*len(groups))
     output = []
     for group in groups:
         rows=group['channels']; n=len(rows)
@@ -69,6 +69,9 @@ def summarize(groups, contract):
         for metric,limit in [('ber',contract['max_channel_ber_increase']),('evm',contract['max_channel_evm_increase'])]:
             k=sum(row[metric+'_increase']>limit for row in rows)
             bounds[metric]=outage_interval(k,n,alpha)
+        k=sum(row['ber_increase']>contract['max_channel_ber_increase'] or
+              row['evm_increase']>contract['max_channel_evm_increase'] for row in rows)
+        bounds['joint']=outage_interval(k,n,alpha)
         upper_pass=all(b['upper']<=contract['max_outage_probability'] for b in bounds.values())
         lower_fail=any(b['lower']>contract['max_outage_probability'] for b in bounds.values())
         status=('QUALITY_FAILED' if lower_fail else 'QPSK_QUALITY_CHECKED'

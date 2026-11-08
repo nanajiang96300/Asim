@@ -149,6 +149,9 @@ def evaluate(contract,repo):
     result=summarize(list(groups.values()),contract)
     if any(g['sample_role']!='holdout' for g in groups.values()):
         result['statistical_status']=result['status'];result['status']='DIAGNOSTIC_ONLY'
+        for g in result['groups']:
+            if g['sample_role']!='holdout':
+                g['statistical_status']=g['status'];g['status']='DIAGNOSTIC_ONLY'
     # Detect source/runtime changes over the complete read/compute interval.
     for item in contract['cases']:
         path=repo/item['path']
