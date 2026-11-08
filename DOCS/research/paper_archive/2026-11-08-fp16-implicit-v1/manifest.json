@@ -1,0 +1,71 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-fp16-implicit-v1",
+  "capture_commit": "243da77ac98c2899fb4c487d56973395480c4de8",
+  "status": "FP16_PRIMITIVE_NUMERIC_HOLDOUT_CHECKED",
+  "snapshots": [
+    {
+      "source": "experiments/fp16_implicit/2026-11-08-v3/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/snapshots/experiments/fp16_implicit/2026-11-08-v3/README.md",
+      "bytes": 6360,
+      "sha256": "394689ad75c42281b758ca3a20de62a18b84a9f4698117a36345a17530f99654"
+    },
+    {
+      "source": "experiments/fp16_implicit/2026-11-08-v3/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/snapshots/experiments/fp16_implicit/2026-11-08-v3/summary.json",
+      "bytes": 1558,
+      "sha256": "38609d2658d5cf7e138da695a962ed3c99d04b0f68cd72250b1bdaa221962f80"
+    },
+    {
+      "source": "experiments/fp16_implicit/2026-11-08-v3/independent_audit.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/snapshots/experiments/fp16_implicit/2026-11-08-v3/independent_audit.json",
+      "bytes": 2474,
+      "sha256": "188f664e10526346c24eb52233f364bbf66656010cc3158d3186641a32f0c095"
+    },
+    {
+      "source": "experiments/fp16_implicit/2026-11-08-v3/frozen_selection.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/snapshots/experiments/fp16_implicit/2026-11-08-v3/frozen_selection.json",
+      "bytes": 1762,
+      "sha256": "d49b39d79e4f144461fa0ad9079fe0a083c45f5e3e0bcd63c737364cefee14f1"
+    },
+    {
+      "source": "DOCS/research/FP16_FIRST_PLAN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/snapshots/DOCS/research/FP16_FIRST_PLAN.md",
+      "bytes": 5896,
+      "sha256": "1b5a93754e7d58344dadec03736fb8dcdb826fcec95d4494525fa3ccf1028884"
+    },
+    {
+      "source": "DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/snapshots/DOCS/research/QUALITY_DRIVEN_WORKFLOW.md",
+      "bytes": 14649,
+      "sha256": "6f7021f891816e3af84a710abde534b72033e33908828a4161216b7164480a0f"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/fp16_implicit/2026-11-08-v3/run_manifest.json",
+      "bytes": 18316,
+      "sha256": "8eaf9aaae70985cfbe67e2bea9a9715b1be19dd473cb5d52e2046652f93cb8ed"
+    },
+    {
+      "path": "experiments/fp16_implicit/2026-11-08-v3/calibration-contract.json",
+      "bytes": 3679,
+      "sha256": "70bbc80d0dc4d46334437dce98b71562b2f7ddb26e9eb50075d5c391a7cc7118"
+    },
+    {
+      "path": "experiments/fp16_implicit/2026-11-08-v3/holdout-contract.json",
+      "bytes": 2630,
+      "sha256": "b6d39e6ad8fafcee3f96b6e723aa981d2d1ea3526025ef9df75cb19e6c302275"
+    },
+    {
+      "path": "experiments/fp16_implicit/2026-11-08-v3/reject-K-result.json",
+      "bytes": 202,
+      "sha256": "dab6beb7c8d365eafd450ad3f80364c714b61b131a15a8366de2ade30115ddd1"
+    },
+    {
+      "path": "experiments/fp16_implicit/2026-11-08-v3/unit-tests.log",
+      "bytes": 334,
+      "sha256": "8b6c39631ecf1a10a327557a2a38a56fbcb9ba3cd9ef0f503611453e954a903f"
+    }
+  ]
+}

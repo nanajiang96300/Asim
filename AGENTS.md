@@ -21,3 +21,5 @@ Codex 自动化框架已有受限结构实现：统一任务/计时、Asim先行
 BRI原理与新Python研究见`DOCS/research/BRI_PRINCIPLES.md`：P=D⁻¹与T=PA必须区分，Y迭代以X=YP右恢复；复块/实块、固定步长/Chebyshev和精度存储策略均须显式冻结。该研究不替代原算子Asim/重建验收。
 
 当前BRI后续优先现有FP16张量/原语，不修改Asim来增加混合精度；见`DOCS/research/FP16_FIRST_PLAN.md`。FP32参考/临时数值模型不等于已支持可选FP32算子。混合精度后置，未经新指令不作为前置。
+
+FP16隐式MMSE的独立原语/留出可行性见`experiments/fp16_implicit/2026-11-08-v3/README.md`，仅软件数值阶段通过；点预条件、单侧表示、FP16补偿/阻尼及冻结K为候选定义，尚未映射新Asim入口。显式逆目标通过不代表逆后相乘MMSE通过；原算子状态不升级。

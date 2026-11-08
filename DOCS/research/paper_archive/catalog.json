@@ -171,6 +171,24 @@
       "manifest": "DOCS/research/paper_archive/2026-11-08-fp16-first-v1/manifest.json",
       "manifest_sha256": "f093e65e5e9770ed735cf2a2dcd35d4dc148e56829ebfd4c3d93f759c4fbeffe",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-08-fp16-implicit-v1",
+      "status": "FP16_PRIMITIVE_NUMERIC_HOLDOUT_CHECKED",
+      "keywords": [
+        "FP16",
+        "implicit-Gram",
+        "compensated",
+        "Richardson",
+        "holdout",
+        "frozen-K",
+        "point-Jacobi",
+        "inverse-vs-MMSE"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/manifest.json",
+      "manifest_sha256": "8cfa6e27dcfa1cf665d30577f4d61adc31772d24d78af193737dd3f9a1d8ffcd",
+      "supersedes": null
     }
   ]
 }

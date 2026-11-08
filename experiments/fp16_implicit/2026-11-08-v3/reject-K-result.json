@@ -1,0 +1,8 @@
+{
+  "status": "EXPECTED_FROZEN_K_REJECTED",
+  "exit_code": 1,
+  "reason": "holdout cases differ from selected goals/K",
+  "candidate_started": false,
+  "output_created": false,
+  "changed_case_K": 14
+}

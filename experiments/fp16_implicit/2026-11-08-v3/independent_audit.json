@@ -1,0 +1,70 @@
+{
+  "status": "FP16_PRIMITIVE_HOLDOUT_CHECKED",
+  "rows": [
+    {
+      "goal": "mmse_output",
+      "regularization": 1.0,
+      "K": 13,
+      "channels": 192,
+      "precision_bit_equal": true,
+      "max_goal_error": 0.008865382993740102,
+      "goal_passed": true,
+      "inverse_then_apply_task_error_max": null,
+      "candidate_bit_errors": 13526,
+      "mmse_bit_errors": 13525,
+      "bits": 49152,
+      "communication_scope": "BER diagnostic only; no formal communication confidence gate"
+    },
+    {
+      "goal": "mmse_output",
+      "regularization": 0.1,
+      "K": 33,
+      "channels": 192,
+      "precision_bit_equal": true,
+      "max_goal_error": 0.009551206066142343,
+      "goal_passed": true,
+      "inverse_then_apply_task_error_max": null,
+      "candidate_bit_errors": 8211,
+      "mmse_bit_errors": 8207,
+      "bits": 49152,
+      "communication_scope": "BER diagnostic only; no formal communication confidence gate"
+    },
+    {
+      "goal": "mmse_output",
+      "regularization": 0.01,
+      "K": 76,
+      "channels": 192,
+      "precision_bit_equal": true,
+      "max_goal_error": 0.012395670861716517,
+      "goal_passed": true,
+      "inverse_then_apply_task_error_max": null,
+      "candidate_bit_errors": 4041,
+      "mmse_bit_errors": 4044,
+      "bits": 49152,
+      "communication_scope": "BER diagnostic only; no formal communication confidence gate"
+    },
+    {
+      "goal": "inverse_only_mmse_application_diagnostic",
+      "regularization": 0.01,
+      "K": 135,
+      "channels": 192,
+      "precision_bit_equal": true,
+      "max_goal_error": 0.014339107090121123,
+      "goal_passed": true,
+      "inverse_then_apply_task_error_max": 0.14825673204519965,
+      "candidate_bit_errors": 4100,
+      "mmse_bit_errors": 4044,
+      "bits": 49152,
+      "communication_scope": "BER diagnostic only; no formal communication confidence gate"
+    }
+  ],
+  "all_frozen_goal_gates_passed": true,
+  "operator_verified": false,
+  "asim_run": false,
+  "score": null,
+  "inverse_then_apply_mmse_verified": false,
+  "auditor_sha256": "826188a26bf6ace38d5824c9f909ae6e954f701976d1e44e70b8e8cfaeb40d65",
+  "contract_sha256": "b6d39e6ad8fafcee3f96b6e723aa981d2d1ea3526025ef9df75cb19e6c302275",
+  "result_sha256": "f67c68101845b7b48ee94510b33eac90f3d76005804ad73ba92c741952a464ce",
+  "note": "FP16 tensors and coefficients; frozen FP32 temporary arithmetic model, extra compensation state is FP16; no new FP32 storage or Asim modification"
+}

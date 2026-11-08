@@ -1,0 +1,5 @@
+goal,regularization,K,channels,precision_bit_equal,max_goal_error,goal_passed,inverse_then_apply_task_error_max,candidate_bit_errors,mmse_bit_errors,bits,communication_scope
+mmse_output,1.0,13,192,True,0.008865382993740102,True,,13526,13525,49152,BER diagnostic only; no formal communication confidence gate
+mmse_output,0.1,33,192,True,0.009551206066142343,True,,8211,8207,49152,BER diagnostic only; no formal communication confidence gate
+mmse_output,0.01,76,192,True,0.012395670861716517,True,,4041,4044,49152,BER diagnostic only; no formal communication confidence gate
+inverse_only_mmse_application_diagnostic,0.01,135,192,True,0.014339107090121123,True,0.14825673204519965,4100,4044,49152,BER diagnostic only; no formal communication confidence gate

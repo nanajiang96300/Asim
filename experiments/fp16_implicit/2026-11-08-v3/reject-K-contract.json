@@ -1,0 +1,97 @@
+{
+  "schema": "fp16-primitive-study-v1",
+  "sources": {
+    "verification/studies/fp16_campaign.py": "b6ad9ea7fa18eae78dad085510014961c38f876974f857c0d464dd1508f526ca",
+    "verification/studies/fp16_primitives.py": "ca41668e275a1d74232f5dadf12db1b18a150f6a8378aa895d13c05fcdfba2df",
+    "verification/studies/bri_math.py": "9c297556ad60cdc6f82a9d754c2533f4a454c8bc6169bd4fc3e5330c587d0851",
+    "verification/profiles/numeric.py": "965c32d6ac6558570bc3b51f21c764ab4f1c113d30ef8c495a7a791e001ec6e0",
+    "verification/contracts/core.py": "4e8d36a87e136b3c5f123d7ac5ae0c3bad1e27a98e7c796c77f58d1ac2512116"
+  },
+  "role": "independent_holdout_frozen_K_no_retuning",
+  "inputs": [
+    {
+      "path": "results/fp16_implicit/2026-11-08-v3/holdout_inputs/H55002.npz",
+      "sha256": "b153b2a36bfece56ceff98e356e72d68d54ebc5f20eded7bc12a431ea4373e7b",
+      "slice": [
+        0,
+        96
+      ]
+    },
+    {
+      "path": "results/fp16_implicit/2026-11-08-v3/holdout_inputs/H55003.npz",
+      "sha256": "148275a94861968cf0f5040b40d385f087f5a7bfa1c6bdf7952a736847994aa5",
+      "slice": [
+        0,
+        96
+      ]
+    }
+  ],
+  "steps": 256,
+  "max_wall_seconds": 1800,
+  "cases": [
+    {
+      "lambda": 1.0,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9,
+      "evaluation_K": 14,
+      "goal": "mmse_output"
+    },
+    {
+      "lambda": 0.1,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9,
+      "evaluation_K": 33,
+      "goal": "mmse_output"
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_solve",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9,
+      "evaluation_K": 76,
+      "goal": "mmse_output"
+    },
+    {
+      "lambda": 0.01,
+      "block": 1,
+      "kind": "implicit_inverse_add",
+      "bounds": [
+        0.25,
+        8.0
+      ],
+      "left": true,
+      "compensated": true,
+      "momentum": 0.9,
+      "evaluation_K": 135,
+      "goal": "inverse_only_mmse_application_diagnostic"
+    }
+  ],
+  "frozen_selection": {
+    "path": "experiments/fp16_implicit/2026-11-08-v3/frozen_selection.json",
+    "sha256": "d49b39d79e4f144461fa0ad9079fe0a083c45f5e3e0bcd63c737364cefee14f1"
+  },
+  "independent_reference": {
+    "path": "verification/studies/fp16_independent.py",
+    "sha256": "3f53e687d29abc8674c561d1869c384b1aa94928e62a638ea92c0a5166c9f10a"
+  }
+}

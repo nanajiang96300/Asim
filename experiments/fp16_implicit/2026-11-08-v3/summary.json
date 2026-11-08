@@ -1,0 +1,43 @@
+{
+  "schema": "fp16-implicit-feasibility-summary-v1",
+  "status": "FP16_PRIMITIVE_NUMERIC_HOLDOUT_CHECKED",
+  "unit_tests": 234,
+  "calibration_channels": 96,
+  "holdout_channels": 192,
+  "distinct_total_H": 288,
+  "smoke_subset_of_calibration": 24,
+  "mmse_cases": 3,
+  "mmse_worst_errors": [
+    0.008865382993740102,
+    0.009551206066142343,
+    0.012395670861716517
+  ],
+  "mmse_frozen_K": [
+    13,
+    33,
+    76
+  ],
+  "inverse_K": 135,
+  "inverse_worst_error": 0.014339107090121123,
+  "inverse_then_apply_worst_error": 0.14825673204519965,
+  "precision_bit_equal_all": true,
+  "batch_outputs_compared": 768,
+  "fp16_elements_compared": 491520,
+  "operator_verified": false,
+  "asim_run": false,
+  "score": null,
+  "calibration_seconds": 87.4273548029887,
+  "holdout_seconds": 17.8070104259823,
+  "pure_model_thinking_seconds": null,
+  "numeric_policy": "FP16 tensors and coefficients, ordered FP32 temporary arithmetic; no FP32 persistent state",
+  "representation": "single-sided complex real-block state; explicit sign/copy recovery",
+  "compensation": "one additional FP16 tensor, no FP32 persistent buffer",
+  "selection_rule": "first K<=1% calibration margin, frozen before holdout H generation; acceptance remains2%",
+  "limitations": [
+    "point Jacobi complex-block1, not historical fastest BRI",
+    "inverse-only passed does not certify inverse-then-apply MMSE path",
+    "fixed input-domain bounds, no all-channel proof",
+    "primitive software model only, not actual instruction replay or timing",
+    "QPSK BER diagnostic only"
+  ]
+}
