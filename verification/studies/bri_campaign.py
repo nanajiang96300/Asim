@@ -56,17 +56,32 @@ def run(c,repo,out):
         Atrue=H.conj().transpose(0,2,1)@H+lam*I;Xtrue=np.linalg.solve(Atrue,I);Y=H@s+math.sqrt(lam)*noise;rhs=H.conj().transpose(0,2,1)@Y;truth=np.linalg.solve(Atrue,rhs)
         for block in c['complex_blocks']:
             for precision in ('fp64','fp32','half_storage'):
-                A,P,ev=system(H,lam,block,precision,hermitian_storage=(precision=='half_storage'));lo,hi=enclosure(ev);Xmodel=np.linalg.inv(A.astype(np.complex128));hq=store(H,precision);yq=store(Y,precision);model_rhs=store(hq.conj().transpose(0,2,1)@yq,precision)
+                try:A,P,ev=system(H,lam,block,precision,hermitian_storage=(precision=='half_storage'))
+                except Invalid as exc:
+                    spectra.append(dict(regularization=lam,complex_block=block,precision=precision,status='MODELED_SYSTEM_REJECTED',reason=str(exc)))
+                    for name in ('fixed_half','stable_stationary','chebyshev_X','chebyshev_Y_recover'):
+                        scenarios+=1
+                        rows.extend(dict(regularization=lam,complex_block=block,precision=precision,method=name,K=k,channels=N,
+                            finite_channels=0,failed_channels=N,inverse_error_max=None,inverse_error_median=None,inverse_model_error_max=None,residual_max=None,task_error_max=None,ber=None,passed=False) for k in range(1,c['steps']+1))
+                    (out/f'model-rejected-l{lam}-b{block}-{precision}.json').write_text(json.dumps(dict(status='MODELED_SYSTEM_REJECTED',reason=str(exc)),indent=2)+'\n')
+                    print(json.dumps(dict(regularization=lam,complex_block=block,precision=precision,status='MODELED_SYSTEM_REJECTED',reason=str(exc))),flush=True)
+                    continue
+                lo,hi=enclosure(ev);Xmodel=np.linalg.inv(A.astype(np.complex128));hq=store(H,precision);yq=store(Y,precision);model_rhs=store(hq.conj().transpose(0,2,1)@yq,precision)
                 rho=np.max(abs(1-.5*ev),axis=1)
                 spectra.append(dict(regularization=lam,complex_block=block,precision=precision,eigen_min=float(ev.min()),eigen_max=float(ev.max()),unstable_half_channels=int(np.sum(rho>=1)),rho_half_max=float(rho.max()),quantized_system_inverse_error_max=float(relative(Xmodel,Xtrue).max()),bound_source='per-sample exact diagnostic eigendecomposition of Lp^H A Lp, expanded 1%; oracle cost not an NPU implementation'))
                 variants=[('fixed_half','half','direct'),('stable_stationary','optimal','direct'),('chebyshev_X','chebyshev','direct'),('chebyshev_Y_recover','chebyshev','scaled')]
                 for name,method,form in variants:
                     scenarios+=1
                     if scenarios>c['max_scenarios'] or time.perf_counter()-start>c['max_wall_seconds']:raise Invalid('study resource budget exceeded')
+                    scenario_start=len(rows);scenario_saved={}
                     for k,X in iterate(A,P,ev,c['steps'],precision,method,form):
                         if time.perf_counter()-start>c['max_wall_seconds']:raise Invalid('study wall budget exceeded')
                         r=dict(regularization=lam,complex_block=block,precision=precision,method=name,K=k,channels=N,**measure(X,Atrue,Xtrue,A,Xmodel,rhs,truth,model_rhs,precision,bits));rows.append(r)
-                        if k in (8,16,32,64,128,256):saved[f'l{lam}-b{block}-{precision}-{name}-k{k}']=X
+                        if k in (8,16,32,64,128,256):
+                            key=f'l{lam}-b{block}-{precision}-{name}-k{k}';saved[key]=X;scenario_saved[key]=X
+                    prefix=out/f'l{lam}-b{block}-{precision}-{name}'
+                    Path(str(prefix)+'.json').write_text(json.dumps(rows[scenario_start:],indent=2)+'\n')
+                    np.savez_compressed(str(prefix)+'.npz',**scenario_saved)
                     print(json.dumps({k:rows[-1][k] for k in ('regularization','complex_block','precision','method','K','inverse_error_max','task_error_max','failed_channels','passed')}),flush=True)
                 (out/'progress.json').write_text(json.dumps(dict(completed_scenarios=scenarios,last=rows[-1]),indent=2)+'\n')
     np.savez_compressed(out/'inverse_snapshots.npz',**saved)
@@ -108,7 +123,7 @@ def plot(rows,out):
                     if bad:ax.scatter([bad[0]['K']],[100.],marker='x',color=color,s=35)
                 ax.axhline(.02,color='black',ls=':',label='2% comparison');ax.set_ylim(1e-15,200);ax.grid(True,which='both',alpha=.2);ax.set_xlabel('K');ax.set_ylabel(metric);ax.set_title(f'{precision}, Es/N0={-10*math.log10(lam):g}dB')
                 if i==0 and j==0:ax.legend(fontsize=6)
-        fig.suptitle('BRI, complex block=2, 192 static CDL-B matrices; values>100 clipped; x=first nonfinite sample')
+        fig.suptitle('BRI, complex block=2, 192 static CDL-B matrices; values>100 clipped; x=first invalid/model-rejected sample')
         fig.tight_layout();fig.savefig(out/f'{metric}.png',dpi=150);fig.savefig(out/f'{metric}.pdf');plt.close(fig)
 
 
