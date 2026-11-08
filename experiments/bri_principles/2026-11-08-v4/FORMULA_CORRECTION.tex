@@ -1,0 +1,31 @@
+% Suggested replacement for the mathematical iteration paragraph only.
+% Original chapter is preserved separately; no historical performance claim is certified here.
+\paragraph{统一变量与输出恢复。}
+设 $A=H^{H}H+\lambda I\succ0$，块大小为 $b$，并令
+\[
+D=\operatorname{blockdiag}(A_{11},\ldots,A_{mm}),\qquad
+P=D^{-1},\qquad T=PA.
+\]
+$P$ 是块对角预条件器，$T$ 是预条件后的系统矩阵，通常为稠密矩阵。
+令 $Y_0=0$，则 Richardson 迭代为
+\[
+R_k=I-TY_k,\qquad Y_{k+1}=Y_k+\omega_k R_k,
+\qquad X_k=Y_kP.
+\]
+由于 $T^{-1}=A^{-1}D$，$Y_k\to T^{-1}$ 时才有 $X_k\to A^{-1}$。
+等价的直接逆矩阵形式为
+\[
+X_{k+1}=X_k+\omega_kP(I-AX_k),\qquad X_0=0.
+\]
+对于固定权重，收敛条件为 $\rho(I-\omega PA)<1$。
+在 Hermitian 正定条件下，充分且必要的权重区间为
+$0<\omega<2/\lambda_{\max}(PA)$。
+Chebyshev 加速所用谱界必须覆盖 $PA$ 的完整正实谱；
+有限精度下还须核查舍入误差、中间量溢出和谱界误差。
+块大小和迭代次数均需在指定信道、输入、精度和质量门限下实测，不能由算法名保证。
+
+\paragraph{成本边界。}
+$PZ$ 可利用块对角结构，而 $TY$ 一般是稠密矩阵乘。
+若显式求逆，$Y$ 有 $n$ 列，不能把 $TY$ 的稠密工作量写成块对角乘的工作量；
+若直接求解少数右端项，需另行声明输出与迭代对象。
+预条件器、谱界、$T$ 的构建以及输出恢复均须计入性能比较。

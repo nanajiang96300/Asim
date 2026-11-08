@@ -1,5 +1,8 @@
 # Asim 研究与 Codex 自动化计划
 
+2026-11-08 BRI原理复核：章节混用了P=D⁻¹与T=PA，正确Y迭代需X=YP右恢复；固定ω0.5实块实现不代表Chebyshev算法。已完成192个新CDL-B矩阵的复块2/4/8、FP64/FP32/显式half_storage、K1…256研究，独立谱多项式审计通过。有限精度/不包谱配置仍有拒绝或质量失败，非算子验收；225测试通过。见[原理勘误](BRI_PRINCIPLES.md)及[结果与图](../../experiments/bri_principles/2026-11-08-v4/README.md)。
+
+
 2026-11-08 CDL-B/K曲线更新：编码不是求逆/均衡精度的前置。新增真正Sionna CDL-B静态频域输入，21组中6组通过、BRI 1组数值失败、14组象限/溢出拒绝，整体未通过；独立复核7个完整组688,128bit。FP16/FP64的K—误差曲线已归档，显示NS精度平台及固定BRI的收敛问题；不能只加K。216测试通过，仅清理约3.02GB可再下载缓存，旧研究原件保留。见[报告与图](../../experiments/channel_validation/2026-11-08-v1/README.md)及[输入域/精度协议](CHANNEL_DOMAINS.md)。
 
 

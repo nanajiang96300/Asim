@@ -137,6 +137,24 @@
       "manifest": "DOCS/research/paper_archive/2026-11-08-cdlb-iteration-v1/manifest.json",
       "manifest_sha256": "a0092b3de462ec0c021a33577de62f3c5d24ac5b9f3f79c24a285c6456764682",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-08-bri-principles-v1",
+      "status": "BRI_PRINCIPLES_CHECKED_WITH_PRECISION_LIMITATIONS",
+      "keywords": [
+        "BRI",
+        "original-formula",
+        "P-versus-T",
+        "inverse-recovery",
+        "Chebyshev",
+        "CDL-B",
+        "precision",
+        "spectral-audit"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/manifest.json",
+      "manifest_sha256": "368140b81ea839a208ebf4e740763fce1be4a67393c00028b8d5a05b74e72c98",
+      "supersedes": null
     }
   ]
 }

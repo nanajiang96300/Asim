@@ -1,0 +1,66 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-08-bri-principles-v1",
+  "capture_commit": "6aaeb80abf22c9158fef21669ea077b8502bea8b",
+  "status": "BRI_PRINCIPLES_CHECKED_WITH_PRECISION_LIMITATIONS",
+  "snapshots": [
+    {
+      "source": "DOCS/research/BRI_PRINCIPLES.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/snapshots/DOCS/research/BRI_PRINCIPLES.md",
+      "bytes": 5766,
+      "sha256": "3e91d16ff480f8149a8b71d91c9792a512aa29f3fd50387442bd8a5601f77c7b"
+    },
+    {
+      "source": "experiments/bri_principles/2026-11-08-v4/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/snapshots/experiments/bri_principles/2026-11-08-v4/README.md",
+      "bytes": 9053,
+      "sha256": "bf4a769d70e607dc08c9f96b905e3aac4cdf14748f3c73143a5137dd94db5160"
+    },
+    {
+      "source": "experiments/bri_principles/2026-11-08-v4/FORMULA_CORRECTION.tex",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/snapshots/experiments/bri_principles/2026-11-08-v4/FORMULA_CORRECTION.tex",
+      "bytes": 1488,
+      "sha256": "d8740d1f4f6435547321091d98ba684e3aa87c1832911a7d4b2f740336c37ea1"
+    },
+    {
+      "source": "experiments/bri_principles/2026-11-08-v4/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/snapshots/experiments/bri_principles/2026-11-08-v4/summary.json",
+      "bytes": 153161,
+      "sha256": "f3a82b58318add400f5a9810792b83ebb567f93c220987a0a2be27799526566b"
+    },
+    {
+      "source": "experiments/bri_principles/2026-11-08-v4/old_helper_check.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/snapshots/experiments/bri_principles/2026-11-08-v4/old_helper_check.json",
+      "bytes": 1267,
+      "sha256": "2caa36f807f0169d4387e88ff6b0a2411e6386fecb81c3f0338d57bdcccbb9db"
+    },
+    {
+      "source": "experiments/bri_principles/2026-11-08-v4/mmse_ber.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-08-bri-principles-v1/snapshots/experiments/bri_principles/2026-11-08-v4/mmse_ber.json",
+      "bytes": 269,
+      "sha256": "4adc504e5b1459166aab4561290444932d6908fc3024f0de3c7c6518ed542a82"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/bri_principles/2026-11-08-v4/contract.json",
+      "bytes": 22780,
+      "sha256": "504134075fc0a53cdfbddbd2c2cf59602b1a08f14464f2b61af61cfb41dda2e3"
+    },
+    {
+      "path": "experiments/bri_principles/2026-11-08-v4/run_manifest.json",
+      "bytes": 49094,
+      "sha256": "31aa187b5675c709c358d7adbbd425b1c20fa30457ebe94524e19a0961c88b48"
+    },
+    {
+      "path": "experiments/bri_principles/2026-11-08-v4/independent_audit.json",
+      "bytes": 36393,
+      "sha256": "994414acbe394ea58affa487bc78b5ccc7dd15f3cbd092a62593d3403e980b1f"
+    },
+    {
+      "path": "experiments/bri_principles/2026-11-08-v1/source_chapter.tex",
+      "bytes": 43596,
+      "sha256": "10fa39979860634907be9724f2402d6b2b8159b46ad0946fcbc02551cf704969"
+    }
+  ]
+}

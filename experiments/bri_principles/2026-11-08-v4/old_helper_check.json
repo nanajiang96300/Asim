@@ -1,0 +1,34 @@
+[
+  {
+    "K": 4,
+    "old_vs_stable_relative": 3.2922857307855806e-12,
+    "root_vs_stable_relative": 1.3582278018942903e-15,
+    "old_inverse_error": 0.7067318579781463,
+    "stable_inverse_error": 0.7067318579774489,
+    "scope": "one FP64 sample; explicit enclosing bounds; no old FP16 or Asim certification"
+  },
+  {
+    "K": 8,
+    "old_vs_stable_relative": 2.8702082040042468e-12,
+    "root_vs_stable_relative": 6.705017478833866e-14,
+    "old_inverse_error": 0.4669133587710017,
+    "stable_inverse_error": 0.4669133587697664,
+    "scope": "one FP64 sample; explicit enclosing bounds; no old FP16 or Asim certification"
+  },
+  {
+    "K": 16,
+    "old_vs_stable_relative": 3.8723206052462306e-10,
+    "root_vs_stable_relative": 4.002043463759843e-10,
+    "old_inverse_error": 0.13195298570263117,
+    "stable_inverse_error": 0.1319529856957364,
+    "scope": "one FP64 sample; explicit enclosing bounds; no old FP16 or Asim certification"
+  },
+  {
+    "K": 32,
+    "old_vs_stable_relative": 0.00893379595807557,
+    "root_vs_stable_relative": 0.009374631243105074,
+    "old_inverse_error": 0.023256330201359268,
+    "stable_inverse_error": 0.021127143638745044,
+    "scope": "one FP64 sample; explicit enclosing bounds; no old FP16 or Asim certification"
+  }
+]

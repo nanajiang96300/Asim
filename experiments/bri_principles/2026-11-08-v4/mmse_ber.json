@@ -1,0 +1,17 @@
+[
+  {
+    "regularization": 1.0,
+    "mmse_BER": 0.2784423828125,
+    "bits": 49152
+  },
+  {
+    "regularization": 0.1,
+    "mmse_BER": 0.1671142578125,
+    "bits": 49152
+  },
+  {
+    "regularization": 0.01,
+    "mmse_BER": 0.08317057291666667,
+    "bits": 49152
+  }
+]

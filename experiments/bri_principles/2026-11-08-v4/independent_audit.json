@@ -1,0 +1,1141 @@
+{
+  "status": "INDEPENDENT_BRI_SPECTRAL_AUDIT_PASSED",
+  "preconditioner_comparison": [
+    {
+      "regularization": 1.0,
+      "preconditioner": "complex_block2",
+      "channels": 192,
+      "unstable_half_channels": 0,
+      "max_spectral_radius": 0.8443323405968275,
+      "scope": "same H, FP64 nominal spectrum, omega=0.5; not old instruction replay"
+    },
+    {
+      "regularization": 1.0,
+      "preconditioner": "contiguous_real_block2",
+      "channels": 192,
+      "unstable_half_channels": 2,
+      "max_spectral_radius": 1.0462070973545998,
+      "scope": "same H, FP64 nominal spectrum, omega=0.5; not old instruction replay"
+    },
+    {
+      "regularization": 0.1,
+      "preconditioner": "complex_block2",
+      "channels": 192,
+      "unstable_half_channels": 20,
+      "max_spectral_radius": 1.2229728647322964,
+      "scope": "same H, FP64 nominal spectrum, omega=0.5; not old instruction replay"
+    },
+    {
+      "regularization": 0.1,
+      "preconditioner": "contiguous_real_block2",
+      "channels": 192,
+      "unstable_half_channels": 191,
+      "max_spectral_radius": 2.4742171227196765,
+      "scope": "same H, FP64 nominal spectrum, omega=0.5; not old instruction replay"
+    },
+    {
+      "regularization": 0.01,
+      "preconditioner": "complex_block2",
+      "channels": 192,
+      "unstable_half_channels": 148,
+      "max_spectral_radius": 1.5082453515342111,
+      "scope": "same H, FP64 nominal spectrum, omega=0.5; not old instruction replay"
+    },
+    {
+      "regularization": 0.01,
+      "preconditioner": "contiguous_real_block2",
+      "channels": 192,
+      "unstable_half_channels": 192,
+      "max_spectral_radius": 2.80324699501037,
+      "scope": "same H, FP64 nominal spectrum, omega=0.5; not old instruction replay"
+    }
+  ],
+  "snapshots": 216,
+  "individual_inverse_matrices": 41472,
+  "max_relative_difference": 7.561340353530443e-13,
+  "method": "separate block solve, Hermitian eigendecomposition, closed-form stationary/Chebyshev polynomial; no iterative solver imported",
+  "scope": "FP64 algebraic correctness only; not finite-precision or instruction certification",
+  "records": [
+    {
+      "snapshot": "l1.0-b2-fp64-fixed_half-k8",
+      "worst_relative_difference": 1.6173810110811655e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-fixed_half-k16",
+      "worst_relative_difference": 1.7758291648317094e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-fixed_half-k32",
+      "worst_relative_difference": 1.917243806682433e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-fixed_half-k64",
+      "worst_relative_difference": 1.9400669236437e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-fixed_half-k128",
+      "worst_relative_difference": 1.8796701925122857e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-fixed_half-k256",
+      "worst_relative_difference": 1.9564518736823393e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-stable_stationary-k8",
+      "worst_relative_difference": 1.7167125434059322e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-stable_stationary-k16",
+      "worst_relative_difference": 1.8968074433722264e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-stable_stationary-k32",
+      "worst_relative_difference": 1.979062541658876e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-stable_stationary-k64",
+      "worst_relative_difference": 1.9506716558440728e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-stable_stationary-k128",
+      "worst_relative_difference": 1.9385504907396425e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-stable_stationary-k256",
+      "worst_relative_difference": 1.9476041992128036e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 1.9610819408721764e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 1.882440725754393e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 1.874259821913843e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 1.9724272945617894e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 1.9670945043823023e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 1.9759123071620723e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 1.9891047287204805e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 1.931930932522054e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 1.895208763713902e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 1.923419871289836e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 1.937860349189953e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b2-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 1.9421135817904694e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-fixed_half-k8",
+      "worst_relative_difference": 1.6815447834536258e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-fixed_half-k16",
+      "worst_relative_difference": 1.928759259881408e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-fixed_half-k32",
+      "worst_relative_difference": 1.935831311690962e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-fixed_half-k64",
+      "worst_relative_difference": 1.927606152085421e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-fixed_half-k128",
+      "worst_relative_difference": 1.9238248018527764e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-fixed_half-k256",
+      "worst_relative_difference": 1.931604319381174e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-stable_stationary-k8",
+      "worst_relative_difference": 1.8952694806089523e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-stable_stationary-k16",
+      "worst_relative_difference": 1.8884945033556183e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-stable_stationary-k32",
+      "worst_relative_difference": 1.8629628492796273e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-stable_stationary-k64",
+      "worst_relative_difference": 1.9122655973470744e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-stable_stationary-k128",
+      "worst_relative_difference": 1.901620446377644e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-stable_stationary-k256",
+      "worst_relative_difference": 1.906595317665276e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 1.9367617803400144e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 1.9885471149165106e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 1.9414312515689152e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 1.8959753597199336e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 1.8973380852055418e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 1.874622124881772e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 1.9330136989334395e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 1.974290641760756e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 1.8343037744801047e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 1.9404347851978733e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 1.9243010037855987e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b4-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 1.940074758922292e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-fixed_half-k8",
+      "worst_relative_difference": 2.1484569864873743e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-fixed_half-k16",
+      "worst_relative_difference": 2.188570489942846e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-fixed_half-k32",
+      "worst_relative_difference": 2.1604323105386112e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-fixed_half-k64",
+      "worst_relative_difference": 2.2513060572857732e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-fixed_half-k128",
+      "worst_relative_difference": 2.2189172345576978e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-fixed_half-k256",
+      "worst_relative_difference": 2.2205738755294107e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-stable_stationary-k8",
+      "worst_relative_difference": 2.192083872362411e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-stable_stationary-k16",
+      "worst_relative_difference": 2.2406193145277084e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-stable_stationary-k32",
+      "worst_relative_difference": 2.103101331622618e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-stable_stationary-k64",
+      "worst_relative_difference": 2.2179585376828794e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-stable_stationary-k128",
+      "worst_relative_difference": 2.1909111425104943e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-stable_stationary-k256",
+      "worst_relative_difference": 2.2004413442635093e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 2.2199100531633206e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 2.246905145237483e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 2.205311216287145e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 2.2126920356772257e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 2.213071429474658e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 2.1918413220858554e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 2.2326600175364634e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 2.0693656486978888e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 2.1738637839066564e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 2.1515782380513918e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 2.1702227346393003e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l1.0-b8-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 2.1519026446677003e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-fixed_half-k8",
+      "worst_relative_difference": 2.257093915147105e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-fixed_half-k16",
+      "worst_relative_difference": 4.5372371376979746e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-fixed_half-k32",
+      "worst_relative_difference": 4.016030164405186e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-fixed_half-k64",
+      "worst_relative_difference": 1.069950892679353e-13,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-fixed_half-k128",
+      "worst_relative_difference": 2.133112644143573e-13,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-fixed_half-k256",
+      "worst_relative_difference": 4.269575405238147e-13,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-stable_stationary-k8",
+      "worst_relative_difference": 2.3014330270619213e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-stable_stationary-k16",
+      "worst_relative_difference": 2.842256248870368e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-stable_stationary-k32",
+      "worst_relative_difference": 3.617202808385515e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-stable_stationary-k64",
+      "worst_relative_difference": 4.568656419181929e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-stable_stationary-k128",
+      "worst_relative_difference": 4.822817899455305e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-stable_stationary-k256",
+      "worst_relative_difference": 4.907039354813417e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 5.069240089611616e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 4.7868925412780804e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 4.890887484416234e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 4.892586519004949e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 4.9770012521712e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 4.898292461302449e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 5.695973860425071e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 5.970012829451363e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 6.15237253346922e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 6.19183689505168e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 6.761856302637689e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b2-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 6.5323870757275895e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-fixed_half-k8",
+      "worst_relative_difference": 3.1266452042352397e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-fixed_half-k16",
+      "worst_relative_difference": 3.279302245511673e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-fixed_half-k32",
+      "worst_relative_difference": 3.2946497150655008e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-fixed_half-k64",
+      "worst_relative_difference": 3.4311405514228312e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-fixed_half-k128",
+      "worst_relative_difference": 3.3992221174901184e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-fixed_half-k256",
+      "worst_relative_difference": 3.3559080266745128e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-stable_stationary-k8",
+      "worst_relative_difference": 3.4198863828287553e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-stable_stationary-k16",
+      "worst_relative_difference": 3.359620206176744e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-stable_stationary-k32",
+      "worst_relative_difference": 3.3879367956021574e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-stable_stationary-k64",
+      "worst_relative_difference": 3.5121854629486942e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-stable_stationary-k128",
+      "worst_relative_difference": 3.4135422821489425e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-stable_stationary-k256",
+      "worst_relative_difference": 3.4116506143076002e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 3.965943936489467e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 3.5163696685783394e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 3.4335247858665244e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 3.3738912793623723e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 3.715658373764798e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 3.4279721883382984e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 4.615159281733954e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 4.362155056888911e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 4.314468957358743e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 4.258397994413598e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 4.564957343121407e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b4-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 4.439238124857449e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-fixed_half-k8",
+      "worst_relative_difference": 3.0705113907381293e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-fixed_half-k16",
+      "worst_relative_difference": 3.229697349582604e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-fixed_half-k32",
+      "worst_relative_difference": 3.2322338321481903e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-fixed_half-k64",
+      "worst_relative_difference": 3.3048200159064157e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-fixed_half-k128",
+      "worst_relative_difference": 3.2844144685814364e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-fixed_half-k256",
+      "worst_relative_difference": 3.228987986790786e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-stable_stationary-k8",
+      "worst_relative_difference": 3.470294275350642e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-stable_stationary-k16",
+      "worst_relative_difference": 3.3814094557383193e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-stable_stationary-k32",
+      "worst_relative_difference": 3.3325598501671516e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-stable_stationary-k64",
+      "worst_relative_difference": 3.3399103313821705e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-stable_stationary-k128",
+      "worst_relative_difference": 3.3578620271538677e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-stable_stationary-k256",
+      "worst_relative_difference": 3.1964112219806077e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 3.5956255249179005e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 3.588074068863478e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 3.531928886697043e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 3.3906434563086275e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 3.574840655788185e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 3.4531613358144232e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 3.974534956120323e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 4.108251980568131e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 4.049593780908898e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 3.995649501526816e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 4.25436676259587e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.1-b8-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 4.240184024999366e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-fixed_half-k8",
+      "worst_relative_difference": 5.60438995170134e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-fixed_half-k16",
+      "worst_relative_difference": 2.254842579059252e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-fixed_half-k32",
+      "worst_relative_difference": 6.022683967740404e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-fixed_half-k64",
+      "worst_relative_difference": 1.4330218968588516e-13,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-fixed_half-k128",
+      "worst_relative_difference": 3.8107811025681664e-13,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-fixed_half-k256",
+      "worst_relative_difference": 7.561340353530443e-13,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-stable_stationary-k8",
+      "worst_relative_difference": 4.427760825882628e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-stable_stationary-k16",
+      "worst_relative_difference": 6.341082127914093e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-stable_stationary-k32",
+      "worst_relative_difference": 9.19020086566257e-15,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-stable_stationary-k64",
+      "worst_relative_difference": 1.3307856684834846e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-stable_stationary-k128",
+      "worst_relative_difference": 2.0128657234408592e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-stable_stationary-k256",
+      "worst_relative_difference": 2.898309278937031e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 1.8032949283836318e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 2.8852924314973254e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 3.251009707251814e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 3.746884860426634e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 3.7252839518741854e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 3.739536601628907e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 1.807474951710598e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 3.322011287500616e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 4.762338718109093e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 5.51391145824675e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 5.888102612177207e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b2-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 5.889779028403836e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-fixed_half-k8",
+      "worst_relative_difference": 2.8490139783202463e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-fixed_half-k16",
+      "worst_relative_difference": 2.995760750024343e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-fixed_half-k32",
+      "worst_relative_difference": 3.0517863206410964e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-fixed_half-k64",
+      "worst_relative_difference": 3.0789723468618605e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-fixed_half-k128",
+      "worst_relative_difference": 3.0720769474397164e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-fixed_half-k256",
+      "worst_relative_difference": 3.059858180306236e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-stable_stationary-k8",
+      "worst_relative_difference": 2.9734658915654295e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-stable_stationary-k16",
+      "worst_relative_difference": 2.9832425099336586e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-stable_stationary-k32",
+      "worst_relative_difference": 3.0943648698321766e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-stable_stationary-k64",
+      "worst_relative_difference": 3.10617022708978e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-stable_stationary-k128",
+      "worst_relative_difference": 3.067418508154658e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-stable_stationary-k256",
+      "worst_relative_difference": 3.05766548185628e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 3.0864336187997e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 3.035451180956254e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 3.16058073777405e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 3.0229500537232126e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 3.1746326228464584e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 3.088487489648027e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 6.0959619952176e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 8.24881279152846e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 9.325723232416061e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 8.762779484004351e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 9.127468635186224e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b4-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 9.12012239281292e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-fixed_half-k8",
+      "worst_relative_difference": 2.78733766285055e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-fixed_half-k16",
+      "worst_relative_difference": 2.906037204605298e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-fixed_half-k32",
+      "worst_relative_difference": 3.030475420681863e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-fixed_half-k64",
+      "worst_relative_difference": 2.97620792095981e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-fixed_half-k128",
+      "worst_relative_difference": 3.000355774008817e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-fixed_half-k256",
+      "worst_relative_difference": 2.956926178159797e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-stable_stationary-k8",
+      "worst_relative_difference": 3.194927086351164e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-stable_stationary-k16",
+      "worst_relative_difference": 3.116557025426353e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-stable_stationary-k32",
+      "worst_relative_difference": 3.0902662654664754e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-stable_stationary-k64",
+      "worst_relative_difference": 3.065099034234585e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-stable_stationary-k128",
+      "worst_relative_difference": 3.0293005916247835e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-stable_stationary-k256",
+      "worst_relative_difference": 3.0653300170474924e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_X-k8",
+      "worst_relative_difference": 6.970524626688559e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_X-k16",
+      "worst_relative_difference": 3.019880303603352e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_X-k32",
+      "worst_relative_difference": 3.034312325139657e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_X-k64",
+      "worst_relative_difference": 2.9778910196339295e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_X-k128",
+      "worst_relative_difference": 3.102021814155289e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_X-k256",
+      "worst_relative_difference": 2.960079933849451e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_Y_recover-k8",
+      "worst_relative_difference": 7.675141040081444e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_Y_recover-k16",
+      "worst_relative_difference": 6.351735636788325e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_Y_recover-k32",
+      "worst_relative_difference": 6.244946896061547e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_Y_recover-k64",
+      "worst_relative_difference": 6.382084452687295e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_Y_recover-k128",
+      "worst_relative_difference": 6.322411116517497e-14,
+      "individual_matrices": 192
+    },
+    {
+      "snapshot": "l0.01-b8-fp64-chebyshev_Y_recover-k256",
+      "worst_relative_difference": 6.43305613916742e-14,
+      "individual_matrices": 192
+    }
+  ],
+  "auditor_sha256": "319763e96975585b3cd594524f9a513a849eb9589ffe922a67fcbe799f935cd5"
+}

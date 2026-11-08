@@ -1,0 +1,1192 @@
+{
+  "schema": "bri-principles-run-manifest-v1",
+  "code_commit": "9692f34cc24ee44f22ce439758e880ea8d7207b3",
+  "contract_sha256": "504134075fc0a53cdfbddbd2c2cf59602b1a08f14464f2b61af61cfb41dda2e3",
+  "artifacts": [
+    {
+      "path": "results/bri_principles/2026-11-08-v1/cdlb-48001.npz",
+      "bytes": 36136720,
+      "sha256": "d1eb889990af147e8730eb3be666376efa277aac0cb305b4fd6f4b7f3cd023d8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v1/cdlb-48002.npz",
+      "bytes": 36135958,
+      "sha256": "df8c661795417f9077c86323d2dfa314c40962c5898b47d70fd6f6224189fa5f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v1/old_helper_check.json",
+      "bytes": 1267,
+      "sha256": "2caa36f807f0169d4387e88ff6b0a2411e6386fecb81c3f0338d57bdcccbb9db"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v1/payload.npz",
+      "bytes": 1529069,
+      "sha256": "5d9c7ea3c2262406501ba58dd59b108fc82ea83a443d77256acceba09852a015"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v1/run.log",
+      "bytes": 1631,
+      "sha256": "d0aae2c5c0737bd5ffd193c34a6ce4021a6637575f6d4c21d6f5d81f4bf0fb49"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v2/cdlb-48001.npz",
+      "bytes": 36136720,
+      "sha256": "d1eb889990af147e8730eb3be666376efa277aac0cb305b4fd6f4b7f3cd023d8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v2/cdlb-48002.npz",
+      "bytes": 36135958,
+      "sha256": "df8c661795417f9077c86323d2dfa314c40962c5898b47d70fd6f6224189fa5f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v2/old_helper_check.json",
+      "bytes": 1267,
+      "sha256": "2caa36f807f0169d4387e88ff6b0a2411e6386fecb81c3f0338d57bdcccbb9db"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v2/payload.npz",
+      "bytes": 1529069,
+      "sha256": "5d9c7ea3c2262406501ba58dd59b108fc82ea83a443d77256acceba09852a015"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v2/progress.json",
+      "bytes": 540,
+      "sha256": "92526b632ed651d67211a5d0258a4a5a4987df06cf666d9ae0efe1f7f91f22bf"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v2/run.log",
+      "bytes": 3110,
+      "sha256": "15825f51d627feee2c8be74a00204c50c3a114f2d2f5b095c6d1a83667109846"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v3/cdlb-48001.npz",
+      "bytes": 36136720,
+      "sha256": "d1eb889990af147e8730eb3be666376efa277aac0cb305b4fd6f4b7f3cd023d8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v3/cdlb-48002.npz",
+      "bytes": 36135958,
+      "sha256": "df8c661795417f9077c86323d2dfa314c40962c5898b47d70fd6f6224189fa5f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v3/old_helper_check.json",
+      "bytes": 1267,
+      "sha256": "2caa36f807f0169d4387e88ff6b0a2411e6386fecb81c3f0338d57bdcccbb9db"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v3/payload.npz",
+      "bytes": 1529069,
+      "sha256": "5d9c7ea3c2262406501ba58dd59b108fc82ea83a443d77256acceba09852a015"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v3/progress.json",
+      "bytes": 544,
+      "sha256": "9efe146aeaef7f3fd3c36a2248cd7754a48b43ad3faff895368cd11ec773f18d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v3/run.log",
+      "bytes": 21927,
+      "sha256": "e67095e63976bcf6cd59a6f92bedd0afe2e2f3e77dc0284ea8a319b4e0725c73"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/audit.log",
+      "bytes": 1926,
+      "sha256": "78a7e3749fcdbc229b3a04ab209caa1ffa696f6d75e177d1c3efbdd9fc93b26a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/cdlb-48001.npz",
+      "bytes": 36136720,
+      "sha256": "d1eb889990af147e8730eb3be666376efa277aac0cb305b4fd6f4b7f3cd023d8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/cdlb-48002.npz",
+      "bytes": 36135958,
+      "sha256": "df8c661795417f9077c86323d2dfa314c40962c5898b47d70fd6f6224189fa5f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/curves.csv",
+      "bytes": 4534032,
+      "sha256": "8b3d0f2cb2c82b1feca25fccdad800e8841a4792865b273b757ed463c5a78aba"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/independent_audit.json",
+      "bytes": 36393,
+      "sha256": "994414acbe394ea58affa487bc78b5ccc7dd15f3cbd092a62593d3403e980b1f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/inverse_error_max.pdf",
+      "bytes": 41003,
+      "sha256": "7274102b3e62064cec14b558e04a26c3598d2db8b7a03a7e177baf8c97dd9b98"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/inverse_error_max.png",
+      "bytes": 281195,
+      "sha256": "1d8a3dcd7822974c8928ca0cbeb217b5588336f23cf508101b09c7b333b55d15"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/inverse_snapshots.npz",
+      "bytes": 235441095,
+      "sha256": "8160cfdb1d82b1e2d7f7c5672660ca26553581a8cb34e35b4c50bf089428cddd"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp32-chebyshev_X.json",
+      "bytes": 126427,
+      "sha256": "d8ce83c9136830e0c9693109a6b14cc9b14a7dd6d572c687bd3511c43b834436"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp32-chebyshev_X.npz",
+      "bytes": 2180232,
+      "sha256": "cf2d95468085755679ca97f9688bb712a575538534db7a9f6a9dfd19297efb77"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp32-chebyshev_Y_recover.json",
+      "bytes": 128448,
+      "sha256": "3c79dd693415b76c5411b71dae8cbd2161ae5d88088ee855e187d65bccbfc7a9"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp32-chebyshev_Y_recover.npz",
+      "bytes": 2191702,
+      "sha256": "e78fe633842e144cd448b710d6a556a80b0ba3c58bb304d3032a9e0b4a46c3dc"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp32-fixed_half.json",
+      "bytes": 124145,
+      "sha256": "9eed560ea92eb1c44f48f14c5ac1c779a102b98502e20b54c55816ac8679f73a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp32-fixed_half.npz",
+      "bytes": 2180383,
+      "sha256": "bdd4716ac05fd6b422b7cb373bdc94a92cfd9ca4f770664e220950c27a1aefa3"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp32-stable_stationary.json",
+      "bytes": 124939,
+      "sha256": "b28e9c6661dd20caf3fee7fb3178192d0c7b64df552f7ac4caed07d0a29482da"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp32-stable_stationary.npz",
+      "bytes": 2162166,
+      "sha256": "ddba2ad5accfc15d6aaf82044f6cf08e35ba6ce4566acb580eca378c07fa0fee"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp64-chebyshev_X.json",
+      "bytes": 126468,
+      "sha256": "cb979e15ad0a01fd4210644eca5fb7626a2ddef52089e249e4f6c0b2a064381e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp64-chebyshev_X.npz",
+      "bytes": 3601260,
+      "sha256": "9620de1a69cb8089e75cbcda56bd8370a50eda68ffc75a4e24fa940dd2036fcd"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp64-chebyshev_Y_recover.json",
+      "bytes": 128532,
+      "sha256": "a382f437630067fd64ea4a89ec51afc53c4c151c007be4e6956365ccb8d93b2a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3620012,
+      "sha256": "38b0bfcb875d6d0c4a51041831c0d7f14efca716aa2755e0ce757626fc32ca8a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp64-fixed_half.json",
+      "bytes": 124392,
+      "sha256": "e783e54eb55f97844e18a57ac0de8e3c5af72a55563ffc4c555bcc3427fb116a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp64-fixed_half.npz",
+      "bytes": 3548009,
+      "sha256": "9bc0f7c0f1b2f231e05ebb112d95303c5b2f942ed12e65ce270c1eba42e820c1"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp64-stable_stationary.json",
+      "bytes": 124987,
+      "sha256": "351ebe604aad9ae8f600acb0cef90c186a8ab91f3050b0d942b4cce4e2424a05"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-fp64-stable_stationary.npz",
+      "bytes": 3550204,
+      "sha256": "c9474c2024d603d1c8db88347565b23331586ef5c8bd971e5184f1bef5d2370d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-half_storage-chebyshev_X.json",
+      "bytes": 126324,
+      "sha256": "5613ec89977d5b0c31c711425d9a44c6a300a380478f044b22b724315e5e57fa"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-half_storage-chebyshev_X.npz",
+      "bytes": 1436877,
+      "sha256": "995f1e23fe5556a8a365c27aefc9ffb78a91f16519a7ba9aefd7eabfac096727"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-half_storage-chebyshev_Y_recover.json",
+      "bytes": 127685,
+      "sha256": "421380ea1991c45c373e77bf5daf937d1e3848b119810c2cb5555869f3152109"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1442025,
+      "sha256": "f2e0c20b14cbfe33bf30ec881dab92654858aeaf5c0abeb1166904733de60d6c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-half_storage-fixed_half.json",
+      "bytes": 118926,
+      "sha256": "e7dbd3c966d5e82bf4f571aebd95ebd74bb0563611d35c24dddb777e1cba82e0"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-half_storage-fixed_half.npz",
+      "bytes": 1131875,
+      "sha256": "9c041b69a4c0e3d6d9f797af3cc2a8c7a85080a538c34ef6012cb31558de8ae7"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-half_storage-stable_stationary.json",
+      "bytes": 126986,
+      "sha256": "778713bbb3e0e46b0385dd910aceaadc67d7d6903267f47fcffd5318774733a5"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b2-half_storage-stable_stationary.npz",
+      "bytes": 1426119,
+      "sha256": "d69bfb85bbb09a852dc1ea5eac954a02c49e4b633b0acf18d2445feef24f4f16"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-fp64-chebyshev_X.json",
+      "bytes": 127069,
+      "sha256": "43d2c6e69dd97472a2abff1dba49f52f3fd83f8308f4b661dec52d4f997d1703"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-fp64-chebyshev_X.npz",
+      "bytes": 3622797,
+      "sha256": "da656267a3fd3f7ae656b4f9aa85428a137c4aa6d00bf7552d6463d773ee9481"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-fp64-chebyshev_Y_recover.json",
+      "bytes": 129018,
+      "sha256": "3c5065b4f3405e4f9578a8aafd41bf5f99094c957bd201b00d21b715bdfa5586"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3658519,
+      "sha256": "8615938b1974c3ee437cc0b52f6d5a671236c2140d99c38a88d80f261a52e8db"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-fp64-fixed_half.json",
+      "bytes": 124484,
+      "sha256": "5e19522059cf0133aec145786c32f12eacf3b7ced2e8876328019089e9cba5c6"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-fp64-fixed_half.npz",
+      "bytes": 3616331,
+      "sha256": "196a0de30b73fd3695d98d8489504c50285b5f514b66f98235eb75151ccc1f61"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-fp64-stable_stationary.json",
+      "bytes": 126741,
+      "sha256": "c6a6b699091982be2f35e9b3aabfba8481248ace5745b498810d96fb9979ab24"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-fp64-stable_stationary.npz",
+      "bytes": 3617959,
+      "sha256": "8881f8a8d7d6d6823feec9037a18291da3c06eb24a186ee5c5659f3dc1a0b8cf"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-half_storage-chebyshev_X.json",
+      "bytes": 126694,
+      "sha256": "160eb56a9aaca41dfa0baa2b94d1ea8dc8463411382423b27bd425e26dd4c7dc"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-half_storage-chebyshev_X.npz",
+      "bytes": 1430197,
+      "sha256": "7763e54c0c2d269ab37e01d95be85c8d3c302eec065431589494ba134408f9e4"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-half_storage-chebyshev_Y_recover.json",
+      "bytes": 128234,
+      "sha256": "0eef6b9840b1e28151260d44b0991602f147711a244a26ab6490183c2818e5b6"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1443981,
+      "sha256": "e17cd77643539c4774b4fe5ddecd5584a7031865b42abdf43f6cbef114199d71"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-half_storage-fixed_half.json",
+      "bytes": 126034,
+      "sha256": "79250fbb98e059e165ff5dbd29bd226621194d502044f0ab42abd2cf6d0eca0b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-half_storage-fixed_half.npz",
+      "bytes": 1429042,
+      "sha256": "96b01bacd7e5bc8c58ecf15766f57956119c523170970a049ded4471f7e4f364"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-half_storage-stable_stationary.json",
+      "bytes": 127942,
+      "sha256": "154621a2ffbc3a5cf90e9e570caab3f13688a8773eec9caaf2a19467547f36f8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b4-half_storage-stable_stationary.npz",
+      "bytes": 1425659,
+      "sha256": "de099500ef997954cb08d04de6072722b3e4181e0c45477a5c3bcf030470a1c5"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-fp64-chebyshev_X.json",
+      "bytes": 127245,
+      "sha256": "a80123f9ae0fd504185abbc998ffc5c691c3d28a3afe0267ebedab0933533c57"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-fp64-chebyshev_X.npz",
+      "bytes": 3627093,
+      "sha256": "fbaf9bd786811c6d5923a18444df2e0f363714c5d886ef65ee7e548fcac67673"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-fp64-chebyshev_Y_recover.json",
+      "bytes": 128993,
+      "sha256": "d32cc603410084ff7207512042d3369641cdeaeba2cccd453fd5417cc389598f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3653022,
+      "sha256": "ba171a432e91f4f8db9dbcf2f31b68a6eed41cf93246041f35b59b295eb25d7d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-fp64-fixed_half.json",
+      "bytes": 125105,
+      "sha256": "540fe0d3118929471df63f8dbe8b2893678aa5adde73d9e624f149ad979268da"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-fp64-fixed_half.npz",
+      "bytes": 3615932,
+      "sha256": "d0991cb7b1f0e66af65e587081689e87d7a7fc60e62f8fd0ea11114242d4bbb4"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-fp64-stable_stationary.json",
+      "bytes": 127855,
+      "sha256": "86b20c1418bd5dc7b76a8e811c785a5cf75dde22fcc0819f79fc7958976e152d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-fp64-stable_stationary.npz",
+      "bytes": 3620912,
+      "sha256": "f649b04aa1ff2b4d0736fbc8005628442c7dffa00b87c8d344e6a0ed5e64e82e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-half_storage-chebyshev_X.json",
+      "bytes": 126794,
+      "sha256": "7f341de5757df06e727cb692b89742c96d76127980cb6a2e88296962442a0461"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-half_storage-chebyshev_X.npz",
+      "bytes": 1426962,
+      "sha256": "a8fe99dba87ef5688eb5bce4629dce919f349f9c7d781cd3ac3ccf36365da28c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-half_storage-chebyshev_Y_recover.json",
+      "bytes": 128379,
+      "sha256": "041a0b2e86b237082768c02240f2a7d4168ac0a9c3e76e821e00ae70af82aeca"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1443368,
+      "sha256": "60fe1320ec7ffb23fa30903b3419edc98e32a8ac24082d25a3fc4c5d22ab7b27"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-half_storage-fixed_half.json",
+      "bytes": 126020,
+      "sha256": "7f7a736eb55587b5bfac1f2fc218d6751f2127d97d11e7ba21a691eaa0c09050"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-half_storage-fixed_half.npz",
+      "bytes": 1424130,
+      "sha256": "43a41a5f3f4ce32f366033ed53f06afeecdd3787ef53bb4ee68bd70ddffd0f3c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-half_storage-stable_stationary.json",
+      "bytes": 128290,
+      "sha256": "1f12355d5b24452475c0617d7360b7ed1a16a4bb37f3a70f2d60d448b1f7a37c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.01-b8-half_storage-stable_stationary.npz",
+      "bytes": 1420353,
+      "sha256": "ccf8260d09d4586f4685a86cfe3431f6cbfd4d6a605c678ba81f913219abae5f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp32-chebyshev_X.json",
+      "bytes": 125959,
+      "sha256": "5c19250b7c0815531ee4b2da72b1396eeb8aa152021981f175bb54db15ec3c8d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp32-chebyshev_X.npz",
+      "bytes": 2142519,
+      "sha256": "75c9ef78dda6d6aea27d0a8096305356ab96c7c77fcc762065f21c97af4df3e9"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp32-chebyshev_Y_recover.json",
+      "bytes": 127985,
+      "sha256": "37ab25b38fe6d7a2b457c275152c57eaae34d3188347ec002e50b7f4844f88d1"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp32-chebyshev_Y_recover.npz",
+      "bytes": 2150402,
+      "sha256": "2f511c05f984162e57760f290a234e61cfd98bf42033c380be4bf0152e372a95"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp32-fixed_half.json",
+      "bytes": 123512,
+      "sha256": "97c617c94ac10b058acd4a3ec5874e20bcc3639daa64c3ed46829f0fd191f4c6"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp32-fixed_half.npz",
+      "bytes": 2142648,
+      "sha256": "019abf6c39f4542c155193f890c56b301dd3d267e35945ff2d512518d4d6cfb3"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp32-stable_stationary.json",
+      "bytes": 126462,
+      "sha256": "1e6d15ede9a3286cb67876f1d6e7e47294af6de9879b4d57f36d4319318a6f4f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp32-stable_stationary.npz",
+      "bytes": 2137943,
+      "sha256": "219bdd87ad9e1bf1aa01828e38c845f076887d504ac66e44e6c2997074d56798"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp64-chebyshev_X.json",
+      "bytes": 125968,
+      "sha256": "891212232c35b74c08f8e50c8746e1e7940f616c465228548f6b94a77d1c8fca"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp64-chebyshev_X.npz",
+      "bytes": 3481500,
+      "sha256": "311e029efac229b46cc43a3e88cc524f5373f87b02324c07a415c7ec10effbc8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp64-chebyshev_Y_recover.json",
+      "bytes": 127905,
+      "sha256": "ac12d7b3d2f21d22c6d9451fae9805a9215581b44393ad0218484313e89d92e9"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3489033,
+      "sha256": "a4b922f603d930907f05bc1c111c17ec53a9ec7668a6cf27be90fba7577c3453"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp64-fixed_half.json",
+      "bytes": 123542,
+      "sha256": "bfb4380d71c85d06fbf368f6509f2aabcc46af12d67dbec93cf44251b1514ccc"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp64-fixed_half.npz",
+      "bytes": 3473295,
+      "sha256": "9c930b7fd7ae8abe3ca8abaa52e1802f01104f9ce00f536699db69d13e4ed36d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp64-stable_stationary.json",
+      "bytes": 126471,
+      "sha256": "65bbeeca9455ef5eb8602c3813b540dd92e4af4852c286d62cdcef70629691ac"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-fp64-stable_stationary.npz",
+      "bytes": 3469898,
+      "sha256": "fd3038a4a2b96111479983295eee2e61fef5dcf1d86a0575d406c718947f64ab"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-half_storage-chebyshev_X.json",
+      "bytes": 127202,
+      "sha256": "33d0b4298078baca3c5a70c35b3128deea8e6557ee4ddf2b877e106f5c80657d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-half_storage-chebyshev_X.npz",
+      "bytes": 1416210,
+      "sha256": "8eb53c0ad67517cf2f051e58297ab9875a27201ca734ce26985ac1236fd841e3"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-half_storage-chebyshev_Y_recover.json",
+      "bytes": 128876,
+      "sha256": "cd91d1a3659a2b18393f535152f142a3750b91eb2f715ecaa6439d69e6004429"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1436851,
+      "sha256": "8b755f28496308b9e80872a5d65967074472198ce47708d914644ecab58da585"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-half_storage-fixed_half.json",
+      "bytes": 120943,
+      "sha256": "933e62e500dc2bc67bce6ea4f94faab16eb8d4b4c16cdb4747ad197245616758"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-half_storage-fixed_half.npz",
+      "bytes": 1412731,
+      "sha256": "bfeec1f52e8dd0947eeec75cd9455d6921451a3c5c3934526e84b9fc767da99a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-half_storage-stable_stationary.json",
+      "bytes": 128094,
+      "sha256": "d14da5e9bd614e54caf889b8810889053e208c7e04c4db6d2321f969a3e04d77"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b2-half_storage-stable_stationary.npz",
+      "bytes": 1422181,
+      "sha256": "b1711459550f2381fda7ce58c4caabbafc9b42e37c7bca6c5ed3d98e5aaec93b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp32-chebyshev_X.json",
+      "bytes": 126029,
+      "sha256": "b2cae7025db2facf1be3b01a5e73172a00eec7b930d7dd7e69bc298f5993688b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp32-chebyshev_X.npz",
+      "bytes": 2144860,
+      "sha256": "1aa84fc9aa029ec00c3ed4f798b5d9484efe97be1fc9ca5006dadce378850556"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp32-chebyshev_Y_recover.json",
+      "bytes": 128136,
+      "sha256": "6847a345b9458be8680dc8629499edb5f1c4dda1ef5052c3c63106f9a1c36723"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp32-chebyshev_Y_recover.npz",
+      "bytes": 2149271,
+      "sha256": "183a7545d3a3dfa4b27bf8f32bb9d2647a9517a428862cfbd786c3b2c4e26be8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp32-fixed_half.json",
+      "bytes": 125294,
+      "sha256": "906bdbb280525096364bb98a17030403b275eeee046a48fdda262f8073f47d9e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp32-fixed_half.npz",
+      "bytes": 2141310,
+      "sha256": "1925309e514f3ab4078a098305d4597c89a0d8155149b6cdad7a93482141e54c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp32-stable_stationary.json",
+      "bytes": 127327,
+      "sha256": "aa505a77a4a36963b6a44d9348d73dfb4b36863ea3a8245a888c52adfc65d99f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp32-stable_stationary.npz",
+      "bytes": 2142686,
+      "sha256": "b2bd7246eca8b2835543dde384a5961f27037f9f1cf1ef1291d44088130cc268"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp64-chebyshev_X.json",
+      "bytes": 126096,
+      "sha256": "95a0c0eb969a53c6090cdc7b2675adf5013bae67d1c2beb8bb81c8948c0987a2"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp64-chebyshev_X.npz",
+      "bytes": 3485893,
+      "sha256": "a05f1df438f0d575a2894d0b7e962f3fa546730bd4b4195c272904c851f2c28b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp64-chebyshev_Y_recover.json",
+      "bytes": 128059,
+      "sha256": "2474f59ade5d905f833d3b6398f8b364d5568fd5d9f202a76790dc0c19b56291"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3485217,
+      "sha256": "81d1156e6467f2a3078d80f05f149632cc65300ea7e63cb46845bf9d00e6e43b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp64-fixed_half.json",
+      "bytes": 125234,
+      "sha256": "3afbf0939953eaa1f72aa4f6892cce55195c797ef592021241c96102d76f624e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp64-fixed_half.npz",
+      "bytes": 3479376,
+      "sha256": "44b84e5c03a219d1adc55b3eeb3d42c7f01c75e67fc0ce9ea91597468203558b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp64-stable_stationary.json",
+      "bytes": 127251,
+      "sha256": "3670a170835de316f9788709152640d55226e1a53577e5f63d6924998b03542f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-fp64-stable_stationary.npz",
+      "bytes": 3481634,
+      "sha256": "f18e512471bbd91583f3d8070c3dc82677f9c19b1b18b6117a416b1cedaeae17"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-half_storage-chebyshev_X.json",
+      "bytes": 127315,
+      "sha256": "a8193ea8a6e0f399a044509297712a78cf26073d83114da608c1fbcfeac976b5"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-half_storage-chebyshev_X.npz",
+      "bytes": 1410513,
+      "sha256": "022bb71db8cbce9b0f5b3b96cf99a1cceb97f79ef7b4bd78537ffefddaeb61bb"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-half_storage-chebyshev_Y_recover.json",
+      "bytes": 129133,
+      "sha256": "17192c1cd04e973e7862ca8a840a3626a1846fa759b9c8b652ae91567ce92f47"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1432225,
+      "sha256": "cc8efcbcd27a6cc213585e725f170264e31de128d51ba802a5b2d864d124ead2"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-half_storage-fixed_half.json",
+      "bytes": 126580,
+      "sha256": "ff428f3e43a7f4943d1519a8423632cd7bb6d4330b9880c1ca46e9d1bd77c09d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-half_storage-fixed_half.npz",
+      "bytes": 1410835,
+      "sha256": "1c4e12c36ad2c8fe289d8fa31ced81e81d092879518bb0d94b0648a4adc7355c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-half_storage-stable_stationary.json",
+      "bytes": 128647,
+      "sha256": "bec522a3ce1e80ee1f12f0d201cd59a64971a23e362fa7cc39c1566538184d3e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b4-half_storage-stable_stationary.npz",
+      "bytes": 1406116,
+      "sha256": "3b9aed90f20633fe33820e4ccc5ad10bd9cc5e31fd882dfc31e28639a0fc9a09"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp32-chebyshev_X.json",
+      "bytes": 126045,
+      "sha256": "c618639ae2d290f6446cce7fef0c401059bf6955fe94eb241fc5ea3fc1775067"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp32-chebyshev_X.npz",
+      "bytes": 2145807,
+      "sha256": "d042b4dcef1da2bf9a815d42e74ad701f69de7a2cbfcbd72abeb672c050d5b3f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp32-chebyshev_Y_recover.json",
+      "bytes": 128135,
+      "sha256": "5691819eb9fc33e1a19104babe41c96c7402d7e48018d154731530a2735ce6af"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp32-chebyshev_Y_recover.npz",
+      "bytes": 2147092,
+      "sha256": "4cf648099d9a6699ac170ba8af5e748dd1bb0ffe0ca6e9227d39b70a5fcaf722"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp32-fixed_half.json",
+      "bytes": 125528,
+      "sha256": "59d7af23ded8557eff78e14f768ff1943e72538166df9e94c37a5489d58f1626"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp32-fixed_half.npz",
+      "bytes": 2141574,
+      "sha256": "60b5d3504c0e4230257725f5573018ca0a28ed88c80dfaa9b726caf2b35be3e6"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp32-stable_stationary.json",
+      "bytes": 127454,
+      "sha256": "8b8cb2a320ae461ebf933f02f62b3c8d1f842df9dc2cd5c8f99b71f4aad358f0"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp32-stable_stationary.npz",
+      "bytes": 2144191,
+      "sha256": "864eb5ddee4214077907ad19aed9cd3399ece35f59fb86d21501ee6dd2501342"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp64-chebyshev_X.json",
+      "bytes": 126142,
+      "sha256": "6a1b3eecf33086e54c127a72da3886f06a0c256b19c425fadaeca6161435a741"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp64-chebyshev_X.npz",
+      "bytes": 3487592,
+      "sha256": "2fad366aadab7a8fef62a94a97d2ebf826e501d6a62639e75cdaff60b78188e4"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp64-chebyshev_Y_recover.json",
+      "bytes": 128062,
+      "sha256": "386495502cf09ebb6af0204065fc59005f3edfef84ac6031c3e90a5492b19d06"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3480448,
+      "sha256": "e6ffb01b07d5791d4d0cc55f165d6d69f0aea9e837de21b06f92ce8af4d90f1d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp64-fixed_half.json",
+      "bytes": 125504,
+      "sha256": "812cf05ab671cdb4bd3f37bde1d5a7c365e45e72921268a49dd2651385d30267"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp64-fixed_half.npz",
+      "bytes": 3479498,
+      "sha256": "5b23bf4d86481a2a8718448caa14fec606bfa0fdfd7cce41e7480677b59fd566"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp64-stable_stationary.json",
+      "bytes": 127486,
+      "sha256": "4de20dc4c5ad232f8ac9149e2ee000e3f1544821a428096bcd08c524db945295"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-fp64-stable_stationary.npz",
+      "bytes": 3484229,
+      "sha256": "a22bf15dd48949fee0e8da9d8b1447389538504fa0ed2ad3cfe26fdc0cdbedcf"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-half_storage-chebyshev_X.json",
+      "bytes": 127293,
+      "sha256": "166bbc96e9ad98fcc2800386c5790df08b3c860d74e7754b86c8d1b29feeb511"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-half_storage-chebyshev_X.npz",
+      "bytes": 1405917,
+      "sha256": "faf13eda7a5af673f4528726f48ed74692ec41d681998899c1db8f8db2337d62"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-half_storage-chebyshev_Y_recover.json",
+      "bytes": 129200,
+      "sha256": "e9ae4aedea37dc41ff4e5d278bfaa66a2084adab18e59e5006ccba1ac89157fe"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1429425,
+      "sha256": "0a6eb96fd32bf129a12e06537bd80a4a0c94100c6f08e38717e0b4f6e14054be"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-half_storage-fixed_half.json",
+      "bytes": 126672,
+      "sha256": "88eb41985fa1164835f86c8c7fa9648a7032ae9d9d041861a3f1a63f9c8687a8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-half_storage-fixed_half.npz",
+      "bytes": 1403154,
+      "sha256": "a8442f58643c10bf21b596cc1f8739894bb5fd00a66da983e9e91211cc1392d9"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-half_storage-stable_stationary.json",
+      "bytes": 128872,
+      "sha256": "6ed415f328f72b890ada6779f57fc19831999f492c980132a542cf22546bd514"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l0.1-b8-half_storage-stable_stationary.npz",
+      "bytes": 1398213,
+      "sha256": "e493a12d45f7801e26e978973513e684934d18427a185440dac184c30ac5e677"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp32-chebyshev_X.json",
+      "bytes": 126143,
+      "sha256": "7cfb8d315a609de0a7b95ce2208f5779a4621ff574d0ba46b591b3d46281b84e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp32-chebyshev_X.npz",
+      "bytes": 2101502,
+      "sha256": "eeff91871214daa36e107aae5694c13e3d4aee272e7e964644e397bfcf73d1a1"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp32-chebyshev_Y_recover.json",
+      "bytes": 128007,
+      "sha256": "e1431057ff5ab021703b80a9075568b3b2802401612303e68c857703083095d9"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp32-chebyshev_Y_recover.npz",
+      "bytes": 2103953,
+      "sha256": "abee94287fb831149a6044992840b251783f4bb4c409435ff86b1e04717bc81d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp32-fixed_half.json",
+      "bytes": 125728,
+      "sha256": "067ceda961a0d5c1887fe2da977ead4b5fcdb1060f6606bac9730fffc4011701"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp32-fixed_half.npz",
+      "bytes": 2096127,
+      "sha256": "1cb7c61f72299e88c06faaa0f8518d6b62a3552830ee44aaab782bac1c1c3ec6"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp32-stable_stationary.json",
+      "bytes": 127534,
+      "sha256": "2afe45110a00fb524c3a226c161a9370bab2d73a4ff534c0095767d23db8938a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp32-stable_stationary.npz",
+      "bytes": 2099399,
+      "sha256": "6c95ba9d58461557ba9fd03e57c90f2d9dcf90193cf4431a8fa7ebb38f6c5f92"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp64-chebyshev_X.json",
+      "bytes": 126035,
+      "sha256": "9ae93b9d5f5cf05297f95f596c43e2f6f7b79a1c1ab135e2056819c99f4d745a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp64-chebyshev_X.npz",
+      "bytes": 3374174,
+      "sha256": "831d4e25a6f979290bf546a88a73820ac95d63afee505627bbfa7db612863d00"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp64-chebyshev_Y_recover.json",
+      "bytes": 127878,
+      "sha256": "99780428cdf28b7a3d37a2c40daf317395e99be93e1a41623a1c86c9645d8305"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3360771,
+      "sha256": "7f079471ddd84cf6d62e560c2888c743e1591fdb4e7c2497960d8a71d0baa398"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp64-fixed_half.json",
+      "bytes": 125649,
+      "sha256": "7817add6bb79fe017318c8c035181d94de376a8c4e4bcdb41e3482e79ccd0301"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp64-fixed_half.npz",
+      "bytes": 3367181,
+      "sha256": "3fe9f1dbd0a3201d780b30753f88d828b580722a5441056fe76e55ba75359ba2"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp64-stable_stationary.json",
+      "bytes": 127515,
+      "sha256": "44bbad0747951a6ea53e2c230c64316d2e080283be2b0f07a3b944a87ce57333"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-fp64-stable_stationary.npz",
+      "bytes": 3371719,
+      "sha256": "2379359f534e719668f3b9a9f6f2f4d559a2f7d9e83139aabc9b2d8f1b7cc412"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-half_storage-chebyshev_X.json",
+      "bytes": 128220,
+      "sha256": "7db1ba697ec57fbdd74204f2eb7c13ca835410237d75bf2f6fd0f055c861d9da"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-half_storage-chebyshev_X.npz",
+      "bytes": 1351628,
+      "sha256": "91f260650f4b2cf1a9c03da6ee6d38f494d3fac1d48a239d922b63aa0b9df178"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-half_storage-chebyshev_Y_recover.json",
+      "bytes": 130037,
+      "sha256": "ea22479d032825fc56b517c52048416b2136949c069e885740c689ef5c3e4c78"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1407927,
+      "sha256": "041cbde397e923e89d72e30dfc9cc0ed7055f9abe2d7c32ebe53c75631aad533"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-half_storage-fixed_half.json",
+      "bytes": 127260,
+      "sha256": "daf29ccd5f70d640aa5f0c1fefd7a34d6587d8caaf82290ce3980ddbf31fce9b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-half_storage-fixed_half.npz",
+      "bytes": 1370076,
+      "sha256": "e3f4c1c07b8ae54209df3e979f70803a626afe6c5a65c95122a7abb17fc8b60c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-half_storage-stable_stationary.json",
+      "bytes": 129658,
+      "sha256": "28864209b969071b0ade3313fe0a7fdeb1ae4a3e1392a5f79cb79cdf63c20bde"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b2-half_storage-stable_stationary.npz",
+      "bytes": 1363934,
+      "sha256": "f6b793a078cd3715ec9888400ae554a2cc8a2dcdf066e8b4206bbbcfdf9aa85f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp32-chebyshev_X.json",
+      "bytes": 126201,
+      "sha256": "39f60b458f5c2a42eb6d82ed88153bad352efe9291835dee5c13ed88c9cc419f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp32-chebyshev_X.npz",
+      "bytes": 2103216,
+      "sha256": "0d7cd4e067d49d9ff5d7b50d96eaf43f6b768693ea2c11c437a76663575007bd"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp32-chebyshev_Y_recover.json",
+      "bytes": 128080,
+      "sha256": "73d1527c6db2f49d9dcb60fcdcc272b9248aea3b4c228884ae7a69e68a14d85e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp32-chebyshev_Y_recover.npz",
+      "bytes": 2104969,
+      "sha256": "4d400454e39beec962932bd06eaf7a06d8648cd46dea94eb2571f5b721c5080f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp32-fixed_half.json",
+      "bytes": 125710,
+      "sha256": "5673cf4ea65c054e53a5275683b61d761598ae97f7a7611b738d51f8ff3bd2f2"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp32-fixed_half.npz",
+      "bytes": 2097386,
+      "sha256": "4741c15b5e91371112e0e4a3a8b6c3eecfced7fa746eb17609024c25d2d40625"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp32-stable_stationary.json",
+      "bytes": 127701,
+      "sha256": "b6c9338a5701253db2bc165852ae53c84fe026620e523c4fee9f25479ad5df14"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp32-stable_stationary.npz",
+      "bytes": 2101525,
+      "sha256": "b7a678b8391cf67c62e828a8a88b1773510f0258d205b817ac666c0937aa909a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp64-chebyshev_X.json",
+      "bytes": 125993,
+      "sha256": "6077839f97f884650f387f581d62b684c5048f7f35556340f0fc87b009355e1b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp64-chebyshev_X.npz",
+      "bytes": 3376077,
+      "sha256": "3b0f965ee84b958810eb9b50e3fd1febf2c83e6a300485a6f5f51b3e20ef4a32"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp64-chebyshev_Y_recover.json",
+      "bytes": 127879,
+      "sha256": "8cbb4d4c8ea5b1e3dd7e0d0e13ff37907b50081cad9bf53fabde04716bcae676"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3362473,
+      "sha256": "1f8e09eeac14fec60dcaac6fed38d8e381e1e7e0c77ffc54432a086358297434"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp64-fixed_half.json",
+      "bytes": 125653,
+      "sha256": "96f85a88d96890d71a55c7dca46f1f750cf588c8b4c92df0ee1c02b07abb854b"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp64-fixed_half.npz",
+      "bytes": 3368453,
+      "sha256": "bd16c7a0d0dca4d51fe6ed868615f295a90d58b67ce4c9f74b29ee2e8d9a7f24"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp64-stable_stationary.json",
+      "bytes": 127502,
+      "sha256": "ec5ec15f982a924baf5f4794528369702750b89a05fcb623e0ce3cebffcb694a"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-fp64-stable_stationary.npz",
+      "bytes": 3373956,
+      "sha256": "087a7d8c432e6051129eb57befb1d742691d090b400620e2be1df568f4a7ccef"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-half_storage-chebyshev_X.json",
+      "bytes": 128132,
+      "sha256": "7d476b8ee8b881677a48ff6165161f2f5a89f21001a65b1ad5f675c6987e46c6"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-half_storage-chebyshev_X.npz",
+      "bytes": 1343805,
+      "sha256": "439ae8faf24a9e881635a438fbde607816cf3cf628ca1e7de72ab885d529d467"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-half_storage-chebyshev_Y_recover.json",
+      "bytes": 129511,
+      "sha256": "39e4ada9f6fec6d65849d6b9a7538ec625bafbf27a121ad87ac4f253c1d9ede9"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1398848,
+      "sha256": "bf5dde0cf8f54d41e19d723507320150cfdae93aed85e8afcff92e2cd132c287"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-half_storage-fixed_half.json",
+      "bytes": 127705,
+      "sha256": "7c35bd3079aeca57f2c89bb472d234b025d8b6bb01a33a25ddc6364389c4420f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-half_storage-fixed_half.npz",
+      "bytes": 1361408,
+      "sha256": "0094a6da957461f4da18853c3c609517b4a03d4a35e8ca392c94558c7b829aa8"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-half_storage-stable_stationary.json",
+      "bytes": 129783,
+      "sha256": "a453d2b104f79ffd589b767ade74ff66cc13deacbb9ed0f423891e8944a106d1"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b4-half_storage-stable_stationary.npz",
+      "bytes": 1350214,
+      "sha256": "12849ddbdace987e635fdb2fabcbed7d31e3cd1783c3c39205e667f259d5cfda"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp32-chebyshev_X.json",
+      "bytes": 126167,
+      "sha256": "487365c8cc5d5054983d7c6cc3a31a1d28e235d00da062f11238a253d281c68e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp32-chebyshev_X.npz",
+      "bytes": 2104003,
+      "sha256": "9b3604bf274271f5276988f9af392a4669043023d73c97fa265e9d68e8ea19b2"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp32-chebyshev_Y_recover.json",
+      "bytes": 128056,
+      "sha256": "841f48bb32a2baeed2e4011f9f25e5664f78c53a193268ce596e03c2d6b8ff10"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp32-chebyshev_Y_recover.npz",
+      "bytes": 2104395,
+      "sha256": "d9e6246feb802334a485ec04a456f7c8609e7f57c59b990da25dbb48fd1a3444"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp32-fixed_half.json",
+      "bytes": 125775,
+      "sha256": "a343baef501739457bf63abab9cf71fc3d2fcf39b02c2ca3a818744f60bc7afe"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp32-fixed_half.npz",
+      "bytes": 2097063,
+      "sha256": "c8095d484c6ad9a7966d8a78402bc1b51466b5424f469f77299afd836cac1add"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp32-stable_stationary.json",
+      "bytes": 127715,
+      "sha256": "302bab56ce83105bf8171bd9c5f082dcd9826c6b46e9c6022dfab6427e1a7b1c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp32-stable_stationary.npz",
+      "bytes": 2103635,
+      "sha256": "8c1f15f3d24542f1e283859c2003a2fa341202295e3bd8a26a5210d2a59deb24"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp64-chebyshev_X.json",
+      "bytes": 125941,
+      "sha256": "ab99bef26aa1e1ce97883387d733461a53c52527f7db6aae99b620bce684a4d9"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp64-chebyshev_X.npz",
+      "bytes": 3377315,
+      "sha256": "cfec3fb720b60c7b9c92a94a41875acad3cab04a0c6719ea06ad0a59f847b82d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp64-chebyshev_Y_recover.json",
+      "bytes": 127774,
+      "sha256": "ccfd0398e9b59b3f3446cebe07351d4ba3fd3d52f5ff715c58d76d8571756861"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp64-chebyshev_Y_recover.npz",
+      "bytes": 3362084,
+      "sha256": "58335737ef3c6dd333a251570c9d37d0b7a0f50bd12e5594827d3baf3667d317"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp64-fixed_half.json",
+      "bytes": 125699,
+      "sha256": "10d4b3a62c903ad176b77a92c0d9574bc21d3c5dad31b500cb3e50e61579efdf"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp64-fixed_half.npz",
+      "bytes": 3368213,
+      "sha256": "32a6bb936d3209f97dfca07b49c9759105659318eed1063e42426bb71223fa12"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp64-stable_stationary.json",
+      "bytes": 127501,
+      "sha256": "ffea0947ab85992eafd1770a37855594dd034567bfa0fd0c5ac6bbc254fe8b50"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-fp64-stable_stationary.npz",
+      "bytes": 3376794,
+      "sha256": "1026710bc5f200605976d5fc19c15c49df2d0103bc88d75ca2b02ed35cbfee99"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-half_storage-chebyshev_X.json",
+      "bytes": 128192,
+      "sha256": "abe4fbf6f30ffbc59e8238d629e0ab4e9bc0ff2ebc12b6abb8a565d425c370ae"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-half_storage-chebyshev_X.npz",
+      "bytes": 1335544,
+      "sha256": "dc4c9d97bf270fea1b4dfefc6ffc0fe78b9e25bbcb91e22134a2e28eda4d0ce5"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-half_storage-chebyshev_Y_recover.json",
+      "bytes": 130100,
+      "sha256": "8d5fb81b2ad06f433bfaadff97b733720d33799e67d1505df5f073c7c3b16bac"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-half_storage-chebyshev_Y_recover.npz",
+      "bytes": 1387554,
+      "sha256": "968fe137706dfa7a5ce31dc5a04914b1c8d14811df391b66c67ae0ff7c4fcd7c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-half_storage-fixed_half.json",
+      "bytes": 127941,
+      "sha256": "fa680489e1a16f1e0c9d0b8c1343b0500938a66615afe7575a1d2fb8b4d66cc0"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-half_storage-fixed_half.npz",
+      "bytes": 1344307,
+      "sha256": "dd7a1eb196ae1d7d42a5f69f8de206c969f01ba3f0207182bac9b8a9878f4b72"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-half_storage-stable_stationary.json",
+      "bytes": 129485,
+      "sha256": "36bcbcf600ccce40b0e8e0626dcc1cee87252493397f4c286df68ad0df909c5c"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/l1.0-b8-half_storage-stable_stationary.npz",
+      "bytes": 1332237,
+      "sha256": "eade82bfab754d9930383efdb7c374ec4a664fadcac56a2c450825403e4ff910"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/model-rejected-l0.01-b4-fp32.json",
+      "bytes": 81,
+      "sha256": "4886ac8cee79fe1779c7f16cd7912fed0a2ff2a5976620a64771e3c87c7fd98e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/model-rejected-l0.01-b8-fp32.json",
+      "bytes": 81,
+      "sha256": "4886ac8cee79fe1779c7f16cd7912fed0a2ff2a5976620a64771e3c87c7fd98e"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/old_helper_check.json",
+      "bytes": 1267,
+      "sha256": "2caa36f807f0169d4387e88ff6b0a2411e6386fecb81c3f0338d57bdcccbb9db"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/payload.npz",
+      "bytes": 1529069,
+      "sha256": "5d9c7ea3c2262406501ba58dd59b108fc82ea83a443d77256acceba09852a015"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/progress.json",
+      "bytes": 537,
+      "sha256": "42e39db2ed64e6b5c28efd1a46a0487fe4bf520d40b74409c611cd5e1bb24d20"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/residual_max.pdf",
+      "bytes": 63180,
+      "sha256": "b009827800a1c03b55ea8b7c2445e0de5bb4a6b6817348417f1c5b98f69a153d"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/residual_max.png",
+      "bytes": 313542,
+      "sha256": "7b6b3b3716db7fb4d3a8933209970e803b2badc633671122a63954facae64555"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/result.json",
+      "bytes": 151342,
+      "sha256": "d59eec671dd23e5d9214de996a296704b696b38eb20ac657082bf7f425086c61"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/run.log",
+      "bytes": 23594,
+      "sha256": "495c9d3df1a97474447aaa2d3e3f1a20d30c2b0031c8350b8fac4340a802edcb"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/task_error_max.pdf",
+      "bytes": 65143,
+      "sha256": "6882a0fa0ce82f7d7d8e508a5a4b46996fae67ed807dde103c8ff806d47fde8f"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/task_error_max.png",
+      "bytes": 297997,
+      "sha256": "0bddcf3c4ebcfaa5bb78c6ae850f9f3ecc768def94b60bc4fd20a65e0d31cda6"
+    },
+    {
+      "path": "results/bri_principles/2026-11-08-v4/unit-tests.log",
+      "bytes": 325,
+      "sha256": "38cf1d3c4042342a66b5a184a3d83865516830953faf3e1c2d213c00d5884ce7"
+    }
+  ]
+}
