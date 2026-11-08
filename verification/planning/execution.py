@@ -24,6 +24,9 @@ def approved(path, expected_sha, repo):
 
 def seal_job(directory, result, plan, job, runtime):
     """Preserve the core receipt, then attach the stricter planning gate."""
+    # The core uses integer-keyed per-core maps/tuples; JSON has string keys/lists.
+    # Compare their serialized semantics, without dropping any result fields.
+    result = json.loads(json.dumps(result, allow_nan=False))
     raw = directory / 'result.json'
     if json.loads(raw.read_text()) != result:
         raise Invalid('core result changed before sealing')

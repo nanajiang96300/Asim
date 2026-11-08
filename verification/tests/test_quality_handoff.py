@@ -153,5 +153,18 @@ class QualityHandoffTests(unittest.TestCase):
             self.assertEqual(sealed['status'], 'PLAN_QUALITY_FAILED')
             self.assertIsNone(sealed['score'])
 
+    def test_seal_compares_json_semantics_without_ignoring_mutation(self):
+        with tempfile.TemporaryDirectory() as d:
+            p, plan = self.fixture(d); runtime = verify(plan, REPO)
+            root = Path(d) / 'job'; root.mkdir()
+            r = dict(status='SKIPPED_ASIM_FAILED', numeric_status='NOT_RUN', artifacts=[], core_tile_counts={0: (1, 2)})
+            (root / 'result.json').write_text(json.dumps(r))
+            sealed = seal_job(root, r, plan, plan['jobs'][0], runtime)
+            self.assertEqual(sealed['core_tile_counts'], {'0': [1, 2]})
+            # Recreate original core record, then change an actual count.
+            (root / 'result.json').write_text(json.dumps(r)); r['core_tile_counts'][0] = (1, 3)
+            with self.assertRaisesRegex(Invalid, 'changed before sealing'):
+                seal_job(root, r, plan, plan['jobs'][0], runtime)
+
 
 if __name__ == '__main__': unittest.main()
