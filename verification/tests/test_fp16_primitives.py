@@ -43,3 +43,10 @@ class FP16PrimitiveTests(unittest.TestCase):
         a=list(run(H,Y,.01,1,'implicit_solve',20,left=True,compensated=True,momentum=.9,restart=8))[-1][1]
         b=point_solve(H,Y,.01,20,compensated=True,momentum=.9,restart=8)
         np.testing.assert_array_equal(a.view(np.uint16),b.view(np.uint16))
+
+    def test_independent_inverse_matches_half_primitive_program(self):
+        from verification.studies.fp16_independent import point_solve
+        rng=np.random.default_rng(149);H=(rng.normal(size=(2,8,4))+1j*rng.normal(size=(2,8,4)))/6;Y=rng.normal(size=(2,8,2))+1j*rng.normal(size=(2,8,2))
+        a=list(run(H,Y,.01,1,'implicit_inverse_add',20,left=True,compensated=True,momentum=.9))[-1][1]
+        b=point_solve(H,Y,.01,20,inverse=True)
+        np.testing.assert_array_equal(a.view(np.uint16),b.view(np.uint16))
