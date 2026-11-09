@@ -21,20 +21,25 @@ def time_event(name,kind,e,phase=0):
     c,q=stamp(e,phase);return {'op':name,'kind':kind,'cycle':c,'order':q}
 
 
-def read_stream(path,finish):
+def iter_stream(path,finish,max_bytes=256*1024*1024,max_events=1000000):
+    """Bounded streaming decoder; no list of full repeated descriptors."""
     if not Path(path).is_file():raise Unsupported('missing actual Core read/write event stream')
-    if Path(path).stat().st_size>256*1024*1024:raise Unsupported('observer byte budget exceeded')
+    if Path(path).stat().st_size>max_bytes:raise Unsupported('observer byte budget exceeded')
     with open(path) as f:
         first=json.loads(next(f,'{}'))
         if first!=HEADER:raise Unsupported('unknown Core observer semantics or clock')
-        events=[];clocks={}
+        clocks={}
         for n,line in enumerate(f):
-            if n>=1000000:raise Unsupported('observer event budget exceeded')
+            if n>=max_events:raise Unsupported('observer event budget exceeded')
             e=json.loads(line)
             if not isinstance(e,dict) or type(e.get('order')) is not int or e.get('order')!=n or type(e.get('cycle')) is not int or not 0<=e['cycle']<=finish or type(e.get('core')) is not int or e['core']<0:raise Invalid('observer order/clock/identity invalid')
             if e['cycle']<clocks.get(e['core'],0):raise Invalid('nonmonotonic per-core observer clock')
-            clocks[e['core']]=e['cycle'];events.append(e)
-    return events
+            clocks[e['core']]=e['cycle'];yield e
+
+
+def read_stream(path,finish):
+    # Compatibility callers retain the original limits and eager error behavior.
+    return list(iter_stream(path,finish))
 
 
 def within_epoch(access,event,batch,resets,reset_by_key):
@@ -44,7 +49,7 @@ def within_epoch(access,event,batch,resets,reset_by_key):
     return stamp(event)>stamp(reset) and (next_reset is None or stamp(event)<next_reset)
 
 
-def check_runtime(record,dispatch,path,trace_path,config,finish):
+def check_runtime(record,dispatch,path,trace_path,config,finish,stream_limits=None):
     if record['header'].get('schema')!='source-views-program-v1':raise Unsupported('runtime checking requires explicit source-view program')
     if any(c['core_type']!='systolic_ws' for c in config['core_config'].values()):raise Unsupported('observer supports homogeneous SystolicWS only')
     h=record['header'];p=h['precision_bytes'];req=config['dram_req_size']
@@ -67,8 +72,9 @@ def check_runtime(record,dispatch,path,trace_path,config,finish):
         if v['cols']==r['cols']:
             lo=v['base']+v['row']*r['cols']*p;return [Access(space,d['core'],buffer,lo,lo+v['rows']*r['cols']*p)]
         return [Access(space,d['core'],buffer,v['base']+((v['row']+j)*r['cols']+v['col'])*p,v['base']+((v['row']+j)*r['cols']+v['col']+v['cols'])*p) for j in range(v['rows'])]
-    events=read_stream(path,finish);compute=defaultdict(dict);requests={};responses={};resets={};reset_by_key=defaultdict(list)
+    limits=stream_limits or {};events=iter_stream(path,finish,**limits);event_count=0;compute=defaultdict(dict);requests={};responses={};resets={};reset_by_key=defaultdict(list)
     for e in events:
+        event_count+=1
         kind=e['kind']
         if kind=='buffer_reset':
             b=e['batch'];space=e['space']
@@ -83,7 +89,7 @@ def check_runtime(record,dispatch,path,trace_path,config,finish):
         if kind in ('compute_read_begin','compute_read_done','compute_write_visible'):
             if i['opcode'] in (0,1) or kind in compute[i['id']]:raise Invalid('duplicate/wrong compute event')
             if kind=='compute_read_begin' and e.get('semantic')!=i['semantic']:raise Invalid('runtime views differ from exported instruction')
-            compute[i['id']][kind]=e
+            compute[i['id']][kind]={k:e[k] for k in ('core','cycle','order')}
         elif kind in ('dma_request','dma_response'):
             if i['opcode'] not in (0,1) or type(e['fragment']) is not int or not 0<=e['fragment']<len(i['src_addrs']):raise Invalid('invalid DMA owner/fragment')
             buf=d['accum_buffer'] if i['dest_addr']>=0x20000000 else d['spad_buffer']
@@ -200,4 +206,4 @@ def check_runtime(record,dispatch,path,trace_path,config,finish):
         if epoch_faults:r['status']='SCHEDULE_MODEL_REJECTED'
         reports.append(r)
     failed=[r['batch'] for r in reports if r['status']!='SCHEDULE_MODEL_CHECKED']
-    return {'status':'MODEL_RW_REJECTED' if failed else 'MODEL_RW_CHECKED_CONSERVATIVE','failed_batches':failed,'batches':reports,'event_count':len(events),'compute_operations':len(compute),'dma_fragments':len(fragments),'buffer_resets':len(resets),'scope':HEADER,'hardware_G4':'NOT_CERTIFIED'}
+    return {'status':'MODEL_RW_REJECTED' if failed else 'MODEL_RW_CHECKED_CONSERVATIVE','failed_batches':failed,'batches':reports,'event_count':event_count,'compute_operations':len(compute),'dma_fragments':len(fragments),'buffer_resets':len(resets),'scope':HEADER,'hardware_G4':'NOT_CERTIFIED'}

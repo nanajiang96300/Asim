@@ -77,10 +77,11 @@ class Replayer:
     def execute(self,data):
         t=self.task;p=policy_for(t.profile)
         h,groups,bound,_=validate_actual(self.record,self.dispatch,t,self.r['algorithm'],data['inputs'],self.config)
+        reference_started=time.perf_counter()
         alg=self.reference(data['H'],data['Y'],t.regularization,self.r['algorithm'].get('iterations',1))
         expected=alg.get('output_block')
         if expected is None:expected=np.stack([real_block(x) for x in alg['output']])
-        target=task_reference(data,t);actual=[];errors=[];executed=0
+        target=task_reference(data,t);reference_seconds=time.perf_counter()-reference_started;replay_started=time.perf_counter();actual=[];errors=[];executed=0
         for b in range(t.batch_size):
             r=execute_batch(h,groups[b],bound,b,expected[b],return_output=True);value=r.pop('_output',None)
             if r['status']!='STRUCTURE_MATCH' or value is None or r['executed']!=r['total'] or r['cost_issues'] or not bit_equal(value,expected[b]):
@@ -90,7 +91,8 @@ class Replayer:
         raw=np.stack(actual)
         output=np.stack([decode_checked(v,t.nt,t.nrhs,p.quadrant_tolerance) for v in raw])
         return dict(raw=raw,output=output,target=target,task_errors=errors,
-                    numeric_passed=max(errors)<=p.task_tolerance,precision_bit_equal=True,instructions_executed=executed)
+                    numeric_passed=max(errors)<=p.task_tolerance,precision_bit_equal=True,instructions_executed=executed,
+                    phase_timings_seconds=dict(independent_references=reference_seconds,instruction_replay_and_comparison=time.perf_counter()-replay_started))
 
 
 def group_metrics(streams,limits,group_count):

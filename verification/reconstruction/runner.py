@@ -74,7 +74,7 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
             stats=statistics(directory/'trace.csv',records[0]['instructions'],receipt['finish_cycle'],24,dispatch)
             (directory/'pipeline_statistics.json').write_text(json.dumps(stats,indent=2));write_detail(directory/'instruction_pipeline_detail.csv',stats)
             if stats['status']!='TRACE_VALID':raise Invalid('trace pipeline coverage failed')
-            schedule=check_runtime(records[0],dispatch,directory/'rw_events.jsonl',directory/'trace.csv',config,receipt['finish_cycle'])
+            schedule=check_runtime(records[0],dispatch,directory/'rw_events.jsonl',directory/'trace.csv',config,receipt['finish_cycle'],stream_limits=entry.get('observer_limits'))
             (directory/'schedule.json').write_text(json.dumps(schedule,indent=2))
             result['schedule_status']=schedule['status']
             if schedule['status']!='MODEL_RW_CHECKED_CONSERVATIVE':raise Invalid('actual Core schedule rejected by declared conservative model')

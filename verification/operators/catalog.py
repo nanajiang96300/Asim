@@ -12,6 +12,7 @@ def adapter(operator,task,iterations):
     e=entries[operator]
     if task.scope!=e['scope'] or task.profile not in e.get('profiles',[e.get('profile')]):raise Invalid('adapter/task boundary mismatch')
     if type(iterations) is not int or not 1<=iterations<=e.get('max_iterations',32):raise Invalid('iteration budget')
+    if any(getattr(task,k,None)!=v for k,v in e.get('task_dimensions',{}).items()):raise Invalid('adapter task dimensions unsupported')
     make_parameters=getattr(importlib.import_module(e['parameter_module']),e['parameter_function'])
     params={'id':operator,**make_parameters(iterations)}
     model={'name':operator,'matrix_m':task.nr,'matrix_k':task.nt,'nrhs':task.nrhs,'batch_size':task.batch_size,'iterations':iterations,'task_contract':task.frozen(),'precision_policy':policy_for(task.profile).frozen()}

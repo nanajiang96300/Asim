@@ -20,7 +20,8 @@ from verification.shadow.metrics import relative_error
 
 
 def file_hash(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    # Large trace/observer artifacts must not be read into a second full buffer.
+    with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
 
 
 def recover(record, requested, request_bytes=64):

@@ -120,6 +120,29 @@
       },
       "parameter_module": "verification.operators.parameters",
       "parameter_function": "merge_parameters"
+    },
+    "bri_implicit_fp16_v1": {
+      "mode": "bri_implicit_test",
+      "source": "src/inverse/bri_implicit/BRIImplicitModel.cc",
+      "scope": "mmse_h_y_to_xhat_v1",
+      "profile": "modeled_fp16_fp32_real_block_v1",
+      "profiles": [
+        "modeled_fp16_fp32_real_block_v1"
+      ],
+      "reference_module": "verification.reference.bri_implicit",
+      "reference_function": "simulate_bri_implicit_fp16",
+      "parameter_module": "verification.operators.implicit_parameters",
+      "parameter_function": "parameters",
+      "max_iterations": 76,
+      "observer_limits": {
+        "max_bytes": 1073741824,
+        "max_events": 2500000
+      },
+      "task_dimensions": {
+        "nr": 64,
+        "nt": 16,
+        "nrhs": 8
+      }
     }
   }
 }
