@@ -1,15 +1,15 @@
 {
   "schema": "supervised-reconstruction-runtime-v1",
-  "binary": "results/bri_implicit/2026-11-09-v1/runtime/bin/Simulator",
-  "config": "results/bri_implicit/2026-11-09-v1/runtime/runtime_config.json",
-  "cwd": "results/bri_implicit/2026-11-09-v1/runtime",
-  "library_dir": "results/bri_implicit/2026-11-09-v1/runtime/lib",
+  "binary": "results/fixed_hb_native/2026-11-09-v2/runtime/bin/Simulator",
+  "config": "results/fixed_hb_native/2026-11-09-v2/runtime/runtime_config.json",
+  "cwd": "results/fixed_hb_native/2026-11-09-v2/runtime",
+  "library_dir": "results/fixed_hb_native/2026-11-09-v2/runtime/lib",
   "dependencies": [
-    "results/bri_implicit/2026-11-09-v1/runtime/lib/libramulator.so",
-    "results/bri_implicit/2026-11-09-v1/runtime/runtime/HBM2.yaml",
-    "results/bri_implicit/2026-11-09-v1/runtime/runtime/fly_c1_m2.icnt"
+    "results/fixed_hb_native/2026-11-09-v2/runtime/lib/libramulator.so",
+    "results/fixed_hb_native/2026-11-09-v2/runtime/runtime/HBM2.yaml",
+    "results/fixed_hb_native/2026-11-09-v2/runtime/runtime/fly_c1_m2.icnt"
   ],
-  "binary_source_commit": "055338a18ceced29a785f9cf1d0ac5f0b3063ddd",
+  "binary_source_commit": "bd1e520b74ce63920bffbecb8a55558d617b509e",
   "runtime_contract": {
     "kind": "header",
     "schema": "core-rw-v4",
@@ -30,7 +30,8 @@
     "cholesky_block_explicit_v1",
     "ldl_block_explicit_v1",
     "cholesky_merge_explicit_v1",
-    "bri_implicit_fp16_v1"
+    "bri_implicit_fp16_v1",
+    "bri_stable_hb_fp16_v1"
   ],
   "profiles": [
     "structure_f64_real_block",
@@ -38,38 +39,39 @@
   ],
   "python_version": "3.12.3",
   "numpy_version": "2.5.0",
-  "acceptance_note": "Daily task is Rayleigh MMSE. Implicit FP16 replay passed, but fresh CDL-B 20dB quality failed; experimental, not promoted. Prior seven F64 scope inherited, this run regressed their F16 profiles.",
+  "acceptance_note": "Daily task is Rayleigh. Stable-HB fixed K16/53/174 passed software modeled CDL-B 192-H at three SNR and uncoded QPSK; no hardware certification or performance promotion. Prior implicit v1 remains CDL-quality failed; old seven F64/F16 scope inherited, NS and implicit-v1 F16 rechecked with new binary.",
   "experimental_operators": [
-    "bri_implicit_fp16_v1"
+    "bri_implicit_fp16_v1",
+    "bri_stable_hb_fp16_v1"
   ],
   "files": [
     {
       "path": "orchestrator/codex_operators.json",
-      "bytes": 5480,
-      "sha256": "8f8bd291773180aba8b08e6f1cba8198c46ea27d76cffc265cad1cb226b760a5"
+      "bytes": 6283,
+      "sha256": "52d9746701887533ed3142186e2ada33340fcb9a5dbe80130e8e568ffcef1dc7"
     },
     {
-      "path": "results/bri_implicit/2026-11-09-v1/runtime/bin/Simulator",
-      "bytes": 7642720,
-      "sha256": "848120e96afb4aae97c21d16d489da57b6a0c72ef16a02795c2cf2ccfaf11fb5"
+      "path": "results/fixed_hb_native/2026-11-09-v2/runtime/bin/Simulator",
+      "bytes": 7761760,
+      "sha256": "fd18ab44082d2c1e86981d0aaaed007ef429f368d07a2becb065ddaf9c3bd6da"
     },
     {
-      "path": "results/bri_implicit/2026-11-09-v1/runtime/lib/libramulator.so",
+      "path": "results/fixed_hb_native/2026-11-09-v2/runtime/lib/libramulator.so",
       "bytes": 4092536,
       "sha256": "c3e7a9bba805b79a4c2410217ba490350398cacf2bf8c7417b9e7882dc73fd84"
     },
     {
-      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime/HBM2.yaml",
+      "path": "results/fixed_hb_native/2026-11-09-v2/runtime/runtime/HBM2.yaml",
       "bytes": 354,
       "sha256": "7c7ad9c374c3d08e0ad2cb081ab013b4f0c48a19d3dd1c7d547caf75943dd8f2"
     },
     {
-      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime/fly_c1_m2.icnt",
+      "path": "results/fixed_hb_native/2026-11-09-v2/runtime/runtime/fly_c1_m2.icnt",
       "bytes": 280,
       "sha256": "dbf877e67e4436003dc689a512ffa8135402520676524f68a4be8c12c1ec00d2"
     },
     {
-      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime_config.json",
+      "path": "results/fixed_hb_native/2026-11-09-v2/runtime/runtime_config.json",
       "bytes": 12520,
       "sha256": "87c033833eb7117f8b786c7c0e52e24a256b54b2aa0977528b3160e491408137"
     },
@@ -84,9 +86,19 @@
       "sha256": "cebabfe98cb9ad8cb24e87b50f424ec0ebc86dab7b64e1a799d9171c1f3dc437"
     },
     {
+      "path": "src/inverse/bri_stable_hb/BRIStableHBModel.cc",
+      "bytes": 15911,
+      "sha256": "c45ef79c9f535176b83e09718d2013e20515d3bbd0221abdd8e6ff6d426684a7"
+    },
+    {
+      "path": "src/inverse/bri_stable_hb/BRIStableHBModel.h",
+      "bytes": 317,
+      "sha256": "5333116460e7d57f052f1f6046c1cb6a467ce1198bc71a8721a108d9ea04d12c"
+    },
+    {
       "path": "src/main.cc",
-      "bytes": 12132,
-      "sha256": "37624a2da65d7eab3146b0006b140c737b39e2f97c53e5d3794c803304a82f9f"
+      "bytes": 12409,
+      "sha256": "10e42e79c4ea71e4a8c5577f9cfdd05b3640b669dbb3b1d788ba5f4925045e9c"
     },
     {
       "path": "src/semantic/SourceViews.h",
@@ -229,6 +241,11 @@
       "sha256": "8f2eefbb59085804ac53e2836e7087f03be7d0c7671a6e4a0b52b392d0b2293e"
     },
     {
+      "path": "verification/operators/stable_hb_parameters.py",
+      "bytes": 533,
+      "sha256": "98ee8f77cbb448fe8c44c07726b05fcff913a049557c8502055dc5b15a262595"
+    },
+    {
       "path": "verification/planning/__init__.py",
       "bytes": 75,
       "sha256": "0d2fb4da89f0aa5a2d4df246991daa7eaea2a1b1088ef5c977c28f96b7e5c48f"
@@ -305,13 +322,18 @@
     },
     {
       "path": "verification/reconstruction/runner.py",
-      "bytes": 10579,
-      "sha256": "2928fc4874b3694230e40632f2c95bff49b100ce4c1cea1c1041fb50f592e61f"
+      "bytes": 10823,
+      "sha256": "b46d5270639eed7220bcc607e43f0cc7670c264dc574f2e3a4fe6c21d75ef57c"
     },
     {
       "path": "verification/reconstruction/source_views.py",
       "bytes": 8200,
       "sha256": "b0318dc7f9cfd034e144fd39a384fdc6fb811da778e5468c5bddb06caa5e2ae5"
+    },
+    {
+      "path": "verification/reconstruction/stable_hb_campaign.py",
+      "bytes": 13512,
+      "sha256": "3b40de07685e176c30ab7fa8b9123094483cfe0eca70fcb09f6d2c215e0f1e50"
     },
     {
       "path": "verification/reference/bri.py",
@@ -337,6 +359,16 @@
       "path": "verification/reference/ns.py",
       "bytes": 2870,
       "sha256": "59c047939ed2ed58e325c8370ebcd8110e1d921e45e2c51559303c4adb0a15e3"
+    },
+    {
+      "path": "verification/reference/stable_hb.py",
+      "bytes": 3720,
+      "sha256": "f5a5e86b7c9cb7a7ab8fbcd6bd06b9e044b9236273d3d02a25f1cf82679ab514"
+    },
+    {
+      "path": "verification/reference/stable_hb_native.py",
+      "bytes": 352,
+      "sha256": "783a7e8119794b672556fc0354024b06ddae3ba4589caf95f53e47b21883c993"
     },
     {
       "path": "verification/reference/structured.py",
@@ -452,6 +484,16 @@
       "path": "verification/studies/fp16_validate.py",
       "bytes": 5937,
       "sha256": "826188a26bf6ace38d5824c9f909ae6e954f701976d1e44e70b8e8cfaeb40d65"
+    },
+    {
+      "path": "verification/studies/stable_hb.py",
+      "bytes": 4697,
+      "sha256": "db21c554e05e70ba5e28444ec07ce13ba2185e23056fa4a0149bec78730bc9fc"
+    },
+    {
+      "path": "verification/studies/stable_hb_campaign.py",
+      "bytes": 11903,
+      "sha256": "b3efc62d0ea29fe3c1d8c267bbe5b7da49f4f4c5cbda5c8c561f0ec2dd3f3278"
     }
   ]
 }
