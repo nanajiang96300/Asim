@@ -1,0 +1,10 @@
+{
+  "status": "RESTORE_CHECKED",
+  "probe": {
+    "status": "RESTORED_VERIFIED",
+    "path": "/home/nanajiang/Asim/results/fixed_hb/storage-v2-restore-probe.bin",
+    "bytes": 44538830,
+    "sha256": "aeebab20e38f8983504b94852df11e6e5bee0ebac7e9d3d831db0d6bfe87ebca"
+  },
+  "temporary_probe_removed": true
+}
