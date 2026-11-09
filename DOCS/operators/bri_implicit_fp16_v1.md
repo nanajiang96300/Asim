@@ -18,7 +18,7 @@ g=Q(Q(Hᵀ Q(Y−Q(HX))))−Q(λX))。lo=λ/4、hi=8、d=Q((hi+lo)/2)、c=Q((hi�
 
 ## 3. SPAD布局
 
-所有区域64B对齐：H128×32、Y128×16、RegI/Identity32×32；packedY128×8、X/previous/carry/new与向量临时32×8；HX/data_res128×8；point_p32×1；scalar常量与系数各1×1。专用barrier区域按实际指令上界分配。输出ACCUM32×16。所有局部读之前有LOAD或实际算术写入，无免费FILL/COPY。
+所有区域64B对齐：H128×32、Y128×16、RegI/Identity32×32；packedY128×8、X/previous/carry/new与向量临时32×8；HX/data_res128×8；expandedP32×8；scalar常量与系数各1×1。专用barrier区域按实际指令上界分配。输出ACCUM32×16。所有局部读之前有LOAD或实际算术写入，无免费FILL/COPY。
 
 ## 4. 指令映射
 
@@ -30,7 +30,7 @@ g=Q(Q(Hᵀ Q(Y−Q(HX))))−Q(λX))。lo=λ/4、hi=8、d=Q((hi+lo)/2)、c=Q((hi�
 | 点P能量 | 每流1×128与128×1 GEMM，再SCALAR_ADD/DIV；实/虚p显式存储 |
 | 每轮HX/Hᵀres | 两条实际GEMM，m/k/n与view相同 |
 | Vector减法 | MUL(-1)+ADD，两个结果分别落FP16；不能raw ADD伪称SUB |
-| P乘g | 每行Vector MUL scalar_rhs，32条，按完整元素工作量计费 |
+| P乘g | 预条件阶段32条逐行广播展开系数；迭代前ADD(+0)规范化gradient有符号零，再一条完整Vector MUL，按完整元素工作量计费 |
 | 系数 | 单元素SCALAR_ADD/SUB/MUL/DIV |
 | 前态/补偿 | 实际Vector复制/加减；每条写后PIPE_BARRIER |
 
