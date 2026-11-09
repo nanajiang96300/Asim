@@ -22,6 +22,7 @@
 #include "inverse/structured_solve/StructuredSolveModel.h"
 #include "semantic/ScalarCostProbeModel.h"
 #include "inverse/bri_explicit/BRIExplicitModel.h"
+#include "inverse/bri_implicit/BRIImplicitModel.h"
 
 namespace fs = std::filesystem;
 namespace po = boost::program_options;
@@ -114,7 +115,7 @@ int main(int argc, char** argv) {
     language_mode=false;
   } else if (mode == "cholesky_block_explicit_test" || mode == "ldl_block_explicit_test" || mode == "cholesky_merge_explicit_test" || mode == "scalar_cost_probe_test") {
     language_mode = false;
-  } else if (mode == "ldl_explicit_test" || mode == "bri_explicit_test") {
+  } else if (mode == "ldl_explicit_test" || mode == "bri_explicit_test" || mode == "bri_implicit_test") {
     language_mode = false;
   } else if (mode == "cholesky_explicit_test") {
     language_mode = false;
@@ -201,6 +202,9 @@ int main(int argc, char** argv) {
       simulator->register_model(std::move(model));
     } else if (mode == "ldl_explicit_test") {
       auto model=std::make_unique<LDLExplicitModel>(model_config,config,model_config["name"]);
+      simulator->register_model(std::move(model));
+    } else if (mode == "bri_implicit_test") {
+      auto model=std::make_unique<BRIImplicitModel>(model_config,config,model_config["name"]);
       simulator->register_model(std::move(model));
     } else if (mode == "bri_explicit_test") {
       auto model=std::make_unique<BRIExplicitModel>(model_config,config,model_config["name"]);
