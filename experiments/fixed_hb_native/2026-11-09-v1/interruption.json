@@ -1,0 +1,13 @@
+{
+  "status": "INTERRUPTED_NOT_ACCEPTED",
+  "process_exit_code": 143,
+  "signal": "SIGTERM",
+  "root_cause": "unconfirmed; heavy memory paging observed, process ended near 10 minute tool session lifetime",
+  "completed_cases": 2,
+  "third_asim_status": "COMPLETED",
+  "third_asim_cycles": 141017,
+  "third_schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+  "third_numeric_status": "INCOMPLETE",
+  "score": null,
+  "next": "fresh v2; release diagnostic memory after gates; algorithm/threshold/K unchanged; no CDL H590 inputs generated"
+}
