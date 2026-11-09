@@ -52,6 +52,7 @@ Nr64/Nt16/RHS8、batch96、24核、Cube16³；H/Y/λ→MMSE直接输出。FP16�
 intro='2026-11-09最新：固定HB隐式FP16新入口已完成三档真实Asim→实际指令重建→另192新CDL-B/576batch与完整未编码QPSK软件门禁；K16/53/174，逐FP16位一致，2%任务门限及相对质量门禁全部通过。保守谱界/联动系数修复旧β-only稳定域问题；旧失败原件不升级。周期18,409/47,121/141,017，未宣称性能最优、硬件认证或完整晋级。详见[原生报告](../../experiments/fixed_hb_native/2026-11-09-v2/README.md)、[选K与误差图](../../experiments/fixed_hb/2026-11-09-v1/README.md)。\n\n'
 p=repo/'DOCS/research/README.md';txt=p.read_text();txt=txt.replace('\n\n','\n\n'+intro,1);p.write_text(txt)
 notes={
+ 'PAPER_REPORT.md':'新增固定HB原生重建与CDL-B/QPSK软件验收，独立校准与原生留出分离、失败和中断版本保留；论文可引用的新周期/流水/耗时与K曲线已固定归档。不是硬件/全域/性能最优结论。',
  'FP16_FIRST_PLAN.md':'F16-5固定HB原生阶段已通过声明域软件门禁；不新增混合精度指令，K16/53/174。下一步先做通用日志/内存优化，再在新校准集研究更紧谱界和内循环降周期。',
  'ROADMAP.md':'F16-5完成独立算法选K、新留出、固定HB原生映射与三SNR新CDL-B/QPSK软件验收；旧β-only失败保持。依赖任务：流式指令/流水统计以降低高K内存→新校准更紧谱界/复用/流水→相同质量与输入域成本比较→冷启动复现/完整晋级。不得在H590调参。',
  'BRI_OPTIMIZATION_PLAN.md':'固定HB在无oracle谱界与原有FP16原语上完成新Asim入口和实际重建/CDL-B验收，替代上一阶段“仅设计”的后续状态，不升级旧入口。保守界导致K174和141017周期，后续优化需保持硬质量门禁。',

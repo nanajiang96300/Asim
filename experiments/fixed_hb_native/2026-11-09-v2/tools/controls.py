@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from copy import deepcopy
 import json,sys,subprocess
@@ -10,7 +11,7 @@ from verification.reconstruction.source_views import execute_batch
 from verification.profiles.numeric import bit_equal
 from verification.reference.stable_hb import simulate
 from verification.asim.runner import file_hash
-root=Path('/home/nanajiang/Asim');run=root/'results/fixed_hb_native/2026-11-09-v2';dest=run/'controls';dest.mkdir(exist_ok=False)
+root=Path('/home/nanajiang/Asim');run=Path(os.environ.get('HB_RUN_DIR',str(root/'results/fixed_hb_native/2026-11-09-v2')));dest=run/'controls';dest.mkdir(exist_ok=False)
 p=run/'asim-lambda1.0';r=json.loads((p/'result.json').read_text());config=json.loads((p/'config.json').read_text())
 record=json.loads((p/'instructions.jsonl').read_text());dispatch=[json.loads(l) for l in (p/'dispatch.jsonl').read_text().splitlines()]
 with np.load(p/'inputs.npz',allow_pickle=False) as a:inputs={k:a[k] for k in a.files}

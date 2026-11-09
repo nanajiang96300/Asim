@@ -1,0 +1,27 @@
+{"regularization": 1.0, "iterations": 16, "status": "MODELED_NUMERIC_CHECKED", "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/result.json", "sha256": "a2a461a9642b2a3659d4e5b6ce303310601d76a0b63db0a43ddf3d49ee318513", "seconds": {"setup": 0.030336946016177535, "asim": 16.48084688402014, "artifact_and_schedule_checks": 25.48655049095396, "independent_references": 3.023272466030903, "instruction_replay_and_comparison": 6.945991315995343}}
+{"regularization": 0.1, "iterations": 53, "status": "MODELED_NUMERIC_CHECKED", "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.1/result.json", "sha256": "adefd2dbcdda732e2c96009455054b15bf75ef853e486f9f9b565b23062df57c", "seconds": {"setup": 0.017395994043909013, "asim": 39.2811202959856, "artifact_and_schedule_checks": 52.9720136699616, "independent_references": 7.492828409012873, "instruction_replay_and_comparison": 13.668001713987906}}
+{"regularization": 0.01, "iterations": 174, "status": "MODELED_NUMERIC_CHECKED", "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/result.json", "sha256": "1e4329a719a33f534cabd4a70fee30a7fcc97fad67cc9082ce0a17ac8f7a8076", "seconds": {"setup": 0.01749200897756964, "asim": 216.70746793498984, "artifact_and_schedule_checks": 180.15652225603117, "independent_references": 22.219595264003146, "instruction_replay_and_comparison": 35.68770097999368}}
+{"status": "ASIM_TEMPLATES_CHECKED", "seconds": 623.8482841440127, "score": null}
+	Command being timed: "/home/nanajiang/Asim/.venv/bin/python -m verification.reconstruction.stable_hb_campaign --contract /home/nanajiang/Asim/experiments/fixed_hb_native/2026-11-09-v2/contract.json --sha256 42242c3e0e52a93023b12163332a265f10b436a8acefffe337d3d9393a30f959 --output /home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2 --stage asim"
+	User time (seconds): 482.71
+	System time (seconds): 44.76
+	Percent of CPU this job got: 84%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 10:24.19
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3619428
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 721549
+	Minor (reclaiming a frame) page faults: 10384927
+	Voluntary context switches: 731542
+	Involuntary context switches: 12159
+	Swaps: 0
+	File system inputs: 36336224
+	File system outputs: 5848312
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

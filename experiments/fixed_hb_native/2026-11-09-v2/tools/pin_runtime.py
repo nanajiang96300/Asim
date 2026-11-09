@@ -9,6 +9,8 @@ reg=json.loads((run/'regression-index.json').read_text());assert len(reg)==2 and
 assert source_map(repo)==c['sources']
 rt=run/'runtime';(rt/'bin').mkdir(parents=True);(rt/'lib').mkdir();(rt/'runtime').mkdir()
 shutil.copy2(c['binary'],rt/'bin/Simulator');shutil.copy2(Path(c['library_dir'])/'libramulator.so',rt/'lib/libramulator.so')
+assert file_hash(rt/'bin/Simulator')==c['dependencies'][c['binary']]
+assert file_hash(rt/'lib/libramulator.so')==c['dependencies'][str(Path(c['library_dir'])/'libramulator.so')]
 config=json.loads(Path(c['config']).read_text())
 for key,name in [('dram_config_path','HBM2.yaml'),('icnt_config_path','fly_c1_m2.icnt')]:
  if config.get(key):

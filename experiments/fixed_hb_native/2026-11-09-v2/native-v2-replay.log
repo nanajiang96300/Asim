@@ -1,0 +1,30 @@
+{"regularization": 1.0, "iterations": 16, "channel_seed": 59001, "frame_seed": 59101, "channels": 96, "precision_bit_equal": true, "max_task_error": 0.0070385912786266065, "instruction_count": 127392, "reference_and_replay_seconds": 10.27152157202363, "phase_timings_seconds": {"independent_references": 3.2367449189769104, "instruction_replay_and_comparison": 6.884998486028053}, "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/holdout/lambda1.0-H59001.npz", "sha256": "de13d5d67267ee8a628daa0ff035d165e67f7ffe7f65db8e74c0e345e0e32f6f"}
+{"regularization": 1.0, "iterations": 16, "channel_seed": 59002, "frame_seed": 59102, "channels": 96, "precision_bit_equal": true, "max_task_error": 0.007394781869734482, "instruction_count": 127392, "reference_and_replay_seconds": 9.938130153052043, "phase_timings_seconds": {"independent_references": 3.0108993809553795, "instruction_replay_and_comparison": 6.78253606898943}, "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/holdout/lambda1.0-H59002.npz", "sha256": "5b3875e1794f4f63d56211d6dc3a2cb1c17d3ab5e16e19e318f4f5483842b510"}
+{"regularization": 0.1, "iterations": 53, "channel_seed": 59001, "frame_seed": 59101, "channels": 96, "precision_bit_equal": true, "max_task_error": 0.0072612127458310935, "instruction_count": 290784, "reference_and_replay_seconds": 21.415027974988334, "phase_timings_seconds": {"independent_references": 7.51157021895051, "instruction_replay_and_comparison": 13.558106053969823}, "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/holdout/lambda0.1-H59001.npz", "sha256": "68bcd0604817ec6ef94d4a5bd65c3b44d138b312f716954737acdc3697378cac"}
+{"regularization": 0.1, "iterations": 53, "channel_seed": 59002, "frame_seed": 59102, "channels": 96, "precision_bit_equal": true, "max_task_error": 0.008063292167456444, "instruction_count": 290784, "reference_and_replay_seconds": 21.417289500008337, "phase_timings_seconds": {"independent_references": 7.620904467010405, "instruction_replay_and_comparison": 13.457786085025873}, "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/holdout/lambda0.1-H59002.npz", "sha256": "693b6686f229ae129ff86c5e40532364fee9f929723051e2daf54624acbbc3ac"}
+{"regularization": 0.01, "iterations": 174, "channel_seed": 59001, "frame_seed": 59101, "channels": 96, "precision_bit_equal": true, "max_task_error": 0.007469359926068843, "instruction_count": 825120, "reference_and_replay_seconds": 58.59729567100294, "phase_timings_seconds": {"independent_references": 22.168390477017965, "instruction_replay_and_comparison": 35.34230598103022}, "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/holdout/lambda0.01-H59001.npz", "sha256": "95805a551f6578cf6f46fd2b37a179bbd86a7aa7dd871cb73c34b39b206c842c"}
+{"regularization": 0.01, "iterations": 174, "channel_seed": 59002, "frame_seed": 59102, "channels": 96, "precision_bit_equal": true, "max_task_error": 0.007996167078839917, "instruction_count": 825120, "reference_and_replay_seconds": 58.76278117200127, "phase_timings_seconds": {"independent_references": 22.168580869038124, "instruction_replay_and_comparison": 35.54864676500438}, "path": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/holdout/lambda0.01-H59002.npz", "sha256": "da1e559d1760e787aefe584f086067e5ecc4c0962ceb2f4154c1a7a63ade599d"}
+{"status": "FIXED_HB_CDLB_RECONSTRUCTION_CHECKED", "independent_H": 192, "batch_replays": 576, "elapsed_seconds": 194.9314932760317, "pure_model_thinking_seconds": null, "score": null, "note": "data-independent real Asim templates; CDL replay does not create new cycles"}
+	Command being timed: "/home/nanajiang/Asim/.venv/bin/python -m verification.reconstruction.stable_hb_campaign --contract /home/nanajiang/Asim/experiments/fixed_hb_native/2026-11-09-v2/contract.json --sha256 42242c3e0e52a93023b12163332a265f10b436a8acefffe337d3d9393a30f959 --output /home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2 --stage replay"
+	User time (seconds): 191.93
+	System time (seconds): 3.07
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:15.17
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1776116
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 1019372
+	Voluntary context switches: 440
+	Involuntary context switches: 2405
+	Swaps: 0
+	File system inputs: 3283520
+	File system outputs: 40632
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
