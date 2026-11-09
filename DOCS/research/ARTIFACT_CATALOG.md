@@ -88,3 +88,5 @@ python3 scripts/research_inventory.py check experiments/inventory/2026-10-28-bas
 后续将未引用、可确定再生的临时缓存与已归档证据区分。历史失败实验仍有证明价值；不能只因被新版本替代就删除。删除研究制品前先列引用与替代证据，保留清理台账；如果历史manifest引用的原件被压缩/转存，需另立可逆映射并验hash，不改写旧manifest。
 
 清理后复核：pip保留1份selfcheck元数据；清理前清单中672条文件路径已消失（pip报告669个缓存制品，计数单位不同）。原清理候选清单不覆盖，准确口径见[cleanup-verification.json](../../experiments/channel_validation/2026-11-08-v1/cleanup-verification.json)。
+
+2026-11-09第二轮空间回收：[lossless-v2](../../experiments/storage_cleanup/2026-11-09-lossless-v2/README.md)另49个旧trace原件经完整解压/原SHA校验后保留gzip，释放3,467,128,578字节。两轮78个共9,075,966,566字节，最终逐gzip哈希核对通过，见combined_check.json。最新固定HB v1中断/v2重跑和旧BRI失败均不删。旧manifest不重写，原路径复现需显式restore。

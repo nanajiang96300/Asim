@@ -1,0 +1,17 @@
+{
+  "status": "BOTH_RETENTION_LEDGERS_CHECKED",
+  "rows": [
+    {
+      "version": "v1",
+      "files": 29,
+      "saved_bytes": 5608837988
+    },
+    {
+      "version": "v2",
+      "files": 49,
+      "saved_bytes": 3467128578
+    }
+  ],
+  "total_saved_bytes": 9075966566,
+  "source_arrays_and_latest_results": "not selected for retirement"
+}
