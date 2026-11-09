@@ -1,0 +1,1356 @@
+{
+  "schema": "research-lossless-retirement-v1",
+  "source_script_sha256": "3fb947b14b4bfa39341d807c8ebace8dccedf4a081bd15ff1b4e505c77487c7f",
+  "protected_runtime_sha256": "f7e547cb381b01f4f03e935a8104a4bcb447f432fd3bbc306c9aeead404bd497",
+  "roots": [
+    "results/runtime_rw/2026-10-30-v3-frozen",
+    "results/legacy_semantics/2026-10-30-seven-b96-raw",
+    "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1",
+    "results/generality/2026-11-06-cholesky-v1",
+    "results/operator_mapping/2026-11-06-ldl-bri-v1",
+    "results/remaining_mapping/2026-11-08-block-merge-v1"
+  ],
+  "entries": [
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block/rw_events.jsonl",
+      "bytes": 125189789,
+      "sha256": "639e9e98823ad6048c6c9790b66a9e8a8029484a8e88f7bc3e04bcb34b1ed5f7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/rw_events.jsonl",
+      "bytes": 125189789,
+      "sha256": "639e9e98823ad6048c6c9790b66a9e8a8029484a8e88f7bc3e04bcb34b1ed5f7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/rw_events.jsonl",
+      "bytes": 125189789,
+      "sha256": "639e9e98823ad6048c6c9790b66a9e8a8029484a8e88f7bc3e04bcb34b1ed5f7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/rw_events.jsonl",
+      "bytes": 120004496,
+      "sha256": "b9a685354b310907d1bfb1698e36eda74fb044737a24945a54965b960a08232f",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/rw_events.jsonl",
+      "bytes": 120004496,
+      "sha256": "b9a685354b310907d1bfb1698e36eda74fb044737a24945a54965b960a08232f",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/rw_events.jsonl",
+      "bytes": 120004496,
+      "sha256": "b9a685354b310907d1bfb1698e36eda74fb044737a24945a54965b960a08232f",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/rw_events.jsonl",
+      "bytes": 120004496,
+      "sha256": "b9a685354b310907d1bfb1698e36eda74fb044737a24945a54965b960a08232f",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/rw_events.jsonl",
+      "bytes": 119202434,
+      "sha256": "d494967421a755e1569d4ac1f25fc21578348df9e8d0f321778549ee3f08d2b4",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline/rw_events.jsonl",
+      "bytes": 119202434,
+      "sha256": "d494967421a755e1569d4ac1f25fc21578348df9e8d0f321778549ee3f08d2b4",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/rw_events.jsonl",
+      "bytes": 119202434,
+      "sha256": "d494967421a755e1569d4ac1f25fc21578348df9e8d0f321778549ee3f08d2b4",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/rw_events.jsonl",
+      "bytes": 119202434,
+      "sha256": "d494967421a755e1569d4ac1f25fc21578348df9e8d0f321778549ee3f08d2b4",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_noblock_merge/rw_events.jsonl",
+      "bytes": 94381955,
+      "sha256": "ced82e21c7a8443b058bd598df283cc7c9c711fada2ba42d9e216e5050212479",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_noblock_merge/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/forensics/cholesky_noblock_merge/rw_events.jsonl",
+      "bytes": 94381955,
+      "sha256": "ced82e21c7a8443b058bd598df283cc7c9c711fada2ba42d9e216e5050212479",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/forensics/cholesky_noblock_merge/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/instructions.jsonl",
+      "bytes": 81238409,
+      "sha256": "172af7757014999750f6880e7c5b26a35f8adbe4e8f1cb894565b7d6b716061d",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/ns16_seed123/rw_events.jsonl",
+      "bytes": 72558749,
+      "sha256": "c37c9bbe255c71a7e33086393069748783805194c8d410d54a1a4d27c29b7231",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/ns16_seed123/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/ns16_b/rw_events.jsonl",
+      "bytes": 72558749,
+      "sha256": "c37c9bbe255c71a7e33086393069748783805194c8d410d54a1a4d27c29b7231",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/ns16_b/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/not_competitive/rw_events.jsonl",
+      "bytes": 72558749,
+      "sha256": "c37c9bbe255c71a7e33086393069748783805194c8d410d54a1a4d27c29b7231",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/not_competitive/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/ns16_a/rw_events.jsonl",
+      "bytes": 72558749,
+      "sha256": "c37c9bbe255c71a7e33086393069748783805194c8d410d54a1a4d27c29b7231",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/ns16_a/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/runner_corruption/rw_events.jsonl",
+      "bytes": 72558249,
+      "sha256": "49c2737fc199a0c8cadf72f4183cba936c9814384241a959e5da7705c27165d4",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/runner_corruption/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/rw_events.jsonl",
+      "bytes": 59191555,
+      "sha256": "710bff797368679127fdea0657df861d163c7d87a2d8a8d9a9b203ead8ef918e",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/pipeline_statistics.json",
+      "bytes": 57152089,
+      "sha256": "2314bfdb891819974ca8ffd2da14e8ad5dc27012e29614a4ee66b5b094491c8f",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/instructions.jsonl",
+      "bytes": 54878352,
+      "sha256": "29523194009f37165535b77cf743f935848449efba673a3bec36d79b22658d1e",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_block/rw_events.jsonl",
+      "bytes": 54627051,
+      "sha256": "03da8cb14f5437cb438dec93d8d5b6b2ae719640804fc2b724c72c4378f1e7c9",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_block/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/instructions.jsonl",
+      "bytes": 54224021,
+      "sha256": "3d433465daca8dbbca6c66aed83a9f2218c3548bb2f8286199ac86b467ad6c70",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/instructions.jsonl",
+      "bytes": 54224021,
+      "sha256": "3d433465daca8dbbca6c66aed83a9f2218c3548bb2f8286199ac86b467ad6c70",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/instructions.jsonl",
+      "bytes": 54224021,
+      "sha256": "3d433465daca8dbbca6c66aed83a9f2218c3548bb2f8286199ac86b467ad6c70",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/instructions.jsonl",
+      "bytes": 50235820,
+      "sha256": "3aa8060c364f176369284ab4ecfc4f8e6f3f82ed3b7ecfde84428134ca0510a6",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f64/instructions.jsonl",
+      "bytes": 46824928,
+      "sha256": "b6116571b4ddfd7aca5f8ff41f30c31121842f10ad9721e8f153cbcc8de52e01",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f64/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block/instructions.jsonl",
+      "bytes": 46175589,
+      "sha256": "2ce7d128a567cf08dfacf492a034d805b3a156c65538ea79bbf6c9aa6d51d63b",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/instructions.jsonl",
+      "bytes": 46175589,
+      "sha256": "2ce7d128a567cf08dfacf492a034d805b3a156c65538ea79bbf6c9aa6d51d63b",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/instructions.jsonl",
+      "bytes": 46175589,
+      "sha256": "2ce7d128a567cf08dfacf492a034d805b3a156c65538ea79bbf6c9aa6d51d63b",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/instructions.jsonl",
+      "bytes": 44538830,
+      "sha256": "aeebab20e38f8983504b94852df11e6e5bee0ebac7e9d3d831db0d6bfe87ebca",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f64/instructions.jsonl",
+      "bytes": 44191286,
+      "sha256": "a4dae0097214768389e12f4d92ab65e0fa527ac9b4f423d71b23a6b2818de804",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f64/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/instructions.jsonl",
+      "bytes": 43884115,
+      "sha256": "bb5cf44e99e055e243a20945fc04662fe56cd5f33588a2e2e0f6493573e5a11e",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/instructions.jsonl",
+      "bytes": 43884115,
+      "sha256": "bb5cf44e99e055e243a20945fc04662fe56cd5f33588a2e2e0f6493573e5a11e",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/instructions.jsonl",
+      "bytes": 43884115,
+      "sha256": "bb5cf44e99e055e243a20945fc04662fe56cd5f33588a2e2e0f6493573e5a11e",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/instructions.jsonl",
+      "bytes": 43884115,
+      "sha256": "bb5cf44e99e055e243a20945fc04662fe56cd5f33588a2e2e0f6493573e5a11e",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/cholesky_noblock_merge/instructions.jsonl",
+      "bytes": 43561636,
+      "sha256": "4af5dcacd4a9e259022d9ecf6cb1bafcdc5f473fd3d3944d17e2203a72ad3593",
+      "archive": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/cholesky_noblock_merge/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/instructions.jsonl",
+      "bytes": 43542139,
+      "sha256": "56d8beece15a059fcdd189d7a0a2e95ca91ac2efa4c1b825e167e3bb51a054a1",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline/instructions.jsonl",
+      "bytes": 43542139,
+      "sha256": "56d8beece15a059fcdd189d7a0a2e95ca91ac2efa4c1b825e167e3bb51a054a1",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/instructions.jsonl",
+      "bytes": 43542139,
+      "sha256": "56d8beece15a059fcdd189d7a0a2e95ca91ac2efa4c1b825e167e3bb51a054a1",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/instructions.jsonl",
+      "bytes": 43542139,
+      "sha256": "56d8beece15a059fcdd189d7a0a2e95ca91ac2efa4c1b825e167e3bb51a054a1",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/ldl_block/rw_events.jsonl",
+      "bytes": 43516763,
+      "sha256": "97cf59140f556164c35d8700cb07cdcc34c52066ef3ce6bf59287fd581a54a43",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/ldl_block/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/rw_events.jsonl",
+      "bytes": 42195253,
+      "sha256": "085e40f56afee51feed4e297f391cad8121a1aa90beeb964af1d639e1354b31f",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_noblock_merge/instructions.jsonl",
+      "bytes": 41901297,
+      "sha256": "2f255f27d0d64ea5374e7b5e954aef634b8671eb5737b584947c4f659d45edfd",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_noblock_merge/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/forensics/cholesky_noblock_merge/instructions.jsonl",
+      "bytes": 41901297,
+      "sha256": "2f255f27d0d64ea5374e7b5e954aef634b8671eb5737b584947c4f659d45edfd",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/forensics/cholesky_noblock_merge/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_ns/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ns_corrected_v1_regression/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ns_corrected_v1_regression/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_shape2/rw_events.jsonl",
+      "bytes": 39273362,
+      "sha256": "6aefdb298c81f52bab985ca7f623e86e671bd6cefc6b56029c59b0d2ef973cbe",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_shape2/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/pipeline_statistics.json",
+      "bytes": 37766192,
+      "sha256": "85d068175dc2928996d67b97a503be3a6fcd8e88cbb1c6feb68994eb198b6825",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/pipeline_statistics.json",
+      "bytes": 37711922,
+      "sha256": "772a99368505e10971610a828211d750010924bd5970bdbcd291b4ede2bc6f44",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/pipeline_statistics.json",
+      "bytes": 37711922,
+      "sha256": "772a99368505e10971610a828211d750010924bd5970bdbcd291b4ede2bc6f44",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/pipeline_statistics.json",
+      "bytes": 37711922,
+      "sha256": "772a99368505e10971610a828211d750010924bd5970bdbcd291b4ede2bc6f44",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/formula.json",
+      "bytes": 36977644,
+      "sha256": "360004e7a7c8ecc5d4b864cf9dc58146125fa0f6022138bf17043d3e57a11807",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/pipeline_statistics.json",
+      "bytes": 35528143,
+      "sha256": "29ed24580f475b8efd1c4baa734462fbedd0bd17d49cfbc8e5769dc7dfc11fc1",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_shape2/rw_events.jsonl",
+      "bytes": 35015922,
+      "sha256": "03e4edb811559d585ec82b59d1de26d7d92f66e40ba0377349d3e0b3972ee425",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_shape2/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/rw_events.jsonl",
+      "bytes": 34270458,
+      "sha256": "70efb200c10af7997ede73fe66f4821338ef87e69fb4eced041f75eb4a9945aa",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_shape2/rw_events.jsonl",
+      "bytes": 33936587,
+      "sha256": "ac77f7a1265617b6755dc3912abd90abc9fd8b57e2fdee93d6a9f11e52c06b9d",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_shape2/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f64/pipeline_statistics.json",
+      "bytes": 32422286,
+      "sha256": "4a31c99938d205ff2a042f35ec21dcd039216cd48ed98a27b5b68e8dea641442",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f64/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block/pipeline_statistics.json",
+      "bytes": 32371859,
+      "sha256": "12da38a3247fea5532d9a392947bd67cca0f7b0409a29ad0bd75222dc8fa3f9f",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/pipeline_statistics.json",
+      "bytes": 32371859,
+      "sha256": "12da38a3247fea5532d9a392947bd67cca0f7b0409a29ad0bd75222dc8fa3f9f",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/pipeline_statistics.json",
+      "bytes": 32371859,
+      "sha256": "12da38a3247fea5532d9a392947bd67cca0f7b0409a29ad0bd75222dc8fa3f9f",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/pipeline_statistics.json",
+      "bytes": 30827037,
+      "sha256": "1429bb4388f4e05a580f51b7f6d34465bd0ccdc09897e45aee68dc65c1ccb998",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/pipeline_statistics.json",
+      "bytes": 30769003,
+      "sha256": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/pipeline_statistics.json",
+      "bytes": 30769003,
+      "sha256": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/pipeline_statistics.json",
+      "bytes": 30769003,
+      "sha256": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/pipeline_statistics.json",
+      "bytes": 30769003,
+      "sha256": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f64/pipeline_statistics.json",
+      "bytes": 30692530,
+      "sha256": "e1e96bb5b90b0ce6281bc6ee3418219fd83f8a2ec57c3864955f951624596756",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f64/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/pipeline_statistics.json",
+      "bytes": 30680406,
+      "sha256": "f209a9990e3219a6366c9ba2dbe330ba94bd4010724b5cad36fc813066e70336",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline/pipeline_statistics.json",
+      "bytes": 30680406,
+      "sha256": "f209a9990e3219a6366c9ba2dbe330ba94bd4010724b5cad36fc813066e70336",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/pipeline_statistics.json",
+      "bytes": 30680406,
+      "sha256": "f209a9990e3219a6366c9ba2dbe330ba94bd4010724b5cad36fc813066e70336",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/pipeline_statistics.json",
+      "bytes": 30680406,
+      "sha256": "f209a9990e3219a6366c9ba2dbe330ba94bd4010724b5cad36fc813066e70336",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/ldl_noblock/pipeline_statistics.json",
+      "bytes": 25155302,
+      "sha256": "70d7ca432e5fcbcf5cbf83f30d6b0bb469b1028e391660697aa53ff345a24aec",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/ldl_noblock/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/ldl_noblock/pipeline_statistics.json",
+      "bytes": 25155302,
+      "sha256": "70d7ca432e5fcbcf5cbf83f30d6b0bb469b1028e391660697aa53ff345a24aec",
+      "archive": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/ldl_noblock/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/formula.json",
+      "bytes": 24751001,
+      "sha256": "00737e1b00961f3d48a7cc70073cefa58d4a2d54f56973bd186c391522a9dbd7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/formula.json",
+      "bytes": 24751001,
+      "sha256": "00737e1b00961f3d48a7cc70073cefa58d4a2d54f56973bd186c391522a9dbd7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/formula.json",
+      "bytes": 24751001,
+      "sha256": "00737e1b00961f3d48a7cc70073cefa58d4a2d54f56973bd186c391522a9dbd7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/formula.json",
+      "bytes": 24751001,
+      "sha256": "1d0ee35f4e3bd13a3c63f7dd7299fdbe74a300071741c1b88ccba69dddbf4d06",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_block/instructions.jsonl",
+      "bytes": 24051336,
+      "sha256": "b1acf0f79d7a5658a966a43179b6019a4600206490729ede4add1bc6e9272320",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_block/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/cholesky_block/instructions.jsonl",
+      "bytes": 24049915,
+      "sha256": "f7411d3084cd3a25a19c5c11ecbed76f485543e55e9e4c0b5a721adc52e8d1ea",
+      "archive": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/cholesky_block/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri_baseline/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_bri/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/formula.json",
+      "bytes": 23008843,
+      "sha256": "48cc73205db690a7b09d464b6b45b63aa8b0e48cede70cdc1e7e318aedb5b48b",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_123/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f16_42/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/instructions.jsonl",
+      "bytes": 21505545,
+      "sha256": "cb010560e19fe210aca12238d75768edb93a5cc4572fcb409f1530de1b4239bb",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block/formula.json",
+      "bytes": 20994712,
+      "sha256": "b538240e5f88dd735319fa0c0b922a4e38c86b3662bf551d464b05b25a851be5",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_chol_block/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f64/formula.json",
+      "bytes": 20994712,
+      "sha256": "36128c161084828e39b8b7719805b4e00343b8f016838669fbe567e2c5f4b4d1",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f64/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/formula.json",
+      "bytes": 20994712,
+      "sha256": "b538240e5f88dd735319fa0c0b922a4e38c86b3662bf551d464b05b25a851be5",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_42/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/formula.json",
+      "bytes": 20994712,
+      "sha256": "b538240e5f88dd735319fa0c0b922a4e38c86b3662bf551d464b05b25a851be5",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f16_123/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_noblock/pipeline_statistics.json",
+      "bytes": 20369847,
+      "sha256": "e675554cbc929aa46c95dc4d86dcb7e980f837e58a19e114b4982b4caba3f7fe",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_noblock/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/cholesky_noblock/pipeline_statistics.json",
+      "bytes": 20369847,
+      "sha256": "e675554cbc929aa46c95dc4d86dcb7e980f837e58a19e114b4982b4caba3f7fe",
+      "archive": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/cholesky_noblock/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/forensics/cholesky_noblock/pipeline_statistics.json",
+      "bytes": 20369847,
+      "sha256": "e675554cbc929aa46c95dc4d86dcb7e980f837e58a19e114b4982b4caba3f7fe",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/forensics/cholesky_noblock/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/formula.json",
+      "bytes": 19983521,
+      "sha256": "a7c354b8e5dc914ecb9438c8b07471474e4293f210ce686db92540bd1c5923ed",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ldl/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/formula.json",
+      "bytes": 19983521,
+      "sha256": "a7c354b8e5dc914ecb9438c8b07471474e4293f210ce686db92540bd1c5923ed",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_123/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/formula.json",
+      "bytes": 19983521,
+      "sha256": "a7c354b8e5dc914ecb9438c8b07471474e4293f210ce686db92540bd1c5923ed",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f16_42/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/formula.json",
+      "bytes": 19983521,
+      "sha256": "95046e36c9b1fb30f4573aa4d3b0a3dc7d5569298cb0c3177fdffb96454cad25",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/formula.json",
+      "bytes": 19983521,
+      "sha256": "a7c354b8e5dc914ecb9438c8b07471474e4293f210ce686db92540bd1c5923ed",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_explicit_v1_regression/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/formula.json",
+      "bytes": 19708198,
+      "sha256": "0c4067e64cde4d25c92bdac869a91b558c213236a9d5c1ec730feed3345b8e03",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline/formula.json",
+      "bytes": 19708198,
+      "sha256": "0c4067e64cde4d25c92bdac869a91b558c213236a9d5c1ec730feed3345b8e03",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_merge_baseline/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f64/formula.json",
+      "bytes": 19708198,
+      "sha256": "376a870da59393a3186f6906095481dac98486e2b2a0f8653c94f4ae333e0fcc",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f64/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/formula.json",
+      "bytes": 19708198,
+      "sha256": "0c4067e64cde4d25c92bdac869a91b558c213236a9d5c1ec730feed3345b8e03",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_123/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/formula.json",
+      "bytes": 19708198,
+      "sha256": "0c4067e64cde4d25c92bdac869a91b558c213236a9d5c1ec730feed3345b8e03",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f16_42/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/ldl_noblock/trace.csv",
+      "bytes": 19114049,
+      "sha256": "e25efb1f1559b197717ef5d7ee7d0b84ed29978a62dfa7747e41bbb9173fbc1f",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/ldl_noblock/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/newton_schulz/rw_events.jsonl",
+      "bytes": 18664955,
+      "sha256": "c31df1d90551c1b914d24b92262f386e1ee2462a75a3e98e1a62014fbf6dbfc7",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/newton_schulz/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/block_richardson/rw_events.jsonl",
+      "bytes": 18316249,
+      "sha256": "242ca5ec645bd3dbaaabfbbf8aa0dbb3340a317af120b77b2a9f737b1bb99648",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/block_richardson/rw_events.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/ldl_block/instructions.jsonl",
+      "bytes": 18012408,
+      "sha256": "ee55968cf1666d0fa919706cc6a3bf6580e210e1df7df59457b0a3bb1801c983",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/ldl_block/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/ldl_block/instructions.jsonl",
+      "bytes": 18010987,
+      "sha256": "b734a9286e3bab2b7297c25cd108ca1ea7073a5529b9e84e46e3b77461c5203d",
+      "archive": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/ldl_block/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/trace.csv",
+      "bytes": 17113918,
+      "sha256": "1161aa0f52f57a66134e925f949546bdea4d675f9cd0fc3bedd06eb029ea611a",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_noblock/trace.csv",
+      "bytes": 15911165,
+      "sha256": "85917fca4059f229fedefe01fab98e2199d52c89251031c51b8f7e11f964cf88",
+      "archive": "results/legacy_semantics/2026-10-30-seven-b96-raw/cholesky_noblock/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/forensics/cholesky_noblock/trace.csv",
+      "bytes": 15911165,
+      "sha256": "85917fca4059f229fedefe01fab98e2199d52c89251031c51b8f7e11f964cf88",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/forensics/cholesky_noblock/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/pipeline_statistics.json",
+      "bytes": 15354026,
+      "sha256": "4b2eca443ea2267d1eb47f09cbb65c12c99ffaf3d0c50a66c36e676ccfd76272",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/ldl_noblock/trace.csv",
+      "bytes": 14837473,
+      "sha256": "fcfe2a995be14a6e29077b335ae0624e8737a32a07de22ed86a908665c6b1daa",
+      "archive": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/ldl_noblock/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/instructions.jsonl",
+      "bytes": 14352686,
+      "sha256": "75c7d2a23f80e7db2b9a6964a8273287758583f24e3c452dd80b047c4d1a0d1a",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/trace.csv",
+      "bytes": 13627322,
+      "sha256": "e54e2c833419f0f8cfe1984ca5c43d4cda5b8095c56f7fa5966350a7eb0040b7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/instruction_pipeline_detail.csv",
+      "bytes": 13436080,
+      "sha256": "6f2012d6f98071fefcf7a424b189cecd12f6206699e22c4dd33930ecbe5cf903",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f64_42/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/trace.csv",
+      "bytes": 13414814,
+      "sha256": "07ccd1617bc0cf596b97af7769e866cfdfc29e2bc7033181512c084da92a7f8a",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_shape2/instructions.jsonl",
+      "bytes": 13172133,
+      "sha256": "7bb1cd3eb9851658283f7302fb8a0fe25300b97e6415a499b041eaa87c45b30a",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_shape2/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f64/trace.csv",
+      "bytes": 12589690,
+      "sha256": "6331bca4f3eddf724ae864dca15dc08238b3cdaee53b99aace932a734b40f0c7",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_f64/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/cholesky_noblock/trace.csv",
+      "bytes": 12481047,
+      "sha256": "3a33845ca5ec3be7cec931fa2e8fb21f06fef5f801de536cc5e96f0c935f9c4e",
+      "archive": "results/reconstruction_campaigns/2026-10-29-legacy7-b96-v1/cholesky_noblock/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_chol_baseline/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_123/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_f16_42/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/chol_regression/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_explicit_v1_regression/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/trace.csv",
+      "bytes": 12084641,
+      "sha256": "e16a76da188260b07d3d32ea1d169bbdd46bf11f6f830d328be548aeb51336b1",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_f64/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f64/trace.csv",
+      "bytes": 11854669,
+      "sha256": "b35e62e6624967ee8b5ab36e15a25b4007e564eefc8a6170db5585c6504643d8",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_f64/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_shape2/instructions.jsonl",
+      "bytes": 11283805,
+      "sha256": "52d8bbe54baf203046f60dd9deb5bef1cd563d4504acdf9b2ec207574958bdb4",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_block_shape2/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/instructions.jsonl",
+      "bytes": 10945211,
+      "sha256": "ae5754d83514fbe4dbe95f2058f88ec61c4547be30c0d4ee77d46baefad1b3a3",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ldl_shape2/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_shape2/instructions.jsonl",
+      "bytes": 10802027,
+      "sha256": "c1d4210b91e01c5a7e0553b3f4af009f3df7805e64faabd2bc69f9fe78fb0e1f",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/cholesky_merge_shape2/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/ns64/instructions.jsonl",
+      "bytes": 10490457,
+      "sha256": "abbf43693a4d1713ada12f9141f3d2db718034adc34c5e0aab074db69c884725",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/ns64/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/pipeline_statistics.json",
+      "bytes": 10131781,
+      "sha256": "fd0651da6642989f63bb888988b5adcf9e913058d36ce44ffa67544408da8407",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/chol_shape2/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/formula.json",
+      "bytes": 9960379,
+      "sha256": "108986b3c2ab63ac43b393382b1af1745ce19493bddf6825e1d92dca19e9088a",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_shape2/formula.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/ns16_seed123/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/ns16_seed123/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/ns16_b/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/ns16_b/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/runner_corruption/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/runner_corruption/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/not_competitive/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/not_competitive/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/runtime_rw/2026-10-30-v3-frozen/ns16_a/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/runtime_rw/2026-10-30-v3-frozen/ns16_a/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/daily_ns/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/generality/2026-11-06-cholesky-v1/daily_ns/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/generality/2026-11-06-cholesky-v1/campaign/ns_regression/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/daily_ns/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/ns_regression/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ns_corrected_v1_regression/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ns_corrected_v1_regression/instructions.jsonl.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_shape2/pipeline_statistics.json",
+      "bytes": 9163035,
+      "sha256": "58b36ba74da729eda6a52f64a9df65f0b67c481eca712f1c22545f11f7a1af20",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_shape2/pipeline_statistics.json.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/trace.csv",
+      "bytes": 8966817,
+      "sha256": "184d874871a55b2fcd70f4973f7a9175550f1c01f0a91418a12de360e6f466ef",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/trace.csv",
+      "bytes": 8966817,
+      "sha256": "184d874871a55b2fcd70f4973f7a9175550f1c01f0a91418a12de360e6f466ef",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/trace.csv",
+      "bytes": 8966817,
+      "sha256": "184d874871a55b2fcd70f4973f7a9175550f1c01f0a91418a12de360e6f466ef",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/trace.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/instruction_pipeline_detail.csv",
+      "bytes": 8811860,
+      "sha256": "073ff816216f75cc1148d6ccb708d54dc3ec7d7095f3721569b54308935b4670",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f64/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/instruction_pipeline_detail.csv",
+      "bytes": 8757960,
+      "sha256": "3dda36c766758f561c853372c013af3f7a2f128b69cbacfd8d0f2cc77dc82eae",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/daily_ldl_block/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/instruction_pipeline_detail.csv",
+      "bytes": 8757960,
+      "sha256": "3dda36c766758f561c853372c013af3f7a2f128b69cbacfd8d0f2cc77dc82eae",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_123/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/instruction_pipeline_detail.csv",
+      "bytes": 8757960,
+      "sha256": "3dda36c766758f561c853372c013af3f7a2f128b69cbacfd8d0f2cc77dc82eae",
+      "archive": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/ldl_block_f16_42/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    },
+    {
+      "path": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/instruction_pipeline_detail.csv",
+      "bytes": 8406489,
+      "sha256": "e5ff464e7b47e4f87381656805d7435661c5ff92cbaffe9f0ece35022d452463",
+      "archive": "results/operator_mapping/2026-11-06-ldl-bri-v1/campaign/bri_f64/instruction_pipeline_detail.csv.gz",
+      "reason": "older diagnostic trace; exact bytes retained in verified gzip; inputs/results/logs/binaries retained"
+    }
+  ],
+  "authorisation": "User 2026-11-09 permits removing unneeded data while retaining latest results, key intermediate data and conclusions",
+  "target_free_bytes": 6442450944,
+  "max_files": 64,
+  "max_wall_seconds": 600
+}
