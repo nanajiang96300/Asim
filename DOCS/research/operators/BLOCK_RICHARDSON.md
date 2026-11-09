@@ -1,5 +1,7 @@
 # 算子状态卡：Block-Richardson
 
+2026-11-09状态补充：以下主体保留2026-10-28旧入口审计。旧入口缺陷未因新候选通过而修复；`bri_explicit_v1`瑞利已验收、CDL-B失败；新隐式FP16候选仅独立数值留出通过，待原生映射。当前分类、证据与下一步见[优化计划](../BRI_OPTIMIZATION_PLAN.md)。
+
 审计日期：2026-10-28（Asia/Hong_Kong）；源码快照：`7cf9c5088ccc030ee3bf478468660b3cdf46cee3`。
 证据等级：`code_present`＋`documented`；本轮只读源码和历史制品，未构建、未运行算子、未完成数值复现或统一验证。当前状态：`legacy_unverified`。
 路径与行号相对工程根目录，均指上述源码快照。通用精度／运行／证据规则见 [INDEX](INDEX.md)。

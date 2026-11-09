@@ -19,6 +19,8 @@
 | FP16、隐式Gram、补偿、独立留出、冻结K | [原语数值可行性](2026-11-08-fp16-implicit-v1/README.md) | 直接MMSE/逆子任务过2%；逆后应用失败，未Asim验收 | FP16_PRIMITIVE_NUMERIC_HOLDOUT_CHECKED |
 | 最早论文阶段稿与机器完成门禁 | [2026-10-30阶段稿](../paper_reports/2026-10-30-interim-v1/REPORT.md) | 当时NS验证方法和有限数据 | HISTORICAL_INTERIM |
 
+2026-11-09：[BRI后续方向与状态快照](2026-11-09-bri-direction-v1/README.md)，仅设计与既有证据复核；未新增算子验收。
+
 ## 固定归档规则
 
 1. 每次里程碑使用 `YYYY-MM-DD-主题-vN/`，已发布版本不覆盖；纠错新增版本，记录 supersedes。

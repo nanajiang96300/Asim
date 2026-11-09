@@ -189,6 +189,21 @@
       "manifest": "DOCS/research/paper_archive/2026-11-08-fp16-implicit-v1/manifest.json",
       "manifest_sha256": "8cfa6e27dcfa1cf665d30577f4d61adc31772d24d78af193737dd3f9a1d8ffcd",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-09-bri-direction-v1",
+      "status": "DESIGN_AND_EXISTING_EVIDENCE_REVIEW",
+      "keywords": [
+        "BRI",
+        "optimization",
+        "mixed-precision-design",
+        "FP16-first",
+        "reconstruction-gaps"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-09-bri-direction-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-09-bri-direction-v1/manifest.json",
+      "manifest_sha256": "ed9df66e0fb46e772b566beac901792b2441208e268aea8a9a27ceb039a74116",
+      "supersedes": null
     }
   ]
 }

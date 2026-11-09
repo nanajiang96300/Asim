@@ -1,0 +1,32 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-09-bri-direction-v1",
+  "capture_commit": "2c4c91dae5e1751a47e6f6ecc960e9ac3bdbd12c",
+  "status": "DESIGN_AND_EXISTING_EVIDENCE_REVIEW",
+  "snapshots": [
+    {
+      "source": "DOCS/research/BRI_OPTIMIZATION_PLAN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-direction-v1/snapshots/DOCS/research/BRI_OPTIMIZATION_PLAN.md",
+      "bytes": 7389,
+      "sha256": "0b8cb55b812972448c5332bb990592f00418cf0928cdf93029aec75291cd00b8"
+    },
+    {
+      "source": "DOCS/research/operators/BLOCK_RICHARDSON.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-direction-v1/snapshots/DOCS/research/operators/BLOCK_RICHARDSON.md",
+      "bytes": 5948,
+      "sha256": "bbd681239fe02180db142591030d0c46b529e6bae554d1eeed1ee747be807283"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/fp16_implicit/2026-11-08-v3/run_manifest.json",
+      "bytes": 18316,
+      "sha256": "8eaf9aaae70985cfbe67e2bea9a9715b1be19dd473cb5d52e2046652f93cb8ed"
+    },
+    {
+      "path": "experiments/channel_validation/2026-11-08-v1/run_manifest.json",
+      "bytes": 15263,
+      "sha256": "c1ac0144acc088d24ba01880d49bcca080bfaf96dbba0c38f321b0c02556d6f4"
+    }
+  ]
+}
