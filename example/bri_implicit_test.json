@@ -1,0 +1,59 @@
+{
+  "models": [
+    {
+      "name": "bri_implicit_fp16_v1",
+      "matrix_m": 64,
+      "matrix_k": 16,
+      "nrhs": 8,
+      "batch_size": 96,
+      "iterations": 33,
+      "task_contract": {
+        "batch_size": 96,
+        "nr": 64,
+        "nt": 16,
+        "nrhs": 8,
+        "regularization": 0.1,
+        "channel": "rayleigh",
+        "scope": "mmse_h_y_to_xhat_v1",
+        "profile": "modeled_fp16_fp32_real_block_v1",
+        "schema": "mmse-task-v1",
+        "representation": "R(Z)=[[Re,-Im],[Im,Re]]",
+        "measurement": {
+          "inputs": [
+            "H",
+            "Y",
+            "RegI",
+            "Identity"
+          ],
+          "includes": [
+            "input DMA",
+            "Gram",
+            "regularization",
+            "H^H Y",
+            "algorithm initialization",
+            "iterations/factorization",
+            "inverse application/output recovery",
+            "output DMA"
+          ],
+          "excludes": [
+            "common channel generation",
+            "common real-block encoding/decoding"
+          ]
+        }
+      },
+      "precision_policy": {
+        "schema": "numeric-policy-v1",
+        "name": "modeled_fp16_fp32_v1",
+        "storage": "float16",
+        "compute": "float32",
+        "accumulation": "float32",
+        "gemm_order": "k_ascending_multiply_then_add",
+        "rounding": "RNE",
+        "subnormal": "preserve",
+        "fusion": "none",
+        "task_tolerance": 0.02,
+        "quadrant_tolerance": 0.02
+      }
+    }
+  ]
+}
