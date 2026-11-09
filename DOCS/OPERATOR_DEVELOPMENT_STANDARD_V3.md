@@ -4,6 +4,10 @@
 > 适用: 所有新算子及旧算子重写
 > 参考实现: `CholeskyNoBlockBaselineOp`, `LDLNoBlockBaselineOp`
 
+## 当前执行补充（2026-11-09）
+
+新候选以[op-flow](../.claude/skills/op-flow/SKILL.md)和[共同接入规范](research/ADDING_OPERATOR.md)为准。下文历史例子不能替代实际Instruction/view重建；FormulaLogger只作索引，数值验证是硬门禁。SCALAR地址的数值切片须在实际构造点声明；不能因周期模型按基地址检查就省略索引。初值/常量/完整物理分配及FP16舍入必须真实执行；复制、取负与行列操作须按实际元素数计费。不同算法不要求同布局或同指令数，只要求同任务/原语/精度/计时口径。硬件认证后续上板。
+
 ## 1. 指令集总览
 
 ### 1.1 三类流水线
@@ -72,7 +76,7 @@ const addr_type aAinv = ACCUM_SPAD_BASE;   // 输出逆矩阵
 
 初始化方法：
 ```cpp
-// 用 Vector ADD 初始化整个区域（从已加载的 aReg 复制）
+// 用 Vector ADD 写入 2λI；仅当设计需要 2λI 时使用（不是复制/零初始化）
 tile->instructions.push_back(std::make_unique<Instruction>(Instruction{
     .opcode = Opcode::ADD,
     .id = "INIT_MYREGION",
@@ -149,10 +153,10 @@ for (k = 0; k < j; ++k) {
 公式 `y = -sum` 用 `SCALAR_SUB` 从恒等元减去：
 
 ```cpp
-SCALAR_SUB  dest=aResult,  src={aUnity, aSum}  // result = 0 - sum = -sum
+SCALAR_SUB  dest=aResult,  src={aZero, aSum}  // result = 0 - sum = -sum
 ```
 
-其中 `aUnity` 是 3.1 合成的恒等元。
+其中 `aZero` 必须由实际 SUB(v,v) 或明确零输入生成；3.1 的 unity=1 不能用于取负。
 
 ### 3.4 列缩放
 
@@ -160,7 +164,7 @@ SCALAR_SUB  dest=aResult,  src={aUnity, aSum}  // result = 0 - sum = -sum
 
 ```cpp
 SCALAR_SQRT  dest=aTmp,  src={aDinv}           // sqrt_val = sqrt(Dinv[c])
-SCALAR_MUL   dest=aY,    src={aY, aTmp},        // Y[:,c] *= sqrt_val
+MUL          dest=aY,    src={aY, aTmp},        // Vector + explicit scalar_rhs; 按整列元素计费
              .tile_m = U, .tile_k = 1, .tile_n = 1   // 整列
 ```
 

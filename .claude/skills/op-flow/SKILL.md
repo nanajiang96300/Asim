@@ -1,103 +1,48 @@
-# Operator Development Pipeline (/op-flow)
+---
+name: op-flow
+description: Develop or optimize an Asim operator with a frozen task, isolated build, actual-instruction reconstruction and independent numerical acceptance. Use for new operator implementations and instruction/layout optimizations.
+---
 
-Enforces the standardized operator development workflow. Never skip this.
+# Asim operator development
 
-## Usage
+This is the current operator workflow for Claude Code and Codex. In Codex, read and execute these steps; do not claim an unavailable slash command ran. Historical `orchestrator/pipeline.json`/UOBS scripts remain available for old experiments, but their optional FormulaLogger/DAG check cannot certify a new candidate.
 
-```
-/op-flow <operator_name> <action>
-```
+## Before implementation
 
-- `<operator_name>`: e.g. `cholesky_noblock_v2`, `cholesky_noblock_merge`
-- `<action>`: `new` (new operator) | `optimize` (optimization from baseline)
+Read `AGENTS.md`, `CLAUDE.md`, `DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md`, `DOCS/research/ADDING_OPERATOR.md`, and the applicable frozen algorithm experiment. Create `DOCS/operators/<operator>.md` before code: file inventory, formula derivation, SPAD/ACCUM layout, formula→instruction/view mapping, trace metadata, and verification scope.
 
-## Pipeline Phases
+Freeze the actual task and algorithm separately. For MMSE, input H/Y/λ and output xhat; deriving an explicit inverse is optional. Record initialization, preconditioner, real/complex block definition, recurrence, K, spectral bounds, all storage/temporary precision and rounding points. Calibration selects K/parameters before fresh holdout. Never tune on holdout and call its rerun independent acceptance.
 
-Read `orchestrator/pipeline.json` for phase definitions. Execute each phase in order.
+Use an independent worktree/build/log directory. On the current 2-vCPU host, build and simulation are serial (`-j1`); check memory/disk and bound runs. Preserve historical results, user files and old operators. Candidate scope excludes evaluator/reference/threshold changes; prepare and review trusted integration changes separately.
 
-### Phase 1: Design Document Check
-- **Gate**: `DOCS/operators/<operator_name>.md` must exist
-- **If missing**: Create the document using the template from `01_cholesky_noblock_v2.md`:
-  - Section 1: File inventory (Python/C++ paths)
-  - Section 2: Mathematical formulas (complete derivation)
-  - Section 3: SPAD memory layout table
-  - Section 4: Phase-by-phase instruction mapping (formula → opcode → src → dest)
-  - Section 5: FormulaLogger coverage table
-  - Section 6: Verification data
+## Generate executable semantics and costs together
 
-### Phase 2: Mathematical Derivation Check
-- **Gate**: Document must contain `## 2. 公式推导` or `## 2. Formula Derivation`
-- **For `new` action**: Must include full algorithm derivation from A = H^H H + λI to A^{-1}
-- **For `optimize` action**: Must include:
-  - Baseline formula
-  - Optimization equivalence proof (associativity, vectorization, etc.)
-  - Instruction count comparison (baseline vs optimized)
-  - Expected speedup analysis
+At each actual C++ `Instruction` constructor, attach typed source/destination views using `src/semantic/SourceViews.h`; include region base, offsets, shape, transpose/conjugate and explicit scalar broadcast. Header binds Model tensors, regions/capacities, task, algorithm and numeric policy. Export comes from the real Operation, not an independent handwritten formula stream.
 
-### Phase 3: Code v3.0 Standard Check
-- Verify against `DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md`:
-  - `base_addr = 0` in MOVIN
-  - `FormulaLogger::set_algorithm()` called
-  - SPAD regions initialized before SCALAR read
-  - `SCALAR_DIV(Reg,Reg)` for unity synthesis
-  - `PIPE_BARRIER` at column/phase boundaries
-  - `MOVOUT` has `src_from_accum=true, last_inst=true`
+Use the shared `engine`/`source_views`/`binding`/runtime checker. Add a new trusted adapter and independent algorithm reference, not a solver-name branch in the replay engine. Unknown operations, absent inputs or unsupported precision fail closed.
 
-### Phase 4: Build Verification
-- Run: `CMAKE_POLICY_VERSION_MINIMUM=3.5 cmake --build build --target Simulator -j$(nproc)`
-- **Gate**: Must show `[100%] Built target Simulator`
+Non-obvious constraints:
 
-### Phase 5: Runtime Smoke Test
-- Run simulator with 100000 cycle limit
-- **Gate**: Must show `finish at <N>` (not `abort` or deadlock)
+- Every read must have a real preceding write/LOAD. `ADD(RegI,RegI)` is 2λI, not COPY/zero/identity. Explicit scalar 0/1 synthesis or declared common inputs are allowed and charged.
+- Scalar work is one element. Batch/row reductions need real GEMM, Vector or scalar sequences with corresponding costs. Do not hide a matrix solve/reduction in FormulaLogger.
+- Raw Vector has no SUB in the accepted profile: use explicit negation MUL + ADD, or genuine per-element SCALAR_SUB. Freeze intermediate writebacks and check signed zero.
+- Mathematical equivalence may change FP16 bits: reassociation, diagonal GEMM→MUL, copy/negation lowering, and output packing require independent precision checks and adversarial zero tests.
+- Allocate the complete physical region before partial writes where Asim allocates only the first destination span. All slices/strides/output batches must fit the declared tensor. A logical view alone does not expand an existing allocation.
+- `MOVIN` uses full DRAM addresses with `base_addr=0`; charge input/output DMA, preprocessing, preconditioning, coefficients, initialization, state copies/compensation and output recovery. A direct solve cannot claim inverse-task speedup.
+- Declare actual barriers and check actual read/write events. Do not impose identical layouts/instruction counts on different algorithms; enforce the same task, primitive semantics, precision and cost boundaries.
+- FormulaLogger is a diagnostic index, not executable correctness evidence. Do not “fix” only the log to make a candidate pass.
 
-### Phase 6: Audit Review
-- Launch `/audit-operator <operator_name>` as sub-agent
-- Feed the operator doc (`DOCS/operators/<op>.md`) and code to the sub-agent
-- **Gate**: All checklist items must PASS
-- If audit finds issues, fix them and re-audit before proceeding
+## Build, audit and evaluate
 
-### Phase 7: Benchmark & Archive
-- Run: `bash scripts/run_benchmark_suite.sh <op> <mode> configs/ascend_910b_quiet.json example/<config>.json`
-- **Gate**: `results/<operator>/run_NNN/summary.json` must exist
-- Record result in operator doc's verification section
+1. Build `Simulator` in the isolated build, retain configure/build exit status and logs.
+2. Have an independent audit sub-agent compare derivation, C++ and frozen reference. Resolve findings and retain the audit. This explicit operator review is authorized by this skill; avoid concurrent builds/simulations.
+3. Freeze source/binary/library/config/task/algorithm/evaluator versions. Real Asim must finish and pass instruction/event/binding checks and the declared performance prefilter before candidate reconstruction. Failed or noncompetitive runs are numerics NOT_RUN with score=null. Correctness baseline creation is explicit, not a claim of optimization.
+4. Reconstruct the actual operations with the common engine; compare complete output against a separately implemented same-algorithm precision model, then FP64 task reference. Numerical acceptance is mandatory. Unsupported, mismatch and algorithm-quality failure are distinct outcomes. Never clip/replace nonfinite values or invent semantics.
+5. Run applicable Rayleigh/CDL-B inputs, task precision gates and uncoded QPSK tests. State exact channel/geometry/SNR/shape/seed coverage. An inverse-error pass does not imply inverse-then-apply MMSE passes. FEC and hardware timing are not prerequisites for the current software task.
+6. Verify negative cases, reproducibility and immutable artifact hashes. Report total cycles and detailed pipeline statistics only for accepted comparable task identities. Utilization diagnoses useful work; it does not reward redundant GEMM. Do not score before the complete applicable promotion gates.
 
-### Phase 8: Numerical Verification (A' + B1) [OPTIONAL]
+## Archive and report
 
-- **Gate**: FormulaLogger DAG reconstruction produces correct inverse
-- **Method**:
-  1. DAG executor: reads `results/<op>/run_NNN/formula_steps.json`, builds computation DAG, replays with FP16 quantization, compares inverse against numpy.linalg.inv
-  2. Trace replay: reads `results/<op>/run_NNN/trace.csv`, counts GEMM operations, verifies final ACCUM contains expected output matrix
-- **If FAIL**: The operator's FormulaLogger steps do not produce a numerically correct inverse. Fix the instruction sequence or FormulaLogger declarations.
-- **When required=false**: This phase is informational. Set `"required": true` in pipeline.json to make it a hard gate.
+Use a new `results/<campaign>/<version>/` and small tracked `experiments/<campaign>/<version>/` summaries/manifests. Preserve failures/retries and original frozen inputs. Record Asim, event-check, reference and replay wall time separately; pure model thinking time is unobservable (`null`). Document software-model assumptions versus board-level evidence.
 
-### Phase 9: Final Report
-Output a summary table:
-
-| Phase | Gate | Status |
-|-------|------|--------|
-| 1. Design Doc | file exists | ✅/❌ |
-| 2. Math Derivation | formula section present | ✅/❌ |
-| 3. v3.0 Standard | all checks passed | ✅/❌ |
-| 4. Build | cmake success | ✅/❌ |
-| 5. Runtime | no deadlock | ✅/❌ |
-| 6. Audit | sub-agent PASS | ✅/❌ |
-| 7. Benchmark | summary.json exists | ✅/❌ |
-
-## Extending the Pipeline
-
-To add a new verification phase:
-1. Append a JSON entry to `orchestrator/pipeline.json["phases"]`
-2. Set `"required": true` once the phase is stable
-3. Add the phase handler to this Skill document
-
-Example: adding numerical SE verification:
-```json
-{
-  "id": "ext_numeric_verify",
-  "name": "Numerical SE Verification",
-  "required": false,
-  "check": "test -f results/${OP_NAME}/run_001/se_verify.json",
-  "action": "python scripts/verify_baseline.py --operator ${OP_NAME}"
-}
-```
+Update the operator document and current research index/decisions. Paper snapshots go under the fixed `DOCS/research/paper_archive/README.md` index, never overwrite old versions. Publish a new pinned runtime when its dependencies change; never edit an old runtime's hashes to claim continuity. Commit logical changes without automatic push.

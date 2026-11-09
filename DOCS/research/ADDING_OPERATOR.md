@@ -1,6 +1,8 @@
 # 新算子接入共同重建框架
 
-2026-10-30。统一数值核心已实现；未知指令、缺语义或成本不能自动通过。当前只有结构float64与逻辑complex128诊断，不支持硬件FP16或CDL-B。
+2026-11-09当前：共享核心已有FP16存储/FP32临时计算模型、七个显式入口的有限瑞利/QPSK验收，以及真实CDL-B域重放诊断（未全部通过）。硬件认证外置。新隐式FP16候选正在按同协议接入，状态以独立campaign报告为准。未知语义/精度/成本不能通过；本文早期日期段为历史进展。
+
+完整规范见[op-flow](../../.claude/skills/op-flow/SKILL.md)。生成端在真实Instruction构造处同时派生raw成本字段与typed views；参考仅作比较，不代替执行。新增适配器可声明task_dimensions及有界observer_limits，不能由候选运行时抬预算。流式事件读取仍完整校验描述、覆盖、周期和读写依赖，只缩减已验证compute事件的重复字段；不是硬件认证。
 
 ## 1. 冻结共同任务
 
@@ -53,7 +55,7 @@ CLI显式选择precision8结构profile并写入receipt；不会把precision2模�
 
 新增精度模型`modeled_fp16_fp32_real_block_v1`已接通：FP16存储、FP32逐指令/逐k算术，独立参考必须输出完整output_block，按全部FP16位比较；P2分配/搬运与P4 Vector工作量分别校验。硬件校准与转换成本仍未验收，不能凭该模型晋级。见[论文阶段报告](PAPER_REPORT.md)。
 
-当前生产入口要求core-rw-v4及CSV请求身份/issue/commit字段；缺或旧schema时拒绝数值，不静默退回旧重放。固定日常runtime只白名单已验收NS；新增算子先跑独立campaign，再发布新runtime包。见[稳定入口](RUNTIME_STABILITY.md)。
+当前生产入口要求core-rw-v4及CSV请求身份/issue/commit字段；缺或旧schema时拒绝数值，不静默退回旧重放。早期固定日常runtime当时只白名单NS；后续已发布七显式入口包。新增算子先跑独立campaign，再发布新runtime包，不能改旧包hash宣称兼容。见[稳定入口](RUNTIME_STABILITY.md)。
 
 2026-10-30：旧七入口增加完整静态覆盖及只读阶段观测；见[阶段报告](LEGACY_SEMANTIC_STAGES.md)。`execute_batch(captures=...)`仅用于诊断，不创建指令、不继续越过歧义。新算法仍需独立生成端/算法参考，不将阶段目标当回放实现。硬件级认证由上板承担。
 
