@@ -143,6 +143,31 @@
         "nt": 16,
         "nrhs": 8
       }
+    },
+    "bri_stable_hb_fp16_v1": {
+      "mode": "bri_stable_hb_test",
+      "source": "src/inverse/bri_stable_hb/BRIStableHBModel.cc",
+      "scope": "mmse_h_y_to_xhat_v1",
+      "profile": "modeled_fp16_fp32_real_block_v1",
+      "profiles": [
+        "modeled_fp16_fp32_real_block_v1"
+      ],
+      "reference_module": "verification.reference.stable_hb_native",
+      "reference_function": "reference",
+      "parameter_module": "verification.operators.stable_hb_parameters",
+      "parameter_function": "parameters",
+      "max_iterations": 174,
+      "task_dimensions": {
+        "nr": 64,
+        "nt": 16,
+        "nrhs": 8,
+        "batch_size": 96
+      },
+      "observer_limits": {
+        "max_bytes": 2147483648,
+        "max_events": 4000000
+      },
+      "asim_timeout_seconds": 300
     }
   }
 }
