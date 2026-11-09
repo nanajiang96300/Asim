@@ -47,7 +47,7 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
         if policy is not None and baseline_identity!=comparison:raise Invalid('baseline task/input/hardware/measurement identity mismatch')
         result['comparison_identity']=comparison;result['runtime_contract']=RUNTIME_CONTRACT
         mark('asim')
-        receipt=simulate(binary,config,models,entry['mode'],cwd,directory,max_cycles=1000000)
+        receipt=simulate(binary,config,models,entry['mode'],cwd,directory,timeout=entry.get('asim_timeout_seconds',120),max_cycles=1000000)
         mark('artifact_and_schedule_checks')
         result.update(asim=receipt,task=task.frozen(),task_hash=task.identity,algorithm=parameters,seed=seed)
         np.savez(directory/'inputs.npz',**data['inputs']);np.savez(directory/'channel.npz',H=data['H'],Y=data['Y'],symbols=data['symbols'])
