@@ -78,6 +78,9 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
             (directory/'schedule.json').write_text(json.dumps(schedule,indent=2))
             result['schedule_status']=schedule['status']
             if schedule['status']!='MODEL_RW_CHECKED_CONSERVATIVE':raise Invalid('actual Core schedule rejected by declared conservative model')
+            # Large diagnostic dictionaries are no longer needed after the gates.
+            # Keep the actual instructions/binding for numerical reconstruction.
+            del stats,trace,events
             binding=digest({'task':task.frozen(),'algorithm':parameters,'record_sha256':file_hash(directory/'instructions.jsonl'),'seed':seed})
             receipt['program_hash']=binding
             screen=policy or ScreenPolicy(receipt['finish_cycle'],1,1)
