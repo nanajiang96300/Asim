@@ -1,0 +1,35 @@
+{
+  "capture_phase": "after_experiment",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "numpy": "2.5.0",
+  "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+  "compiler": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "dynamic_libraries": [
+    {
+      "path": "/home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/runtime/lib/libramulator.so",
+      "sha256": "c3e7a9bba805b79a4c2410217ba490350398cacf2bf8c7417b9e7882dc73fd84"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+      "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+      "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
+    }
+  ],
+  "ldd": "\tlinux-vdso.so.1 (0x00007ffe7c59b000)\n\tlibramulator.so => /home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/runtime/lib/libramulator.so (0x000078f39f000000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x000078f39ec00000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000078f39faf8000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x000078f39fac8000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000078f39e800000)\n\t/lib64/ld-linux-x86-64.so.2 (0x000078f39fbea000)\n",
+  "note": "Version/library snapshot, not a fresh OS/container reproduction."
+}

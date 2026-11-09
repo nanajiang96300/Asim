@@ -1,0 +1,121 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-09-bri-implicit-v1",
+  "capture_commit": "267d2e06a981f2a9cdbba00eb525603646215ac9",
+  "status": "ACTUAL_REPLAY_CHECKED_CDLB_QUALITY_FAILED",
+  "snapshots": [
+    {
+      "source": "experiments/bri_implicit/2026-11-09-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/experiments/bri_implicit/2026-11-09-v1/README.md",
+      "bytes": 10093,
+      "sha256": "c6fe4425be8c00b6a9f1cbc51bc8761d09c63953cedd81f2f196468389258ce1"
+    },
+    {
+      "source": "experiments/bri_implicit/2026-11-09-v1/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/experiments/bri_implicit/2026-11-09-v1/summary.json",
+      "bytes": 11212,
+      "sha256": "fbaaaa8c805b7301ac56ccbef792da0c999f411166868b9b1b3a2c413fb1bfa7"
+    },
+    {
+      "source": "experiments/bri_implicit/2026-11-09-v1/independent_audit.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/experiments/bri_implicit/2026-11-09-v1/independent_audit.json",
+      "bytes": 1029,
+      "sha256": "5cf369e7319205c13e97090ae3aefd2792d35757c96572bc41fcaf0253614ec5"
+    },
+    {
+      "source": "experiments/bri_implicit/2026-11-09-v1/stability_diagnostic.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/experiments/bri_implicit/2026-11-09-v1/stability_diagnostic.json",
+      "bytes": 36029,
+      "sha256": "2c985d2695953a2962ed36375cadcfd7d15132f50e0a204eb0bfe49b79a3c9d4"
+    },
+    {
+      "source": "experiments/bri_implicit/2026-11-09-v1/controls.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/experiments/bri_implicit/2026-11-09-v1/controls.json",
+      "bytes": 2617,
+      "sha256": "bdcd8779302fba53d29f74269a102193f562dc2765143341799cef85dadd7968"
+    },
+    {
+      "source": "DOCS/research/FP16_FIRST_PLAN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/DOCS/research/FP16_FIRST_PLAN.md",
+      "bytes": 7403,
+      "sha256": "12376c1726ce42bbea4fcd6ad94335a91491889339c2dac14303944748b0392c"
+    },
+    {
+      "source": "DOCS/research/BRI_OPTIMIZATION_PLAN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/DOCS/research/BRI_OPTIMIZATION_PLAN.md",
+      "bytes": 8082,
+      "sha256": "902d2e098a49e135f5faadf1b548829a312b03206ea93ca9a104c46541f214f8"
+    },
+    {
+      "source": ".claude/skills/op-flow/SKILL.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/.claude/skills/op-flow/SKILL.md",
+      "bytes": 6516,
+      "sha256": "e32e8f7ba65512c4afedd5cd364c91de28f59b4487ee8d8f55ce64414941b2e1"
+    },
+    {
+      "source": ".claude/skills/op-dev/SKILL.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/.claude/skills/op-dev/SKILL.md",
+      "bytes": 1469,
+      "sha256": "4abdf91212d5b260c68078bfbefe0e00a3b912f322926309e30968ba87abba55"
+    },
+    {
+      "source": ".claude/skills/audit-operator/SKILL.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/snapshots/.claude/skills/audit-operator/SKILL.md",
+      "bytes": 3653,
+      "sha256": "3cd7dbdc9eb8e35362e613a61711de8d05767e4ca8931eec06ce46391b292f3c"
+    }
+  ],
+  "evidence_manifests": [
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/run_manifest.json",
+      "bytes": 62882,
+      "sha256": "0cc0bc5d4e0919fbe933bd70c2cd7c4f5b8cf271c789428261d262bcf3666d80"
+    },
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/contract.json",
+      "bytes": 32017,
+      "sha256": "3f261285425c07d38241ae0c47ed7aba91759d4c46a64a581b8cb8d1f29d7fe3"
+    },
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/cycles_and_replay.csv",
+      "bytes": 3199,
+      "sha256": "446421c3b6dfc823eb815e8d1452beebbece68aa505ca4af59255b3fc871ac2e"
+    },
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/pipeline_summary.csv",
+      "bytes": 7127,
+      "sha256": "57e256b070a70e74cc320b97132303d7da14daae87fa027a295940215c55f352"
+    },
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/core_pipeline_summary.csv",
+      "bytes": 200525,
+      "sha256": "9a3ce833e8aa736973af775d9dfc8b7d640c07782eafe8eb466f04b21c99067d"
+    },
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/static_audit.md",
+      "bytes": 6152,
+      "sha256": "aac79e2149827264ba611dc775b210079fbf3ac835482ad4bbe3dffedc541246"
+    },
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/dynamic_audit.md",
+      "bytes": 5778,
+      "sha256": "a56e1143d3b40014c77289a36e909a7e2f82ece0c79d0e15d075ba18a9b4e2fd"
+    },
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/toolchain.json",
+      "bytes": 1851,
+      "sha256": "ff754eb801224ce91827e81be2fb492b5ef7393782c0da63b8c65ed62bbce217"
+    },
+    {
+      "path": "experiments/bri_implicit/2026-11-09-v1/unit-tests.log",
+      "bytes": 340,
+      "sha256": "80c6177b007df70894c64fd49b4752c6f98e163b2b574dde226bc6589a080fa0"
+    },
+    {
+      "path": "orchestrator/codex_runtime_implicit_fp16_v1.json",
+      "bytes": 15824,
+      "sha256": "f7e547cb381b01f4f03e935a8104a4bcb447f432fd3bbc306c9aeead404bd497"
+    }
+  ],
+  "note": "capture_commit is pre-archive base; snapshot SHA binds working-tree documents. Prior numeric holdout remains historical, new quality failure is not overwritten."
+}

@@ -22,4 +22,6 @@ BRI原理与新Python研究见`DOCS/research/BRI_PRINCIPLES.md`：P=D⁻¹与T=P
 
 当前BRI后续优先现有FP16张量/原语，不修改Asim来增加混合精度；见`DOCS/research/FP16_FIRST_PLAN.md`。FP32参考/临时数值模型不等于已支持可选FP32算子。混合精度后置，未经新指令不作为前置。
 
-FP16隐式MMSE的独立原语/留出可行性见`experiments/fp16_implicit/2026-11-08-v3/README.md`，仅软件数值阶段通过；点预条件、单侧表示、FP16补偿/阻尼及冻结K为候选定义，尚未映射新Asim入口。显式逆目标通过不代表逆后相乘MMSE通过；原算子状态不升级。
+FP16隐式MMSE早期独立原语/留出研究见`experiments/fp16_implicit/2026-11-08-v3/README.md`，仅证明当时软件样本；实际接入与新增留出的当前状态见下段。显式逆目标通过不代表逆后相乘MMSE通过，原算子状态不升级。
+
+隐式FP16实际接入及重建性能见`experiments/bri_implicit/2026-11-09-v1/README.md`：3档真实Asim模板288batch、新CDL576batch均同算法FP16位一致，但20dB新192-H留出1个样本误差54.3238倍，候选不可晋级。只阻尼β缩小稳定域（坏点谱max7.6388，末步稳定上界7.6052）；下一步联动设计α/β及谱界，先新校准选K再全新留出，坏点只回归。当前runtime固定82文件，七显式入口F16回归通过；新隐式为实验入口，默认日常任务是瑞利，不能据白名单推断CDL认证。op-flow/op-dev/audit-operator已按实际Instruction与数值硬门禁更新。

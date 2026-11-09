@@ -1,0 +1,115 @@
+{
+  "status": "IDENTICAL_BYTES_PATHS_RETAINED",
+  "bytes_saved": 500063136,
+  "entries": [
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/pipeline_statistics.json",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 32939884,
+      "sha256": "2c8c7c5a0ed2c6bcf94de568f2ee08e87f51c8112df6fb5840b2d67a12ab9de8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/rw_events.jsonl",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 126977942,
+      "sha256": "1eda3a57089ecb07609b51207d2c64424c7507315303e1a7ef63d60e2830bf38"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/instruction_pipeline_detail.csv",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 7701265,
+      "sha256": "a9ad877a1cd2007d713f4568c3493e3b3b99ddb3024dd8ca0c000cbdcdc76f5d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/inputs.npz",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "ce3a469615d0f86aa167aaa986d5f7d158ba4dd6184e9c10d2c137c0816cdd3a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/channel.npz",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/channel.npz",
+      "bytes": 2556640,
+      "sha256": "5d18050c6a9a28b01fd07aa18478677f811c834fdae9916f1f11815d4cf7aa25"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/dispatch.jsonl",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/dispatch.jsonl",
+      "bytes": 2300316,
+      "sha256": "8172517d1421c9a2a1738e6994714d893d53f3cc17c5d74ee039e6b31f1fb578"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/instructions.jsonl",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/instructions.jsonl",
+      "bytes": 46827207,
+      "sha256": "f9352d514a13327766f65e533a6c3b52ff40501bad9a45a07415c44d98fbaacb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/trace.csv",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/trace.csv",
+      "bytes": 7797541,
+      "sha256": "9f9d4e97f04678cf0fc2085006e60361256ace99955f103436624206ca814bf5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/formula.json",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/formula.json",
+      "bytes": 21746051,
+      "sha256": "161e09d1ff9595be58fb2c6a0e9c954442387fd428b88063688a3f3476d30a02"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/pipeline_statistics.json",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 32939884,
+      "sha256": "2c8c7c5a0ed2c6bcf94de568f2ee08e87f51c8112df6fb5840b2d67a12ab9de8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/rw_events.jsonl",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 126977942,
+      "sha256": "1eda3a57089ecb07609b51207d2c64424c7507315303e1a7ef63d60e2830bf38"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/instruction_pipeline_detail.csv",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 7701265,
+      "sha256": "a9ad877a1cd2007d713f4568c3493e3b3b99ddb3024dd8ca0c000cbdcdc76f5d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/inputs.npz",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "ce3a469615d0f86aa167aaa986d5f7d158ba4dd6184e9c10d2c137c0816cdd3a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/channel.npz",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/channel.npz",
+      "bytes": 2556640,
+      "sha256": "5d18050c6a9a28b01fd07aa18478677f811c834fdae9916f1f11815d4cf7aa25"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/dispatch.jsonl",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/dispatch.jsonl",
+      "bytes": 2300316,
+      "sha256": "8172517d1421c9a2a1738e6994714d893d53f3cc17c5d74ee039e6b31f1fb578"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/instructions.jsonl",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/instructions.jsonl",
+      "bytes": 46827207,
+      "sha256": "f9352d514a13327766f65e533a6c3b52ff40501bad9a45a07415c44d98fbaacb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/trace.csv",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/trace.csv",
+      "bytes": 7797541,
+      "sha256": "9f9d4e97f04678cf0fc2085006e60361256ace99955f103436624206ca814bf5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/formula.json",
+      "shared_with": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/formula.json",
+      "bytes": 21746051,
+      "sha256": "161e09d1ff9595be58fb2c6a0e9c954442387fd428b88063688a3f3476d30a02"
+    }
+  ],
+  "note": "Only byte-identical completed repeat artifacts share storage; paths and content hashes unchanged. Treat both aliases as immutable."
+}

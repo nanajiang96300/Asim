@@ -1,0 +1,111 @@
+{
+  "status": "CONTROLS_CHECKED",
+  "rows": [
+    {
+      "control": "missing_semantics",
+      "status": "EXPECTED_REJECTION",
+      "replay": {
+        "batch": 0,
+        "status": "MISSING_SEMANTICS",
+        "reason": "MISSING_SEMANTICS: unannotated actual Instruction",
+        "first_bad": {
+          "index": 218,
+          "id": "batch0.iteration0.HX",
+          "batch": 0,
+          "opcode": 3
+        },
+        "executed": 218,
+        "total": 1021,
+        "cost_issues": []
+      },
+      "actual_asim_fault_binary": false
+    },
+    {
+      "control": "wrong_sign",
+      "status": "EXPECTED_REJECTION",
+      "replay": {
+        "batch": 0,
+        "status": "NUMERIC_FAILED",
+        "relative_error": 0.0032134361477168553,
+        "executed": 1021,
+        "total": 1021,
+        "cost_issues": []
+      },
+      "actual_asim_fault_binary": false
+    },
+    {
+      "control": "missing_feedback",
+      "status": "EXPECTED_REJECTION",
+      "replay": {
+        "batch": 0,
+        "status": "NUMERIC_FAILED",
+        "relative_error": 0.0032134361477168553,
+        "executed": 1021,
+        "total": 1021,
+        "cost_issues": []
+      },
+      "actual_asim_fault_binary": false
+    },
+    {
+      "control": "wrong_quadrant",
+      "status": "EXPECTED_REJECTION",
+      "replay": {
+        "batch": 0,
+        "status": "NUMERIC_FAILED",
+        "relative_error": 0.7113585931035407,
+        "executed": 1021,
+        "total": 1021,
+        "cost_issues": []
+      },
+      "actual_asim_fault_binary": false
+    },
+    {
+      "control": "zero_rhs",
+      "status": "BIT_EXACT",
+      "replay": {
+        "batch": 0,
+        "status": "STRUCTURE_MATCH",
+        "relative_error": 0.0,
+        "executed": 1021,
+        "total": 1021,
+        "cost_issues": []
+      }
+    },
+    {
+      "control": "negative_zero_rhs",
+      "status": "BIT_EXACT",
+      "replay": {
+        "batch": 0,
+        "status": "STRUCTURE_MATCH",
+        "relative_error": 0.0,
+        "executed": 1021,
+        "total": 1021,
+        "cost_issues": []
+      }
+    },
+    {
+      "control": "real_repeat",
+      "status": "IDENTICAL",
+      "cycles": 16079,
+      "files": [
+        "instructions.jsonl",
+        "dispatch.jsonl",
+        "trace.csv",
+        "rw_events.jsonl",
+        "outputs.npy"
+      ]
+    },
+    {
+      "control": "real_performance_reject",
+      "status": "SKIPPED_NOT_COMPETITIVE",
+      "cycles": 16079,
+      "numeric_status": "NOT_RUN"
+    },
+    {
+      "control": "real_CLI_wrong_SHA",
+      "status": "PREFLIGHT_REJECTED",
+      "output_created": false
+    }
+  ],
+  "score": null
+}

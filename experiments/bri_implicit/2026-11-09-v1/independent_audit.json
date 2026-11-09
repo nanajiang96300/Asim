@@ -1,0 +1,38 @@
+{
+  "status": "INDEPENDENT_REPORT_CHECKED_WITH_EXPECTED_QUALITY_FAILURE",
+  "groups": [
+    {
+      "regularization": 1.0,
+      "candidate_bit_errors": 13531,
+      "mmse_bit_errors": 13523,
+      "bits": 49152,
+      "max_task_error": 0.00874342729101559,
+      "failed_channels_2pct": 0,
+      "independent_channels": 192,
+      "max_target_absolute_difference": 0.0
+    },
+    {
+      "regularization": 0.1,
+      "candidate_bit_errors": 8230,
+      "mmse_bit_errors": 8231,
+      "bits": 49152,
+      "max_task_error": 0.009375954093678177,
+      "failed_channels_2pct": 0,
+      "independent_channels": 192,
+      "max_target_absolute_difference": 0.0
+    },
+    {
+      "regularization": 0.01,
+      "candidate_bit_errors": 4185,
+      "mmse_bit_errors": 4061,
+      "bits": 49152,
+      "max_task_error": 54.32377706777436,
+      "failed_channels_2pct": 1,
+      "independent_channels": 192,
+      "max_target_absolute_difference": 0.0
+    }
+  ],
+  "bits_audited": 147456,
+  "all_quality_passed": false,
+  "score": null
+}

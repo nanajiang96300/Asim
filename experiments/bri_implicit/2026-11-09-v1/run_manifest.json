@@ -1,0 +1,1505 @@
+{
+  "schema": "bri-implicit-artifact-manifest-v1",
+  "root": "results/bri_implicit/2026-11-09-v1",
+  "capture_commit": "267d2e06a981f2a9cdbba00eb525603646215ac9",
+  "files": [
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-index.json",
+      "bytes": 1821,
+      "sha256": "09bb4bf823bad95e9f26c0ea570fc73423aabddcf62646a33ea80b772cfb91ca"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/asim.json",
+      "bytes": 1841,
+      "sha256": "bf044a942f526194ac9d79cf4ac2f0de9f71957f1e2cf2e31864b82a4481d21f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/channel.npz",
+      "bytes": 2556640,
+      "sha256": "c8f626419bc93025a8134ed5ab0852e79bf57daf92020208b156ce1bd2b3a67d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/dispatch.jsonl",
+      "bytes": 11697528,
+      "sha256": "65006dea99519d960c52774c61231c653eb9aa33c885117fd39f1a19fc55126c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/formula.json",
+      "bytes": 106601381,
+      "sha256": "fd53e5d2b600bbe4354a2bf4aaa13e5b6c98bd7c2780130f8765abbfdef4bc87"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c61ec67c74e2328189a21d9c5d3f1d98a2ebb3af31f9755a44dd7874c86ce277"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/instruction_pipeline_detail.csv",
+      "bytes": 38291107,
+      "sha256": "24727ab08d7b957278a635c1eec9f5ea6ebe65790a6733abac4982f0931597ba"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/instructions.jsonl",
+      "bytes": 226522193,
+      "sha256": "1bc7b26bc19bf5ee6ff32ea19ba2b1f2a43738308fe3c12fd7d42f80b14c1bdb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/models.json",
+      "bytes": 1520,
+      "sha256": "1086e50917123bd9e44485add5b2ba0c7ae09f2da105c9801fe998a769af60ff"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/numerics_started.json",
+      "bytes": 79,
+      "sha256": "583cd5ddc60ba6ff2991163af46d100ea467cdca0d6aa0bffe3fa33c43928506"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/outputs.npy",
+      "bytes": 393344,
+      "sha256": "90d73bd4b64e847bbd1305567ea95e2d1ba3305f81979b9c3eaf3f27667b515a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/pipeline_statistics.json",
+      "bytes": 160273837,
+      "sha256": "75ce9f27f71b4734612674476ae6418ce84dd612b1b89dc8603e7e8f2c8980d1"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/references.npz",
+      "bytes": 492294,
+      "sha256": "c0da18f9a472dbf24281cb5ed70373d7a6546dd05b1ded03002d3811942369a5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/result.json",
+      "bytes": 39073,
+      "sha256": "c6a146d814d38120e15479e92c422afd9ec6ccd59cdc9903231f77b54aced9e3"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/rw_events.jsonl",
+      "bytes": 547103330,
+      "sha256": "69ede450dd1bef260742333d9bc27297af57bc65cc90737e9f82d28edbfdf5cc"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/schedule.json",
+      "bytes": 17667,
+      "sha256": "80671d961f5ada7c98e56cdd5f10495758b66dcf59493ef036f92a1ccefca8d0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/simulator.log",
+      "bytes": 35021,
+      "sha256": "77ca6edf85c09a7e3ec563a4ac69bcff84e4c850a535e55b6b0bbd29089e5a42"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/trace.csv",
+      "bytes": 33654543,
+      "sha256": "6d54a40b428c0a64e64b28b65d18cb2191066bbee15932cf2b6e43cf34951159"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/asim.json",
+      "bytes": 1837,
+      "sha256": "fc5d353ba742256c21988bdc3fa12c5cf66fdf4f7a9b22faf36038de994fe5f9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/dispatch.jsonl",
+      "bytes": 5251484,
+      "sha256": "8a9a1d13dd7a8d75297ec64fc7477d74923e30b34928cb577f76b2e16ec312a1"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/formula.json",
+      "bytes": 48684251,
+      "sha256": "540ed5215d91eb307477aa57553dfebdf8d79574800d8040bd538a329c23b85a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/instruction_pipeline_detail.csv",
+      "bytes": 17375687,
+      "sha256": "4a11170edbb8555f4522d9cd0af4dabc7c303ad1043a406e6ffca198a78d54d9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/instructions.jsonl",
+      "bytes": 103841127,
+      "sha256": "b1aea9c7fe81359e0692d3f53f2898bc0c4b6af2b6a4006ce4b6c950a2d410b6"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/models.json",
+      "bytes": 1519,
+      "sha256": "ce3f8f603defb3780d8ab63f0133f13a4cba4171efa37713621d0ea100f3124d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "e9ec4fd9b6a6ca68e04ea7d8cfa65921471c291638194b8156ed99534d41e7f3"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "165aa1c0a1cc22733213b8c46e376ca746b2da1c649159a95403192b5dabb73d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/pipeline_statistics.json",
+      "bytes": 73326802,
+      "sha256": "796d5e716bdcaf6e9d02e85be367d5590f1e2b95bfba52d4d4d1d9113632c23f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/references.npz",
+      "bytes": 492294,
+      "sha256": "ce10f5be772c6a39ec113bf64c77b90070485b7a1b1ae7eb05cf32556a303f5c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/result.json",
+      "bytes": 39023,
+      "sha256": "7606ba5949d94cb3c0ac6d502a4b9fd93fd8dacbbd595321f34c36adc2a25487"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/rw_events.jsonl",
+      "bytes": 260116638,
+      "sha256": "2374566a301082f223c21d88952455fcd103520f89a6a115cb44acd214b3d96d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/schedule.json",
+      "bytes": 17666,
+      "sha256": "c7cc4e3f308cba0d570553c6380db5d9a05d68f48ae8ba8b1ae8b2003c6e1c90"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/simulator.log",
+      "bytes": 34667,
+      "sha256": "3b0866dc1121ff9fcf92c985256ff2ee631863060babd93594d42239dc32c122"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/trace.csv",
+      "bytes": 15983091,
+      "sha256": "42f317f3691ee57984af8a367a84e85bcc24eca96fbe9bfd0bfa6bd79621db6a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/asim.json",
+      "bytes": 1835,
+      "sha256": "2693c119815ff7ee4b062a3242349b7342073b0f94cc3c3cc932bffe1ec825b8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/channel.npz",
+      "bytes": 2556640,
+      "sha256": "5d18050c6a9a28b01fd07aa18478677f811c834fdae9916f1f11815d4cf7aa25"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/dispatch.jsonl",
+      "bytes": 2300316,
+      "sha256": "8172517d1421c9a2a1738e6994714d893d53f3cc17c5d74ee039e6b31f1fb578"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/formula.json",
+      "bytes": 21746051,
+      "sha256": "161e09d1ff9595be58fb2c6a0e9c954442387fd428b88063688a3f3476d30a02"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "ce3a469615d0f86aa167aaa986d5f7d158ba4dd6184e9c10d2c137c0816cdd3a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 7701265,
+      "sha256": "a9ad877a1cd2007d713f4568c3493e3b3b99ddb3024dd8ca0c000cbdcdc76f5d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/instructions.jsonl",
+      "bytes": 46827207,
+      "sha256": "f9352d514a13327766f65e533a6c3b52ff40501bad9a45a07415c44d98fbaacb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/models.json",
+      "bytes": 1519,
+      "sha256": "37a0f4c4f87b91290376b42d5650489011c3e5e2b98b3395eaa8f8fba4d6c465"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/numerics_started.json",
+      "bytes": 79,
+      "sha256": "d78f2f1e006ac6210b2291e16c0ba1576908ad8acf50046d92767c600bba4cf5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/outputs.npy",
+      "bytes": 393344,
+      "sha256": "002128e49ff4b60df06bb3d30d48adb09f492cff96c5ae80386f874310a2cf26"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 32939884,
+      "sha256": "2c8c7c5a0ed2c6bcf94de568f2ee08e87f51c8112df6fb5840b2d67a12ab9de8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/references.npz",
+      "bytes": 492294,
+      "sha256": "984e09a206835a7fc950c10f19f26c3a802c014a5117408701c7dea759cdd369"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/result.json",
+      "bytes": 39020,
+      "sha256": "914687038068e6cb1aee71ef8a9d771e9d957075396ff1fd30afbcc021006568"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 126977942,
+      "sha256": "1eda3a57089ecb07609b51207d2c64424c7507315303e1a7ef63d60e2830bf38"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/schedule.json",
+      "bytes": 17665,
+      "sha256": "164bbc04a883522b7a8a9c5751964aefe2e6899f43fd6d519b5068905ffe83ef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/simulator.log",
+      "bytes": 34477,
+      "sha256": "835fb0cb3b14af6a51a7b91773f8663b8773355f08ec7bb321d6ed9f9d9623d9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/trace.csv",
+      "bytes": 7797541,
+      "sha256": "9f9d4e97f04678cf0fc2085006e60361256ace99955f103436624206ca814bf5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/asim-progress.json",
+      "bytes": 1633,
+      "sha256": "dfdb833cf647885fe6557701e4ecc8e3a99dc027eb6640ff5acbb71d338e470e"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/bad-sha.log",
+      "bytes": 910,
+      "sha256": "9ff06dfeea5cb76cab68043814608d9bd097a57f4432fad8c9a6d1692d63bd76"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/asim.json",
+      "bytes": 1861,
+      "sha256": "715273e8977e6762b5207dd8f4cdc4ec72f44495dbe9f7a6ea08dc8915085a97"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/channel.npz",
+      "bytes": 2556640,
+      "sha256": "5d18050c6a9a28b01fd07aa18478677f811c834fdae9916f1f11815d4cf7aa25"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/dispatch.jsonl",
+      "bytes": 2300316,
+      "sha256": "8172517d1421c9a2a1738e6994714d893d53f3cc17c5d74ee039e6b31f1fb578"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/formula.json",
+      "bytes": 21746051,
+      "sha256": "161e09d1ff9595be58fb2c6a0e9c954442387fd428b88063688a3f3476d30a02"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "ce3a469615d0f86aa167aaa986d5f7d158ba4dd6184e9c10d2c137c0816cdd3a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/instruction_pipeline_detail.csv",
+      "bytes": 7701265,
+      "sha256": "a9ad877a1cd2007d713f4568c3493e3b3b99ddb3024dd8ca0c000cbdcdc76f5d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/instructions.jsonl",
+      "bytes": 46827207,
+      "sha256": "f9352d514a13327766f65e533a6c3b52ff40501bad9a45a07415c44d98fbaacb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/models.json",
+      "bytes": 1519,
+      "sha256": "37a0f4c4f87b91290376b42d5650489011c3e5e2b98b3395eaa8f8fba4d6c465"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/pipeline_statistics.json",
+      "bytes": 32939884,
+      "sha256": "2c8c7c5a0ed2c6bcf94de568f2ee08e87f51c8112df6fb5840b2d67a12ab9de8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/result.json",
+      "bytes": 7292,
+      "sha256": "28a382034c8c0a3e353611481c8bc3e24acb62338d1db84a10a78047a2fb24b3"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/rw_events.jsonl",
+      "bytes": 126977942,
+      "sha256": "1eda3a57089ecb07609b51207d2c64424c7507315303e1a7ef63d60e2830bf38"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/schedule.json",
+      "bytes": 17665,
+      "sha256": "164bbc04a883522b7a8a9c5751964aefe2e6899f43fd6d519b5068905ffe83ef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/simulator.log",
+      "bytes": 34503,
+      "sha256": "77d5dab1c51212467afe843cabf39c5bc7c249f0493e693fa4bc5085a9a86661"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/performance_reject/trace.csv",
+      "bytes": 7797541,
+      "sha256": "9f9d4e97f04678cf0fc2085006e60361256ace99955f103436624206ca814bf5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/asim.json",
+      "bytes": 1837,
+      "sha256": "d66c3e50cceb63b23241766ed4cd60ecf9b62ddf42b7fe019b8e40bc5f734661"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/channel.npz",
+      "bytes": 2556640,
+      "sha256": "5d18050c6a9a28b01fd07aa18478677f811c834fdae9916f1f11815d4cf7aa25"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/dispatch.jsonl",
+      "bytes": 2300316,
+      "sha256": "8172517d1421c9a2a1738e6994714d893d53f3cc17c5d74ee039e6b31f1fb578"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/formula.json",
+      "bytes": 21746051,
+      "sha256": "161e09d1ff9595be58fb2c6a0e9c954442387fd428b88063688a3f3476d30a02"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "ce3a469615d0f86aa167aaa986d5f7d158ba4dd6184e9c10d2c137c0816cdd3a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/instruction_pipeline_detail.csv",
+      "bytes": 7701265,
+      "sha256": "a9ad877a1cd2007d713f4568c3493e3b3b99ddb3024dd8ca0c000cbdcdc76f5d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/instructions.jsonl",
+      "bytes": 46827207,
+      "sha256": "f9352d514a13327766f65e533a6c3b52ff40501bad9a45a07415c44d98fbaacb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/models.json",
+      "bytes": 1519,
+      "sha256": "37a0f4c4f87b91290376b42d5650489011c3e5e2b98b3395eaa8f8fba4d6c465"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/numerics_started.json",
+      "bytes": 79,
+      "sha256": "d78f2f1e006ac6210b2291e16c0ba1576908ad8acf50046d92767c600bba4cf5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/outputs.npy",
+      "bytes": 393344,
+      "sha256": "002128e49ff4b60df06bb3d30d48adb09f492cff96c5ae80386f874310a2cf26"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/pipeline_statistics.json",
+      "bytes": 32939884,
+      "sha256": "2c8c7c5a0ed2c6bcf94de568f2ee08e87f51c8112df6fb5840b2d67a12ab9de8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/references.npz",
+      "bytes": 492294,
+      "sha256": "984e09a206835a7fc950c10f19f26c3a802c014a5117408701c7dea759cdd369"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/result.json",
+      "bytes": 39019,
+      "sha256": "ab63826d4effbd3fb8263677764468d2dde01b953ef0be01d4917c3796c595ad"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/rw_events.jsonl",
+      "bytes": 126977942,
+      "sha256": "1eda3a57089ecb07609b51207d2c64424c7507315303e1a7ef63d60e2830bf38"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/schedule.json",
+      "bytes": 17665,
+      "sha256": "164bbc04a883522b7a8a9c5751964aefe2e6899f43fd6d519b5068905ffe83ef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/simulator.log",
+      "bytes": 34479,
+      "sha256": "02dce2cf48f031d1db2c7b103c5cfb961b60bd0067f2deaba297d89b94bdbd04"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/repeat/trace.csv",
+      "bytes": 7797541,
+      "sha256": "9f9d4e97f04678cf0fc2085006e60361256ace99955f103436624206ca814bf5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/controls/result.json",
+      "bytes": 2617,
+      "sha256": "bdcd8779302fba53d29f74269a102193f562dc2765143341799cef85dadd7968"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/asim.json",
+      "bytes": 1828,
+      "sha256": "0ae57ee6b306b7ef4fabe121e9a97a44bf3ecb7dcbc601869515fbd665017801"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/config.json",
+      "bytes": 12648,
+      "sha256": "9978f772927565d82939aa1838ec816b7a6f7d21b8dcf37103aa303879ac4058"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/evaluation_result.json",
+      "bytes": 38774,
+      "sha256": "5410c9733a1a11371cb7627bd8dc33f7eb8870c6010195a43a70902e0b8feca7"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/numerics_started.json",
+      "bytes": 79,
+      "sha256": "18af3463d3d3a0caadc4d11a39a793aea064f8f0d393e332d2a1562bbfee8509"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/outputs.npy",
+      "bytes": 393344,
+      "sha256": "7988be9aa518f0d10c9e912965b8f6a81368168aabbcd5ca1fb400063858d5dd"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/references.npz",
+      "bytes": 689138,
+      "sha256": "c01fb36f688dfcd348b9a78444eb46b99b3291f4655e5043543cd4522737a9e1"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/result.json",
+      "bytes": 39123,
+      "sha256": "11d5bcd87e1aa9fa1e4d122ccd294293b03151ad737db01b8d0eb72c229f6b22"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/runtime_pin.json",
+      "bytes": 14676,
+      "sha256": "7564ebff49d0386a54af47042b57c5c5482624b0df7b81d4ddf92519e71d997d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/schedule.json",
+      "bytes": 17665,
+      "sha256": "9330dc8b3b84f00ce7123ec8a35d4bbe986847e697a11758855348980657f5e2"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/simulator.log",
+      "bytes": 34315,
+      "sha256": "479a5de732c59a1ca6a96064dc6bc91c336177ebbd19adb0e69f6dd3239d6c76"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_default/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/asim.json",
+      "bytes": 1837,
+      "sha256": "a74158f7cfd26c50f5834ab133c85f23718befedd963790d20d9053f938f970c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/config.json",
+      "bytes": 12648,
+      "sha256": "9978f772927565d82939aa1838ec816b7a6f7d21b8dcf37103aa303879ac4058"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/dispatch.jsonl",
+      "bytes": 5251484,
+      "sha256": "8a9a1d13dd7a8d75297ec64fc7477d74923e30b34928cb577f76b2e16ec312a1"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/evaluation_result.json",
+      "bytes": 39017,
+      "sha256": "08bdd6d450a2b1195e526a6eff08cdd1e2f12ed66213d87141f85e2642ee01d5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/formula.json",
+      "bytes": 48684251,
+      "sha256": "540ed5215d91eb307477aa57553dfebdf8d79574800d8040bd538a329c23b85a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/instruction_pipeline_detail.csv",
+      "bytes": 17375687,
+      "sha256": "4a11170edbb8555f4522d9cd0af4dabc7c303ad1043a406e6ffca198a78d54d9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/instructions.jsonl",
+      "bytes": 103841127,
+      "sha256": "b1aea9c7fe81359e0692d3f53f2898bc0c4b6af2b6a4006ce4b6c950a2d410b6"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/models.json",
+      "bytes": 1519,
+      "sha256": "ce3f8f603defb3780d8ab63f0133f13a4cba4171efa37713621d0ea100f3124d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/numerics_started.json",
+      "bytes": 79,
+      "sha256": "3cc76f1be377d4f45dce037d61572287352d7383093f918ed850a9e60c84725a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/outputs.npy",
+      "bytes": 393344,
+      "sha256": "5a3a1742d7b2fa8c9dccf283f531a52da2b1995b1a3beed600b79612ca1d36d3"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/pipeline_statistics.json",
+      "bytes": 73326802,
+      "sha256": "796d5e716bdcaf6e9d02e85be367d5590f1e2b95bfba52d4d4d1d9113632c23f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/references.npz",
+      "bytes": 492294,
+      "sha256": "0710cff703b42eb6d8c858d7f318d80c24bcd27a253efe69ec3beacbb695233d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/result.json",
+      "bytes": 39366,
+      "sha256": "68afb0e9b316a857ad065c17a0b0c35e6130faedff479eb6bc8aec6676e32d70"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/runtime_pin.json",
+      "bytes": 14676,
+      "sha256": "7564ebff49d0386a54af47042b57c5c5482624b0df7b81d4ddf92519e71d997d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/rw_events.jsonl",
+      "bytes": 260116638,
+      "sha256": "2374566a301082f223c21d88952455fcd103520f89a6a115cb44acd214b3d96d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/schedule.json",
+      "bytes": 17666,
+      "sha256": "c7cc4e3f308cba0d570553c6380db5d9a05d68f48ae8ba8b1ae8b2003c6e1c90"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/simulator.log",
+      "bytes": 34654,
+      "sha256": "eafe1bfced11b2552d3ad156286642279efba0d49c9ebe7338d96c886d5b34a5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/daily_implicit/trace.csv",
+      "bytes": 15983091,
+      "sha256": "42f317f3691ee57984af8a367a84e85bcc24eca96fbe9bfd0bfa6bd79621db6a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/dataset/H56001.npz",
+      "bytes": 36137013,
+      "sha256": "73399e1745609039bc9f55c3be29d8fad52db06143eebc109154b63c226aeb67"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/dataset/H56002.npz",
+      "bytes": 36136507,
+      "sha256": "4bd773db7704caa0634693490496b7a21a2846077310feeea26e74f01b783b49"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/dataset/index.json",
+      "bytes": 521,
+      "sha256": "39180d018447a7fb6e1afa691f7a2ac9aaa34b676b3f08b918dffce97916e014"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/frame-progress.json",
+      "bytes": 3766,
+      "sha256": "11b09dbe67b883ec6ecbf2933543967329bb42b1f8716f75e047b09b8fc9a027"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/lambda0.01-H56001.npz",
+      "bytes": 3283190,
+      "sha256": "4f9f783b8c0a19139f1abfdedb6ee57cd6a4e2be2f91afe08d886f55eff3502d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/lambda0.01-H56002.npz",
+      "bytes": 3283393,
+      "sha256": "5cf69f0e0e9f98d2552d830e74114c15a766d3ee1ef5a961d9a604d37a1664b0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/lambda0.1-H56001.npz",
+      "bytes": 3284004,
+      "sha256": "17178cbf88b826279b50a575ffe01ca959d5b9ff9f6c47289e693eb5756d8504"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/lambda0.1-H56002.npz",
+      "bytes": 3284192,
+      "sha256": "603b17f71d8d0e8f0e8fc1b6272c82e9981f014038ffb126b6124decb9ed9493"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/lambda1.0-H56001.npz",
+      "bytes": 3285830,
+      "sha256": "c62eb65be1674d3617f70bc3e8553d4e43522bc48966aaf0893c2a274927daeb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/lambda1.0-H56002.npz",
+      "bytes": 3286090,
+      "sha256": "607a9d5f6ebec6a22ffc3566ae73a75c768d401db6c9e93f8b47957fd6a50d97"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/progress.json",
+      "bytes": 337471,
+      "sha256": "2f410b34e1698b0c1b25189104f0180d23bd1caf91d8a679c771dfa155bd1712"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/holdout/result.json",
+      "bytes": 361830,
+      "sha256": "bd20d6dfe7d57126e7c9be961bef9096dabe8f53cf82a40c6e852dc116895f43"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/identical_artifact_dedup.json",
+      "bytes": 5685,
+      "sha256": "a352a54a254de172bf2cd46cd52c8c8fb400787da04b47d175c81aeaea8fb4cd"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/independent_audit.json",
+      "bytes": 1029,
+      "sha256": "5cf369e7319205c13e97090ae3aefd2792d35757c96572bc41fcaf0253614ec5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/asim-20261109-v1.log",
+      "bytes": 2563,
+      "sha256": "d516eaf203127a1b6cabee0ba3f5e8d78b5b5b1294e13fb0e72cec74a7987d88"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/audit-holdout-20261109.py",
+      "bytes": 2475,
+      "sha256": "274eeb289803ee36bdf797de350e96312ec8a7dd29b0d8df8d4cdb2f167673c5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/bri-implicit-audit-20261109.md",
+      "bytes": 6152,
+      "sha256": "aac79e2149827264ba611dc775b210079fbf3ac835482ad4bbe3dffedc541246"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/bri-implicit-build-20261109.log",
+      "bytes": 130751,
+      "sha256": "152158d5008ac7f35696523f2dd666a82fad6f62a428bc15c8ed4d54f1a82f34"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/bri-implicit-configure-20261109.log",
+      "bytes": 7274,
+      "sha256": "542a1861a7d04b82460f5372ad249d155c1ea7f272d785cb8d4171ad43ccad44"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/bri-implicit-dynamic-review-20261109.md",
+      "bytes": 5778,
+      "sha256": "a56e1143d3b40014c77289a36e909a7e2f82ece0c79d0e15d075ba18a9b4e2fd"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/bri-implicit-tests-20261109-final.log",
+      "bytes": 340,
+      "sha256": "80c6177b007df70894c64fd49b4752c6f98e163b2b574dde226bc6589a080fa0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/contract-sha-20261109.txt",
+      "bytes": 65,
+      "sha256": "166a7b009ac33a4a08959b50229c088d76c572db32fdad21d33dc39028c38e92"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/controls-20261109-v1.log",
+      "bytes": 2609,
+      "sha256": "65291c81db291ffc3cc66a089b3a3f1da47b9dadf1fbb92b66fa1d851835682b"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/controls-20261109.py",
+      "bytes": 4730,
+      "sha256": "f8d5ccce5943910c8f82e37eddaefcd6c66278424e8ef6218e4ed6bf34bba115"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/daily-20261109-v1.log",
+      "bytes": 3509,
+      "sha256": "c4190c92703dc6f7fcca32a33e1a8b2a51d4de44f4b10da730e7f0dbe8bb5bfe"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/daily-implicit-20261109-v1.log",
+      "bytes": 3754,
+      "sha256": "89ca7217b1b0d43d7d0ad31a33fee334a3b5f3b42c714b0e7164cd76c7ca56ae"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/dataset-20261109-v1.log",
+      "bytes": 1123,
+      "sha256": "2d889afd7e1425df0a9b0b3a1122e115849d78ad1a67286c3fec1c3a1d7c7e97"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/diagnose-20261109.py",
+      "bytes": 2359,
+      "sha256": "98ad4b52b135d749fe50ab0b9801efd62a30a878b223ceedc7d907efe260c8a0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/freeze-20261109.py",
+      "bytes": 1594,
+      "sha256": "10c203809134274df5dee1c3d6708f60394ff1c6ba56eb0fbf92c19e18cfaefc"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/pin-runtime-20261109.py",
+      "bytes": 2499,
+      "sha256": "d116d07c97d81be5818ee9de966ebf7b018719b6af976106fb6e10f3aedbfc78"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/regression-20261109-v1.log",
+      "bytes": 4139,
+      "sha256": "ebe036a4eb205339754612105b39ddef8a1175db0215d6d7e722c91da0c56f9a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/regression-20261109.py",
+      "bytes": 1277,
+      "sha256": "008b35fcfa6a694c4e81e3279a24ff28a3d10e8cce3bdab3df463896ce77cdf8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/replay-20261109-v1.log",
+      "bytes": 4666,
+      "sha256": "2073effd91906659566bfd041fe126122a58de64c0e97ad9dfc78861dd8ff221"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/report-20261109-v1.log",
+      "bytes": 113,
+      "sha256": "1f3144c0671bd4d3264b444848a178f7d24a5cb8cdd9420196fe4580e31d40a9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/provenance/report-20261109.py",
+      "bytes": 3680,
+      "sha256": "fe8f678d0f88f2fe29aa37f622c9aae6785d2593b200fa6042729465e6d4fc01"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/asim.json",
+      "bytes": 1859,
+      "sha256": "20c9b8c6c78f306bbd7a695a83bcedb08a15aef64aff89ab532616407cf825b0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/dispatch.jsonl",
+      "bytes": 2274740,
+      "sha256": "1a731cf157ab692a57ec76ae27561ad7970c13956b9c9453f6bac22e173620c4"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/formula.json",
+      "bytes": 23008843,
+      "sha256": "875ea318443a0806774678b9be9bd011891104866d8f4bbeb9b11152753a1fa0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/instruction_pipeline_detail.csv",
+      "bytes": 8269811,
+      "sha256": "bf640d415a87214911a2799bf650bdccce292ac593df090ae5a975abe2f850d8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/instructions.jsonl",
+      "bytes": 49608081,
+      "sha256": "83ee3d3be185fc56d9fecfe091b7e4aed734b205387a6193345153ad97b698a8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/models.json",
+      "bytes": 1515,
+      "sha256": "17399251f47fa2f01f36340501217fc7155981ece9408012131a1749bdb5067b"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "fa310515209bffd3f861b2066ee85abd54ea90be8384977e7743c38ae3d7362c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "427d8a334b7be8e238a57055540eb8128e9c86149731e65482f7237af957d885"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/pipeline_statistics.json",
+      "bytes": 35390767,
+      "sha256": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/references.npz",
+      "bytes": 689174,
+      "sha256": "10342a353f7d6bc1ddf1d8bf0fe8ac3ed11c46de80affb40ad4b97432d80d22b"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/result.json",
+      "bytes": 39074,
+      "sha256": "97bf2dacac5a88b671269927260ca07794bdff365dcfb156c94219e7f62649a0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/rw_events.jsonl",
+      "bytes": 134218140,
+      "sha256": "fbf977d8f6650477cb2a7c2611f7efb689ca503daf25b1f1e312963812d06f5c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/schedule.json",
+      "bytes": 17666,
+      "sha256": "df2fe57fb5fb2512788731c04609724051c9e28dd8cd50a13a0f7ffeef7137ae"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/simulator.log",
+      "bytes": 34689,
+      "sha256": "87d1af52f6351aa29cb19233b83701bef209683285715b3bde5be4c1922ee82e"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/trace.csv",
+      "bytes": 7978988,
+      "sha256": "3d0e178b50ab5295b51970f728a238b4a4e0a8c58761e0ca2cbd129cdb947737"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/asim.json",
+      "bytes": 1903,
+      "sha256": "433e2f7e8ea34081936110542950e7dfb292119c32feeea4e3f228e13c22ee9d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/dispatch.jsonl",
+      "bytes": 2181100,
+      "sha256": "81b05e7fe1280e769393e515a028beeb694b65511eac00c4cf804e7f623b2b68"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/formula.json",
+      "bytes": 20994712,
+      "sha256": "b538240e5f88dd735319fa0c0b922a4e38c86b3662bf551d464b05b25a851be5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/instruction_pipeline_detail.csv",
+      "bytes": 7529357,
+      "sha256": "11e2b5f928d72c830acea03adc601603daef640d8c1bcd807b4ccd8bfe29c71c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/instructions.jsonl",
+      "bytes": 46175589,
+      "sha256": "2ce7d128a567cf08dfacf492a034d805b3a156c65538ea79bbf6c9aa6d51d63b"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/models.json",
+      "bytes": 1524,
+      "sha256": "2d8db2d197cb1c4e09529a2e4a5ee2df33f63d238de7420bf49b3091f9fa29b9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "72bff8df26cf0d9d2a5e88a6bc97276e84c68e600e82a1f1396ce32d4bd0fbbb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "11df20cc95b42bfa618c09a41537a4b57237a807c903dafaa508886b3a2b9533"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/pipeline_statistics.json",
+      "bytes": 32371859,
+      "sha256": "12da38a3247fea5532d9a392947bd67cca0f7b0409a29ad0bd75222dc8fa3f9f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/references.npz",
+      "bytes": 689162,
+      "sha256": "d149b13942c06b768a0face01313740d94bf53de69ff029b6648aeec0652961d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/result.json",
+      "bytes": 39101,
+      "sha256": "8baecd0fa541661e11547163dcc20505413057253bea01b575f6664089e8ebc5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/rw_events.jsonl",
+      "bytes": 125189789,
+      "sha256": "639e9e98823ad6048c6c9790b66a9e8a8029484a8e88f7bc3e04bcb34b1ed5f7"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/schedule.json",
+      "bytes": 17665,
+      "sha256": "f67e79ccefca3866e7575f04327c83d597e15b344dad77da62aa485d9e512b1e"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/simulator.log",
+      "bytes": 34649,
+      "sha256": "662c6f2d069edecd4ad02328b85ba16616ca7a49672a38566c1cb411c30a5a1b"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/trace.csv",
+      "bytes": 7967509,
+      "sha256": "eb43fe630660392385a1c6c6e98ed5ac86b27cad4d2bad0c845794d6b0a9fec7"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/asim.json",
+      "bytes": 1880,
+      "sha256": "234cefc94e145320b440bfeb3cec45ccb2bb24b5b6800ce64129a189a2c92ff4"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/dispatch.jsonl",
+      "bytes": 3721768,
+      "sha256": "b9bc1e40c404446197a272c463d09ae7d649fea4092472ec707a763e785cfac0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/formula.json",
+      "bytes": 36977644,
+      "sha256": "78263d51a8b4848908a7e5274dfd5a9a6d09733e0e35d322f64ef7008ef0bf63"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/instruction_pipeline_detail.csv",
+      "bytes": 13370011,
+      "sha256": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/instructions.jsonl",
+      "bytes": 80589262,
+      "sha256": "b1b406330b03301be2043544a6643fb5f03daab186d527057dc22a2331da3da3"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/models.json",
+      "bytes": 1518,
+      "sha256": "e81ca8d17c5bbc253695b4e0f63e38b3568a68797d27af0f623dc5560250947f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "cd6d7c49b33f86ae32d82c78984eba2ab1bb6971051f2ccad5ca2d63bd28fb55"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "591b981fcb0fed3740f82701c828be94045ad5a5c01df29cd26930b93159fb7c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/pipeline_statistics.json",
+      "bytes": 57085733,
+      "sha256": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/references.npz",
+      "bytes": 689162,
+      "sha256": "1967075bdae6aef4f6177b26db0879819ad271490629556f6c93ba870dd010ef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/result.json",
+      "bytes": 39023,
+      "sha256": "cc2779d617e17850ab42666fa1f97ff54d59f5bbed4b19e24d324f61f09b101d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/rw_events.jsonl",
+      "bytes": 205565124,
+      "sha256": "ff61c172c4f056630d6fcd66c0d2d7ae61a47f7ce486b99d40770cb69f1bc6e5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/schedule.json",
+      "bytes": 17666,
+      "sha256": "1bb1ab50f0937c369ccf5893fd301801087c638530e75bccbd20cc2bd144fd40"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/simulator.log",
+      "bytes": 34652,
+      "sha256": "4dabd3e48f18ba0274a87c15e0f95177c7050c9bbd4fc6a81db9b6ec42f2cea9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/trace.csv",
+      "bytes": 12460100,
+      "sha256": "d980f5d8fa520b9e26a53cd1f3fb64dd85756d941143792b0095763726e9021b"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/asim.json",
+      "bytes": 1903,
+      "sha256": "4f3137b803df01e92218bd92cf658948db54dfd9187345dd94d298b10a261a58"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/dispatch.jsonl",
+      "bytes": 1970928,
+      "sha256": "1c11bfefb1857f83d4bdbedd6c9fdaed2bde63b5ecb72758c7ea96b9f9b4077c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/formula.json",
+      "bytes": 19708198,
+      "sha256": "0c4067e64cde4d25c92bdac869a91b558c213236a9d5c1ec730feed3345b8e03"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/instruction_pipeline_detail.csv",
+      "bytes": 7077201,
+      "sha256": "89fe23689762baef8b162392890c94284806ada216279760f2ae4a7f441a2b21"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/instructions.jsonl",
+      "bytes": 43542139,
+      "sha256": "56d8beece15a059fcdd189d7a0a2e95ca91ac2efa4c1b825e167e3bb51a054a1"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/models.json",
+      "bytes": 1524,
+      "sha256": "b21361ae6582bce7ab6d4ec2a0be289e0a7b7c6069db13fc0941ee38fab419ca"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "ae0ca2ec01687ad663ded71912666226cb54b6bd2e3abcc10dbc0ddf90b9ebd3"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "12dc44bcb432581b69159e06db8fc881e5b7f75f3a28c4ce83752c89bce6c112"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/pipeline_statistics.json",
+      "bytes": 30680406,
+      "sha256": "f209a9990e3219a6366c9ba2dbe330ba94bd4010724b5cad36fc813066e70336"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/references.npz",
+      "bytes": 689162,
+      "sha256": "1fec06b04807b27f84a25332e9a94cf195f131ab96bd2b38bbad3517e6c74d85"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/result.json",
+      "bytes": 38928,
+      "sha256": "ce745da64a90f086646e61397e2f57d9f5a35d6cffee015fe9069101ad103459"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/rw_events.jsonl",
+      "bytes": 119202434,
+      "sha256": "d494967421a755e1569d4ac1f25fc21578348df9e8d0f321778549ee3f08d2b4"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/schedule.json",
+      "bytes": 17665,
+      "sha256": "705f9ea8cdf1dbef08cebe24267147f4957eaa03612848d91d7994d09e565ec3"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/simulator.log",
+      "bytes": 34601,
+      "sha256": "1630a0959544d97073e239a484a21852346d2bd9cf9b4a6a528896e8e5edab0a"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/trace.csv",
+      "bytes": 7387099,
+      "sha256": "0fbb8677c3926507f02a72812d056a656119815bac092b7275064c562ba3ab55"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/asim.json",
+      "bytes": 1883,
+      "sha256": "fb81f34cf7b220c7e1b79032efd0004545aa4d8fef07f685d937d11f16cc2eb4"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/dispatch.jsonl",
+      "bytes": 2548752,
+      "sha256": "d620ecf24dab8b365f99272101a912b6b7d5eb74b80bd501b4e5073098ac55ba"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/formula.json",
+      "bytes": 24751001,
+      "sha256": "00737e1b00961f3d48a7cc70073cefa58d4a2d54f56973bd186c391522a9dbd7"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/instruction_pipeline_detail.csv",
+      "bytes": 8757960,
+      "sha256": "3dda36c766758f561c853372c013af3f7a2f128b69cbacfd8d0f2cc77dc82eae"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/instructions.jsonl",
+      "bytes": 54224021,
+      "sha256": "3d433465daca8dbbca6c66aed83a9f2218c3548bb2f8286199ac86b467ad6c70"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/models.json",
+      "bytes": 1519,
+      "sha256": "213d29d6f440c1e6317242ed53e0bb0ca55d5189a990855d0bee0976a8352bc8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "6a0cfa1d0c06e791ed57d8ef0583a603e149a752532e070efde9ecbdfa73dacf"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "e8eef8f7e595c8288159e661e315d909d88efec1f693de34377c39eaf0ee5cb8"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/pipeline_statistics.json",
+      "bytes": 37711922,
+      "sha256": "772a99368505e10971610a828211d750010924bd5970bdbcd291b4ede2bc6f44"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/references.npz",
+      "bytes": 695566,
+      "sha256": "50ef96b4b8a9213ead8c92ae57de608e3ccce8efb408950b96954268fddf2ecf"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/result.json",
+      "bytes": 39086,
+      "sha256": "f4500fef9e77b57a403898cf66f181f70ae30244fb74cd3db57f002841feb1da"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/rw_events.jsonl",
+      "bytes": 143393742,
+      "sha256": "28b22d1aa88db9bfa44b7ce1d3294d26550a02699774b3c3b066ea58092ab5d7"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/schedule.json",
+      "bytes": 17666,
+      "sha256": "f55bf4005dc0690a1cb48debf4c38e90bc8de404a6dacc16a3aebc653046223d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/simulator.log",
+      "bytes": 34610,
+      "sha256": "5e0b3c31e9613843a48116107c9444253a5a26f7ec87f108f68c32c362269c54"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/trace.csv",
+      "bytes": 8966817,
+      "sha256": "184d874871a55b2fcd70f4973f7a9175550f1c01f0a91418a12de360e6f466ef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/asim.json",
+      "bytes": 1859,
+      "sha256": "7e6b1d0d383ce59d9d8affc42b61e6c41176987ee481f69ff38ccf8315a1ba89"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/dispatch.jsonl",
+      "bytes": 1925748,
+      "sha256": "dc26cd7b3f47619edf7edd48cc8ea0afb22e0512dac578f1f88e82d56e746061"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/formula.json",
+      "bytes": 19983521,
+      "sha256": "a7c354b8e5dc914ecb9438c8b07471474e4293f210ce686db92540bd1c5923ed"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/instruction_pipeline_detail.csv",
+      "bytes": 7016465,
+      "sha256": "e886f5d85794b63843bbfb89e4759d542cdded3a71c833272971ee596ae2a70f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/instructions.jsonl",
+      "bytes": 43884115,
+      "sha256": "bb5cf44e99e055e243a20945fc04662fe56cd5f33588a2e2e0f6493573e5a11e"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/models.json",
+      "bytes": 1513,
+      "sha256": "9f1a207b8a71ec783aadf0ae1c6907cd7ef21603b9d52c859527fa294a5d2e19"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "a54b0ce33884c39b58c653ddbe1c42cc54780126be4cf5c5079f1fccb2d1c5cc"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "c2a4d4ffc91135bdc9deac37ae53dd1069f5e7716b0870c9004e65835767f43d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/pipeline_statistics.json",
+      "bytes": 30769003,
+      "sha256": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/references.npz",
+      "bytes": 695566,
+      "sha256": "0b3314c94c3cd4fc712f39c0504d7d275e52e30e2af433cc8d11f7689da22e26"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/result.json",
+      "bytes": 38816,
+      "sha256": "388db881a0a8de07e2a6451bcb45e90e43bfb4f03174b133507c031da44a098d"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/rw_events.jsonl",
+      "bytes": 120004496,
+      "sha256": "b9a685354b310907d1bfb1698e36eda74fb044737a24945a54965b960a08232f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/schedule.json",
+      "bytes": 17665,
+      "sha256": "5d6d438f8a0e9a18573928d1276be0257e33e9c70924472cc3b886f48ee17be6"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/simulator.log",
+      "bytes": 34489,
+      "sha256": "0c6e6111b74322f75450a186cb5878c1a63e7b8f15a3530380702151cd15cc2e"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/trace.csv",
+      "bytes": 7403442,
+      "sha256": "c9a7083c7c466abf958fd8ee9dc2219f2b721d25dd5fa30791e95ead09138bf0"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/asim.json",
+      "bytes": 1854,
+      "sha256": "9e469bce1035bed243ac9ecd0026a6645937ed9763b273e0b0afef402c9eb161"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/config.json",
+      "bytes": 12672,
+      "sha256": "dee639119393df5bc88e7263ba5378b5f43e671eca0e36d5bc72f09253618354"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "73c129f6c0af8c68a88e246180664261d8fd23285b0c20e7906fe0a54ea24cd2"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "8f21e253a02ff7e8217fcc82d196033414ba73116f930c288790882cd41d8b4b"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/references.npz",
+      "bytes": 689138,
+      "sha256": "4a782e696eba93cc0624760f603449dc7ffebd250166d4db3871151ef052fe4f"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/result.json",
+      "bytes": 38806,
+      "sha256": "595e45d3f27b92da3c61d20c7d86dfc3234a9c514fe43a0ea5698bafe90ee129"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/schedule.json",
+      "bytes": 17665,
+      "sha256": "9330dc8b3b84f00ce7123ec8a35d4bbe986847e697a11758855348980657f5e2"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/simulator.log",
+      "bytes": 34354,
+      "sha256": "fcbcb3efdbc5b1e1f3116dd86bfe1ef38bad9d9f5d0843a3aaa57a6800b03921"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/regression-index.json",
+      "bytes": 3842,
+      "sha256": "f797f0e179f5478d260c79c28c419d9bd4e75e716b92e32e3bafeabe69d7747c"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/bin/Simulator",
+      "bytes": 7642720,
+      "sha256": "848120e96afb4aae97c21d16d489da57b6a0c72ef16a02795c2cf2ccfaf11fb5"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/lib/libramulator.so",
+      "bytes": 4092536,
+      "sha256": "c3e7a9bba805b79a4c2410217ba490350398cacf2bf8c7417b9e7882dc73fd84"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime/HBM2.yaml",
+      "bytes": 354,
+      "sha256": "7c7ad9c374c3d08e0ad2cb081ab013b4f0c48a19d3dd1c7d547caf75943dd8f2"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime/fly_c1_m2.icnt",
+      "bytes": 280,
+      "sha256": "dbf877e67e4436003dc689a512ffa8135402520676524f68a4be8c12c1ec00d2"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime_config.json",
+      "bytes": 12520,
+      "sha256": "87c033833eb7117f8b786c7c0e52e24a256b54b2aa0977528b3160e491408137"
+    },
+    {
+      "path": "results/bri_implicit/2026-11-09-v1/stability_diagnostic.json",
+      "bytes": 36029,
+      "sha256": "2c985d2695953a2962ed36375cadcfd7d15132f50e0a204eb0bfe49b79a3c9d4"
+    }
+  ],
+  "logical_bytes": 4870829031,
+  "unique_inode_bytes": 4370765895,
+  "note": "Full paths retained. Completed identical artifacts may share immutable hardlinks; logical bytes count every alias."
+}

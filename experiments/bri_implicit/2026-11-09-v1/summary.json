@@ -1,0 +1,296 @@
+{
+  "status": "ACTUAL_REPLAY_CHECKED_CDLB_QUALITY_FAILED",
+  "asim_templates": "ASIM_TEMPLATES_CHECKED",
+  "holdout_status": "IMPLICIT_CDLB_GATE_FAILED",
+  "cases": [
+    {
+      "operator": "bri_implicit_fp16_v1",
+      "regularization": 1.0,
+      "iterations": 13,
+      "cycles": 16079,
+      "max_rayleigh_task_error": 0.008086226427878415,
+      "source_instruction_count": 98016,
+      "comparison_identity": "640b9f6bcb68fe7b73a79e65ac183f960c10656979d5cd1233c27e84357f6b57",
+      "source": "results/bri_implicit/2026-11-09-v1/asim-lambda1.0/result.json",
+      "setup_seconds": 0.02872543694684282,
+      "asim_seconds": 13.654794426052831,
+      "artifact_and_schedule_checks_seconds": 20.475229651958216,
+      "independent_references_seconds": 2.8469344030017965,
+      "instruction_replay_and_comparison_seconds": 5.9538514540181495
+    },
+    {
+      "operator": "bri_implicit_fp16_v1",
+      "regularization": 0.1,
+      "iterations": 33,
+      "cycles": 33999,
+      "max_rayleigh_task_error": 0.008401747399182358,
+      "source_instruction_count": 217056,
+      "comparison_identity": "e9770fb045966fc31074f0cc1f6aaac9b6b6cc38d71976aea8a83d45bff49c47",
+      "source": "results/bri_implicit/2026-11-09-v1/asim-lambda0.1/result.json",
+      "setup_seconds": 0.018294766021426767,
+      "asim_seconds": 28.260392714000773,
+      "artifact_and_schedule_checks_seconds": 39.909016054996755,
+      "independent_references_seconds": 5.803270858014002,
+      "instruction_replay_and_comparison_seconds": 10.34562812600052
+    },
+    {
+      "operator": "bri_implicit_fp16_v1",
+      "regularization": 0.01,
+      "iterations": 76,
+      "cycles": 72527,
+      "max_rayleigh_task_error": 0.005370744999607314,
+      "source_instruction_count": 472992,
+      "comparison_identity": "13000b5eeb121772b809f9922b26d683de64d98d947fab6368570a14642c3161",
+      "source": "results/bri_implicit/2026-11-09-v1/asim-lambda0.01/result.json",
+      "setup_seconds": 0.017000499996356666,
+      "asim_seconds": 62.70779224502621,
+      "artifact_and_schedule_checks_seconds": 84.01194671198027,
+      "independent_references_seconds": 12.183109652018175,
+      "instruction_replay_and_comparison_seconds": 19.74505489197327
+    },
+    {
+      "operator": "ns_corrected_v1",
+      "regularization": 0.1,
+      "iterations": 16,
+      "cycles": 7950,
+      "max_rayleigh_task_error": 0.0010890615722101414,
+      "source_instruction_count": 20832,
+      "comparison_identity": "e9770fb045966fc31074f0cc1f6aaac9b6b6cc38d71976aea8a83d45bff49c47",
+      "source": "results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1/result.json",
+      "setup_seconds": 0.029723511019255966,
+      "asim_seconds": 5.17740548402071,
+      "artifact_and_schedule_checks_seconds": 4.802172101975884,
+      "independent_references_seconds": 1.301349223998841,
+      "instruction_replay_and_comparison_seconds": 3.5380782050197013
+    },
+    {
+      "operator": "cholesky_explicit_v1",
+      "regularization": 0.1,
+      "iterations": 1,
+      "cycles": 28006,
+      "max_rayleigh_task_error": 0.0025086821042572278,
+      "source_instruction_count": 169632,
+      "comparison_identity": "e9770fb045966fc31074f0cc1f6aaac9b6b6cc38d71976aea8a83d45bff49c47",
+      "source": "results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1/result.json",
+      "setup_seconds": 0.017696928000077605,
+      "asim_seconds": 21.752731431974098,
+      "artifact_and_schedule_checks_seconds": 34.70979607402114,
+      "independent_references_seconds": 1.377102030965034,
+      "instruction_replay_and_comparison_seconds": 6.307834642007947
+    },
+    {
+      "operator": "ldl_explicit_v1",
+      "regularization": 0.1,
+      "iterations": 1,
+      "cycles": 18697,
+      "max_rayleigh_task_error": 0.00238708581812608,
+      "source_instruction_count": 92256,
+      "comparison_identity": "e9770fb045966fc31074f0cc1f6aaac9b6b6cc38d71976aea8a83d45bff49c47",
+      "source": "results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1/result.json",
+      "setup_seconds": 0.01800805696984753,
+      "asim_seconds": 14.034130287996959,
+      "artifact_and_schedule_checks_seconds": 23.598787793016527,
+      "independent_references_seconds": 0.8813836179906502,
+      "instruction_replay_and_comparison_seconds": 4.726399475999642
+    },
+    {
+      "operator": "bri_explicit_v1",
+      "regularization": 0.1,
+      "iterations": 192,
+      "cycles": 23047,
+      "max_rayleigh_task_error": 0.0013788810397458097,
+      "source_instruction_count": 105312,
+      "comparison_identity": "e9770fb045966fc31074f0cc1f6aaac9b6b6cc38d71976aea8a83d45bff49c47",
+      "source": "results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1/result.json",
+      "setup_seconds": 0.01730313600273803,
+      "asim_seconds": 15.702966650016606,
+      "artifact_and_schedule_checks_seconds": 27.834713919030037,
+      "independent_references_seconds": 5.159599607985001,
+      "instruction_replay_and_comparison_seconds": 8.251241763995495
+    },
+    {
+      "operator": "cholesky_block_explicit_v1",
+      "regularization": 0.1,
+      "iterations": 1,
+      "cycles": 21338,
+      "max_rayleigh_task_error": 0.002353210707854885,
+      "source_instruction_count": 96480,
+      "comparison_identity": "e9770fb045966fc31074f0cc1f6aaac9b6b6cc38d71976aea8a83d45bff49c47",
+      "source": "results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1/result.json",
+      "setup_seconds": 0.018094627012033015,
+      "asim_seconds": 15.141434755991213,
+      "artifact_and_schedule_checks_seconds": 23.89431860804325,
+      "independent_references_seconds": 0.9032666679704562,
+      "instruction_replay_and_comparison_seconds": 4.799343065998983
+    },
+    {
+      "operator": "ldl_block_explicit_v1",
+      "regularization": 0.1,
+      "iterations": 1,
+      "cycles": 21665,
+      "max_rayleigh_task_error": 0.0021051442660319883,
+      "source_instruction_count": 112416,
+      "comparison_identity": "e9770fb045966fc31074f0cc1f6aaac9b6b6cc38d71976aea8a83d45bff49c47",
+      "source": "results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1/result.json",
+      "setup_seconds": 0.01699959294637665,
+      "asim_seconds": 16.212704034056515,
+      "artifact_and_schedule_checks_seconds": 27.071742384985555,
+      "independent_references_seconds": 1.008989356982056,
+      "instruction_replay_and_comparison_seconds": 5.202201491978485
+    },
+    {
+      "operator": "cholesky_merge_explicit_v1",
+      "regularization": 0.1,
+      "iterations": 1,
+      "cycles": 19028,
+      "max_rayleigh_task_error": 0.00141884612909233,
+      "source_instruction_count": 91680,
+      "comparison_identity": "e9770fb045966fc31074f0cc1f6aaac9b6b6cc38d71976aea8a83d45bff49c47",
+      "source": "results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1/result.json",
+      "setup_seconds": 0.017296364007052034,
+      "asim_seconds": 14.78173655399587,
+      "artifact_and_schedule_checks_seconds": 20.265875826007687,
+      "independent_references_seconds": 1.6579894179594703,
+      "instruction_replay_and_comparison_seconds": 5.161324656044599
+    }
+  ],
+  "cdlb": [
+    {
+      "regularization": 1.0,
+      "iterations": 13,
+      "status": "QPSK_GROUP_CHECKED",
+      "max_task_error": 0.008743427291015586,
+      "independent_channels": 192,
+      "bits": 49152,
+      "candidate_bit_errors": 13531,
+      "mmse_bit_errors": 13523,
+      "candidate_ber": 0.2752888997395833,
+      "mmse_ber": 0.2751261393229167,
+      "outage_bounds": {
+        "ber": {
+          "lower": 0.0,
+          "upper": 0.03164365646306935,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.03164365646306935,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.03164365646306935,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 0.0,
+          "upper": 0.03164365646306935,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        }
+      },
+      "source_finish_cycle": 16079
+    },
+    {
+      "regularization": 0.1,
+      "iterations": 33,
+      "status": "QPSK_GROUP_CHECKED",
+      "max_task_error": 0.009375954093678173,
+      "independent_channels": 192,
+      "bits": 49152,
+      "candidate_bit_errors": 8230,
+      "mmse_bit_errors": 8231,
+      "candidate_ber": 0.16743977864583334,
+      "mmse_ber": 0.16746012369791666,
+      "outage_bounds": {
+        "ber": {
+          "lower": 1.0861953982588268e-05,
+          "upper": 0.042997713812246506,
+          "count": 1,
+          "independent_channels": 192,
+          "observed_rate": 0.005208333333333333
+        },
+        "ser": {
+          "lower": 0.0,
+          "upper": 0.03164365646306935,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "evm": {
+          "lower": 0.0,
+          "upper": 0.03164365646306935,
+          "count": 0,
+          "independent_channels": 192,
+          "observed_rate": 0.0
+        },
+        "joint": {
+          "lower": 1.0861953982588268e-05,
+          "upper": 0.042997713812246506,
+          "count": 1,
+          "independent_channels": 192,
+          "observed_rate": 0.005208333333333333
+        }
+      },
+      "source_finish_cycle": 33999
+    },
+    {
+      "regularization": 0.01,
+      "iterations": 76,
+      "status": "NUMERIC_QUALITY_FAILED",
+      "max_task_error": 54.32377706777435,
+      "independent_channels": 192,
+      "bits": 49152,
+      "candidate_bit_errors": 4185,
+      "mmse_bit_errors": 4061,
+      "candidate_ber": 0.08514404296875,
+      "mmse_ber": 0.08262125651041667,
+      "outage_bounds": {
+        "ber": {
+          "lower": 1.0861953982588268e-05,
+          "upper": 0.042997713812246506,
+          "count": 1,
+          "independent_channels": 192,
+          "observed_rate": 0.005208333333333333
+        },
+        "ser": {
+          "lower": 1.0861953982588268e-05,
+          "upper": 0.042997713812246506,
+          "count": 1,
+          "independent_channels": 192,
+          "observed_rate": 0.005208333333333333
+        },
+        "evm": {
+          "lower": 1.0861953982588268e-05,
+          "upper": 0.042997713812246506,
+          "count": 1,
+          "independent_channels": 192,
+          "observed_rate": 0.005208333333333333
+        },
+        "joint": {
+          "lower": 1.0861953982588268e-05,
+          "upper": 0.042997713812246506,
+          "count": 1,
+          "independent_channels": 192,
+          "observed_rate": 0.005208333333333333
+        }
+      },
+      "source_finish_cycle": 72527
+    }
+  ],
+  "cdlb_independent_H": 192,
+  "cdlb_replayed_batches": 576,
+  "reconstruction_consistency_all_passed": true,
+  "all_cdlb_quality_passed": false,
+  "score": null,
+  "hardware_timing": "OWNER_BOARD_VALIDATION_EXTERNAL",
+  "precision": "FP16 storage/FP32 temporary arithmetic; no persistent FP32 tensors",
+  "pure_model_thinking_seconds": null
+}
