@@ -1,15 +1,15 @@
 {
   "schema": "supervised-reconstruction-runtime-v1",
-  "binary": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/bin/Simulator",
-  "config": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/runtime_config.json",
-  "cwd": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime",
-  "library_dir": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/lib",
+  "binary": "results/bri_implicit/2026-11-09-v1/runtime/bin/Simulator",
+  "config": "results/bri_implicit/2026-11-09-v1/runtime/runtime_config.json",
+  "cwd": "results/bri_implicit/2026-11-09-v1/runtime",
+  "library_dir": "results/bri_implicit/2026-11-09-v1/runtime/lib",
   "dependencies": [
-    "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/lib/libramulator.so",
-    "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/runtime/HBM2.yaml",
-    "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/runtime/fly_c1_m2.icnt"
+    "results/bri_implicit/2026-11-09-v1/runtime/lib/libramulator.so",
+    "results/bri_implicit/2026-11-09-v1/runtime/runtime/HBM2.yaml",
+    "results/bri_implicit/2026-11-09-v1/runtime/runtime/fly_c1_m2.icnt"
   ],
-  "binary_source_commit": "5ec835b9b437ed19cd9e526be6b5a7aea01a3f53",
+  "binary_source_commit": "055338a18ceced29a785f9cf1d0ac5f0b3063ddd",
   "runtime_contract": {
     "kind": "header",
     "schema": "core-rw-v4",
@@ -29,67 +29,69 @@
     "bri_explicit_v1",
     "cholesky_block_explicit_v1",
     "ldl_block_explicit_v1",
-    "cholesky_merge_explicit_v1"
+    "cholesky_merge_explicit_v1",
+    "bri_implicit_fp16_v1"
   ],
   "profiles": [
     "structure_f64_real_block",
     "modeled_fp16_fp32_real_block_v1"
   ],
+  "python_version": "3.12.3",
+  "numpy_version": "2.5.0",
+  "acceptance_note": "Daily task is Rayleigh MMSE. Implicit FP16 replay passed, but fresh CDL-B 20dB quality failed; experimental, not promoted. Prior seven F64 scope inherited, this run regressed their F16 profiles.",
+  "experimental_operators": [
+    "bri_implicit_fp16_v1"
+  ],
   "files": [
     {
-      "path": "/lib/x86_64-linux-gnu/libc.so.6",
-      "bytes": 2129424,
-      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
-    },
-    {
-      "path": "/lib/x86_64-linux-gnu/libgcc_s.so.1",
-      "bytes": 183024,
-      "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
-    },
-    {
-      "path": "/lib/x86_64-linux-gnu/libm.so.6",
-      "bytes": 952616,
-      "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
-    },
-    {
-      "path": "/lib/x86_64-linux-gnu/libstdc++.so.6",
-      "bytes": 2592224,
-      "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
-    },
-    {
-      "path": "/lib64/ld-linux-x86-64.so.2",
-      "bytes": 236616,
-      "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
-    },
-    {
       "path": "orchestrator/codex_operators.json",
-      "bytes": 4730,
-      "sha256": "0ccadaedb24eb93044344dd4f0dd4868938972b3b6c5255dbf3ed2800d107a0b"
+      "bytes": 5480,
+      "sha256": "8f8bd291773180aba8b08e6f1cba8198c46ea27d76cffc265cad1cb226b760a5"
     },
     {
-      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/bin/Simulator",
-      "bytes": 7537536,
-      "sha256": "bc07b2beafe4caee9b91404aa0accf8e1ed053e01e5c1f4851985540de07afbd"
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/bin/Simulator",
+      "bytes": 7642720,
+      "sha256": "848120e96afb4aae97c21d16d489da57b6a0c72ef16a02795c2cf2ccfaf11fb5"
     },
     {
-      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/lib/libramulator.so",
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/lib/libramulator.so",
       "bytes": 4092536,
       "sha256": "c3e7a9bba805b79a4c2410217ba490350398cacf2bf8c7417b9e7882dc73fd84"
     },
     {
-      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/runtime/HBM2.yaml",
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime/HBM2.yaml",
       "bytes": 354,
       "sha256": "7c7ad9c374c3d08e0ad2cb081ab013b4f0c48a19d3dd1c7d547caf75943dd8f2"
     },
     {
-      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/runtime/fly_c1_m2.icnt",
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime/fly_c1_m2.icnt",
       "bytes": 280,
       "sha256": "dbf877e67e4436003dc689a512ffa8135402520676524f68a4be8c12c1ec00d2"
     },
     {
-      "path": "results/remaining_mapping/2026-11-08-block-merge-v1/runtime/runtime_config.json",
+      "path": "results/bri_implicit/2026-11-09-v1/runtime/runtime_config.json",
       "bytes": 12520,
       "sha256": "87c033833eb7117f8b786c7c0e52e24a256b54b2aa0977528b3160e491408137"
+    },
+    {
+      "path": "src/inverse/bri_implicit/BRIImplicitModel.cc",
+      "bytes": 13597,
+      "sha256": "271a3f6a3392586952b014e5e3c6df2ca6e4649e69cee89c9d424e55aa6c9bb6"
+    },
+    {
+      "path": "src/inverse/bri_implicit/BRIImplicitModel.h",
+      "bytes": 317,
+      "sha256": "cebabfe98cb9ad8cb24e87b50f424ec0ebc86dab7b64e1a799d9171c1f3dc437"
+    },
+    {
+      "path": "src/main.cc",
+      "bytes": 12132,
+      "sha256": "37624a2da65d7eab3146b0006b140c737b39e2f97c53e5d3794c803304a82f9f"
+    },
+    {
+      "path": "src/semantic/SourceViews.h",
+      "bytes": 1089,
+      "sha256": "8e92c6f8423b2a4843fc209a130c6f2d76392afe6f7985b5f4cc7809288eb320"
     },
     {
       "path": "verification/__init__.py",
@@ -113,8 +115,58 @@
     },
     {
       "path": "verification/asim/runner.py",
-      "bytes": 11200,
-      "sha256": "9aae2aebaf99c81fecb09c49c1c3ccc139c99396612ef7f5aad31dacb80a287f"
+      "bytes": 11315,
+      "sha256": "ed5380147e8576860fe51bc98b87feec86134651f2fd291f5eb0d54586b9686b"
+    },
+    {
+      "path": "verification/channels/__init__.py",
+      "bytes": 83,
+      "sha256": "0bc7fec6e70045bae94540d7aca9134a4d0b5763616a500a41b7601bba748d7a"
+    },
+    {
+      "path": "verification/channels/cdlb.py",
+      "bytes": 3650,
+      "sha256": "0b5ed3d435e8638266b799be2d018dda445e36c313f99da172efa05fac2057bd"
+    },
+    {
+      "path": "verification/communication/__init__.py",
+      "bytes": 87,
+      "sha256": "eec9fc020ccfc58ad053a54b7ed4931a12616a4c0c3bc580f75fa6902e065fee"
+    },
+    {
+      "path": "verification/communication/metrics.py",
+      "bytes": 5125,
+      "sha256": "7464a6b61ecedcc92891b2a8c45bf208bdcbefc0f3ed8be2f5b8c436bc624008"
+    },
+    {
+      "path": "verification/communication/probe.py",
+      "bytes": 11365,
+      "sha256": "db10552d3743b8dbc6e2a53ba529d74bbbff2fc545434cef9328dc54f23f6b5d"
+    },
+    {
+      "path": "verification/communication/qpsk.py",
+      "bytes": 5402,
+      "sha256": "f3fc753318e9b2e10cd6527399ebebd8224de5427472f2c632e4780c7bd45c40"
+    },
+    {
+      "path": "verification/communication/qpsk_link.py",
+      "bytes": 20905,
+      "sha256": "1d53806472eef335eeb8e6d3ff9cb520956c77977d97dd34b4934c065bba73e8"
+    },
+    {
+      "path": "verification/communication/qpsk_sources.py",
+      "bytes": 7175,
+      "sha256": "e9eb34bd50702f9faceefd36bb702a7a661fb3790edac348a75b3ccda3090349"
+    },
+    {
+      "path": "verification/communication/response.py",
+      "bytes": 5521,
+      "sha256": "f12ce7409458be48fb0d334c61010b37e736103bec3948fe8a5ace5ad857894b"
+    },
+    {
+      "path": "verification/communication/runner.py",
+      "bytes": 13220,
+      "sha256": "b56b190286d183a1ea30e10abfae5f507c3ced371123f52984c50faafb405dab"
     },
     {
       "path": "verification/contracts/core.py",
@@ -163,13 +215,43 @@
     },
     {
       "path": "verification/operators/catalog.py",
-      "bytes": 1337,
-      "sha256": "542dff1e60ed08bf4db66b48718cd814fca71f39c3fefd5f79818428d0d8584b"
+      "bytes": 1473,
+      "sha256": "04b975fb0358c9e3986e32ed6ca2e928d120346b33ec912656302bd16d6f00a2"
+    },
+    {
+      "path": "verification/operators/implicit_parameters.py",
+      "bytes": 481,
+      "sha256": "9eccbe72e46ba902fbf615e7e2c742747a65efd094572e7352f9dc48fef4d120"
     },
     {
       "path": "verification/operators/parameters.py",
       "bytes": 1691,
       "sha256": "8f2eefbb59085804ac53e2836e7087f03be7d0c7671a6e4a0b52b392d0b2293e"
+    },
+    {
+      "path": "verification/planning/__init__.py",
+      "bytes": 75,
+      "sha256": "0d2fb4da89f0aa5a2d4df246991daa7eaea2a1b1088ef5c977c28f96b7e5c48f"
+    },
+    {
+      "path": "verification/planning/channel_study.py",
+      "bytes": 17198,
+      "sha256": "128d2ec5d92dad087ebccf142b1a425e250644d5998ba665dbdb692b6e15b575"
+    },
+    {
+      "path": "verification/planning/execution.py",
+      "bytes": 8103,
+      "sha256": "b33fc861c7dc1efd4b0106e1aa6c4fd51807073766612a5bf074ef12299fcc66"
+    },
+    {
+      "path": "verification/planning/handoff.py",
+      "bytes": 10019,
+      "sha256": "4a3ad463f79597314652af63e78bfd57cd35a555710ecec564862aeb7898d6f6"
+    },
+    {
+      "path": "verification/planning/iterations.py",
+      "bytes": 8822,
+      "sha256": "fdeacc215510083c8b2c14bfa83c8011153a72c369ff32dcbdc0d06400e4dbc9"
     },
     {
       "path": "verification/profiles/numeric.py",
@@ -202,6 +284,11 @@
       "sha256": "2de62f5c2aa4e0314a166af93f09a9e3ae1c645181e5b814b72ca21d6b4b00c2"
     },
     {
+      "path": "verification/reconstruction/implicit_campaign.py",
+      "bytes": 13195,
+      "sha256": "d710af21f36fe131ae10f0a2530511635441ed7a0be0e7a699fb03914014dafb"
+    },
+    {
       "path": "verification/reconstruction/mapping_campaign.py",
       "bytes": 4804,
       "sha256": "310b3fb571a87fcdd5f8261b1e672a0dd240702e0e94897c256807a5e931fd20"
@@ -218,8 +305,8 @@
     },
     {
       "path": "verification/reconstruction/runner.py",
-      "bytes": 10536,
-      "sha256": "cbb15da68fc57183385a760c57d96bb045843d6b6e2ffef48c1f765c6feb1955"
+      "bytes": 10579,
+      "sha256": "2928fc4874b3694230e40632f2c95bff49b100ce4c1cea1c1041fb50f592e61f"
     },
     {
       "path": "verification/reconstruction/source_views.py",
@@ -230,6 +317,11 @@
       "path": "verification/reference/bri.py",
       "bytes": 3186,
       "sha256": "186a29df95f5220678df970241e86366cacae9611dc78d640599cc24fdb71640"
+    },
+    {
+      "path": "verification/reference/bri_implicit.py",
+      "bytes": 647,
+      "sha256": "1a1c0b94cc13281faa7fcd68f123cb098524c11c1edce8b210fb8d15f396d045"
     },
     {
       "path": "verification/reference/cholesky.py",
@@ -252,9 +344,19 @@
       "sha256": "36a5bc50e4bc7745ae0497a025b9103943b3e219f55c9622a759fe738f19b6b4"
     },
     {
+      "path": "verification/reporting/channel_study.py",
+      "bytes": 8105,
+      "sha256": "e1f2f8ea0b7fa7751f2fc8645df12b25ae34c0e50335589194b393719f9cf96a"
+    },
+    {
       "path": "verification/reporting/effort.py",
       "bytes": 1236,
       "sha256": "836befe385718ccfa828bc80dce368f92a06c507e9ebf919ad783679bc936b64"
+    },
+    {
+      "path": "verification/reporting/fp16_implicit.py",
+      "bytes": 4165,
+      "sha256": "2e08ad20a993c89d5f33e1fdfa9c085ff19b8aead8855ac358a3d119ffb5d2b4"
     },
     {
       "path": "verification/reporting/paper.py",
@@ -265,6 +367,11 @@
       "path": "verification/reporting/pipeline.py",
       "bytes": 5580,
       "sha256": "f525bce96dd5cb36c241a5f98d850666f23b82e7d0361f4cda5fb0bd4eaa37e8"
+    },
+    {
+      "path": "verification/reporting/qpsk_full.py",
+      "bytes": 11654,
+      "sha256": "033ed73c80a30ff093ad66bc02bf5ac19f9ae49ae2a61e4fb75df3a0638e99b1"
     },
     {
       "path": "verification/schedule/gates.py",
@@ -283,8 +390,8 @@
     },
     {
       "path": "verification/schedule/runtime.py",
-      "bytes": 16720,
-      "sha256": "59e1da6e1cc47791555677f3651159d11f18196bd7d9485fab55d264c20a1334"
+      "bytes": 17088,
+      "sha256": "1c60a92cc2e88be25710033c4ed47e9d91e7396fcb2f102a7db82ff20cad1be6"
     },
     {
       "path": "verification/shadow/execute.py",
@@ -300,10 +407,51 @@
       "path": "verification/shadow/program.py",
       "bytes": 4667,
       "sha256": "58c7c836a62dc5f61b42290a35a013ff099bf0532ddd15fbc45415d826276e5e"
+    },
+    {
+      "path": "verification/studies/__init__.py",
+      "bytes": 82,
+      "sha256": "8a3c9671c3795280bdbea09a9b08bfa095679a85405bdbe82c6c66c80438bdfe"
+    },
+    {
+      "path": "verification/studies/bri_audit.py",
+      "bytes": 4848,
+      "sha256": "319763e96975585b3cd594524f9a513a849eb9589ffe922a67fcbe799f935cd5"
+    },
+    {
+      "path": "verification/studies/bri_campaign.py",
+      "bytes": 12497,
+      "sha256": "d7ffd6a0d79c9d89245d32607fe3df8daa8dbfdeb2db63d95532f38a9b6ea6e1"
+    },
+    {
+      "path": "verification/studies/bri_math.py",
+      "bytes": 5154,
+      "sha256": "9c297556ad60cdc6f82a9d754c2533f4a454c8bc6169bd4fc3e5330c587d0851"
+    },
+    {
+      "path": "verification/studies/fp16_campaign.py",
+      "bytes": 6295,
+      "sha256": "b6ad9ea7fa18eae78dad085510014961c38f876974f857c0d464dd1508f526ca"
+    },
+    {
+      "path": "verification/studies/fp16_constraints.py",
+      "bytes": 3946,
+      "sha256": "a6285976d28d003636cb6899e802197f058a480c13210236aa2414b33f0fd7dc"
+    },
+    {
+      "path": "verification/studies/fp16_independent.py",
+      "bytes": 2602,
+      "sha256": "3f53e687d29abc8674c561d1869c384b1aa94928e62a638ea92c0a5166c9f10a"
+    },
+    {
+      "path": "verification/studies/fp16_primitives.py",
+      "bytes": 7628,
+      "sha256": "ca41668e275a1d74232f5dadf12db1b18a150f6a8378aa895d13c05fcdfba2df"
+    },
+    {
+      "path": "verification/studies/fp16_validate.py",
+      "bytes": 5937,
+      "sha256": "826188a26bf6ace38d5824c9f909ae6e954f701976d1e44e70b8e8cfaeb40d65"
     }
-  ],
-  "scope": "supervised default MMSE96/64/16/8 only; no hardware G4, no scoring; separate per-job cwd/TMPDIR",
-  "python_version": "3.12.3",
-  "numpy_version": "2.5.0",
-  "verifier_source_commit": "0aa788acfb951a4d6c533a47e9b4e98a99e9cd79"
+  ]
 }

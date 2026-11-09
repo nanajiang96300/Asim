@@ -26,6 +26,7 @@ Non-obvious constraints:
 - Every read must have a real preceding write/LOAD. `ADD(RegI,RegI)` is 2λI, not COPY/zero/identity. Explicit scalar 0/1 synthesis or declared common inputs are allowed and charged.
 - Scalar work is one element. Batch/row reductions need real GEMM, Vector or scalar sequences with corresponding costs. Do not hide a matrix solve/reduction in FormulaLogger.
 - Raw Vector has no SUB in the accepted profile: use explicit negation MUL + ADD, or genuine per-element SCALAR_SUB. Freeze intermediate writebacks and check signed zero.
+- Damping/momentum changes the error recurrence. Recheck α and β stability together; the original Chebyshev spectral interval does not certify a modified recurrence. Use fresh holdout after calibration.
 - Mathematical equivalence may change FP16 bits: reassociation, diagonal GEMM→MUL, copy/negation lowering, and output packing require independent precision checks and adversarial zero tests.
 - Allocate the complete physical region before partial writes where Asim allocates only the first destination span. All slices/strides/output batches must fit the declared tensor. A logical view alone does not expand an existing allocation.
 - `MOVIN` uses full DRAM addresses with `base_addr=0`; charge input/output DMA, preprocessing, preconditioning, coefficients, initialization, state copies/compensation and output recovery. A direct solve cannot claim inverse-task speedup.
