@@ -1,0 +1,10 @@
+{
+  "status": "RESTORE_AND_EXISTING_DESTINATION_REJECTION_CHECKED",
+  "ledger_sha256": "04230a9a203e2d429da8289b77664bc660efe1aa200f07d2fbdeecae7a98529a",
+  "artifact": "results/remaining_mapping/2026-11-08-block-merge-v1/campaign/bri_explicit_v1_regression/rw_events.jsonl",
+  "restored_bytes": 134218140,
+  "sha256": "fbf977d8f6650477cb2a7c2611f7efb689ca503daf25b1f1e312963812d06f5c",
+  "restore_stdout": "{\"status\": \"RESTORED_VERIFIED\", \"path\": \"results/storage-restore-probe-20261109.bin\", \"bytes\": 134218140, \"sha256\": \"fbf977d8f6650477cb2a7c2611f7efb689ca503daf25b1f1e312963812d06f5c\"}\n",
+  "second_run_rejected": true,
+  "temporary_probe_removed": true
+}
