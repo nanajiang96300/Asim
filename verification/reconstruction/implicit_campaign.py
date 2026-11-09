@@ -132,7 +132,7 @@ def run(c,contract,approved,out,stage):
     passed=all(r['status']=='QPSK_GROUP_CHECKED' for r in rows)
     result=dict(status='IMPLICIT_CDLB_RECONSTRUCTION_CHECKED' if passed else 'IMPLICIT_CDLB_GATE_FAILED',groups=rows,frames=frames,independent_H=192,batch_replays=batch_replays,
                 elapsed_seconds=time.perf_counter()-start,pure_model_thinking_seconds=None,score=None,note='data-independent real Asim templates; CDL replay does not create new cycles')
-    (dest/'result.json').write_text(json.dumps(result,indent=2));guard(c,contract,approved);return result
+    guard(c,contract,approved);(dest/'result.json').write_text(json.dumps(result,indent=2));return result
 
 
 def main():
