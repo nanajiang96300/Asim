@@ -4,7 +4,8 @@ Certificate applies to the declared conservative Asim model, not device timing.
 """
 from bisect import bisect_right
 from collections import defaultdict
-import csv,json,re
+import csv,json,re,sys
+from dataclasses import dataclass
 from collections import Counter
 from pathlib import Path
 from verification.contracts.core import Invalid,Unsupported
@@ -13,6 +14,24 @@ from verification.schedule.intervals import check_schedule_fast
 
 HEADER={'kind':'header','schema':'core-rw-v4','producer':'asim_core_observer_v4','clock':'homogeneous_core_cycle_v1','compute_reads':'conservative_issue_to_complete_v1','dma_reads':'request_snapshot_v1','dma_writes':'fragment_response_commit_v1','dma_identity':'trace_request_op_fragment_v1','compute_identity':'trace_issue_commit_cycle_v1','dma_descriptor':'per_fragment_address_v1'}
 FIELDS=('id','opcode','dest_addr','src_addrs','size','compute_size','m','k','n','base_addr','src_from_accum','operand_id')
+
+
+@dataclass(slots=True)
+class ComputeStamp:
+    core: int
+    cycle: int
+    order: int
+    def __getitem__(self,key):return getattr(self,key)
+
+
+@dataclass(slots=True)
+class TraceSpan:
+    start_cycle: int
+    end_cycle: int
+    issue_cycle: int
+    commit_cycle: int
+    unit: str
+    def __getitem__(self,key):return getattr(self,key)
 
 
 def stamp(e,phase=0):return e['cycle'],e['order']*4+phase
@@ -89,7 +108,7 @@ def check_runtime(record,dispatch,path,trace_path,config,finish,stream_limits=No
         if kind in ('compute_read_begin','compute_read_done','compute_write_visible'):
             if i['opcode'] in (0,1) or kind in compute[i['id']]:raise Invalid('duplicate/wrong compute event')
             if kind=='compute_read_begin' and e.get('semantic')!=i['semantic']:raise Invalid('runtime views differ from exported instruction')
-            compute[i['id']][kind]={k:e[k] for k in ('core','cycle','order')}
+            compute[i['id']][kind]=ComputeStamp(e['core'],e['cycle'],e['order'])
         elif kind in ('dma_request','dma_response'):
             if i['opcode'] not in (0,1) or type(e['fragment']) is not int or not 0<=e['fragment']<len(i['src_addrs']):raise Invalid('invalid DMA owner/fragment')
             buf=d['accum_buffer'] if i['dest_addr']>=0x20000000 else d['spad_buffer']
@@ -130,7 +149,7 @@ def check_runtime(record,dispatch,path,trace_path,config,finish,stream_limits=No
             elif unit!='Wait' and row['name'] not in expected_compute:raise Invalid('extra compute pipeline event')
             if row['name'] in expected_compute:
                 if row['name'] in trace:raise Invalid('duplicate compute pipeline event')
-                trace[row['name']]=row
+                trace[row['name']]=TraceSpan(start,end,int(row['issue_cycle']),int(row['commit_cycle']),sys.intern(row['unit']))
     expected_dma={key:(e['core'],e['write'],e['cycle'],responses[key]['cycle'],e['id'],e['fragment']) for key,e in requests.items()}
     if dma_trace!=expected_dma:raise Invalid('DMA request/response lifetime or identity differs from pipeline trace')
     if set(trace)!=expected_compute:raise Invalid('pipeline/observer compute set mismatch')

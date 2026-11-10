@@ -19,6 +19,7 @@ from verification.operators.catalog import adapter
 from verification.reconstruction.binding import validate_actual
 from verification.reconstruction.source_views import execute_batch
 from verification.reporting.pipeline import statistics,write_detail
+from verification.reconstruction.stream import load_operation
 
 
 def error(a,b):
@@ -58,7 +59,7 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
             for e in receipt['artifacts']:
                 path=directory/e['path']
                 if not path.is_file() or path.stat().st_size!=e['bytes'] or file_hash(path)!=e['sha256']:raise Invalid('Asim artifact changed after process receipt: '+e['path'])
-            records=[json.loads(line) for line in (directory/'instructions.jsonl').read_text().splitlines()]
+            records=[load_operation(directory/'instructions.jsonl')]
             dispatch=[json.loads(line) for line in (directory/'dispatch.jsonl').read_text().splitlines()]
             if len(records)!=1:raise Invalid('one actual operation required')
             h,groups,bound,counts=validate_actual(records[0],dispatch,task,parameters,data['inputs'],config)
@@ -69,18 +70,19 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
                 else:events[i['id']]=f"Core{core}_"+('Cube' if i['opcode'] in (3,4) else 'Scalar' if 17<=i['opcode']<=21 else 'Vector')
             # The common event checker validates unique compute IDs (including
             # Scalar), issue order and all DMA fragments before any numerics.
-            with (directory/'trace.csv').open() as f:trace=list(csv.DictReader(f))
-            check_events(trace,events,dma,receipt['finish_cycle'],mapping)
+            with (directory/'trace.csv').open() as f:check_events(csv.DictReader(f),events,dma,receipt['finish_cycle'],mapping)
+            del events
             stats=statistics(directory/'trace.csv',records[0]['instructions'],receipt['finish_cycle'],24,dispatch)
-            (directory/'pipeline_statistics.json').write_text(json.dumps(stats,indent=2));write_detail(directory/'instruction_pipeline_detail.csv',stats)
+            with (directory/'pipeline_statistics.json').open('w') as f:json.dump(stats,f,indent=2)
+            write_detail(directory/'instruction_pipeline_detail.csv',stats)
             if stats['status']!='TRACE_VALID':raise Invalid('trace pipeline coverage failed')
+            del stats
             schedule=check_runtime(records[0],dispatch,directory/'rw_events.jsonl',directory/'trace.csv',config,receipt['finish_cycle'],stream_limits=entry.get('observer_limits'))
             (directory/'schedule.json').write_text(json.dumps(schedule,indent=2))
             result['schedule_status']=schedule['status']
             if schedule['status']!='MODEL_RW_CHECKED_CONSERVATIVE':raise Invalid('actual Core schedule rejected by declared conservative model')
             # Large diagnostic dictionaries are no longer needed after the gates.
             # Keep the actual instructions/binding for numerical reconstruction.
-            del stats,trace,events
             binding=digest({'task':task.frozen(),'algorithm':parameters,'record_sha256':file_hash(directory/'instructions.jsonl'),'seed':seed})
             receipt['program_hash']=binding
             screen=policy or ScreenPolicy(receipt['finish_cycle'],1,1)
