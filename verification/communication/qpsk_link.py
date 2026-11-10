@@ -28,6 +28,7 @@ from verification.reconstruction.binding import validate_actual
 from verification.reconstruction.daily import load_runtime,sha
 from verification.reconstruction.runner import error
 from verification.reconstruction.source_views import execute_batch
+from verification.reconstruction.stream import load_operation
 
 
 def sources(repo):
@@ -67,7 +68,7 @@ def frame(task,hseed,fseed):
 class Replayer:
     def __init__(self,path,r,task):
         self.r=r;self.task=task;self.path=path
-        records=[json.loads(x) for x in (path.parent/'instructions.jsonl').read_text().splitlines()]
+        records=[load_operation(path.parent/'instructions.jsonl')]
         if len(records)!=1:raise Invalid('one actual operation required')
         self.record=records[0];self.dispatch=[json.loads(x) for x in (path.parent/'dispatch.jsonl').read_text().splitlines()]
         self.config=json.loads((path.parent/'config.json').read_text())
