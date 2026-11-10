@@ -24,6 +24,20 @@ class ComputeStamp:
     def __getitem__(self,key):return getattr(self,key)
 
 
+class ComputeEvents:
+    __slots__=('compute_read_begin','compute_read_done','compute_write_visible')
+    def __init__(self):
+        self.compute_read_begin=self.compute_read_done=self.compute_write_visible=None
+    def __iter__(self):
+        return (k for k in self.__slots__ if getattr(self,k) is not None)
+    def __contains__(self,key):return key in self.__slots__ and getattr(self,key) is not None
+    def __getitem__(self,key):
+        value=getattr(self,key)
+        if value is None:raise KeyError(key)
+        return value
+    def __setitem__(self,key,value):setattr(self,key,value)
+
+
 @dataclass(slots=True)
 class TraceSpan:
     start_cycle: int
@@ -91,7 +105,7 @@ def check_runtime(record,dispatch,path,trace_path,config,finish,stream_limits=No
         if v['cols']==r['cols']:
             lo=v['base']+v['row']*r['cols']*p;return [Access(space,d['core'],buffer,lo,lo+v['rows']*r['cols']*p)]
         return [Access(space,d['core'],buffer,v['base']+((v['row']+j)*r['cols']+v['col'])*p,v['base']+((v['row']+j)*r['cols']+v['col']+v['cols'])*p) for j in range(v['rows'])]
-    limits=stream_limits or {};events=iter_stream(path,finish,**limits);event_count=0;compute=defaultdict(dict);requests={};responses={};resets={};reset_by_key=defaultdict(list)
+    limits=stream_limits or {};events=iter_stream(path,finish,**limits);event_count=0;compute=defaultdict(ComputeEvents);requests={};responses={};resets={};reset_by_key=defaultdict(list)
     for e in events:
         event_count+=1
         kind=e['kind']
@@ -149,7 +163,7 @@ def check_runtime(record,dispatch,path,trace_path,config,finish,stream_limits=No
             elif unit!='Wait' and row['name'] not in expected_compute:raise Invalid('extra compute pipeline event')
             if row['name'] in expected_compute:
                 if row['name'] in trace:raise Invalid('duplicate compute pipeline event')
-                trace[row['name']]=TraceSpan(start,end,int(row['issue_cycle']),int(row['commit_cycle']),sys.intern(row['unit']))
+                trace[by_id[row['name']]['id']]=TraceSpan(start,end,int(row['issue_cycle']),int(row['commit_cycle']),sys.intern(row['unit']))
     expected_dma={key:(e['core'],e['write'],e['cycle'],responses[key]['cycle'],e['id'],e['fragment']) for key,e in requests.items()}
     if dma_trace!=expected_dma:raise Invalid('DMA request/response lifetime or identity differs from pipeline trace')
     if set(trace)!=expected_compute:raise Invalid('pipeline/observer compute set mismatch')
