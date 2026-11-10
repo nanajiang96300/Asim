@@ -63,7 +63,11 @@ def statistics(trace_path,instructions,finish_cycle,num_cores,dispatch=None):
     if not detail:errors.append('empty trace: no valid events')
     for core in range(num_cores):
         if not any(kind!='Wait' and spans for kind,spans in per_core[core].items()):errors.append(f'core {core} missing non-Wait events')
-    rows=[{'core':key[0],'unit':key[1],'opcode':key[2],'name':key[3],**metrics(value)} for key,value in sorted(detail.items())]
+    rows=[]
+    for key in sorted(detail):
+        value=detail.pop(key)
+        rows.append({'core':key[0],'unit':key[1],'opcode':key[2],'name':key[3],**metrics(value)})
+    del detail
     cores={}
     for core in range(num_cores):
         units=per_core[core];busy=[span for kind,spans in units.items() if kind!='Wait' for span in spans];active=union(busy)
