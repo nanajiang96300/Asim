@@ -144,3 +144,6 @@ pilot 不直接复用带共享 stash 的旧 eval 脚本。旧流程可运行历�
 2026-11-08 Q3b有限样本试点：实际I/Q响应、逐流预测/RHS/共轭检查与Gaussian线性SE代理已实现，199测试、375次正例重放覆盖七新入口及NS留出；严格线性/预算负例按预期拒绝。下一阶段Q3c扩大独立H和输入域、明确代理失配统计及有限调制/GMI/BLER；完整SE质量、CDL-B和晋级仍未完成。协议verification/communication/RESPONSE_PROBES.md，证据experiments/response_proxy/2026-11-08-v1。
 
 2026-11-08 Q3b v2：增加启动前评估器源码预绑定，200测试和全套探针重跑通过；最新证据experiments/response_proxy/2026-11-08-v2。v1保留为历史，不增加独立样本。
+
+
+2026-11-10固定HB更新：F16-5完成独立算法选K、新留出、固定HB原生映射与三SNR新CDL-B/QPSK软件验收；旧β-only失败保持。依赖任务：流式指令/流水统计以降低高K内存→新校准更紧谱界/复用/流水→相同质量与输入域成本比较→冷启动复现/完整晋级。不得在H590调参。 证据：[固定HB原生报告](../../experiments/fixed_hb_native/2026-11-09-v2/README.md)。

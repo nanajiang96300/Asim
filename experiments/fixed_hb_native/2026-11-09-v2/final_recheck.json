@@ -1,0 +1,116 @@
+{
+  "status": "PRIMARY_DETERMINISTIC_RECHECK_PASSED",
+  "templates": [
+    {
+      "regularization": 1.0,
+      "K": 16,
+      "channels": 96,
+      "cycles": 18409,
+      "max_error": 0.006191060433776215,
+      "all_saved_reference_bits_equal": true
+    },
+    {
+      "regularization": 0.1,
+      "K": 53,
+      "channels": 96,
+      "cycles": 47121,
+      "max_error": 0.005461240317961935,
+      "all_saved_reference_bits_equal": true
+    },
+    {
+      "regularization": 0.01,
+      "K": 174,
+      "channels": 96,
+      "cycles": 141017,
+      "max_error": 0.005114429901659688,
+      "all_saved_reference_bits_equal": true
+    }
+  ],
+  "cdlb": [
+    {
+      "regularization": 1.0,
+      "K": 16,
+      "channels": 192,
+      "max_error": 0.007394781869734489,
+      "candidate_bit_errors": 13326,
+      "mmse_bit_errors": 13327,
+      "exceedances": [
+        0,
+        0,
+        0
+      ],
+      "joint_confidence_upper": 0.031643656463069325,
+      "frames": [
+        {
+          "channel_seed": 59001,
+          "fresh_independent_reference_batch": 0,
+          "bit_equal": true
+        },
+        {
+          "channel_seed": 59002,
+          "fresh_independent_reference_batch": 0,
+          "bit_equal": true
+        }
+      ]
+    },
+    {
+      "regularization": 0.1,
+      "K": 53,
+      "channels": 192,
+      "max_error": 0.008063292167456444,
+      "candidate_bit_errors": 8071,
+      "mmse_bit_errors": 8064,
+      "exceedances": [
+        0,
+        0,
+        0
+      ],
+      "joint_confidence_upper": 0.031643656463069325,
+      "frames": [
+        {
+          "channel_seed": 59001,
+          "fresh_independent_reference_batch": 0,
+          "bit_equal": true
+        },
+        {
+          "channel_seed": 59002,
+          "fresh_independent_reference_batch": 0,
+          "bit_equal": true
+        }
+      ]
+    },
+    {
+      "regularization": 0.01,
+      "K": 174,
+      "channels": 192,
+      "max_error": 0.007996167078839917,
+      "candidate_bit_errors": 4090,
+      "mmse_bit_errors": 4090,
+      "exceedances": [
+        0,
+        0,
+        0
+      ],
+      "joint_confidence_upper": 0.031643656463069325,
+      "frames": [
+        {
+          "channel_seed": 59001,
+          "fresh_independent_reference_batch": 0,
+          "bit_equal": true
+        },
+        {
+          "channel_seed": 59002,
+          "fresh_independent_reference_batch": 0,
+          "bit_equal": true
+        }
+      ]
+    }
+  ],
+  "actual_K174_batch0_instructions": 8595,
+  "readonly_setup_and_last_coefficient_bound_P_captures": "BIT_EXACT",
+  "runtime_files": 90,
+  "source_files": 83,
+  "elapsed_seconds": 1.7434594850055873,
+  "pure_model_thinking_seconds": null,
+  "scope": "primary-agent deterministic check; independent task/modem calculation and existing independent algorithm reference, not an additional independent-agent certificate; no full huge-event re-audit"
+}
