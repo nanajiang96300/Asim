@@ -1,0 +1,29 @@
+{"phase": "load_and_binding", "elapsed_seconds": 21.589451436011586, "peak_rss_kib": 1115636}
+{"phase": "trace_coverage", "elapsed_seconds": 28.292236538021825, "peak_rss_kib": 1267396}
+{"phase": "pipeline_statistics", "elapsed_seconds": 70.31462195300264, "peak_rss_kib": 1971172}
+{"phase": "runtime_schedule", "elapsed_seconds": 157.4048850730178, "peak_rss_kib": 1971172}
+{"phase": "all_batches_replayed", "elapsed_seconds": 193.74041028501233, "peak_rss_kib": 1971172}
+{"status": "SEALED_ASIM_RECHECK_PASSED", "source": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01", "operator": "bri_stable_hb_fp16_v1", "iterations": 174, "batch_size": 96, "finish_cycle": 141017, "phase_measurements": [{"phase": "load_and_binding", "elapsed_seconds": 21.589451436011586, "peak_rss_kib": 1115636}, {"phase": "trace_coverage", "elapsed_seconds": 28.292236538021825, "peak_rss_kib": 1267396}, {"phase": "pipeline_statistics", "elapsed_seconds": 70.31462195300264, "peak_rss_kib": 1971172}, {"phase": "runtime_schedule", "elapsed_seconds": 157.4048850730178, "peak_rss_kib": 1971172}, {"phase": "all_batches_replayed", "elapsed_seconds": 193.74041028501233, "peak_rss_kib": 1971172}], "peak_rss_kib": 1971172, "within_2gib": true, "statistics_byte_equal": true, "statistics_hashes": {"pipeline_statistics.json": "2231f0fae0adb9567985b48e4c3346ccfd93c22390ac7fc012d223ef89b15149", "instruction_pipeline_detail.csv": "efe7121f5519131299294346a5fe6e341c3f5610d45d8b10698c69871f4edcae"}, "schedule_exact_equal": true, "outputs_bit_equal": true, "pure_model_thinking_seconds": null, "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"}
+	Command being timed: "/home/nanajiang/Asim/.venv/bin/python experiments/memory/2026-11-10-v1/check.py /home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01 /home/nanajiang/Asim/results/memory/2026-11-10-v3/hb174"
+	User time (seconds): 191.73
+	System time (seconds): 3.94
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:16.28
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1971172
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 777238
+	Voluntary context switches: 78
+	Involuntary context switches: 3012
+	Swaps: 0
+	File system inputs: 4657096
+	File system outputs: 680232
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

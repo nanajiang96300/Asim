@@ -66,3 +66,6 @@ CLI显式选择precision8结构profile并写入receipt；不会把precision2模�
 2026-11-06：新增LDL与B2实块BRI，仍不修改四个重放/绑定/事件核心。迭代上限通过受信adapter的max_iterations声明（NS32、BRI256）；直接法1占位。阶段观察只读，严格shape/finite与完整清单/覆盖绑定；见LDL_BRI_MAPPING.md。
 
 2026-11-08：三个剩余映射通过，共用四核心保持不变。融合归约必须真实生成GEMM/明确原语，禁止SCALAR compute_size>1伪装向量；旧Merge因此继续拒绝。七新入口/151测试/统一周期证据见MERGE_AND_REMAINING_MAPPING.md。
+
+
+M1读取规则（2026-11-10）：日常重建与QPSK Replayer使用incremental load_operation。相同物理view可能以只读描述共享；审计/负例需要编辑时先deepcopy目标单条指令，不要原地写共享view。此优化不改变实际JSON格式、原始Instruction或数值张量，未知语义仍拒绝。见experiments/memory/2026-11-10-v1/README.md。

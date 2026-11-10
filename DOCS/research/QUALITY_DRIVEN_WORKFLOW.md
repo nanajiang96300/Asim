@@ -161,3 +161,6 @@ Q3a/Q3b证据见 [通信验收](COMMUNICATION_VERIFICATION.md)及[响应代理�
 
 
 2026-11-10固定HB更新：固定HB先独立校准选后缀K16/53/174，再算法新留出，冻结原生候选，Asim先行，随后全新H590 CDL重建和QPSK门禁通过。门限不变，score仍null，未做硬件认证/完整性能晋级。 证据：[固定HB原生报告](../../experiments/fixed_hb_native/2026-11-09-v2/README.md)。
+
+
+2026-11-10 M1完成更新：九入口封存实际Asim制品全量回归保持统计字节、事件报告、完整输出位一致；HB K174/batch96事件检查及重建峰值1.88GiB，249测试。新runtime codex_runtime_memory_v1.json（91文件），旧90文件pin保留且配合原Git版本复现；不升级旧算子CDL质量状态。下一优先任务M2新校准的更紧谱界/复用/流水；冷构建跨环境复现、评分晋级与持久协调器仍待。详见[本轮报告](../../experiments/memory/2026-11-10-v1/README.md)。

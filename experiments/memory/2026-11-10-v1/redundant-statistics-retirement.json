@@ -1,0 +1,30 @@
+[
+  {
+    "path": "results/memory/2026-11-10-v1/hb174/pipeline_statistics.json",
+    "bytes": 280541497,
+    "sha256": "2231f0fae0adb9567985b48e4c3346ccfd93c22390ac7fc012d223ef89b15149",
+    "identical_sealed_source": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/pipeline_statistics.json",
+    "removed": true
+  },
+  {
+    "path": "results/memory/2026-11-10-v1/hb174/instruction_pipeline_detail.csv",
+    "bytes": 67709441,
+    "sha256": "efe7121f5519131299294346a5fe6e341c3f5610d45d8b10698c69871f4edcae",
+    "identical_sealed_source": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/instruction_pipeline_detail.csv",
+    "removed": true
+  },
+  {
+    "path": "results/memory/2026-11-10-v2/hb174/pipeline_statistics.json",
+    "bytes": 280541497,
+    "sha256": "2231f0fae0adb9567985b48e4c3346ccfd93c22390ac7fc012d223ef89b15149",
+    "identical_sealed_source": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/pipeline_statistics.json",
+    "removed": true
+  },
+  {
+    "path": "results/memory/2026-11-10-v2/hb174/instruction_pipeline_detail.csv",
+    "bytes": 67709441,
+    "sha256": "efe7121f5519131299294346a5fe6e341c3f5610d45d8b10698c69871f4edcae",
+    "identical_sealed_source": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/instruction_pipeline_detail.csv",
+    "removed": true
+  }
+]

@@ -1,0 +1,24 @@
+{"run_dir": "/home/nanajiang/Asim/results/memory/2026-11-10-v3/daily_hb", "status": "MODELED_NUMERIC_CHECKED", "numeric_status": "EXECUTED", "score": null, "G4": "NOT_CERTIFIED", "precision": "modeled_fp16_fp32_real_block_v1", "operator": "bri_stable_hb_fp16_v1", "precision_policy": {"schema": "numeric-policy-v1", "name": "modeled_fp16_fp32_v1", "storage": "float16", "compute": "float32", "accumulation": "float32", "gemm_order": "k_ascending_multiply_then_add", "rounding": "RNE", "subnormal": "preserve", "fusion": "none", "task_tolerance": 0.02, "quadrant_tolerance": 0.02}, "comparison_identity": "90733a47315225469073665476a022f769d47621c44adb925a78572ebf1d0c8d", "runtime_contract": {"kind": "header", "schema": "core-rw-v4", "producer": "asim_core_observer_v4", "clock": "homogeneous_core_cycle_v1", "compute_reads": "conservative_issue_to_complete_v1", "dma_reads": "request_snapshot_v1", "dma_writes": "fragment_response_commit_v1", "dma_identity": "trace_request_op_fragment_v1", "compute_identity": "trace_issue_commit_cycle_v1", "dma_descriptor": "per_fragment_address_v1"}, "task": {"batch_size": 96, "nr": 64, "nt": 16, "nrhs": 8, "regularization": 0.1, "channel": "rayleigh", "scope": "mmse_h_y_to_xhat_v1", "profile": "modeled_fp16_fp32_real_block_v1", "schema": "mmse-task-v1", "representation": "R(Z)=[[Re,-Im],[Im,Re]]", "measurement": {"inputs": ["H", "Y", "RegI", "Identity"], "includes": ["input DMA", "Gram", "regularization", "H^H Y", "algorithm initialization", "iterations/factorization", "inverse application/output recovery", "output DMA"], "excludes": ["common channel generation", "common real-block encoding/decoding"]}}, "task_hash": "0f89e233c3384ecaff4df4141e81e3145a3251f89ce71c94c92807816b24f8c3", "algorithm": {"id": "bri_stable_hb_fp16_v1", "iterations": 53, "block_size_complex": 1, "coefficient_rule": "fixed_hb_alpha_15_16", "enclosure_rule": "scaled_L4_energy_L2_P_trace_9_8", "column_energy_domain": [0.00390625, 8.0], "energy_sum_domain": [8.0, 32.0], "representation": "left_complex_columns", "initialization": "x0=previous=carry=0"}, "seed": 42, "schedule_status": "MODEL_RW_CHECKED_CONSERVATIVE", "core_tile_counts": {"0": 4, "1": 4, "2": 4, "3": 4, "4": 4, "5": 4, "6": 4, "7": 4, "8": 4, "9": 4, "10": 4, "11": 4, "12": 4, "13": 4, "14": 4, "15": 4, "16": 4, "17": 4, "18": 4, "19": 4, "20": 4, "21": 4, "22": 4, "23": 4}, "policy": {"baseline_cycles": 47121, "minimum_speedup": 1, "maximum_speedup": 1}, "baseline_creation": true, "failed_batches": [], "structural_reference_passed": true, "task_reference_passed": true, "phase_timings_seconds": {"setup": 0.03543517197249457, "asim": 39.403309168003034, "artifact_and_schedule_checks": 57.18362345802598, "independent_references": 7.529137855977751, "instruction_replay_and_comparison": 13.861127559968736}, "evaluation_wall_seconds_before_archive": 118.01263321394799, "entrypoint": "supervised_daily_v1"}
+	Command being timed: ".venv/bin/python -m verification.reconstruction.daily --operator bri_stable_hb_fp16_v1 --iterations 53 --output results/memory/2026-11-10-v3/daily_hb"
+	User time (seconds): 115.18
+	System time (seconds): 3.31
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:58.78
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2058336
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 29
+	Minor (reclaiming a frame) page faults: 823602
+	Voluntary context switches: 935
+	Involuntary context switches: 2347
+	Swaps: 0
+	File system inputs: 23168
+	File system outputs: 1376184
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

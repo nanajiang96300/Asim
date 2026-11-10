@@ -190,3 +190,6 @@ r=\frac{\|A\hat{x}-b\|_F}{\|A\|_2\|\hat{x}\|_F+\|b\|_F+\epsilon}.
 
 
 2026-11-10固定HB更新：固定HB再次验证通用重建范式：新增typed实际指令/adapter/独立reference而不改engine。288真实瑞利batch和576新CDLbatch逐位一致；高K首次进程中断保留，新版只释放已验证诊断对象后独立重跑，不把中断补写成通过。 证据：[固定HB原生报告](../../experiments/fixed_hb_native/2026-11-09-v2/README.md)。
+
+
+2026-11-10 M1完成更新：九入口封存实际Asim制品全量回归保持统计字节、事件报告、完整输出位一致；HB K174/batch96事件检查及重建峰值1.88GiB，249测试。新runtime codex_runtime_memory_v1.json（91文件），旧90文件pin保留且配合原Git版本复现；不升级旧算子CDL质量状态。下一优先任务M2新校准的更紧谱界/复用/流水；冷构建跨环境复现、评分晋级与持久协调器仍待。详见[本轮报告](../../experiments/memory/2026-11-10-v1/README.md)。

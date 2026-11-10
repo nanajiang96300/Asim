@@ -109,3 +109,6 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -
 
 
 2026-11-10固定HB更新：新固定runtime为orchestrator/codex_runtime_stable_hb_fp16_v1.json；旧implicit_v1固定清单不回写。高K事件/流水诊断造成显著内存压力，门禁后释放trace/stats/events；通用流式解析仍待做。默认日常入口仍瑞利。 证据：[固定HB原生报告](../../experiments/fixed_hb_native/2026-11-09-v2/README.md)。
+
+
+2026-11-10 M1完成更新：九入口封存实际Asim制品全量回归保持统计字节、事件报告、完整输出位一致；HB K174/batch96事件检查及重建峰值1.88GiB，249测试。新runtime codex_runtime_memory_v1.json（91文件），旧90文件pin保留且配合原Git版本复现；不升级旧算子CDL质量状态。下一优先任务M2新校准的更紧谱界/复用/流水；冷构建跨环境复现、评分晋级与持久协调器仍待。详见[本轮报告](../../experiments/memory/2026-11-10-v1/README.md)。

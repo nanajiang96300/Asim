@@ -1,0 +1,29 @@
+{"phase": "load_and_binding", "elapsed_seconds": 21.59852773998864, "peak_rss_kib": 1487732}
+{"phase": "trace_coverage", "elapsed_seconds": 28.32902472198475, "peak_rss_kib": 1639304}
+{"phase": "pipeline_statistics", "elapsed_seconds": 74.82947176700691, "peak_rss_kib": 2950680}
+{"phase": "runtime_schedule", "elapsed_seconds": 156.08405538799707, "peak_rss_kib": 3181332}
+{"phase": "all_batches_replayed", "elapsed_seconds": 191.62315639900044, "peak_rss_kib": 3181332}
+{"status": "SEALED_ASIM_RECHECK_PASSED", "source": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01", "operator": "bri_stable_hb_fp16_v1", "iterations": 174, "batch_size": 96, "finish_cycle": 141017, "phase_measurements": [{"phase": "load_and_binding", "elapsed_seconds": 21.59852773998864, "peak_rss_kib": 1487732}, {"phase": "trace_coverage", "elapsed_seconds": 28.32902472198475, "peak_rss_kib": 1639304}, {"phase": "pipeline_statistics", "elapsed_seconds": 74.82947176700691, "peak_rss_kib": 2950680}, {"phase": "runtime_schedule", "elapsed_seconds": 156.08405538799707, "peak_rss_kib": 3181332}, {"phase": "all_batches_replayed", "elapsed_seconds": 191.62315639900044, "peak_rss_kib": 3181332}], "peak_rss_kib": 3181332, "within_2gib": false, "statistics_byte_equal": true, "schedule_exact_equal": true, "outputs_bit_equal": true, "pure_model_thinking_seconds": null, "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"}
+	Command being timed: "/home/nanajiang/Asim/.venv/bin/python experiments/memory/2026-11-10-v1/check.py /home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01 /home/nanajiang/Asim/results/memory/2026-11-10-v1/hb174"
+	User time (seconds): 187.16
+	System time (seconds): 5.81
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:14.77
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3181332
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 262
+	Minor (reclaiming a frame) page faults: 1258653
+	Voluntary context switches: 505
+	Involuntary context switches: 7247
+	Swaps: 0
+	File system inputs: 7179008
+	File system outputs: 680600
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
