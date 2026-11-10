@@ -241,6 +241,24 @@
       "manifest": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/manifest.json",
       "manifest_sha256": "e44860ce4bb43ad3cb11ecdccf924dcbe7785873ecbefc09919657a3d34b4c0e",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-10-memory-v1",
+      "status": "M1_MEMORY_ACCEPTED_BOUNDED_SCOPE",
+      "keywords": [
+        "memory",
+        "streaming",
+        "reconstruction",
+        "actual-instructions",
+        "FP16",
+        "HB",
+        "pipeline",
+        "runtime"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-10-memory-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-10-memory-v1/manifest.json",
+      "manifest_sha256": "d4ac95272c16176b41a0a241be014b109acc681bfb4a1b292d1239b4394fecf7",
+      "supersedes": null
     }
   ]
 }

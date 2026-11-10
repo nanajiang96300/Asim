@@ -1,0 +1,40 @@
+[
+  {
+    "case": "daily_ns",
+    "status": "MODELED_NUMERIC_CHECKED",
+    "cycles": 7950,
+    "identical_to_original_files": [
+      "instructions.jsonl",
+      "dispatch.jsonl",
+      "trace.csv",
+      "rw_events.jsonl",
+      "outputs.npy"
+    ],
+    "phase_timings_seconds": {
+      "setup": 0.04753262997837737,
+      "asim": 5.127094727999065,
+      "artifact_and_schedule_checks": 5.201041087973863,
+      "independent_references": 1.3097628310206346,
+      "instruction_replay_and_comparison": 4.218875046004541
+    }
+  },
+  {
+    "case": "daily_hb",
+    "status": "MODELED_NUMERIC_CHECKED",
+    "cycles": 47121,
+    "identical_to_original_files": [
+      "instructions.jsonl",
+      "dispatch.jsonl",
+      "trace.csv",
+      "rw_events.jsonl",
+      "outputs.npy"
+    ],
+    "phase_timings_seconds": {
+      "setup": 0.03543517197249457,
+      "asim": 39.403309168003034,
+      "artifact_and_schedule_checks": 57.18362345802598,
+      "independent_references": 7.529137855977751,
+      "instruction_replay_and_comparison": 13.861127559968736
+    }
+  }
+]

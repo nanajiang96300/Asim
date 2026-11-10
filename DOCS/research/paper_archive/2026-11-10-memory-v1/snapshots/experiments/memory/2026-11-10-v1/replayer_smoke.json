@@ -1,0 +1,14 @@
+{
+  "status": "QPSK_REPLAYER_MEMORY_READER_CHECKED",
+  "source": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/result.json",
+  "batch_size": 96,
+  "output_bits_equal": true,
+  "task_reference_equal": true,
+  "phase_timings_seconds": {
+    "independent_references": 2.999670054996386,
+    "instruction_replay_and_comparison": 6.8062100959941745
+  },
+  "elapsed_seconds": 13.581414104963187,
+  "scope": "sealed actual Asim and reused CDL input; no new independent sample or cycle",
+  "pure_model_thinking_seconds": null
+}

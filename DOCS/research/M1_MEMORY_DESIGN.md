@@ -12,3 +12,6 @@
 
 
 最终M1验收：九入口封存制品全量回归均通过，HB K174/batch96峰值1,971,172KiB（1.88GiB），193.74秒；流水JSON/逐指令CSV字节一致、事件报告相等、完整输出逐FP16位一致。原生NS K16/HB K53新Asim日常入口通过且五类关键制品与旧版字节一致。249测试，live pin为codex_runtime_memory_v1.json（91文件）。详见experiments/memory/2026-11-10-v1/README.md。
+
+
+M1解析器边界补丁v2：补充小数/指数顶层元数据跨chunk读取测试并修正误拒绝；实际九入口的instructions对象及header整体解码路径不变。新live pin为orchestrator/codex_runtime_memory_v2.json（91文件），v1清单保留。最终250测试及v2默认NS新Asim通过，五类关键文件与v1逐字节一致；HB/九入口完整内存实测属于v1原验收，未冒称在v2重跑全部。见experiments/memory/2026-11-10-v1/parser_v2_manifest.json。

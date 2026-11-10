@@ -29,3 +29,6 @@ FP16隐式MMSE早期独立原语/留出研究见`experiments/fp16_implicit/2026-
 固定HB隐式新入口bri_stable_hb_fp16_v1已在声明FP16存储/FP32临时/保留次正规模型下完成K16/53/174与三SNR、192新独立CDL-H/576batch实际重建及未编码QPSK门禁；见experiments/fixed_hb_native/2026-11-09-v2/README.md。旧β-only失败不升级；新HB非性能晋级/硬件认证，冷启动跨环境复现未完成。日常新pin codex_runtime_stable_hb_fp16_v1.json；旧82文件pin保留，当前live pin以新清单为准。下一步先解决高K通用重建内存，再新校准研究更紧谱界/指令优化，不在H590留出调K。两轮78旧trace无损gzip回收9.08GB，按storage_cleanup台账显式restore，禁止静默改旧manifest。
 
 M1通用重建内存优化已完成：HB K174/batch96峰值1.88GiB，九入口封存Asim制品回归的统计字节/事件报告/完整输出位一致，249测试；新live runtime为codex_runtime_memory_v1.json（91文件），原90文件pin不覆盖，旧契约按冻结Git版本复现。证据experiments/memory/2026-11-10-v1/README.md。下一步M2使用全新校准集研究更紧谱界/复用/流水，H590只回归不调K；不升级旧CDL失败，不改变K/精度/门限。
+
+
+M1解析器边界补丁v2：补充小数/指数顶层元数据跨chunk读取测试并修正误拒绝；实际九入口的instructions对象及header整体解码路径不变。新live pin为orchestrator/codex_runtime_memory_v2.json（91文件），v1清单保留。最终250测试及v2默认NS新Asim通过，五类关键文件与v1逐字节一致；HB/九入口完整内存实测属于v1原验收，未冒称在v2重跑全部。见experiments/memory/2026-11-10-v1/parser_v2_manifest.json。

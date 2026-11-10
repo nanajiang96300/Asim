@@ -292,3 +292,6 @@ HB K174/batch96全量复核峰值1,971,172KiB（1.88GiB），193.74秒，原周�
 封存制品复核不是再次Asim或新增独立信道样本；新日常NS K16/HB K53另执行真实Asim、独立算法参考及FP64任务参考。验证器身份改变，发布codex_runtime_memory_v1.json（91文件），旧90文件清单不改，旧契约应在其冻结checkout复现。物理view只读共享，不改变数值张量；独立修改负例先deepcopy单条指令。时间戳采用有界整数存储，超容量明确拒绝。
 
 详细证据experiments/memory/2026-11-10-v1/README.md。不把本轮当任意规模常数内存、硬件认证、其他算子CDL通过或性能晋级。下一步M2在新校准集研究更紧谱界/复用/流水，既有H590留出只回归不选参；干净冷构建/完整晋级和持久协调器后置。
+
+
+M1解析器边界补丁v2：补充小数/指数顶层元数据跨chunk读取测试并修正误拒绝；实际九入口的instructions对象及header整体解码路径不变。新live pin为orchestrator/codex_runtime_memory_v2.json（91文件），v1清单保留。最终250测试及v2默认NS新Asim通过，五类关键文件与v1逐字节一致；HB/九入口完整内存实测属于v1原验收，未冒称在v2重跑全部。见experiments/memory/2026-11-10-v1/parser_v2_manifest.json。

@@ -112,3 +112,6 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -
 
 
 2026-11-10 M1完成更新：九入口封存实际Asim制品全量回归保持统计字节、事件报告、完整输出位一致；HB K174/batch96事件检查及重建峰值1.88GiB，249测试。新runtime codex_runtime_memory_v1.json（91文件），旧90文件pin保留且配合原Git版本复现；不升级旧算子CDL质量状态。下一优先任务M2新校准的更紧谱界/复用/流水；冷构建跨环境复现、评分晋级与持久协调器仍待。详见[本轮报告](../../experiments/memory/2026-11-10-v1/README.md)。
+
+
+M1解析器边界补丁v2：补充小数/指数顶层元数据跨chunk读取测试并修正误拒绝；实际九入口的instructions对象及header整体解码路径不变。新live pin为orchestrator/codex_runtime_memory_v2.json（91文件），v1清单保留。最终250测试及v2默认NS新Asim通过，五类关键文件与v1逐字节一致；HB/九入口完整内存实测属于v1原验收，未冒称在v2重跑全部。见experiments/memory/2026-11-10-v1/parser_v2_manifest.json。

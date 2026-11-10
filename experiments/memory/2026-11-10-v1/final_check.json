@@ -1,0 +1,9 @@
+{
+  "status": "M1_RUNTIME_V2_ARCHIVES_AND_ARTIFACTS_CHECKED",
+  "runtime_files": 91,
+  "archives": 15,
+  "snapshot_hashes": 150,
+  "artifact_hashes": 92,
+  "tests": 250,
+  "scope": "v1 nine-entry full memory acceptance; numeric-metadata v2 unit suite and fresh NS acceptance"
+}

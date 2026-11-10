@@ -1,0 +1,116 @@
+{
+  "schema": "memory-parser-followup-v2",
+  "note": "numeric top-level metadata token boundary fix; primary full memory/9-entry measurements belong to v1; v2 fresh NS files equal v1",
+  "files": [
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/outputs.npy",
+      "bytes": 393344,
+      "sha256": "7988be9aa518f0d10c9e912965b8f6a81368168aabbcd5ca1fb400063858d5dd"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/models.json",
+      "bytes": 1514,
+      "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/config.json",
+      "bytes": 12654,
+      "sha256": "17f5c3970d23a274f0d7d25ecfc0eae5e9f43443eae0c655f3585a2d58811719"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/evaluation_result.json",
+      "bytes": 38778,
+      "sha256": "3442431b7c36e26ddfc876fa46f67807974e496adbcd69fa051bdb46ed8a31ab"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/runtime_pin.json",
+      "bytes": 16279,
+      "sha256": "781deb003706f3cbdd566215aa667a6c9bac29a0c036e03c5ef9dc4bcdb78f22"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/channel.npz",
+      "bytes": 2556640,
+      "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/asim.json",
+      "bytes": 1829,
+      "sha256": "6f96c5fcfcedd13f5ba120b4d061b6634e5f47a4903d22f2b35e07fbf765d775"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/references.npz",
+      "bytes": 689138,
+      "sha256": "c01fb36f688dfcd348b9a78444eb46b99b3291f4655e5043543cd4522737a9e1"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/dispatch.jsonl",
+      "bytes": 397284,
+      "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/simulator.log",
+      "bytes": 34316,
+      "sha256": "563062d77276f6b2426a36247b3650c6ae74a7454327949a2913bfd0c524886c"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/schedule.json",
+      "bytes": 17665,
+      "sha256": "9330dc8b3b84f00ce7123ec8a35d4bbe986847e697a11758855348980657f5e2"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/numerics_started.json",
+      "bytes": 79,
+      "sha256": "18af3463d3d3a0caadc4d11a39a793aea064f8f0d393e332d2a1562bbfee8509"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/result.json",
+      "bytes": 39127,
+      "sha256": "c29e15f7bc4ae80d8677e956d1d726b7a10191a60d8fdbddaac51ad30aa1fff5"
+    },
+    {
+      "path": "results/memory/2026-11-10-v3/daily_ns_parser_v2/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "path": "results/memory-final-parser-tests.log",
+      "bytes": 351,
+      "sha256": "e57119119f3b36e12c22af8b0de8a6559706d9bbea4eaf660df63830eb2ea171"
+    },
+    {
+      "path": "results/memory-daily-ns-parser-v2.log",
+      "bytes": 2670,
+      "sha256": "9e082ea1f6f04adf3b90e8264754b01a72accc6a8b97748588177bd48ec63846"
+    }
+  ]
+}

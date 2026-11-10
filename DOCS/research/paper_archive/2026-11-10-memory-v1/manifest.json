@@ -1,0 +1,110 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-10-memory-v1",
+  "capture_commit": "9116b2e9482b128452b4ae9fd14bc77d9d2efa7c",
+  "status": "M1_MEMORY_ACCEPTED_BOUNDED_SCOPE",
+  "snapshots": [
+    {
+      "source": "experiments/memory/2026-11-10-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/README.md",
+      "bytes": 5006,
+      "sha256": "c93435d35f74fa30b50e3c8c012c6d686350351a7f862cec0220b5acb391828f"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/summary.json",
+      "bytes": 17501,
+      "sha256": "ba06915efcf4d90073d0e3c0611a6f580a065a1ac0a5ebc1f40a292b3bd56f5c"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/cases.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/cases.csv",
+      "bytes": 662,
+      "sha256": "54b7567731b02d1802aa69a4abace71e2da47bf567f8f9cdc25e3aec356b091c"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/daily_ns.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/daily_ns.json",
+      "bytes": 39105,
+      "sha256": "32c933dd9e056d779aae35d28f8d7fca53e586cff4781c543db4fbb4a6378fc7"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/daily_hb.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/daily_hb.json",
+      "bytes": 39471,
+      "sha256": "8722b4b0f96549bd701e9e3570b472c655d9d4035a0edb18b52a99a4aa43986e"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/fresh_daily_comparison.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/fresh_daily_comparison.json",
+      "bytes": 1064,
+      "sha256": "bf4bc0ec3a9431b2d3be404b43273d3fb2d609ed4b959a77f2633ecdacface38"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/replayer_smoke.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/replayer_smoke.json",
+      "bytes": 548,
+      "sha256": "1ab886c0ac400f882bced40f551b566d90ab2f395773e3af876b846ead2684d5"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/unit-tests.log",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/unit-tests.log",
+      "bytes": 350,
+      "sha256": "ad1db2a0e724fc824bb3c94159d6bb3b95f2c42c22f7a9d8dcaa101938edea07"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/run_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/run_manifest.json",
+      "bytes": 13166,
+      "sha256": "0bcdc19d76417f6e9995495b22c64658f43880bd215ee7200e3e88d3d30b2e77"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/redundant-statistics-retirement.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/redundant-statistics-retirement.json",
+      "bytes": 1320,
+      "sha256": "706f9f2dd717799ced7f1f33cc03ad7fec12a8433ab2215b51311fdac562bac7"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/check.py",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/check.py",
+      "bytes": 4359,
+      "sha256": "5abb82842e6a3cbe0b5b760a7b353a060c25e57a3f06e3dad1bb044e0726414f"
+    },
+    {
+      "source": "experiments/memory/2026-11-10-v1/replayer_smoke.py",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/experiments/memory/2026-11-10-v1/replayer_smoke.py",
+      "bytes": 1467,
+      "sha256": "93e631c2993768181aa081e929c8591306cacf2a1f08577b2eb8fa7153ea5cba"
+    },
+    {
+      "source": "DOCS/research/M1_MEMORY_DESIGN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/DOCS/research/M1_MEMORY_DESIGN.md",
+      "bytes": 2579,
+      "sha256": "d830c68ba4c9ce4053a815bb8637946ec7ac3fa7fba76c188aa62c696b50618d"
+    },
+    {
+      "source": "orchestrator/codex_runtime_memory_v1.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/orchestrator/codex_runtime_memory_v1.json",
+      "bytes": 17887,
+      "sha256": "220cce5ff258bf88e9d234d1b3d6286798171221cf83816e367721c04c5f6261"
+    },
+    {
+      "source": "verification/reconstruction/stream.py",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/verification/reconstruction/stream.py",
+      "bytes": 3999,
+      "sha256": "52167ab82e0b9869fc1ee90764e6c395a9950ef99b0229e84891a688499083e2"
+    },
+    {
+      "source": "verification/schedule/runtime.py",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/verification/schedule/runtime.py",
+      "bytes": 18532,
+      "sha256": "c2adee4580e8b16cbf8294c9d092cb03d88d945d06b4fc14b18498a66d1e3252"
+    },
+    {
+      "source": "verification/reporting/pipeline.py",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-memory-v1/snapshots/verification/reporting/pipeline.py",
+      "bytes": 5783,
+      "sha256": "9c35309cb55871606881f2db9ec138ed621f6ab6e1d8358f3fb3cd876d4d6ed4"
+    }
+  ]
+}

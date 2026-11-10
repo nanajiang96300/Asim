@@ -1,0 +1,509 @@
+{
+  "status": "M1_MEMORY_ACCEPTED_BOUNDED_SCOPE",
+  "cases": [
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01",
+      "operator": "bri_stable_hb_fp16_v1",
+      "iterations": 174,
+      "batch_size": 96,
+      "finish_cycle": 141017,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 21.589451436011586,
+          "peak_rss_kib": 1115636
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 28.292236538021825,
+          "peak_rss_kib": 1267396
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 70.31462195300264,
+          "peak_rss_kib": 1971172
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 157.4048850730178,
+          "peak_rss_kib": 1971172
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 193.74041028501233,
+          "peak_rss_kib": 1971172
+        }
+      ],
+      "peak_rss_kib": 1971172,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "2231f0fae0adb9567985b48e4c3346ccfd93c22390ac7fc012d223ef89b15149",
+        "instruction_pipeline_detail.csv": "efe7121f5519131299294346a5fe6e341c3f5610d45d8b10698c69871f4edcae"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/regression/ns_corrected_v1",
+      "operator": "ns_corrected_v1",
+      "iterations": 16,
+      "batch_size": 96,
+      "finish_cycle": 7950,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 0.56618086702656,
+          "peak_rss_kib": 63624
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 0.8441013090196066,
+          "peak_rss_kib": 65052
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 1.8796016200212762,
+          "peak_rss_kib": 90140
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 5.262279894028325,
+          "peak_rss_kib": 217636
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 8.874046829005238,
+          "peak_rss_kib": 217636
+        }
+      ],
+      "peak_rss_kib": 217636,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429",
+        "instruction_pipeline_detail.csv": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/regression/cholesky_explicit_v1",
+      "operator": "cholesky_explicit_v1",
+      "iterations": null,
+      "batch_size": 96,
+      "finish_cycle": 28006,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 4.533812833018601,
+          "peak_rss_kib": 253888
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 5.930343826999888,
+          "peak_rss_kib": 276716
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 13.759405974007677,
+          "peak_rss_kib": 446868
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 37.237141693010926,
+          "peak_rss_kib": 489076
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 43.66701924300287,
+          "peak_rss_kib": 489076
+        }
+      ],
+      "peak_rss_kib": 489076,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "ea8c017ea1b59371e3e2f7fe63079cf2d586e098d52853d57fbaaaa1d3f27677",
+        "instruction_pipeline_detail.csv": "0e6b3ca4cd5769035eef8f218d4b2039820f79cfce7df08a33f750f3e8a6a956"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/regression/ldl_explicit_v1",
+      "operator": "ldl_explicit_v1",
+      "iterations": null,
+      "batch_size": 96,
+      "finish_cycle": 18697,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 2.397024694015272,
+          "peak_rss_kib": 155676
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 3.2243733790237457,
+          "peak_rss_kib": 174028
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 7.477850297000259,
+          "peak_rss_kib": 264452
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 24.690303424024023,
+          "peak_rss_kib": 356360
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 29.528835499018896,
+          "peak_rss_kib": 356360
+        }
+      ],
+      "peak_rss_kib": 356360,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "b3c4ed16e5e1a99d00dea14afb5abf217b3d696a26e7d7c0d1d4e5e690f8ef86",
+        "instruction_pipeline_detail.csv": "e886f5d85794b63843bbfb89e4759d542cdded3a71c833272971ee596ae2a70f"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/regression/bri_explicit_v1",
+      "operator": "bri_explicit_v1",
+      "iterations": 192,
+      "batch_size": 96,
+      "finish_cycle": 23047,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 2.7526367219979875,
+          "peak_rss_kib": 168100
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 3.645155430014711,
+          "peak_rss_kib": 188512
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 8.333816566038877,
+          "peak_rss_kib": 288508
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 29.10182583401911,
+          "peak_rss_kib": 374196
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 37.46041863999562,
+          "peak_rss_kib": 374196
+        }
+      ],
+      "peak_rss_kib": 374196,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "e10907406f0a0a8163cd95d7cd8911ed75c27fca2ec74bf475a1296c1ad69ee7",
+        "instruction_pipeline_detail.csv": "bf640d415a87214911a2799bf650bdccce292ac593df090ae5a975abe2f850d8"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/regression/cholesky_block_explicit_v1",
+      "operator": "cholesky_block_explicit_v1",
+      "iterations": null,
+      "batch_size": 96,
+      "finish_cycle": 21338,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 2.489323907007929,
+          "peak_rss_kib": 161188
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 3.3453824989846908,
+          "peak_rss_kib": 180720
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 7.954549343965482,
+          "peak_rss_kib": 274432
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 25.047105212986935,
+          "peak_rss_kib": 363084
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 29.955552454979625,
+          "peak_rss_kib": 363084
+        }
+      ],
+      "peak_rss_kib": 363084,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "12da38a3247fea5532d9a392947bd67cca0f7b0409a29ad0bd75222dc8fa3f9f",
+        "instruction_pipeline_detail.csv": "11e2b5f928d72c830acea03adc601603daef640d8c1bcd807b4ccd8bfe29c71c"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/regression/ldl_block_explicit_v1",
+      "operator": "ldl_block_explicit_v1",
+      "iterations": null,
+      "batch_size": 96,
+      "finish_cycle": 21665,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 2.961075177998282,
+          "peak_rss_kib": 181408
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 3.9329992179991677,
+          "peak_rss_kib": 203076
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 9.162398936983664,
+          "peak_rss_kib": 310416
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 28.4295414959779,
+          "peak_rss_kib": 390156
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 33.631306918978225,
+          "peak_rss_kib": 390156
+        }
+      ],
+      "peak_rss_kib": 390156,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "772a99368505e10971610a828211d750010924bd5970bdbcd291b4ede2bc6f44",
+        "instruction_pipeline_detail.csv": "3dda36c766758f561c853372c013af3f7a2f128b69cbacfd8d0f2cc77dc82eae"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/bri_implicit/2026-11-09-v1/regression/cholesky_merge_explicit_v1",
+      "operator": "cholesky_merge_explicit_v1",
+      "iterations": null,
+      "batch_size": 96,
+      "finish_cycle": 19028,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 2.3743791190208867,
+          "peak_rss_kib": 153892
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 3.1789988090167753,
+          "peak_rss_kib": 172412
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 7.3479394590249285,
+          "peak_rss_kib": 261660
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 21.600815054029226,
+          "peak_rss_kib": 353136
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 26.795932898006868,
+          "peak_rss_kib": 353136
+        }
+      ],
+      "peak_rss_kib": 353136,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "f209a9990e3219a6366c9ba2dbe330ba94bd4010724b5cad36fc813066e70336",
+        "instruction_pipeline_detail.csv": "89fe23689762baef8b162392890c94284806ada216279760f2ae4a7f441a2b21"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/regression/bri_implicit_fp16_v1",
+      "operator": "bri_implicit_fp16_v1",
+      "iterations": 33,
+      "batch_size": 96,
+      "finish_cycle": 33999,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 5.887502191995736,
+          "peak_rss_kib": 316048
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 7.622556857008021,
+          "peak_rss_kib": 358808
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 17.70979074202478,
+          "peak_rss_kib": 561724
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 42.91529655101476,
+          "peak_rss_kib": 584240
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 53.299651314970106,
+          "peak_rss_kib": 584240
+        }
+      ],
+      "peak_rss_kib": 584240,
+      "within_2gib": true,
+      "statistics_byte_equal": true,
+      "statistics_hashes": {
+        "pipeline_statistics.json": "796d5e716bdcaf6e9d02e85be367d5590f1e2b95bfba52d4d4d1d9113632c23f",
+        "instruction_pipeline_detail.csv": "4a11170edbb8555f4522d9cd0af4dabc7c303ad1043a406e6ffca198a78d54d9"
+      },
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    }
+  ],
+  "attempts": [
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01",
+      "operator": "bri_stable_hb_fp16_v1",
+      "iterations": 174,
+      "batch_size": 96,
+      "finish_cycle": 141017,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 21.59852773998864,
+          "peak_rss_kib": 1487732
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 28.32902472198475,
+          "peak_rss_kib": 1639304
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 74.82947176700691,
+          "peak_rss_kib": 2950680
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 156.08405538799707,
+          "peak_rss_kib": 3181332
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 191.62315639900044,
+          "peak_rss_kib": 3181332
+        }
+      ],
+      "peak_rss_kib": 3181332,
+      "within_2gib": false,
+      "statistics_byte_equal": true,
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    },
+    {
+      "status": "SEALED_ASIM_RECHECK_PASSED",
+      "source": "/home/nanajiang/Asim/results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01",
+      "operator": "bri_stable_hb_fp16_v1",
+      "iterations": 174,
+      "batch_size": 96,
+      "finish_cycle": 141017,
+      "phase_measurements": [
+        {
+          "phase": "load_and_binding",
+          "elapsed_seconds": 21.85996354999952,
+          "peak_rss_kib": 1115440
+        },
+        {
+          "phase": "trace_coverage",
+          "elapsed_seconds": 28.685160841967445,
+          "peak_rss_kib": 1267072
+        },
+        {
+          "phase": "pipeline_statistics",
+          "elapsed_seconds": 72.7879815310007,
+          "peak_rss_kib": 2135684
+        },
+        {
+          "phase": "runtime_schedule",
+          "elapsed_seconds": 157.39644317299826,
+          "peak_rss_kib": 2251492
+        },
+        {
+          "phase": "all_batches_replayed",
+          "elapsed_seconds": 193.40839884796878,
+          "peak_rss_kib": 2251492
+        }
+      ],
+      "peak_rss_kib": 2251492,
+      "within_2gib": false,
+      "statistics_byte_equal": true,
+      "schedule_exact_equal": true,
+      "outputs_bit_equal": true,
+      "pure_model_thinking_seconds": null,
+      "scope": "reuses hash-verified accepted Asim; not a new simulation or new independent algorithm reference run"
+    }
+  ],
+  "test_count": 249,
+  "binary_unchanged": true,
+  "scope": "software evaluator; nine sealed actual Asim cases, full high-K replay; fresh daily cases separately sealed",
+  "pure_model_thinking_seconds": null
+}

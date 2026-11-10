@@ -45,3 +45,6 @@ check.py读取已有完整Asim证据，不是绕过Asim的新候选入口。该�
 下一步M2：在全新校准集研究更紧谱界/复用及流水，保留2%与QPSK质量硬门禁。H590留出只回归不选K。冷构建跨环境复现、完整性能评分/晋级及持久协调器仍未完成；硬件时序由负责人上板另验。
 
 QPSK Replayer集成检查：使用封存真实K16模板和既有H59001完整96batch重放，新读取器输出与旧CDL封存输出逐位一致，独立任务参考相等；墙钟13.58秒，参考3.00秒、实际重建6.81秒。见[结果](replayer_smoke.json)。复用旧输入，不增加独立留出数量。
+
+
+M1解析器边界补丁v2：补充小数/指数顶层元数据跨chunk读取测试并修正误拒绝；实际九入口的instructions对象及header整体解码路径不变。新live pin为orchestrator/codex_runtime_memory_v2.json（91文件），v1清单保留。最终250测试及v2默认NS新Asim通过，五类关键文件与v1逐字节一致；HB/九入口完整内存实测属于v1原验收，未冒称在v2重跑全部。见experiments/memory/2026-11-10-v1/parser_v2_manifest.json。
