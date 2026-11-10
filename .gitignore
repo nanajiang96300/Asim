@@ -30,3 +30,7 @@ results/**
 .DS_Store
 Thumbs.db
 results/
+
+# Generated expert source distribution (tracked builder and audit live separately)
+expert_delivery/*
+!expert_delivery/README.md
