@@ -1,0 +1,126 @@
+{
+  "status": "SINGLE_CASE_CHECKED",
+  "cases": [
+    {
+      "family": "ns",
+      "operator": "ns_corrected_v1",
+      "iterations": 16,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "numeric_status": "EXECUTED",
+      "schedule_status": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 7950,
+      "reason": null,
+      "failed_batches": [],
+      "max_task_error": 0.0010572646001804395,
+      "algorithm_bits_equal": true,
+      "batch_size": 96,
+      "nr": 64,
+      "nt": 16,
+      "nrhs": 8,
+      "regularization": 0.1,
+      "seed": 42,
+      "phase_timings_seconds": {
+        "setup": 0.03374988998984918,
+        "asim": 4.928736136003863,
+        "artifact_and_schedule_checks": 5.133975441043731,
+        "independent_references": 1.3023233989952132,
+        "instruction_replay_and_comparison": 3.5291366209858097
+      },
+      "comparison_identity": "f8b2a03c5c42dd90513b8f057d9a89142f1c4ce1c17bc455b588c826f839b168",
+      "artifacts_before_cleanup": [
+        {
+          "path": "asim.json",
+          "bytes": 1909,
+          "sha256": "fd10d6e84e446df42b59de7ae087903b91423c984d967e924ef0014eeea163f7"
+        },
+        {
+          "path": "channel.npz",
+          "bytes": 2556640,
+          "sha256": "80c7c8cb839762a707e11cb9014bf36376ee372c870c53d7c1ddce56582a9396"
+        },
+        {
+          "path": "config.json",
+          "bytes": 12694,
+          "sha256": "2a95458c3aabe3e439369a59b7c5f9dfe61be4cb756073b75cb726b93444b1ce"
+        },
+        {
+          "path": "dispatch.jsonl",
+          "bytes": 397284,
+          "sha256": "8fbf85bb03ab533ebc9e7ca83a4ee0b04a2672838b94206592eda1c7427f94cf"
+        },
+        {
+          "path": "formula.json",
+          "bytes": 4299834,
+          "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+        },
+        {
+          "path": "inputs.npz",
+          "bytes": 1184722,
+          "sha256": "504ac30e409fca63c15848496623cbc77466f26709dd5d6542771e1b68def63a"
+        },
+        {
+          "path": "instruction_pipeline_detail.csv",
+          "bytes": 1543121,
+          "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+        },
+        {
+          "path": "instructions.jsonl",
+          "bytes": 9856863,
+          "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+        },
+        {
+          "path": "models.json",
+          "bytes": 1514,
+          "sha256": "35c3876b5352f86f947aa3f0affab7550df216164aad609c5bd4c15f2cecccc9"
+        },
+        {
+          "path": "numerics_started.json",
+          "bytes": 79,
+          "sha256": "18af3463d3d3a0caadc4d11a39a793aea064f8f0d393e332d2a1562bbfee8509"
+        },
+        {
+          "path": "outputs.npy",
+          "bytes": 393344,
+          "sha256": "7988be9aa518f0d10c9e912965b8f6a81368168aabbcd5ca1fb400063858d5dd"
+        },
+        {
+          "path": "pipeline_statistics.json",
+          "bytes": 6867268,
+          "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+        },
+        {
+          "path": "references.npz",
+          "bytes": 689138,
+          "sha256": "c01fb36f688dfcd348b9a78444eb46b99b3291f4655e5043543cd4522737a9e1"
+        },
+        {
+          "path": "rw_events.jsonl",
+          "bytes": 40848968,
+          "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+        },
+        {
+          "path": "schedule.json",
+          "bytes": 17665,
+          "sha256": "9330dc8b3b84f00ce7123ec8a35d4bbe986847e697a11758855348980657f5e2"
+        },
+        {
+          "path": "simulator.log",
+          "bytes": 34409,
+          "sha256": "5adf17c54a08c32b723d8a773b781c2665482e31e6e7fdd0639845a3fc6e99f4"
+        },
+        {
+          "path": "trace.csv",
+          "bytes": 2727490,
+          "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+        }
+      ],
+      "raw_retained": false,
+      "score": null
+    }
+  ],
+  "binary_sha256": "ddf9deec19d6c87ed754d5bcfbf3ae44f586b9773731b95a9bd0d5094fe84428",
+  "numpy_version": "2.5.0",
+  "elapsed_seconds": 15.000805977033451,
+  "scope": "one Rayleigh seed, lambda.1,96batch; not all CDL/communication/hardware certification",
+  "raw_artifact_notice": "hashes describe generated files before optional cleanup, not files claimed present"
+}

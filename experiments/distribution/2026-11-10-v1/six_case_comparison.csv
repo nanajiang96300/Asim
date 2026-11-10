@@ -1,0 +1,7 @@
+family,operator,K_or_sentinel,batch_size,cycles,max_mmse_relative_error,bit_equal,status
+cholesky,cholesky_explicit_v1,1,96,28006,0.002540446411632566,True,MODELED_NUMERIC_CHECKED
+ldl,ldl_explicit_v1,1,96,18697,0.0025429260086430846,True,MODELED_NUMERIC_CHECKED
+cholesky-block,cholesky_block_explicit_v1,1,96,21338,0.0021832678897203187,True,MODELED_NUMERIC_CHECKED
+ldl-block,ldl_block_explicit_v1,1,96,21665,0.001939232398760982,True,MODELED_NUMERIC_CHECKED
+ns,ns_corrected_v1,16,96,7950,0.0010572646001804395,True,MODELED_NUMERIC_CHECKED
+bri,bri_explicit_v1,192,96,23047,0.0014970988110490763,True,MODELED_NUMERIC_CHECKED

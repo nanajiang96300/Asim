@@ -1,0 +1,12 @@
+{
+  "files_checked": 113,
+  "missing": [],
+  "changed": [
+    "verification/tests/test_channel_study.py",
+    "verification/tests/test_qpsk_link.py"
+  ],
+  "expected_packaging_only_test_adaptations": [
+    "verification/tests/test_channel_study.py",
+    "verification/tests/test_qpsk_link.py"
+  ]
+}

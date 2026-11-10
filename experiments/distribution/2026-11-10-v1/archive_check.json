@@ -1,0 +1,9 @@
+{
+  "archive": "expert_delivery/asim-expert-v1.tar.gz",
+  "bytes": 37399692,
+  "sha256": "1583732bcc831e6bb6d9bcf61403eacb1af8662ac15a486d336550558fab2387",
+  "members": 17963,
+  "fresh_extraction_manifest": "PASS",
+  "tampered_readme_rejected": true,
+  "no_data_results_build_or_symlinks": true
+}

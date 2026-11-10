@@ -1,5 +1,7 @@
 # Asim 研究与 Codex 自动化计划
 
+2026-11-10 专家Linux x86_64／WSL2源码部署包已生成：六类修正入口各96batch真实Asim/重建与独立FP16位一致、2% MMSE门禁通过；250测试中248通过、2可选依赖跳过；含空格目录迁移NS和解压SHA/篡改负例通过。交付不含数据/结果/build/账号；WSL2及跨主机未实测，不升级CDL/通信/硬件/性能状态。见[交付入口](../../expert_delivery/README.md)、[验收报告](../../experiments/distribution/2026-11-10-v1/README.md)。原BRI内循环基线与后续计划不变。
+
 2026-11-10 BRI内循环0001已完成：同Model独立候选分支，状态槽轮换消除两次copy/轮，三档周期减少5.00%/6.35%/6.93%，精度与基线位一致；新192-H CDL/QPSK及同输入基线配对重放通过。追加台账/基线快照/详细流水已落地，默认基线未切换，M3未晋级。见[本轮报告](../../experiments/optimization/bri/inner-0001/README.md)、[统计规则](OPTIMIZATION_TRACKING.md)。
 
 M1当前运行时：`orchestrator/codex_runtime_memory_v2.json`（91文件），含数值元数据跨块解析补丁；最终250测试、v2默认NS新Asim通过。原v1九入口/高K资源验收保留，细节见内存优化报告的v2补充。

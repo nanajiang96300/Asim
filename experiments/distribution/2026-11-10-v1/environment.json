@@ -1,0 +1,33 @@
+{
+  "date_utc": "2026-11-10",
+  "host": "nanajiangserver",
+  "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+  "architecture": "x86_64",
+  "cpu_count": 2,
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cmake": "cmake version 3.28.3",
+  "python": "3.12.3",
+  "build_jobs": 1,
+  "source_commit": "0aa874e16853aaccb5d43560c9d4ae69337696c3",
+  "packaging_commit": "c138ffecbe903b1c7aba21e431b38e327789ef54",
+  "src_files_compared": 151,
+  "src_sha_mismatches": [],
+  "wsl2_execution": "NOT_RUN",
+  "cross_host_execution": "NOT_RUN",
+  "cpp_dependencies": "vendored sources; no Conan/FetchContent at target",
+  "python_dependencies": "isolated venv, offline bundled pip/NumPy wheels",
+  "unit_tests": {
+    "count": 250,
+    "passed": 248,
+    "skipped": 2,
+    "failed": 0
+  },
+  "raw_test_data_in_delivery": false,
+  "binary_sha256": "ddf9deec19d6c87ed754d5bcfbf3ae44f586b9773731b95a9bd0d5094fe84428",
+  "ramulator_sha256": "ae8cd3984288dc8a845df66194f93f03c16a962b20e6320c617cdfcdd3cdb8a8",
+  "relocation_path_with_spaces": "PASS",
+  "fresh_relocation_configure": "PASS",
+  "relocated_ns_actual_asim_and_replay": "PASS",
+  "bootstrap_recheck": "PASS",
+  "final_unit_log": "results/distribution-unit-tests-final.log"
+}

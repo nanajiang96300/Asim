@@ -1,0 +1,30 @@
+{
+  "initial_configure_issues": [
+    "protobuf src/Makefile.am needed by upstream install configuration",
+    "Ramulator src/test contains compiled simulator code and must be retained"
+  ],
+  "initial_compile_issue": "ONNX_API export macro omitted from portable CMake, causing cascade errors in generated protobuf classes; generated protoc3.18.1 and vendored protobuf3.18.1 versions match",
+  "fix": "define ONNX_API empty for static Linux build, as upstream ONNX CMake does",
+  "python_bootstrap": "system ensurepip absent; use venv --without-pip and bundled official pip wheel to install offline",
+  "isolated_tests": {
+    "tests": 250,
+    "skips": 2,
+    "failures": 0,
+    "skips_scope": [
+      "optional scipy independent interval check",
+      "optional torch/sionna CDL channel generation"
+    ]
+  },
+  "operator_source_files": 151,
+  "operator_source_sha_mismatches": [],
+  "python_prototype_example": {
+    "algorithm": "NS",
+    "iterations": 16,
+    "batch_size": 96,
+    "max_task_relative_error": 0.0010572646001804355,
+    "operator_verified": false
+  },
+  "initial_link_issue": "bundled fmt non-inline/explicit instantiation symbols missing; add upstream spdlog/src/bundled_fmtlib_format.cpp as static bundled_fmt with private SPDLOG_COMPILED_LIB, no Asim source changes",
+  "successful_build_log": "results/distribution-build-v4.log",
+  "bootstrap_script_recheck": "PASS (offline install + configure + build, existing final build)"
+}

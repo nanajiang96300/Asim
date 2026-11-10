@@ -303,3 +303,14 @@ BRI优化计入内循环，子类型分指令/布局/流水与参数/精度；�
 固定BRI-HB基线bri-hb-base-v1，首轮bri-hb-inner-0001只轮换previous/x/value物理角色，K16/53/174与公式/精度不变。真实周期18409→17488、47121→44128、141017→131248（减少5.003%/6.352%/6.928%），三档与基线/独立参考逐FP16位一致。全新H61001/61002共192独立H复用三SNR、576batch实际重建及QPSK门禁通过，最大任务误差0.840812%/0.971608%/0.817267%。旧基线在同新H/载荷上重放576batch也与候选位一致，不把旧H590质量混作配对比较，不在新留出上调K。
 
 统一experiments/optimization/bri：baseline-v1.json不可变快照；inner-NNNN保存candidate/contract、差异、参数/周期/误差/流水/审计/manifest；ledger.jsonl只追加hash链事实，comparison.csv由台账生成。每档单独记录，失败/跳过/不支持保留，score在M3前为null；原始制品进入results/optimization/bri/inner-NNNN，论文固定paper_archive索引。首轮基线/候选验证器版本区别保留，M1兼容证据单列，不改写旧周期测量。说明OPTIMIZATION_TRACKING.md，本轮报告experiments/optimization/bri/inner-0001/README.md。
+
+
+## D037 — 专家离线源码部署包与验收边界（2026-11-10）
+
+交付固定expert_delivery/asim-expert-v1/与同名tar.gz，工具/模板在packaging/，小型证据集中experiments/distribution/2026-11-10-v1/；生成包不进Git。仅随包分发源码、配置、小型测试fixture、skill和带许可证的第三方依赖源码/官方wheel；不分发研究数据/结果、账号、Conan元数据、Git历史、原服务器binary/build/venv。构建使用独立源依赖CMake，原151个src文件SHA不变。验证核心/独立参考不变，仅两项部署测试适配，详见验收报告。
+
+默认六家族使用已有修正入口，旧实现及Merge/HB变体有源码不等于本轮验收。固定Rayleigh seed42/Nr64/Nt16/RHS8/batch96/λ0.1、FP16存储/FP32临时模型、全H/Y→MMSE边界；六类均通过真实Asim/保守事件检查/实际重建/同算法逐位比较/2%任务门禁。相同96个H被六类复用，不计作576独立信道。250测试248通过、2可选依赖跳过。旧CDL失败、通信/硬件/性能晋级状态不变。
+
+从新交付目录源码构建、最终bootstrap离线复跑通过；移至含空格目录后新空build配置与实际NS重建通过，ldd仅包内Ramulator和系统库、相对RUNPATH。WSL2与另一主机未实测，不能称跨主机认证。清除包内本轮生成数据/构建缓存后生成16541文件SHA清单并压缩；重新解压完整性与篡改拒绝通过。只在包外保留小型摘要/版本/哈希，原始测试数据按本轮授权删除，摘要的制品SHA不表示文件仍在。企业机下一步运行同一门禁补充跨环境证据。
+
+skill解释为受约束的Agent设计/实现/审计流程，不是Python自动编译器；重建区分实际指令、独立同算法模型及FP64任务参考。typed views与真实指令地址/成本绑定属于软件可信边界，不冒充NPU微码/硬件时序证明。两项原理说明随包提供，原研究轨迹不覆盖。
