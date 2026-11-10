@@ -69,3 +69,7 @@ CLI显式选择precision8结构profile并写入receipt；不会把precision2模�
 
 
 M1读取规则（2026-11-10）：日常重建与QPSK Replayer使用incremental load_operation。相同物理view可能以只读描述共享；审计/负例需要编辑时先deepcopy目标单条指令，不要原地写共享view。此优化不改变实际JSON格式、原始Instruction或数值张量，未知语义仍拒绝。见experiments/memory/2026-11-10-v1/README.md。
+
+## 同一算法的内循环候选（2026-11-10）
+
+上述“新增Model/mode”针对新算法/任务契约。既有算法的指令/布局/流水优化默认同一Model/mode，在独立candidate分支/worktree/build中提交，不强制每轮复制新类或增加全局if。主工作区保留基线；candidate_id+commit+binary+run_id作为不可变身份，结果统一追加到experiments/optimization/<family>/ledger.jsonl。只有算法或契约实质变化才新入口；统计规则以OPTIMIZATION_TRACKING.md为准，不用分支名代替冻结commit。
