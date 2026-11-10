@@ -160,3 +160,6 @@ M1不能借减少batch、K或观察覆盖来达到内存指标；M2不能把新H
 
 
 2026-11-10 M1完成更新：九入口封存实际Asim制品全量回归保持统计字节、事件报告、完整输出位一致；HB K174/batch96事件检查及重建峰值1.88GiB，249测试。新runtime codex_runtime_memory_v1.json（91文件），旧90文件pin保留且配合原Git版本复现；不升级旧算子CDL质量状态。下一优先任务M2新校准的更紧谱界/复用/流水；冷构建跨环境复现、评分晋级与持久协调器仍待。详见[本轮报告](../../experiments/memory/2026-11-10-v1/README.md)。
+
+
+2026-11-10 BRI内循环更新：M2首轮纯指令内循环已通过软件门禁，candidate bri-hb-inner-0001独立分支，base-v1和默认runtime保持。下一步可在该候选上预声明依赖安全的同步/流水或复用优化，先冻结新candidate/参数；若改谱界/K则新校准与新留出。M3冷构建复现/晋级和持久协调器仍待。 证据：[inner-0001](../../experiments/optimization/bri/inner-0001/README.md)，统一规则OPTIMIZATION_TRACKING.md。

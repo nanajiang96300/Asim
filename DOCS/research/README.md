@@ -1,5 +1,7 @@
 # Asim 研究与 Codex 自动化计划
 
+2026-11-10 BRI内循环0001已完成：同Model独立候选分支，状态槽轮换消除两次copy/轮，三档周期减少5.00%/6.35%/6.93%，精度与基线位一致；新192-H CDL/QPSK及同输入基线配对重放通过。追加台账/基线快照/详细流水已落地，默认基线未切换，M3未晋级。见[本轮报告](../../experiments/optimization/bri/inner-0001/README.md)、[统计规则](OPTIMIZATION_TRACKING.md)。
+
 M1当前运行时：`orchestrator/codex_runtime_memory_v2.json`（91文件），含数值元数据跨块解析补丁；最终250测试、v2默认NS新Asim通过。原v1九入口/高K资源验收保留，细节见内存优化报告的v2补充。
 
 2026-11-10 M1更新：通用重建内存优化已完成九入口封存制品回归，HB K174/batch96完整事件检查与重建峰值1.88GiB，统计字节/事件报告/输出位一致；新91文件runtime及真实日常NS/HB冒烟验收见[内存优化报告](../../experiments/memory/2026-11-10-v1/README.md)。不改算子/K/精度/门限，不升级旧CDL失败。下一优先任务M2：新校准集上的谱界/复用/流水优化。

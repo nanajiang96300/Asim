@@ -164,3 +164,6 @@ Q3a/Q3b证据见 [通信验收](COMMUNICATION_VERIFICATION.md)及[响应代理�
 
 
 2026-11-10 M1完成更新：九入口封存实际Asim制品全量回归保持统计字节、事件报告、完整输出位一致；HB K174/batch96事件检查及重建峰值1.88GiB，249测试。新runtime codex_runtime_memory_v1.json（91文件），旧90文件pin保留且配合原Git版本复现；不升级旧算子CDL质量状态。下一优先任务M2新校准的更紧谱界/复用/流水；冷构建跨环境复现、评分晋级与持久协调器仍待。详见[本轮报告](../../experiments/memory/2026-11-10-v1/README.md)。
+
+
+2026-11-10 BRI内循环更新：纯指令等价优化冻结原算法/K，不重复选K；本轮新H610作独立验收、基线同输入配对重放。改谱界/阻尼/预条件/K仍需独立新校准→冻结→新留出。周期预筛仍先于数值，评分/晋级未完成前score=null。 证据：[inner-0001](../../experiments/optimization/bri/inner-0001/README.md)，统一规则OPTIMIZATION_TRACKING.md。

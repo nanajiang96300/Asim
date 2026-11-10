@@ -64,3 +64,6 @@ F16-4的设计/独立构建/实际Asim/真实指令重建/同算法位一致/负
 
 
 2026-11-10固定HB更新：固定HB在无oracle谱界与原有FP16原语上完成新Asim入口和实际重建/CDL-B验收，替代上一阶段“仅设计”的后续状态，不升级旧入口。保守界导致K174和141017周期，后续优化需保持硬质量门禁。 证据：[固定HB原生报告](../../experiments/fixed_hb_native/2026-11-09-v2/README.md)。
+
+
+2026-11-10 BRI内循环更新：inner-0001状态轮换已通过真实周期/实际重建/新CDL与QPSK门禁，三档减少5.00/6.35/6.93%且与基线位一致。归内循环instruction_layout，不改K/谱界/精度，不替代历史BRI，不自动晋级。 证据：[inner-0001](../../experiments/optimization/bri/inner-0001/README.md)，统一规则OPTIMIZATION_TRACKING.md。

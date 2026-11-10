@@ -102,3 +102,6 @@
 首批 ADR 建议：任务输出采用 x_hat；IR 双后端；评分质量硬门禁；Claude/Codex 平行适配；可信评估器隔离；统一预处理成本。
 
 首版评分和门禁不因候选表现临时调整。必要修改需新 suite/scorer 版本，并重跑旧冠军，保留新旧结果。
+
+
+2026-11-10 BRI内循环更新：同算法内循环不强制新Model；独立candidate分支/worktree/build，固定baseline_id、parent_candidate_id和commit/hash。台账ledger.jsonl只追加，CSV可重建，不把分支名或自报分数当证据。 证据：[inner-0001](../../experiments/optimization/bri/inner-0001/README.md)，统一规则OPTIMIZATION_TRACKING.md。

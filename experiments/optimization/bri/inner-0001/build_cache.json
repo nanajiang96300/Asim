@@ -1,0 +1,2459 @@
+{
+  "status": "ISOLATED_INCREMENTAL_CACHE_PREPARED",
+  "base_worktree": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109",
+  "base_commit": "bd1e520b74ce63920bffbecb8a55558d617b509e",
+  "candidate_worktree": "/home/nanajiang/asim-worktrees/bri-inner-0001",
+  "candidate_commit": "88acdaed5e2f565f76a1a9f91f789ff07a440c67",
+  "base_binary_sha256": "fd18ab44082d2c1e86981d0aaaed007ef429f368d07a2becb065ddaf9c3bd6da",
+  "unchanged_cpp_sources": [
+    "src/Mapping.cc",
+    "src/TraceLogger.h",
+    "src/Tensor.h",
+    "src/SystolicOS.cc",
+    "src/Interconnect.cc",
+    "src/Sram.h",
+    "src/FormulaLogger.h",
+    "src/Interconnect.h",
+    "src/SystolicWS.h",
+    "src/Simulator.cc",
+    "src/main.cc",
+    "src/Hashing.h",
+    "src/Hashing.cc",
+    "src/Dram.h",
+    "src/Stat.h",
+    "src/TraceLogger.cc",
+    "src/SystolicWS.cc",
+    "src/Sram.cc",
+    "src/SystolicOS.h",
+    "src/Model.h",
+    "src/FormulaLogger.cc",
+    "src/Mapping.h",
+    "src/Dram.cc",
+    "src/Model.cc",
+    "src/Common.h",
+    "src/Simulator.h",
+    "src/Tensor.cc",
+    "src/Core.cc",
+    "src/Instruction.h",
+    "src/Core.h",
+    "src/Common.cc",
+    "src/SimulationConfig.h",
+    "src/models/LanguageModel.h",
+    "src/models/MatmulModel.cc",
+    "src/models/LanguageModel.cc",
+    "src/models/MatmulModel.h",
+    "src/allocator/AddressAllocator.h",
+    "src/helper/HelperFunctions.h",
+    "src/helper/CommandLineParser.cc",
+    "src/helper/CommandLineParser.h",
+    "src/operations/Dummy.h",
+    "src/operations/ConvOS.cc",
+    "src/operations/AdaptiveAvgPool.h",
+    "src/operations/GemmWS.cc",
+    "src/operations/KVCacheConcat.cc",
+    "src/operations/SeriesInverseOp.cc",
+    "src/operations/Softmax.cc",
+    "src/operations/ConvWS.cc",
+    "src/operations/OperationFactory.cc",
+    "src/operations/Operation.h",
+    "src/operations/SkipLayerNorm.cc",
+    "src/operations/MaxPool.h",
+    "src/operations/Conv.h",
+    "src/operations/Concat.h",
+    "src/operations/Conv.cc",
+    "src/operations/Gemm.h",
+    "src/operations/Softmax.h",
+    "src/operations/Flatten.cc",
+    "src/operations/Attention.cc",
+    "src/operations/OperationFactory.h",
+    "src/operations/ConvWS.h",
+    "src/operations/BiasGelu.h",
+    "src/operations/MaxPool.cc",
+    "src/operations/SkipLayerNorm.h",
+    "src/operations/Concat.cc",
+    "src/operations/AdaptiveAvgPool.cc",
+    "src/operations/GemmOS.cc",
+    "src/operations/Attention.h",
+    "src/operations/EmbedLayerNorm.cc",
+    "src/operations/EmbedLayerNorm.h",
+    "src/operations/Gemm.cc",
+    "src/operations/BiasAct.h",
+    "src/operations/ConvOS.h",
+    "src/operations/BiasAct.cc",
+    "src/operations/Operation.cc",
+    "src/operations/SeriesInverseOp.h",
+    "src/operations/BiasGelu.cc",
+    "src/operations/GemmOS.h",
+    "src/operations/Dummy.cc",
+    "src/operations/GemmWS.h",
+    "src/operations/Flatten.h",
+    "src/operations/GlobalAvgPool.cc",
+    "src/operations/KVCacheConcat.h",
+    "src/operations/GlobalAvgPool.h",
+    "src/semantic/SourceViews.h",
+    "src/semantic/ProgramModel.h",
+    "src/semantic/RwObserver.h",
+    "src/semantic/ScalarCostProbeModel.cc",
+    "src/semantic/RwProbeModel.cc",
+    "src/semantic/ProgramModel.cc",
+    "src/semantic/InstructionExport.cc",
+    "src/semantic/InstructionExport.h",
+    "src/semantic/ScalarCostProbeModel.h",
+    "src/semantic/RwProbeModel.h",
+    "src/scheduler/IterLevelScheduler.h",
+    "src/scheduler/LanguageScheduler.h",
+    "src/scheduler/Scheduler.cc",
+    "src/scheduler/LanguageScheduler.cc",
+    "src/scheduler/IterLevelScheduler.cc",
+    "src/scheduler/Scheduler.h",
+    "src/inverse/bri_stable_hb/BRIStableHBModel.h",
+    "src/inverse/ldl_explicit/LDLExplicitModel.h",
+    "src/inverse/ldl_explicit/LDLExplicitModel.cc",
+    "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc",
+    "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.h",
+    "src/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.cc",
+    "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.cc",
+    "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc",
+    "src/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.h",
+    "src/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.h",
+    "src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.h",
+    "src/inverse/ldl_block/LDLBlockBaselineOp.cc",
+    "src/inverse/ldl_block/LDLBlockBaselineOp.h",
+    "src/inverse/ldl_block/LDLBlockBaselineModel.h",
+    "src/inverse/ldl_block/LDLBlockBaselineModel.cc",
+    "src/inverse/cholesky_explicit/CholeskyExplicitModel.cc",
+    "src/inverse/cholesky_explicit/CholeskyExplicitModel.h",
+    "src/inverse/ns_corrected/NSCorrectedModel.h",
+    "src/inverse/ns_corrected/NSCorrectedModel.cc",
+    "src/inverse/structured_solve/StructuredSolveModel.h",
+    "src/inverse/structured_solve/StructuredSolveModel.cc",
+    "src/inverse/bri_explicit/BRIExplicitModel.h",
+    "src/inverse/bri_explicit/BRIExplicitModel.cc",
+    "src/inverse/bri_implicit/BRIImplicitModel.cc",
+    "src/inverse/bri_implicit/BRIImplicitModel.h",
+    "src/inverse/newton_schulz/NewtonSchulzBaselineModel.cc",
+    "src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc",
+    "src/inverse/newton_schulz/NewtonSchulzBaselineModel.h",
+    "src/inverse/newton_schulz/NewtonSchulzBaselineOp.h",
+    "src/inverse/newton_schulz/NewtonSchulzOp.h",
+    "src/inverse/newton_schulz/NewtonSchulzOp.cc",
+    "src/inverse/ldl_noblock/LDLNoBlockBaselineModel.cc",
+    "src/inverse/ldl_noblock/LDLNoBlockBaselineModel.h",
+    "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.h",
+    "src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc",
+    "src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc",
+    "src/inverse/cholesky_block/CholeskyBlockBaselineModel.h",
+    "src/inverse/cholesky_block/CholeskyBlockBaselineOp.h",
+    "src/inverse/cholesky_block/CholeskyBlockBaselineModel.cc",
+    "src/inverse/block_richardson/BlockRichardsonBaselineOp.cc",
+    "src/inverse/block_richardson/BlockRichardsonBaselineModel.cc",
+    "src/inverse/block_richardson/BlockRichardsonBaselineOp.h",
+    "src/inverse/block_richardson/BlockRichardsonBaselineModel.h"
+  ],
+  "changed_base_sources": [
+    "src/inverse/bri_stable_hb/BRIStableHBModel.cc"
+  ],
+  "new_sources": [],
+  "path_files_relocated": 593,
+  "objects": [
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Model.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Model.cc.o",
+      "bytes": 167016,
+      "sha256": "28b2aad12f4c5d7fb3c2f80760e5d575100d98e108bcd55390bde8def0f006de"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Core.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Core.cc.o",
+      "bytes": 306240,
+      "sha256": "350534f68fd5ece2b0dd11b278d09cccdd41224752e3819f0319125c521b3fd9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Simulator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Simulator.cc.o",
+      "bytes": 159624,
+      "sha256": "5f53beab6210bcc2fd832fe9c854d3d1b622f00c33421d17acf931a7a7dc5f07"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/SystolicOS.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/SystolicOS.cc.o",
+      "bytes": 36152,
+      "sha256": "b407ec7ca13f5abd54c10ddcf29f5ec281f7cfee718852efd72a2dc356295fac"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Common.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Common.cc.o",
+      "bytes": 154992,
+      "sha256": "b073a6bc7193b9cca9d67002b32c6a8da0d53e6d878f24acc0676fbb657d0ea8"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Mapping.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Mapping.cc.o",
+      "bytes": 96928,
+      "sha256": "bec9f39c7a9c1b17ba4b126f62f5217ea9abce59ccb7594ab3a5e511142280b1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/main.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/main.cc.o",
+      "bytes": 400744,
+      "sha256": "97703db02e8986863b1fdfce2f1afad4f29eb3d2c4607342f53a2f3b4ecbb922"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/TraceLogger.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/TraceLogger.cc.o",
+      "bytes": 16576,
+      "sha256": "336f3edb54e7844e87507a66ff30cc5915a3b51157224dde05e47ca602b65559"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/FormulaLogger.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/FormulaLogger.cc.o",
+      "bytes": 173008,
+      "sha256": "6db8951932c236e7abdde042cf1f351c7b1ca9375d31efbc505882c93a3f7e6e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Interconnect.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Interconnect.cc.o",
+      "bytes": 68712,
+      "sha256": "ee65e86b89b8a989a97f63c2aefd7e0909b612941425c9eaa34827251fd22f89"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Sram.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Sram.cc.o",
+      "bytes": 38312,
+      "sha256": "df23d96f681d51458b3efd83822c7efa8b1e1103afe0f10c4193cdaa701f267d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/SystolicWS.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/SystolicWS.cc.o",
+      "bytes": 197480,
+      "sha256": "41c6c8c01e6bcea83e319bb4dbd21b24bcd286963ccfc0e610fae07b7d1948e3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Hashing.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Hashing.cc.o",
+      "bytes": 2848,
+      "sha256": "09f65480e145feef28d4a0ff7ead1be59e78c0d791bd673fef6a710bc095392b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Tensor.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Tensor.cc.o",
+      "bytes": 64328,
+      "sha256": "7cf24b3cec1de043b817d8e604edf16546fbf41acc2d0267ac919d16cbc35307"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/Dram.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/Dram.cc.o",
+      "bytes": 81824,
+      "sha256": "b67926851ee4f03abaee3045147ba504b59b12e90d3db669b79da2768b0e36be"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/models/LanguageModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/models/LanguageModel.cc.o",
+      "bytes": 235472,
+      "sha256": "0168fed65777ee6c2b08ab05ccc31f629f80a2476fc3f7193877345f8e099aa0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/models/MatmulModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/models/MatmulModel.cc.o",
+      "bytes": 109184,
+      "sha256": "1bbe99d03db95a70694b69b3ed7a740ef4cfb3438cb3a873f0e9c5e3e2204205"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/helper/CommandLineParser.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/helper/CommandLineParser.cc.o",
+      "bytes": 24056,
+      "sha256": "9165946a89b586b81ad56aa0379d10a63befdcd7cfd09445d839f076f6e78a8d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/Dummy.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/Dummy.cc.o",
+      "bytes": 102704,
+      "sha256": "64d90d4418b8e9f858c8a45987c96714f66b274a409bdab2e8458d382ee4d3ef"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/OperationFactory.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/OperationFactory.cc.o",
+      "bytes": 128184,
+      "sha256": "106aa8facdc2b4a3f256517f502aff3d2f9f8f7d10b3e05e392d0b13d0d81896"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/SkipLayerNorm.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/SkipLayerNorm.cc.o",
+      "bytes": 129104,
+      "sha256": "7a439f76053e4c3bcb00537bb842c8a2389a275a1cf977dc2e9583bcd6f5b799"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/GemmOS.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/GemmOS.cc.o",
+      "bytes": 48088,
+      "sha256": "dbae8ee55a5049e31a6b06f87d7185bbe3dad60eca469fcf95df01fa8a2714f1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/Flatten.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/Flatten.cc.o",
+      "bytes": 105328,
+      "sha256": "9609a704b061e3e33aff4ff15cbbffee12531a39a8f173393e76c81657c774fe"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/ConvOS.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/ConvOS.cc.o",
+      "bytes": 84752,
+      "sha256": "63afbd11a82eac9aecf1cdaa6c327cb42f08b2cc460d8414157c1055f4e8f0bc"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/Softmax.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/Softmax.cc.o",
+      "bytes": 109752,
+      "sha256": "61aef80b230843f47584224a8f347e692f955918596dfb6cbfa6dd131f157a88"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/Attention.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/Attention.cc.o",
+      "bytes": 192472,
+      "sha256": "fad9fb9bd8a821ce24cbdd51939c32c6e1c374ee7dd49ae9263d506907f20a6b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/Conv.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/Conv.cc.o",
+      "bytes": 153112,
+      "sha256": "9ea7a6c74a753cd32c5ab82265d69cd34a40fe22a94bbd3cefa9069bc6069945"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/KVCacheConcat.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/KVCacheConcat.cc.o",
+      "bytes": 154008,
+      "sha256": "6e59db01a96d5f2c98959c6396916f282304ea114adbff5d1248c446384fb99a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/SeriesInverseOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/SeriesInverseOp.cc.o",
+      "bytes": 133696,
+      "sha256": "212d7ec6aac02af0fa3643bd66291d78284509ecd44fb3f0b99f6e2d0ba46648"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/EmbedLayerNorm.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/EmbedLayerNorm.cc.o",
+      "bytes": 110952,
+      "sha256": "cae277fb4d8a4da259ca0946ac7406daf5c2b98324250b76d7ef80c579abc984"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/Concat.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/Concat.cc.o",
+      "bytes": 125208,
+      "sha256": "8906148c86f2669623e2e6fb9f90d72a0c362ccdc6da778f4f8468c2574456be"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/GlobalAvgPool.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/GlobalAvgPool.cc.o",
+      "bytes": 76664,
+      "sha256": "95ad934df59cd72ff97b46bbd30b478f4b480b470bb6c047af7c22ef359f4b4c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/Gemm.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/Gemm.cc.o",
+      "bytes": 126008,
+      "sha256": "ae582627dd917aabc363146cad67525411f49e8f5c5e0165e04825b7c00f2263"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/MaxPool.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/MaxPool.cc.o",
+      "bytes": 115352,
+      "sha256": "8e626b5dfc32c522c11b2dadb3e470b57583a063af4888b22f5ef140e0b73c35"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/AdaptiveAvgPool.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/AdaptiveAvgPool.cc.o",
+      "bytes": 112448,
+      "sha256": "772c791733da4b7e4c8b09e168ea79e8b8504909f0ddf637067d6039bb6cd74c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/BiasGelu.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/BiasGelu.cc.o",
+      "bytes": 114496,
+      "sha256": "c6bdafda9454bda2faa79137c02e4b9faa5c6f7b5626de3a764b4339ad323827"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/GemmWS.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/GemmWS.cc.o",
+      "bytes": 147296,
+      "sha256": "d49f67966d895c6687d6093588e02050cd143a09591ace3994f56b36417a6e77"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/ConvWS.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/ConvWS.cc.o",
+      "bytes": 150976,
+      "sha256": "6998cb3e7510bd193427cabde711f15a50c10028ce989332bc245798ec7b3aa0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/Operation.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/Operation.cc.o",
+      "bytes": 178528,
+      "sha256": "05e6ab2b2ac348e3a2a39c2afea4430191d9f59e8d4724efce4618f2ebae30a3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/operations/BiasAct.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/operations/BiasAct.cc.o",
+      "bytes": 131728,
+      "sha256": "2e5a06a3374a317957d449e34b5b6829804f4421bbab3c93cac70784c8d2d25a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/semantic/RwProbeModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/semantic/RwProbeModel.cc.o",
+      "bytes": 170280,
+      "sha256": "6726b17a484328a79c5b8b8c3c2a9f185d7ddd80af7bc165a3eeaa89ff6611c8"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/semantic/ProgramModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/semantic/ProgramModel.cc.o",
+      "bytes": 211624,
+      "sha256": "0450de2f6853f97b8f2d6925a3faa1300eef7ebc289cb708cc620d85f1343730"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/semantic/InstructionExport.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/semantic/InstructionExport.cc.o",
+      "bytes": 147016,
+      "sha256": "f133f4ffad9bdf0fe0c46747579942ec8991fdfbac9bbd023b4c9ec672b9e8b9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/semantic/ScalarCostProbeModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/semantic/ScalarCostProbeModel.cc.o",
+      "bytes": 169640,
+      "sha256": "e39ac04296164e6cc4ca59ecb24ecdab6ac42ca476e678a0c16670263858b00e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/scheduler/Scheduler.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/scheduler/Scheduler.cc.o",
+      "bytes": 212160,
+      "sha256": "55d1056edbbf0ac632314f6a1f7c5d680a5e1ec66fcae07710ce98195ea02951"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/scheduler/LanguageScheduler.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/scheduler/LanguageScheduler.cc.o",
+      "bytes": 170200,
+      "sha256": "d6a0c73ff38e86fcb6d7230f2f7544534a254e81d1cde708de599cdff13e9e2b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/scheduler/IterLevelScheduler.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/scheduler/IterLevelScheduler.cc.o",
+      "bytes": 32488,
+      "sha256": "0934763c9093f02e1037c8a81dc44de286135f7e31949e82f9752ee09b72bf7b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/bri_stable_hb/BRIStableHBModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/bri_stable_hb/BRIStableHBModel.cc.o",
+      "bytes": 329288,
+      "sha256": "6656da72f0098b6d4ead19b0932ee21ce58d3773135aade87dbb6791e7ce16b0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/ldl_explicit/LDLExplicitModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/ldl_explicit/LDLExplicitModel.cc.o",
+      "bytes": 252624,
+      "sha256": "ee4abe1e9623c64462d6b3ca45c351db7d53836bd7381280b98e2368635ba4a0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc.o",
+      "bytes": 198152,
+      "sha256": "d710389308cce251155f334199d34371191408f4ddf5593ad9eb0720a02e36d1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.cc.o",
+      "bytes": 98728,
+      "sha256": "d0ccb75bed0ac5c2297a6b4dc2e9eaa5896eef6ce8c45d0d06b8f12b55cab8b9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.cc.o",
+      "bytes": 98856,
+      "sha256": "716b919b6dcefd4e0cb992b937483d870c3e474392d4c23e6664c56437d5e231"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc.o",
+      "bytes": 203680,
+      "sha256": "7c2543ec7d58958f4dc71f23e8105b2f33d0910209f6ea7abd00e192c78e54f2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/ldl_block/LDLBlockBaselineModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/ldl_block/LDLBlockBaselineModel.cc.o",
+      "bytes": 95120,
+      "sha256": "6dd66a7bf9b0ef8ffc61f32a73aa695bebcddcb25e4c2eb03bc40e031074686b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/ldl_block/LDLBlockBaselineOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/ldl_block/LDLBlockBaselineOp.cc.o",
+      "bytes": 214232,
+      "sha256": "c9b118ae65831a991c5d7fefc49badc13a5043f91659867d4ac0228d27dfcd2c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_explicit/CholeskyExplicitModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_explicit/CholeskyExplicitModel.cc.o",
+      "bytes": 262928,
+      "sha256": "62421ab0d236131a50d5b819a2fa0eadede4eb9351d01ea97dae85858c4515af"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/ns_corrected/NSCorrectedModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/ns_corrected/NSCorrectedModel.cc.o",
+      "bytes": 233480,
+      "sha256": "4c4ec17a079c292e034a886f1eedec6d5eacc44a03d1cd46e6da9be4047c6dca"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/structured_solve/StructuredSolveModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/structured_solve/StructuredSolveModel.cc.o",
+      "bytes": 288808,
+      "sha256": "a93e51758324300cceaab767c9614e8f16b58b76df857ed15873aaedc43b4e96"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/bri_explicit/BRIExplicitModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/bri_explicit/BRIExplicitModel.cc.o",
+      "bytes": 279704,
+      "sha256": "b3b28de6a4a4066618f96a640360f3cd0c2f7f7cc2805a93cf88ee47340c6e1c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/bri_implicit/BRIImplicitModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/bri_implicit/BRIImplicitModel.cc.o",
+      "bytes": 301368,
+      "sha256": "23112147e0b510f8ab076773cadd79eb6eeab3b3c5570ff4d0241afea9964e7b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/newton_schulz/NewtonSchulzBaselineOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/newton_schulz/NewtonSchulzBaselineOp.cc.o",
+      "bytes": 160696,
+      "sha256": "adc746fdb6e2604208379ecc08117c9ae877c752f505387a67a7afb9f4544acc"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/newton_schulz/NewtonSchulzOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/newton_schulz/NewtonSchulzOp.cc.o",
+      "bytes": 133728,
+      "sha256": "0233672dee0247d730d4ed9492bcc318985ad192bf4df6d6b9524c8fe9a9505e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/newton_schulz/NewtonSchulzBaselineModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/newton_schulz/NewtonSchulzBaselineModel.cc.o",
+      "bytes": 95464,
+      "sha256": "4a93838de6bf4db87cfd5a8cc651b9db2549e826571ad9174c0f798c24b9c4ac"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc.o",
+      "bytes": 226520,
+      "sha256": "8f0995e17a11f8b462cc1a2ef2251321a558e70278b140f26c8353a5a809f320"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/ldl_noblock/LDLNoBlockBaselineModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/ldl_noblock/LDLNoBlockBaselineModel.cc.o",
+      "bytes": 98680,
+      "sha256": "99b7cc8d826a253071d55981dc9107aef072c48a2f28fa977600d683aa33eb54"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_block/CholeskyBlockBaselineModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_block/CholeskyBlockBaselineModel.cc.o",
+      "bytes": 95240,
+      "sha256": "20571e97aa99493a011c01e353045bae599b02b2f36a0d817d37def1821a3d74"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_block/CholeskyBlockBaselineOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/cholesky_block/CholeskyBlockBaselineOp.cc.o",
+      "bytes": 216992,
+      "sha256": "a87bd1592d35707a4aa3cafe7bbe511a685cab2fd47e43b9a44d6720bb316db1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/block_richardson/BlockRichardsonBaselineModel.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/block_richardson/BlockRichardsonBaselineModel.cc.o",
+      "bytes": 96368,
+      "sha256": "d96e5c25cb31bfc0b7687605b16d4008f25061720027608f632453da6a6fdfb5"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/src/CMakeFiles/Simulator.dir/inverse/block_richardson/BlockRichardsonBaselineOp.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/src/CMakeFiles/Simulator.dir/inverse/block_richardson/BlockRichardsonBaselineOp.cc.o",
+      "bytes": 201256,
+      "sha256": "1cc95bf5daf2bc1470321069f10f3b92110b61c349b40b786c17879de0ba1629"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/field_mask.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/field_mask.pb.cc.o",
+      "bytes": 24920,
+      "sha256": "d9cf53c8e244a6bdda81bfe294393cc674b4f208f80a18799353cd9accd8bb4e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/inlined_string_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/inlined_string_field.cc.o",
+      "bytes": 4192,
+      "sha256": "ca6f98a7d5e173dccd47a3dfded25a3dd5be0b3234147135946b0678319b5911"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/empty.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/empty.pb.cc.o",
+      "bytes": 16760,
+      "sha256": "f09dc00bacd319876ea352116439d5bb7a172c3b066df8c61e746e507ac69700"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor.cc.o",
+      "bytes": 681704,
+      "sha256": "89931039bd170d882cec436e36cf69afaa81a78221edac99ed2b45241c2cd79b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/reflection_ops.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/reflection_ops.cc.o",
+      "bytes": 54336,
+      "sha256": "f230933a23053c4a8ea9d85e568d114941af331bbd0342667c96548830ec17d0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wrappers.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wrappers.pb.cc.o",
+      "bytes": 103832,
+      "sha256": "90e7468bb3e55b8e0008997228efdf42a8999b4d7c5a9de4bf0f7642fc654359"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor.pb.cc.o",
+      "bytes": 472536,
+      "sha256": "d03f74600c5262022e46b95097a73d27d4fdc0f369c69ed3a9526b363af2c62f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/api.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/api.pb.cc.o",
+      "bytes": 69136,
+      "sha256": "799db61fd0a0142513caf157b10609603e97a1d5f5b8df6281494239816a33f3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_reflection.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_reflection.cc.o",
+      "bytes": 232104,
+      "sha256": "89bfa33069592e90804cc51becdd24af0b4c1db275b4d53f786a64f7fbc0c50a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/map_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/map_field.cc.o",
+      "bytes": 177648,
+      "sha256": "bead9873aea208792f08215c9e4c2fb6a9bfe6b0831e0d77b7808cc1b00852f7"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wire_format.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wire_format.cc.o",
+      "bytes": 221248,
+      "sha256": "dd0e98fdde343b74f6ada81dfc2beca5ed49166f5a624ce3df74745bac001309"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_bases.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_bases.cc.o",
+      "bytes": 15184,
+      "sha256": "1a4206653280b13b5cb29896954d352e6f941ee85c71b68042e7699780f5bd1a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/text_format.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/text_format.cc.o",
+      "bytes": 334464,
+      "sha256": "94a5d0aa103136e54508877ca3b96a6dab465cbe00e5353f1696a393e6d49ee8"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/arena.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/arena.cc.o",
+      "bytes": 15640,
+      "sha256": "fdfc553919c822b7cb3d5d9d7ec4ce50264250c27d663d470dc25099b8f29f11"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any.cc.o",
+      "bytes": 8448,
+      "sha256": "db266d0465c0bc68ae4f0a37602acdca94b5d51e76088f513553c511a2b6ddd6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/unknown_field_set.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/unknown_field_set.cc.o",
+      "bytes": 35032,
+      "sha256": "82754983d7af7e20a2ca324a80524292331ad73c7d3bac64d92713ed29137fb2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/message_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/message_lite.cc.o",
+      "bytes": 77800,
+      "sha256": "3a472e9dfc4f4a9d5d5f6ffc708968dbf74f37f5a7bd76b0a1c5ec72fd42d2a0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor_database.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor_database.cc.o",
+      "bytes": 164368,
+      "sha256": "84019607858d30671ec223ee3cea34ae1d28248b322ea848d3eccf6069eb839e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/struct.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/struct.pb.cc.o",
+      "bytes": 181792,
+      "sha256": "6991af6c812498980639c12499023703875c077e24d3d4c1f22b91fe91320fe8"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/repeated_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/repeated_field.cc.o",
+      "bytes": 251056,
+      "sha256": "9362d1a0ee6b554198972ef8441f3c926558db58ab9ff101c1f416fae699f9e4"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any_lite.cc.o",
+      "bytes": 9504,
+      "sha256": "96dafa84cc76e9ec935afa8dcddfb8ba0b069e84e9c963313f9358a1f01792be"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any.pb.cc.o",
+      "bytes": 24616,
+      "sha256": "d0068031f2255d8a597d819da62fa558124f88e93389a94f4f2baa813c1da97e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_table_driven_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_table_driven_lite.cc.o",
+      "bytes": 100888,
+      "sha256": "1ad271215ccf5178e58ec6c2fcc8fabeb8afdd2be4f56aeddaa6c297ed4d0b20"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_table_driven.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_table_driven.cc.o",
+      "bytes": 94408,
+      "sha256": "436cdd259a037a90712d04f593dbdd15791597d98bc8412870e7341f0c2aceaa"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/extension_set.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/extension_set.cc.o",
+      "bytes": 194432,
+      "sha256": "f9ba3d6f4e1301fb4c9b516eaf878e8e6a68bf59e2dc9b2534b44d09e3cc565c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/arenastring.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/arenastring.cc.o",
+      "bytes": 17888,
+      "sha256": "c484af2b6d9ce94ca835d216242693c9bfd2b19bc6900775d375625f6a02b894"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wire_format_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wire_format_lite.cc.o",
+      "bytes": 43976,
+      "sha256": "3d2a32cca71ea49d5d038a7a264ed9b557ab2acb42ee86c51667f3792942d037"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/source_context.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/source_context.pb.cc.o",
+      "bytes": 23384,
+      "sha256": "da9a2d6bbd3c5dfb8a20bf9d08d4b4ec6df9652c9d83778aee636f9040ebda92"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/parse_context.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/parse_context.cc.o",
+      "bytes": 52440,
+      "sha256": "da0fdd8f4116d51f5a61d9891005a168e9ad8f7d140f98755a4d1c9168e46268"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/timestamp.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/timestamp.pb.cc.o",
+      "bytes": 21560,
+      "sha256": "0a922bcec1eb5879f852f369aea4d9329c653903f6d1a490e6b0d2ccfa7ab682"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/extension_set_heavy.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/extension_set_heavy.cc.o",
+      "bytes": 63232,
+      "sha256": "8a7a443cf258653881536a459e49c36518572cf9dd48c9bd47707aadde047339"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/service.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/service.cc.o",
+      "bytes": 5840,
+      "sha256": "821f2c85a159e4cc53a2e37a4b5664c715d491c6505dde991006057937eea201"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/implicit_weak_message.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/implicit_weak_message.cc.o",
+      "bytes": 14944,
+      "sha256": "6d62026ce0136cd175d3da58a6e72b5501c1d889f48704e74e0e3fa9e740a965"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_util.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_util.cc.o",
+      "bytes": 63680,
+      "sha256": "7992881f926928dd4bf9d6515b528f0a2b46cbb49474f52b8947fa3de8150686"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_enum_util.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_enum_util.cc.o",
+      "bytes": 3560,
+      "sha256": "2ad015c0786775153b97b1603a16ae9050a5d665f7e79fec3b8de5904d873021"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/map.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/map.cc.o",
+      "bytes": 1136,
+      "sha256": "f1ff26cd34d8c6c2da91dd51144034e1deb3eb44f35a4c1a51b6bac8895cf380"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/dynamic_message.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/dynamic_message.cc.o",
+      "bytes": 43904,
+      "sha256": "f4fa69609af6e5f17cade7ab52b3081385a8e596969c0568ccc5a4fe69d51036"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/message.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/message.cc.o",
+      "bytes": 147200,
+      "sha256": "00c791ce28d6f12383f28f30106d2167f597a41469c448d52641583f904f2c96"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/type.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/type.pb.cc.o",
+      "bytes": 106392,
+      "sha256": "9aab70210c88135839fffff858d9b21065fbedfb646175ab8406f09ec947a2c6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/duration.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/duration.pb.cc.o",
+      "bytes": 21512,
+      "sha256": "24bf2a511c90c24931cc5755b0010e28638b669fe7f5a16719de1a8ff8469f08"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/field_comparator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/field_comparator.cc.o",
+      "bytes": 24944,
+      "sha256": "3bae62fa58e8cf2a9366f1ed6e6c00b72643546098d8584d9caaa3cf3a1bb8c3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/time_util.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/time_util.cc.o",
+      "bytes": 25352,
+      "sha256": "ea5be534cf9929925e859d196f05eab73dfd623de9a8e549db65038dedf4f0aa"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/delimited_message_util.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/delimited_message_util.cc.o",
+      "bytes": 9120,
+      "sha256": "604322c7e51ee088131dc72a651f7348f5d90db843d2459546421a8305719b59"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/field_mask_util.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/field_mask_util.cc.o",
+      "bytes": 76384,
+      "sha256": "89d6681fa0e5bab5b8d048c7813d6bd64c109847239d6c5570f61f9de52af56a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/type_resolver_util.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/type_resolver_util.cc.o",
+      "bytes": 41656,
+      "sha256": "56be6891fcfa35f1a10d96f3adc371c9a4fdb28a688aa6e3dedfd05fdf2c73ea"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/json_util.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/json_util.cc.o",
+      "bytes": 46072,
+      "sha256": "5b78da9ba7eee5be2149c9bca5af55cb3bd4303ad202590c5d069b2a5ef884ff"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/message_differencer.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/message_differencer.cc.o",
+      "bytes": 249832,
+      "sha256": "d8a69988d64c2d7b314d5892b7828bd8708380553b2631108ae8671d65224820"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/substitute.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/substitute.cc.o",
+      "bytes": 8096,
+      "sha256": "f392163f7cc9bdf3bfd7b8341a921291b605a7490a5561c84dd0e465845cb5f1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/strutil.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/strutil.cc.o",
+      "bytes": 91416,
+      "sha256": "8089474fa6ed55731f9fe6a0de5900fbaa04eed81115b8766279149277591c2b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/common.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/common.cc.o",
+      "bytes": 29904,
+      "sha256": "ffe785befb5803a5b146bf9f58f2a57e0e6f562237c338ebe1d8fb7f649f6638"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/structurally_valid.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/structurally_valid.cc.o",
+      "bytes": 8464,
+      "sha256": "cb8ee30a524fe55452a290afc524a53c3925f52d9f0548d21201fada8196151a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/stringprintf.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/stringprintf.cc.o",
+      "bytes": 8632,
+      "sha256": "247970ff9f5c3f416547bcabc31f3f24f7a9d3af95af34c3fefa8a75582b43ed"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/status.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/status.cc.o",
+      "bytes": 34304,
+      "sha256": "78d1afc0a8a0ebe95a0684eb8abb107ca3a8cdfb0c955368db21f642f88e8b2e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/int128.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/int128.cc.o",
+      "bytes": 12160,
+      "sha256": "478184c2710908fe135da97189a1094a93ba31ca77f81f3dada7c40633303bd2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/stringpiece.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/stringpiece.cc.o",
+      "bytes": 11392,
+      "sha256": "0bf1c9be030c86d84df742f3483e5cde727ce38767e42cb33fc2ef71b8213181"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/bytestream.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/bytestream.cc.o",
+      "bytes": 23920,
+      "sha256": "a7826d58af996548e2135e2b140e8c0827a39902902298bb1467996c7b04b83d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/statusor.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/statusor.cc.o",
+      "bytes": 4224,
+      "sha256": "e100b415b4210d8841bbf7333acfcb07bfe4b13b72d9e41e5054212552a0f3cc"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/time.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/time.cc.o",
+      "bytes": 13600,
+      "sha256": "6ea623ec34f00b01ce28b534825de31802594447979fcc47947ceebd9da40bca"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/compiler/importer.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/compiler/importer.cc.o",
+      "bytes": 50984,
+      "sha256": "d146b2a3acd7c6a5dd95b7acae6bde517f568f98350d12b3af45381406a13921"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/compiler/parser.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/compiler/parser.cc.o",
+      "bytes": 191048,
+      "sha256": "f153acbbd4a1647636c568eb62d882cb20611121348c560638b3d73cf34de820"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o",
+      "bytes": 42440,
+      "sha256": "599fff0849872979a9ff8c83e57c6d8a3814efba9371dcbe834fbee5366bfa61"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/coded_stream.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/coded_stream.cc.o",
+      "bytes": 33816,
+      "sha256": "00e590f247334df86e7d550c0cf4cec6ce90c47d9351b51c8c5835d1b4e935a7"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream_impl.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream_impl.cc.o",
+      "bytes": 42584,
+      "sha256": "863f8f87f6646d8a6e7f58cef5ef341678ad955975a8495bf409c3e25b43abe2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/io_win32.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/io_win32.cc.o",
+      "bytes": 936,
+      "sha256": "adba091f8983046115bb10cf63efb7016481bfcd1d6b5abdca3c795cfc8150d7"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream.cc.o",
+      "bytes": 5352,
+      "sha256": "061d1a2372657553fc31874f4da7f0374ae063605c4822aeb8603079187ba2d8"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/gzip_stream.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/gzip_stream.cc.o",
+      "bytes": 18240,
+      "sha256": "4f0561a9b2f38daa03008d0d8edb10ac182ca5ac66ac26aa241916ea90e0c59f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/tokenizer.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/tokenizer.cc.o",
+      "bytes": 47280,
+      "sha256": "fa3bec60784b0e34a268222874ea58cf09515693fbdbe76ec956441e5da9375d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/strtod.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/strtod.cc.o",
+      "bytes": 2344,
+      "sha256": "e2af5d8a3b30a0f9e638fa9801c03854a2411b59f9a43e7862b0d2cc6122ea4b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/printer.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/printer.cc.o",
+      "bytes": 42224,
+      "sha256": "fc4f916d5c19ec58e96990a9a59e0d3fb943dced883447acb716ffa7223670df"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/proto_writer.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/proto_writer.cc.o",
+      "bytes": 106808,
+      "sha256": "88a4f35fa2d95580b12f2db72dadcc797ec8724ea69084d3807dc6e4434e242d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/utility.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/utility.cc.o",
+      "bytes": 36992,
+      "sha256": "217f345da0d0b576292143e59c9a8f14885ddbfe964bc599ab7b44302491a183"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/datapiece.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/datapiece.cc.o",
+      "bytes": 144168,
+      "sha256": "27095e66090ee20237ae048518b67b753988ee9f3e97d3f62973366254a43cd1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/protostream_objectwriter.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/protostream_objectwriter.cc.o",
+      "bytes": 149424,
+      "sha256": "f6da6e1a80db2d66961b6921b313bfa1a0dfc277f380091f9e848cdb0db7b056"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/type_info_test_helper.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/type_info_test_helper.cc.o",
+      "bytes": 14736,
+      "sha256": "3fd7ac4c358f1cddfa810b1025f7f8be453328f9b1c583125ee3f0b00105e7db"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/protostream_objectsource.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/protostream_objectsource.cc.o",
+      "bytes": 101536,
+      "sha256": "c08d666ef4df83886902a1b53a3b38e6aaccd422bb2b8951bfa7389b9e42c90c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_stream_parser.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_stream_parser.cc.o",
+      "bytes": 60056,
+      "sha256": "43a57dad9c1fc8dfb7d0dd1465aa204890f7c8a4e0737efb4c61a5b654f85547"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/object_writer.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/object_writer.cc.o",
+      "bytes": 8152,
+      "sha256": "f7ade9620ac5c2a5b134bb825949ac32a2917f76cfbb61cee3cb290a8980b4e7"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/field_mask_utility.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/field_mask_utility.cc.o",
+      "bytes": 19296,
+      "sha256": "a43c03d8fc0a8ee42141425f05f21c421f56a5ecbacda8cf9690dc85831148e6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/error_listener.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/error_listener.cc.o",
+      "bytes": 992,
+      "sha256": "c2b928ada76e2f32fa5d291e11dce71461ca8f4e1f79870974bb0ebaba2934cf"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/type_info.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/type_info.cc.o",
+      "bytes": 39392,
+      "sha256": "f3fc0dcf17aa4d083a7ce90fd41095a7b3a84289fbd9197c7b3b54a4f2a1cc15"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/default_value_objectwriter.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/default_value_objectwriter.cc.o",
+      "bytes": 79992,
+      "sha256": "bbd14eb81454e86894462dd41385e0a46c773c00f85f2706ae594dc989e193d2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_escaping.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_escaping.cc.o",
+      "bytes": 5608,
+      "sha256": "864fc86f631d674ddc92a92c7536796d950667f3959de8dbefc1d19e345b3283"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_objectwriter.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_objectwriter.cc.o",
+      "bytes": 35984,
+      "sha256": "c028072a5f2c829b02fa6c161fac900be71761440e222cdcd8ffb81398a68044"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/subprocess.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/subprocess.cc.o",
+      "bytes": 13936,
+      "sha256": "adf13d2c69f7c1aeb7051681b3e27d4b3aa8cba0daf3f3c8b4d6f36ec3b09143"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/code_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/code_generator.cc.o",
+      "bytes": 24200,
+      "sha256": "bce78f9d20813ebf8dc364cf89f8ff159238a83ca5cc291763a7b3a493fa20f5"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/zip_writer.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/zip_writer.cc.o",
+      "bytes": 13984,
+      "sha256": "3415bf293a558dda0f4a2ee5f02cbd7a0a024367d65d7bee940398e16ca1e70c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/command_line_interface.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/command_line_interface.cc.o",
+      "bytes": 232824,
+      "sha256": "53d1b838224069cdb90536c65157ce41c1ff590536e11510cdf8e2fe157a5f3c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/plugin.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/plugin.pb.cc.o",
+      "bytes": 86984,
+      "sha256": "8d0823c2549ac64cef4e6be08e029ba1e9570a3758c245d9b71c3685e68303fa"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/plugin.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/plugin.cc.o",
+      "bytes": 23304,
+      "sha256": "2a1e2d03f3fa507273ea970ecd30c40b8015f2a8075b4fb3ab29e3d45a00ebb0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/ruby/ruby_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/ruby/ruby_generator.cc.o",
+      "bytes": 106680,
+      "sha256": "ee2466414106c6a320cbf8c891242d7468d4e4103779dfeead7fe7f07da86c67"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/js/js_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/js/js_generator.cc.o",
+      "bytes": 434552,
+      "sha256": "ab2452c260d8cae28bf9bf4c8cd6054cf8eec93197355a8cbc82cec90a7e6f2e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/js/well_known_types_embed.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/js/well_known_types_embed.cc.o",
+      "bytes": 8120,
+      "sha256": "f387edc294b8719a9541153863c435ec16f2abf19134b75968b1c481ef5ebe1b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_lite.cc.o",
+      "bytes": 42776,
+      "sha256": "d3d6219718db0b614dbe5185b3bc47b36fd1f73322ae3e322655a5f179326541"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_kotlin_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_kotlin_generator.cc.o",
+      "bytes": 36272,
+      "sha256": "4d601190d962851dcf920c03ed599b40917bb808ba603cf58865dd0ca47170e7"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_doc_comment.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_doc_comment.cc.o",
+      "bytes": 74112,
+      "sha256": "7fd551e724dd75fd9a0e50128ce20ffd670ceeee279533a625b015f3be1ada45"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message.cc.o",
+      "bytes": 178104,
+      "sha256": "d90c2e23c55961018d2cc2694c741d30ef05df02014f38511388b16073d5ed09"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_string_field_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_string_field_lite.cc.o",
+      "bytes": 85944,
+      "sha256": "4872ee9bcb37f06fd8456ee0d4a477c34c50ada5183936da0ce8fd88ecd4afde"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_generator_factory.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_generator_factory.cc.o",
+      "bytes": 9352,
+      "sha256": "ff60022c7ac3a168c15d963f12f9d5f70dff30d55c3d477cd1966673f9d4b3fc"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_file.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_file.cc.o",
+      "bytes": 114448,
+      "sha256": "83158c3d6ac7129708ea8c7a0e13e0bdb2466467c2658f5f7725383c82f589ae"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_map_field_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_map_field_lite.cc.o",
+      "bytes": 87936,
+      "sha256": "afb2c6c03a9fc89a9ca4b172902e2dd9ef5895e460dc8af6b1c4bdf413fd7098"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_builder.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_builder.cc.o",
+      "bytes": 99528,
+      "sha256": "f3e9b91ec23eeae36df4a77260b611570134ce6a0584c53651b1afffbb64685e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_generator.cc.o",
+      "bytes": 38432,
+      "sha256": "cd24c25ca9b6e75e1830dd30f469ef0b7b4c532e8bf3940eed092dd98d63d756"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_field_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_field_lite.cc.o",
+      "bytes": 85328,
+      "sha256": "3ea5a4e36f48300f0e3d86b42da972b48489f01eb83d470c4d87753850bb4838"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_builder_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_builder_lite.cc.o",
+      "bytes": 29384,
+      "sha256": "9789c328111a62943130faa0e55277725fa34792b495e3ce723c7885f92a7bae"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_primitive_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_primitive_field.cc.o",
+      "bytes": 123552,
+      "sha256": "86608114a121a1a805647a9c9303a59cc2ec79a688e99ff4569636383f337802"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_field.cc.o",
+      "bytes": 107280,
+      "sha256": "eeaa2848c0e379e5ff72d74931852de453a1e1cd9bececc811430c80c4d5bbea"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_lite.cc.o",
+      "bytes": 142752,
+      "sha256": "69fc16aa0ef0b600b5bab3ec48e3f78ecffffce04591d2d9c2a82160d9ccd946"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_shared_code_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_shared_code_generator.cc.o",
+      "bytes": 47368,
+      "sha256": "7a10a290175558214bae95b00b0d8f6c0f62009d853105777ddf018990a9a013"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_service.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_service.cc.o",
+      "bytes": 82672,
+      "sha256": "cc21ef66c4c9569443d786c7b8a1d397fac6eafa881fdfa5352aa1f480882215"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_string_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_string_field.cc.o",
+      "bytes": 105128,
+      "sha256": "500d7aed17459bbb2d6f05844d2312d929f3c36c2dce6793a251eb1a5e60bfac"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_field_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_field_lite.cc.o",
+      "bytes": 89240,
+      "sha256": "9f27de8b1b6f20d0ed223e0417a60383209b70fa6b31ab355dac4217ec86c6e6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_primitive_field_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_primitive_field_lite.cc.o",
+      "bytes": 95792,
+      "sha256": "74d846b6bf4a74c00bdcf33debc33a8bf22c4e3be27e62a44eb66b1eb1239561"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_map_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_map_field.cc.o",
+      "bytes": 91512,
+      "sha256": "26ca530afa4852373de498d7013b8f7dcf56b793f65875497125b908ec3665d6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum.cc.o",
+      "bytes": 52752,
+      "sha256": "341e4cd77603d55768d97942c2738e1a8b12f2724f8d549b9ec144e5d01b4a83"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_helpers.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_helpers.cc.o",
+      "bytes": 140616,
+      "sha256": "449d88efbdd47bcfa77d4cd272610b452ff324b48253b4c6b60813f6b7fdd674"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_extension.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_extension.cc.o",
+      "bytes": 43384,
+      "sha256": "026756e57347f202ece7354374aa77ef0198765474dd89793d10be07802345c3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_extension_lite.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_extension_lite.cc.o",
+      "bytes": 22064,
+      "sha256": "dcc955f45d143d6990e9886bc55db4448d8a485ab1462526c8dd252bd60af713"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_context.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_context.cc.o",
+      "bytes": 43744,
+      "sha256": "9c62d412ce0d65d281c5b05a0207540fbe30a6a71098565f9da1993b405f8965"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_field.cc.o",
+      "bytes": 120872,
+      "sha256": "19feb0937577b4e49fdf808134ee8b2f37537a9bc81fe985031879289c6b3a62"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_name_resolver.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_name_resolver.cc.o",
+      "bytes": 55312,
+      "sha256": "74488043b5437b44ccd056bf3551ff4d88d362b34642ca78cef95fe4f27d0ab2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_field.cc.o",
+      "bytes": 56744,
+      "sha256": "a4f46f74ec5c33a9edf5af9897f6ea28c3ac4b41b75eac008df377b966fe16eb"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_file.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_file.cc.o",
+      "bytes": 234824,
+      "sha256": "729846679662f171682f25073ea240deb12d01f920ff42069038193b2c553158"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_string_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_string_field.cc.o",
+      "bytes": 132264,
+      "sha256": "0441b5cc4d7fbcb48aa9ef024ca4926efe9b40bab19a6c8fa37723617733f7b6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_generator.cc.o",
+      "bytes": 38344,
+      "sha256": "6e1361b3c9d0a7be87c2406261c5a11cc47dfd19b7122bee66cb79f8f2aa98f1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_enum_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_enum_field.cc.o",
+      "bytes": 85904,
+      "sha256": "cb8320de7ea40eaa2445f8dcde6d39a26950d3e7078cd07ce515ffe1db7593d6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_message_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_message_field.cc.o",
+      "bytes": 118152,
+      "sha256": "d88a800a149266f0029e700c63c55675e19537bf2bb069cf60998d7b9638a27c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_primitive_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_primitive_field.cc.o",
+      "bytes": 91080,
+      "sha256": "2edad94b09b8ab6dc9cabdc0b1d968f1642b330d3252e9b8a5ff712fa677a2b3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_service.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_service.cc.o",
+      "bytes": 57152,
+      "sha256": "01910fd23a01a64bd323949d4a18d843894aeea23c59727eff13f7a254d141ee"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_parse_function_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_parse_function_generator.cc.o",
+      "bytes": 171040,
+      "sha256": "9adb4621c433234f7c93e651bf0aacc3865d4ffc1f1e9f09d1d7ac2426ec5504"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_extension.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_extension.cc.o",
+      "bytes": 64064,
+      "sha256": "3dc1b891dec8b9561fa56633f096aea760411462eebf5f81fd22269fd8e5ccd9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_field.cc.o",
+      "bytes": 97976,
+      "sha256": "db3933cfd1a48a2fd76506384c1c3bcfb1ea7eaa043d5a0985c05dcf29b458f5"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_padding_optimizer.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_padding_optimizer.cc.o",
+      "bytes": 33800,
+      "sha256": "90e1caae21418784b0af621c3841a47db2299e2544fb63836798acea00475bf0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_message.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_message.cc.o",
+      "bytes": 406896,
+      "sha256": "876c4ec1ee61225930b3dd7a89391653e5a6891dddaab0eb19b162c6b272577f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_helpers.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_helpers.cc.o",
+      "bytes": 210032,
+      "sha256": "2f320d2ab165f977fcae9eca93856adaade36a559fba9e6ec44c1215c7c25c2c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_enum.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_enum.cc.o",
+      "bytes": 106280,
+      "sha256": "a1de07540e2295526d92a1ab8ab67735df013e973da567bad848930c89f3006f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_map_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_map_field.cc.o",
+      "bytes": 77192,
+      "sha256": "9a7344d9001f5b5863cc2af61e95b888bd1adcf2c0c1ab3e3ef44564978e6ba2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/php/php_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/php/php_generator.cc.o",
+      "bytes": 252664,
+      "sha256": "f4fbf890a935f4cfe2902cdc7283c253e853f6f5d2b5522d31d478b5bb274ccf"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_map_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_map_field.cc.o",
+      "bytes": 52008,
+      "sha256": "8319fec536846546255daeccbbbca04fcb2c7d779145c85a9ab3c2e915d8264e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_message.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_message.cc.o",
+      "bytes": 100464,
+      "sha256": "906c33f993a28f85c66bccbc4036b8151476710c07df2246a9963390b9734152"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_enum_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_enum_field.cc.o",
+      "bytes": 34880,
+      "sha256": "a3ee5d23522059fb483174dfa45813d1076c32b0ae8766414034b509a02179bd"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_oneof.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_oneof.cc.o",
+      "bytes": 33136,
+      "sha256": "7bed2e22372dcb7b7e7423539138c968559879e416af7cd39b9844bf9ff48419"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_primitive_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_primitive_field.cc.o",
+      "bytes": 39848,
+      "sha256": "5dea2a504c6bd631407a6faacba7b3f35e813e7feca9d08bc2f9587990546c9e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_extension.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_extension.cc.o",
+      "bytes": 52496,
+      "sha256": "a249294e4217322eb3b12d7bb5e61a4fd14d3157f036d82f7e138dfaf9588c7e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_field.cc.o",
+      "bytes": 98912,
+      "sha256": "8ec75227c68c548b94cebf04710bac42d59eab188664afb3114930279992d0e9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_helpers.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_helpers.cc.o",
+      "bytes": 209624,
+      "sha256": "9404ca1d18826ad6580512cdb257764c95761913d8b86902ed5078d4fc8fc503"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_generator.cc.o",
+      "bytes": 34368,
+      "sha256": "a189ef761eda05fc4538886da29f19b7d870af5c29cf93bb60ebf296f42c9793"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_file.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_file.cc.o",
+      "bytes": 76968,
+      "sha256": "5d24c717166ee94cf78a94ca562d864ff1246de8fff66d5e162a0098ebc8c30b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_enum.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_enum.cc.o",
+      "bytes": 64872,
+      "sha256": "d0ff6f37c5a818eadfb205db55635582c2d07baa01e928f5a4ef7ba6d20d1434"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_message_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_message_field.cc.o",
+      "bytes": 35608,
+      "sha256": "f2dce952865c9db32d276b2abb0293cfc60a19ffe5fa628dbbac17b1e043600f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/python/python_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/python/python_generator.cc.o",
+      "bytes": 206104,
+      "sha256": "082b9e369131140e6676241094a7bb3b69bed3af6f819302d7cc292a68574399"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_field_base.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_field_base.cc.o",
+      "bytes": 90456,
+      "sha256": "532292c2a81e8f4120e3889077ba1b6a9d5dd7614c0f80532716dab39413b35b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_enum_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_enum_field.cc.o",
+      "bytes": 17792,
+      "sha256": "8128123899396a4d457c1992d71759c587b4f24d7adf1b898a1767a4dd7d8df9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_generator.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_generator.cc.o",
+      "bytes": 13808,
+      "sha256": "b84e3db5d257f0211897e8deb38c266060d8583e9c268774d0773f7508884bc0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_doc_comment.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_doc_comment.cc.o",
+      "bytes": 35552,
+      "sha256": "d2151aec139f4fffd52711fa9c785dc6ff0458974843f5e1dc3a551d1121f186"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_map_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_map_field.cc.o",
+      "bytes": 22080,
+      "sha256": "8784312f3ef59e9883d76ef271ff87c572c04fa17eae3be2cb385f4790cc7cb2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_reflection_class.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_reflection_class.cc.o",
+      "bytes": 74264,
+      "sha256": "39e64b6639ddcbba5405c6cc1db5f017942a257ef47a83dedab695351dadfff8"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_enum.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_enum.cc.o",
+      "bytes": 30512,
+      "sha256": "e469cad1a6012f8b13cdd81331dc546416a2355ecf585694339b3102ea76992e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_message_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_message_field.cc.o",
+      "bytes": 41264,
+      "sha256": "00309dbae31b074c3d1d1ef96b8bcc02ef8fb4180c23464d50ed87e90e7a50d4"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_helpers.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_helpers.cc.o",
+      "bytes": 53024,
+      "sha256": "e2dda059a30f9cf55ec9965e5ab69223426b980ad662b444e4c80d0db68a23ee"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_primitive_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_primitive_field.cc.o",
+      "bytes": 10480,
+      "sha256": "37000c8248e3598d2f69a0389622f60c96c5c2a567be54b6d55a057d82c18686"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_wrapper_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_wrapper_field.cc.o",
+      "bytes": 40512,
+      "sha256": "675a241614859753db8a7a3b38d2a5584a690f6be6dbde25052ec6ae12a94498"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_primitive_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_primitive_field.cc.o",
+      "bytes": 51248,
+      "sha256": "b4994cc158ffd728ceafde6ed8cb9943ed96802847c9a338fb10585a40e3fa16"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_message_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_message_field.cc.o",
+      "bytes": 25776,
+      "sha256": "c62fcc5be36c6bd9fd044a3b77ba5d65a2f2f1d764f52ed654cc381afc669d7e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_enum_field.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_enum_field.cc.o",
+      "bytes": 10376,
+      "sha256": "7d55f94c6329af5975a57ddbacd57b91db877e234ab66ac5b155f4a2dad27cee"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_source_generator_base.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_source_generator_base.cc.o",
+      "bytes": 10024,
+      "sha256": "71b75503bf7809619750a985530b0d2d0d87bfbd03be5af4d3450a504063a1ea"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_message.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_message.cc.o",
+      "bytes": 102440,
+      "sha256": "fa950de01dd5eb09648d6032e67b5f1a047c07dbabc86eeb887e03c7356c6489"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/protobuf/cmake/CMakeFiles/protoc.dir/__/src/google/protobuf/compiler/main.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/protobuf/cmake/CMakeFiles/protoc.dir/__/src/google/protobuf/compiler/main.cc.o",
+      "bytes": 17664,
+      "sha256": "7b8c0cfaecd8d125ab5d950cdfcc61aeb6fba6ea3a8efd49752879023d72b17e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/HBM.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/HBM.cpp.o",
+      "bytes": 95288,
+      "sha256": "9b5be443f815dbec557077196f0d25222074bb66cb2e2b91e410964d752aa54a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/Request.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/Request.cpp.o",
+      "bytes": 15192,
+      "sha256": "8a2196f9605d15382f03badc413227203375ceedc8597d6fcfc09a9916fee009"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/Ramulator.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/Ramulator.cpp.o",
+      "bytes": 503552,
+      "sha256": "95cfc20c6930a720413c40dd9fba151b11561d72c3bcbc5563e7bec4924a3b8b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/MemoryFactory.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/MemoryFactory.cpp.o",
+      "bytes": 1336,
+      "sha256": "cb8a92bd65667cc49a32913e032e90f26c95592c261a33d0d85bcbab439c2cee"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/Refresh.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/Refresh.cpp.o",
+      "bytes": 1296,
+      "sha256": "ee51f4f64069f0798fc5200ec590bcf23c81bc858f0d39e409ce4bb0be957215"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/Config.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/Config.cpp.o",
+      "bytes": 28152,
+      "sha256": "f6c914f9c733388d0fd3171331b61d121b3a03d0700e3a577ea19548ef7e19ab"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/StatType.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/StatType.cpp.o",
+      "bytes": 10168,
+      "sha256": "4cbe624403461672433ab744ceee9aecb8da1a3ad7892cf7e1e4b06cbffe1037"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/DDR4.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator_custom/CMakeFiles/ramulator1.dir/src/DDR4.cpp.o",
+      "bytes": 97704,
+      "sha256": "d3a84d32fa6c72c233ae43519d24d0f985557d782f2ee4bcf694bfae15d13db0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/CMakeFiles/ramulator.dir/resources/ndp_wrappers/ramulator2.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/CMakeFiles/ramulator.dir/resources/ndp_wrappers/ramulator2.cc.o",
+      "bytes": 153440,
+      "sha256": "9ac7192cc965e10ce8589bed0254d181d5d8d677dcb895907ea1ea83be56f559"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/addr_mapper/CMakeFiles/ramulator-addrmapper.dir/impl/linear_mappers.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/addr_mapper/CMakeFiles/ramulator-addrmapper.dir/impl/linear_mappers.cpp.o",
+      "bytes": 183352,
+      "sha256": "3c1f32bd256dadec41db59f381a5db92c5b294c1595446723d2c48808011322d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/addr_mapper/CMakeFiles/ramulator-addrmapper.dir/impl/rit.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/addr_mapper/CMakeFiles/ramulator-addrmapper.dir/impl/rit.cpp.o",
+      "bytes": 198960,
+      "sha256": "57a6ec79b63ec55ff45cb8b2fdac54e596f202beb2df08383af75431dad907db"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/translation/CMakeFiles/ramulator-translation.dir/impl/no_translation.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/translation/CMakeFiles/ramulator-translation.dir/impl/no_translation.cpp.o",
+      "bytes": 187208,
+      "sha256": "a871b832a4f0ae05f34eb0b0ab743b5e3b69d286c19eef5ffcdb77b79d784b34"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/translation/CMakeFiles/ramulator-translation.dir/impl/random_translation.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/translation/CMakeFiles/ramulator-translation.dir/impl/random_translation.cpp.o",
+      "bytes": 208808,
+      "sha256": "71f94db636f2bcd0be8f44766bb87822399ba8f0a32bd1a2048da93f2f24c4d3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/external_wrapper/gem5_frontend.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/external_wrapper/gem5_frontend.cpp.o",
+      "bytes": 126256,
+      "sha256": "865939cd3fc6a12081f08a199e3cf448347583441d2b3631e0ac7c150ead9de5"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/memory_trace/loadstore_trace.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/memory_trace/loadstore_trace.cpp.o",
+      "bytes": 205480,
+      "sha256": "822104a41bc3ff474ee77a69a7a7b558ab32d9b047dabf57614ee7a7b3c02c88"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/memory_trace/readwrite_trace.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/memory_trace/readwrite_trace.cpp.o",
+      "bytes": 206360,
+      "sha256": "348cc0867d58519bdc03d845b6d10ea13681a9559148ee0f5425d9972fc0560f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/processor/simpleO3/core.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/processor/simpleO3/core.cpp.o",
+      "bytes": 48688,
+      "sha256": "4302a7a0ea72259e116f3bb476a3fafe8664e106a6ec241c7d601efad78e3a51"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/processor/simpleO3/llc.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/processor/simpleO3/llc.cpp.o",
+      "bytes": 74528,
+      "sha256": "968adb338747d97e178cadcff2ad58c228c71fd60ce010f55dc7e20d966fb1ff"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/processor/simpleO3/simpleO3.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/processor/simpleO3/simpleO3.cpp.o",
+      "bytes": 253904,
+      "sha256": "a7a0b2ba24c00a01ee98b8eaaa695a2c757eeef0c405d228544bcc780bf6020c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/processor/simpleO3/trace.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/frontend/CMakeFiles/ramulator-frontend.dir/impl/processor/simpleO3/trace.cpp.o",
+      "bytes": 18752,
+      "sha256": "9e65fd943820e94efd83b96e12331d999fa10cacabc63cc9016b623bd39829b2"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/config.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/config.cpp.o",
+      "bytes": 400856,
+      "sha256": "04b218cb9b2b75b27e2943bd2693c27f12fe653f50b533667b0ea193d903b6ff"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/request.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/request.cpp.o",
+      "bytes": 9632,
+      "sha256": "92ddbe988f5c98476c0ec140b30300b5355afca7c854fef3e4a176fb57e46008"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/utils.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/utils.cpp.o",
+      "bytes": 12936,
+      "sha256": "bf1de091bca9d5dbb5756610816f8f71338e73ba9eb068a76d1cd6b4b3e8be97"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/logging.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/logging.cpp.o",
+      "bytes": 17936,
+      "sha256": "9c5fc81ebd7b16572e9f2460fdb8a433d03589b66285ed0b575b3258370e0b95"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/stats.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/stats.cpp.o",
+      "bytes": 3584,
+      "sha256": "315e96dac59abab21bfe12deae8771cf8de13364350afdec0ba723698f8631a7"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/factory.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/base/CMakeFiles/ramulator-base.dir/factory.cpp.o",
+      "bytes": 162856,
+      "sha256": "cbc56e7e512b3dee85babf921e3ef1ee06afc8fe8360fec95a794cf52ad12738"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/dummy_controller.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/dummy_controller.cpp.o",
+      "bytes": 129224,
+      "sha256": "4b68da9bf2925229843d023feb705c24b8780f4a3be15d4d436cf139735ff2a4"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/generic_dram_controller.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/generic_dram_controller.cpp.o",
+      "bytes": 239872,
+      "sha256": "46924f4117070c68f1d495a5a7165e694711c44a3b71493f402d35f54e3acc2f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/para.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/para.cpp.o",
+      "bytes": 209088,
+      "sha256": "5f72583129f4137076b3992b569797c4d76d1f976d6f3f56a61c3fae24e927a6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/oracle_rh.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/oracle_rh.cpp.o",
+      "bytes": 199424,
+      "sha256": "3e9dc8963f118dacf6b4201605af03dc36288606753ee28ac5ca9d11ba9e412d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/hydra.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/hydra.cpp.o",
+      "bytes": 288968,
+      "sha256": "d5684bb5f9542f981bf813409471c3437b3b5997ca2d5bb252d9d96e95f45054"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/trace_recorder.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/trace_recorder.cpp.o",
+      "bytes": 233528,
+      "sha256": "c25c4bcc802533ec0e15c6ab60559488d4b8f61634840a8462a9833384fdf7b9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/cmd_counter.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/cmd_counter.cpp.o",
+      "bytes": 212136,
+      "sha256": "4f5c490012c86baaf29d77a3a03a8938ff97f93278876e396ae5e8b5fa381bd9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/rrs.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/rrs.cpp.o",
+      "bytes": 234392,
+      "sha256": "b83f1cab88fd0949684ac45ee7395a47f681660865323292604976389a7984d0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/graphene.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/graphene.cpp.o",
+      "bytes": 209096,
+      "sha256": "d39feb7e1b2c160510a14227e64b83dedf4e6f7055dc4671e317ecdecbf4105e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/twice.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/plugin/twice.cpp.o",
+      "bytes": 215120,
+      "sha256": "dfc89a63cc390170cafa89bdeb89a0e009a0fdb9e4977161e8ea893e0d24d8fa"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/refresh/all_bank_refresh.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/refresh/all_bank_refresh.cpp.o",
+      "bytes": 143688,
+      "sha256": "b81c168f17c5826e3c381f5fa92cbb84dd0d98dde54a7e7a8f31037c7786b386"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/scheduler/generic_scheduler.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram_controller/CMakeFiles/ramulator-controller.dir/impl/scheduler/generic_scheduler.cpp.o",
+      "bytes": 137352,
+      "sha256": "d7bc9bebe1a4bdb58905108982680ab5a776b92a403909829b4018adb993ee28"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/memory_system/CMakeFiles/ramulator-memorysystem.dir/impl/dummy_memory_system.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/memory_system/CMakeFiles/ramulator-memorysystem.dir/impl/dummy_memory_system.cpp.o",
+      "bytes": 184560,
+      "sha256": "5f77eaed6dd35207d2c546ab8cb95a0d709a39497fe802976e670df30483141b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/memory_system/CMakeFiles/ramulator-memorysystem.dir/impl/generic_DRAM_system.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/memory_system/CMakeFiles/ramulator-memorysystem.dir/impl/generic_DRAM_system.cpp.o",
+      "bytes": 236240,
+      "sha256": "e3e6bb2b9b8ce35bdf2935c079df67eb3e5130f77104c311966a037e19fd7dbb"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/HBM.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/HBM.cpp.o",
+      "bytes": 377184,
+      "sha256": "e3fac686f6ead8f6666711e35fc4e09b889f57a4d5b408b47a7322e5ee6b9170"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/LPDDR5X.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/LPDDR5X.cpp.o",
+      "bytes": 411328,
+      "sha256": "c0cef9ac431c5a7911a627724a78b0d585122d9451096dde18dd3953f4bc5fa9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/DDR4-VRR.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/DDR4-VRR.cpp.o",
+      "bytes": 422784,
+      "sha256": "38e7766a39da7dd86db7501281aed19f9ab43385da8bf37fbd98288ce21308b5"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/HBM2.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/HBM2.cpp.o",
+      "bytes": 381568,
+      "sha256": "4c40c3e3313257834abc2c34911554df54c95ae7e23dd6d9d52e97722f40f12d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/DDR3.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/DDR3.cpp.o",
+      "bytes": 389832,
+      "sha256": "c3c604a1a83adde0f25d5f8efa5c04d5d9d35973ad2cfa2b830cb66d582f86f5"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/HBM3.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/HBM3.cpp.o",
+      "bytes": 379976,
+      "sha256": "1688677c5e95dbef187d85a1cb5a0d194cbb6ddc7ecf82aa3a19488d970e9e87"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/DDR5.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/DDR5.cpp.o",
+      "bytes": 405280,
+      "sha256": "186ab50eaf584acdff019f1b3f012e3c2c4afd6ca89b4f51c84ef9246953d874"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/DDR4.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/DDR4.cpp.o",
+      "bytes": 401992,
+      "sha256": "4f64b172e32f7970d3fc3f808abda6adafca801a9222fce7e6a33c962a7964b9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/LPDDR5.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/LPDDR5.cpp.o",
+      "bytes": 407864,
+      "sha256": "0a11c929ff4315c4830552899801efd1f6f37a37e7ab70b9ea7a28dd8ef51459"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/HBM2_64B.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/dram/CMakeFiles/ramulator-dram.dir/impl/HBM2_64B.cpp.o",
+      "bytes": 382608,
+      "sha256": "3535b4bb81336543232e0b557151d8b6256ae1af87ea8808be945554d6c21694"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/ramulator2/src/test/CMakeFiles/ramulator-test.dir/test_impl.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/ramulator2/src/test/CMakeFiles/ramulator-test.dir/test_impl.cpp.o",
+      "bytes": 174768,
+      "sha256": "d3e4b00000f061cc8c883c0870b0e05b6044a49bb28134cdeb7f7ba36b27ae32"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-ml.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-ml.pb.cc.o",
+      "bytes": 389040,
+      "sha256": "ab600075e30194f07c07c0ffc91114bd8d0de0f6881df35fb35513f460a01fa1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-data.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-data.pb.cc.o",
+      "bytes": 79944,
+      "sha256": "e7916d273286cba0ebf87122fac007918f0dc31ee2584baf37ee6608ac9fa676"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-operators-ml.pb.cc.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-operators-ml.pb.cc.o",
+      "bytes": 49496,
+      "sha256": "c52639098f1bd1a6e1e63cf6f8e293edc392eb61a02a5e28c3a975ce87432e6e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/rng_wrapper.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/rng_wrapper.cpp.o",
+      "bytes": 6664,
+      "sha256": "b53da43be0a146e9e850b29dc95b809b5f47550422712cb1add71680546e6eaa"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/buffer.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/buffer.cpp.o",
+      "bytes": 17576,
+      "sha256": "48ebfacd878f706d86003d21ecbc5117e7064d53489ff6301cd1137cb8eac287"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/routefunc.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/routefunc.cpp.o",
+      "bytes": 64472,
+      "sha256": "9218f1adf201f99acb33c55c94abe3e41c0ff798669432ad77d2c41cdd02c1be"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/GNNTrafficManager.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/GNNTrafficManager.cpp.o",
+      "bytes": 63040,
+      "sha256": "71aa36c85b53b583720d369be7a427a640cd4b46216b59351df34ffd62b56e07"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/random_utils.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/random_utils.cpp.o",
+      "bytes": 3232,
+      "sha256": "f0f991ba4f5f5d4c7a3a51278ac7804cf2a15f12883f11cfc593ed6d17d10567"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/misc_utils.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/misc_utils.cpp.o",
+      "bytes": 1400,
+      "sha256": "b033e0c1b1b049e979ff193044efbcfad14ba29caa18456c700831cf2a77833c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/Interconnect.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/Interconnect.cpp.o",
+      "bytes": 66480,
+      "sha256": "79d8f7c5a09980b93c95ccd6eea598067dc0f7bef8c02ad3e5e2927fb19f5b2f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/traffic.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/traffic.cpp.o",
+      "bytes": 76008,
+      "sha256": "44a588ff60f652c21d1deea3dbdda469040fc10b286e23a935446b0da7790042"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/flit.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/flit.cpp.o",
+      "bytes": 15928,
+      "sha256": "72d4a5ae83d35fa4b234db4716c5528fed4ce6991ed877a6dda547ccfc31b49f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/module.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/module.cpp.o",
+      "bytes": 14496,
+      "sha256": "3c40f026dec2fe2be8cf324ac92a52f8068561074c86fe2601ca787881df03a3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/stats.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/stats.cpp.o",
+      "bytes": 11472,
+      "sha256": "2c543ff78d789c393d3ac55e07561291b6c06eca52c86b9246295cf3a2124489"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/main.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/main.cpp.o",
+      "bytes": 13608,
+      "sha256": "2a02d2caec4879279f406b400e7cb15e5c02303993339fe68976dc37a76e8d77"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/packet_reply_info.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/packet_reply_info.cpp.o",
+      "bytes": 9928,
+      "sha256": "2d66543b72abafd514fbc10a699fc8134035c5026877c91b5080ce354f231c15"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/buffer_state.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/buffer_state.cpp.o",
+      "bytes": 118056,
+      "sha256": "cc17ff6ab19e9afea761cc4d8beec63df76c1765698f58d12f86c8f37a3e266e"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/batchtrafficmanager.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/batchtrafficmanager.cpp.o",
+      "bytes": 34112,
+      "sha256": "90c18fbdeddfe10c361b5742b8abb3ddc5d1c756482e0b7cd70f1d68c46fde67"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/booksim_config.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/booksim_config.cpp.o",
+      "bytes": 86048,
+      "sha256": "f4edb6439a68e97bfa60b562f1edb19631127683c92fcf1614ec6ed76b78f8ee"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/vc.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/vc.cpp.o",
+      "bytes": 29528,
+      "sha256": "9533d8a7e3de8260bff9e2e6f5563bd87de6e44da08ea59ea37569f069dc9ea1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/injection.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/injection.cpp.o",
+      "bytes": 24536,
+      "sha256": "fb2013cb32486095b7c56f0772d3cf8687880ee77da3fa0796f6b16de879b267"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/rng_double_wrapper.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/rng_double_wrapper.cpp.o",
+      "bytes": 21624,
+      "sha256": "af0608e224bd022a4a74f7c8843d0d2ccdc1c2d839be1db9ef3355bcd23e1413"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/credit.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/credit.cpp.o",
+      "bytes": 11936,
+      "sha256": "1062f78052825b062ea08ebacd0ae0294dc80e33afee6e21c3664fd56d5fb893"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/trafficmanager.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/trafficmanager.cpp.o",
+      "bytes": 256560,
+      "sha256": "2255977f27d73e236bd0fe9a511412b7ce54bdbf5cf3db1e1b459c6e449d3696"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/flitchannel.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/flitchannel.cpp.o",
+      "bytes": 21032,
+      "sha256": "430d3b36bfba585aa3020eff147fd147edfeda52084fba20e7ce3ecb0c46537a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/GNNSimConfig.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/GNNSimConfig.cpp.o",
+      "bytes": 28800,
+      "sha256": "f150574ee2459ffa630f843311c9b68c8a29fd121ae2432309d228f0ad9913a7"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/config_utils.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/config_utils.cpp.o",
+      "bytes": 397968,
+      "sha256": "a7b138c44ab5d4a2646f859592d488a1b3d31ed37d50364f4342386a70207572"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/outputset.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/outputset.cpp.o",
+      "bytes": 4864,
+      "sha256": "103b8d4e98e9c26eb4bdc6d880b5836c78104104a964caa920ce256e892eb23d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/allocator.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/allocator.cpp.o",
+      "bytes": 57768,
+      "sha256": "976b71519edc896ab88081a78889602eb1aa34eb2c616721266ff1bc8d6c6aaf"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/maxsize.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/maxsize.cpp.o",
+      "bytes": 10624,
+      "sha256": "fddb947cbdc7a1a0139fe9579f27d1ceb3f3627c4175bb4782eda8703f91b2d8"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/separable_output_first.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/separable_output_first.cpp.o",
+      "bytes": 7352,
+      "sha256": "44fba6834251274c598ff5ab4ae9d9ebf95b9047ea5d3ddb281e504241af9145"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/separable_input_first.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/separable_input_first.cpp.o",
+      "bytes": 7344,
+      "sha256": "04dbf89f3e5b7b8ed6f5f6b44b873774b735ea41eded338257a05a2c379f4c30"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/pim.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/pim.cpp.o",
+      "bytes": 7760,
+      "sha256": "05833f292f456eb4a26b3dd979bead15059c09b3ceffc5654aaaf69c182333e9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/islip.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/islip.cpp.o",
+      "bytes": 16016,
+      "sha256": "e7a04ff1b89a573e18a5ec58aa77775318bcbc707dc756c7ad80b58ff59f5254"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/selalloc.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/selalloc.cpp.o",
+      "bytes": 19672,
+      "sha256": "c28e551f2da5114bf845e3f3d656b550c37f5b1830975c85c53ccf2539eb8832"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/separable.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/separable.cpp.o",
+      "bytes": 27344,
+      "sha256": "45dfff6244277677bb94a18f3490c17cf632db1b8ca49bf917f15ea740567346"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/loa.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/loa.cpp.o",
+      "bytes": 12688,
+      "sha256": "b16409e53e53b73ff3c05ed97feed73d0f0d7fa876e9228508e60b62f78ec338"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/wavefront.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/allocators/wavefront.cpp.o",
+      "bytes": 9184,
+      "sha256": "5f1909307ce57ec10eec8ad2149b4f1b339b8f5bbca9f809a6e42bee31c63b81"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/routers/iq_router.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/routers/iq_router.cpp.o",
+      "bytes": 194200,
+      "sha256": "a5450bc1abe1fe39af6e85f26a35614973726f5a63746227f0f79623e16df56c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/routers/event_router.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/routers/event_router.cpp.o",
+      "bytes": 145160,
+      "sha256": "826584ed20f42a8cbe4333742a3e06f20b00fe4c4dfbe2cb8eb0e930ba1474ef"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/routers/router.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/routers/router.cpp.o",
+      "bytes": 20240,
+      "sha256": "baf7e3f7b3738a082e4ac9ab3a42be1558a4c9850337a1f604d94b2fc256f45f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/routers/chaos_router.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/routers/chaos_router.cpp.o",
+      "bytes": 90872,
+      "sha256": "c180429ec42d6d87d0ca31a77e1179148b180300db52d9c5ea1bd4f80defd7e7"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/power/buffer_monitor.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/power/buffer_monitor.cpp.o",
+      "bytes": 6880,
+      "sha256": "baff8de673f5a77c6808604073f9f1ab214b963c32a9dbcb5e0b1af6f4f06dd6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/power/power_module.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/power/power_module.cpp.o",
+      "bytes": 57136,
+      "sha256": "4da5b2950ee1d75dbaf06b241ab65849de3ad74b545ab4991a6df6e5eddd699d"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/power/switch_monitor.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/power/switch_monitor.cpp.o",
+      "bytes": 5360,
+      "sha256": "cdc4cebb098b68f0739e09202950ddaf94d0656dc607f45c54e560b52e1d9d0a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/anynet.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/anynet.cpp.o",
+      "bytes": 72880,
+      "sha256": "f55b2860ae65ca180e11c11a34ca2ff2fb1a7560edad950cdf02db796e2ad0f1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/dragonfly.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/dragonfly.cpp.o",
+      "bytes": 37680,
+      "sha256": "140e24bd6f216b17618d2b3ae88e27d5aa9eccbd2c210a976f1a9b69b0010681"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/network.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/network.cpp.o",
+      "bytes": 64640,
+      "sha256": "a92b3068ee538fd8f0349d34846c1d761cd64c04e95283f7b1b97a10c54e98c8"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/qtree.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/qtree.cpp.o",
+      "bytes": 20776,
+      "sha256": "aec8775e2d0f0a016175ff3bc70ab8e39510744e016cd5dbb23d77c749151adb"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/fattree.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/fattree.cpp.o",
+      "bytes": 27752,
+      "sha256": "803391c0a6828a176b59b025113327966c9e3621a142326680591401ad1afb25"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/cmesh.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/cmesh.cpp.o",
+      "bytes": 47024,
+      "sha256": "5ddde65ef6d431a0c802f34a6096a547675a695f85274342bdae7c0b5a615c0a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/flatfly_onchip.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/flatfly_onchip.cpp.o",
+      "bytes": 74056,
+      "sha256": "f2bb1e21261439f6c465dfbfbdaba6af4e6d354678ed5b7cbdb4f4341f75cedc"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/kncube.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/kncube.cpp.o",
+      "bytes": 28832,
+      "sha256": "382d3e25ce573779a12f3083d26508ec11534e7ff224faeab82362a7fd067184"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/fly.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/fly.cpp.o",
+      "bytes": 24104,
+      "sha256": "384fc0dd26ef417c5575c4fcf3f8623b62237db47660bc6af47dcdf2e4cebbc1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/tree4.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/networks/tree4.cpp.o",
+      "bytes": 20856,
+      "sha256": "d36641c172a8c14a2f5afcc2aff18d475b66b0a0c0dbb76b60a2e6464af31da0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/prio_arb.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/prio_arb.cpp.o",
+      "bytes": 6480,
+      "sha256": "ba29c6ec53f79a5f2af27257c6309a970c20bdc58ad17ee7ef18c69f160b13b3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/matrix_arb.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/matrix_arb.cpp.o",
+      "bytes": 12528,
+      "sha256": "e2c6be884b0ca948b1fb89ba0e7e74e585e5b764fb57e711fd928a216a96cd91"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/tree_arb.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/tree_arb.cpp.o",
+      "bytes": 21168,
+      "sha256": "78b40c37b5b44928279d857fa894fde882300f072e5d59ff1a289f2b43553585"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/arbiter.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/arbiter.cpp.o",
+      "bytes": 12160,
+      "sha256": "855f65019ec03f6c7ebc51dbb332f9b0b051a9c1d3876a1c8498dbb9ffb1a7c1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/roundrobin_arb.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/extern/booksim/CMakeFiles/booksim2.dir/src/arbiters/roundrobin_arb.cpp.o",
+      "bytes": 7488,
+      "sha256": "332126e910a7ea717cb8c3ba8c786392eb68118bae751ad71d3e2339f2edaf23"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/convert.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/convert.cpp.o",
+      "bytes": 30160,
+      "sha256": "79f1abe2c80b8bc4d966c8c3d9c3995f716bc5cc945be0c92c5a6a8ffa18f3f6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emit.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emit.cpp.o",
+      "bytes": 9728,
+      "sha256": "0cebc785658ca9938917749b07309606cf2f70a1a7062cae89e5dde8e415ca0f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/memory.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/memory.cpp.o",
+      "bytes": 25248,
+      "sha256": "c1386d40ceb6637768d5f1a177045310a5355f1696990ac1a25a2e8360d2ffa0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/nodebuilder.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/nodebuilder.cpp.o",
+      "bytes": 37672,
+      "sha256": "3d24e51e0c8774e5850ea53c06ba1e806a73a5019458aec002e93b9531fe7ef4"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/exceptions.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/exceptions.cpp.o",
+      "bytes": 21104,
+      "sha256": "47ee347129373043a4adf1d46bdb5495f2d69d5cb40a16ccf9f8c1f42ecfacc3"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/ostream_wrapper.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/ostream_wrapper.cpp.o",
+      "bytes": 4656,
+      "sha256": "8d059dbe63bd389c88c62099629d89717d708fff62995cb88d3f3ce5afef617a"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scanscalar.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scanscalar.cpp.o",
+      "bytes": 60640,
+      "sha256": "509f299cb6c847e7ee018e9b9b57967ce6227e78b8dd1618a505347f6d2bd79f"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scantoken.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scantoken.cpp.o",
+      "bytes": 149736,
+      "sha256": "db71cb0ff1204c9f7ad2074e46b6328f49ca9c41e4946a9379485980003723b0"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitfromevents.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitfromevents.cpp.o",
+      "bytes": 25864,
+      "sha256": "20f8bd0bf7a69a8e2513a0ae335e64415972af56aa162a371f93244c70ddccd1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/directives.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/directives.cpp.o",
+      "bytes": 3400,
+      "sha256": "f12a4901d2ede912d3999f933b33e4515583781e19101aa4922e4e75333d9925"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scanner.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scanner.cpp.o",
+      "bytes": 116136,
+      "sha256": "d677cd0e0ad4817a02c1cf0970bdf38223c939b883e7722b6c97dba8462e9c53"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/node.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/node.cpp.o",
+      "bytes": 6840,
+      "sha256": "7c7a2bf105be6f96b9116f7646b5a120e90b7dfe55b8d1557881fa32836b73d6"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/regex_yaml.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/regex_yaml.cpp.o",
+      "bytes": 12968,
+      "sha256": "845ffd8b38fe5bb0872f809b52d8fddbe5d288e06da65fa64c7d22b7983c8194"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitterstate.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitterstate.cpp.o",
+      "bytes": 26608,
+      "sha256": "9f36c897088dbe81e707d7ef9d8965e0e7eb53ba204c40bd9bca67eb14eb7cd1"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitterutils.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitterutils.cpp.o",
+      "bytes": 158048,
+      "sha256": "3627a1f667aa7f11390d1c815c0e2f28708d67432763593f49c9b12d2c168a36"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/node_data.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/node_data.cpp.o",
+      "bytes": 38432,
+      "sha256": "84e63274e854bf3aa4e5de0950be7620345c91e590280894f566177992631c67"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitter.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitter.cpp.o",
+      "bytes": 49736,
+      "sha256": "b2b7b58a617a88db324a5848a4dc155652597ac5dd454dd83d0e4d8e07b276cf"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/depthguard.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/depthguard.cpp.o",
+      "bytes": 14984,
+      "sha256": "ed9dfde1fe7a45dc4c0509c62be96a7f60c0e8526a9d3057e79f430c03a1d2ba"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/parse.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/parse.cpp.o",
+      "bytes": 38976,
+      "sha256": "9f2eaf67b5e95e7e19876483dfdd1b6d5c7ff871def33c5bb64b90ad0bae4457"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/null.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/null.cpp.o",
+      "bytes": 1360,
+      "sha256": "da63e9b3ebc1adeb7dafa1e2bb7549b612e0acdef5a0c365b9ca3579b16524c9"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/exp.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/exp.cpp.o",
+      "bytes": 36296,
+      "sha256": "46cc45c658bf105888a0c6c236be8c0d8f001e9e4f1f6067a509814d16750ffb"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/tag.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/tag.cpp.o",
+      "bytes": 17576,
+      "sha256": "40ca35ed9a74a873b4cb7f7718f4d3cced336ee28102be4c758f0396f9a15c32"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scantag.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scantag.cpp.o",
+      "bytes": 75944,
+      "sha256": "b8158cfdd77fbcc8e79b0fd0e5f5f0eb6a2f2c2a4d620fd9f02f4f91693e3a86"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/binary.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/binary.cpp.o",
+      "bytes": 9560,
+      "sha256": "33e26e73dadffcda7939084e38e8e89103565bde711c9f0a49e26e5045341363"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/parser.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/parser.cpp.o",
+      "bytes": 45672,
+      "sha256": "985498d661477305504dc557603e7687930f226b3bd1af977817588eb6c2fcfb"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/singledocparser.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/singledocparser.cpp.o",
+      "bytes": 65272,
+      "sha256": "ce0ff179fbee039bb07f3052c7b3314fb59ca305f4b000d62dd0b5882fe8effd"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/simplekey.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/simplekey.cpp.o",
+      "bytes": 17576,
+      "sha256": "583675d06f2a193f7a642a5f274a744f0bd171f2b688cb8ab4fd9ee006ecca52"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/stream.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/stream.cpp.o",
+      "bytes": 15096,
+      "sha256": "29b9515ea291a76f039b69d670978dc5a072f65662258065362f6f062d6fabf4"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/nodeevents.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/nodeevents.cpp.o",
+      "bytes": 13472,
+      "sha256": "7ff75740fb07392f18a5473269ebb4bfdda287710cb7177796325d632a807c2c"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o",
+      "bytes": 123096,
+      "sha256": "600e742b19cb4d42c31261f31b9e87d1208e537cc85e7278d8a0a57b793cdb9b"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/spdlog.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/spdlog.cpp.o",
+      "bytes": 513600,
+      "sha256": "cc385d919a8472119a40f12105002e659866fa7f21c5df09b16ef464b27e2667"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o",
+      "bytes": 87352,
+      "sha256": "317b61e6130e186fcb051008c89eb2fc97afdf129147f0c491811f8ae5de9c36"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.o",
+      "bytes": 952,
+      "sha256": "a466d07808d9784b4443aee574add82515e368908c0935ace4a9870f6c11edbd"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o",
+      "bytes": 151856,
+      "sha256": "680c7bfe9ed06327337f571cc31d619d9e0f6f9a5f6fe25caa1e3ce267962f75"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/async.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/async.cpp.o",
+      "bytes": 57928,
+      "sha256": "a8ca394d39c4cd0b67e51c256f1a896087c6e2f5d54c4f07b517e67d9a9f2755"
+    },
+    {
+      "base": "/home/nanajiang/asim-worktrees/bri-fixed-hb-20261109/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/cfg.cpp.o",
+      "copy": "/home/nanajiang/asim-worktrees/bri-inner-0001/build/_deps/spdlog-build/CMakeFiles/spdlog.dir/src/cfg.cpp.o",
+      "bytes": 31744,
+      "sha256": "87e67e4e1dcf9f83b582a1048fbbbf1b7db92dfd838adf4df90f0576a278c158"
+    }
+  ],
+  "note": "Incremental cache reuse, not a cold clean build. Base object bytes retained/copied; CMake regenerates and rebuilds changed/new translation units in an independent build."
+}

@@ -59,3 +59,6 @@
 
 
 2026-11-10 M1完成更新：九入口封存实际Asim制品全量回归保持统计字节、事件报告、完整输出位一致；HB K174/batch96事件检查及重建峰值1.88GiB，249测试。新runtime codex_runtime_memory_v1.json（91文件），旧90文件pin保留且配合原Git版本复现；不升级旧算子CDL质量状态。下一优先任务M2新校准的更紧谱界/复用/流水；冷构建跨环境复现、评分晋级与持久协调器仍待。详见[本轮报告](../../experiments/memory/2026-11-10-v1/README.md)。
+
+
+2026-11-10 BRI内循环更新：新增BRI内循环0001的固定基线/候选对比，真实三档周期、误差分布、QPSK、新旧同输入位一致以及详细流水归档；不混用旧H590与新H610，不声称全算法最优。 证据：[inner-0001](../../experiments/optimization/bri/inner-0001/README.md)，统一规则OPTIMIZATION_TRACKING.md。

@@ -1,0 +1,22 @@
+regularization,iterations,name,min,max,source
+1.0,16,alpha,0.2401123046875,0.246337890625,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+1.0,16,beta,0.51513671875,0.544921875,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+1.0,16,lower,0.267822265625,0.30224609375,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+1.0,16,upper,11.2265625,11.796875,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+1.0,16,energy_upper,2.1015625,2.5,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+1.0,16,preconditioner_upper,2.1640625,2.361328125,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+1.0,16,stored_lambda,1.0,1.0,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.1,53,alpha,0.202392578125,0.20361328125,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.1,53,beta,0.81689453125,0.8310546875,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.1,53,lower,0.036041259765625,0.042572021484375,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.1,53,upper,16.71875,16.90625,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.1,53,energy_upper,2.1015625,2.5,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.1,53,preconditioner_upper,3.84375,4.515625,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.1,53,stored_lambda,0.0999755859375,0.0999755859375,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.01,174,alpha,0.2030029296875,0.2039794921875,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.01,174,beta,0.939453125,0.9423828125,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.01,174,lower,0.0037364959716796875,0.0044403076171875,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.01,174,upper,17.875,17.90625,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.01,174,energy_upper,2.1015625,2.5,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.01,174,preconditioner_upper,4.171875,4.98046875,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate
+0.01,174,stored_lambda,0.01000213623046875,0.01000213623046875,sealed independent algorithm reference setup; formula unchanged by instruction-only candidate

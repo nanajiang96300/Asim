@@ -1,0 +1,65 @@
+{
+  "status": "INNER_CONTROLS_CHECKED",
+  "rows": [
+    {
+      "regularization": 1.0,
+      "control": "wrong_final_slot",
+      "status": "NUMERIC_FAILED",
+      "actual_fault_binary": false
+    },
+    {
+      "regularization": 1.0,
+      "control": "missing_semantics",
+      "status": "MISSING_SEMANTICS",
+      "actual_fault_binary": false
+    },
+    {
+      "regularization": 0.1,
+      "control": "wrong_final_slot",
+      "status": "NUMERIC_FAILED",
+      "actual_fault_binary": false
+    },
+    {
+      "regularization": 0.1,
+      "control": "missing_semantics",
+      "status": "MISSING_SEMANTICS",
+      "actual_fault_binary": false
+    },
+    {
+      "regularization": 0.01,
+      "control": "wrong_final_slot",
+      "status": "NUMERIC_FAILED",
+      "actual_fault_binary": false
+    },
+    {
+      "regularization": 0.01,
+      "control": "missing_semantics",
+      "status": "MISSING_SEMANTICS",
+      "actual_fault_binary": false
+    },
+    {
+      "control": "real_performance_reject_and_repeat",
+      "status": "SKIPPED_NOT_COMPETITIVE",
+      "cycles": 17488,
+      "numeric_status": "NOT_RUN",
+      "identical_actual_asim_files": [
+        "instructions.jsonl",
+        "dispatch.jsonl",
+        "trace.csv",
+        "rw_events.jsonl"
+      ]
+    },
+    {
+      "control": "real_wrong_approval_SHA",
+      "status": "PREFLIGHT_REJECTED",
+      "ledger_unchanged": true
+    }
+  ],
+  "script": {
+    "path": "/home/nanajiang/Asim/experiments/optimization/bri/inner-0001/controls.py",
+    "bytes": 4306,
+    "sha256": "0a925ece3dcdefc4d77e7712ae2c00cc7b62c7f4def90097954ee8db074e2e00"
+  },
+  "score": null,
+  "note": "six mutations are offline batch0 controls; performance rejection and wrong-SHA are real entry invocations; no faulty-binary claim"
+}

@@ -1,0 +1,510 @@
+{
+  "schema": "optimization-artifacts-v1",
+  "files": [
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-index.json",
+      "bytes": 39232,
+      "sha256": "bf6cc0aacda2b92f4c9b30c12afd16ac64b568598f9bb1d4b4cedd1e524fa5dc"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/asim.json",
+      "bytes": 1834,
+      "sha256": "cd6a63ecaa380d2d4b881095df83266d9d9eaf2257e9dac6ad580f5956268384"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/channel.npz",
+      "bytes": 2556640,
+      "sha256": "c8f626419bc93025a8134ed5ab0852e79bf57daf92020208b156ce1bd2b3a67d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/config.json",
+      "bytes": 12662,
+      "sha256": "f7ad39e1ed7f31c160bbac0aabecd0b3126408a4c68d768087ab34ad147ff65e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/dispatch.jsonl",
+      "bytes": 19604704,
+      "sha256": "56063f7d627c16144db50b2d9fd759e155e954afa571a974ecb01b0216b77a0d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/formula.json",
+      "bytes": 172769251,
+      "sha256": "99f1bd3cbe474316163fbe221e27447cf2fc66b0ed7c9feae97ec317ed971bee"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c61ec67c74e2328189a21d9c5d3f1d98a2ebb3af31f9755a44dd7874c86ce277"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/instruction_pipeline_detail.csv",
+      "bytes": 62288097,
+      "sha256": "20d7a0996cc4187da5d711abf37763ecf03b2ac4cdc2fa6c5859d268a9c84f9e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/instructions.jsonl",
+      "bytes": 366604093,
+      "sha256": "564635b99f879ea8860ab021af55ac00a35576f8cf5fbfdbb942b1ef47f7c68d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/models.json",
+      "bytes": 1522,
+      "sha256": "82a606af4797b1e7cb89f6cea1154eab652c119325dba0d7e35475e10ff92f26"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/numerics_started.json",
+      "bytes": 79,
+      "sha256": "441ea4e6e6e392e8b427ada49e816739909f63f4c59525298b729b6e6201a93b"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/outputs.npy",
+      "bytes": 393344,
+      "sha256": "4afd36f59d6c7f4b923915a02a7d183862f6be079d8c544f967b9306910142fd"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/pipeline_statistics.json",
+      "bytes": 257881622,
+      "sha256": "fc4e5ad13b93cdc320f4a2670242874d289aaa0ab89955c36ae4d8ca2092fd1c"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/references.npz",
+      "bytes": 502034,
+      "sha256": "1954d93873fc582d0c2babdd8ed75e9ddd6448a5a368695f9633aab65453fdee"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/result.json",
+      "bytes": 39193,
+      "sha256": "6d3ae0b20f5c35597b89825f422786045c4b9c7566000651e8840512e5b92bab"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/rw_events.jsonl",
+      "bytes": 873245142,
+      "sha256": "23367d1e8f5921222bf4f7b3abb2990c6b0916c9189f87a1a2be1d02ec2ca40e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/schedule.json",
+      "bytes": 17667,
+      "sha256": "3a468dd0818a0b4fefb7cbbb50d2e6b91363b9d109770d7e6f1eab370f7fde86"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/simulator.log",
+      "bytes": 35744,
+      "sha256": "e65c6d2912b863c6f253b301855faf246d2210bd004dca258f60cf59038991c0"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.01/trace.csv",
+      "bytes": 55116009,
+      "sha256": "b01913f8d4c096368a63abb6fae84c17d723217eb55a6af5c705fadfe1f040e2"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/asim.json",
+      "bytes": 1829,
+      "sha256": "b6ed2bd014b7d8a31d7697f0ce90d79c1838ca8f3ef6a6f4bff0ceb48ebdde03"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/config.json",
+      "bytes": 12662,
+      "sha256": "f7ad39e1ed7f31c160bbac0aabecd0b3126408a4c68d768087ab34ad147ff65e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/dispatch.jsonl",
+      "bytes": 6740356,
+      "sha256": "126005973196905a62a7b67a5e7f76e4f1b034db3a7bacec43321dd6737c8234"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/formula.json",
+      "bytes": 61056744,
+      "sha256": "5c8d10e2e81f4861988c61af5ddaf568f0f2987ef2fc7b4267b7d5c2b7a5e0ae"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/instruction_pipeline_detail.csv",
+      "bytes": 21805721,
+      "sha256": "7a694eca8e079e798114cda556ef78539a51041cc2f00b1486538f40f7e4005f"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/instructions.jsonl",
+      "bytes": 130108883,
+      "sha256": "92f8d1633ba6059407069bd6679e16c1e12a884c15b208bba179ab30982217d8"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/models.json",
+      "bytes": 1520,
+      "sha256": "7673526b0aadcf42f3f29604f186e7c81c1cb5f8a361b6fc83cb996f90cf8900"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "359bc0940cc95e443c2e3177dd67095fc908292c393695773bee1ff4cf1bab75"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "290425e1a93a0ef224baa9a889e985d693b3c3fa901412b3c4193e13008e2050"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/pipeline_statistics.json",
+      "bytes": 91527971,
+      "sha256": "331ceee7b9f350b78ce6da1e12d67aa7eb2c5760e60359033b3396bcc5b4034c"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/references.npz",
+      "bytes": 502034,
+      "sha256": "ac258dc7ce14e10b922dfdf2d8d3017a50c60f7d46d6e03a681c527dbf3b1376"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/result.json",
+      "bytes": 39143,
+      "sha256": "3bdd9eec7654df0a12dd1b22fa0e269c822c56f340b054f0b0a68d21d5aa20f0"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/rw_events.jsonl",
+      "bytes": 320925930,
+      "sha256": "bdc2e936f4bdf20b677de4f871f48579b7cb66a53f4f6ff35f9c61b41e735db4"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/schedule.json",
+      "bytes": 17666,
+      "sha256": "854f9c89beb60e48bef697309b5649ae39a78f07ed1aab0fafb0957a31fba75e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/simulator.log",
+      "bytes": 34845,
+      "sha256": "341a6ecb85d9a77636f9ba4f07d244e90dc0b566b8e4013cd9253df188fb6814"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda0.1/trace.csv",
+      "bytes": 19840033,
+      "sha256": "689a1e0aa6e24773d088abce05072b81d312d28e2b558e57adc97ff8d63376ae"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/asim.json",
+      "bytes": 1827,
+      "sha256": "5e9b620b400ab4d1fa84e6521c1a0e33cbbd291e1153647d32adbcc4fe36e1d3"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/channel.npz",
+      "bytes": 2556640,
+      "sha256": "5d18050c6a9a28b01fd07aa18478677f811c834fdae9916f1f11815d4cf7aa25"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/config.json",
+      "bytes": 12662,
+      "sha256": "f7ad39e1ed7f31c160bbac0aabecd0b3126408a4c68d768087ab34ad147ff65e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/dispatch.jsonl",
+      "bytes": 2887624,
+      "sha256": "21a9a9fa8700fffb38551315c2cc53c4d9a1d22a09c89cc49a0f2475df38eca9"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/formula.json",
+      "bytes": 26987958,
+      "sha256": "5b8288cd88080f8eefcff673441d45acbd9f37cfac14332dca7f02b955306f6e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "ce3a469615d0f86aa167aaa986d5f7d158ba4dd6184e9c10d2c137c0816cdd3a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 9608386,
+      "sha256": "b51dd2bff49f6079db232f91ca1817ee5312e2e9dd4141587316397b1c0b9ac9"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/instructions.jsonl",
+      "bytes": 57918826,
+      "sha256": "4ff4a8eebdf2aa4d0208f5282e93b9719611eb3756f7b640903d3fe192544d56"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/models.json",
+      "bytes": 1520,
+      "sha256": "e1af375c9bacbed0a430049fb604ceb41b00615b15ba7a55b37b69c7074e282d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/numerics_started.json",
+      "bytes": 79,
+      "sha256": "c4cf6e0f2dce4a1a3502b785fd551d389bc787ad92e820a4b32d5f50120de53a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/outputs.npy",
+      "bytes": 393344,
+      "sha256": "47b9a4aeaec9bc7a16b8bd156a175a5889d40ca8f7d6fad261b3be8c4b8fd601"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 40840915,
+      "sha256": "c213780d0ac392509bcd8859ea7387fe06e65989d8a911e59cf21b787b50fb65"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/references.npz",
+      "bytes": 502034,
+      "sha256": "64fafa3d873697e328b54e2311d94a47ea3ff959a5013851e10cdb0e1c5064cc"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/result.json",
+      "bytes": 39134,
+      "sha256": "869316d1b8ff942c83f99ae5d8aa75494b9142fa0748b1cbf13ce7e02d615310"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 152854327,
+      "sha256": "0f0d3113f05b43df6db186f5687dce9bc8c52d33ba30bc6eefa80090866cc2fb"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/schedule.json",
+      "bytes": 17666,
+      "sha256": "33ada62e4e229577c2af5c51be6c1a09ca90ca94a2cd9296eb3e76a56e14f1e1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/simulator.log",
+      "bytes": 34549,
+      "sha256": "a302da0c865681ff9147c91de515c64e2242afaaaff346f5655d949db877e125"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-lambda1.0/trace.csv",
+      "bytes": 9315331,
+      "sha256": "ef74b698f7adb0a1a415fdca5846f9a5d6e52077d2600f371221e97bb9315be1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim-progress.json",
+      "bytes": 38046,
+      "sha256": "56f82af25f684fec77555c8e6e9a25baea8d618d3285d1fff8e91d54f9294789"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/asim.log",
+      "bytes": 1553,
+      "sha256": "56510e8a6e15357254f56ccb66ac2ffda173c702590df9f7bac1962d7dab787f"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/bad-sha-control.log",
+      "bytes": 611,
+      "sha256": "be1a7e04e78fe544f4e228251b4e8601c9c0328ff8247ad46f9ff9f02bea8942"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/build.log",
+      "bytes": 8530,
+      "sha256": "77237aa682164376e40d5071d16b66655e33e540b26e4fbe4569302d30fd14a8"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/build_cache.json",
+      "bytes": 170630,
+      "sha256": "7035f0245cfcfabb16484b1708b90389e39d7870776a6ddbdb78f41200de92a1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/clone_cache.py",
+      "bytes": 2716,
+      "sha256": "b62570c1083404537516b36f64e1d820822ac202c044681e30e89a18f1b1a8a4"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/configure.log",
+      "bytes": 6134,
+      "sha256": "c2cf1c76672458341905008c729436e768f90210ff9cb2c6503c54757eb801c6"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/asim.json",
+      "bytes": 1853,
+      "sha256": "6919e748c72bcdcf2b9f89b755927ed81f5944ecf2fcb39f9fe3e3d780ea2b23"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/channel.npz",
+      "bytes": 2556640,
+      "sha256": "5d18050c6a9a28b01fd07aa18478677f811c834fdae9916f1f11815d4cf7aa25"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/config.json",
+      "bytes": 12662,
+      "sha256": "f7ad39e1ed7f31c160bbac0aabecd0b3126408a4c68d768087ab34ad147ff65e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/dispatch.jsonl",
+      "bytes": 2887624,
+      "sha256": "21a9a9fa8700fffb38551315c2cc53c4d9a1d22a09c89cc49a0f2475df38eca9"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/formula.json",
+      "bytes": 26987958,
+      "sha256": "5b8288cd88080f8eefcff673441d45acbd9f37cfac14332dca7f02b955306f6e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "ce3a469615d0f86aa167aaa986d5f7d158ba4dd6184e9c10d2c137c0816cdd3a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/instruction_pipeline_detail.csv",
+      "bytes": 9608386,
+      "sha256": "b51dd2bff49f6079db232f91ca1817ee5312e2e9dd4141587316397b1c0b9ac9"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/instructions.jsonl",
+      "bytes": 57918826,
+      "sha256": "4ff4a8eebdf2aa4d0208f5282e93b9719611eb3756f7b640903d3fe192544d56"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/models.json",
+      "bytes": 1520,
+      "sha256": "e1af375c9bacbed0a430049fb604ceb41b00615b15ba7a55b37b69c7074e282d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/pipeline_statistics.json",
+      "bytes": 40840915,
+      "sha256": "c213780d0ac392509bcd8859ea7387fe06e65989d8a911e59cf21b787b50fb65"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/result.json",
+      "bytes": 7382,
+      "sha256": "2a3ddc805b860480179512fd29a07f324360ed71ab05a1fe34d39a1093d35a34"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/rw_events.jsonl",
+      "bytes": 152854327,
+      "sha256": "0f0d3113f05b43df6db186f5687dce9bc8c52d33ba30bc6eefa80090866cc2fb"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/schedule.json",
+      "bytes": 17666,
+      "sha256": "33ada62e4e229577c2af5c51be6c1a09ca90ca94a2cd9296eb3e76a56e14f1e1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/simulator.log",
+      "bytes": 34575,
+      "sha256": "e8f82d5fd98ff15fa8ab718ca1153b45371a9b1f5b142fcc4bdf763442d036e4"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls-performance-reject/trace.csv",
+      "bytes": 9315331,
+      "sha256": "ef74b698f7adb0a1a415fdca5846f9a5d6e52077d2600f371221e97bb9315be1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls.json",
+      "bytes": 1771,
+      "sha256": "82c16c27bad2eee4465d62f29d30e76b076c9e43316f18e83fdf8f654366763f"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/controls.log",
+      "bytes": 2230,
+      "sha256": "4c817c17fe2a345e343ca0840c4fd011cb5a1daa5597b50cb6e7408f1fdde8ee"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/dataset/H61001.npz",
+      "bytes": 36136398,
+      "sha256": "241aa6d9e8e1e2e00cb54c77e87843b7dd04ce9682c06f614822aeb5c95e20fb"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/dataset/H61002.npz",
+      "bytes": 36135219,
+      "sha256": "5e447d998c3999e7210073576dec7621e3d0c418d9be53e460e9c8e46a7ee85d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/dataset/index.json",
+      "bytes": 586,
+      "sha256": "3bb85f38361b7128846c0d0020b8ecb99edf5aee8e8513a8b10e11d1a227bac3"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/dataset.log",
+      "bytes": 986,
+      "sha256": "449af1c9e1a7adf9f6e360a4fd4f361ffe24bba7ecabee1d99051998e69c9b40"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/freeze.log",
+      "bytes": 205,
+      "sha256": "da01bd884d453479a0ba336be408c1a2141351bb569380e411aa5bc176ccc197"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/frames.json",
+      "bytes": 3252,
+      "sha256": "a67b3c22994123adc9ba608c4b9b504dc4393a608a6644056c5e0c9e718fa1b5"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda0.01-H61001.npz",
+      "bytes": 3282945,
+      "sha256": "ce01444e4c2fe958e55ef9edce6ca2326f7501c220197970d4bd5db018d9517e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda0.01-H61002.npz",
+      "bytes": 3282759,
+      "sha256": "00d67616041e74361e6de9f1d44f82f8e6cae60443f507e553bbe347b03feae1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda0.1-H61001.npz",
+      "bytes": 3283939,
+      "sha256": "4110eda95e80e737c83f595e4f09007c19bb4c7e739f678daeed30e9428e44ba"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda0.1-H61002.npz",
+      "bytes": 3284028,
+      "sha256": "6281caacda70e49a5c7c152185ef257eef062f913e1eea257c95fde14ef4ac26"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda1.0-H61001.npz",
+      "bytes": 3285412,
+      "sha256": "01bd357feb919913f8e4c02d72dd80d7f5555a58f9441d0bf1ef0f8d923efb4d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda1.0-H61002.npz",
+      "bytes": 3285622,
+      "sha256": "7d3e303825c4d074e7bc9d7d406bef7836c0579ba2a8d670d8239730d2dedac7"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/progress.json",
+      "bytes": 336853,
+      "sha256": "8a5ec60c83ffc42157404bae0b6a0cec9d5fd8c8728524f97d292e7a3263ceb2"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/result.json",
+      "bytes": 360595,
+      "sha256": "6b70371869c1c69e9c7aac0dbd931d8be844431fcb68151b2b29d24f22dde426"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/independent_cdl_audit.json",
+      "bytes": 4460,
+      "sha256": "9f2332fa7e0cf48e87bcb6190662c4ab5f1860ba9da213c607c8adca70d65e24"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/independent_dynamic_audit-partial2.json",
+      "bytes": 1614,
+      "sha256": "f780305efe5e11faa6484b25a5267b03a950d72b6bb366f5f6541950ac620a5a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/independent_dynamic_audit.json",
+      "bytes": 2203,
+      "sha256": "94110502c9fd4dc8f779033816cae52c2122d112a9514cab960a36620f4e69bc"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/ledger-tests.log",
+      "bytes": 100,
+      "sha256": "b70aaee4b98aed3c929b11d2edf077f243b297ed21e6fabbffb70bd38d82b0f9"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/paired-baseline.log",
+      "bytes": 4731,
+      "sha256": "9446f04dad5ced5adce09608ebac4e952786a45f732a45d1162b2230e029cba2"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/paired_baseline.json",
+      "bytes": 4753,
+      "sha256": "a8dd1165425d41824eb32ba4d52fc565f0e51a5f81b8ce7469bd876206c29e76"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/replay.log",
+      "bytes": 3936,
+      "sha256": "96a24369cd2b00df3851e2d9e8317c6db93cb188741d5a43135419b95a6ff0da"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/report.log",
+      "bytes": 3670,
+      "sha256": "22e6c839db7fa77244b5f503dbc93790a41f237c26dd0be95aefb4b8bc4f35ae"
+    }
+  ]
+}

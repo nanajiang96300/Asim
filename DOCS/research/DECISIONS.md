@@ -295,3 +295,11 @@ HB K174/batch96全量复核峰值1,971,172KiB（1.88GiB），193.74秒，原周�
 
 
 M1解析器边界补丁v2：补充小数/指数顶层元数据跨chunk读取测试并修正误拒绝；实际九入口的instructions对象及header整体解码路径不变。新live pin为orchestrator/codex_runtime_memory_v2.json（91文件），v1清单保留。最终250测试及v2默认NS新Asim通过，五类关键文件与v1逐字节一致；HB/九入口完整内存实测属于v1原验收，未冒称在v2重跑全部。见experiments/memory/2026-11-10-v1/parser_v2_manifest.json。
+
+## D036 — BRI内循环的版本、基线和追加台账（2026-11-10）
+
+BRI优化计入内循环，子类型分指令/布局/流水与参数/精度；后者必须新校准/冻结/留出，不能伪装逐位等价。默认同一Model/mode/算子族，以candidate_id+commit、独立分支/worktree/build形成不可变实现，不每轮复制新类或在共享算子加入迭代if。新算法/任务契约实质变化才新入口。基线源码、binary/runtime、输入与验收不覆盖；分支名不可替代commit，未晋级不默认切换。
+
+固定BRI-HB基线bri-hb-base-v1，首轮bri-hb-inner-0001只轮换previous/x/value物理角色，K16/53/174与公式/精度不变。真实周期18409→17488、47121→44128、141017→131248（减少5.003%/6.352%/6.928%），三档与基线/独立参考逐FP16位一致。全新H61001/61002共192独立H复用三SNR、576batch实际重建及QPSK门禁通过，最大任务误差0.840812%/0.971608%/0.817267%。旧基线在同新H/载荷上重放576batch也与候选位一致，不把旧H590质量混作配对比较，不在新留出上调K。
+
+统一experiments/optimization/bri：baseline-v1.json不可变快照；inner-NNNN保存candidate/contract、差异、参数/周期/误差/流水/审计/manifest；ledger.jsonl只追加hash链事实，comparison.csv由台账生成。每档单独记录，失败/跳过/不支持保留，score在M3前为null；原始制品进入results/optimization/bri/inner-NNNN，论文固定paper_archive索引。首轮基线/候选验证器版本区别保留，M1兼容证据单列，不改写旧周期测量。说明OPTIMIZATION_TRACKING.md，本轮报告experiments/optimization/bri/inner-0001/README.md。
