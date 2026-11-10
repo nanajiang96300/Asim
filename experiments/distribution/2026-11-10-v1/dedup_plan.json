@@ -1,0 +1,245 @@
+{
+  "script_sha256": "568b461694f9fa6219b001cf525ef57864704da0e053abc8de031fe675f59aa6",
+  "entries": [
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_hb/instructions.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_hb/instructions.jsonl",
+      "bytes": 140003747,
+      "sha256": "7e6bb6f6108a4dc8b77f0a7383c467ef9b1d89a4bafb6277b5cba383386901c8"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_hb/dispatch.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_hb/dispatch.jsonl",
+      "bytes": 7229852,
+      "sha256": "52777ac7824d81f3cde797bd6aad7d2d881476e8804abaaedc24049222e465a3"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_hb/trace.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_hb/trace.csv",
+      "bytes": 21193833,
+      "sha256": "ef2d3f840c1ba6398a0ca74d43d37029576535bd8c45671067bfc42d49131aeb"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_hb/rw_events.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_hb/rw_events.jsonl",
+      "bytes": 343821194,
+      "sha256": "ef44b66dcb147bce5daacddfa8e6a675b9cb2f1cd28fe2bb5dfa620a3547fa85"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_hb/formula.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_hb/formula.json",
+      "bytes": 65618748,
+      "sha256": "f4b3177db527e770e8fdd61a8b4aa16947e3b0cc46285b741f5f619c2b0730c9"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_hb/pipeline_statistics.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_hb/pipeline_statistics.json",
+      "bytes": 98388035,
+      "sha256": "f1914f310747a43046e068fdb6cfebd04baaeb70ca910cbb820373ec049b4ed3"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_hb/instruction_pipeline_detail.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_hb/instruction_pipeline_detail.csv",
+      "bytes": 23414966,
+      "sha256": "8515926fc701eb9647afd0ad411a16e73866cc4b159923adb547c3b0fe93a414"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns/instructions.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns/trace.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns/rw_events.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns/formula.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns/pipeline_statistics.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns/instruction_pipeline_detail.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns_parser_v2/instructions.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/instructions.jsonl",
+      "bytes": 9856863,
+      "sha256": "044c5443afed059082e93c3403146e75b5cdfba036d8c7c9163cc476e1057485"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns_parser_v2/trace.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/trace.csv",
+      "bytes": 2727490,
+      "sha256": "89b927dee901e21f170e6714a3c1bb2564b33c4e6a5388a5228909dea4721bed"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns_parser_v2/rw_events.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/rw_events.jsonl",
+      "bytes": 40848968,
+      "sha256": "ce7d490b527f49d68e5d5bf89ada807bcfa819042a84726ecdd5f47f44faf9cb"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns_parser_v2/formula.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/formula.json",
+      "bytes": 4299834,
+      "sha256": "8a5b3ba62addd55cb268dd69755f92aa31d53b29a082e8a71bead8280948333f"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns_parser_v2/pipeline_statistics.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/pipeline_statistics.json",
+      "bytes": 6867268,
+      "sha256": "c54f5f1f376aa08297f0911b5cd3fb291526e8cc32cc4fc07e3a20a30daf1429"
+    },
+    {
+      "remove_copy": "results/memory/2026-11-10-v3/daily_ns_parser_v2/instruction_pipeline_detail.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/daily_ns/instruction_pipeline_detail.csv",
+      "bytes": 1543121,
+      "sha256": "306209b038c6377d70d10b9d8e62b8e66d952b6ef29125ae7c895d84f5f82225"
+    },
+    {
+      "remove_copy": "results/optimization/bri/inner-0001/controls-performance-reject/instructions.jsonl",
+      "retain": "results/optimization/bri/inner-0001/asim-lambda1.0/instructions.jsonl",
+      "bytes": 57918826,
+      "sha256": "4ff4a8eebdf2aa4d0208f5282e93b9719611eb3756f7b640903d3fe192544d56"
+    },
+    {
+      "remove_copy": "results/optimization/bri/inner-0001/controls-performance-reject/dispatch.jsonl",
+      "retain": "results/optimization/bri/inner-0001/asim-lambda1.0/dispatch.jsonl",
+      "bytes": 2887624,
+      "sha256": "21a9a9fa8700fffb38551315c2cc53c4d9a1d22a09c89cc49a0f2475df38eca9"
+    },
+    {
+      "remove_copy": "results/optimization/bri/inner-0001/controls-performance-reject/trace.csv",
+      "retain": "results/optimization/bri/inner-0001/asim-lambda1.0/trace.csv",
+      "bytes": 9315331,
+      "sha256": "ef74b698f7adb0a1a415fdca5846f9a5d6e52077d2600f371221e97bb9315be1"
+    },
+    {
+      "remove_copy": "results/optimization/bri/inner-0001/controls-performance-reject/rw_events.jsonl",
+      "retain": "results/optimization/bri/inner-0001/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 152854327,
+      "sha256": "0f0d3113f05b43df6db186f5687dce9bc8c52d33ba30bc6eefa80090866cc2fb"
+    },
+    {
+      "remove_copy": "results/optimization/bri/inner-0001/controls-performance-reject/formula.json",
+      "retain": "results/optimization/bri/inner-0001/asim-lambda1.0/formula.json",
+      "bytes": 26987958,
+      "sha256": "5b8288cd88080f8eefcff673441d45acbd9f37cfac14332dca7f02b955306f6e"
+    },
+    {
+      "remove_copy": "results/optimization/bri/inner-0001/controls-performance-reject/pipeline_statistics.json",
+      "retain": "results/optimization/bri/inner-0001/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 40840915,
+      "sha256": "c213780d0ac392509bcd8859ea7387fe06e65989d8a911e59cf21b787b50fb65"
+    },
+    {
+      "remove_copy": "results/optimization/bri/inner-0001/controls-performance-reject/instruction_pipeline_detail.csv",
+      "retain": "results/optimization/bri/inner-0001/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 9608386,
+      "sha256": "b51dd2bff49f6079db232f91ca1817ee5312e2e9dd4141587316397b1c0b9ac9"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/repeat/instructions.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/instructions.jsonl",
+      "bytes": 60900202,
+      "sha256": "b1d2a9690d69af6b5cde01c26c743c597e97da28ca4da325d34c5542dc34876d"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/repeat/dispatch.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/dispatch.jsonl",
+      "bytes": 3030984,
+      "sha256": "278f313c452bbc93224a88c98324f004daabe86c1cbf270f06efa062fd336d3e"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/repeat/trace.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/trace.csv",
+      "bytes": 9729389,
+      "sha256": "da80a1d4247a4a5128c89d3ae47e3797cfa75b6f79802834c14d3942d07eb6a7"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/repeat/rw_events.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 159758778,
+      "sha256": "083c24d07a854b68cfc1a373a67a876eceff7ce90b2c04e5aa34cac585cbd43e"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/repeat/formula.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/formula.json",
+      "bytes": 28362486,
+      "sha256": "b1af241504e0b884ad866b14b84b85bb621d08ae9434daec07c7c4163c041438"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/repeat/pipeline_statistics.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 42912307,
+      "sha256": "e2b3cd297db5c10e3491280133d7e7cca25a567a9a6533f616d20ebbe0b9e193"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/repeat/instruction_pipeline_detail.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 10094623,
+      "sha256": "d7cddfb0f8d5ffe46bf3eaf8263704878b006a7691d8db1a8bf4dbe7fa251a55"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/performance_reject/instructions.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/instructions.jsonl",
+      "bytes": 60900202,
+      "sha256": "b1d2a9690d69af6b5cde01c26c743c597e97da28ca4da325d34c5542dc34876d"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/performance_reject/dispatch.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/dispatch.jsonl",
+      "bytes": 3030984,
+      "sha256": "278f313c452bbc93224a88c98324f004daabe86c1cbf270f06efa062fd336d3e"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/performance_reject/trace.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/trace.csv",
+      "bytes": 9729389,
+      "sha256": "da80a1d4247a4a5128c89d3ae47e3797cfa75b6f79802834c14d3942d07eb6a7"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/performance_reject/rw_events.jsonl",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 159758778,
+      "sha256": "083c24d07a854b68cfc1a373a67a876eceff7ce90b2c04e5aa34cac585cbd43e"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/performance_reject/formula.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/formula.json",
+      "bytes": 28362486,
+      "sha256": "b1af241504e0b884ad866b14b84b85bb621d08ae9434daec07c7c4163c041438"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/performance_reject/pipeline_statistics.json",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 42912307,
+      "sha256": "e2b3cd297db5c10e3491280133d7e7cca25a567a9a6533f616d20ebbe0b9e193"
+    },
+    {
+      "remove_copy": "results/fixed_hb_native/2026-11-09-v2/controls/performance_reject/instruction_pipeline_detail.csv",
+      "retain": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 10094623,
+      "sha256": "d7cddfb0f8d5ffe46bf3eaf8263704878b006a7691d8db1a8bf4dbe7fa251a55"
+    }
+  ]
+}
