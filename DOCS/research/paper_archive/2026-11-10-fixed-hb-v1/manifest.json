@@ -1,0 +1,230 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-10-fixed-hb-v1",
+  "capture_commit": "5f67676cd73dda28bce99ae3dbdb01ce17f12f40",
+  "status": "FIXED_HB_CDLB_RECONSTRUCTION_CHECKED",
+  "snapshots": [
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/README.md",
+      "bytes": 3095,
+      "sha256": "0ee18f7c2a7c33c7f0c6c0489324e25a10a4bd3a181b4cb33e9371b671f3d1b0"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/summary.json",
+      "bytes": 274025,
+      "sha256": "a112dbdefb31068f078b89e02ed2395ca8c0407409cd4d3f69d10d00eed4e07a"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/contract.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/contract.json",
+      "bytes": 23686,
+      "sha256": "f142978a788aead6b2092838aba4a355850e3de42a797ab21a3e138199a4ce24"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/selection.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/selection.json",
+      "bytes": 452,
+      "sha256": "4c29b1052d8dfb2871b23ecb81ce0bfcf42bbec3b60cd1daf5709b25a3300b2f"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/math_review.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/math_review.md",
+      "bytes": 7846,
+      "sha256": "600d148ba25aff8f8a6986a4e0a333d82c6b08181d213ae8c8dd9f871ec9a430"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/old_failure_regression.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/old_failure_regression.json",
+      "bytes": 590,
+      "sha256": "0d9620a5f2c3c51f8c1fe278bda1c987b187de640b008060223cbd31de222a40"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/iterations_error.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/iterations_error.csv",
+      "bytes": 65596,
+      "sha256": "88bf66d0207d4a9b3104130e8821e986b477e4319fd28039df466e1270e6f0ab"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/iterations_error.png",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/iterations_error.png",
+      "bytes": 137406,
+      "sha256": "5263cdc46da35e43c85e91e5b0a3026ea9c028dd7922eb2497f5efd6373b686c"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/iterations_error.pdf",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/iterations_error.pdf",
+      "bytes": 30987,
+      "sha256": "28fe417878c7c0388723470d9de1373bf8e1bd6cffd368fd9a0be94a98901147"
+    },
+    {
+      "source": "experiments/fixed_hb/2026-11-09-v1/run_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb/2026-11-09-v1/run_manifest.json",
+      "bytes": 5241,
+      "sha256": "32dba5323a8e92a0840a59dec08449801ec86b10fc66d1625f2ca4e6762ddc08"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/README.md",
+      "bytes": 6626,
+      "sha256": "2727e43c7919f18ae043ffb63b002b66565b59222889ff16f750e17871d4e998"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/summary.json",
+      "bytes": 364169,
+      "sha256": "91d61e3b79e2639c2d036aaf6e7880881b450181910b2008f44f8bbde654638b"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/contract.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/contract.json",
+      "bytes": 32848,
+      "sha256": "42242c3e0e52a93023b12163332a265f10b436a8acefffe337d3d9393a30f959"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/controls.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/controls.json",
+      "bytes": 2617,
+      "sha256": "a202c7b0e124147e750a858ed7b94892d952883a0d6dcea7e5ab2755b831eb0b"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/cycles_and_replay.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/cycles_and_replay.csv",
+      "bytes": 1709,
+      "sha256": "081d0cd1e3753709519566962fcaf08815f2bc048861cbb5a03a2d184f3327d9"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/pipeline_summary.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/pipeline_summary.csv",
+      "bytes": 3676,
+      "sha256": "b2026c7a25e764abecb51731e8c5ef0dd5c470eec69f7e6350a197bbbbb216de"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/core_pipeline_summary.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/core_pipeline_summary.csv",
+      "bytes": 101664,
+      "sha256": "33746cbcaa1e8af1e64f30084b44380764da0833d55662c60a2d406ce4630b61"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/dynamic_audit.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/dynamic_audit.md",
+      "bytes": 2827,
+      "sha256": "de593ec9daaeb013c92620a7ee0389a8c2f0035b3971c2a2eec3b1135a9e957a"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/static_audit.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/static_audit.md",
+      "bytes": 7120,
+      "sha256": "17b8a591e439619275abb1b47ff34e4dc9bda1af37551ec4050e25eb7f8f73ef"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/run_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/run_manifest.json",
+      "bytes": 38526,
+      "sha256": "fca116b7236a25c7bc3a9d3b04f3e64b848b1588317f25015abbce4cbea5d919"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/build_cache_receipt.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/build_cache_receipt.json",
+      "bytes": 174818,
+      "sha256": "6eb135797ef023844c66e2bf9b74d4d48c0847c28f8c2a4f045d38e2775add59"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/final_recheck.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/final_recheck.json",
+      "bytes": 2894,
+      "sha256": "7478b0e910ac3d4161e70a8d1a4814232a42505c36b41d1b37f7246b2afceddb"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/toolchain.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/toolchain.json",
+      "bytes": 22568,
+      "sha256": "e36552f4bb21d2bb592f9e1cbd65f8128fdda83a736565d4c805c915209e90d6"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/daily_hb.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/daily_hb.json",
+      "bytes": 39488,
+      "sha256": "aef781f81767393d99582ee57bb35b987d03fb847963447762b293e0c879abf0"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/daily_ns.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/daily_ns.json",
+      "bytes": 39123,
+      "sha256": "37ddadf0ffff76f3a339e87842197612b032fad65416e603fef6dd2fd73442d7"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/unit-tests.log",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/unit-tests.log",
+      "bytes": 346,
+      "sha256": "46a183d9f940da8f4e992d25b7e72419de1ff7290e38ceb230e055c656b6722a"
+    },
+    {
+      "source": "DOCS/research/F16_STABLE_HB_DESIGN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/DOCS/research/F16_STABLE_HB_DESIGN.md",
+      "bytes": 4309,
+      "sha256": "e97c7e4d25f1a883c6f3f4fd5315beb32c5a0a85953725a1e7ed796d61f1a8e8"
+    },
+    {
+      "source": "DOCS/operators/bri_stable_hb_fp16_v1.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/DOCS/operators/bri_stable_hb_fp16_v1.md",
+      "bytes": 3542,
+      "sha256": "c8ad494c1b6cacfcd2411618f0721d2e5787ede45296437777046fe9f5bb5036"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v1/README.md",
+      "bytes": 1171,
+      "sha256": "7379bbd12b52509325a4fd702dd8040da9d7b236a030804ca89c9e8ed7ae2b03"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v1/interruption.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v1/interruption.json",
+      "bytes": 532,
+      "sha256": "c4048ee3cd3ba239a2353d4ae4fcb7963cabb8a71cd4a6fcd1e821abd32ed4ff"
+    },
+    {
+      "source": "experiments/storage_cleanup/2026-11-09-lossless-v2/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/storage_cleanup/2026-11-09-lossless-v2/README.md",
+      "bytes": 1114,
+      "sha256": "9d825245893cf5752d8685cc1fcb22a5de320d9e2905bc1c5e321532e5c43233"
+    },
+    {
+      "source": "experiments/storage_cleanup/2026-11-09-lossless-v2/execution.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/storage_cleanup/2026-11-09-lossless-v2/execution.json",
+      "bytes": 32010,
+      "sha256": "002198d488e282eac8c3fc7634d1e1bfc5caefdd7d14235d1355b2a70e303b97"
+    },
+    {
+      "source": "orchestrator/codex_runtime_stable_hb_fp16_v1.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/orchestrator/codex_runtime_stable_hb_fp16_v1.json",
+      "bytes": 17440,
+      "sha256": "de3f0191fb282dbdc94b198365cd5d60116e5abd8d39818dd9772620ba625822"
+    },
+    {
+      "source": "experiments/fixed_hb_native/2026-11-09-v2/tools/audit.py",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/fixed_hb_native/2026-11-09-v2/tools/audit.py",
+      "bytes": 8490,
+      "sha256": "8618d0a9dafbeaafe35592dac78c6da5eb8e57c8d422f321a2ec58d15fe0adea"
+    },
+    {
+      "source": "experiments/storage_cleanup/2026-11-10-native-dedup-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/storage_cleanup/2026-11-10-native-dedup-v1/README.md",
+      "bytes": 1335,
+      "sha256": "4e2f0c80fb329fd462f4106a3c3399e5adad242f5d80c54b419f2f7237fae9da"
+    },
+    {
+      "source": "experiments/storage_cleanup/2026-11-10-native-dedup-v1/plan.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/storage_cleanup/2026-11-10-native-dedup-v1/plan.json",
+      "bytes": 5114,
+      "sha256": "20e46cd200373ba5cf7474d1de8588c15b8d926394430267f91c609c78f571c1"
+    },
+    {
+      "source": "experiments/storage_cleanup/2026-11-10-native-dedup-v1/execution.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/snapshots/experiments/storage_cleanup/2026-11-10-native-dedup-v1/execution.json",
+      "bytes": 6183,
+      "sha256": "7f4f744e2d50407676c8f14c18aae54c67784327085ddb93e9b04ca43b4da99d"
+    }
+  ]
+}

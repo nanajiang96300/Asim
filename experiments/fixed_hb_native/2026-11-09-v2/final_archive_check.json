@@ -1,0 +1,26 @@
+{
+  "status": "FINAL_ARCHIVE_AND_RUNTIME_CHECKED",
+  "archives": 14,
+  "snapshot_hashes_checked": 133,
+  "new_raw_manifests": [
+    {
+      "campaign": "fixed_hb/2026-11-09-v1",
+      "files": 27,
+      "logical_bytes": 112770333
+    },
+    {
+      "campaign": "fixed_hb_native/2026-11-09-v1",
+      "files": 54,
+      "logical_bytes": 2993339826
+    },
+    {
+      "campaign": "fixed_hb_native/2026-11-09-v2",
+      "files": 186,
+      "logical_bytes": 5113251764
+    }
+  ],
+  "runtime_files": 90,
+  "immutable_pairs": 16,
+  "raw_hash_scope": "SHA-256 streamed at manifest generation; exact coverage/current sizes checked here; duplicate pairs and all paper/runtime hashes reread",
+  "pure_model_thinking_seconds": null
+}

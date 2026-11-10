@@ -222,6 +222,25 @@
       "manifest": "DOCS/research/paper_archive/2026-11-09-bri-implicit-v1/manifest.json",
       "manifest_sha256": "2eafc8a46e7425485d2ac9347299e278bd471d95ae853fa8566413a6c16be0a4",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-10-fixed-hb-v1",
+      "status": "FIXED_HB_CDLB_RECONSTRUCTION_CHECKED",
+      "keywords": [
+        "BRI",
+        "fixed-HB",
+        "FP16",
+        "implicit-MMSE",
+        "CDL-B",
+        "reconstruction",
+        "K-calibration",
+        "stability",
+        "lossless-retention"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-10-fixed-hb-v1/manifest.json",
+      "manifest_sha256": "e44860ce4bb43ad3cb11ecdccf924dcbe7785873ecbefc09919657a3d34b4c0e",
+      "supersedes": null
     }
   ]
 }

@@ -1,0 +1,276 @@
+{
+  "schema": "research-raw-artifact-manifest-v1",
+  "root": "results/fixed_hb_native/2026-11-09-v1",
+  "files": [
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/asim.json",
+      "bytes": 1845,
+      "sha256": "1c4870b5cd779b06910ac8376ac8893c065a5ffde26cc48f519cac2449178548"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/channel.npz",
+      "bytes": 2556640,
+      "sha256": "c8f626419bc93025a8134ed5ab0852e79bf57daf92020208b156ce1bd2b3a67d"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/config.json",
+      "bytes": 12662,
+      "sha256": "f7ad39e1ed7f31c160bbac0aabecd0b3126408a4c68d768087ab34ad147ff65e"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/dispatch.jsonl",
+      "bytes": 21230320,
+      "sha256": "4cb694a3105c7d7784a5356b4807e4dec99bb9c070b739025a0f3e1e9225605b"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/formula.json",
+      "bytes": 187783579,
+      "sha256": "a155423b506526a590d7b8330b7853c924d7fa12e873502132bb258f0c291cbd"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c61ec67c74e2328189a21d9c5d3f1d98a2ebb3af31f9755a44dd7874c86ce277"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/instruction_pipeline_detail.csv",
+      "bytes": 67709441,
+      "sha256": "efe7121f5519131299294346a5fe6e341c3f5610d45d8b10698c69871f4edcae"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/instructions.jsonl",
+      "bytes": 399126301,
+      "sha256": "0017b2dfb0c31b86b225b8c189c98b0e1b1e71f49e13daa74d37b23922e22859"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/models.json",
+      "bytes": 1522,
+      "sha256": "82a606af4797b1e7cb89f6cea1154eab652c119325dba0d7e35475e10ff92f26"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/numerics_started.json",
+      "bytes": 79,
+      "sha256": "4502c45851c049f8765dc24e497994d60bcd79ac643fd76499b732cd4096931c"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/pipeline_statistics.json",
+      "bytes": 280541497,
+      "sha256": "2231f0fae0adb9567985b48e4c3346ccfd93c22390ac7fc012d223ef89b15149"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/references.npz",
+      "bytes": 502034,
+      "sha256": "1954d93873fc582d0c2babdd8ed75e9ddd6448a5a368695f9633aab65453fdee"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/rw_events.jsonl",
+      "bytes": 948864893,
+      "sha256": "5a90176201efb96457bd9a4e4a042d7a913c496d9011fa80e0cf9137af4e5c31"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/schedule.json",
+      "bytes": 17667,
+      "sha256": "9dbe9cb3bf1468f1c05a6860f6ddb24e4c0324ee7437667114893fc9b588d121"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/simulator.log",
+      "bytes": 35831,
+      "sha256": "b2eeb4a25d7a6175b9955a705bd37d3dfcc232bcc8e481d54ea92e0b9398830d"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/trace.csv",
+      "bytes": 59821325,
+      "sha256": "6bdbcfa184fa6815abd9e0465694723b1092aa7645b836227b9a787d2c893ee7"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/asim.json",
+      "bytes": 1840,
+      "sha256": "c60200bdd4fc8de07db1c197f9b24c50a219259f86ce55e838779cf50887979c"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/channel.npz",
+      "bytes": 2556640,
+      "sha256": "8591f03543e3903e1cbd829d79b24bf784a2b1b3b01c93aa87bdc4ebe2457bef"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/config.json",
+      "bytes": 12662,
+      "sha256": "f7ad39e1ed7f31c160bbac0aabecd0b3126408a4c68d768087ab34ad147ff65e"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/dispatch.jsonl",
+      "bytes": 7229852,
+      "sha256": "52777ac7824d81f3cde797bd6aad7d2d881476e8804abaaedc24049222e465a3"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/formula.json",
+      "bytes": 65618748,
+      "sha256": "f4b3177db527e770e8fdd61a8b4aa16947e3b0cc46285b741f5f619c2b0730c9"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "c377c6380bfecb46f63b1dcc82bc899fe737e0ae0466b974031724352d66f175"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/instruction_pipeline_detail.csv",
+      "bytes": 23414966,
+      "sha256": "8515926fc701eb9647afd0ad411a16e73866cc4b159923adb547c3b0fe93a414"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/instructions.jsonl",
+      "bytes": 140003747,
+      "sha256": "7e6bb6f6108a4dc8b77f0a7383c467ef9b1d89a4bafb6277b5cba383386901c8"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/models.json",
+      "bytes": 1520,
+      "sha256": "7673526b0aadcf42f3f29604f186e7c81c1cb5f8a361b6fc83cb996f90cf8900"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/numerics_started.json",
+      "bytes": 79,
+      "sha256": "2a8d2e32496652a4f818b1e7405eb912b683dba820e369ebf31579823b7a577e"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/outputs.npy",
+      "bytes": 393344,
+      "sha256": "290425e1a93a0ef224baa9a889e985d693b3c3fa901412b3c4193e13008e2050"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/pipeline_statistics.json",
+      "bytes": 98388035,
+      "sha256": "f1914f310747a43046e068fdb6cfebd04baaeb70ca910cbb820373ec049b4ed3"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/references.npz",
+      "bytes": 502034,
+      "sha256": "ac258dc7ce14e10b922dfdf2d8d3017a50c60f7d46d6e03a681c527dbf3b1376"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/result.json",
+      "bytes": 39148,
+      "sha256": "fcb2ff279fcedc3ca415cfdbcfd611005ca241d8c8cdccddadbb228e175524da"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/rw_events.jsonl",
+      "bytes": 343821194,
+      "sha256": "ef44b66dcb147bce5daacddfa8e6a675b9cb2f1cd28fe2bb5dfa620a3547fa85"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/schedule.json",
+      "bytes": 17666,
+      "sha256": "8f65870295d1215f1e1195d95b5ea3a11dd69b70a3bbc65d0eea12d8135ff3ec"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/simulator.log",
+      "bytes": 34850,
+      "sha256": "22ce7e652354cd4b07508a357d76b6d9d27e11ce8376ce85622a4c557e9402b6"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/trace.csv",
+      "bytes": 21193833,
+      "sha256": "ef2d3f840c1ba6398a0ca74d43d37029576535bd8c45671067bfc42d49131aeb"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/asim.json",
+      "bytes": 1838,
+      "sha256": "85e588854ae97bc8d567288ea4676d7c9fbbda433b5c1e4f4891e681b0e778aa"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/channel.npz",
+      "bytes": 2556640,
+      "sha256": "5d18050c6a9a28b01fd07aa18478677f811c834fdae9916f1f11815d4cf7aa25"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/config.json",
+      "bytes": 12662,
+      "sha256": "f7ad39e1ed7f31c160bbac0aabecd0b3126408a4c68d768087ab34ad147ff65e"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/dispatch.jsonl",
+      "bytes": 3030984,
+      "sha256": "278f313c452bbc93224a88c98324f004daabe86c1cbf270f06efa062fd336d3e"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/formula.json",
+      "bytes": 28362486,
+      "sha256": "b1af241504e0b884ad866b14b84b85bb621d08ae9434daec07c7c4163c041438"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/inputs.npz",
+      "bytes": 1184722,
+      "sha256": "ce3a469615d0f86aa167aaa986d5f7d158ba4dd6184e9c10d2c137c0816cdd3a"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 10094623,
+      "sha256": "d7cddfb0f8d5ffe46bf3eaf8263704878b006a7691d8db1a8bf4dbe7fa251a55"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/instructions.jsonl",
+      "bytes": 60900202,
+      "sha256": "b1d2a9690d69af6b5cde01c26c743c597e97da28ca4da325d34c5542dc34876d"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/models.json",
+      "bytes": 1520,
+      "sha256": "e1af375c9bacbed0a430049fb604ceb41b00615b15ba7a55b37b69c7074e282d"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/numerics_started.json",
+      "bytes": 79,
+      "sha256": "68d121f094775d252e813b03c489fdbe314754662fe118ff70c1f91d200de564"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/outputs.npy",
+      "bytes": 393344,
+      "sha256": "47b9a4aeaec9bc7a16b8bd156a175a5889d40ca8f7d6fad261b3be8c4b8fd601"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 42912307,
+      "sha256": "e2b3cd297db5c10e3491280133d7e7cca25a567a9a6533f616d20ebbe0b9e193"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/references.npz",
+      "bytes": 502034,
+      "sha256": "64fafa3d873697e328b54e2311d94a47ea3ff959a5013851e10cdb0e1c5064cc"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/result.json",
+      "bytes": 39138,
+      "sha256": "817af4b8ad18b14bb4f2e84269e7dfa47ca1d2b9b4e8b6f8ee6ca51767e4bd8e"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 159758778,
+      "sha256": "083c24d07a854b68cfc1a373a67a876eceff7ce90b2c04e5aa34cac585cbd43e"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/schedule.json",
+      "bytes": 17666,
+      "sha256": "7b1bf27826a80f578c15b7b2f0b4419482a7e4a8d8e010fc678c26f4964497bc"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/simulator.log",
+      "bytes": 34553,
+      "sha256": "7958d1601b27e8791a11cc0239c28b4d38c3a797b0356735e5805d8054b8ec7a"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/trace.csv",
+      "bytes": 9729389,
+      "sha256": "da80a1d4247a4a5128c89d3ae47e3797cfa75b6f79802834c14d3942d07eb6a7"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/asim-progress.json",
+      "bytes": 1091,
+      "sha256": "cecf9db8ec6d9188f0ca2bf022c7c34457893a945a7891cf5b0ec140d4437642"
+    },
+    {
+      "path": "results/fixed_hb_native/2026-11-09-v1/interruption.json",
+      "bytes": 532,
+      "sha256": "c4048ee3cd3ba239a2353d4ae4fcb7963cabb8a71cd4a6fcd1e821abd32ed4ff"
+    }
+  ]
+}

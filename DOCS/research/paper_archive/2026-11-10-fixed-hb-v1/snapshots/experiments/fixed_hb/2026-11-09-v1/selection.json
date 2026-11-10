@@ -1,0 +1,20 @@
+{
+  "schema": "fixed-hb-selection-v1",
+  "contract_sha256": "f142978a788aead6b2092838aba4a355850e3de42a797ab21a3e138199a4ce24",
+  "calibration_result_sha256": "f57f9b58905d3d573f851c524da360b41b220edc95ea35618f4b8276982b70b7",
+  "selection_rule": "first_suffix_all_le_1pct_until_256",
+  "cases": [
+    {
+      "lambda_": 1.0,
+      "K": 16
+    },
+    {
+      "lambda_": 0.1,
+      "K": 53
+    },
+    {
+      "lambda_": 0.01,
+      "K": 174
+    }
+  ]
+}

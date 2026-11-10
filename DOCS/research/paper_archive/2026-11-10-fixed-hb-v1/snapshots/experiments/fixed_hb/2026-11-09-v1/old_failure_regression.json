@@ -1,0 +1,22 @@
+{
+  "status": "OLD_FAILURE_REGRESSION_CHECKED",
+  "source": "results/bri_implicit/2026-11-09-v1/holdout/lambda0.01-H56002.npz",
+  "batch": 95,
+  "K": 174,
+  "task_error": 0.00526091130764548,
+  "precision_bit_equal": true,
+  "spectrum": [
+    {
+      "batch": 0,
+      "eigen_min": 0.008471948090346203,
+      "eigen_max": 7.638812356651446,
+      "lower": 0.003879547119140625,
+      "upper": 17.875,
+      "alpha": 0.2039794921875,
+      "beta": 0.9423828125,
+      "max_mode_radius": 0.970764035438067
+    }
+  ],
+  "role": "regression_only_not_calibration_or_holdout",
+  "score": null
+}
