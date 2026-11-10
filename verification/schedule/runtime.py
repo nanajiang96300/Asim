@@ -6,6 +6,7 @@ from bisect import bisect_right
 from collections import defaultdict
 import csv,json,re,sys
 from dataclasses import dataclass
+from array import array
 from collections import Counter
 from pathlib import Path
 from verification.contracts.core import Invalid,Unsupported
@@ -25,17 +26,20 @@ class ComputeStamp:
 
 
 class ComputeEvents:
-    __slots__=('compute_read_begin','compute_read_done','compute_write_visible')
+    __slots__=('data','core','present')
+    phases=('compute_read_begin','compute_read_done','compute_write_visible')
     def __init__(self):
-        self.compute_read_begin=self.compute_read_done=self.compute_write_visible=None
-    def __iter__(self):
-        return (k for k in self.__slots__ if getattr(self,k) is not None)
-    def __contains__(self,key):return key in self.__slots__ and getattr(self,key) is not None
+        self.data=array('q',[0]*6);self.core=0;self.present=0
+    def __iter__(self):return (k for n,k in enumerate(self.phases) if self.present & (1<<n))
+    def __contains__(self,key):return key in self.phases and bool(self.present & (1<<self.phases.index(key)))
     def __getitem__(self,key):
-        value=getattr(self,key)
-        if value is None:raise KeyError(key)
-        return value
-    def __setitem__(self,key,value):setattr(self,key,value)
+        n=self.phases.index(key)
+        if not self.present & (1<<n):raise KeyError(key)
+        return ComputeStamp(self.core,self.data[2*n],self.data[2*n+1])
+    def __setitem__(self,key,value):
+        n=self.phases.index(key)
+        if not 0<=value.cycle<2**63 or not 0<=value.order<2**63:raise Invalid('observer timestamp exceeds compact integer capacity')
+        self.core=value.core;self.data[2*n]=value.cycle;self.data[2*n+1]=value.order;self.present|=1<<n
 
 
 @dataclass(slots=True)
