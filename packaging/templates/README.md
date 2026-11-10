@@ -17,7 +17,7 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/smoke.py --operator all --output
 OPENBLAS_NUM_THREADS=1 .venv/bin/python -m unittest discover -s verification/tests
 ```
 
-C++依赖源码和Python3.12 x86_64的NumPy/pip wheel已随包提供，bootstrap不需要Conan或联网下载。默认单线程编译；可通过ASIM_BUILD_JOBS调整。其他Python版本/架构需要替换匹配wheel，不宣称已验证。不要从Windows原生Python运行Linux二进制。
+C++依赖源码和Python3.12 x86_64的NumPy/pip wheel已随包提供，bootstrap不需要Conan或联网下载。默认单线程编译，2 vCPU主机首次冷构建可能需要数十分钟；可通过ASIM_BUILD_JOBS调整。其他Python版本/架构需要替换匹配wheel，不宣称已验证。不要从Windows原生Python运行Linux二进制。
 
 每次output必须为新目录。smoke串行运行真实Asim→事件/调度检查→实际指令数值重放→同算法FP16位一致→FP64 MMSE误差门禁，batch96、Nr64/Nt16/RHS8、Rayleigh seed42、λ0.1。默认只保留汇总，逐例删除本次生成的原始数据；要研究中间过程加`--keep-raw`。汇总中的原始文件SHA指删除前的文件，不是包内存在的证据。单个样本集通过不代表全信道认证或性能晋级。
 
