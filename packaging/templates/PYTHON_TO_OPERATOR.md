@@ -35,3 +35,13 @@ Block实现是实块4；上述BRI为实块2、ω=.5、x0=0的stationary版本，
 > 先读取AGENTS、docs/PYTHON_TO_OPERATOR.md、docs/RECONSTRUCTION.md和三个skill。将给定Python算法冻结为H/Y/λ→xhat契约，明确FP16写回、初值/K/预条件。设计先于C++，用实际Instruction与typed views生成，未知原语报告UNSUPPORTED。保持评估器/独立参考/门限与候选修改范围分离，独立构建并先Asim后数值。保存基线与每轮候选commit/参数/周期/精度/失败，不覆盖历史，不自动推送。
 
 Agent可提出候选，但不能自行降低质量门限、改输入或给自己打分。输入输出范围、迭代参数、计时与精度由任务契约约束；指令数不必相同，但有效工作和成本必须有真实证据。
+
+## 在本包中观察已有NS映射
+
+```bash
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/algorithm_example.py
+# 阅读verification/reference/ns.py与src/inverse/ns_corrected/NSCorrectedModel.cc
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/smoke.py --operator ns --output work/ns-map-001
+```
+
+第一条只运行Python精度原型，不能替代第二条真实Asim重建；这个示例展示已存在的人工/Agent工程映射，不声称运行时自动将Python转译成C++。新算法仍需执行前述设计/生成/审计步骤。

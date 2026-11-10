@@ -7,7 +7,7 @@ r=ROOT/'expert_delivery/asim-expert-v1';assert r.is_dir()
 t=ROOT/'packaging/templates'
 for n in ['README.md','AGENTS.md','CLAUDE.md','THIRD_PARTY_NOTICES.md']:shutil.copy2(t/n,r/n)
 for n in ['PYTHON_TO_OPERATOR.md','RECONSTRUCTION.md','OPERATORS.md']:shutil.copy2(t/n,r/'docs'/n)
-for n in ['bootstrap.sh','smoke.py','check_package.py']:shutil.copy2(t/n,r/'scripts'/n)
+for n in ['bootstrap.sh','smoke.py','check_package.py','algorithm_example.py']:shutil.copy2(t/n,r/'scripts'/n)
 (r/'scripts/bootstrap.sh').chmod(0o755)
 for n in ['archive_checks.py','remaining_contracts.py','audit_solver_stages.py','check_solver_mapping_archive.py']:shutil.copy2(ROOT/'scripts'/n,r/'scripts'/n)
 (r/'requirements.txt').write_text('numpy==2.5.0\n')

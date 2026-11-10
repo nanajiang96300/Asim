@@ -69,6 +69,8 @@ ops=[('cholesky_explicit_v1',1),('ldl_explicit_v1',1),('cholesky_block_explicit_
 for op,k in ops:
  _,_,models,_=adapter(op,MMSETask(profile='modeled_fp16_fp32_real_block_v1'),k);(OUT/'example'/f'{op}.json').write_text(json.dumps(models,indent=2)+'\n')
 meta=dict(source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),target='Linux x86_64 / WSL2 Ubuntu',packaging_changes=['portable source-vendored CMake','Ramulator dependency setup only','one unit-test contract fixture path; no historical results'],cpp_operator_sources_unchanged=True,dependencies={'boost':'1.79.0','robin_hood':'3.11.5','nlohmann_json':'3.11.2','spdlog':'1.11.0 (bundled fmt headers)','yaml-cpp':'0.7.0','argparse':'2.9','onnx':(ROOT/'extern/onnx/VERSION_NUMBER').read_text().strip(),'protobuf':'vendored runtime with matching generated ONNX protobuf C++ sources'},not_included=['datasets','experiment results','model weights','server binaries/build caches','Git history','credentials or account/session settings'])
+meta['packaging_commit']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+meta['source_cpp_inventory']=[dict(path=str(p.relative_to(ROOT)),sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in sorted((ROOT/'src').rglob('*')) if p.is_file()]
 (OUT/'SOURCE_PROVENANCE.json').write_text(json.dumps(meta,indent=2)+'\n')
 print(json.dumps(dict(package=str(OUT),files=sum(p.is_file() for p in OUT.rglob('*')))))
 

@@ -29,6 +29,8 @@ C++依赖源码和Python3.12 x86_64的NumPy/pip wheel已随包提供，bootstrap
 - [算子数值重建的原理与边界](docs/RECONSTRUCTION.md)：真实指令重放、独立同算法精度参考和FP64任务参考三条路径。
 - [六类入口、参数与代码](docs/OPERATORS.md)。原始规范见DOCS/OPERATOR_DEVELOPMENT_STANDARD_V3.md；skill位于.claude/skills/。
 
+本包提供可运行的确定性构建/重建入口，不含跨天无人值守协调器。原样保留的skill可能提及历史Claude/UOBS脚本、旧registry或服务器封存结果；这些旧实验驱动/数据未随包提供，部署时使用本包bootstrap/smoke入口，不能将旧引用当作本包已实现的功能。
+
 使用Claude/Codex等Agent时自行配置企业允许的工具和模型账户。不能只声明调用了不可用的slash command，应执行skill对应步骤并保留证据。
 
 ## 可追溯性
