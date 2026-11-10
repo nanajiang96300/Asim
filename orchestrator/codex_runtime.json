@@ -39,7 +39,7 @@
   ],
   "python_version": "3.12.3",
   "numpy_version": "2.5.0",
-  "acceptance_note": "Daily task is Rayleigh. Stable-HB fixed K16/53/174 passed software modeled CDL-B 192-H at three SNR and uncoded QPSK; no hardware certification or performance promotion. Prior implicit v1 remains CDL-quality failed; old seven F64/F16 scope inherited, NS and implicit-v1 F16 rechecked with new binary.",
+  "acceptance_note": "Daily task is Rayleigh. Stable-HB fixed K16/53/174 passed software modeled CDL-B 192-H at three SNR and uncoded QPSK; no hardware certification or performance promotion. Prior implicit v1 remains CDL-quality failed; old seven F64/F16 scope inherited, NS and implicit-v1 F16 rechecked with new binary. M1 evaluator memory revision: sealed real-Asim artifacts rechecked for nine entries, full HB K174/batch96 <=2GiB, identical pipeline JSON/CSV, schedule and FP16 outputs. Binary unchanged; source/runtime software identity is new. Fresh daily smoke checks recorded separately.",
   "experimental_operators": [
     "bri_implicit_fp16_v1",
     "bri_stable_hb_fp16_v1"
@@ -162,8 +162,8 @@
     },
     {
       "path": "verification/communication/qpsk_link.py",
-      "bytes": 20905,
-      "sha256": "1d53806472eef335eeb8e6d3ff9cb520956c77977d97dd34b4934c065bba73e8"
+      "bytes": 20933,
+      "sha256": "63d268a7e02ac9dfc33918ed4b5f433dccde11c21eb45b852dfa2342212b19c8"
     },
     {
       "path": "verification/communication/qpsk_sources.py",
@@ -322,8 +322,8 @@
     },
     {
       "path": "verification/reconstruction/runner.py",
-      "bytes": 10823,
-      "sha256": "b46d5270639eed7220bcc607e43f0cc7670c264dc574f2e3a4fe6c21d75ef57c"
+      "bytes": 10846,
+      "sha256": "705d9889c753b49bf84dce7e751b367bfb31dde4bc4f9b0809dfc8bd8aea59ff"
     },
     {
       "path": "verification/reconstruction/source_views.py",
@@ -334,6 +334,11 @@
       "path": "verification/reconstruction/stable_hb_campaign.py",
       "bytes": 13512,
       "sha256": "3b40de07685e176c30ab7fa8b9123094483cfe0eca70fcb09f6d2c215e0f1e50"
+    },
+    {
+      "path": "verification/reconstruction/stream.py",
+      "bytes": 3999,
+      "sha256": "52167ab82e0b9869fc1ee90764e6c395a9950ef99b0229e84891a688499083e2"
     },
     {
       "path": "verification/reference/bri.py",
@@ -397,8 +402,8 @@
     },
     {
       "path": "verification/reporting/pipeline.py",
-      "bytes": 5580,
-      "sha256": "f525bce96dd5cb36c241a5f98d850666f23b82e7d0361f4cda5fb0bd4eaa37e8"
+      "bytes": 5783,
+      "sha256": "9c35309cb55871606881f2db9ec138ed621f6ab6e1d8358f3fb3cd876d4d6ed4"
     },
     {
       "path": "verification/reporting/qpsk_full.py",
@@ -422,8 +427,8 @@
     },
     {
       "path": "verification/schedule/runtime.py",
-      "bytes": 17088,
-      "sha256": "1c60a92cc2e88be25710033c4ed47e9d91e7396fcb2f102a7db82ff20cad1be6"
+      "bytes": 18532,
+      "sha256": "c2adee4580e8b16cbf8294c9d092cb03d88d945d06b4fc14b18498a66d1e3252"
     },
     {
       "path": "verification/shadow/execute.py",
