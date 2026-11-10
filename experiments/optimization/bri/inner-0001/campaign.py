@@ -48,6 +48,12 @@ def run(c,approved,stage):
   guard(c,approved);(OUT/'asim-index.json').write_text(json.dumps(result,indent=2));return result
  source=json.loads((OUT/'asim-index.json').read_text())
  if source['status']!='ASIM_TEMPLATES_CHECKED':raise ValueError('Asim gate required before dataset/replay')
+ if [(x['regularization'],x['iterations']) for x in source['cases']]!=[(x['regularization'],x['iterations']) for x in base['cases']]:raise ValueError('exact Asim case coverage differs')
+ for row,bc in zip(source['cases'],base['cases']):
+  rp=Path(row['result'])
+  if rp.resolve()!=(OUT/f'asim-lambda{bc["regularization"]}'/'result.json').resolve() or seal(rp)!=row['evidence'][0]:raise ValueError('Asim source result binding changed')
+  rr=json.loads(rp.read_text())
+  if rr['task']!=bc['task'] or rr['algorithm']!=bc['algorithm'] or rr['asim']['binary_sha256']!=c['binary_sha256'] or rr['asim']['finish_cycle']!=row['cycles'] or rr['comparison_identity']!=bc['comparison_identity']:raise ValueError('actual Asim task/algorithm/binary/cycle mismatch')
  if stage=='dataset':
   from verification.channels.cdlb import generate,SPEC,provenance
   if SPEC!=c['cdlb'] or provenance()!=c['channel_toolchain']:raise ValueError('channel generator changed')
