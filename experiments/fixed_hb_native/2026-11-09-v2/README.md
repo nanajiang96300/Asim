@@ -41,3 +41,7 @@ Nr64/Nt16/RHS8、batch96、24核、Cube16³；H/Y/λ→MMSE直接输出。FP16�
 完整原件`results/fixed_hb_native/2026-11-09-v2/`，[run_manifest.json](run_manifest.json)给路径/大小/SHA。命令见[run_stages.sh](tools/run_stages.sh)，用 `bash experiments/fixed_hb_native/2026-11-09-v2/tools/run_stages.sh /home/nanajiang/Asim/results/fixed_hb_native/<全新目录>`，使用冻结契约与新输出/日志命名空间，阶段为asim→dataset→replay，随后controls/regression。当前日常固定runtime见orchestrator/codex_runtime_stable_hb_fp16_v1.json，白名单不代表每入口已通过CDL。纯Agent思考时间null，实际工具阶段及独立审查墙钟分别记录。
 
 论文固定入口[paper_archive](../../../DOCS/research/paper_archive/README.md)。两轮旧制品无损回收9,075,966,566字节，78份原始trace完整保留gzip与恢复SHA台账；最新结果、旧失败、输入/关键数值和结论未删。[回收台账](../../storage_cleanup/2026-11-09-lossless-v2/README.md)。下一优先任务是通用重建器流式读取/及时释放大对象，随后新校准研究更紧谱界和指令复用；禁止在H590上继续选K。
+
+最终日常入口验收（2026-11-10）：新90文件pin下HB K53与默认NS K16均为MODELED_NUMERIC_CHECKED，24核各4batch、无失败，周期47121/7950，墙钟分别115.27/14.66秒；见[daily_hb.json](daily_hb.json)、[daily_ns.json](daily_ns.json)。完整三档Asim模板阶段623.85秒，生成新CDL输入16.41秒，CDL三组参考/实际重建及门禁阶段194.93秒；它们均不是Agent纯思考时间。
+
+最新空间台账：[16对只读重复诊断去重](../../storage_cleanup/2026-11-10-native-dedup-v1/README.md)，额外释放2.69GB并保留全部原路径/SHA；不修改数值内容、旧验收或首次中断状态。当前可用空间约3.8GiB。此前两轮gzip9.08GB与本次去重分开记账。

@@ -1,0 +1,153 @@
+{
+  "status": "IMMUTABLE_DEDUP_CHECKED",
+  "plan_sha256": "20e46cd200373ba5cf7474d1de8588c15b8d926394430267f91c609c78f571c1",
+  "free_before": 1346863104,
+  "entries": [
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/instruction_pipeline_detail.csv",
+      "bytes": 10094623,
+      "sha256": "d7cddfb0f8d5ffe46bf3eaf8263704878b006a7691d8db1a8bf4dbe7fa251a55",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/instructions.jsonl",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/instructions.jsonl",
+      "bytes": 60900202,
+      "sha256": "b1d2a9690d69af6b5cde01c26c743c597e97da28ca4da325d34c5542dc34876d",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/pipeline_statistics.json",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/pipeline_statistics.json",
+      "bytes": 42912307,
+      "sha256": "e2b3cd297db5c10e3491280133d7e7cca25a567a9a6533f616d20ebbe0b9e193",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/rw_events.jsonl",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/rw_events.jsonl",
+      "bytes": 159758778,
+      "sha256": "083c24d07a854b68cfc1a373a67a876eceff7ce90b2c04e5aa34cac585cbd43e",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda1.0/trace.csv",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda1.0/trace.csv",
+      "bytes": 9729389,
+      "sha256": "da80a1d4247a4a5128c89d3ae47e3797cfa75b6f79802834c14d3942d07eb6a7",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/instruction_pipeline_detail.csv",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.1/instruction_pipeline_detail.csv",
+      "bytes": 23414966,
+      "sha256": "8515926fc701eb9647afd0ad411a16e73866cc4b159923adb547c3b0fe93a414",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/instructions.jsonl",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.1/instructions.jsonl",
+      "bytes": 140003747,
+      "sha256": "7e6bb6f6108a4dc8b77f0a7383c467ef9b1d89a4bafb6277b5cba383386901c8",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/pipeline_statistics.json",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.1/pipeline_statistics.json",
+      "bytes": 98388035,
+      "sha256": "f1914f310747a43046e068fdb6cfebd04baaeb70ca910cbb820373ec049b4ed3",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/rw_events.jsonl",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.1/rw_events.jsonl",
+      "bytes": 343821194,
+      "sha256": "ef44b66dcb147bce5daacddfa8e6a675b9cb2f1cd28fe2bb5dfa620a3547fa85",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.1/trace.csv",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.1/trace.csv",
+      "bytes": 21193833,
+      "sha256": "ef2d3f840c1ba6398a0ca74d43d37029576535bd8c45671067bfc42d49131aeb",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/dispatch.jsonl",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/dispatch.jsonl",
+      "bytes": 21230320,
+      "sha256": "4cb694a3105c7d7784a5356b4807e4dec99bb9c070b739025a0f3e1e9225605b",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/instruction_pipeline_detail.csv",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/instruction_pipeline_detail.csv",
+      "bytes": 67709441,
+      "sha256": "efe7121f5519131299294346a5fe6e341c3f5610d45d8b10698c69871f4edcae",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/instructions.jsonl",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/instructions.jsonl",
+      "bytes": 399126301,
+      "sha256": "0017b2dfb0c31b86b225b8c189c98b0e1b1e71f49e13daa74d37b23922e22859",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/pipeline_statistics.json",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/pipeline_statistics.json",
+      "bytes": 280541497,
+      "sha256": "2231f0fae0adb9567985b48e4c3346ccfd93c22390ac7fc012d223ef89b15149",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/rw_events.jsonl",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/rw_events.jsonl",
+      "bytes": 948864893,
+      "sha256": "5a90176201efb96457bd9a4e4a042d7a913c496d9011fa80e0cf9137af4e5c31",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    },
+    {
+      "old": "results/fixed_hb_native/2026-11-09-v1/asim-lambda0.01/trace.csv",
+      "keep": "results/fixed_hb_native/2026-11-09-v2/asim-lambda0.01/trace.csv",
+      "bytes": 59821325,
+      "sha256": "6bdbcfa184fa6815abd9e0465694723b1092aa7645b836227b9a787d2c893ee7",
+      "verified": true,
+      "linked": true,
+      "readonly": true
+    }
+  ],
+  "free_after": 4034355200,
+  "duplicate_bytes_removed": 2687510851
+}

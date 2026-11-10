@@ -15,6 +15,7 @@ archive=repo/'DOCS/research/paper_archive/2026-11-10-fixed-hb-v1';archive.mkdir(
 paths=['experiments/fixed_hb/2026-11-09-v1/'+n for n in ['README.md','summary.json','contract.json','selection.json','math_review.md','old_failure_regression.json','iterations_error.csv','iterations_error.png','iterations_error.pdf','run_manifest.json']]
 paths+=['experiments/fixed_hb_native/2026-11-09-v2/'+n for n in ['README.md','summary.json','contract.json','controls.json','cycles_and_replay.csv','pipeline_summary.csv','core_pipeline_summary.csv','dynamic_audit.md','static_audit.md','run_manifest.json','build_cache_receipt.json','final_recheck.json','toolchain.json','daily_hb.json','daily_ns.json','unit-tests.log']]
 paths+=['DOCS/research/F16_STABLE_HB_DESIGN.md','DOCS/operators/bri_stable_hb_fp16_v1.md','experiments/fixed_hb_native/2026-11-09-v1/README.md','experiments/fixed_hb_native/2026-11-09-v1/interruption.json','experiments/storage_cleanup/2026-11-09-lossless-v2/README.md','experiments/storage_cleanup/2026-11-09-lossless-v2/execution.json','orchestrator/codex_runtime_stable_hb_fp16_v1.json']
+paths += ['experiments/fixed_hb_native/2026-11-09-v2/tools/audit.py','experiments/storage_cleanup/2026-11-10-native-dedup-v1/README.md','experiments/storage_cleanup/2026-11-10-native-dedup-v1/plan.json','experiments/storage_cleanup/2026-11-10-native-dedup-v1/execution.json']
 rows=[]
 for name in paths:
  p=repo/name;q=archive/'snapshots'/name;q.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,q)
