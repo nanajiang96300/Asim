@@ -147,8 +147,9 @@ class BRIStableHBOperation : public Operation {
       add(id+".new",view(x,0,0,U,R),view(update,0,0,U,R),view(value,0,0,U,R));
       sub(id+".difference_new",view(value,0,0,U,R),view(x,0,0,U,R),view(tmp,0,0,U,R),ntmp);
       sub(id+".carry",view(tmp,0,0,U,R),view(update,0,0,U,R),view(carry,0,0,U,R),ntmp);
-      copy(id+".previous",view(x,0,0,U,R),view(previous,0,0,U,R));
-      copy(id+".state",view(value,0,0,U,R),view(x,0,0,U,R));
+      // Rebind logical states after the carry read; no numerical work is omitted.
+      std::swap(previous,x);
+      std::swap(x,value);
     }
     mul("allocateOutput",view(y,0,0,U,2*R),view(zero,0,0),view(out,0,0,U,2*R),true);
     copy("output.re",view(x,0,0,U/2,R),view(out,0,0,U/2,R));
