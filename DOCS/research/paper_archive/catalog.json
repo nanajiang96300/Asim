@@ -259,6 +259,25 @@
       "manifest": "DOCS/research/paper_archive/2026-11-10-memory-v1/manifest.json",
       "manifest_sha256": "d4ac95272c16176b41a0a241be014b109acc681bfb4a1b292d1239b4394fecf7",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-10-bri-inner-v1",
+      "status": "INNER_LOOP_SOFTWARE_CANDIDATE_CHECKED",
+      "keywords": [
+        "BRI",
+        "inner-loop",
+        "baseline",
+        "candidate-lineage",
+        "state-rotation",
+        "cycles",
+        "FP16",
+        "CDL-B",
+        "QPSK"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/manifest.json",
+      "manifest_sha256": "68e29dc2f096288b0823e28344b531bf27f0615c8343fe7965266cb35a63fe6f",
+      "supersedes": null
     }
   ]
 }

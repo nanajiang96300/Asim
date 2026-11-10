@@ -1,0 +1,12 @@
+{
+  "status": "INNER_0001_FINAL_EVIDENCE_CHECKED",
+  "ledger_events": 11,
+  "ledger_head": "e77484f6af9043832d12e8b70251ba433a66afc3fb135d73640e705e2f605a8c",
+  "comparison_csv_rebuilt_identical": true,
+  "default_baseline_runtime_files": 91,
+  "default_baseline_unchanged": true,
+  "raw_artifacts": 101,
+  "candidate_commit": "88acdaed5e2f565f76a1a9f91f789ff07a440c67",
+  "score": null,
+  "promotion": "NOT_PROMOTED_M3_PENDING"
+}

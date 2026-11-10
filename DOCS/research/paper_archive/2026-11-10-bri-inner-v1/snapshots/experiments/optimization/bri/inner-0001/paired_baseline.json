@@ -1,0 +1,130 @@
+{
+  "status": "PAIRED_BASELINE_HOLDOUT_BITS_CHECKED",
+  "frames": [
+    {
+      "regularization": 1.0,
+      "iterations": 16,
+      "channel_seed": 61001,
+      "frame_seed": 61101,
+      "channels": 96,
+      "baseline_and_candidate_bits_equal": true,
+      "task_reference_equal": true,
+      "phase_timings_seconds": {
+        "independent_references": 3.027729002002161,
+        "instruction_replay_and_comparison": 6.977546990965493
+      },
+      "elapsed_seconds": 10.152114043012261,
+      "instructions_executed": 127392,
+      "candidate_evidence": {
+        "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda1.0-H61001.npz",
+        "bytes": 3285412,
+        "sha256": "01bd357feb919913f8e4c02d72dd80d7f5555a58f9441d0bf1ef0f8d923efb4d"
+      }
+    },
+    {
+      "regularization": 1.0,
+      "iterations": 16,
+      "channel_seed": 61002,
+      "frame_seed": 61102,
+      "channels": 96,
+      "baseline_and_candidate_bits_equal": true,
+      "task_reference_equal": true,
+      "phase_timings_seconds": {
+        "independent_references": 3.0181892990367487,
+        "instruction_replay_and_comparison": 6.838127491995692
+      },
+      "elapsed_seconds": 9.996142804040574,
+      "instructions_executed": 127392,
+      "candidate_evidence": {
+        "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda1.0-H61002.npz",
+        "bytes": 3285622,
+        "sha256": "7d3e303825c4d074e7bc9d7d406bef7836c0579ba2a8d670d8239730d2dedac7"
+      }
+    },
+    {
+      "regularization": 0.1,
+      "iterations": 53,
+      "channel_seed": 61001,
+      "frame_seed": 61101,
+      "channels": 96,
+      "baseline_and_candidate_bits_equal": true,
+      "task_reference_equal": true,
+      "phase_timings_seconds": {
+        "independent_references": 7.518205025000498,
+        "instruction_replay_and_comparison": 13.670468549011275
+      },
+      "elapsed_seconds": 21.518177287012804,
+      "instructions_executed": 290784,
+      "candidate_evidence": {
+        "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda0.1-H61001.npz",
+        "bytes": 3283939,
+        "sha256": "4110eda95e80e737c83f595e4f09007c19bb4c7e739f678daeed30e9428e44ba"
+      }
+    },
+    {
+      "regularization": 0.1,
+      "iterations": 53,
+      "channel_seed": 61002,
+      "frame_seed": 61102,
+      "channels": 96,
+      "baseline_and_candidate_bits_equal": true,
+      "task_reference_equal": true,
+      "phase_timings_seconds": {
+        "independent_references": 7.517629724985454,
+        "instruction_replay_and_comparison": 13.764897069951985
+      },
+      "elapsed_seconds": 21.595127730979584,
+      "instructions_executed": 290784,
+      "candidate_evidence": {
+        "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda0.1-H61002.npz",
+        "bytes": 3284028,
+        "sha256": "6281caacda70e49a5c7c152185ef257eef062f913e1eea257c95fde14ef4ac26"
+      }
+    },
+    {
+      "regularization": 0.01,
+      "iterations": 174,
+      "channel_seed": 61001,
+      "frame_seed": 61101,
+      "channels": 96,
+      "baseline_and_candidate_bits_equal": true,
+      "task_reference_equal": true,
+      "phase_timings_seconds": {
+        "independent_references": 22.24529013497522,
+        "instruction_replay_and_comparison": 35.947800900030416
+      },
+      "elapsed_seconds": 59.17848015698837,
+      "instructions_executed": 825120,
+      "candidate_evidence": {
+        "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda0.01-H61001.npz",
+        "bytes": 3282945,
+        "sha256": "ce01444e4c2fe958e55ef9edce6ca2326f7501c220197970d4bd5db018d9517e"
+      }
+    },
+    {
+      "regularization": 0.01,
+      "iterations": 174,
+      "channel_seed": 61002,
+      "frame_seed": 61102,
+      "channels": 96,
+      "baseline_and_candidate_bits_equal": true,
+      "task_reference_equal": true,
+      "phase_timings_seconds": {
+        "independent_references": 22.12142203899566,
+        "instruction_replay_and_comparison": 35.85173549997853
+      },
+      "elapsed_seconds": 58.92029887897661,
+      "instructions_executed": 825120,
+      "candidate_evidence": {
+        "path": "/home/nanajiang/Asim/results/optimization/bri/inner-0001/holdout/lambda0.01-H61002.npz",
+        "bytes": 3282759,
+        "sha256": "00d67616041e74361e6de9f1d44f82f8e6cae60443f507e553bbe347b03feae1"
+      }
+    }
+  ],
+  "independent_H": 192,
+  "paired_batch_replays": 576,
+  "elapsed_seconds": 215.7992920759716,
+  "pure_model_thinking_seconds": null,
+  "note": "same new H/payload for baseline and candidate; sealed baseline real-Asim templates reused, no new cycle measurements; identical bits imply identical BER/SER/EVM on this cohort"
+}

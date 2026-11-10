@@ -1,0 +1,62 @@
+{
+  "status": "INDEPENDENT_DYNAMIC_CASES_CHECKED",
+  "complete_templates": 3,
+  "cases": [
+    {
+      "regularization": 1.0,
+      "K": 16,
+      "cycles": 17488,
+      "baseline_cycles": 18409,
+      "source_instruction_count_batch0": 1263,
+      "all_96_saved_bits_equal_to_independent_reference_and_baseline": true,
+      "max_task_error": 0.006191060433776215,
+      "batch0_new_independent_reference_bits_equal": true,
+      "all_iteration_address_roles_verified": true,
+      "final_physical_x": 268455424,
+      "final_logical_previous_and_current_captures_bit_equal": true,
+      "zero_rhs_controls": [
+        "positive_zero",
+        "negative_zero"
+      ]
+    },
+    {
+      "regularization": 0.1,
+      "K": 53,
+      "cycles": 44128,
+      "baseline_cycles": 47121,
+      "source_instruction_count_batch0": 2817,
+      "all_96_saved_bits_equal_to_independent_reference_and_baseline": true,
+      "max_task_error": 0.005461240317961935,
+      "batch0_new_independent_reference_bits_equal": true,
+      "all_iteration_address_roles_verified": true,
+      "final_physical_x": 268454400,
+      "final_logical_previous_and_current_captures_bit_equal": true,
+      "zero_rhs_controls": [
+        "positive_zero",
+        "negative_zero"
+      ]
+    },
+    {
+      "regularization": 0.01,
+      "K": 174,
+      "cycles": 131248,
+      "baseline_cycles": 141017,
+      "source_instruction_count_batch0": 7899,
+      "all_96_saved_bits_equal_to_independent_reference_and_baseline": true,
+      "max_task_error": 0.005114429901659688,
+      "batch0_new_independent_reference_bits_equal": true,
+      "all_iteration_address_roles_verified": true,
+      "final_physical_x": 268453888,
+      "final_logical_previous_and_current_captures_bit_equal": true,
+      "zero_rhs_controls": [
+        "positive_zero",
+        "negative_zero"
+      ]
+    }
+  ],
+  "evaluator_sources_checked": 84,
+  "dependencies_checked": 10,
+  "elapsed_seconds": 3.375874838035088,
+  "pure_model_thinking_seconds": null,
+  "scope": "small artifacts and stream-only actual batch0 extraction; no full events/whole instruction JSON re-audit; independent FP64 task recalculation; fresh independent FP16 ref on batch0 and zeros"
+}

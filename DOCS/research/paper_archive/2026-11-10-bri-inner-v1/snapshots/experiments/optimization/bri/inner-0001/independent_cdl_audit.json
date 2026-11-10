@@ -1,0 +1,163 @@
+{
+  "status": "INDEPENDENT_FRESH_CDL_TASK_MODEM_CHECKED",
+  "groups": [
+    {
+      "regularization": 1.0,
+      "K": 16,
+      "independent_H": 192,
+      "max_task_error": 0.008408121547555063,
+      "candidate_bit_errors": 13361,
+      "mmse_bit_errors": 13373,
+      "candidate_symbol_errors": 11599,
+      "mmse_symbol_errors": 11603,
+      "outage_bounds": {
+        "ber": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "ser": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "evm": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "joint": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        }
+      },
+      "frames": [
+        {
+          "channel_seed": 61001,
+          "frame_seed": 61101,
+          "channels": 96,
+          "regenerated_payload_exact": true,
+          "fp64_mmse_exact": true,
+          "batch0_fresh_independent_fp16_reference_bit_equal": true
+        },
+        {
+          "channel_seed": 61002,
+          "frame_seed": 61102,
+          "channels": 96,
+          "regenerated_payload_exact": true,
+          "fp64_mmse_exact": true,
+          "batch0_fresh_independent_fp16_reference_bit_equal": true
+        }
+      ]
+    },
+    {
+      "regularization": 0.1,
+      "K": 53,
+      "independent_H": 192,
+      "max_task_error": 0.00971608121533733,
+      "candidate_bit_errors": 8139,
+      "mmse_bit_errors": 8156,
+      "candidate_symbol_errors": 7456,
+      "mmse_symbol_errors": 7470,
+      "outage_bounds": {
+        "ber": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "ser": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "evm": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "joint": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        }
+      },
+      "frames": [
+        {
+          "channel_seed": 61001,
+          "frame_seed": 61101,
+          "channels": 96,
+          "regenerated_payload_exact": true,
+          "fp64_mmse_exact": true,
+          "batch0_fresh_independent_fp16_reference_bit_equal": true
+        },
+        {
+          "channel_seed": 61002,
+          "frame_seed": 61102,
+          "channels": 96,
+          "regenerated_payload_exact": true,
+          "fp64_mmse_exact": true,
+          "batch0_fresh_independent_fp16_reference_bit_equal": true
+        }
+      ]
+    },
+    {
+      "regularization": 0.01,
+      "K": 174,
+      "independent_H": 192,
+      "max_task_error": 0.008172673829976074,
+      "candidate_bit_errors": 4023,
+      "mmse_bit_errors": 4018,
+      "candidate_symbol_errors": 3824,
+      "mmse_symbol_errors": 3818,
+      "outage_bounds": {
+        "ber": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "ser": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "evm": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        },
+        "joint": {
+          "count": 0,
+          "lower": 0.0,
+          "upper": 0.031643656463069374
+        }
+      },
+      "frames": [
+        {
+          "channel_seed": 61001,
+          "frame_seed": 61101,
+          "channels": 96,
+          "regenerated_payload_exact": true,
+          "fp64_mmse_exact": true,
+          "batch0_fresh_independent_fp16_reference_bit_equal": true
+        },
+        {
+          "channel_seed": 61002,
+          "frame_seed": 61102,
+          "channels": 96,
+          "regenerated_payload_exact": true,
+          "fp64_mmse_exact": true,
+          "batch0_fresh_independent_fp16_reference_bit_equal": true
+        }
+      ]
+    }
+  ],
+  "independent_H": 192,
+  "reused_H_across_three_SNR": true,
+  "batch_tasks": 576,
+  "candidate_bits_recalculated": 147456,
+  "mmse_bits_recalculated": 147456,
+  "elapsed_seconds": 0.9875837180297822,
+  "pure_model_thinking_seconds": null,
+  "scope": "small completed frame artifacts; independent RNG/modem/FP64 MMSE and scipy beta-quantile confidence bounds; independent FP16 reference only six batch0 examples; no second complete 576-batch instruction replay"
+}

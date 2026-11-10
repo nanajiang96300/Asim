@@ -1,0 +1,158 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-10-bri-inner-v1",
+  "capture_commit": "16dd82a67d3a71d9d602701eeef07dc587e2ce41",
+  "status": "INNER_LOOP_SOFTWARE_CANDIDATE_CHECKED",
+  "snapshots": [
+    {
+      "source": "experiments/optimization/bri/inner-0001/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/README.md",
+      "bytes": 7763,
+      "sha256": "c4b5163089f92aac48a426ab19bbe9964a4727bff29478ef86180cd3fb9de26f"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/candidate.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/candidate.json",
+      "bytes": 35466,
+      "sha256": "0c4cc1f8b4fd5402370d0f2257a6eebfb719b1a2718f6a8c4699fa0443b4119e"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/candidate.patch",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/candidate.patch",
+      "bytes": 999,
+      "sha256": "7977030d7fe6d9ef381ad952496bd018d89a86b840e800b10e63689d386f7e28"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/summary.json",
+      "bytes": 4870,
+      "sha256": "e7bc2d6097c9cc59b1a197f090fee890a408338eac392d636cab69f5c0595f66"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/parameters.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/parameters.json",
+      "bytes": 3788,
+      "sha256": "2e266ef3bfa8341ae4512bc23709ae03be1d51c6c429211cd435759c94fbe74b"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/cases.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/cases.csv",
+      "bytes": 2217,
+      "sha256": "221ed087ffdd38c08c87f46060f714bb2098958efd5b00eb7aefefcb608bfe88"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/coefficient_ranges.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/coefficient_ranges.csv",
+      "bytes": 2906,
+      "sha256": "8f246cf7a1f5355d13a62aa6fa4fc423dbf3870588127620b6632afe30d38fa5"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/pipeline_summary.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/pipeline_summary.csv",
+      "bytes": 4015,
+      "sha256": "ad8d8fce6f7ae89f63272218170ef8ab500d1f16eeab6273733468d106dbc971"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/core_pipeline_summary.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/core_pipeline_summary.csv",
+      "bytes": 107384,
+      "sha256": "51622f258d1742406831bf6a6e481cb145cce4e8ed5dff347835e0e519ec4eae"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/paired_baseline.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/paired_baseline.json",
+      "bytes": 4753,
+      "sha256": "a8dd1165425d41824eb32ba4d52fc565f0e51a5f81b8ce7469bd876206c29e76"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/controls.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/controls.json",
+      "bytes": 1771,
+      "sha256": "82c16c27bad2eee4465d62f29d30e76b076c9e43316f18e83fdf8f654366763f"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/static_audit.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/static_audit.md",
+      "bytes": 6697,
+      "sha256": "191a4112e6162b534550d18a9600a8eda4782231d5de02e0a64269d346d0f0a3"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/dynamic_audit.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/dynamic_audit.md",
+      "bytes": 5312,
+      "sha256": "64e17c037834adcd5ee72de9e409f0a3046bf2f65fa65f13193260bf9d107aab"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/independent_dynamic_audit.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/independent_dynamic_audit.json",
+      "bytes": 2203,
+      "sha256": "94110502c9fd4dc8f779033816cae52c2122d112a9514cab960a36620f4e69bc"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/independent_cdl_audit.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/independent_cdl_audit.json",
+      "bytes": 4460,
+      "sha256": "9f2332fa7e0cf48e87bcb6190662c4ab5f1860ba9da213c607c8adca70d65e24"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/run_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/run_manifest.json",
+      "bytes": 22485,
+      "sha256": "1ab7724b97bf6f710abaa1a5f71163bf5c11e87825a06fd81ad080ae9c8bdb41"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/ledger_snapshot.jsonl",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/ledger_snapshot.jsonl",
+      "bytes": 47482,
+      "sha256": "c8cbadc7d0792d44780ceab7ef2e183edda84dda2ef81390d0a3e034c428635a"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/final_check.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/final_check.json",
+      "bytes": 431,
+      "sha256": "9a8d381b87d57b9f5779c45d466876b7e29244b00b035387580919e4de972611"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/cycle_instruction_comparison.png",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/cycle_instruction_comparison.png",
+      "bytes": 106007,
+      "sha256": "c1944b11120759e27903acb5465a119b84915b3138734a1de3a1f3718a3c0d40"
+    },
+    {
+      "source": "experiments/optimization/bri/inner-0001/cycle_instruction_comparison.pdf",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/inner-0001/cycle_instruction_comparison.pdf",
+      "bytes": 19254,
+      "sha256": "53c466ad4c7542a8eecfd8a3d461cf5f87e060baa53fdfebb2963ced6a80afb0"
+    },
+    {
+      "source": "experiments/optimization/bri/baseline-v1.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/baseline-v1.json",
+      "bytes": 364145,
+      "sha256": "f8d4aa92b7a407e626b1dbe90f69c1f8d23ea310a2f50ac0ed80b451b4a7dbf8"
+    },
+    {
+      "source": "experiments/optimization/bri/comparison.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/experiments/optimization/bri/comparison.csv",
+      "bytes": 2658,
+      "sha256": "e304f7ff950c4e0bb0f61900e49b71ff60c0df7a1db1b3c20c1e6c96e33311aa"
+    },
+    {
+      "source": "DOCS/research/OPTIMIZATION_TRACKING.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/DOCS/research/OPTIMIZATION_TRACKING.md",
+      "bytes": 3345,
+      "sha256": "8cbbac5b594571c5faf218b61d6c1ef2f8b2b723c37d23157610c7309c24523d"
+    },
+    {
+      "source": "DOCS/operators/bri_inner_0001.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/DOCS/operators/bri_inner_0001.md",
+      "bytes": 2466,
+      "sha256": "2c5e16bc519a16b01174536dbcd1a41a60ab29b7bd0acb56150ae7fb82956a90"
+    },
+    {
+      "source": "scripts/optimization_ledger.py",
+      "snapshot": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/snapshots/scripts/optimization_ledger.py",
+      "bytes": 6004,
+      "sha256": "21956df7e054ca4d9e8bd03a896f3f22db131c03295dcbe3af53bec6331ee440"
+    }
+  ]
+}

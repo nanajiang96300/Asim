@@ -1,0 +1,149 @@
+{
+  "task": {
+    "batch_size": 96,
+    "nr": 64,
+    "nt": 16,
+    "nrhs": 8,
+    "regularization": 1.0,
+    "channel": "rayleigh",
+    "scope": "mmse_h_y_to_xhat_v1",
+    "profile": "modeled_fp16_fp32_real_block_v1",
+    "schema": "mmse-task-v1",
+    "representation": "R(Z)=[[Re,-Im],[Im,Re]]",
+    "measurement": {
+      "inputs": [
+        "H",
+        "Y",
+        "RegI",
+        "Identity"
+      ],
+      "includes": [
+        "input DMA",
+        "Gram",
+        "regularization",
+        "H^H Y",
+        "algorithm initialization",
+        "iterations/factorization",
+        "inverse application/output recovery",
+        "output DMA"
+      ],
+      "excludes": [
+        "common channel generation",
+        "common real-block encoding/decoding"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "regularization": 1.0,
+      "iterations": 16,
+      "algorithm": {
+        "id": "bri_stable_hb_fp16_v1",
+        "iterations": 16,
+        "block_size_complex": 1,
+        "coefficient_rule": "fixed_hb_alpha_15_16",
+        "enclosure_rule": "scaled_L4_energy_L2_P_trace_9_8",
+        "column_energy_domain": [
+          0.00390625,
+          8.0
+        ],
+        "energy_sum_domain": [
+          8.0,
+          32.0
+        ],
+        "representation": "left_complex_columns",
+        "initialization": "x0=previous=carry=0"
+      }
+    },
+    {
+      "regularization": 0.1,
+      "iterations": 53,
+      "algorithm": {
+        "id": "bri_stable_hb_fp16_v1",
+        "iterations": 53,
+        "block_size_complex": 1,
+        "coefficient_rule": "fixed_hb_alpha_15_16",
+        "enclosure_rule": "scaled_L4_energy_L2_P_trace_9_8",
+        "column_energy_domain": [
+          0.00390625,
+          8.0
+        ],
+        "energy_sum_domain": [
+          8.0,
+          32.0
+        ],
+        "representation": "left_complex_columns",
+        "initialization": "x0=previous=carry=0"
+      }
+    },
+    {
+      "regularization": 0.01,
+      "iterations": 174,
+      "algorithm": {
+        "id": "bri_stable_hb_fp16_v1",
+        "iterations": 174,
+        "block_size_complex": 1,
+        "coefficient_rule": "fixed_hb_alpha_15_16",
+        "enclosure_rule": "scaled_L4_energy_L2_P_trace_9_8",
+        "column_energy_domain": [
+          0.00390625,
+          8.0
+        ],
+        "energy_sum_domain": [
+          8.0,
+          32.0
+        ],
+        "representation": "left_complex_columns",
+        "initialization": "x0=previous=carry=0"
+      }
+    }
+  ],
+  "energy_norm_scale": 8,
+  "preconditioner_norm_scale": 128,
+  "enclosure_inflation": 1.125,
+  "lower_safety": 0.9375,
+  "alpha_safety": 0.9375,
+  "beta_rule": "fixed HB from same rounded enclosure; no separate beta damping",
+  "compensated": true,
+  "precision": "FP16 persistent tensors/coefficient/state; FP32 temporary operations, ordered K GEMM; RNE, preserve subnormal, no fusion",
+  "template_seed": 57001,
+  "channel_seeds": [
+    61001,
+    61002
+  ],
+  "frame_seeds": [
+    61101,
+    61102
+  ],
+  "minimum_speedup": 1.001,
+  "maximum_speedup": 4,
+  "limits": {
+    "max_ber_increase": 0.01,
+    "max_ser_increase": 0.02,
+    "max_evm_increase": 0.01,
+    "max_outage_probability": 0.05,
+    "family_alpha": 0.05,
+    "min_independent_channels": 192
+  },
+  "cdlb": {
+    "model": "B",
+    "carrier_frequency_hz": 3500000000.0,
+    "delay_spread_s": 1e-07,
+    "frequency_offset_hz": 1200000.0,
+    "direction": "uplink",
+    "ut_rows": 4,
+    "ut_cols": 4,
+    "bs_rows": 8,
+    "bs_cols": 8,
+    "polarization": "single",
+    "polarization_type": "V",
+    "antenna_pattern": "omni",
+    "spacing_wavelengths": 0.5,
+    "speed_m_s": 0.0,
+    "time_steps": 1,
+    "sampling_frequency_hz": 30000.0,
+    "precision": "double",
+    "device": "cpu",
+    "normalization": "per_snapshot_frobenius_squared_Nt"
+  }
+}

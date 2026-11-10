@@ -92,3 +92,5 @@ python3 scripts/research_inventory.py check experiments/inventory/2026-10-28-bas
 2026-11-09第二轮空间回收：[lossless-v2](../../experiments/storage_cleanup/2026-11-09-lossless-v2/README.md)另49个旧trace原件经完整解压/原SHA校验后保留gzip，释放3,467,128,578字节。两轮78个共9,075,966,566字节，最终逐gzip哈希核对通过，见combined_check.json。最新固定HB v1中断/v2重跑和旧BRI失败均不删。旧manifest不重写，原路径复现需显式restore。
 
 2026-11-10：[原生固定HB不可变诊断去重](../../experiments/storage_cleanup/2026-11-10-native-dedup-v1/README.md)：16对v1/v2原生诊断逐SHA相同，保留全部路径并设只读，硬链接去重额外2,687,510,851字节。不是gzip退休，无需恢复，旧manifest仍直接可核验；历史制品不可原地修改。连同两轮gzip累计回收约11.76GB，当前最新数值/失败链完整保留。
+
+2026-11-10 BRI内循环0001：原始制品results/optimization/bri/inner-0001/独立保存，101文件manifest见experiments/optimization/bri/inner-0001/run_manifest.json；固定基线、候选commit/patch、参数、周期/精度/流水、配对基线与审计纳入paper_archive/2026-11-10-bri-inner-v1/。默认基线未切换。为预留资源，新增lossless-v3/v4两次各64个旧诊断文件完整解压校验后保留gzip，分别释放2,142,233,853和926,970,294字节，恢复按对应storage_cleanup台账执行，旧manifest不改；最新基线和候选/输入/输出不删除。
