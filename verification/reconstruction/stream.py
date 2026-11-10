@@ -58,6 +58,8 @@ class Reader:
                 self.fill();continue
             # A scalar may end at the chunk boundary, e.g. 12 split as 1|2.
             if end==len(self.buffer) and not self.eof:self.fill();continue
+            if type(v) in (int,float) and end<len(self.buffer) and self.buffer[end] not in ' \t\r\n,]}':
+                if not self.eof:self.fill();continue
             self.pos=end;return v
 
 

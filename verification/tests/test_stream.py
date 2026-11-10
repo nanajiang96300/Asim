@@ -30,3 +30,7 @@ class StreamTests(unittest.TestCase):
             with self.assertRaises(TypeError):mutate()
         copied=deepcopy(record['instructions'][0]);copied['v']['row']=4
         self.assertEqual(a['row'],0)
+
+    def test_top_level_numeric_metadata_across_decimal_and_exponent(self):
+        for text in ['{"value":12345.678,"instructions":[]}', '{"instructions":[],"value":-1.234e-12}']:
+            for n in [1,2,3,7]:self.assertEqual(self.read(text,n),json.loads(text))

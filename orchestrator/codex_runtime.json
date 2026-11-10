@@ -39,7 +39,7 @@
   ],
   "python_version": "3.12.3",
   "numpy_version": "2.5.0",
-  "acceptance_note": "Daily task is Rayleigh. Stable-HB fixed K16/53/174 passed software modeled CDL-B 192-H at three SNR and uncoded QPSK; no hardware certification or performance promotion. Prior implicit v1 remains CDL-quality failed; old seven F64/F16 scope inherited, NS and implicit-v1 F16 rechecked with new binary. M1 evaluator memory revision: sealed real-Asim artifacts rechecked for nine entries, full HB K174/batch96 <=2GiB, identical pipeline JSON/CSV, schedule and FP16 outputs. Binary unchanged; source/runtime software identity is new. Fresh daily smoke checks recorded separately.",
+  "acceptance_note": "Daily task is Rayleigh. Stable-HB fixed K16/53/174 passed software modeled CDL-B 192-H at three SNR and uncoded QPSK; no hardware certification or performance promotion. Prior implicit v1 remains CDL-quality failed; old seven F64/F16 scope inherited, NS and implicit-v1 F16 rechecked with new binary. M1 evaluator memory revision: sealed real-Asim artifacts rechecked for nine entries, full HB K174/batch96 <=2GiB, identical pipeline JSON/CSV, schedule and FP16 outputs. Binary unchanged; source/runtime software identity is new. Fresh daily smoke checks recorded separately. Parser v2 adds split numeric-metadata decimal/exponent boundary support; actual nine-operation export metadata and instruction-object path unchanged. M1 v1 full resource measurements preserved; fresh default NS under v2 recorded separately.",
   "experimental_operators": [
     "bri_implicit_fp16_v1",
     "bri_stable_hb_fp16_v1"
@@ -337,8 +337,8 @@
     },
     {
       "path": "verification/reconstruction/stream.py",
-      "bytes": 3999,
-      "sha256": "52167ab82e0b9869fc1ee90764e6c395a9950ef99b0229e84891a688499083e2"
+      "bytes": 4157,
+      "sha256": "49a48132cb35adcb3dd90b94bcb348e40ac5aecf2c35e8fe6464f4278af921aa"
     },
     {
       "path": "verification/reference/bri.py",
