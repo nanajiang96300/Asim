@@ -27,8 +27,17 @@ def error(a,b):
     return relative_error(np.stack((a.real,a.imag)),np.stack((b.real,b.imag)))
 
 
-def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=None,baseline_identity=None):
+def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=None,baseline_identity=None,task_backend=None):
     """Trusted catalog and references are outside the candidate modification scope."""
+    # Only trusted task integrations supply callbacks; candidate JSON cannot select code.
+    backend=task_backend or {
+        'adapter':adapter,'fixture':fixture,'task_reference':task_reference,
+        'dma_shapes':lambda t:((2*t.nr,2*t.nt),(2*t.nr,2*t.nrhs),(2*t.nt,2*t.nt),(2*t.nt,2*t.nrhs)),
+        'algorithm_reference':lambda fn,d,t,i:fn(d['H'],d['Y'],t.regularization,i),
+        'blocks':lambda a:a.get('output_block',np.stack([real_block(z) for z in a['output']])),
+        'decode':lambda v,t,p:decode_checked(v,t.nt,t.nrhs,p.quadrant_tolerance),
+        'diagnostics':lambda d:('channel.npz',{k:d[k] for k in ('H','Y','symbols')})
+    }
     directory=Path(directory).resolve()
     if directory.exists():raise Invalid('refusing existing directory')
     started=last_time=perf_counter();phase='setup';timings={}
@@ -38,12 +47,12 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
     result={'status':'INVALID','numeric_status':'NOT_RUN','score':None,'G4':'NOT_CERTIFIED','precision':'structure_f64_real_block','operator':operator}
     try:
         task.validate();precision=policy_for(task.profile);result['precision']=task.profile;result['precision_policy']=precision.frozen()
-        entry,parameters,models,reference=adapter(operator,task,iterations)
+        entry,parameters,models,reference=backend['adapter'](operator,task,iterations)
         if config['num_cores']!=24 or config['precision']!=precision.bytes or config['dram_req_size']!=64:raise Invalid('expected24core/request64/precision8')
         cube=config.get('ascend_cube_model',{})
         if not cube.get('enabled') or [cube.get(k) for k in ('cube_m','cube_n','cube_k')]!=[16,16,16]:raise Invalid('expected enabled Cube16x16x16 cost model')
-        if any(rows*cols*precision.bytes%64 for rows,cols in ((2*task.nr,2*task.nt),(2*task.nr,2*task.nrhs),(2*task.nt,2*task.nt),(2*task.nt,2*task.nrhs))):raise Unsupported('runtime observer tail DMA semantics not implemented')
-        data=fixture(task,seed)
+        if any(rows*cols*precision.bytes%64 for rows,cols in backend['dma_shapes'](task)):raise Unsupported('runtime observer tail DMA semantics not implemented')
+        data=backend['fixture'](task,seed)
         comparison=digest({'runtime_contract':RUNTIME_CONTRACT,'numeric_policy':precision.frozen(),'task':task.frozen(),'hardware_config':config,'inputs':{k:hashlib.sha256(np.ascontiguousarray(v).tobytes()).hexdigest() for k,v in data['inputs'].items()}})
         if policy is not None and baseline_identity!=comparison:raise Invalid('baseline task/input/hardware/measurement identity mismatch')
         result['comparison_identity']=comparison;result['runtime_contract']=RUNTIME_CONTRACT
@@ -51,7 +60,7 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
         receipt=simulate(binary,config,models,entry['mode'],cwd,directory,timeout=entry.get('asim_timeout_seconds',120),max_cycles=1000000)
         mark('artifact_and_schedule_checks')
         result.update(asim=receipt,task=task.frozen(),task_hash=task.identity,algorithm=parameters,seed=seed)
-        np.savez(directory/'inputs.npz',**data['inputs']);np.savez(directory/'channel.npz',H=data['H'],Y=data['Y'],symbols=data['symbols'])
+        np.savez(directory/'inputs.npz',**data['inputs']);diagnostic_name,diagnostics=backend['diagnostics'](data);np.savez(directory/diagnostic_name,**diagnostics)
         if receipt['status']!='COMPLETED':result['status']='SKIPPED_ASIM_FAILED'
         else:
             receipt_files={e['path'] for e in receipt['artifacts']}
@@ -63,6 +72,7 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
             dispatch=[json.loads(line) for line in (directory/'dispatch.jsonl').read_text().splitlines()]
             if len(records)!=1:raise Invalid('one actual operation required')
             h,groups,bound,counts=validate_actual(records[0],dispatch,task,parameters,data['inputs'],config)
+            if backend.get('workload_check'):backend['workload_check'](groups)
             events={};dma=Counter();mapping={d['batch']:d for d in dispatch}
             for i in records[0]['instructions']:
                 core=mapping[i['batch']]['core']
@@ -91,9 +101,9 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
             if state=='ELIGIBLE_FOR_NUMERICS':
                 result['numeric_status']='FAILED';(directory/'numerics_started.json').write_text(json.dumps({'binding':binding}))
                 mark('independent_references')
-                alg=reference(data['H'],data['Y'],task.regularization,iterations)
-                target=task_reference(data,task)
-                alg_blocks=alg.get('output_block',np.stack([real_block(z) for z in alg['output']]))
+                alg=backend['algorithm_reference'](reference,data,task,iterations)
+                target=backend['task_reference'](data,task)
+                alg_blocks=backend['blocks'](alg)
                 evidence={**alg.get('evidence',{}),**({'X0':alg['X0']} if 'X0' in alg else {})}
                 np.savez(directory/'references.npz',algorithm=alg['output'],algorithm_block=alg_blocks,task=target,**evidence)
                 mark('instruction_replay_and_comparison')
@@ -102,7 +112,7 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
                     r=execute_batch(h,groups[b],bound,b,alg_blocks[b],return_output=True)
                     value=r.pop('_output',None)
                     if value is not None:
-                        complex_value=decode_checked(value,task.nt,task.nrhs,precision.quadrant_tolerance);
+                        complex_value=backend['decode'](value,task,precision);
                         if precision.modeled:
                             r['precision_bit_equal']=bit_equal(value,alg_blocks[b])
                             if not r['precision_bit_equal']:r['status']='PRECISION_MISMATCH'
@@ -128,9 +138,16 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     for k in ('binary','config','cwd','output'):ap.add_argument('--'+k,type=Path,required=True)
-    ap.add_argument('--profile',default='structure_f64_real_block',choices=['structure_f64_real_block','modeled_fp16_fp32_real_block_v1']);ap.add_argument('--operator',default='ns_corrected_v1');ap.add_argument('--seed',type=int,default=42);ap.add_argument('--iterations',type=int,default=16)
-    a=ap.parse_args();c=json.loads(a.config.read_text());c['precision']=policy_for(a.profile).bytes
-    r=evaluate(a.operator,MMSETask(profile=a.profile),a.iterations,a.seed,a.binary,c,a.cwd,a.output)
+    ap.add_argument('--profile',choices=['structure_f64_real_block','modeled_fp16_fp32_real_block_v1','modeled_fp16_fp32_v1']);ap.add_argument('--operator',default='ns_corrected_v1');ap.add_argument('--seed',type=int,default=42);ap.add_argument('--iterations',type=int);ap.add_argument('--task',choices=['mmse','affine'],default='mmse');ap.add_argument('--shape',type=int,nargs=3)
+    a=ap.parse_args();backend=None
+    if a.task=='affine':
+        from verification.tasks.affine import AffineTask,BACKEND
+        m,k,n=a.shape or (32,32,32);a.profile=a.profile or 'modeled_fp16_fp32_v1';task=AffineTask(m=m,k=k,n=n,profile=a.profile);backend=BACKEND;iterations=1 if a.iterations is None else a.iterations
+    else:
+        if a.shape is not None:ap.error('--shape is only valid for affine task')
+        a.profile=a.profile or 'structure_f64_real_block';task=MMSETask(profile=a.profile);iterations=16 if a.iterations is None else a.iterations
+    c=json.loads(a.config.read_text());c['precision']=policy_for(a.profile).bytes
+    r=evaluate(a.operator,task,iterations,a.seed,a.binary,c,a.cwd,a.output,task_backend=backend)
     print(json.dumps({k:v for k,v in r.items() if k not in ('artifacts','batches','asim')},ensure_ascii=False));return 0 if r['status'] in ('STRUCTURE_CHECKED','MODELED_NUMERIC_CHECKED') else 1
 
 if __name__=='__main__':raise SystemExit(main())
