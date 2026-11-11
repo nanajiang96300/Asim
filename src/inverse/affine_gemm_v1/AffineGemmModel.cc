@@ -51,7 +51,7 @@ void AffineGemmOperation::initialize_tiles(MappingTable&) {
   if (_config.precision != 2 ||
       _config.dram_req_size != 64 ||
       _config.num_cores != 24 ||
-      B_ == 0 ||
+      B_ == 0 || B_ > 384 ||
       (B_ % 24) != 0 ||
       M_ == 0 || K_ == 0 || N_ == 0 ||
       (M_ % 16) != 0 || (K_ % 16) != 0 || (N_ % 16) != 0 ||
@@ -95,7 +95,7 @@ void AffineGemmOperation::initialize_instructions(Tile* tile, Mapping) {
   next += 32768;
   regions.push_back(region(sync, 1, 32768 / P, "sync"));
 
-  record_source_regions(regions, M_, N_);
+  record_source_regions(regions, M_, K_);
 
   _numeric_header["schema"] = "source-views-program-v1";
   _numeric_header["profile"] = "modeled_fp16_fp32_v1";
