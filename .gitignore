@@ -34,3 +34,6 @@ results/
 # Generated expert source distribution (tracked builder and audit live separately)
 expert_delivery/*
 !expert_delivery/README.md
+
+# Versioned dependencies installed locally; no source/build caches in Git
+.deps/
