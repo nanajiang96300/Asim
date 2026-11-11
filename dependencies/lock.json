@@ -1,0 +1,28 @@
+{
+  "schema": "asim-dependencies-v1",
+  "dependency_commit": "caacd03cbacff547eed8f065d880db2057683bda",
+  "source_manifest_sha256": "1d4bdc8a20494151e032bdf181f773f0578f21a309f8b2d37f5753f728112eba",
+  "artifacts": [
+    {
+      "file": "asim-cpp-deps-v1.tar.gz",
+      "bytes": 16046935,
+      "sha256": "cbab144e5fb3e2223abb6c99551fb46df808e08573500f64ddb3616f93052a43",
+      "kind": "cpp-source",
+      "url": "https://raw.githubusercontent.com/nanajiang96300/Asim/caacd03cbacff547eed8f065d880db2057683bda/bundles/asim-cpp-deps-v1.tar.gz"
+    },
+    {
+      "file": "numpy-2.5.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 16660066,
+      "sha256": "aaa760137137e8d3c920d27927748215b56014f92667dc9b6c27dfc61249255a",
+      "kind": "wheel",
+      "url": "https://raw.githubusercontent.com/nanajiang96300/Asim/caacd03cbacff547eed8f065d880db2057683bda/bundles/numpy-2.5.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    },
+    {
+      "file": "pip-26.1.2-py3-none-any.whl",
+      "bytes": 1813144,
+      "sha256": "382ff9f685ee3bc25864f820aa50505825f10f5458ffff07e30a6d96e5715cab",
+      "kind": "wheel",
+      "url": "https://raw.githubusercontent.com/nanajiang96300/Asim/caacd03cbacff547eed8f065d880db2057683bda/bundles/pip-26.1.2-py3-none-any.whl"
+    }
+  ]
+}

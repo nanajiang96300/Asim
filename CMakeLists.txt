@@ -1,78 +1,62 @@
-cmake_minimum_required(VERSION 3.15.0)
-set(project_name "Asim")
-project(${project_name})
-
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-include("${CMAKE_SOURCE_DIR}/build/conanbuildinfo.cmake")
-conan_basic_setup()
-
-# find_package(Boost 1.70 REQUIRED COMPONENTS program_options)
-# message("LIB ${Boost_LIBRARY_DIRS}")
-option(USE_RAMULATOR "USE_RAMULATOR" ON)
-option(BRI_ENABLE_WEIGHTED_UPDATE "Enable weighted residual update branch in BlockRichardsonOp" OFF)
-option(BRI_ENABLE_PRECOND_ELEM_ADDR "Enable element-addressed block preconditioner path in BlockRichardsonOp (experimental)" OFF)
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/extern)
-
-# C++ setttings
+cmake_minimum_required(VERSION 3.20)
+project(Asim LANGUAGES C CXX)
+find_package(Python3 3.11 REQUIRED COMPONENTS Interpreter)
+set(ASIM_DEPS_DIR "${CMAKE_SOURCE_DIR}/.deps/asim-deps-v1" CACHE PATH "Verified source dependency directory")
+execute_process(COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/scripts/bootstrap.py" --verify-only --deps-dir "${ASIM_DEPS_DIR}" RESULT_VARIABLE deps_status OUTPUT_VARIABLE deps_output ERROR_VARIABLE deps_error)
+if(NOT deps_status EQUAL 0)
+ message(FATAL_ERROR "Dependencies not installed/verified. Run python3 scripts/bootstrap.py first. ${deps_error}")
+endif()
+option(ASIM_USE_PCH "Precompile common headers to reduce cold compilation time" ON)
 set(CMAKE_CXX_STANDARD 20)
-set(ONNX_ML 1)
-set(JSON_BuildTests OFF CACHE INTERNAL "")
-set(EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/build/bin")
-set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/build/lib")
-add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
-message("BINARY DIR ${CMAKE_BINARY_DIR}")
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    add_compile_options(-fsanitize=address)
-    add_link_options(-fsanitize=address)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_BUILD_RPATH_USE_ORIGIN TRUE)
+if(CMAKE_VERSION VERSION_GREATER_EQUAL 4.0)
+ set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
 endif()
+add_compile_definitions(_GLIBCXX_USE_CXX11_ABI=0 ONNX_ML=1 ONNX_NAMESPACE=onnx)
+find_package(Threads REQUIRED)
+# All non-system C++ dependencies are source-vendored. No Conan/FetchContent.
+include_directories(${ASIM_DEPS_DIR}/vendor/include
+ ${ASIM_DEPS_DIR}/vendor/spdlog/include
+ ${ASIM_DEPS_DIR}/vendor/argparse/include
+ ${ASIM_DEPS_DIR}/vendor/yaml-cpp/include
+ ${CMAKE_CURRENT_SOURCE_DIR}/extern/onnx
+ ${ASIM_DEPS_DIR}/generated
+ ${CMAKE_CURRENT_SOURCE_DIR}/extern/protobuf/src)
+add_library(spdlog INTERFACE)
+add_library(spdlog::spdlog ALIAS spdlog)
+add_library(argparse INTERFACE)
+add_library(bundled_fmt STATIC ${ASIM_DEPS_DIR}/vendor/spdlog/src/bundled_fmtlib_format.cpp)
+target_compile_definitions(bundled_fmt PRIVATE SPDLOG_COMPILED_LIB)
+file(GLOB BOOST_PO_SOURCES ${ASIM_DEPS_DIR}/vendor/boost_program_options/src/*.cpp)
+list(FILTER BOOST_PO_SOURCES EXCLUDE REGEX "winmain.cpp$")
+add_library(boost_program_options STATIC ${BOOST_PO_SOURCES})
+set(YAML_CPP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(YAML_CPP_BUILD_TOOLS OFF CACHE BOOL "" FORCE)
+set(YAML_CPP_BUILD_CONTRIB OFF CACHE BOOL "" FORCE)
+set(YAML_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+add_subdirectory("${ASIM_DEPS_DIR}/vendor/yaml-cpp" "${CMAKE_BINARY_DIR}/deps/yaml-cpp" EXCLUDE_FROM_ALL)
+set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_PROTOC_BINARIES OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_LIBPROTOC OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+set(protobuf_WITH_ZLIB OFF CACHE BOOL "" FORCE)
+add_subdirectory(extern/protobuf/cmake EXCLUDE_FROM_ALL)
+add_library(onnx_proto STATIC ${ASIM_DEPS_DIR}/generated/onnx/onnx-ml.pb.cc ${ASIM_DEPS_DIR}/generated/onnx/onnx-operators-ml.pb.cc ${ASIM_DEPS_DIR}/generated/onnx/onnx-data.pb.cc)
+target_link_libraries(onnx_proto PUBLIC protobuf::libprotobuf)
+target_compile_definitions(onnx_proto PRIVATE ONNX_API=)
+add_subdirectory(extern/ramulator_custom EXCLUDE_FROM_ALL)
+add_subdirectory(extern/booksim EXCLUDE_FROM_ALL)
+add_subdirectory(extern/ramulator2 EXCLUDE_FROM_ALL)
+set_target_properties(ramulator PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib" BUILD_RPATH "$ORIGIN")
+file(GLOB_RECURSE ASIM_SOURCES CONFIGURE_DEPENDS src/*.cc)
+add_executable(Simulator ${ASIM_SOURCES})
+target_include_directories(Simulator PRIVATE src extern/ramulator2/src extern/ramulator2/resources/ndp_wrappers)
+target_link_libraries(Simulator PRIVATE boost_program_options ramulator1 booksim2 ramulator onnx_proto Threads::Threads stdc++fs bundled_fmt)
+set_target_properties(Simulator PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" BUILD_RPATH "$ORIGIN/../lib")
 
-# Build source
-add_subdirectory("${PROJECT_SOURCE_DIR}/src")
-
-# Add libaray ramulator
-add_subdirectory("${PROJECT_SOURCE_DIR}/extern/ramulator_custom")
-
-# Add libaray ramulator
-add_subdirectory("${PROJECT_SOURCE_DIR}/extern/ramulator2")
-include_directories("${PROJECT_SOURCE_DIR}/extern/ramulator2/src")
-include_directories("${PROJECT_SOURCE_DIR}/extern/ramulator2/resources/ndp_wrappers")
-
-# Add libaray booksim
-add_subdirectory("${PROJECT_SOURCE_DIR}/extern/booksim")
-
-# Add libary protobuf
-add_subdirectory("${PROJECT_SOURCE_DIR}/extern/protobuf/cmake" EXCLUDE_FROM_ALL)
-set_target_properties(libprotoc PROPERTIES FOLDER "external/protobuf")
-set_target_properties(protoc PROPERTIES FOLDER "external/protobuf")
-
-# Add libaray onnx
-add_definitions("-DONNX_NAMESPACE=onnx")
-add_subdirectory("${PROJECT_SOURCE_DIR}/extern/onnx" EXCLUDE_FROM_ALL)
-set_target_properties(onnx PROPERTIES FOLDER "extern/onnx")
-set_target_properties(onnx_proto PROPERTIES FOLDER "extern/onnx")
-
-target_include_directories(Simulator PUBLIC ${ONNX_INCLUDE_DIRS})
-target_include_directories(Simulator PRIVATE ${CMAKE_SOURCE_DIR}/src)
-target_link_libraries(Simulator ramulator1 booksim2 ramulator)
-target_link_libraries(Simulator ${PROTOBUF_LIB} onnx_proto ${CONAN_LIBS} stdc++fs)
-if(BRI_ENABLE_WEIGHTED_UPDATE)
-    target_compile_definitions(Simulator PRIVATE BRI_ENABLE_WEIGHTED_UPDATE=1)
+if(ASIM_USE_PCH)
+ target_precompile_headers(Simulator PRIVATE "${CMAKE_SOURCE_DIR}/src/Common.h")
 endif()
-if(BRI_ENABLE_PRECOND_ELEM_ADDR)
-    target_compile_definitions(Simulator PRIVATE BRI_ENABLE_PRECOND_ELEM_ADDR=1)
-endif()
-
-target_include_directories(Simulator_lib PUBLIC ${ONNX_INCLUDE_DIRS})
-target_include_directories(Simulator_lib PRIVATE ${CMAKE_SOURCE_DIR}/src)
-target_link_libraries(Simulator_lib ramulator1 booksim2 ramulator)
-target_link_libraries(Simulator_lib ${PROTOBUF_LIB} onnx_proto ${CONAN_LIBS} stdc++fs)
-if(BRI_ENABLE_WEIGHTED_UPDATE)
-    target_compile_definitions(Simulator_lib PRIVATE BRI_ENABLE_WEIGHTED_UPDATE=1)
-endif()
-if(BRI_ENABLE_PRECOND_ELEM_ADDR)
-    target_compile_definitions(Simulator_lib PRIVATE BRI_ENABLE_PRECOND_ELEM_ADDR=1)
-endif()
-
-enable_testing()
-add_subdirectory("${PROJECT_SOURCE_DIR}/tests")
-
