@@ -1,0 +1,22 @@
+{
+  "two_clients_same_policies_and_gate_order": true,
+  "existing_context_not_overwritten": true,
+  "unknown_client_rejected": true,
+  "context_is_preparation_not_OS_sandbox": true,
+  "cli_versions": {
+    "active_client": null,
+    "clients": {
+      "codex": {
+        "available": true,
+        "version": "codex-cli 0.165.0"
+      },
+      "claude": {
+        "available": true,
+        "version": "2.1.272 (Claude Code)"
+      }
+    },
+    "python": "3.12.3",
+    "provider_api_tested": false,
+    "workflow": "supervised; shared evaluator"
+  }
+}

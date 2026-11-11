@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "elapsed_seconds": 4.279650126991328,
+  "tool_access": "disabled",
+  "session_persistence": false,
+  "provider_configuration": "existing user settings, not copied",
+  "stderr_present": true,
+  "raw_response_retained_local_only": true,
+  "parsed_result_status": "success",
+  "exact_response_verified": true,
+  "configured_model": "deepseek-v4-pro",
+  "provider_config_deepseek": true
+}

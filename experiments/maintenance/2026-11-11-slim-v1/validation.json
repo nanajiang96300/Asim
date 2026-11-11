@@ -1,0 +1,11 @@
+{
+  "base_commit": "dde9e8665d1d09415e05a9732861fa14538892c5",
+  "compared_core_files": 264,
+  "src_and_verification_mismatches": [],
+  "unit_tests": 250,
+  "unit_failures": 0,
+  "unit_skips": 0,
+  "new_binary_build": "NOT_RUN; source/evaluator unchanged, reused accepted frozen binary for real NS",
+  "frozen_runtime_changed": false,
+  "original_research_checkout_raw_data_deleted": false
+}

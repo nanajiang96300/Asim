@@ -1,0 +1,7 @@
+{
+  "returncode": 1,
+  "status": "UNSUPPORTED",
+  "numeric_status": "NOT_RUN",
+  "asim_started": false,
+  "reason": "unknown operator adapter"
+}

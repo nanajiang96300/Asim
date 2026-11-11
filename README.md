@@ -1,3 +1,9 @@
+# Asim 精简共享核心：Codex / Claude Code
+
+当前入口：[双客户端架构与分阶段计划](DOCS/research/AGENT_WORKFLOW.md)、[研究索引](DOCS/research/README.md)。本轮S0完成清理/统一受监督入口，不含全新Git clone便携构建整合与无人值守协调器。企业独立部署暂用已验收expert_delivery源码包。
+
+以下原项目说明保留为历史参考；旧构建路径/旧评分口径以当前研究索引及任务契约为准。
+
 # Asim: Multi-Core NPU Cycle-Level Simulator
 
 > 当前研究入口：[DOCS/research/README.md](DOCS/research/README.md)，系统审计：[2026-10-28项目现状](DOCS/research/STATUS_AUDIT.md)。下文保留既有架构和历史结果；周期表条件不同，DAG/PASS不代表实际指令完整验证。“FP16”及build路径以当前状态卡和工作流核查为准。新实验按 [日常规程](DOCS/research/DAILY_WORKFLOW.md) 使用独立工作区与串行构建。
