@@ -1,5 +1,7 @@
 # Asim 研究与 Codex 自动化计划
 
+2026-11-11：完整研究已推送GitHub并归档；精简共享核心和Codex/Claude Code（DeepSeek）两个开发分支已建立、验收并推送。原工作区保留；后续从独立精简工作区开发。已完成S0监督入口，S1便携Git构建整合与S2真实候选闭环待做。见[版本/目录交接与下一步](DUAL_CLIENT_HANDOFF.md)。
+
 2026-11-10 专家Linux x86_64／WSL2源码部署包已生成：六类修正入口各96batch真实Asim/重建与独立FP16位一致、2% MMSE门禁通过；250测试中248通过、2可选依赖跳过；含空格目录迁移NS和解压SHA/篡改负例通过。交付不含数据/结果/build/账号；WSL2及跨主机未实测，不升级CDL/通信/硬件/性能状态。见[交付入口](../../expert_delivery/README.md)、[验收报告](../../experiments/distribution/2026-11-10-v1/README.md)。原BRI内循环基线与后续计划不变。
 
 2026-11-10 BRI内循环0001已完成：同Model独立候选分支，状态槽轮换消除两次copy/轮，三档周期减少5.00%/6.35%/6.93%，精度与基线位一致；新192-H CDL/QPSK及同输入基线配对重放通过。追加台账/基线快照/详细流水已落地，默认基线未切换，M3未晋级。见[本轮报告](../../experiments/optimization/bri/inner-0001/README.md)、[统计规则](OPTIMIZATION_TRACKING.md)。

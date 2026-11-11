@@ -34,3 +34,6 @@ M1通用重建内存优化已完成：HB K174/batch96峰值1.88GiB，九入口�
 M1解析器边界补丁v2：补充小数/指数顶层元数据跨chunk读取测试并修正误拒绝；实际九入口的instructions对象及header整体解码路径不变。新live pin为orchestrator/codex_runtime_memory_v2.json（91文件），v1清单保留。最终250测试及v2默认NS新Asim通过，五类关键文件与v1逐字节一致；HB/九入口完整内存实测属于v1原验收，未冒称在v2重跑全部。见experiments/memory/2026-11-10-v1/parser_v2_manifest.json。
 
 BRI内循环采用同Model/mode+独立candidate分支/worktree/build，只有新算法/契约才新入口。基线bri-hb-base-v1保持主工作区/默认runtime，首轮bri-hb-inner-0001(commit88acdaed)状态槽轮换三档周期17488/44128/131248，比基线减少5.00/6.35/6.93%，公式/K/精度不变且位一致；新H61001/2三SNR与QPSK、基线同输入配对重放通过。见experiments/optimization/bri/inner-0001/README.md与DOCS/research/OPTIMIZATION_TRACKING.md，ledger.jsonl仅追加、comparison.csv从台账重建。H610留出不再调参，M3未晋级，score=null，默认基线不自动切换。
+
+
+2026-11-11双客户端S0：完整研究已远程归档archive/asim-research-20261111；精简core=67cef8a2，Codex=8b44edb1、Claude=75217b23，工作区/home/nanajiang/asim-worktrees/asim-{core,codex,claude}-v1。原目录保留证据；后续新开发在精简独立工作区。共享数值门禁/监督入口已验收，250测试、实际NS和Claude/DeepSeek无工具API检查通过；不是新clone冷构建或完整模型代码生成闭环。下一步S1整合portable构建，再S2客户端候选闭环；上下文规则尚非OS沙箱。见DOCS/research/DUAL_CLIENT_HANDOFF.md及新core的AGENT_WORKFLOW.md。

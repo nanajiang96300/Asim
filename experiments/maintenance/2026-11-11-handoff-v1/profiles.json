@@ -1,0 +1,57 @@
+{
+  "shared_core": "67cef8a2",
+  "profiles": [
+    {
+      "client": "codex",
+      "commit": "8b44edb186ebf0cbc50327ead028a0b2a3ad6cdf",
+      "worktree": "/home/nanajiang/asim-worktrees/asim-codex-v1",
+      "profile_selected_automatically": true,
+      "default_context_client_verified": true,
+      "differences_from_shared_core": [
+        "agent_profiles/active.json"
+      ],
+      "doctor": {
+        "active_client": "codex",
+        "clients": {
+          "codex": {
+            "available": true,
+            "version": "codex-cli 0.165.0"
+          },
+          "claude": {
+            "available": true,
+            "version": "2.1.272 (Claude Code)"
+          }
+        },
+        "python": "3.12.3",
+        "provider_api_tested": false,
+        "workflow": "supervised; shared evaluator"
+      }
+    },
+    {
+      "client": "claude",
+      "commit": "75217b23ae2233a300cb86b742dca37f2e83f0cc",
+      "worktree": "/home/nanajiang/asim-worktrees/asim-claude-v1",
+      "profile_selected_automatically": true,
+      "default_context_client_verified": true,
+      "differences_from_shared_core": [
+        "agent_profiles/active.json"
+      ],
+      "doctor": {
+        "active_client": "claude",
+        "clients": {
+          "codex": {
+            "available": true,
+            "version": "codex-cli 0.165.0"
+          },
+          "claude": {
+            "available": true,
+            "version": "2.1.272 (Claude Code)"
+          }
+        },
+        "python": "3.12.3",
+        "provider_api_tested": false,
+        "workflow": "supervised; shared evaluator"
+      }
+    }
+  ]
+}
