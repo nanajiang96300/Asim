@@ -8,7 +8,7 @@ def checked(path,expected_sha256):
     path=Path(path)
     if file_hash(path)!=expected_sha256:raise Invalid('owner-frozen result SHA mismatch')
     r=json.loads(path.read_text())
-    if r['task']['schema']!='affine-task-v1' or r['status']!='MODELED_NUMERIC_CHECKED' or r['schedule_status']!='MODEL_RW_CHECKED_CONSERVATIVE' or r['numeric_status']!='EXECUTED' or r['failed_batches'] or not all(x['precision_bit_equal'] for x in r['batches']):raise Invalid('demo score requires complete affine numerical/event acceptance')
+    if r['task']['schema']!='affine-task-v1' or r['status']!='MODELED_NUMERIC_CHECKED' or r['schedule_status']!='MODEL_RW_CHECKED_CONSERVATIVE' or r['numeric_status']!='EXECUTED' or r['failed_batches'] or len(r['batches'])!=r['task']['batch_size'] or not all(x['precision_bit_equal'] for x in r['batches']):raise Invalid('demo score requires complete affine numerical/event acceptance')
     required={'asim.json','config.json','models.json','instructions.jsonl','trace.csv','rw_events.jsonl','schedule.json','inputs.npz','references.npz','outputs.npy','numerics_started.json','pipeline_statistics.json','task_inputs.npz','dispatch.jsonl','instruction_pipeline_detail.csv','simulator.log'}
     index={e['path']:e for e in r['artifacts']}
     if len(index)!=len(r['artifacts']) or not required<=set(index):raise Invalid('missing or duplicate score evidence')
