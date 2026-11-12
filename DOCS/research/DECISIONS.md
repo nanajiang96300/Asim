@@ -330,3 +330,8 @@ skill解释为受约束的Agent设计/实现/审计流程，不是Python自动�
 新算子优先小型真实非MMSE任务证明通用性。Claude Code＋DeepSeek以bare无工具JSON提出限定三文件，导入器校验白名单/独立干净工作区/受信文件不变；该边界不是OS沙箱。负责人编写独立参考/任务/注册，模型负责C++和反馈修复，不改Tensor公共API或门限来接纳错误。实际新affine算子九场景864batch位一致，真实ADD误读B的负例Asim685周期与事件检查通过但数值拒绝，公式日志不作验收证据。任务内配对周期分数1.0只演示链路，不签发M3/优化或无线认证，旧runtime pin不改写。证据experiments/claude_operator/2026-11-11-v1/。
 
 模型耗时报告调用墙钟与失败预算，纯思考时间缺接口记null；不根据reported thinking_tokens=0宣称第三方未思考。S2正式跨环境/跨candidate基线与预算协调器后续实现。
+
+
+## D040 — 通用小模型首例与可信语义缺口（2026-11-12，设计）
+
+专家目标调整为小型通用模型仿真证明，不以CSI-net训练/恢复质量为前置。拟选tiny_attention_mlp_v1，B96/L32/D32/F64，真实scaled-dot-product attention、GELU、全连接及残差；不声称完整Transformer。复用共用runner和实际指令重放，先补已有SOFTMAX/GELU opcode的绑定、数值与工作量/周期检查，不凭旧language/ONNX代码存在宣称验证完成。首例一个整图Operation兼容当前单记录/完整输出STORE边界，完整多节点/ONNX后置。首轮先建正确性基线，后续优化才性能预筛；模型专用精度门限在独立校准后冻结，不直接沿用MMSE2%。当前仅设计，无算子/仿真器/数值核心修改、无模型运行。详见TINY_ATTENTION_MODEL_PLAN.md。
