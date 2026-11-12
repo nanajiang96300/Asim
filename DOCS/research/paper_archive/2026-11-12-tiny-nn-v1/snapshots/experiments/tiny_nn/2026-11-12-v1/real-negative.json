@@ -1,0 +1,2018 @@
+{
+  "status": "REAL_BAD_TRANSPOSE_REJECTED",
+  "actual_status": "REPLAY_MISMATCH",
+  "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+  "cycles": 4975,
+  "numeric_status": "EXECUTED",
+  "failed_batches": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95
+  ],
+  "final_bit_equal_batches": 3,
+  "first_divergences": [
+    {
+      "batch": 0,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 1,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 2,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 3,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 4,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 5,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 6,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 7,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 8,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 9,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 10,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 11,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 12,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 13,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 14,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 15,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 16,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 17,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 18,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 19,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 20,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 21,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 22,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 23,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 24,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 25,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 26,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 27,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 28,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 29,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 30,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 31,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 32,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 33,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 34,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 35,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 36,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 37,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 38,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 39,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 40,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 41,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 42,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 43,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 44,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 45,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 46,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 47,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 48,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 49,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 50,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 51,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 52,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 53,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 54,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 55,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 56,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 57,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 58,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 59,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 60,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 61,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 62,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 63,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 64,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 65,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 66,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 67,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 68,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 69,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 70,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 71,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 72,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 73,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 74,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 75,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 76,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 77,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 78,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 79,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 80,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 81,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 82,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 83,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 84,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 85,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 86,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 87,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 88,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 89,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 90,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 91,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 92,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 93,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 94,
+      "first_stage": "logits",
+      "index": 42
+    },
+    {
+      "batch": 95,
+      "first_stage": "logits",
+      "index": 42
+    }
+  ],
+  "max_task_error": 0.001979992222030449,
+  "score": null,
+  "binary_sha256": "d7a070172cfb8e1ee9d11c49bd36cf8920307f7a3c64dc895581e6738ff5fb3f",
+  "source_mutant_commit": "codex/tiny-nn-negative-k-v2",
+  "nonlinear_cost_checks": [
+    {
+      "id": "batch23.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch47.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch71.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch95.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch23.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch47.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch71.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch95.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch0.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch24.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch48.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch72.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch0.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch24.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch48.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch72.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch1.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch25.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch49.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch73.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch1.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch25.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch49.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch73.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch2.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch26.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch50.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch74.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch2.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch26.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch50.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch74.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch27.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch3.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch51.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch75.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch27.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch3.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch51.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch75.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch28.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch4.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch52.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch76.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch28.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch4.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch52.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch76.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch29.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch5.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch53.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch77.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch29.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch5.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch53.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch77.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch30.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch54.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch6.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch78.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch30.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch54.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch6.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch78.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch31.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch55.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch7.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch79.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch31.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch55.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch7.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch79.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch32.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch56.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch8.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch80.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch32.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch56.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch8.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch80.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch33.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch57.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch81.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch9.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch33.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch57.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch81.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch9.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch10.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch34.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch58.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch82.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch10.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch34.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch58.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch82.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch11.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch35.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch59.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch83.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch11.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch35.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch59.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch83.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch12.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch36.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch60.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch84.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch12.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch36.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch60.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch84.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch13.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch37.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch61.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch85.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch13.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch37.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch61.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch85.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch14.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch38.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch62.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch86.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch14.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch38.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch62.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch86.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch15.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch39.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch63.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch87.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch15.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch39.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch63.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch87.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch16.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch40.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch64.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch88.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch16.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch40.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch64.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch88.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch17.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch41.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch65.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch89.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch17.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch41.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch65.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch89.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch18.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch42.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch66.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch90.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch18.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch42.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch66.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch90.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch19.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch43.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch67.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch91.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch19.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch43.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch67.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch91.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch20.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch44.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch68.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch92.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch20.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch44.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch68.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch92.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch21.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch45.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch69.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch93.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch21.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch45.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch69.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch93.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch22.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch46.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch70.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch94.activation",
+      "opcode": 22,
+      "rows": 32,
+      "cols": 64,
+      "cycles": 64
+    },
+    {
+      "id": "batch22.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch46.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch70.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    },
+    {
+      "id": "batch94.P",
+      "opcode": 8,
+      "rows": 32,
+      "cols": 32,
+      "cycles": 352
+    }
+  ],
+  "archive": {
+    "path": "negative-k-v2.tar.gz",
+    "bytes": 7145234,
+    "sha256": "7e86253a543b5e1f7b8c7a0b302a213be16a46d6a8c887772f8d9bf50d067d31",
+    "uncompressed_files": {
+      "outputs.npy": {
+        "bytes": 786560,
+        "sha256": "db03f82a8631d058c7f663b2460c977e494036241b53ba203d6a4ffb7cb70adb"
+      },
+      "pipeline_statistics.json": {
+        "bytes": 1726439,
+        "sha256": "975a09bb2bf8d9c83c574d12311811a37e8b565f53da83f42a744677ecb801e5"
+      },
+      "models.json": {
+        "bytes": 15517,
+        "sha256": "f8bcd735af7f3bffded8ae1613f182d344b1146821d51068f1f45cdd92d0a1f8"
+      },
+      "config.json": {
+        "bytes": 12518,
+        "sha256": "d18e7195c0a055b0224a233b7501eca41a34c33573e6853a09fc24e61e3bdd7b"
+      },
+      "rw_events.jsonl": {
+        "bytes": 29949936,
+        "sha256": "a611364d5698a40e72cbf117f218087f1e0eea76d090e62add886ef2a4af7461"
+      },
+      "instruction_pipeline_detail.csv": {
+        "bytes": 372383,
+        "sha256": "432ad4b85d867aa48f8d384ec36e77c71b6fc43cbf42c9e30b8072f4217c8e25"
+      },
+      "inputs.npz": {
+        "bytes": 218818,
+        "sha256": "0b0d7c13b57c147a73aeed7df3a70f9d6bdd7acc6644728f078eddd9724b5954"
+      },
+      "asim.json": {
+        "bytes": 1801,
+        "sha256": "f0e7f406434fa21a7803aad5a0bcbcf26270f70d293387a2aae878d7a568984f"
+      },
+      "references.npz": {
+        "bytes": 3345254,
+        "sha256": "bab14e6109259335c2a576b0b188b8e4923a2631724542208f47537dee89e34d"
+      },
+      "dispatch.jsonl": {
+        "bytes": 115776,
+        "sha256": "6e08f5d629f0d1701bf6429dd8dbf2e94cd52fe8f78b60461f646118127cc2dc"
+      },
+      "simulator.log": {
+        "bytes": 34004,
+        "sha256": "38c9a8ac394d907b934108a277ad1f9befe44d2f6583ae964c93b36a258270c7"
+      },
+      "schedule.json": {
+        "bytes": 17663,
+        "sha256": "9a62f2593b4deb6e6af29f5a4124a6952008acc68eb6d87e12d55a68676615ee"
+      },
+      "numerics_started.json": {
+        "bytes": 79,
+        "sha256": "3cfd1d21d2ea9c149aa452c2caa3ffc7ed5bcda2e6f63259ef2e3ade5cfb5f8e"
+      },
+      "instructions.jsonl": {
+        "bytes": 3028855,
+        "sha256": "7a57fb51342b80321af61f8363598bd98df7fccf801cfe14e9abdac5e9963c2a"
+      },
+      "trace.csv": {
+        "bytes": 2294132,
+        "sha256": "9f6828ccae825a6ffb054d2f4a7a8a0f40944028a524b5e77809bea61a29951b"
+      },
+      "task_inputs.npz": {
+        "bytes": 865282,
+        "sha256": "1d2b14ae4307c5ab583a5c3e13ca0cbd1ec083d920c4d424a690b2078a3ae95e"
+      },
+      "result.json": {
+        "bytes": 328334,
+        "sha256": "87175bcd144cecc23640e5b83d9df81da2907029b4a2a3bd3554902b1620df67"
+      },
+      "formula.json": {
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      }
+    },
+    "restore": "extract into a new empty directory; do not overwrite prior runs"
+  }
+}

@@ -45,3 +45,6 @@
 2026-11-10 工程可复现资料：[专家源码部署包与验收](../../../experiments/distribution/2026-11-10-v1/README.md)，含离线依赖/六类同任务重建/目录迁移/源码与归档SHA；[交付索引](../../../expert_delivery/README.md)。仅规定Rayleigh软件部署验收，非CDL/通信/硬件或跨主机认证。
 
 2026-11-12：[Claude Code＋DeepSeek新算子与通用重建](2026-11-12-agent-codegen-v1/README.md)，真实Python→C++与反馈修复、864batch逐位一致、实际语义错误拒绝；任务内评分不代表无线/性能晋级。
+
+
+2026-11-12：[公共Softmax/GELU、MLP/Attention三路径与冷交付](2026-11-12-tiny-nn-v1/README.md)。四族36组、阶段门禁真实负例、完整源码包冷构建；有限软件模型验证，不代表任意ONNX、训练/无线或硬件认证。
