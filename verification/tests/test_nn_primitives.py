@@ -5,9 +5,18 @@ from verification.profiles.numeric import policy_for,bit_equal,F16
 from verification.reconstruction.engine import arithmetic
 from verification.primitives.nn import validate_instruction
 from verification.reference.tiny_nn import simulate
-from verification.tasks.tiny_nn import NNTask,fixture,graph
+from verification.tasks.tiny_nn import NNTask,fixture,graph,hardware_check
 
 class NNPrimitiveTests(unittest.TestCase):
+    def test_capacity_config_is_explicit_and_layout_fits(self):
+        import json
+        from pathlib import Path
+        root=Path(__file__).resolve().parents[2]
+        good=json.loads((root/'configs/ascend_910b_nn_v1.json').read_text());hardware_check(good)
+        with self.assertRaises(Invalid):hardware_check(json.loads((root/'configs/ascend_910b_quiet.json').read_text()))
+        g=graph(NNTask(length=32,hidden=64,ffn=128))
+        self.assertEqual(sum(x['shape'][0]*x['shape'][1]*2 for x in g['inputs'])+32768,105344)
+        self.assertLess(sum(x['shape'][0]*x['shape'][1]*2 for x in g['nodes']),131072)
     def test_old_profile_frozen_unchanged(self):
         self.assertNotIn('nonlinear_contract',F16.frozen());self.assertEqual(F16.task_tolerance,.02)
         self.assertTrue(policy_for('modeled_fp16_fp32_nn_v1').modeled)

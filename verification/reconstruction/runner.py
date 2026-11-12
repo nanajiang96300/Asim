@@ -47,6 +47,7 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
     result={'status':'INVALID','numeric_status':'NOT_RUN','score':None,'G4':'NOT_CERTIFIED','precision':'structure_f64_real_block','operator':operator}
     try:
         task.validate();precision=policy_for(task.profile);result['precision']=task.profile;result['precision_policy']=precision.frozen()
+        if backend.get('hardware_check'):backend['hardware_check'](config)
         entry,parameters,models,reference=backend['adapter'](operator,task,iterations)
         if config['num_cores']!=24 or config['precision']!=precision.bytes or config['dram_req_size']!=64:raise Invalid('expected24core/request64/precision8')
         cube=config.get('ascend_cube_model',{})

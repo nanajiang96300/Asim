@@ -70,8 +70,12 @@ def captures(t,seq):
     if t.kind in ('softmax','gelu'):mapping={'Y':'Y'}
     return {j:{mapping[i['id'].split('.',1)[1]]:i['semantic']['dst']} for j,i in enumerate(seq) if i['id'].split('.',1)[1] in mapping and i['opcode']!=25}
 
+def hardware_check(config):
+    cores=config['core_config']
+    if len(cores)!=24 or any(c['spad_size']!=256 or c['accum_spad_size']!=256 for c in cores.values()):raise Invalid('NN task freezes KiB256 SPAD/ACCUM,128KiB per buffer')
+
 def backend(t):
-    return {'captures':lambda seq:captures(t,seq),'adapter':adapter,'fixture':fixture,'task_reference':lambda d,t:simulate(d['math_inputs'],t,False)['output'],
+    return {'hardware_check':hardware_check,'captures':lambda seq:captures(t,seq),'adapter':adapter,'fixture':fixture,'task_reference':lambda d,t:simulate(d['math_inputs'],t,False)['output'],
       'dma_shapes':lambda t:[tuple(i['shape']) for i in graph(t)['inputs']]+[(t.length,t.hidden)],
       'algorithm_reference':lambda fn,d,t,i:fn(d['inputs'],t),'blocks':lambda a:a['output'],'decode':lambda v,t,p:v,
       'diagnostics':lambda d:('task_inputs.npz',d['math_inputs']),'workload_check':lambda groups:workload(groups,t)}
