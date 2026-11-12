@@ -196,7 +196,7 @@ cycle_type SystolicWS::get_vector_compute_cycles(std::unique_ptr<Instruction>& i
     const cycle_type row_vec=calculate_vector_op_iterations(inst->compute_size);
     const cycle_type row_tree=calculate_add_tree_iterations(inst->compute_size);
     return inst->tile_m*(2*row_tree*_config.core_config[_id].add_tree_latency +
-      row_vec*(_config.core_config[_id].add_latency+_config.core_config[_id].exp_latency+_config.core_config[_id].mul_latency));
+      row_vec*(_config.core_config[_id].add_latency+_config.core_config[_id].exp_latency+_config.core_config[_id].div_latency));
   }
   cycle_type vec_op_iter = calculate_vector_op_iterations(inst->compute_size);
   cycle_type add_tree_iter = calculate_add_tree_iterations(inst->compute_size);

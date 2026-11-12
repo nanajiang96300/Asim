@@ -31,7 +31,7 @@ def check_nonlinear_cost(path,config):
         c=config['core_config']['core_'+str(row['core'])];width=c['vector_process_bit']//8
         def tree(n):return 1 if n<=width else (n+width-1)//width+tree((n+width-1)//width)
         it=(i['compute_size']+width-1)//width
-        expected=it*c['gelu_latency'] if i['opcode']==22 else i['m']*(2*tree(i['compute_size'])*c['add_tree_latency']+it*(c['add_latency']+c['exp_latency']+c['mul_latency']))
+        expected=it*c['gelu_latency'] if i['opcode']==22 else i['m']*(2*tree(i['compute_size'])*c['add_tree_latency']+it*(c['add_latency']+c['exp_latency']+c['div_latency']))
         if row['event_count']!=1 or row['min_duration']!=expected or row['max_duration']!=expected:raise ValueError('actual NN Vector duration mismatch: '+i['id'])
         checks.append({'id':i['id'],'opcode':i['opcode'],'rows':i['m'],'cols':i['n'],'cycles':expected})
     if not checks:raise ValueError('missing NN compute events')
