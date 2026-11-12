@@ -2,6 +2,7 @@
 仅允许这三个新文件：DOCS/operators/AFFINE_GEMM_DEMO_V1.md；src/inverse/affine_gemm_v1/AffineGemmModel.h；src/inverse/affine_gemm_v1/AffineGemmModel.cc。
 角色是候选生成，不负责运行。主协调器已经冻结算法、负责独立参考/审计/构建/Asim/数值/评分。不能改main、注册、参考、评估器、门限或任何其他文件。不得声称测试通过。
 目标：实矩阵Z=A@B+C。必须实现下面Python的FP16存储/FP32临时算术和中间舍入，GEMM与ADD不能融合。输入A/B/C独立批次矩阵，默认m=k=n=32，batch96，24核b%24，所有m/k/n可为16的正倍数且<=64，测试16/16/16、32/32/32、32/16/48。
+接口注意：Tensor构造的维度参数是std::vector<uint32_t>&，不能传const vector；请使用可写局部维度变量。batch构造预算上限384，当前验收固定96。
 Model配置：matrix_m、matrix_k、matrix_n、batch_size、task_contract、precision_policy。公共类AffineGemmModel，继承Model，构造(json mc,SimulationConfig c,const std::string& name)，initialize_model/initialize_weight与例子一样。
 任务输入Tensor顺序A[B,m,k]、B[B,k,n]、C[B,m,n]，输出Z[B,m,n]。真实发出三个MOVIN、一个GEMM_PRELOAD、一个Vector ADD、一个MOVOUT，每load/算术后可加PIPE_BARRIER。必须对实际Instruction附typed views，非另写公式日志。header schema=source-views-program-v1，profile=modeled_fp16_fp32_v1，precision_policy与task_contract从Model配置原样绑定。header algorithm精确为{"id":"affine_gemm_v1","formula":"Z=half(half(A@B)+C)","gemm_order":"k_ascending_multiply_then_add"}。
 所有DMA base_addr=0，request64，size=ceil(rows*cols*2/64)，各自按batch*rows*cols*2偏移；input slot100+0/1/2，output200。GEMM compute_size=n；tile_m=m/tile_k=k/tile_n=n；Vector ADD compute_size=m*n*4且tile_m=m/tile_n=n；buffer完整分配且互不重叠，保留足够barrier sync空间，store完整Z一次。source_instruction必须opcode/地址/索引/shape真实绑定。不得外部预计算输出或隐含初始化。
