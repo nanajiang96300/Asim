@@ -1,3 +1,22 @@
+# 2026-11-12 最新交接：便携构建与真实新算子已验收
+
+以下S0记录保留为历史快照，当前状态以本节及精简分支验收报告为准；原研究源码/BRI默认基线没有切换。
+
+- core `28d3ea7a`；Codex `fae35ed2`；Claude `e62e9b72`，三个分支已推送，客户端相对core仅agent_profiles/active.json不同。
+- 固定发行标签：`asim-claude-demo-v1-20261112`、`asim-codex-demo-v1-20261112`。Linux双全新clone冷构建/六类门禁通过；WSL2仍未实测。
+- Claude Code＋DeepSeek真实生成新的仿射GEMM；审计/编译错误均反馈模型修复。九场景864batch真实Asim/重建与独立FP16逐位一致，最大FP64任务误差0.0353%；任务内配对评分1.0，不声明优化晋级或无线认证。
+- 真实误读输入负例Asim685周期/事件通过但96batch数值全部拒绝、无评分；原六类在新二进制/共用runner下全部再次通过，周期不变。254测试中252通过、2可选依赖跳过，另8项框架测试通过。
+- 新算子仍是受监督闭环；正式跨路径/跨candidate基线、新runtime冻结、Codex同任务真实生成及持久控制器待后续。调用墙钟及失败保留，纯思考时间未知记null。
+
+专家使用[Claude固定版本使用/原理](https://github.com/nanajiang96300/Asim/blob/asim-claude-demo-v1-20261112/DOCS/research/CLAUDE_NEW_OPERATOR.md)、[构建说明](https://github.com/nanajiang96300/Asim/blob/asim-claude-demo-v1-20261112/BUILDING.md)、[全部验收证据](https://github.com/nanajiang96300/Asim/blob/asim-claude-demo-v1-20261112/experiments/claude_operator/2026-11-11-v1/README.md)。本机对应/home/nanajiang/asim-worktrees/asim-core-v1；原件在本工程results/claude_operator_demo/2026-11-11-v1/，SHA清单在精简分支报告中。只清理本次新clone可再生成构建缓存；研究原件与未跟踪文件保留。
+
+```bash
+git clone --depth 1 --single-branch --branch codex/asim-claude-v1 https://github.com/nanajiang96300/Asim.git
+cd Asim
+python3 scripts/bootstrap.py --jobs 1
+# 后续生成新候选/评估按CLAUDE_NEW_OPERATOR.md，不以CLI回答OK代替新算子验收。
+```
+
 # 2026-11-11 精简基线与双客户端交接
 
 本目录仍是保留完整资料的原研究工作区，不在此切换精简分支或批量删除原数据。新开发在独立工作区进行。

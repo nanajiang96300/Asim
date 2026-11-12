@@ -43,3 +43,5 @@
 
 
 2026-11-10 工程可复现资料：[专家源码部署包与验收](../../../experiments/distribution/2026-11-10-v1/README.md)，含离线依赖/六类同任务重建/目录迁移/源码与归档SHA；[交付索引](../../../expert_delivery/README.md)。仅规定Rayleigh软件部署验收，非CDL/通信/硬件或跨主机认证。
+
+2026-11-12：[Claude Code＋DeepSeek新算子与通用重建固定检索入口](2026-11-12-agent-codegen-v1/README.md)，真实生成/编译修复/864batch与实际错误指令拒绝；完整证据位于固定精简发行标签。

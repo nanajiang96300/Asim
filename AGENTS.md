@@ -37,3 +37,6 @@ BRI内循环采用同Model/mode+独立candidate分支/worktree/build，只有新
 
 
 2026-11-11双客户端S0：完整研究已远程归档archive/asim-research-20261111；精简core=67cef8a2，Codex=8b44edb1、Claude=75217b23，工作区/home/nanajiang/asim-worktrees/asim-{core,codex,claude}-v1。原目录保留证据；后续新开发在精简独立工作区。共享数值门禁/监督入口已验收，250测试、实际NS和Claude/DeepSeek无工具API检查通过；不是新clone冷构建或完整模型代码生成闭环。下一步S1整合portable构建，再S2客户端候选闭环；上下文规则尚非OS沙箱。见DOCS/research/DUAL_CLIENT_HANDOFF.md及新core的AGENT_WORKFLOW.md。
+
+
+2026-11-12交接：新开发在精简worktree。共享core28d3ea7a、Codex fae35ed2、Claude e62e9b72已推送；S1双新clone冷构建/六类通过，Claude Code＋DeepSeek真实新affine算子九组864batch位一致、错误输入负例数值拒绝，新二进制原六类回归通过。固定标签asim-{claude,codex}-demo-v1-20261112；入口DOCS/research/DUAL_CLIENT_HANDOFF.md，实际新说明位于精简分支DOCS/research/CLAUDE_NEW_OPERATOR.md。本目录仍保留旧研究源码/原pin，不冒称根工作区已迁移新构建。S2正式跨路径/跨candidate基线与新runtime、Codex生成对照、持久控制器后置。

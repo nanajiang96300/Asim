@@ -1,0 +1,19 @@
+{
+  "schema": "asim-dual-client-release-v1",
+  "core": "28d3ea7adcb4e7292259a4e8faf84214c114bcef",
+  "codex": "fae35ed2d47ab966740aa1f7c1f25ce1b7e033f9",
+  "claude": "e62e9b722dd207eb2e09268085843ef7ac8a5def",
+  "tags": [
+    "asim-claude-demo-v1-20261112",
+    "asim-codex-demo-v1-20261112"
+  ],
+  "client_diff_only": [
+    "agent_profiles/active.json"
+  ],
+  "new_operator_status": "SUPERVISED_NINE_CASES_AND_REAL_NEGATIVE_CHECKED",
+  "six_new_binary_regression": "SIX_CASES_CHECKED",
+  "research_score": null,
+  "promotion_allowed": false,
+  "source_and_runtime_archive": "experiments/claude_operator/2026-11-11-v1/ on slim core",
+  "raw_root": "/home/nanajiang/Asim/results/claude_operator_demo/2026-11-11-v1"
+}
