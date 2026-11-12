@@ -207,9 +207,9 @@ void AffineGemmOperation::initialize_instructions(Tile* tile, Mapping) {
       .tile_n = N_,
       .src_from_accum = true,
       .my_tile = tile};
-  add_raw.src_addrs = {gemm_addr, c_addr};
+  add_raw.src_addrs = {gemm_addr, b_addr};
   const json add_src = json::array(
-      {view(gemm_addr, 0, 0, M_, N_), view(c_addr, 0, 0, M_, N_)});
+      {view(gemm_addr, 0, 0, M_, N_), view(b_addr, 0, 0, M_, N_)});
   const json add_dst = view(z_addr, 0, 0, M_, N_);
   tile->instructions.push_back(
       source_instruction(std::move(add_raw), add_src, add_dst,
