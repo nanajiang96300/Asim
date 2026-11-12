@@ -1,6 +1,8 @@
 """Real Asim-first primitive/small-model suite, bounded archives, no promotion."""
 import argparse,csv,hashlib,json,os,shutil,sys,tarfile,time
 from pathlib import Path
+os.environ['OPENBLAS_NUM_THREADS']='1';os.environ['OMP_NUM_THREADS']='1'
+import numpy as np
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from verification.tasks.tiny_nn import NNTask,backend
 from verification.reconstruction.runner import evaluate
@@ -51,9 +53,10 @@ def main():
         from verification.reconstruction.daily import load_runtime
         runtime_spec=load_runtime(v.runtime,ROOT);binary=(ROOT/runtime_spec['binary']).resolve();config=json.loads((ROOT/runtime_spec['config']).read_text())
         os.environ['LD_LIBRARY_PATH']=str(ROOT/runtime_spec['library_dir'])
+        if runtime_spec['python_version']!=sys.version.split()[0] or runtime_spec['numpy_version']!=np.__version__:raise ValueError('NN runtime Python/NumPy version mismatch')
         if 'modeled_fp16_fp32_nn_v1' not in runtime_spec['profiles'] or 'nn_graph_v1' not in runtime_spec['operators']:raise ValueError('runtime scope does not accept NN')
     kinds=['softmax','gelu','mlp','attention'] if v.kind=='all' else [v.kind];shapes=[(32,32,64)] if v.quick else [(16,32,64),(32,32,64),(32,64,128)];seeds=[91001] if v.quick else [91001,91002,91003]
-    summary={'schema':'nn-acceptance-v1','status':'RUNNING','binary_sha256':file_hash(binary),'score':None,'promotion_allowed':False,'cases':[]};start=time.perf_counter()
+    summary={'python_version':sys.version.split()[0],'numpy_version':np.__version__,'schema':'nn-acceptance-v1','status':'RUNNING','binary_sha256':file_hash(binary),'score':None,'promotion_allowed':False,'cases':[]};start=time.perf_counter()
     for kind in kinds:
         for l,d,f in shapes:
             for seed in seeds:
