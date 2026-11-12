@@ -66,3 +66,14 @@ claude
 ```
 
 此示例选择源码/Agent入口，不自动安装依赖或声称构建通过；完整部署按S1后更新的说明执行。
+
+
+## 2026-11-12 NN交付验收完成
+
+共享core `d73a93de`、Claude `ed6cd6eb`、Codex `403972ca`；两个客户端相对core均只差agent_profiles/active.json。新增公共Softmax/GELU、NNGraphModel和统一重建/独立参考，默认B96/L32/D32/F64，Attention4975周期。四族三形状三种子36配置通过，最大FP64相对误差0.075541%（门限1%），阶段/输出均同FP16参考位一致；真实错K转置被拒绝。
+
+T0–T5在声明范围完成：源码包新路径独立依赖/venv/build标准offline-j1构建27.67分钟；264项262通过/2可选skip、8便携测试、NN36场、旧六类和affine九组通过。36输出SHA/周期/误差同开发验收逐项一致；本地重新封279文件pin及快检通过。同主机新路径复现，不是第二硬件平台。
+
+交付包expert_delivery/asim-claude-guide-v2.tar.gz（43,778,024B），SHA a5d819f80937f2c9789aab71fd8e720154a8666f9232af2c68870ff05cda4ebb；不可变源码标签asim-claude-nn-v1-20261112指向c84c3ce0。包外手册/validation JSON及校验文件同目录，旧v1压缩包不覆盖。报告在精简分支experiments/tiny_nn/2026-11-12-v1/README.md；论文快照固定paper_archive/2026-11-12-tiny-nn-v1。
+
+原根目录仍是旧研究源码/旧pin；新开发使用精简worktree。此NN结果不升级旧CDL失败、BRI默认基线或M3，不代表任意ONNX或无人值守控制器完成。旧asim-expert-v1展开目录已逐一验证16542文件与原压缩包一致后回收，恢复用原tar.gz；清单results/tiny_nn/2026-11-12-v1/old_delivery_expansion_cleanup.json。

@@ -1,0 +1,45 @@
+{
+  "status": "SEVEN_GUARDS_CHECKED",
+  "checks": [
+    {
+      "case": "duplicate_input",
+      "status": "BINARY_REJECTED",
+      "returncode": -6,
+      "scope": "real binary malformed-model preflight, no numerical reference invoked"
+    },
+    {
+      "case": "unknown_node",
+      "status": "BINARY_REJECTED",
+      "returncode": -6,
+      "scope": "real binary malformed-model preflight, no numerical reference invoked"
+    },
+    {
+      "case": "bad_output",
+      "status": "BINARY_REJECTED",
+      "returncode": -6,
+      "scope": "real binary malformed-model preflight, no numerical reference invoked"
+    },
+    {
+      "case": "capacity_overflow",
+      "status": "BINARY_REJECTED",
+      "returncode": -6,
+      "scope": "real binary malformed-model preflight, no numerical reference invoked"
+    },
+    {
+      "case": "unknown_attribute",
+      "status": "BINARY_REJECTED",
+      "returncode": -6,
+      "scope": "real binary malformed-model preflight, no numerical reference invoked"
+    },
+    {
+      "case": "old_capacity_config",
+      "status": "PREFLIGHT_REJECTED",
+      "reason": "NN task freezes KiB256 SPAD/ACCUM,128KiB per buffer"
+    },
+    {
+      "case": "wrong_explicit_profile",
+      "status": "CLI_REJECTED",
+      "returncode": 2
+    }
+  ]
+}

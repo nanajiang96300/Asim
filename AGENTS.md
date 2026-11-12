@@ -40,3 +40,8 @@ BRI内循环采用同Model/mode+独立candidate分支/worktree/build，只有新
 
 
 2026-11-12交接：新开发在精简worktree。共享core28d3ea7a、Codex fae35ed2、Claude e62e9b72已推送；S1双新clone冷构建/六类通过，Claude Code＋DeepSeek真实新affine算子九组864batch位一致、错误输入负例数值拒绝，新二进制原六类回归通过。固定标签asim-{claude,codex}-demo-v1-20261112；入口DOCS/research/DUAL_CLIENT_HANDOFF.md，实际新说明位于精简分支DOCS/research/CLAUDE_NEW_OPERATOR.md。本目录仍保留旧研究源码/原pin，不冒称根工作区已迁移新构建。S2正式跨路径/跨candidate基线与新runtime、Codex生成对照、持久控制器后置。
+
+
+2026-11-12 NN新任务：公共Softmax/GELU、NNGraphModel、MLP/Attention统一重建在精简工作区实现。36组/3456batch、旧六类、affine九组及真实错转置负例已完成；279文件新NN runtime独立封存。最新T5交付冷构建状态查/home/nanajiang/asim-worktrees/tiny-nn-primitives-v1/experiments/tiny_nn/2026-11-12-v1/README.md。原目录保留旧源/旧pin，不能在这里冒称新入口已构建；纯Agent思考时长不可观测记null。
+
+NN T5最终：43,778,024B无数据源码包asim-claude-guide-v2冷构建27.67分钟及全部36场/六类/affine回归通过；新本地pin快检通过。最新core d73a93de、Claude ed6cd6eb、Codex403972ca；标签asim-claude-nn-v1-20261112=c84c3ce0。固定论文快照DOCS/research/paper_archive/2026-11-12-tiny-nn-v1，原根旧源不冒称已迁移。

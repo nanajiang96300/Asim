@@ -278,6 +278,24 @@
       "manifest": "DOCS/research/paper_archive/2026-11-10-bri-inner-v1/manifest.json",
       "manifest_sha256": "68e29dc2f096288b0823e28344b531bf27f0615c8343fe7965266cb35a63fe6f",
       "supersedes": null
+    },
+    {
+      "id": "2026-11-12-tiny-nn-v1",
+      "status": "BOUNDED_NN_MODEL_AND_COLD_DELIVERY_CHECKED",
+      "keywords": [
+        "Softmax",
+        "GELU",
+        "Attention",
+        "MLP",
+        "actual-instructions",
+        "stage-gates",
+        "FP16",
+        "cold-source-delivery"
+      ],
+      "readme": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/README.md",
+      "manifest": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/manifest.json",
+      "manifest_sha256": "32e3449733202e0a778c843b6dbd5d963260342f266fc0374054618015e1fe01",
+      "supersedes": null
     }
   ]
 }
