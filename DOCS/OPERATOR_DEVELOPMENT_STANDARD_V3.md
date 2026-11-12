@@ -437,3 +437,11 @@ THRESHOLD = 0.01
 ### 8.6 新增算子检查清单
 
 完整的新增算子流程参见 [NEW_OPERATOR_CHECKLIST.md](NEW_OPERATOR_CHECKLIST.md)，该文档合并了本文档、DAG 原语规范、验证架构设计和 verify-operator 技能的全部要求。
+
+## 2026-11-12：通用NN基础单元与Model接入补充
+
+- Model创建输入Tensor后，先`Model::add_tensor`登记，再`Operation::add_input`；后者会立即通过Model查Tensor并登记child。顺序反过来会空指针，必须用真实Asim启动测试发现，不能只靠源码审计或Python单元测试。
+- 新NN稳定Softmax/GELU使用`src/operations/nn/VectorUnits.h`，复用既有opcode8/22，以nn-vector-v1绑定完整矩阵视图、轴/公式、FP16存储及FP32临时工作量。不要把旧Softmax/Gelu周期路径自动视为新数值语义已支持。
+- Softmax按每行减max/exp/升序sum/div，完整每行成本乘行数；GELU明确tanh近似。size按FP16分配/传输，compute_size按新kernel约定，两个字段不是同一字节口径。
+- 配置spad_size/accum_spad_size按KiB解释。新NN配置显式256KiB总容量、双buffer各128KiB，输入/权重与中间分别放SPAD/ACCUM；旧配置原样留存，不追溯改写旧周期或容量证据。
+- 重建结果和同算法参考必须按相同dtype在比较器中比较所表示数值；统计用FP64归一化/范数，不能额外做一次FP16缩放，制造位一致张量的假误差。最终输出达门限与逐位/阶段一致性分别检查。

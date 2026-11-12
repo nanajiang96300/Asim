@@ -13,9 +13,9 @@
 目标环境：Linux x86_64 / CPython3.12，建议Ubuntu24.04、GCC13、CMake3.28，系统需要git、build-essential、cmake、python3、python3-dev。工具由企业软件源/管理员安装；包内缓存不能代替这些系统工具。建议8GiB内存、至少4GiB空闲磁盘，2vCPU默认串行，首次编译约半小时，取决于机器。AI调用另需模型服务网络。
 
 ```bash
-sha256sum -c asim-claude-guide-v1.tar.gz.sha256
-tar -xzf asim-claude-guide-v1.tar.gz
-cd asim-claude-guide-v1
+sha256sum -c asim-claude-guide-v2.tar.gz.sha256
+tar -xzf asim-claude-guide-v2.tar.gz
+cd asim-claude-guide-v2
 python3 scripts/check_delivery.py
 # 源码压缩包没有.git，创建本地导入版本；使用者先自行配置Git身份。
 git init -b codex/asim-import
@@ -33,7 +33,7 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/affine_acceptance.py \
 
 从Git克隆的版本已有.git，不要再初始化/伪造上游commit；从源码包导入的本地commit与SOURCE_VERSION中的上游commit含义不同。offline_cache已被.gitignore排除，不会加入本地导入提交。依赖缓存的固定大小/SHA不符直接拒绝。源码包无法用Git获取未随包的旧历史，研究历史需另外从官方仓库取得。
 
-六类smoke应得到`SIX_CASES_CHECKED`，affine应得到`NINE_CASES_CHECKED`；逐场最终状态为`MODELED_NUMERIC_CHECKED`、`MODEL_RW_CHECKED_CONSERVATIVE`、failed_batches为空。254项数值测试在无可选SciPy/Torch/Sionna环境可明确跳过2项；不得把跳过当CDL已验收。默认smoke在记录SHA后删除本次大原件，要保留用`--keep-raw`并增加磁盘预算。每个output必须是新目录。
+六类smoke应得到`SIX_CASES_CHECKED`，affine应得到`NINE_CASES_CHECKED`；逐场最终状态为`MODELED_NUMERIC_CHECKED`、`MODEL_RW_CHECKED_CONSERVATIVE`、failed_batches为空。264项数值测试在无可选SciPy/Torch/Sionna环境可明确跳过2项；不得把跳过当CDL已验收。默认smoke在记录SHA后删除本次大原件，要保留用`--keep-raw`并增加磁盘预算。每个output必须是新目录。
 
 配置内两个外部文件路径相对`build`，所以保持`--cwd build`；若改工作目录，另生成含有效绝对路径的新配置，不能沿用服务器路径。包校验在初次解压时执行；改动源码后原manifest自然不再匹配，不可覆盖它来冒充未改包。
 
@@ -54,6 +54,30 @@ doctor只查CLI版本，不会验证API或代码生成。给对话的第一条�
 Claude技能文件在`.claude/skills/`，重点op-flow、op-dev、audit-operator；它们是实施规范，实际执行日志与确定性脚本才是验收。其他平台须显式读取这些Markdown，不能声称已执行不可用slash命令。旧opt-round等流程是历史实现，其分数不替代当前正确性门禁。
 
 角色分工：协调者冻结任务/预算/可信规则；编写Agent只改候选；独立审计检查数学及真实指令；可信脚本运行Asim、重建、参考比较与评分。当前需要监督，尚不是自动跨天恢复的控制器。
+
+## 新增：通用小型Attention模型与基础单元
+
+新NN入口共享重建器，支持独立Softmax、GELU、FC→GELU→FC和单头Attention＋MLP；使用真实指令，输出由数值重建得到，Asim本身仍是周期模拟器。未训练固定权重用于推理一致性测试，不代表任务准确率；也不是任意ONNX模型已验证。
+
+```bash
+# 四类默认形状快检，batch96；首次CPU较慢也不要改小batch混入同一周期表。
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/nn_acceptance.py --quick --output results/nn-quick
+# 4类 × 3形状 × 3种子，共36组：
+OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/nn_acceptance.py --output results/nn-suite
+# 或只运行Attention默认单例，保留未压缩原件：
+.venv/bin/python scripts/agent_entry.py evaluate -- --task nn --nn-kind attention \
+  --operator nn_graph_v1 --iterations 1 --profile modeled_fp16_fp32_nn_v1 \
+  --binary build/bin/Simulator --config configs/ascend_910b_nn_v1.json \
+  --cwd build --output results/attention-single
+```
+
+quick通过为QUICK_CHECKED，完整通过为SUITE_CHECKED。任务专用1%门限＋同算法FP16逐位一致＋中间阶段检查同时满足才通过；Softmax/GELU公式/轴/精度未知会拒绝。默认Attention为L32/D32/FF64、约8416参数，含缩放Softmax、GELU、全连接和残差；模型拓扑与发指令内核分离，另一个MLP拓扑共用同样的基础单元。
+
+默认使用新NN配置，spad/accum字段显式256KiB、每buffer128KiB；旧六类保留其历史配置，不据此形成跨任务统一排行榜。源指令/真实Core事件、每个非线性实际持续周期、最终与中间张量指纹均验收。归约与GELU是有明确数值/成本契约的宏指令，不虚构内部微指令流水。
+
+完整suite每场在检查全量原件SHA后保存无损tar.gz再移除临时展开文件，summary中留存SHA/恢复说明；--keep-raw可保留展开原件。新输出目录不可覆盖。已有服务器NN pin只属于当时冻结检出；新机器先构建/验收，再以自己的完整suite、六类回归和binary通过scripts/freeze_nn_runtime.py生成新pin，不覆盖旧清单。nn_acceptance --runtime可执行自己的新pin。
+
+新增基础语义需同改生成端/binding/公共数值实现/成本/负例，独立算法参考不导入重放实现。候选仍不能改可信参考或门限。当前自动claude_codegen三文件launcher仍专用于affine演练；NN新任务由协调者冻结Task/Graph，再在对话中按批准路径实现或优化，不宣称任意模型一键自动生成已完成。
 
 ## 4. 跑现有六类算子
 
@@ -98,7 +122,7 @@ git -C ../affine-0001 add DOCS/operators/AFFINE_GEMM_DEMO_V1.md src/inverse/affi
 git -C ../affine-0001 commit -m "Freeze affine candidate 0001"
 cd ../affine-0001
 # 使用导入基线随包的只读缓存；每个候选自己的.deps/.venv/build。
-python3 scripts/bootstrap.py --cache ../asim-claude-guide-v1/offline_cache --offline --jobs 1
+python3 scripts/bootstrap.py --cache ../asim-claude-guide-v2/offline_cache --offline --jobs 1
 OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/affine_acceptance.py \
   --binary build/bin/Simulator --config configs/ascend_910b_quiet.json \
   --cwd build --output results/affine-0001
