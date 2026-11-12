@@ -109,7 +109,16 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
                 mark('instruction_replay_and_comparison')
                 rows=[];outputs=[]
                 for b in range(task.batch_size):
-                    r=execute_batch(h,groups[b],bound,b,alg_blocks[b],return_output=True)
+                    capture_map=backend['captures'](groups[b]) if backend.get('captures') else None
+                    r=execute_batch(h,groups[b],bound,b,alg_blocks[b],return_output=True,captures=capture_map)
+                    if capture_map is not None:
+                        observed=r.pop('_observations',{});checks=[]
+                        for name in {key for entries in capture_map.values() for key in entries}:
+                            entry=observed.get(name,{});value=entry.get('value');expected=alg.get('evidence',{}).get(name)
+                            checks.append({'name':name,'bit_equal':value is not None and expected is not None and bit_equal(value,expected[b])})
+                        r['stage_checks']=checks
+                        if not checks or not all(x['bit_equal'] for x in checks):r['status']='PRECISION_MISMATCH'
+
                     value=r.pop('_output',None)
                     if value is not None:
                         complex_value=backend['decode'](value,task,precision);
@@ -138,9 +147,13 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     for k in ('binary','config','cwd','output'):ap.add_argument('--'+k,type=Path,required=True)
-    ap.add_argument('--profile',choices=['structure_f64_real_block','modeled_fp16_fp32_real_block_v1','modeled_fp16_fp32_v1']);ap.add_argument('--operator',default='ns_corrected_v1');ap.add_argument('--seed',type=int,default=42);ap.add_argument('--iterations',type=int);ap.add_argument('--task',choices=['mmse','affine'],default='mmse');ap.add_argument('--shape',type=int,nargs=3)
+    ap.add_argument('--profile',choices=['structure_f64_real_block','modeled_fp16_fp32_real_block_v1','modeled_fp16_fp32_v1','modeled_fp16_fp32_nn_v1']);ap.add_argument('--operator',default='ns_corrected_v1');ap.add_argument('--seed',type=int,default=42);ap.add_argument('--iterations',type=int);ap.add_argument('--task',choices=['mmse','affine','nn'],default='mmse');ap.add_argument('--shape',type=int,nargs=3)
+    ap.add_argument('--nn-kind',choices=['softmax','gelu','mlp','attention'],default='attention')
     a=ap.parse_args();backend=None
-    if a.task=='affine':
+    if a.task=='nn':
+        from verification.tasks.tiny_nn import NNTask,backend as nn_backend
+        l,d,f=a.shape or (32,32,64);task=NNTask(kind=a.nn_kind,length=l,hidden=d,ffn=f);backend=nn_backend(task);a.profile=task.profile;iterations=1 if a.iterations is None else a.iterations
+    elif a.task=='affine':
         from verification.tasks.affine import AffineTask,BACKEND
         m,k,n=a.shape or (32,32,32);a.profile=a.profile or 'modeled_fp16_fp32_v1';task=AffineTask(m=m,k=k,n=n,profile=a.profile);backend=BACKEND;iterations=1 if a.iterations is None else a.iterations
     else:

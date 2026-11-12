@@ -15,13 +15,16 @@ class NumericPolicy:
     fusion:str='none'
     task_tolerance:float=1e-10
     quadrant_tolerance:float=1e-10
-    def frozen(self):return {'schema':'numeric-policy-v1',**asdict(self)}
+    def frozen(self):
+        value={'schema':'numeric-policy-v1',**asdict(self)}
+        if self.name=='modeled_fp16_fp32_nn_v1':value['nonlinear_contract']='nn-vector-v1'
+        return value
     @property
     def bytes(self):return 2 if self.storage=='float16' else 8
     @property
     def vector_bytes(self):return 4 if self.modeled else 8
     @property
-    def modeled(self):return self.name=='modeled_fp16_fp32_v1'
+    def modeled(self):return self.name in ('modeled_fp16_fp32_v1','modeled_fp16_fp32_nn_v1')
     def store(self,value):
         a=np.asarray(value)
         if np.iscomplexobj(a) or not np.isfinite(a).all():raise Invalid('nonfinite/complex input to real precision policy')
@@ -40,13 +43,20 @@ class NumericPolicy:
                     product=np.multiply(a[0][:,k:k+1],a[1][k:k+1,:],dtype=np.float32)
                     result=np.add(result,product,dtype=np.float32)
                 return result
+            if code in ('SOFTMAX','GELU'):
+                if self.name!='modeled_fp16_fp32_nn_v1':raise Unsupported('nonlinear profile not declared')
+                from verification.primitives.nn import softmax_f32,gelu_f32
+                return (softmax_f32 if code=='SOFTMAX' else gelu_f32)(a[0])
             if code=='SQRT':return np.sqrt(a[0],dtype=np.float32)
             return {'ADD':np.add,'SUB':np.subtract,'MUL':np.multiply,'DIV':np.divide}[code](*a,dtype=np.float32)
 
 F64=NumericPolicy('structure_f64','float64','float64','float64','host_matmul')
 F16=NumericPolicy('modeled_fp16_fp32_v1','float16','float32','float32','k_ascending_multiply_then_add',task_tolerance=.02,quadrant_tolerance=.02)
 
+NN=NumericPolicy('modeled_fp16_fp32_nn_v1','float16','float32','float32','k_ascending_multiply_then_add',task_tolerance=.01)
+
 def policy_for(profile):
+    if profile=='modeled_fp16_fp32_nn_v1':return NN
     if profile in ('structure_f64','structure_f64_real_block'):return F64
     if profile in ('modeled_fp16_fp32_v1','modeled_fp16_fp32_real_block_v1'):return F16
     raise Unsupported('unknown or uncalibrated precision policy: '+str(profile))
