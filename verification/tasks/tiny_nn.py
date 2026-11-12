@@ -74,8 +74,16 @@ def hardware_check(config):
     cores=config['core_config']
     if len(cores)!=24 or any(c['spad_size']!=256 or c['accum_spad_size']!=256 for c in cores.values()):raise Invalid('NN task freezes KiB256 SPAD/ACCUM,128KiB per buffer')
 
+def inspect_stages(t,observed):
+    key='Y' if t.kind=='softmax' else 'P' if t.kind=='attention' else None
+    if key is None:return {'passed':True,'softmax':'NOT_APPLICABLE'}
+    p=observed.get(key,{}).get('value')
+    if p is None:return {'passed':False,'reason':'missing probability stage'}
+    err=float(np.max(np.abs(np.sum(p,axis=1,dtype=np.float64)-1)))
+    return {'passed':bool(np.isfinite(p).all() and np.min(p)>=0 and np.max(p)<=1 and err<=.001),'max_row_sum_error':err,'minimum':float(np.min(p)),'maximum':float(np.max(p))}
+
 def backend(t):
-    return {'hardware_check':hardware_check,'captures':lambda seq:captures(t,seq),'adapter':adapter,'fixture':fixture,'task_reference':lambda d,t:simulate(d['math_inputs'],t,False)['output'],
+    return {'inspect_stages':lambda observed:inspect_stages(t,observed),'hardware_check':hardware_check,'captures':lambda seq:captures(t,seq),'adapter':adapter,'fixture':fixture,'task_reference':lambda d,t:simulate(d['math_inputs'],t,False)['output'],
       'dma_shapes':lambda t:[tuple(i['shape']) for i in graph(t)['inputs']]+[(t.length,t.hidden)],
       'algorithm_reference':lambda fn,d,t,i:fn(d['inputs'],t),'blocks':lambda a:a['output'],'decode':lambda v,t,p:v,
       'diagnostics':lambda d:('task_inputs.npz',d['math_inputs']),'workload_check':lambda groups:workload(groups,t)}

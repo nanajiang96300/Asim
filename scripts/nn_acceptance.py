@@ -37,9 +37,13 @@ def check_nonlinear_cost(path,config):
     if not checks:raise ValueError('missing NN compute events')
     return checks
 
+ACTIVE_OUT=None
+
 def main():
+    global ACTIVE_OUT
+    ACTIVE_OUT=None
     a=argparse.ArgumentParser(description=__doc__);a.add_argument('--binary',type=Path,default=ROOT/'build/bin/Simulator');a.add_argument('--output',type=Path,required=True);a.add_argument('--runtime',type=Path);a.add_argument('--kind',choices=['all','softmax','gelu','mlp','attention'],default='all');a.add_argument('--quick',action='store_true');a.add_argument('--keep-raw',action='store_true');v=a.parse_args()
-    out=v.output.resolve();out.mkdir(parents=True,exist_ok=False);binary=v.binary.resolve();config=json.loads((ROOT/'configs/ascend_910b_nn_v1.json').read_text());config['precision']=2
+    out=v.output.resolve();out.mkdir(parents=True,exist_ok=False);ACTIVE_OUT=out;binary=v.binary.resolve();config=json.loads((ROOT/'configs/ascend_910b_nn_v1.json').read_text());config['precision']=2
     config['dram_config_path']=str(ROOT/'configs/ramulator2_configs/HBM2.yaml');config['icnt_config_path']=str(ROOT/'configs/booksim2_configs/fly_c1_m2.icnt')
     os.environ['LD_LIBRARY_PATH']=str(binary.parent.parent/'lib');os.environ['OPENBLAS_NUM_THREADS']='1';os.environ['OMP_NUM_THREADS']='1'
     runtime_spec=None
@@ -65,4 +69,10 @@ def main():
         if load_runtime(v.runtime,ROOT)['_loaded_sha256']!=runtime_spec['_loaded_sha256']:raise ValueError('runtime changed during suite')
         summary['runtime_spec_sha256']=runtime_spec['_loaded_sha256']
     summary['status']='QUICK_CHECKED' if v.quick else 'SUITE_CHECKED';(out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(summary['status']);return 0
-if __name__=='__main__':raise SystemExit(main())
+if __name__=='__main__':
+    try:raise SystemExit(main())
+    except Exception as e:
+        if ACTIVE_OUT is not None:
+            summary_path=ACTIVE_OUT/'summary.json';summary=json.loads(summary_path.read_text()) if summary_path.exists() else {'schema':'nn-acceptance-v1','cases':[]}
+            summary.update(status='FAILED',reason=str(e),score=None,promotion_allowed=False);summary_path.write_text(json.dumps(summary,indent=2)+'\n')
+        print(json.dumps({'status':'FAILED','reason':str(e)}));raise SystemExit(1)

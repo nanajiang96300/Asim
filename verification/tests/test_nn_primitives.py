@@ -17,6 +17,13 @@ class NNPrimitiveTests(unittest.TestCase):
         g=graph(NNTask(length=32,hidden=64,ffn=128))
         self.assertEqual(sum(x['shape'][0]*x['shape'][1]*2 for x in g['inputs'])+32768,105344)
         self.assertLess(sum(x['shape'][0]*x['shape'][1]*2 for x in g['nodes']),131072)
+    def test_bad_or_missing_intermediate_not_hidden_by_correct_output(self):
+        from verification.reconstruction.runner import compare_stage_captures
+        wanted=np.ones((1,2,3),np.float16);correct_final=np.ones((2,3),np.float16)
+        checks=compare_stage_captures({'Y':{'index':7,'value':correct_final},'P':{'index':3,'value':np.zeros((2,3))}}, {'Y','P'}, {'Y':wanted,'P':wanted},0)
+        self.assertTrue(next(c for c in checks if c['name']=='Y')['bit_equal'])
+        self.assertFalse(all(c['bit_equal'] for c in checks))
+        self.assertFalse(compare_stage_captures({}, {'P'}, {'P':wanted},0)[0]['bit_equal'])
     def test_old_profile_frozen_unchanged(self):
         self.assertNotIn('nonlinear_contract',F16.frozen());self.assertEqual(F16.task_tolerance,.02)
         self.assertTrue(policy_for('modeled_fp16_fp32_nn_v1').modeled)

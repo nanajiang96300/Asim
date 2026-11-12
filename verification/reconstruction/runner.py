@@ -27,6 +27,15 @@ def error(a,b):
     return relative_error(np.stack((a.real,a.imag)),np.stack((b.real,b.imag)))
 
 
+def compare_stage_captures(observed,names,evidence,batch):
+    checks=[]
+    for name in sorted(names):
+        entry=observed.get(name,{});value=entry.get('value');expected=evidence.get(name)
+        def fingerprint(a):return hashlib.sha256(np.ascontiguousarray(a,dtype=np.float16).tobytes()).hexdigest() if a is not None else None
+        checks.append({'name':name,'index':entry.get('index'),'bit_equal':value is not None and expected is not None and bit_equal(value,expected[batch]),'actual_fp16_sha256':fingerprint(value),'expected_fp16_sha256':fingerprint(expected[batch] if expected is not None else None)})
+    return checks
+
+
 def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=None,baseline_identity=None,task_backend=None):
     """Trusted catalog and references are outside the candidate modification scope."""
     # Only trusted task integrations supply callbacks; candidate JSON cannot select code.
@@ -113,10 +122,12 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
                     capture_map=backend['captures'](groups[b]) if backend.get('captures') else None
                     r=execute_batch(h,groups[b],bound,b,alg_blocks[b],return_output=True,captures=capture_map)
                     if capture_map is not None:
-                        observed=r.pop('_observations',{});checks=[]
-                        for name in {key for entries in capture_map.values() for key in entries}:
-                            entry=observed.get(name,{});value=entry.get('value');expected=alg.get('evidence',{}).get(name)
-                            checks.append({'name':name,'bit_equal':value is not None and expected is not None and bit_equal(value,expected[b])})
+                        observed=r.pop('_observations',{})
+                        names={key for entries in capture_map.values() for key in entries}
+                        checks=compare_stage_captures(observed,names,alg.get('evidence',{}),b)
+                        if backend.get('inspect_stages'):
+                            properties=backend['inspect_stages'](observed);r['stage_properties']=properties
+                            if not properties['passed']:r['status']='PRECISION_MISMATCH'
                         r['stage_checks']=checks
                         if not checks or not all(x['bit_equal'] for x in checks):r['status']='PRECISION_MISMATCH'
 
@@ -153,6 +164,7 @@ def main():
     a=ap.parse_args();backend=None
     if a.task=='nn':
         from verification.tasks.tiny_nn import NNTask,backend as nn_backend
+        if a.profile is not None and a.profile!='modeled_fp16_fp32_nn_v1':ap.error('NN task requires its frozen nonlinear precision profile')
         l,d,f=a.shape or (32,32,64);task=NNTask(kind=a.nn_kind,length=l,hidden=d,ffn=f);backend=nn_backend(task);a.profile=task.profile;iterations=1 if a.iterations is None else a.iterations
     elif a.task=='affine':
         from verification.tasks.affine import AffineTask,BACKEND
