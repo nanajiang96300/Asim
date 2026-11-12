@@ -266,12 +266,12 @@ void AffineGemmModel::initialize_model(
       _model_config.at("task_contract"),
       _model_config.value("precision_policy", json(nullptr)), attrs);
 
-  const std::vector<std::pair<std::string, std::vector<uint32_t>>> entries = {
+  std::vector<std::pair<std::string, std::vector<uint32_t>>> entries = {
       {"A", {B, M, K}},
       {"B", {B, K, N}},
       {"C", {B, M, N}},
       {"Z", {B, M, N}}};
-  for (const auto& entry : entries) {
+  for (auto& entry : entries) {
     const bool input = entry.first != "Z";
     auto tensor = std::make_unique<Tensor>(
         get_root_node_id(), name_gen(get_name(), entry.first), entry.second,
