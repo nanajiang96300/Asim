@@ -14,6 +14,7 @@ class ChannelStudyTests(unittest.TestCase):
         H=normalize(frequency_response(a,t,1.));np.testing.assert_allclose(np.sum(abs(H)**2,axis=(1,2)),3)
         with self.assertRaises(Invalid):normalize(np.zeros((1,2,3)))
         with self.assertRaises(Invalid):frequency_response(a,t[:,:1],1.)
+    @unittest.skipUnless(__import__("importlib.util",fromlist=["find_spec"]).find_spec("torch") and __import__("importlib.util",fromlist=["find_spec"]).find_spec("sionna"), "optional CDL dependencies torch/sionna not installed")
     def test_real_cdl_reproducible_and_not_kronecker_surrogate(self):
         a=generate(44001,2);b=generate(44001,2)
         np.testing.assert_array_equal(a['H'],b['H']);self.assertEqual(a['path_coefficients'].shape,(2,64,16,23))
