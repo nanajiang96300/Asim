@@ -16,6 +16,10 @@ void validate_graph(const json& cfg) {
  auto add=[&](const std::string& name,Shape s){if(name.empty() || shapes.count(name))throw std::runtime_error("NN duplicate/empty tensor");shapes[name]=s;};
  for(auto in:g.at("inputs")) {if(in.contains("batched")&&!in.at("batched").is_boolean())throw std::runtime_error("NN batch attribute");add(in.at("name"),shape(in.at("shape")));}
  for(auto node:g.at("nodes")) {
+  std::string operation=node.at("op");std::set<std::string> allowed={"id","op","src","shape"};
+  if(operation=="GEMM")allowed.insert("transpose_rhs");
+  if(operation=="ADD"||operation=="MUL")allowed.insert("broadcast");
+  for(auto it=node.begin();it!=node.end();++it)if(!allowed.count(it.key()))throw std::runtime_error("unknown NN node attribute");
   std::string op=node.at("op"),id=node.at("id");Shape dst=shape(node.at("shape"));std::vector<Shape> src;
   for(auto name:node.at("src")){auto key=name.get<std::string>();if(!shapes.count(key))throw std::runtime_error("NN unknown/forward input");src.push_back(shapes.at(key));}
   if(op=="SOFTMAX"||op=="GELU") {if(src.size()!=1 || src[0]!=dst)throw std::runtime_error("NN unary shape");}
@@ -49,7 +53,7 @@ class NNGraphOperation:public Operation {
     if(uint64_t(next-SPAD_BASE)+32768>uint64_t(_config.core_config[core].spad_size)*1024/2 || uint64_t(next_acc-ACCUM_SPAD_BASE)>uint64_t(_config.core_config[core].accum_spad_size)*1024/2)
      throw std::runtime_error("NN graph exceeds actual bank capacity");
    addr_type sync=next;regions.push_back(region(sync,1,16384,"sync"));
-   record_source_regions(regions,1,1);_numeric_header["schema"]="source-views-program-v1";_numeric_header["profile"]="modeled_fp16_fp32_nn_v1";
+   record_source_regions(regions,graph["inputs"][0]["shape"][0],graph["inputs"][0]["shape"][1]);_numeric_header["schema"]="source-views-program-v1";_numeric_header["profile"]="modeled_fp16_fp32_nn_v1";
    _numeric_header["precision_policy"]=cfg_.at("precision_policy");_numeric_header["task_contract"]=cfg_.at("task_contract");_numeric_header["algorithm"]=cfg_.at("algorithm");
    std::string prefix="batch"+std::to_string(b)+".";uint32_t serial=0;
    auto barrier=[&](addr_type written){Instruction i{.opcode=Opcode::PIPE_BARRIER,.id=prefix+"sync"+std::to_string(serial++),.dest_addr=sync,.size=1,.src_addrs={written},.src_from_accum=true,.my_tile=tile.get(),.is_barrier=true};tile->instructions.push_back(source_instruction(std::move(i),json::array(),nullptr,"nn.sync"));sync+=64;};
@@ -80,6 +84,7 @@ class NNGraphOperation:public Operation {
 };
 }
 void NNGraphModel::initialize_model(std::vector<std::unique_ptr<Tensor>>&) {
+ _root_node_id=get_id(); // External root is this model, never an indeterminate base field.
  validate_graph(_model_config);
  std::map<std::string,std::string> attrs;auto op=std::make_unique<NNGraphOperation>(_config,this,_model_config,attrs);uint32_t B=_model_config.at("batch_size");auto g=_model_config.at("graph");
  for(auto in:g["inputs"]){std::vector<uint32_t> dims;if(in.value("batched",false))dims.push_back(B);dims.push_back(in["shape"][0]);dims.push_back(in["shape"][1]);auto t=std::make_unique<Tensor>(get_root_node_id(),name_gen(get_name(),in["name"].get<std::string>()),dims,_config.precision,true);t->set_produced();auto id=t->get_id();add_tensor(std::move(t));op->add_input(id);}
