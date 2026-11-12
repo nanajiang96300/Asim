@@ -1,0 +1,44 @@
+{
+  "status": "SIX_SYNTHETIC_MUTATIONS_REJECTED",
+  "scope": "post-seal in-memory mutations for validator/replay tests; no new Asim or hardware fault experiment claimed",
+  "baseline": "real accepted archive attention-l32-d32-f64-s91001",
+  "batch": 31,
+  "checks": [
+    {
+      "case": "wrong_axis",
+      "status": "REJECTED",
+      "reason": "softmax axis unsupported",
+      "layer": "instruction semantic/workload validator"
+    },
+    {
+      "case": "unknown_gelu_formula",
+      "status": "REJECTED",
+      "reason": "GELU formula unsupported",
+      "layer": "instruction semantic/workload validator"
+    },
+    {
+      "case": "too_small_softmax_work",
+      "status": "REJECTED",
+      "reason": "NN workload mismatch",
+      "layer": "instruction semantic/workload validator"
+    },
+    {
+      "case": "omit_gelu",
+      "status": "REJECTED",
+      "reason": "NN actual graph work/order mismatch",
+      "layer": "frozen actual graph work/order validator"
+    },
+    {
+      "case": "omit_residual",
+      "status": "REJECTED",
+      "reason": "NN actual graph work/order mismatch",
+      "layer": "frozen actual graph work/order validator"
+    },
+    {
+      "case": "wrong_scaling_operand_X_instead_of_constant",
+      "status": "REJECTED",
+      "layer": "actual source-view numerical replay + independent stages",
+      "first_stage": "logits"
+    }
+  ]
+}

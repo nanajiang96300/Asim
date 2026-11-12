@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python3",
+    "scripts/bootstrap.py",
+    "--cache",
+    "offline_cache",
+    "--offline",
+    "--jobs",
+    "1"
+  ],
+  "start_utc": "2026-11-12T11:27:34.667017+00:00",
+  "returncode": 0,
+  "elapsed_seconds": 1659.942886300967,
+  "cwd": "/home/nanajiang/asim-worktrees/nn-delivery-validation-v2/asim-claude-guide-v2",
+  "scope": "fresh extracted final source package; local source import Git commit, same host, own deps/venv/build; no reused objects"
+}
