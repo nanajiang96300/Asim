@@ -1,0 +1,351 @@
+{
+  "status": "SOURCE_DELIVERY_COLD_ACCEPTED",
+  "scope": "same host, new unpack/source-import/venv/dependencies/build; heldout replay repeated, not new independent samples",
+  "pure_agent_thinking_seconds": null,
+  "checks": [
+    {
+      "name": "files-check",
+      "returncode": 0,
+      "elapsed_seconds": 2.6229981870856136,
+      "command": [
+        "python3",
+        "scripts/check_delivery.py"
+      ]
+    },
+    {
+      "name": "numerical-tests",
+      "returncode": 0,
+      "elapsed_seconds": 6.1280997530557215,
+      "command": [
+        "/home/nanajiang/asim-worktrees/nn-delivery-validation-v2/asim-claude-guide-v2/.venv/bin/python",
+        "scripts/test_portable.py"
+      ]
+    },
+    {
+      "name": "top-tests",
+      "returncode": 0,
+      "elapsed_seconds": 0.16433801292441785,
+      "command": [
+        "/home/nanajiang/asim-worktrees/nn-delivery-validation-v2/asim-claude-guide-v2/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py"
+      ]
+    },
+    {
+      "name": "nn-quick",
+      "returncode": 0,
+      "elapsed_seconds": 17.51411933801137,
+      "command": [
+        "/home/nanajiang/asim-worktrees/nn-delivery-validation-v2/asim-claude-guide-v2/.venv/bin/python",
+        "scripts/nn_acceptance.py",
+        "--quick",
+        "--output",
+        "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-nn-quick"
+      ]
+    },
+    {
+      "name": "six",
+      "returncode": 0,
+      "elapsed_seconds": 286.4764515860006,
+      "command": [
+        "/home/nanajiang/asim-worktrees/nn-delivery-validation-v2/asim-claude-guide-v2/.venv/bin/python",
+        "scripts/portable_smoke.py",
+        "--output",
+        "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-six"
+      ]
+    },
+    {
+      "name": "affine",
+      "returncode": 0,
+      "elapsed_seconds": 19.321426884038374,
+      "command": [
+        "/home/nanajiang/asim-worktrees/nn-delivery-validation-v2/asim-claude-guide-v2/.venv/bin/python",
+        "scripts/affine_acceptance.py",
+        "--binary",
+        "build/bin/Simulator",
+        "--config",
+        "configs/ascend_910b_quiet.json",
+        "--cwd",
+        "build",
+        "--output",
+        "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-affine"
+      ]
+    },
+    {
+      "name": "nn-suite",
+      "returncode": 0,
+      "elapsed_seconds": 297.0405428489903,
+      "command": [
+        "/home/nanajiang/asim-worktrees/nn-delivery-validation-v2/asim-claude-guide-v2/.venv/bin/python",
+        "scripts/nn_acceptance.py",
+        "--output",
+        "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-nn-suite"
+      ]
+    }
+  ],
+  "build": {
+    "command": [
+      "python3",
+      "scripts/bootstrap.py",
+      "--cache",
+      "offline_cache",
+      "--offline",
+      "--jobs",
+      "1"
+    ],
+    "start_utc": "2026-11-12T11:27:34.667017+00:00",
+    "returncode": 0,
+    "elapsed_seconds": 1659.942886300967,
+    "cwd": "/home/nanajiang/asim-worktrees/nn-delivery-validation-v2/asim-claude-guide-v2",
+    "scope": "fresh extracted final source package; local source import Git commit, same host, own deps/venv/build; no reused objects"
+  },
+  "source_delivery": {
+    "status": "PACKED_NOT_YET_VALIDATED",
+    "source_commit": "c84c3ce0e09aa00846eda0f2a526d52aeeaeae5c",
+    "directory": "/home/nanajiang/Asim/expert_delivery/asim-claude-guide-v2",
+    "archive": "/home/nanajiang/Asim/expert_delivery/asim-claude-guide-v2.tar.gz",
+    "bytes": 43778024,
+    "sha256": "a5d819f80937f2c9789aab71fd8e720154a8666f9232af2c68870ff05cda4ebb",
+    "files": 4587
+  },
+  "cold_binary_sha256": "7f780fd81e820d6dc1810d9039be11fcd14f231e78a679a415ebd7936ed8b0fd",
+  "library_sha256": "ae8cd3984288dc8a845df66194f93f03c16a962b20e6320c617cdfcdd3cdb8a8",
+  "cpp_source_files_byte_equal": 150,
+  "bytes_free_before_tests": 904609792,
+  "phase": "COMPLETE",
+  "nn_comparisons": [
+    {
+      "case": "softmax-l16-d32-f64-s91001",
+      "cycles": 791,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "softmax-l16-d32-f64-s91002",
+      "cycles": 791,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "softmax-l16-d32-f64-s91003",
+      "cycles": 791,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "softmax-l32-d32-f64-s91001",
+      "cycles": 1534,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "softmax-l32-d32-f64-s91002",
+      "cycles": 1534,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "softmax-l32-d32-f64-s91003",
+      "cycles": 1534,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "softmax-l32-d64-f128-s91001",
+      "cycles": 1586,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "softmax-l32-d64-f128-s91002",
+      "cycles": 1586,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "softmax-l32-d64-f128-s91003",
+      "cycles": 1586,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l16-d32-f64-s91001",
+      "cycles": 191,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l16-d32-f64-s91002",
+      "cycles": 191,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l16-d32-f64-s91003",
+      "cycles": 191,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l32-d32-f64-s91001",
+      "cycles": 346,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l32-d32-f64-s91002",
+      "cycles": 346,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l32-d32-f64-s91003",
+      "cycles": 346,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l32-d64-f128-s91001",
+      "cycles": 602,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l32-d64-f128-s91002",
+      "cycles": 602,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "gelu-l32-d64-f128-s91003",
+      "cycles": 602,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l16-d32-f64-s91001",
+      "cycles": 1506,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l16-d32-f64-s91002",
+      "cycles": 1506,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l16-d32-f64-s91003",
+      "cycles": 1506,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l32-d32-f64-s91001",
+      "cycles": 1802,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l32-d32-f64-s91002",
+      "cycles": 1802,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l32-d32-f64-s91003",
+      "cycles": 1802,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l32-d64-f128-s91001",
+      "cycles": 3806,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l32-d64-f128-s91002",
+      "cycles": 3806,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "mlp-l32-d64-f128-s91003",
+      "cycles": 3806,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l16-d32-f64-s91001",
+      "cycles": 3630,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l16-d32-f64-s91002",
+      "cycles": 3630,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l16-d32-f64-s91003",
+      "cycles": 3630,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l32-d32-f64-s91001",
+      "cycles": 4975,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l32-d32-f64-s91002",
+      "cycles": 4975,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l32-d32-f64-s91003",
+      "cycles": 4975,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l32-d64-f128-s91001",
+      "cycles": 8298,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l32-d64-f128-s91002",
+      "cycles": 8298,
+      "output_and_metric_exact": true
+    },
+    {
+      "case": "attention-l32-d64-f128-s91003",
+      "cycles": 8298,
+      "output_and_metric_exact": true
+    }
+  ],
+  "numerical_tests": {
+    "run": 264,
+    "passed": 262,
+    "optional_skips": 2
+  },
+  "top_tests": 8,
+  "nn_suite_cases": 36,
+  "nn_quick_cases": 4,
+  "six_cases": 6,
+  "affine_cases": 9,
+  "research_score": null,
+  "promotion_allowed": false,
+  "cold_runtime_pin": {
+    "status": "NEW_COLD_PIN_AND_FOUR_CASE_QUICK_CHECKED",
+    "spec_sha256": "aefb1f8d774e355af9255cc2c7dec90276caa5e5f726528098a64eafaba4626b",
+    "source_version": "packaged source including documented synthetic qpsk unit fixture overlay; separate from feature NN runtime v2",
+    "archive": "cold-runtime-v1.tar.gz",
+    "archive_bytes": 4897897,
+    "archive_sha256": "b4340c3dee7a828519bb911ab05106762ec8564575ffa75f9055e0f828e82800",
+    "files": {
+      "results/nn_runtime/cold-v1/bin/Simulator": {
+        "bytes": 9323352,
+        "sha256": "7f780fd81e820d6dc1810d9039be11fcd14f231e78a679a415ebd7936ed8b0fd"
+      },
+      "results/nn_runtime/cold-v1/lib/libramulator.so": {
+        "bytes": 4495472,
+        "sha256": "ae8cd3984288dc8a845df66194f93f03c16a962b20e6320c617cdfcdd3cdb8a8"
+      },
+      "results/nn_runtime/cold-v1/runtime/HBM2.yaml": {
+        "bytes": 354,
+        "sha256": "7c7ad9c374c3d08e0ad2cb081ab013b4f0c48a19d3dd1c7d547caf75943dd8f2"
+      },
+      "results/nn_runtime/cold-v1/runtime/fly_c1_m2.icnt": {
+        "bytes": 280,
+        "sha256": "dbf877e67e4436003dc689a512ffa8135402520676524f68a4be8c12c1ec00d2"
+      },
+      "results/nn_runtime/cold-v1/runtime_config.json": {
+        "bytes": 12377,
+        "sha256": "ed5684f58197d42a6e8f76b7434d650ff7fe57ab9993a98766fb3d8bc0eb9870"
+      },
+      "orchestrator/nn_runtime_cold_v1.json": {
+        "bytes": 48686,
+        "sha256": "aefb1f8d774e355af9255cc2c7dec90276caa5e5f726528098a64eafaba4626b"
+      }
+    },
+    "restore": "unpack original source delivery then this archive into same new source root; same Python/NumPy/runtime libraries required; initial source manifest check precedes creating new pin",
+    "scope": "new-machine procedure exercised on new path on same host, no cross-host certification"
+  }
+}
