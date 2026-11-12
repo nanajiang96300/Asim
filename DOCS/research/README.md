@@ -1,6 +1,6 @@
 # Asim 研究与 Codex 自动化计划
 
-2026-11-12通用小模型规划：[Attention＋GELU＋全连接实施计划](TINY_ATTENTION_MODEL_PLAN.md)。已有Asim旧实现/周期分支，当前可信重放缺Softmax/GELU；拟以batch96单头小模型补齐原语→整图→三路径验证。本轮仅审计/设计，未声明模型已运行。
+2026-11-12通用小模型：公共Softmax/GELU、受限图映射、MLP/Attention三路径重建已落地。36组B96新NN配置验收、负例、原六类回归、冻结版本及交付冷构建状态统一查[版本报告](../../experiments/tiny_nn/2026-11-12-v1/README.md)，[初始计划](TINY_ATTENTION_MODEL_PLAN.md)保留设计依据。非任意ONNX、训练任务或硬件认证。
 
 2026-11-12新增[Claude Code完整使用手册](../CLAUDE_CODE_USER_GUIDE.md)：部署、新算子、迭代优化及OpenCode/其他平台接入指南；无数据离线源码包及解压/九组affine/六类回归验收见[交付报告](../../experiments/distribution/2026-11-12-claude-guide-v1/README.md)。OpenCode尚未实测，本轮不改算子算法。
 

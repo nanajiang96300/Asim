@@ -1,0 +1,303 @@
+{
+  "status": "MODELED_NUMERIC_CHECKED",
+  "numeric_status": "EXECUTED",
+  "score": null,
+  "G4": "NOT_CERTIFIED",
+  "precision": "modeled_fp16_fp32_nn_v1",
+  "operator": "nn_graph_v1",
+  "precision_policy": {
+    "schema": "numeric-policy-v1",
+    "name": "modeled_fp16_fp32_nn_v1",
+    "storage": "float16",
+    "compute": "float32",
+    "accumulation": "float32",
+    "gemm_order": "k_ascending_multiply_then_add",
+    "rounding": "RNE",
+    "subnormal": "preserve",
+    "fusion": "none",
+    "task_tolerance": 0.01,
+    "quadrant_tolerance": 1e-10,
+    "nonlinear_contract": "nn-vector-v1"
+  },
+  "comparison_identity": "cfcb279729434e606ea9ed98ec3c4ea4528700acc4ce9d2631e27c31708379a3",
+  "runtime_contract": {
+    "kind": "header",
+    "schema": "core-rw-v4",
+    "producer": "asim_core_observer_v4",
+    "clock": "homogeneous_core_cycle_v1",
+    "compute_reads": "conservative_issue_to_complete_v1",
+    "dma_reads": "request_snapshot_v1",
+    "dma_writes": "fragment_response_commit_v1",
+    "dma_identity": "trace_request_op_fragment_v1",
+    "compute_identity": "trace_issue_commit_cycle_v1",
+    "dma_descriptor": "per_fragment_address_v1"
+  },
+  "asim": {
+    "status": "COMPLETED",
+    "returncode": 0,
+    "finish_cycle": 346,
+    "mode": "nn_graph_test",
+    "command": [
+      "/home/nanajiang/asim-worktrees/tiny-nn-primitives-v1/build/bin/Simulator",
+      "--config",
+      "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v3/gelu-l32-d32-f64-s91001/config.json",
+      "--models_list",
+      "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v3/gelu-l32-d32-f64-s91001/models.json",
+      "--mode",
+      "nn_graph_test",
+      "--log_level",
+      "info"
+    ],
+    "binary_sha256": "f8578ac30c4278511dcd7efd120429f2e27ab80dd31134f1bf06fbd607773d94",
+    "max_core_cycles": 1000000,
+    "artifacts": [
+      {
+        "path": "config.json",
+        "bytes": 12518,
+        "sha256": "d18e7195c0a055b0224a233b7501eca41a34c33573e6853a09fc24e61e3bdd7b"
+      },
+      {
+        "path": "models.json",
+        "bytes": 2199,
+        "sha256": "e1ba57c07ea7ffd752112467b38ae36a1492e0335de15581263a82029ef3bf14"
+      },
+      {
+        "path": "simulator.log",
+        "bytes": 33645,
+        "sha256": "11fd2bf425739bf5d1b981d437892510a071c59afc6ed680cb10fb6c5e715d92"
+      },
+      {
+        "path": "instructions.jsonl",
+        "bytes": 247693,
+        "sha256": "fc98d65b3a9ed032bf8601778c7fb2e01c6e11df5f1eabe5ade02d54cd80a86c"
+      },
+      {
+        "path": "trace.csv",
+        "bytes": 346601,
+        "sha256": "00befab1b5c59d304de2139208c206eb40c4e8e934cf35cbb6af4979791c2b04"
+      },
+      {
+        "path": "formula.json",
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      },
+      {
+        "path": "dispatch.jsonl",
+        "bytes": 15443,
+        "sha256": "d66d51f53299b1f42293119ef1787eefc853d2e700b8e913f61a8df501bf1d66"
+      },
+      {
+        "path": "rw_events.jsonl",
+        "bytes": 4660424,
+        "sha256": "50b2e6ce4b2fe1747f490e6f063d31545e5ead86cf97fb5e22ca99ad408817b1"
+      }
+    ],
+    "program_hash": "79e0517b12c2d40507894ec1e0cdcd8956782e5581ee76b535179b7807766e24"
+  },
+  "task": {
+    "schema": "tiny-nn-task-v1",
+    "kind": "gelu",
+    "batch_size": 96,
+    "length": 32,
+    "hidden": 32,
+    "ffn": 64,
+    "profile": "modeled_fp16_fp32_nn_v1",
+    "measurement": "cold_input_weight_dma_to_output_store",
+    "softmax": "stable_rows_f32_ascending_sum",
+    "gelu": "gelu_tanh_f32_v1",
+    "writeback": "FP16_after_every_node",
+    "task_tolerance": 0.01
+  },
+  "task_hash": "fe626c78fef0a5a5d0fc5cc9d4afdcfefaf9d97914f3f7943b0d29363a953e7b",
+  "algorithm": {
+    "id": "nn_graph_v1",
+    "kind": "gelu",
+    "graph": {
+      "schema": "nn-graph-v1",
+      "inputs": [
+        {
+          "name": "X",
+          "shape": [
+            32,
+            32
+          ],
+          "batched": true
+        }
+      ],
+      "nodes": [
+        {
+          "id": "Y",
+          "op": "GELU",
+          "src": [
+            "X"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        }
+      ],
+      "output": "Y"
+    }
+  },
+  "seed": 91001,
+  "schedule_status": "MODEL_RW_CHECKED_CONSERVATIVE",
+  "core_tile_counts": {
+    "0": 4,
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 4,
+    "6": 4,
+    "7": 4,
+    "8": 4,
+    "9": 4,
+    "10": 4,
+    "11": 4,
+    "12": 4,
+    "13": 4,
+    "14": 4,
+    "15": 4,
+    "16": 4,
+    "17": 4,
+    "18": 4,
+    "19": 4,
+    "20": 4,
+    "21": 4,
+    "22": 4,
+    "23": 4
+  },
+  "policy": {
+    "baseline_cycles": 346,
+    "minimum_speedup": 1,
+    "maximum_speedup": 1
+  },
+  "baseline_creation": true,
+  "batches": [
+    {
+      "batch": 0,
+      "status": "STRUCTURE_MATCH",
+      "relative_error": 0.0,
+      "executed": 5,
+      "total": 5,
+      "cost_issues": [],
+      "stage_properties": {
+        "passed": true,
+        "softmax": "NOT_APPLICABLE"
+      },
+      "stage_checks": [
+        {
+          "name": "Y",
+          "index": 2,
+          "bit_equal": true,
+          "actual_fp16_sha256": "e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad",
+          "expected_fp16_sha256": "e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad"
+        }
+      ],
+      "precision_bit_equal": true,
+      "algorithm_error": 0.0,
+      "task_error": 0.0,
+      "algorithm_task_error": 0.0
+    }
+  ],
+  "failed_batches": [],
+  "structural_reference_passed": true,
+  "task_reference_passed": true,
+  "phase_timings_seconds": {
+    "setup": 0.0015066119376569986,
+    "asim": 0.43262563506141305,
+    "artifact_and_schedule_checks": 0.44758407794870436,
+    "independent_references": 0.010674886056222022,
+    "instruction_replay_and_comparison": 0.2840206609107554
+  },
+  "evaluation_wall_seconds_before_archive": 1.1764118719147518,
+  "artifacts": [
+    {
+      "path": "asim.json",
+      "bytes": 1833,
+      "sha256": "56b03fc912b117ece194996ec629aff82bc705148916268d0663b9badaf03ee3"
+    },
+    {
+      "path": "config.json",
+      "bytes": 12518,
+      "sha256": "d18e7195c0a055b0224a233b7501eca41a34c33573e6853a09fc24e61e3bdd7b"
+    },
+    {
+      "path": "dispatch.jsonl",
+      "bytes": 15443,
+      "sha256": "d66d51f53299b1f42293119ef1787eefc853d2e700b8e913f61a8df501bf1d66"
+    },
+    {
+      "path": "formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "inputs.npz",
+      "bytes": 196864,
+      "sha256": "9a8bc67538d48c1ce72ad71970b5e4d6693e9b8ad3101dbe504b22c96de8a04b"
+    },
+    {
+      "path": "instruction_pipeline_detail.csv",
+      "bytes": 23527,
+      "sha256": "1535cb48e2516552f8d4e4570455b86c668aafb3c0625611f713600dc8c4053b"
+    },
+    {
+      "path": "instructions.jsonl",
+      "bytes": 247693,
+      "sha256": "fc98d65b3a9ed032bf8601778c7fb2e01c6e11df5f1eabe5ade02d54cd80a86c"
+    },
+    {
+      "path": "models.json",
+      "bytes": 2199,
+      "sha256": "e1ba57c07ea7ffd752112467b38ae36a1492e0335de15581263a82029ef3bf14"
+    },
+    {
+      "path": "numerics_started.json",
+      "bytes": 79,
+      "sha256": "7674e110e527ac82c1c5a5949c4a65c02040cefdbbf58996e46092ab47b0b225"
+    },
+    {
+      "path": "outputs.npy",
+      "bytes": 786560,
+      "sha256": "499cecaad928b90e260785e797ac3dd27b0cbc0f8e81fccfa266659f7bd597bc"
+    },
+    {
+      "path": "pipeline_statistics.json",
+      "bytes": 142320,
+      "sha256": "09b9bcc9ef06fe83920a07c553f7c8aacd7e4529eb338db097358baaf5d135e3"
+    },
+    {
+      "path": "references.npz",
+      "bytes": 1377264,
+      "sha256": "958feb69a74fa4829202a7a3f204c2368958e74162dcaf4f0808e7f4df1f88b5"
+    },
+    {
+      "path": "rw_events.jsonl",
+      "bytes": 4660424,
+      "sha256": "50b2e6ce4b2fe1747f490e6f063d31545e5ead86cf97fb5e22ca99ad408817b1"
+    },
+    {
+      "path": "schedule.json",
+      "bytes": 17565,
+      "sha256": "fb8d9f740db35080c93724b6844f77a1b7060aba49a3e47cab0652d4d82a8f21"
+    },
+    {
+      "path": "simulator.log",
+      "bytes": 33645,
+      "sha256": "11fd2bf425739bf5d1b981d437892510a071c59afc6ed680cb10fb6c5e715d92"
+    },
+    {
+      "path": "task_inputs.npz",
+      "bytes": 786688,
+      "sha256": "6635be60c5064c38a32a360ce6da12e65d93191faf7a9edefe60495496676976"
+    },
+    {
+      "path": "trace.csv",
+      "bytes": 346601,
+      "sha256": "00befab1b5c59d304de2139208c206eb40c4e8e934cf35cbb6af4979791c2b04"
+    }
+  ],
+  "retention_note": "first batch only here; full 96-batch result in hashed raw archive"
+}

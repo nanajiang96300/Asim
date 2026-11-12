@@ -1,3 +1,4 @@
+#include "models/NNGraphModel.h"
 #include <fstream>
 #include <chrono>
 #include <filesystem>
@@ -121,6 +122,8 @@ int main(int argc, char** argv) {
     language_mode = false;
   } else if (mode == "cholesky_explicit_test") {
     language_mode = false;
+  } else if (mode == "nn_graph_test") {
+    language_mode = false;
   } else if (mode == "affine_gemm_test") {
     language_mode = false;
   } else if (mode == "ns_corrected_test") {
@@ -218,6 +221,9 @@ int main(int argc, char** argv) {
       simulator->register_model(std::move(model));
     } else if (mode == "cholesky_explicit_test") {
       auto model=std::make_unique<CholeskyExplicitModel>(model_config,config,model_config["name"]);
+      simulator->register_model(std::move(model));
+    } else if (mode == "nn_graph_test") {
+      auto model=std::make_unique<NNGraphModel>(model_config,config,model_config["name"]);
       simulator->register_model(std::move(model));
     } else if (mode == "affine_gemm_test") {
       auto model=std::make_unique<AffineGemmModel>(model_config,config,model_config["name"]);

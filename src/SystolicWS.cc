@@ -188,6 +188,16 @@ cycle_type SystolicWS::get_inst_compute_cycles(std::unique_ptr<Instruction>& ins
 }
 
 cycle_type SystolicWS::get_vector_compute_cycles(std::unique_ptr<Instruction>& inst) {
+  if (inst->opcode == Opcode::SOFTMAX && inst->numeric_semantics.is_object() &&
+      inst->numeric_semantics.value("kernel_contract",std::string()) == "nn-vector-v1") {
+    if (!inst->tile_m || !inst->tile_n || inst->compute_size != inst->tile_n*4 ||
+        inst->numeric_semantics.value("axis",0) != -1)
+      throw std::runtime_error("invalid nn-vector-v1 softmax work");
+    const cycle_type row_vec=calculate_vector_op_iterations(inst->compute_size);
+    const cycle_type row_tree=calculate_add_tree_iterations(inst->compute_size);
+    return inst->tile_m*(2*row_tree*_config.core_config[_id].add_tree_latency +
+      row_vec*(_config.core_config[_id].add_latency+_config.core_config[_id].exp_latency+_config.core_config[_id].div_latency));
+  }
   cycle_type vec_op_iter = calculate_vector_op_iterations(inst->compute_size);
   cycle_type add_tree_iter = calculate_add_tree_iterations(inst->compute_size);
   cycle_type add_tree, scalar_ops, vector_ops;

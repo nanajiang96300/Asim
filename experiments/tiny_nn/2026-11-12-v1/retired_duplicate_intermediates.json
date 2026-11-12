@@ -1,0 +1,637 @@
+{
+  "status": "RETIRED",
+  "files": [
+    {
+      "retired": "suite-v1/softmax-l16-d32-f64-s91001.tar.gz",
+      "bytes": 1380998,
+      "sha256": "6203d8f36655094626c028295342f4447f67eaccb8a4f4b4142c6c069cf67457",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l16-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "9de5cc6296b1cd18932602a76673e8a429579be648560d16820ab6b4dba12095",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/softmax-l16-d32-f64-s91002.tar.gz",
+      "bytes": 1380778,
+      "sha256": "6bfbbfdd4878771c1a66f8bf55f4e229ed0ae1bb2394abac67cc0ec2471fc2dc",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l16-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "65ef0b75295b2498fe00012f1b7bd3d856a7ee8f751ae4c683ef249b2d8bc304",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/softmax-l16-d32-f64-s91003.tar.gz",
+      "bytes": 1380863,
+      "sha256": "7fd54faddd676aab63e2d95172c7a30f8666862ebab3b5921153f305b9d52fd9",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l16-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "a5bdd4792f9693eb8d4388205b8afdd002bef083b1117242940f23f71ad60c9f",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/softmax-l32-d32-f64-s91001.tar.gz",
+      "bytes": 2670384,
+      "sha256": "b875865a9016f200c42f534f81ad3073d200841fc910eba1b1e9c0951bea8d97",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "cb87654fb2d6130fe637fdd2427154b5487ccce41b2d12bde555a9c4b594fdf0",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/softmax-l32-d32-f64-s91002.tar.gz",
+      "bytes": 2670382,
+      "sha256": "08e280d78f269e1f06847d39f17670946f7d7b5d72f900253099e4d5156946b3",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "7a6164858ba137e0b80af9c55a10954035673c71cca9f6c1d1799d7c0e49055d",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/softmax-l32-d32-f64-s91003.tar.gz",
+      "bytes": 2670259,
+      "sha256": "1ed8420f395e3d2dbed8011272eefb3b0b29821aa946edac7b0fdc45044c3f08",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "1bad5cb4a3bd94f3d8eb0ed505e84887e5bb9779f47680fdbf9270e62ecb37dc",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/softmax-l32-d64-f128-s91001.tar.gz",
+      "bytes": 5256300,
+      "sha256": "85c7d89bd105cd469cb5de08df2a5000ccc4d17277db0f65f91342fa097ab239",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d64-f128-s91001.tar.gz",
+      "replacement_sha256": "80abad7c0024858796d774e4cbe368ec0849b57e1377c10a4bc69e92024d42f4",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/softmax-l32-d64-f128-s91002.tar.gz",
+      "bytes": 5256192,
+      "sha256": "cd6b60e36e8a1460d324d0eb6b8eaca42cdd549ba9d9a670c36d09ad9fbead8e",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d64-f128-s91002.tar.gz",
+      "replacement_sha256": "f596ffa38244d6b16ab2a2dfd4d075ebe705c3603de51a31092aacf3272d32b0",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/softmax-l32-d64-f128-s91003.tar.gz",
+      "bytes": 5256303,
+      "sha256": "a3262cbcfbeda4d733bb477da0dadb7e610ace1b77f6cd8add9bc66e478a1a4e",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d64-f128-s91003.tar.gz",
+      "replacement_sha256": "cbe02413413bdcf2c29e9eee22956c5d0b422e1f727820e66ff0b40df9eb8453",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l16-d32-f64-s91001.tar.gz",
+      "bytes": 1459687,
+      "sha256": "05e346ded0fe22ed556abecc67f1961cbc5c2643e3a52407294e658c9310f592",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l16-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "5df0b9a8131fdd19e1b7764394e0126c767c0cb689af13ad9fb1f45d1b93026e",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l16-d32-f64-s91002.tar.gz",
+      "bytes": 1459325,
+      "sha256": "cf642f653726e7747488d82e6bdb4c68e86050d1a1520f2fc9af736c7b355c61",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l16-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "3d29dab72ddde0e6313df2e32ff3a286c924a3392d7ad714f9180cc36807b4d6",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l16-d32-f64-s91003.tar.gz",
+      "bytes": 1459543,
+      "sha256": "3122f33e3a86005a0de3682f5804f41c94dfda076cdc9452318a898a350436d4",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l16-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "c610bccffa1440806eafb41a1f0ea190f49e9e85a702a60bea44bdcf1d4910e3",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l32-d32-f64-s91001.tar.gz",
+      "bytes": 2835423,
+      "sha256": "551bb020aae046b2e89c94fbb4aa86e9378c48e1103c3624131d254320572a08",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "86629f7a82142cd677e33ec49707822b5d30e329db3d66c655c3055d521aa57a",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l32-d32-f64-s91002.tar.gz",
+      "bytes": 2835770,
+      "sha256": "8078d9e6725745c6ef3529527ddce9fe00b4c13e5a172408cd2e798791bf8ee5",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "44c6165b006ffeff1a5a63d45ed23624869005c9df853d9acb1dbe47d19e53b6",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l32-d32-f64-s91003.tar.gz",
+      "bytes": 2835769,
+      "sha256": "840a261b801edaeef8a07945837902eda106d94d6cc9299ad4a67c00c356e1fe",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "e2d1aeba4ad0eb9c0bd401c0484bf789bf9b07599d932f4fc572e5ee537a0225",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l32-d64-f128-s91001.tar.gz",
+      "bytes": 5570026,
+      "sha256": "74273b64d0397c4322e4842065d9c0fb43f22eb1158bf36f658c28c63ef5046a",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d64-f128-s91001.tar.gz",
+      "replacement_sha256": "08aa83de353932c11633f241e4d431a06dff41f3a94f9cfdb13418222e5cd015",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l32-d64-f128-s91002.tar.gz",
+      "bytes": 5569808,
+      "sha256": "ce6f5f8c3a9c15e9f3bbbf96baf1378d6c288a656e8475ab3af630c141d55fa1",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d64-f128-s91002.tar.gz",
+      "replacement_sha256": "43098cf3e19b3ff16270b11d81f92437d367241003d797908fe17451ebe224b8",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/gelu-l32-d64-f128-s91003.tar.gz",
+      "bytes": 5570069,
+      "sha256": "f765d12b4e9853983a92d898042a0169d7ebc6f708c2182870847bacbc037842",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d64-f128-s91003.tar.gz",
+      "replacement_sha256": "2d759ccb19ab0e65888965ae91d3e5dec3c207d2b7073e05e9feac2a26a5450a",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l16-d32-f64-s91001.tar.gz",
+      "bytes": 2763795,
+      "sha256": "e1f2ca91b9994db8af471a52f8bed0b39f6d9b10e05e19ff329dee03e20f31c0",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l16-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "6738d79cdc03e387e6e97e2ba14d7cd3c1fce7e428373c3f9a5dd52651971881",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l16-d32-f64-s91002.tar.gz",
+      "bytes": 2763074,
+      "sha256": "b009aefa79997fbbf0cdefd015d816686ee640e81046c3ecf5cdb0da89fd2eb2",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l16-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "28444f74e19717bf5eb69cf683922b5fd0a439e364a895ded312176baf0177f5",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l16-d32-f64-s91003.tar.gz",
+      "bytes": 2764536,
+      "sha256": "6840e6b9d4d319becb5a4da31e9b8ba7bfac39d519cc8df6656bd2da7be6ce4a",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l16-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "1fbebef297710db8ff1825a005cd6ed51c40a7670e26f9caa8affcba7c5b72b8",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l32-d32-f64-s91001.tar.gz",
+      "bytes": 4537593,
+      "sha256": "46fd513a3fd28ba7bd4578d10b62c2c791e22be41352a549c4f7dfa38a7e05f5",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "d2f474447533852dab4ee82fc0fee27f87e7d93b256347a4436d462a76d23805",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l32-d32-f64-s91002.tar.gz",
+      "bytes": 4537484,
+      "sha256": "2d7879dc2a53d5bf4b92d59909ffb76bade8ed7a36667b24ae497154c82a0655",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "ad32bf734c3e64b92f5f5e5559ef492c174b19c619f67b6903341292b3439a89",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l32-d32-f64-s91003.tar.gz",
+      "bytes": 4535580,
+      "sha256": "a023f84db4a6207a0192f89a3686f6052808293bd2f3d45f1d2a8e693f95686e",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "4e4edcc578438fe2de0f0e0aa3981953ba472038704c94f2c501628e70cfdfde",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l32-d64-f128-s91001.tar.gz",
+      "bytes": 10177264,
+      "sha256": "cfe1606a6d8b0638714ca0f99f91b4aa479cf16c036ce9b611663ca7b9fc03bf",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d64-f128-s91001.tar.gz",
+      "replacement_sha256": "42ebe930ab27f1624830fe6041defb27e012caa9cfda95d2330bd5a959edb33f",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l32-d64-f128-s91002.tar.gz",
+      "bytes": 10176265,
+      "sha256": "6f8f1c82412ab44c76c2fa0cef23bac25c36e48a0cbbbfd1bc634b04657f1300",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d64-f128-s91002.tar.gz",
+      "replacement_sha256": "7750b8e8ee40f4f3065d76c0726af66c66162b70ede7cc4312a90b52989c51d1",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/mlp-l32-d64-f128-s91003.tar.gz",
+      "bytes": 10180082,
+      "sha256": "d9bf6a885521978f1252df698a6c936558a31502387249418676f363d7d7082f",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d64-f128-s91003.tar.gz",
+      "replacement_sha256": "d9bd79d7846bd08650374eddcbcd6bc21ccf6fa449299506e8e5fb11ec5ef77c",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/attention-l16-d32-f64-s91001.tar.gz",
+      "bytes": 4721798,
+      "sha256": "3c9d7ba639dbdc35c3d3a4c17cbd0ceaea598246f8969edbde03626c57b82084",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l16-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "fb4fad22a3a44d209a1cb28f2efe5cc475ffd2acd443a955e97fee9872cf91a6",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/attention-l16-d32-f64-s91002.tar.gz",
+      "bytes": 4722250,
+      "sha256": "3282c9fc43263062d4a94bbc09f427dca8c95a39fab54b0150c764946b8d43ba",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l16-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "acf1c7367bdb423fecd7d0e5a77ad1704c58b432bf6e15251dfe1e3ca0ec2eb5",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/attention-l16-d32-f64-s91003.tar.gz",
+      "bytes": 4722877,
+      "sha256": "9dd961fd9873f672002545279e012a12e0ea08d1313afaf759c1e4305eaa1a49",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l16-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "e06cb14eb69fda49fdfcf20f41cc5351e37f9429e538046756c93875820d07bb",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/attention-l32-d32-f64-s91002.tar.gz",
+      "bytes": 7120817,
+      "sha256": "9b9a383a4494ed46e5e70451417356a5de14ccd019e32daf1ed9421df038c621",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "94869e36d6d5b292a4d1b1b599328dd25fb7c929b7e56be6be5faee43fd9ba0b",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/attention-l32-d32-f64-s91003.tar.gz",
+      "bytes": 7119795,
+      "sha256": "79e2f6aa4c20b90a434c3d299e64e6c027b086bcbdc4aa109b00c357bba48e61",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "5c6d517fd1e1457078bb47a8d3f1e84221fd7458a9577dc70573fabccdc79ab3",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/attention-l32-d64-f128-s91001.tar.gz",
+      "bytes": 16147716,
+      "sha256": "6467470ba10f2279dcb15e94daa748df6fde3aec642039fa7166b2403a7a8118",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d64-f128-s91001.tar.gz",
+      "replacement_sha256": "540a01890eeffb438263fd028d91bb4b5ddea6bf4e6ece252312a6bbd9973f89",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/attention-l32-d64-f128-s91002.tar.gz",
+      "bytes": 16145640,
+      "sha256": "cd082e56e59774284b5ebb45184bfb7129ba82f5cf779f429a2690449ee469bf",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d64-f128-s91002.tar.gz",
+      "replacement_sha256": "c0ba911da3fb136ec391334cf3f35b33a026cd4df254150f017738f647c7730b",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v1/attention-l32-d64-f128-s91003.tar.gz",
+      "bytes": 16148336,
+      "sha256": "81afb428bedf2d98f7e5368b9efa79d7cbac6850825274a26523a194b9af89f1",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d64-f128-s91003.tar.gz",
+      "replacement_sha256": "f318c98c3bf43c55e50559dcb405ce2a0dbfc6f8a004c32ea6899fdea18c4b33",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l16-d32-f64-s91001.tar.gz",
+      "bytes": 1381068,
+      "sha256": "df92f569c5ebc7c090eff98a2ba3f33147132b59b2ce2dc9b484e1100f909edf",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l16-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "9de5cc6296b1cd18932602a76673e8a429579be648560d16820ab6b4dba12095",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l16-d32-f64-s91002.tar.gz",
+      "bytes": 1380652,
+      "sha256": "48f94ffd0ed42af6a5a3c1768d7afcef338eea4a4ae1ff1368cdcac8d4403d1b",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l16-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "65ef0b75295b2498fe00012f1b7bd3d856a7ee8f751ae4c683ef249b2d8bc304",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l16-d32-f64-s91003.tar.gz",
+      "bytes": 1380907,
+      "sha256": "33391ded6b82294477cb7e3c6eb4c1d1e7dc9090cb4e1537be6740510f0fa7d9",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l16-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "a5bdd4792f9693eb8d4388205b8afdd002bef083b1117242940f23f71ad60c9f",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l32-d32-f64-s91001.tar.gz",
+      "bytes": 2670352,
+      "sha256": "054441544e1eb6ca54b05bcee527a1cc387b9b5e46b1a013efbcc354b48ad71f",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "cb87654fb2d6130fe637fdd2427154b5487ccce41b2d12bde555a9c4b594fdf0",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l32-d32-f64-s91002.tar.gz",
+      "bytes": 2670362,
+      "sha256": "90ab590552eac64506075d5fddb0d7844d3d5ed122452adf1e5d06122b23adc3",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "7a6164858ba137e0b80af9c55a10954035673c71cca9f6c1d1799d7c0e49055d",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l32-d32-f64-s91003.tar.gz",
+      "bytes": 2670232,
+      "sha256": "2de55c0eb54955bc4d78ebc3e9dd44b6cc578607c391ce89e4a5ffeb05f8943a",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "1bad5cb4a3bd94f3d8eb0ed505e84887e5bb9779f47680fdbf9270e62ecb37dc",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l32-d64-f128-s91001.tar.gz",
+      "bytes": 5256313,
+      "sha256": "50c8b35f5a4ff1dfa1d4cfb86afd87f9f415c1fa45f782629355dc843240f151",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d64-f128-s91001.tar.gz",
+      "replacement_sha256": "80abad7c0024858796d774e4cbe368ec0849b57e1377c10a4bc69e92024d42f4",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l32-d64-f128-s91002.tar.gz",
+      "bytes": 5256114,
+      "sha256": "77aa2e5371202cc2f44e636072d72c1d5313f63aadf00a95ec24d9bc3a9cf4d9",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d64-f128-s91002.tar.gz",
+      "replacement_sha256": "f596ffa38244d6b16ab2a2dfd4d075ebe705c3603de51a31092aacf3272d32b0",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/softmax-l32-d64-f128-s91003.tar.gz",
+      "bytes": 5256172,
+      "sha256": "a86ea51f1e0609ee4753dd5103faa2c5048134412e020cd296db78bf3ded5d4e",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/softmax-l32-d64-f128-s91003.tar.gz",
+      "replacement_sha256": "cbe02413413bdcf2c29e9eee22956c5d0b422e1f727820e66ff0b40df9eb8453",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l16-d32-f64-s91001.tar.gz",
+      "bytes": 1459711,
+      "sha256": "b182195a82dd07408363118e5dafac941fc6ce455fc8aedaf4d81b8c71e2dff5",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l16-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "5df0b9a8131fdd19e1b7764394e0126c767c0cb689af13ad9fb1f45d1b93026e",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l16-d32-f64-s91002.tar.gz",
+      "bytes": 1459314,
+      "sha256": "2c7f74605296aafcec0c0061728be64adfa45b2a0891ebfa091ce7c759cf1241",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l16-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "3d29dab72ddde0e6313df2e32ff3a286c924a3392d7ad714f9180cc36807b4d6",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l16-d32-f64-s91003.tar.gz",
+      "bytes": 1459552,
+      "sha256": "ecd097333782a7f9830072fc35f1a00c082702ac6aad1c954e858d1dbb80b41a",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l16-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "c610bccffa1440806eafb41a1f0ea190f49e9e85a702a60bea44bdcf1d4910e3",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l32-d32-f64-s91001.tar.gz",
+      "bytes": 2835489,
+      "sha256": "7348bad3e3f943b0fd28acd68da67a8a4810915f2a5205bd63f161bf5f6d9ca3",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "86629f7a82142cd677e33ec49707822b5d30e329db3d66c655c3055d521aa57a",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l32-d32-f64-s91002.tar.gz",
+      "bytes": 2835700,
+      "sha256": "24f10b876c96b58640f9bcc9805626ba69001e96c5e08cc529114b52065e09ee",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "44c6165b006ffeff1a5a63d45ed23624869005c9df853d9acb1dbe47d19e53b6",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l32-d32-f64-s91003.tar.gz",
+      "bytes": 2835782,
+      "sha256": "6946cf220fced8d738687d79f9ab94c184c2f40f4557270d498a89300f40b355",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "e2d1aeba4ad0eb9c0bd401c0484bf789bf9b07599d932f4fc572e5ee537a0225",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l32-d64-f128-s91001.tar.gz",
+      "bytes": 5570081,
+      "sha256": "15ff3f76b1a306604e903a8581db04b759efbee32b4e94e8c8d8ae09486b0c95",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d64-f128-s91001.tar.gz",
+      "replacement_sha256": "08aa83de353932c11633f241e4d431a06dff41f3a94f9cfdb13418222e5cd015",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l32-d64-f128-s91002.tar.gz",
+      "bytes": 5569765,
+      "sha256": "fd77f366c85e6a7c9f751de77bf9f15a91f750bd1adcb99f2f3ba9d0431e9cd4",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d64-f128-s91002.tar.gz",
+      "replacement_sha256": "43098cf3e19b3ff16270b11d81f92437d367241003d797908fe17451ebe224b8",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/gelu-l32-d64-f128-s91003.tar.gz",
+      "bytes": 5569961,
+      "sha256": "310ba124501546375c5524fa9cab1f36b499add3ac0d6230a35c4a6746fcac87",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/gelu-l32-d64-f128-s91003.tar.gz",
+      "replacement_sha256": "2d759ccb19ab0e65888965ae91d3e5dec3c207d2b7073e05e9feac2a26a5450a",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l16-d32-f64-s91001.tar.gz",
+      "bytes": 2763785,
+      "sha256": "f604fd83e7b0129fb92e37fd771b3d2558268497a4d5f0792b4f3708cf42375f",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l16-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "6738d79cdc03e387e6e97e2ba14d7cd3c1fce7e428373c3f9a5dd52651971881",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l16-d32-f64-s91002.tar.gz",
+      "bytes": 2763022,
+      "sha256": "0f65457e51f2034f8e9dd920bfc14a7069b3631b7d30e1ac34f900b28ecaba5f",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l16-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "28444f74e19717bf5eb69cf683922b5fd0a439e364a895ded312176baf0177f5",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l16-d32-f64-s91003.tar.gz",
+      "bytes": 2764478,
+      "sha256": "26c413020990253309553b55ad1ab0435b6bddbf7d4d0be409f4c4818273287e",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l16-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "1fbebef297710db8ff1825a005cd6ed51c40a7670e26f9caa8affcba7c5b72b8",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l32-d32-f64-s91001.tar.gz",
+      "bytes": 4537553,
+      "sha256": "db0267884cc3568109904637cc1654ca8682ab412187d95fad341b8a734f35a5",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "d2f474447533852dab4ee82fc0fee27f87e7d93b256347a4436d462a76d23805",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l32-d32-f64-s91002.tar.gz",
+      "bytes": 4537374,
+      "sha256": "6a650958aa3ec6268d454bc4f042d34c32947d8df45a61a4176d7c6a725a583a",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "ad32bf734c3e64b92f5f5e5559ef492c174b19c619f67b6903341292b3439a89",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l32-d32-f64-s91003.tar.gz",
+      "bytes": 4535580,
+      "sha256": "7b91824aaeec7d77938080c561c5f7d4a1b59adfb115560ba42d33f69dc725cd",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "4e4edcc578438fe2de0f0e0aa3981953ba472038704c94f2c501628e70cfdfde",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l32-d64-f128-s91001.tar.gz",
+      "bytes": 10177290,
+      "sha256": "19eef40d564dc81ae799b6a5f4fc49beedc49b9e5335553fa3783d222371a5a2",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d64-f128-s91001.tar.gz",
+      "replacement_sha256": "42ebe930ab27f1624830fe6041defb27e012caa9cfda95d2330bd5a959edb33f",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l32-d64-f128-s91002.tar.gz",
+      "bytes": 10176260,
+      "sha256": "9a53c704c6a89c274398c3878279b53c588d25870523b5f8aaab240bdf3eb844",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d64-f128-s91002.tar.gz",
+      "replacement_sha256": "7750b8e8ee40f4f3065d76c0726af66c66162b70ede7cc4312a90b52989c51d1",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/mlp-l32-d64-f128-s91003.tar.gz",
+      "bytes": 10180080,
+      "sha256": "2a7df56937189aa5d181357f3bc1f3b6ea1fbaf9cec59f4f2b8998a20a87aae4",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/mlp-l32-d64-f128-s91003.tar.gz",
+      "replacement_sha256": "d9bd79d7846bd08650374eddcbcd6bc21ccf6fa449299506e8e5fb11ec5ef77c",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/attention-l16-d32-f64-s91001.tar.gz",
+      "bytes": 4721768,
+      "sha256": "c9793824bff07418d4ef3440ff771e5d2c53fe455904df30f4201af19f99a951",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l16-d32-f64-s91001.tar.gz",
+      "replacement_sha256": "fb4fad22a3a44d209a1cb28f2efe5cc475ffd2acd443a955e97fee9872cf91a6",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/attention-l16-d32-f64-s91002.tar.gz",
+      "bytes": 4722223,
+      "sha256": "890273a2b372f41bd0fd74145c4498b438c4f022852be8f0a5d92f9a8d52505d",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l16-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "acf1c7367bdb423fecd7d0e5a77ad1704c58b432bf6e15251dfe1e3ca0ec2eb5",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/attention-l16-d32-f64-s91003.tar.gz",
+      "bytes": 4722921,
+      "sha256": "47fac919dc8dc81b0ba2bed37a1e10b85c2a6646bceb89b8cc0a5578492eb058",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l16-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "e06cb14eb69fda49fdfcf20f41cc5351e37f9429e538046756c93875820d07bb",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/attention-l32-d32-f64-s91002.tar.gz",
+      "bytes": 7120825,
+      "sha256": "4b3066982d29334c4a0b10a2cff241f5cdb01b571b6169f01c55f304aa998038",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d32-f64-s91002.tar.gz",
+      "replacement_sha256": "94869e36d6d5b292a4d1b1b599328dd25fb7c929b7e56be6be5faee43fd9ba0b",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/attention-l32-d32-f64-s91003.tar.gz",
+      "bytes": 7120817,
+      "sha256": "2125b5270d2d1f3c2105a2d1393df51351d9753f66a22cab3db0737d97607fc0",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d32-f64-s91003.tar.gz",
+      "replacement_sha256": "5c6d517fd1e1457078bb47a8d3f1e84221fd7458a9577dc70573fabccdc79ab3",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/attention-l32-d64-f128-s91001.tar.gz",
+      "bytes": 16148196,
+      "sha256": "18218374ca5c46b021e08784a9b1871386886e332fadd6e4b61415c2ea38a89f",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d64-f128-s91001.tar.gz",
+      "replacement_sha256": "540a01890eeffb438263fd028d91bb4b5ddea6bf4e6ece252312a6bbd9973f89",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/attention-l32-d64-f128-s91002.tar.gz",
+      "bytes": 16145684,
+      "sha256": "74c5a298a3e484838e0df58f6f2227ab61a81244dc624512a490695f9f4f9adf",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d64-f128-s91002.tar.gz",
+      "replacement_sha256": "c0ba911da3fb136ec391334cf3f35b33a026cd4df254150f017738f647c7730b",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    },
+    {
+      "retired": "suite-v2/attention-l32-d64-f128-s91003.tar.gz",
+      "bytes": 16148326,
+      "sha256": "2bdf3ca0d0b0a21d0677d8707924ed2bcf8c4e37c68650c924ff2bf3e2237fe0",
+      "reason": "same frozen inputs, outputs and cycles reaccepted in latest suite; old summary retained",
+      "replacement": "suite-v3/attention-l32-d64-f128-s91003.tar.gz",
+      "replacement_sha256": "f318c98c3bf43c55e50559dcb405ce2a0dbfc6f8a004c32ea6899fdea18c4b33",
+      "restore": "retired duplicate bytes not retained; rerun old Git source if exact historical archive needed"
+    }
+  ],
+  "bytes_removed": 373606490,
+  "scope": "only owned obsolete current-task duplicate successful archives; original research unchanged"
+}

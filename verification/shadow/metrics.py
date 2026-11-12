@@ -8,6 +8,10 @@ def relative_error(value, reference):
     value=np.asarray(value);reference=np.asarray(reference)
     if value.shape!=reference.shape or not value.size or np.iscomplexobj(value) or np.iscomplexobj(reference) or not np.isfinite(value).all() or not np.isfinite(reference).all():
         raise Invalid('invalid real comparison arrays')
+    # Compare represented values in a common accumulator type; FP16 division
+    # during scaling would manufacture error between bit-identical tensors.
+    value=value.astype(np.float64,copy=False);reference=reference.astype(np.float64,copy=False)
+    if not np.isfinite(value).all() or not np.isfinite(reference).all():raise Invalid('comparison dtype range unsupported')
     # Scale BEFORE subtraction/squares; norm(reference) alone may overflow.
     scale=max(1.0,float(np.max(np.abs(value))),float(np.max(np.abs(reference))))
     denominator=max(float(np.linalg.norm(reference/scale)),1e-15/scale)

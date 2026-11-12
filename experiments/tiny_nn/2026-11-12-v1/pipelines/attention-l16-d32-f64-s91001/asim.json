@@ -1,0 +1,61 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "finish_cycle": 3630,
+  "mode": "nn_graph_test",
+  "command": [
+    "/home/nanajiang/asim-worktrees/tiny-nn-primitives-v1/build/bin/Simulator",
+    "--config",
+    "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v3/attention-l16-d32-f64-s91001/config.json",
+    "--models_list",
+    "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v3/attention-l16-d32-f64-s91001/models.json",
+    "--mode",
+    "nn_graph_test",
+    "--log_level",
+    "info"
+  ],
+  "binary_sha256": "f8578ac30c4278511dcd7efd120429f2e27ab80dd31134f1bf06fbd607773d94",
+  "max_core_cycles": 1000000,
+  "artifacts": [
+    {
+      "path": "config.json",
+      "bytes": 12518,
+      "sha256": "d18e7195c0a055b0224a233b7501eca41a34c33573e6853a09fc24e61e3bdd7b"
+    },
+    {
+      "path": "models.json",
+      "bytes": 15517,
+      "sha256": "0882d1f6740769af14cfb92c6ace43f9517f2fcab41027885734d79053ecc076"
+    },
+    {
+      "path": "simulator.log",
+      "bytes": 33999,
+      "sha256": "63a7cf6385a34b818b91c9789c627104d46620b4e6f2bd08a5d6b9fc63b98dcb"
+    },
+    {
+      "path": "instructions.jsonl",
+      "bytes": 2988314,
+      "sha256": "b683ed818d2386827101b1c6bedea3c78bae1c87ec04b917317bbc6a5d396eb8"
+    },
+    {
+      "path": "trace.csv",
+      "bytes": 1973727,
+      "sha256": "1bc129a8f0fc73629c1f7acdc861eb7437b6413fc0826897c2ab6e762e080f0c"
+    },
+    {
+      "path": "formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "dispatch.jsonl",
+      "bytes": 115776,
+      "sha256": "882456094fda7d823b2db5121615a286901296d523a8a7efe51c3cd4d6796c56"
+    },
+    {
+      "path": "rw_events.jsonl",
+      "bytes": 26068670,
+      "sha256": "61344ccba165ea1ac24203121fef39c474d5a9ec89539185a2e4ed6d9247e685"
+    }
+  ]
+}

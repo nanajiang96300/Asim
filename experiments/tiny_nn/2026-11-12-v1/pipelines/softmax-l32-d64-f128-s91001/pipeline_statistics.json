@@ -1,0 +1,1191 @@
+{
+  "status": "TRACE_VALID",
+  "errors": [],
+  "finish_cycle": 1586,
+  "source_instruction_count": 480,
+  "source_opcode_counts": {
+    "MOVIN": 96,
+    "PIPE_BARRIER": 192,
+    "SOFTMAX": 96,
+    "MOVOUT": 96
+  },
+  "pipelines": {
+    "MTE2": {
+      "event_count": 6144,
+      "duration_sum": 438086.0,
+      "active_union": 462.0,
+      "min_duration": 26.0,
+      "max_duration": 143.0,
+      "mean_duration": 71.30305989583333,
+      "first_start": 1.0,
+      "last_end": 929.0
+    },
+    "Barrier": {
+      "event_count": 192,
+      "duration_sum": 192.0,
+      "active_union": 177.0,
+      "min_duration": 1.0,
+      "max_duration": 1.0,
+      "mean_duration": 1.0,
+      "first_start": 57.0,
+      "last_end": 1556.0
+    },
+    "Vector": {
+      "event_count": 96,
+      "duration_sum": 33792.0,
+      "active_union": 1495.0,
+      "min_duration": 352.0,
+      "max_duration": 352.0,
+      "mean_duration": 352.0,
+      "first_start": 59.0,
+      "last_end": 1554.0
+    },
+    "MTE3": {
+      "event_count": 6144,
+      "duration_sum": 296705.0,
+      "active_union": 544.0,
+      "min_duration": 10.0,
+      "max_duration": 125.0,
+      "mean_duration": 48.291829427083336,
+      "first_start": 413.0,
+      "last_end": 1586.0
+    }
+  },
+  "cores": {
+    "0": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 20932.0,
+          "active_union": 288.0,
+          "min_duration": 26.0,
+          "max_duration": 102.0,
+          "mean_duration": 81.765625,
+          "first_start": 1.0,
+          "last_end": 905.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 104.0,
+          "last_end": 1531.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 106.0,
+          "last_end": 1529.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 11336.0,
+          "active_union": 299.0,
+          "min_duration": 13.0,
+          "max_duration": 109.0,
+          "mean_duration": 44.28125,
+          "first_start": 460.0,
+          "last_end": 1573.0
+        }
+      },
+      "busy_union": 1566.0,
+      "idle_in_makespan": 20.0,
+      "multi_unit_overlap_union": 253.0
+    },
+    "1": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 20957.0,
+          "active_union": 311.0,
+          "min_duration": 28.0,
+          "max_duration": 112.0,
+          "mean_duration": 81.86328125,
+          "first_start": 1.0,
+          "last_end": 915.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 105.0,
+          "last_end": 1532.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 107.0,
+          "last_end": 1530.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 9996.0,
+          "active_union": 297.0,
+          "min_duration": 19.0,
+          "max_duration": 106.0,
+          "mean_duration": 39.046875,
+          "first_start": 461.0,
+          "last_end": 1574.0
+        }
+      },
+      "busy_union": 1569.0,
+      "idle_in_makespan": 17.0,
+      "multi_unit_overlap_union": 260.0
+    },
+    "2": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 21563.0,
+          "active_union": 315.0,
+          "min_duration": 26.0,
+          "max_duration": 116.0,
+          "mean_duration": 84.23046875,
+          "first_start": 1.0,
+          "last_end": 917.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 107.0,
+          "last_end": 1534.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 109.0,
+          "last_end": 1532.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 11459.0,
+          "active_union": 302.0,
+          "min_duration": 13.0,
+          "max_duration": 110.0,
+          "mean_duration": 44.76171875,
+          "first_start": 463.0,
+          "last_end": 1576.0
+        }
+      },
+      "busy_union": 1571.0,
+      "idle_in_makespan": 15.0,
+      "multi_unit_overlap_union": 266.0
+    },
+    "3": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 22247.0,
+          "active_union": 320.0,
+          "min_duration": 26.0,
+          "max_duration": 123.0,
+          "mean_duration": 86.90234375,
+          "first_start": 1.0,
+          "last_end": 921.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 111.0,
+          "last_end": 1538.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 113.0,
+          "last_end": 1536.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 14332.0,
+          "active_union": 302.0,
+          "min_duration": 17.0,
+          "max_duration": 108.0,
+          "mean_duration": 55.984375,
+          "first_start": 467.0,
+          "last_end": 1580.0
+        }
+      },
+      "busy_union": 1575.0,
+      "idle_in_makespan": 11.0,
+      "multi_unit_overlap_union": 269.0
+    },
+    "4": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 21722.0,
+          "active_union": 302.0,
+          "min_duration": 26.0,
+          "max_duration": 127.0,
+          "mean_duration": 84.8515625,
+          "first_start": 1.0,
+          "last_end": 929.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 129.0,
+          "last_end": 1556.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 131.0,
+          "last_end": 1554.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 14199.0,
+          "active_union": 254.0,
+          "min_duration": 12.0,
+          "max_duration": 99.0,
+          "mean_duration": 55.46484375,
+          "first_start": 485.0,
+          "last_end": 1585.0
+        }
+      },
+      "busy_union": 1579.0,
+      "idle_in_makespan": 7.0,
+      "multi_unit_overlap_union": 221.0
+    },
+    "5": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 21064.0,
+          "active_union": 289.0,
+          "min_duration": 28.0,
+          "max_duration": 114.0,
+          "mean_duration": 82.28125,
+          "first_start": 1.0,
+          "last_end": 908.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 106.0,
+          "last_end": 1533.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 108.0,
+          "last_end": 1531.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 12391.0,
+          "active_union": 298.0,
+          "min_duration": 23.0,
+          "max_duration": 109.0,
+          "mean_duration": 48.40234375,
+          "first_start": 462.0,
+          "last_end": 1575.0
+        }
+      },
+      "busy_union": 1570.0,
+      "idle_in_makespan": 16.0,
+      "multi_unit_overlap_union": 261.0
+    },
+    "6": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 21003.0,
+          "active_union": 296.0,
+          "min_duration": 28.0,
+          "max_duration": 118.0,
+          "mean_duration": 82.04296875,
+          "first_start": 1.0,
+          "last_end": 912.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 108.0,
+          "last_end": 1535.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 110.0,
+          "last_end": 1533.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 16273.0,
+          "active_union": 304.0,
+          "min_duration": 24.0,
+          "max_duration": 109.0,
+          "mean_duration": 63.56640625,
+          "first_start": 464.0,
+          "last_end": 1578.0
+        }
+      },
+      "busy_union": 1573.0,
+      "idle_in_makespan": 13.0,
+      "multi_unit_overlap_union": 268.0
+    },
+    "7": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 19666.0,
+          "active_union": 290.0,
+          "min_duration": 28.0,
+          "max_duration": 125.0,
+          "mean_duration": 76.8203125,
+          "first_start": 1.0,
+          "last_end": 917.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 120.0,
+          "last_end": 1547.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 122.0,
+          "last_end": 1545.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 15205.0,
+          "active_union": 273.0,
+          "min_duration": 26.0,
+          "max_duration": 101.0,
+          "mean_duration": 59.39453125,
+          "first_start": 476.0,
+          "last_end": 1583.0
+        }
+      },
+      "busy_union": 1578.0,
+      "idle_in_makespan": 8.0,
+      "multi_unit_overlap_union": 239.0
+    },
+    "8": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 19384.0,
+          "active_union": 291.0,
+          "min_duration": 31.0,
+          "max_duration": 129.0,
+          "mean_duration": 75.71875,
+          "first_start": 1.0,
+          "last_end": 920.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 126.0,
+          "last_end": 1553.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 128.0,
+          "last_end": 1551.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 14614.0,
+          "active_union": 262.0,
+          "min_duration": 13.0,
+          "max_duration": 99.0,
+          "mean_duration": 57.0859375,
+          "first_start": 482.0,
+          "last_end": 1586.0
+        }
+      },
+      "busy_union": 1581.0,
+      "idle_in_makespan": 5.0,
+      "multi_unit_overlap_union": 229.0
+    },
+    "9": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 20447.0,
+          "active_union": 320.0,
+          "min_duration": 30.0,
+          "max_duration": 133.0,
+          "mean_duration": 79.87109375,
+          "first_start": 1.0,
+          "last_end": 926.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 112.0,
+          "last_end": 1539.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 114.0,
+          "last_end": 1537.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 12461.0,
+          "active_union": 271.0,
+          "min_duration": 10.0,
+          "max_duration": 109.0,
+          "mean_duration": 48.67578125,
+          "first_start": 468.0,
+          "last_end": 1563.0
+        }
+      },
+      "busy_union": 1558.0,
+      "idle_in_makespan": 28.0,
+      "multi_unit_overlap_union": 265.0
+    },
+    "10": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 21316.0,
+          "active_union": 320.0,
+          "min_duration": 32.0,
+          "max_duration": 135.0,
+          "mean_duration": 83.265625,
+          "first_start": 1.0,
+          "last_end": 927.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 116.0,
+          "last_end": 1543.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 118.0,
+          "last_end": 1541.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 13744.0,
+          "active_union": 280.0,
+          "min_duration": 13.0,
+          "max_duration": 108.0,
+          "mean_duration": 53.6875,
+          "first_start": 472.0,
+          "last_end": 1580.0
+        }
+      },
+      "busy_union": 1575.0,
+      "idle_in_makespan": 11.0,
+      "multi_unit_overlap_union": 259.0
+    },
+    "11": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 16126.0,
+          "active_union": 230.0,
+          "min_duration": 32.0,
+          "max_duration": 137.0,
+          "mean_duration": 62.9921875,
+          "first_start": 1.0,
+          "last_end": 821.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 57.0,
+          "last_end": 1484.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 59.0,
+          "last_end": 1482.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 9636.0,
+          "active_union": 307.0,
+          "min_duration": 15.0,
+          "max_duration": 123.0,
+          "mean_duration": 37.640625,
+          "first_start": 413.0,
+          "last_end": 1515.0
+        }
+      },
+      "busy_union": 1510.0,
+      "idle_in_makespan": 76.0,
+      "multi_unit_overlap_union": 353.0
+    },
+    "12": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 16598.0,
+          "active_union": 231.0,
+          "min_duration": 31.0,
+          "max_duration": 141.0,
+          "mean_duration": 64.8359375,
+          "first_start": 1.0,
+          "last_end": 823.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 61.0,
+          "last_end": 1488.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 63.0,
+          "last_end": 1486.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 12637.0,
+          "active_union": 311.0,
+          "min_duration": 15.0,
+          "max_duration": 125.0,
+          "mean_duration": 49.36328125,
+          "first_start": 417.0,
+          "last_end": 1520.0
+        }
+      },
+      "busy_union": 1515.0,
+      "idle_in_makespan": 71.0,
+      "multi_unit_overlap_union": 356.0
+    },
+    "13": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 15788.0,
+          "active_union": 216.0,
+          "min_duration": 34.0,
+          "max_duration": 131.0,
+          "mean_duration": 61.671875,
+          "first_start": 1.0,
+          "last_end": 817.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 60.0,
+          "last_end": 1487.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 62.0,
+          "last_end": 1485.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 10999.0,
+          "active_union": 261.0,
+          "min_duration": 15.0,
+          "max_duration": 123.0,
+          "mean_duration": 42.96484375,
+          "first_start": 416.0,
+          "last_end": 1519.0
+        }
+      },
+      "busy_union": 1514.0,
+      "idle_in_makespan": 72.0,
+      "multi_unit_overlap_union": 297.0
+    },
+    "14": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 16272.0,
+          "active_union": 220.0,
+          "min_duration": 33.0,
+          "max_duration": 135.0,
+          "mean_duration": 63.5625,
+          "first_start": 1.0,
+          "last_end": 821.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 64.0,
+          "last_end": 1491.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 66.0,
+          "last_end": 1489.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 13039.0,
+          "active_union": 311.0,
+          "min_duration": 25.0,
+          "max_duration": 125.0,
+          "mean_duration": 50.93359375,
+          "first_start": 420.0,
+          "last_end": 1524.0
+        }
+      },
+      "busy_union": 1519.0,
+      "idle_in_makespan": 67.0,
+      "multi_unit_overlap_union": 346.0
+    },
+    "15": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 16768.0,
+          "active_union": 224.0,
+          "min_duration": 32.0,
+          "max_duration": 139.0,
+          "mean_duration": 65.5,
+          "first_start": 1.0,
+          "last_end": 825.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 68.0,
+          "last_end": 1495.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 70.0,
+          "last_end": 1493.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 12919.0,
+          "active_union": 309.0,
+          "min_duration": 23.0,
+          "max_duration": 125.0,
+          "mean_duration": 50.46484375,
+          "first_start": 424.0,
+          "last_end": 1527.0
+        }
+      },
+      "busy_union": 1522.0,
+      "idle_in_makespan": 64.0,
+      "multi_unit_overlap_union": 345.0
+    },
+    "16": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 17196.0,
+          "active_union": 226.0,
+          "min_duration": 31.0,
+          "max_duration": 143.0,
+          "mean_duration": 67.171875,
+          "first_start": 1.0,
+          "last_end": 829.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 73.0,
+          "last_end": 1500.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 75.0,
+          "last_end": 1498.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 12720.0,
+          "active_union": 310.0,
+          "min_duration": 22.0,
+          "max_duration": 124.0,
+          "mean_duration": 49.6875,
+          "first_start": 429.0,
+          "last_end": 1536.0
+        }
+      },
+      "busy_union": 1531.0,
+      "idle_in_makespan": 55.0,
+      "multi_unit_overlap_union": 341.0
+    },
+    "17": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 12337.0,
+          "active_union": 162.0,
+          "min_duration": 33.0,
+          "max_duration": 76.0,
+          "mean_duration": 48.19140625,
+          "first_start": 1.0,
+          "last_end": 837.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 78.0,
+          "last_end": 1505.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 80.0,
+          "last_end": 1503.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 12084.0,
+          "active_union": 302.0,
+          "min_duration": 25.0,
+          "max_duration": 119.0,
+          "mean_duration": 47.203125,
+          "first_start": 434.0,
+          "last_end": 1540.0
+        }
+      },
+      "busy_union": 1533.0,
+      "idle_in_makespan": 53.0,
+      "multi_unit_overlap_union": 263.0
+    },
+    "18": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 12661.0,
+          "active_union": 163.0,
+          "min_duration": 30.0,
+          "max_duration": 84.0,
+          "mean_duration": 49.45703125,
+          "first_start": 1.0,
+          "last_end": 841.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 86.0,
+          "last_end": 1513.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 88.0,
+          "last_end": 1511.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 11232.0,
+          "active_union": 288.0,
+          "min_duration": 21.0,
+          "max_duration": 115.0,
+          "mean_duration": 43.875,
+          "first_start": 442.0,
+          "last_end": 1544.0
+        }
+      },
+      "busy_union": 1537.0,
+      "idle_in_makespan": 49.0,
+      "multi_unit_overlap_union": 253.0
+    },
+    "19": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 16887.0,
+          "active_union": 296.0,
+          "min_duration": 28.0,
+          "max_duration": 107.0,
+          "mean_duration": 65.96484375,
+          "first_start": 1.0,
+          "last_end": 906.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 94.0,
+          "last_end": 1521.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 96.0,
+          "last_end": 1519.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 10267.0,
+          "active_union": 272.0,
+          "min_duration": 18.0,
+          "max_duration": 111.0,
+          "mean_duration": 40.10546875,
+          "first_start": 450.0,
+          "last_end": 1549.0
+        }
+      },
+      "busy_union": 1542.0,
+      "idle_in_makespan": 44.0,
+      "multi_unit_overlap_union": 240.0
+    },
+    "20": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 20853.0,
+          "active_union": 308.0,
+          "min_duration": 30.0,
+          "max_duration": 105.0,
+          "mean_duration": 81.45703125,
+          "first_start": 1.0,
+          "last_end": 922.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 102.0,
+          "last_end": 1529.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 104.0,
+          "last_end": 1527.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 10787.0,
+          "active_union": 274.0,
+          "min_duration": 14.0,
+          "max_duration": 115.0,
+          "mean_duration": 42.13671875,
+          "first_start": 458.0,
+          "last_end": 1554.0
+        }
+      },
+      "busy_union": 1547.0,
+      "idle_in_makespan": 39.0,
+      "multi_unit_overlap_union": 245.0
+    },
+    "21": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 13862.0,
+          "active_union": 169.0,
+          "min_duration": 32.0,
+          "max_duration": 78.0,
+          "mean_duration": 54.1484375,
+          "first_start": 1.0,
+          "last_end": 839.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 80.0,
+          "last_end": 1507.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 82.0,
+          "last_end": 1505.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 12285.0,
+          "active_union": 290.0,
+          "min_duration": 25.0,
+          "max_duration": 118.0,
+          "mean_duration": 47.98828125,
+          "first_start": 436.0,
+          "last_end": 1543.0
+        }
+      },
+      "busy_union": 1537.0,
+      "idle_in_makespan": 49.0,
+      "multi_unit_overlap_union": 250.0
+    },
+    "22": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 14291.0,
+          "active_union": 165.0,
+          "min_duration": 28.0,
+          "max_duration": 87.0,
+          "mean_duration": 55.82421875,
+          "first_start": 1.0,
+          "last_end": 843.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 89.0,
+          "last_end": 1516.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 91.0,
+          "last_end": 1514.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 11692.0,
+          "active_union": 290.0,
+          "min_duration": 20.0,
+          "max_duration": 113.0,
+          "mean_duration": 45.671875,
+          "first_start": 445.0,
+          "last_end": 1548.0
+        }
+      },
+      "busy_union": 1541.0,
+      "idle_in_makespan": 45.0,
+      "multi_unit_overlap_union": 254.0
+    },
+    "23": {
+      "units": {
+        "MTE2": {
+          "event_count": 256,
+          "duration_sum": 18146.0,
+          "active_union": 280.0,
+          "min_duration": 27.0,
+          "max_duration": 97.0,
+          "mean_duration": 70.8828125,
+          "first_start": 1.0,
+          "last_end": 900.0
+        },
+        "Barrier": {
+          "event_count": 8,
+          "duration_sum": 8.0,
+          "active_union": 8.0,
+          "min_duration": 1.0,
+          "max_duration": 1.0,
+          "mean_duration": 1.0,
+          "first_start": 97.0,
+          "last_end": 1524.0
+        },
+        "Vector": {
+          "event_count": 4,
+          "duration_sum": 1408.0,
+          "active_union": 1408.0,
+          "min_duration": 352.0,
+          "max_duration": 352.0,
+          "mean_duration": 352.0,
+          "first_start": 99.0,
+          "last_end": 1522.0
+        },
+        "MTE3": {
+          "event_count": 256,
+          "duration_sum": 10398.0,
+          "active_union": 270.0,
+          "min_duration": 16.0,
+          "max_duration": 108.0,
+          "mean_duration": 40.6171875,
+          "first_start": 453.0,
+          "last_end": 1551.0
+        }
+      },
+      "busy_union": 1544.0,
+      "idle_in_makespan": 42.0,
+      "multi_unit_overlap_union": 239.0
+    }
+  },
+  "limitations": [
+    "duration_sum may overlap across instructions/cores; never sum it into makespan",
+    "MTE events are request fragments, not unique source instructions",
+    "Wait is observed CubeWait only, not complete stall attribution",
+    "legacy IDs repeat; these statistics are not G4 event identity proof",
+    "MTE1 not separately instrumented; no invented cycles"
+  ]
+}
