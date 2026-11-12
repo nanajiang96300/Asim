@@ -5,12 +5,20 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 import numpy as np
 from verification.asim.runner import file_hash
 from verification.schedule.runtime import HEADER
+from verification.runtime_nn import fingerprint,common_identity
 
 def main():
     a=argparse.ArgumentParser(description=__doc__);a.add_argument('--suite',type=Path,required=True);a.add_argument('--regression',type=Path,required=True);a.add_argument('--binary',type=Path,default=ROOT/'build/bin/Simulator');a.add_argument('--runtime-dir',type=Path,required=True);a.add_argument('--output',type=Path,required=True);v=a.parse_args()
     suite=json.loads(v.suite.read_text());reg=json.loads(v.regression.read_text());identity=file_hash(v.binary)
     if suite['status']!='SUITE_CHECKED' or len(suite['cases'])!=36 or {r['kind'] for r in suite['cases']}!={'softmax','gelu','mlp','attention'} or reg['status']!='SIX_CASES_CHECKED' or len(reg['cases'])!=6:raise ValueError('complete NN suite and six regressions required')
     if suite['binary_sha256']!=identity or reg['binary_sha256']!=identity or any(r['status']!='MODELED_NUMERIC_CHECKED' or not r['all_stage_bits_equal'] or not r['all_fp16_bits_equal'] for r in suite['cases']):raise ValueError('acceptance/binary identity mismatch')
+    actual={(r['kind'],r['task']['length'],r['task']['hidden'],r['task']['ffn'],r['seed']) for r in suite['cases']}
+    expected={(kind,l,d,f,seed) for kind in ['softmax','gelu','mlp','attention'] for l,d,f in [(16,32,64),(32,32,64),(32,64,128)] for seed in [91001,91002,91003]}
+    if actual!=expected or len(actual)!=36:raise ValueError('NN Cartesian acceptance incomplete/duplicate')
+    if any(r['status']!='MODELED_NUMERIC_CHECKED' or not r['algorithm_bits_equal'] or r['failed_batches'] for r in reg['cases']) or {r['family'] for r in reg['cases']}!={'cholesky','ldl','cholesky-block','ldl-block','ns','bri'}:raise ValueError('six regression acceptance incomplete')
+    cfg=json.loads((ROOT/'configs/ascend_910b_nn_v1.json').read_text());cfg['dram_config_path']=str(ROOT/'configs/ramulator2_configs/HBM2.yaml');cfg['icnt_config_path']=str(ROOT/'configs/booksim2_configs/fly_c1_m2.icnt')
+    current=fingerprint(ROOT,v.binary,cfg,ROOT/'build')
+    if current!=suite['runtime_fingerprint'] or not common_identity(current,reg['runtime_fingerprint']):raise ValueError('accepted source/evaluator/library/config identity changed before freeze')
     for row in suite['cases']:
         e=row['archive'];p=v.suite.parent/e['path']
         if not p.is_file() or p.stat().st_size!=e['bytes'] or file_hash(p)!=e['sha256']:raise ValueError('NN archive changed')

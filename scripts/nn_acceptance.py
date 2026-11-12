@@ -8,6 +8,7 @@ from verification.tasks.tiny_nn import NNTask,backend
 from verification.reconstruction.runner import evaluate
 from verification.asim.runner import file_hash
 from verification.reconstruction.stream import load_operation
+from verification.runtime_nn import fingerprint
 
 def archive_case(case):
     files={str(p.relative_to(case)):dict(bytes=p.stat().st_size,sha256=file_hash(p)) for p in case.rglob('*') if p.is_file()}
@@ -56,7 +57,8 @@ def main():
         if runtime_spec['python_version']!=sys.version.split()[0] or runtime_spec['numpy_version']!=np.__version__:raise ValueError('NN runtime Python/NumPy version mismatch')
         if 'modeled_fp16_fp32_nn_v1' not in runtime_spec['profiles'] or 'nn_graph_v1' not in runtime_spec['operators']:raise ValueError('runtime scope does not accept NN')
     kinds=['softmax','gelu','mlp','attention'] if v.kind=='all' else [v.kind];shapes=[(32,32,64)] if v.quick else [(16,32,64),(32,32,64),(32,64,128)];seeds=[91001] if v.quick else [91001,91002,91003]
-    summary={'python_version':sys.version.split()[0],'numpy_version':np.__version__,'schema':'nn-acceptance-v1','status':'RUNNING','binary_sha256':file_hash(binary),'score':None,'promotion_allowed':False,'cases':[]};start=time.perf_counter()
+    accepted_identity=fingerprint(ROOT,binary,config,ROOT/runtime_spec['cwd'] if runtime_spec else ROOT/'build')
+    summary={'runtime_fingerprint':accepted_identity,'python_version':sys.version.split()[0],'numpy_version':np.__version__,'schema':'nn-acceptance-v1','status':'RUNNING','binary_sha256':file_hash(binary),'score':None,'promotion_allowed':False,'cases':[]};start=time.perf_counter()
     for kind in kinds:
         for l,d,f in shapes:
             for seed in seeds:
@@ -66,6 +68,7 @@ def main():
                 row={'case':name,'kind':kind,'task':t.frozen(),'seed':seed,'status':r['status'],'reason':r.get('reason'),'schedule':r.get('schedule_status'),'cycles':r.get('asim',{}).get('finish_cycle'),'failed_batches':r.get('failed_batches'),'all_fp16_bits_equal':bool(r.get('batches')) and all(b.get('precision_bit_equal') for b in r.get('batches',[])),'all_stage_bits_equal':bool(r.get('batches')) and all(b.get('stage_checks') and all(c['bit_equal'] for c in b['stage_checks']) for b in r.get('batches',[])),'max_task_error':max((b.get('task_error',0) for b in r.get('batches',[])),default=None),'phase_seconds':r['phase_timings_seconds'],'result_sha256':file_hash(case/'result.json'),'nonlinear_cost_checks':cost}
                 passed=r['status']=='MODELED_NUMERIC_CHECKED' and row['all_fp16_bits_equal'] and row['all_stage_bits_equal'];row['archive']=None if v.keep_raw else archive_case(case);summary['cases'].append(row);summary['wall_seconds']=time.perf_counter()-start;summary['status']='RUNNING' if passed else 'FAILED';(out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps({k:x for k,x in row.items() if k not in ['archive','nonlinear_cost_checks','task']}),flush=True)
                 if not passed:return 1
+    if fingerprint(ROOT,binary,config,ROOT/runtime_spec['cwd'] if runtime_spec else ROOT/'build')!=accepted_identity:raise ValueError('NN source/evaluator/config/library changed during suite')
     if file_hash(binary)!=summary['binary_sha256']:raise ValueError('binary changed during acceptance')
     if runtime_spec:
         from verification.reconstruction.daily import load_runtime
