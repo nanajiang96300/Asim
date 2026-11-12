@@ -3,6 +3,35 @@
 #include "../operations/nn/VectorUnits.h"
 #include <stdexcept>
 namespace {
+// Validate the whole small graph before emitting tensors or instructions.
+void validate_graph(const json& cfg) {
+ const auto& g=cfg.at("graph");
+ if(g.at("schema")!="nn-graph-v1" || cfg.at("batch_size")!=96 || g.at("inputs").empty() || g.at("inputs").size()>32 || g.at("nodes").empty() || g.at("nodes").size()>64)
+  throw std::runtime_error("invalid NN graph schema/budget");
+ using Shape=std::pair<uint32_t,uint32_t>;std::map<std::string,Shape> shapes;
+ auto shape=[](const json& a)->Shape {
+  if(!a.is_array() || a.size()!=2 || !a[0].is_number_integer() || !a[1].is_number_integer())throw std::runtime_error("NN shape must be two integers");
+  int m=a[0],n=a[1];if(m<1||n<1||m>128||n>128||m*n*2%64)throw std::runtime_error("NN invalid shape/tail");return {m,n};
+ };
+ auto add=[&](const std::string& name,Shape s){if(name.empty() || shapes.count(name))throw std::runtime_error("NN duplicate/empty tensor");shapes[name]=s;};
+ for(auto in:g.at("inputs")) {if(in.contains("batched")&&!in.at("batched").is_boolean())throw std::runtime_error("NN batch attribute");add(in.at("name"),shape(in.at("shape")));}
+ for(auto node:g.at("nodes")) {
+  std::string op=node.at("op"),id=node.at("id");Shape dst=shape(node.at("shape"));std::vector<Shape> src;
+  for(auto name:node.at("src")){auto key=name.get<std::string>();if(!shapes.count(key))throw std::runtime_error("NN unknown/forward input");src.push_back(shapes.at(key));}
+  if(op=="SOFTMAX"||op=="GELU") {if(src.size()!=1 || src[0]!=dst)throw std::runtime_error("NN unary shape");}
+  else if(op=="GEMM") {
+   if(src.size()!=2)throw std::runtime_error("NN GEMM arity");auto right=src[1];if(node.value("transpose_rhs",false))std::swap(right.first,right.second);
+   if(src[0].second!=right.first || dst!=Shape(src[0].first,right.second))throw std::runtime_error("NN GEMM shape");
+  }else if(op=="ADD"||op=="MUL") {
+   auto broadcast=node.value("broadcast",std::string("none"));
+   if(src.size()!=2 || src[0]!=dst || (broadcast=="none"?src[1]!=dst:broadcast!="row_rhs" || src[1]!=Shape(1,dst.second)))throw std::runtime_error("NN binary shape/broadcast");
+  }else throw std::runtime_error("unsupported NN graph operator");
+  add(id,dst);
+ }
+ std::string output=g.at("output");if(!shapes.count(output) || output!=g.at("nodes").back().at("id").get<std::string>())throw std::runtime_error("NN output must be final node");
+ auto dims=cfg.at("output_shape").get<std::vector<uint32_t>>();auto s=shapes.at(output);
+ if(dims!=std::vector<uint32_t>{96,s.first,s.second})throw std::runtime_error("NN output declaration");
+}
 class NNGraphOperation:public Operation {
  json cfg_;
  public:
@@ -48,6 +77,7 @@ class NNGraphOperation:public Operation {
 };
 }
 void NNGraphModel::initialize_model(std::vector<std::unique_ptr<Tensor>>&) {
+ validate_graph(_model_config);
  std::map<std::string,std::string> attrs;auto op=std::make_unique<NNGraphOperation>(_config,this,_model_config,attrs);uint32_t B=_model_config.at("batch_size");auto g=_model_config.at("graph");
  for(auto in:g["inputs"]){std::vector<uint32_t> dims;if(in.value("batched",false))dims.push_back(B);dims.push_back(in["shape"][0]);dims.push_back(in["shape"][1]);auto t=std::make_unique<Tensor>(get_root_node_id(),name_gen(get_name(),in["name"].get<std::string>()),dims,_config.precision,true);t->set_produced();op->add_input(t->get_id());add_tensor(std::move(t));}
  auto dims=_model_config.at("output_shape").get<std::vector<uint32_t>>();auto t=std::make_unique<Tensor>(get_root_node_id(),name_gen(get_name(),"Y"),dims,_config.precision,false);op->add_output(t->get_id());add_tensor(std::move(t));op->initialize_tiles(_mapping_table);_executable_layer.push_back(op.get());_operation_map[op->get_id()]=std::move(op);
