@@ -144,7 +144,7 @@ def evaluate(operator,task,iterations,seed,binary,config,cwd,directory,policy=No
                 structural=all(r['status']=='STRUCTURE_MATCH' and r.get('algorithm_error',1)<=1e-10 for r in rows)
                 quality=structural and all(r['task_error']<=precision.task_tolerance for r in rows)
                 result.update(numeric_status='EXECUTED',status=('MODELED_NUMERIC_CHECKED' if precision.modeled else 'STRUCTURE_CHECKED') if quality else 'ALGORITHM_QUALITY_FAILED' if structural else 'REPLAY_MISMATCH',batches=rows,
-                    failed_batches=[r['batch'] for r in rows if r['status']!='STRUCTURE_MATCH' or r.get('task_error',1)>precision.task_tolerance],
+                    failed_batches=[r['batch'] for r in rows if r['status']!='STRUCTURE_MATCH' or r.get('algorithm_error',1)>1e-10 or r.get('task_error',1)>precision.task_tolerance],
                     structural_reference_passed=structural,task_reference_passed=quality)
     except (Invalid,ValueError,KeyError,TypeError,OSError,IndexError,FloatingPointError) as e:
         result.update(status='UNSUPPORTED' if isinstance(e,Unsupported) else 'INVALID',reason=str(e))

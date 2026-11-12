@@ -24,6 +24,13 @@ class NNPrimitiveTests(unittest.TestCase):
         self.assertTrue(next(c for c in checks if c['name']=='Y')['bit_equal'])
         self.assertFalse(all(c['bit_equal'] for c in checks))
         self.assertFalse(compare_stage_captures({}, {'P'}, {'P':wanted},0)[0]['bit_equal'])
+    def test_mixed_storage_metrics_do_not_invent_quantization_error(self):
+        from verification.shadow.metrics import relative_error
+        x=np.array([[1.1,-1.2,2.3]],np.float16)
+        self.assertEqual(relative_error(x.astype(np.float64),x),0)
+        self.assertEqual(relative_error(x,x.astype(np.float64)),0)
+        bad=x.astype(np.float64);bad[0,1]+=.1
+        self.assertGreater(relative_error(bad,x),0)
     def test_old_profile_frozen_unchanged(self):
         self.assertNotIn('nonlinear_contract',F16.frozen());self.assertEqual(F16.task_tolerance,.02)
         self.assertTrue(policy_for('modeled_fp16_fp32_nn_v1').modeled)
