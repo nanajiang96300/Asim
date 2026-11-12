@@ -1,0 +1,16 @@
+[
+  {
+    "client": "codex",
+    "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/cmake_pch.hxx.gch",
+    "bytes": 205218859,
+    "reason": "new S1 reproducible compiler cache only; bootstrap child exited0; binary/libraries/source/evidence retained",
+    "restore": "cmake --build build --target Simulator -j1 regenerates PCH"
+  },
+  {
+    "client": "claude",
+    "path": "/home/nanajiang/asim-worktrees/s1-clean/claude clean/build/CMakeFiles/Simulator.dir/cmake_pch.hxx.gch",
+    "bytes": 205220040,
+    "reason": "new S1 reproducible compiler cache only; bootstrap child exited0; binary/libraries/source/evidence retained",
+    "restore": "cmake --build build --target Simulator -j1 regenerates PCH"
+  }
+]

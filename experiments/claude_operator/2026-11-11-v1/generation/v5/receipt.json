@@ -1,0 +1,43 @@
+{
+  "returncode": 0,
+  "wall_seconds": 8.979812133999076,
+  "reasoning_time_seconds": null,
+  "before_sha256": "ed706b89a56622e8a66c4b1a2d089ac2df8195d9fd9ffcb74180350109564c11",
+  "after_sha256": "6718bbb19f70ece254a0a80933169f7973649f4c39bc24ecc7aa43c0257edcf5",
+  "model_patch": {
+    "edits": [
+      {
+        "path": "src/inverse/affine_gemm_v1/AffineGemmModel.cc",
+        "old": "      B_ == 0 ||\n      (B_ % 24) != 0 ||",
+        "new": "      B_ == 0 || B_ > 384 ||\n      (B_ % 24) != 0 ||"
+      },
+      {
+        "path": "src/inverse/affine_gemm_v1/AffineGemmModel.cc",
+        "old": "  record_source_regions(regions, M_, N_);",
+        "new": "  record_source_regions(regions, M_, K_);"
+      }
+    ]
+  },
+  "usage_reported_by_cli": {
+    "input_tokens": 892,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 596,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard"
+  },
+  "human_cpp_edits": false
+}

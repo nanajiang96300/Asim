@@ -1,0 +1,135 @@
+[
+  {
+    "attempt": "v1",
+    "status": "TIMEOUT",
+    "timeout_budget_seconds": 600,
+    "wall_seconds": null,
+    "reasoning_time_seconds": null,
+    "reason": "personal hooks and read-only exploration; no source generated"
+  },
+  {
+    "attempt": "v2",
+    "status": "TIMEOUT",
+    "wall_seconds": 600.0178762069554,
+    "reasoning_time_seconds": null,
+    "reason": "output-limit resumptions, no source generated"
+  },
+  {
+    "attempt": "v3",
+    "returncode": 143,
+    "wall_seconds": 259.57680637104204,
+    "reasoning_time_seconds": null,
+    "bare": true,
+    "tools": [
+      "Write",
+      "Edit"
+    ],
+    "effort": "low",
+    "max_output_tokens": 32768,
+    "max_thinking_tokens": 0,
+    "credentials": "existing user config passed only in child memory; not saved",
+    "stderr_present": true,
+    "status": "STOPPED_BY_COORDINATOR",
+    "reason": "bare mode lacks requested Write capability; no source generated"
+  },
+  {
+    "attempt": "v4",
+    "returncode": 0,
+    "wall_seconds": 278.5519175339723,
+    "reasoning_time_seconds": null,
+    "bare": true,
+    "tools": [],
+    "effort": "low",
+    "max_output_tokens": 32768,
+    "max_thinking_tokens": 0,
+    "artifact_protocol": "validated JSON files bundle; no model filesystem permissions",
+    "credentials": "existing user configuration passed in memory only",
+    "stderr_present": true,
+    "status": "SOURCE_GENERATED",
+    "reason": "no-tool three-file JSON proposal; operator not yet accepted"
+  },
+  {
+    "attempt": "v5",
+    "status": "AUDIT_REPAIR_GENERATED",
+    "returncode": 0,
+    "wall_seconds": 8.979812133999076,
+    "reasoning_time_seconds": null,
+    "before_sha256": "ed706b89a56622e8a66c4b1a2d089ac2df8195d9fd9ffcb74180350109564c11",
+    "after_sha256": "6718bbb19f70ece254a0a80933169f7973649f4c39bc24ecc7aa43c0257edcf5",
+    "model_patch": {
+      "edits": [
+        {
+          "path": "src/inverse/affine_gemm_v1/AffineGemmModel.cc",
+          "old": "      B_ == 0 ||\n      (B_ % 24) != 0 ||",
+          "new": "      B_ == 0 || B_ > 384 ||\n      (B_ % 24) != 0 ||"
+        },
+        {
+          "path": "src/inverse/affine_gemm_v1/AffineGemmModel.cc",
+          "old": "  record_source_regions(regions, M_, N_);",
+          "new": "  record_source_regions(regions, M_, K_);"
+        }
+      ]
+    },
+    "usage_reported_by_cli": {
+      "input_tokens": 892,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 596,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "",
+      "iterations": [],
+      "speed": "standard"
+    },
+    "human_cpp_edits": false
+  },
+  {
+    "attempt": "v6",
+    "status": "COMPILER_REPAIR_GENERATED",
+    "wall_seconds": 13.073792678012978,
+    "reasoning_time_seconds": null,
+    "before_sha256": "6718bbb19f70ece254a0a80933169f7973649f4c39bc24ecc7aa43c0257edcf5",
+    "after_sha256": "d27c464296739beeb65b8e8d3b82a5af0d337ea6b114231fe6c42531bf4a3a4c",
+    "model_patch": {
+      "edits": [
+        {
+          "path": "src/inverse/affine_gemm_v1/AffineGemmModel.cc",
+          "old": "  const std::vector<std::pair<std::string, std::vector<uint32_t>>> entries = {\n      {\"A\", {B, M, K}},\n      {\"B\", {B, K, N}},\n      {\"C\", {B, M, N}},\n      {\"Z\", {B, M, N}}};\n  for (const auto& entry : entries) {",
+          "new": "  std::vector<std::pair<std::string, std::vector<uint32_t>>> entries = {\n      {\"A\", {B, M, K}},\n      {\"B\", {B, K, N}},\n      {\"C\", {B, M, N}},\n      {\"Z\", {B, M, N}}};\n  for (auto& entry : entries) {"
+        }
+      ]
+    },
+    "usage_reported_by_cli": {
+      "input_tokens": 1849,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 1557,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "",
+      "iterations": [],
+      "speed": "standard"
+    },
+    "human_cpp_edits": false
+  }
+]

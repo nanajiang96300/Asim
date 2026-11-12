@@ -6,6 +6,8 @@
 
 `python scripts/agent_entry.py doctor`检查CLI；context准备冻结任务；evaluate转发到共用重建runner。具体命令/阶段验收见AGENT_WORKFLOW。当前受监督，尚未实现持久无人值守协调器。任务路径约束尚非OS沙箱。
 
-新clone使用独立build和日志，不复用共享可写目录。旧pin只按其冻结版本复现，不能复制服务器凭据来部署。已验收企业包的portable构建整合列为S1，不把旧根CMake的Conan/build假设当成跨平台构建已完成。
+新clone使用独立build和日志，不复用共享可写目录。旧pin只按其冻结版本复现，不能复制服务器凭据来部署。便携源码构建S1已完成两个全新Linux clone验收，入口见BUILDING.md；WSL2仍待实测。
 
 历史Claude iterate、eval-patch/opt-round/verify技能仍保留，仅作旧流程，不自动使用旧分数晋级。精简前原CLAUDE文档可从archive/asim-research-20261111恢复。
+
+新算子受监督示例：先读DOCS/research/CLAUDE_NEW_OPERATOR.md；scripts/claude_codegen.py只收三文件提议，scripts/affine_acceptance.py负责真实Asim/重建/独立参考/任务内评分。生成成功不等于验收，不能改参考或门限。

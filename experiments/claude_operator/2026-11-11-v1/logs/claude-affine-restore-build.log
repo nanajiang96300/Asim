@@ -1,0 +1,19 @@
+[  1%] Built target bundled_fmt
+[  4%] Built target boost_program_options
+[ 31%] Built target libprotobuf
+[ 32%] Built target onnx_proto
+[ 35%] Built target ramulator-controller
+[ 45%] Built target yaml-cpp
+[ 47%] Built target ramulator-base
+[ 48%] Built target ramulator-test
+[ 51%] Built target ramulator-frontend
+[ 51%] Built target ramulator-translation
+[ 51%] Built target ramulator-memorysystem
+[ 51%] Built target ramulator-addrmapper
+[ 54%] Built target ramulator-dram
+[ 55%] Built target ramulator
+[ 58%] Built target ramulator1
+[ 77%] Built target booksim2
+[ 77%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/affine_gemm_v1/AffineGemmModel.cc.o
+[ 77%] Linking CXX executable bin/Simulator
+[100%] Built target Simulator

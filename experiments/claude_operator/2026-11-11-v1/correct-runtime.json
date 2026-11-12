@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "path": "bin/Simulator",
+      "bytes": 9165696,
+      "sha256": "205dbd3d5db70b9b68462750eee6afa1d6d84be849becd11847ad7f8ddada055"
+    },
+    {
+      "path": "lib/libramulator.so",
+      "bytes": 4495472,
+      "sha256": "ae8cd3984288dc8a845df66194f93f03c16a962b20e6320c617cdfcdd3cdb8a8"
+    }
+  ],
+  "scope": "accepted affine runtime before owner-introduced negative mutant"
+}

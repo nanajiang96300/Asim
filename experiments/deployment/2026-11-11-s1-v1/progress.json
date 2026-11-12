@@ -1,0 +1,97 @@
+{
+  "schema": "s1-portable-deployment-validation-v1",
+  "status": "PASS",
+  "profiles": [
+    {
+      "client": "codex",
+      "clone": "/home/nanajiang/asim-worktrees/s1-clean/codex",
+      "source_commit": "865130469127bd9b81cafc451e31aaae18370f08",
+      "bootstrap_mode": "network fixed commit",
+      "cold_build": true,
+      "preexisting_venv": false,
+      "phases": {
+        "bootstrap": {
+          "seconds": 1630.102523620997,
+          "returncode": 0,
+          "log": "results/deployment/2026-11-11-s1-v1/codex-bootstrap.log"
+        },
+        "tests": {
+          "seconds": 6.028056606010068,
+          "returncode": 0,
+          "log": "results/deployment/2026-11-11-s1-v1/codex-tests.log"
+        },
+        "bootstrap-tests": {
+          "seconds": 0.11438864405499771,
+          "returncode": 0,
+          "log": "results/deployment/2026-11-11-s1-v1/codex-bootstrap-tests.log"
+        },
+        "six": {
+          "seconds": 287.77703718596604,
+          "returncode": 0,
+          "log": "results/deployment/2026-11-11-s1-v1/codex-six.log"
+        }
+      },
+      "binary_sha256": "1cbfde164a26df9bae80169f0466cef395ca7d3066401b0e32ee88b62878452f",
+      "six_status": "SIX_CASES_CHECKED",
+      "unit_tests": "250, 248 passed, 2 optional dependency skips",
+      "cycles": {
+        "cholesky": 28006,
+        "ldl": 18697,
+        "cholesky-block": 21338,
+        "ldl-block": 21665,
+        "ns": 7950,
+        "bri": 23047
+      },
+      "runtime_library_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "client": "claude",
+      "clone": "/home/nanajiang/asim-worktrees/s1-clean/claude clean",
+      "source_commit": "be5c7d91daf1f1bc2e7b9fc480d8b41723287192",
+      "bootstrap_mode": "offline own copied verified asset cache",
+      "cold_build": true,
+      "preexisting_venv": false,
+      "phases": {
+        "bootstrap": {
+          "seconds": 1627.0048595590051,
+          "returncode": 0,
+          "log": "results/deployment/2026-11-11-s1-v1/claude-bootstrap.log"
+        },
+        "tests": {
+          "seconds": 6.034497794986237,
+          "returncode": 0,
+          "log": "results/deployment/2026-11-11-s1-v1/claude-tests.log"
+        },
+        "bootstrap-tests": {
+          "seconds": 0.11419561796355993,
+          "returncode": 0,
+          "log": "results/deployment/2026-11-11-s1-v1/claude-bootstrap-tests.log"
+        },
+        "six": {
+          "seconds": 286.5564605870168,
+          "returncode": 0,
+          "log": "results/deployment/2026-11-11-s1-v1/claude-six.log"
+        }
+      },
+      "binary_sha256": "641f4f117f825dce255dbe3ef4dd4a48dda4c6a57915f6ede7edfab83419e71c",
+      "six_status": "SIX_CASES_CHECKED",
+      "unit_tests": "250, 248 passed, 2 optional dependency skips",
+      "cycles": {
+        "cholesky": 28006,
+        "ldl": 18697,
+        "cholesky-block": 21338,
+        "ldl-block": 21665,
+        "ns": 7950,
+        "bri": 23047
+      },
+      "runtime_library_check": "PASS",
+      "status": "PASS"
+    }
+  ],
+  "active_profile": "claude",
+  "active_phase": "six",
+  "elapsed_seconds": 3843.809342140972,
+  "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+  "scope": "same Linux host; two fresh remote shallow clones; distinct cold builds/deps/venvs; Rayleigh one seed, no WSL/cross-host/CDL certification"
+}

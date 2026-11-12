@@ -36,10 +36,14 @@ context只准备本地任务，不会调用模型或授权修改受信代码；d
 | S3 晋级归档 | 固定运行时版本、同输入基线、通信、评分、干净环境复现 | 数值/适用通信硬门禁全部通过，append-only台账可重建；不以Cube利用率奖励冗余工作 |
 | S4 后置 | 持久协调器/恢复/跨天预算 | S2/S3监督闭环稳定后再做，不以自动调用CLI冒称无人值守系统完成 |
 
-S1前企业部署仍使用expert_delivery已验收源码包；精简Git分支不是替代该包的已认证离线构建发行版。不会因本轮精简升级旧CDL失败或性能晋级。
+S1双新clone的Linux冷构建与六类门禁已通过，Git部署命令见BUILDING.md，证据见experiments/deployment/2026-11-11-s1-v1/README.md。原expert_delivery包保留为历史交付；WSL2仍未实测。不会升级旧CDL失败或性能晋级。
 
 ## 清理规则
 
 本轮只在新worktree移除PPT工具链、ONNX上游非启用测试数据、旧Timeloop生成结果。逐文件SHA/大小/恢复commit见experiments/maintenance/2026-11-11-slim-v1/removal_manifest.json。六族及变体、脚本、原始报告/论文归档、结构化实验台账、核心测试保留。原研究目录及results大制品未删除，未跟踪文件不动。
 
 历史文件可在原研究分支读取，或`git restore --source archive/asim-research-20261111 -- <path>`恢复到新临时分支；不要在新核心中无审计地恢复无关依赖。Git历史仍保留，想减少企业clone体积可用`--depth 1 --single-branch --branch codex/asim-claude-v1`，不改写远程历史。后续每次删代码先做引用/构建检查并保存清单，不能只按文件名认定过时。
+
+## 2026-11-12 S1与新算子闭环补充
+
+S1两个新clone冷构建已通过；Claude Code＋DeepSeek真实新affine算子生成与编译反馈闭环、九场景数值门禁、真实语义错误拒绝及任务内评分已有独立证据。使用scripts/claude_codegen.py及scripts/affine_acceptance.py，完整操作/原理见CLAUDE_NEW_OPERATOR.md。本例共用实际指令重放核心；三文件提议不等于测试通过，不得修改可信参考。S2的跨路径身份/跨binary正式基线及Codex生成对照仍按S2_DEPENDENCIES.md执行，未把任务内1.0重复分数升级为研究晋级。

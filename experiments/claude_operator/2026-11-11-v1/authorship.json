@@ -1,0 +1,35 @@
+{
+  "status": "EXACT_GENERATED_SOURCE_PLUS_MODEL_REPAIRS",
+  "human_cpp_edits": false,
+  "source_author_commit": "b1ae63f0",
+  "chain": [
+    {
+      "attempt": "v5",
+      "before": "ed706b89a56622e8a66c4b1a2d089ac2df8195d9fd9ffcb74180350109564c11",
+      "after": "6718bbb19f70ece254a0a80933169f7973649f4c39bc24ecc7aa43c0257edcf5"
+    },
+    {
+      "attempt": "v6",
+      "before": "6718bbb19f70ece254a0a80933169f7973649f4c39bc24ecc7aa43c0257edcf5",
+      "after": "d27c464296739beeb65b8e8d3b82a5af0d337ea6b114231fe6c42531bf4a3a4c"
+    }
+  ],
+  "files": [
+    {
+      "path": "DOCS/operators/AFFINE_GEMM_DEMO_V1.md",
+      "sha256": "319f587598b872a88b6e40835b87100dca57646bb91af9ac29e4bb10a74a39d2"
+    },
+    {
+      "path": "src/inverse/affine_gemm_v1/AffineGemmModel.h",
+      "sha256": "876781386d00b631efe5ceb24fe53f4751a1c89500837b6443b97e4974788a0f"
+    },
+    {
+      "path": "src/inverse/affine_gemm_v1/AffineGemmModel.cc",
+      "sha256": "d27c464296739beeb65b8e8d3b82a5af0d337ea6b114231fe6c42531bf4a3a4c"
+    }
+  ],
+  "owner_written_separately": [
+    "src/main.cc registration",
+    "trusted task/reference/acceptance scripts"
+  ]
+}
