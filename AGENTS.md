@@ -1,6 +1,6 @@
 # Asim 协作上下文
 
-工程根目录：`/home/nanajiang/Asim/`。当前目标与计划从 `DOCS/research/README.md` 进入。
+工程根目录以当前Git检出/解压目录为准；`/home/nanajiang/Asim/`为研究服务器的历史位置。当前目标与计划从 `DOCS/research/README.md` 进入。
 
 研究重心是 Agent 自动迭代 NPU 通信算子，充分利用 AI Core；当前任务为 MIMO 均衡。外循环探索 Cholesky、LDL、分块、NS、BRI 等算法；内循环优化各算法的指令与流水。NS 历史实验较详细。BRI 为负责人确认的当前最优候选，CDL-B 仍待统一验证。
 
