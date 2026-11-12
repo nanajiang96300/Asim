@@ -1,0 +1,79 @@
+{
+  "schema": "claude-guide-delivery-validation-v1",
+  "status": "PASS",
+  "phases": {
+    "manifest-initial": {
+      "seconds": 1.8186611140263267,
+      "returncode": 0
+    },
+    "git-init": {
+      "seconds": 0.0039038219838403165,
+      "returncode": 0
+    },
+    "git-name": {
+      "seconds": 0.003700151981320232,
+      "returncode": 0
+    },
+    "git-email": {
+      "seconds": 0.00374471303075552,
+      "returncode": 0
+    },
+    "git-add": {
+      "seconds": 1.3664367590099573,
+      "returncode": 0
+    },
+    "git-commit": {
+      "seconds": 0.41790342301828787,
+      "returncode": 0
+    },
+    "offline-deps": {
+      "seconds": 7.132911685970612,
+      "returncode": 0
+    },
+    "cmake-configure": {
+      "seconds": 3.827032255998347,
+      "returncode": 0
+    },
+    "venv": {
+      "seconds": 0.06416477001039311,
+      "returncode": 0
+    },
+    "offline-python": {
+      "seconds": 4.124073240032885,
+      "returncode": 0
+    },
+    "numerical-tests": {
+      "seconds": 6.079217788996175,
+      "returncode": 0
+    },
+    "framework-tests": {
+      "seconds": 0.16492920299060643,
+      "returncode": 0
+    },
+    "affine-nine": {
+      "seconds": 19.06821870501153,
+      "returncode": 0
+    },
+    "six-regression": {
+      "seconds": 285.6375241969945,
+      "returncode": 0
+    },
+    "manifest-final": {
+      "seconds": 2.4700178710045293,
+      "returncode": 0
+    }
+  },
+  "cold_compile_this_run": false,
+  "runtime_notice": "previously accepted frozen binary; package src/CMake/lock byte-matched; configure and all numerical runs executed from new unpack",
+  "identical_previous_cpp_build_inputs": 156,
+  "archive_sha256": "9ff100d0432ec788a2f5bcffc2d025d398fa7989f4dafe0ad46a0e2885d42ed0",
+  "archive_bytes": 43713213,
+  "temporary_dependency_bytes_removed": 167632025,
+  "binary_sha256": "205dbd3d5db70b9b68462750eee6afa1d6d84be849becd11847ad7f8ddada055",
+  "affine_cleanup": {
+    "reason": "successful temporary unpack-only generated data; full result hashes in summary before deletion",
+    "bytes": 133011950
+  },
+  "manifest_tamper_rejected": true,
+  "wall_seconds": 335.2173800850287
+}
