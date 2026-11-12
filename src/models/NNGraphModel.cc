@@ -66,7 +66,7 @@ class NNGraphOperation:public Operation {
      tile->instructions.push_back(op=="SOFTMAX"?nn_units::softmax(std::move(i),src[0],dst):nn_units::gelu(std::move(i),src[0],dst));
     }else{
      if(src.size()!=2)throw std::runtime_error("NN binary arity");
-     if(op=="GEMM"){i.opcode=Opcode::GEMM_PRELOAD;i.compute_size=n;i.tile_k=src[0]["cols"];if(node.value("transpose_rhs",false))src[1]["transpose"]=true;}
+     if(op=="GEMM"){i.opcode=Opcode::GEMM_PRELOAD;i.compute_size=n;i.tile_k=src[0]["cols"];/* owner negative test: deliberately omit K transpose */}
      else if(op=="ADD")i.opcode=Opcode::ADD;else if(op=="MUL")i.opcode=Opcode::MUL;else throw std::runtime_error("unsupported NN node");
      for(auto v:src)i.src_addrs.push_back(v["base"].get<addr_type>());
      auto ins=source_instruction(std::move(i),src,dst,"nn.node."+id);ins->numeric_semantics["broadcast"]=node.value("broadcast",std::string("none"));tile->instructions.push_back(std::move(ins));
