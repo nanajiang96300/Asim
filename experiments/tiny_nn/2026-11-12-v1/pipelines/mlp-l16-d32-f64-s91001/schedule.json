@@ -1,0 +1,791 @@
+{
+  "status": "MODEL_RW_CHECKED_CONSERVATIVE",
+  "failed_batches": [],
+  "batches": [
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 0,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 1,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 2,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 3,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 4,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 5,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 6,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 7,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 8,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 9,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 10,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 11,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 12,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 13,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 14,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 15,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 16,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 17,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 18,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 19,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 20,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 21,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 22,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 23,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 24,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 25,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 26,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 27,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 28,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 29,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 30,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 31,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 32,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 33,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 34,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 35,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 36,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 37,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 38,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 39,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 40,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 41,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 42,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 43,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 44,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 45,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 46,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 47,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 48,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 49,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 50,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 51,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 52,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 53,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 54,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 55,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 56,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 57,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 58,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 59,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 60,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 61,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 62,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 63,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 64,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 65,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 66,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 67,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 68,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 69,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 70,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 71,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 72,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 73,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 74,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 75,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 76,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 77,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 78,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 79,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 80,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 81,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 82,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 83,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 84,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 85,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 86,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 87,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 88,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 89,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 90,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 91,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 92,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 93,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 94,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    },
+    {
+      "status": "SCHEDULE_MODEL_CHECKED",
+      "faults": [],
+      "fault_count": 0,
+      "batch": 95,
+      "fragment_operations": 163,
+      "epoch_faults": []
+    }
+  ],
+  "event_count": 35808,
+  "compute_operations": 1440,
+  "dma_fragments": 15648,
+  "buffer_resets": 192,
+  "scope": {
+    "kind": "header",
+    "schema": "core-rw-v4",
+    "producer": "asim_core_observer_v4",
+    "clock": "homogeneous_core_cycle_v1",
+    "compute_reads": "conservative_issue_to_complete_v1",
+    "dma_reads": "request_snapshot_v1",
+    "dma_writes": "fragment_response_commit_v1",
+    "dma_identity": "trace_request_op_fragment_v1",
+    "compute_identity": "trace_issue_commit_cycle_v1",
+    "dma_descriptor": "per_fragment_address_v1"
+  },
+  "hardware_G4": "NOT_CERTIFIED"
+}

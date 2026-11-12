@@ -1,0 +1,687 @@
+{
+  "status": "MODELED_NUMERIC_CHECKED",
+  "numeric_status": "EXECUTED",
+  "score": null,
+  "G4": "NOT_CERTIFIED",
+  "precision": "modeled_fp16_fp32_nn_v1",
+  "operator": "nn_graph_v1",
+  "precision_policy": {
+    "schema": "numeric-policy-v1",
+    "name": "modeled_fp16_fp32_nn_v1",
+    "storage": "float16",
+    "compute": "float32",
+    "accumulation": "float32",
+    "gemm_order": "k_ascending_multiply_then_add",
+    "rounding": "RNE",
+    "subnormal": "preserve",
+    "fusion": "none",
+    "task_tolerance": 0.01,
+    "quadrant_tolerance": 1e-10,
+    "nonlinear_contract": "nn-vector-v1"
+  },
+  "comparison_identity": "41b280be73f6312cd733fa4873ea7e38e5c5047c415b5083d9a6f06fd81d009d",
+  "runtime_contract": {
+    "kind": "header",
+    "schema": "core-rw-v4",
+    "producer": "asim_core_observer_v4",
+    "clock": "homogeneous_core_cycle_v1",
+    "compute_reads": "conservative_issue_to_complete_v1",
+    "dma_reads": "request_snapshot_v1",
+    "dma_writes": "fragment_response_commit_v1",
+    "dma_identity": "trace_request_op_fragment_v1",
+    "compute_identity": "trace_issue_commit_cycle_v1",
+    "dma_descriptor": "per_fragment_address_v1"
+  },
+  "asim": {
+    "status": "COMPLETED",
+    "returncode": 0,
+    "finish_cycle": 4975,
+    "mode": "nn_graph_test",
+    "command": [
+      "/home/nanajiang/asim-worktrees/tiny-nn-primitives-v1/build/bin/Simulator",
+      "--config",
+      "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v3/attention-l32-d32-f64-s91001/config.json",
+      "--models_list",
+      "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v3/attention-l32-d32-f64-s91001/models.json",
+      "--mode",
+      "nn_graph_test",
+      "--log_level",
+      "info"
+    ],
+    "binary_sha256": "f8578ac30c4278511dcd7efd120429f2e27ab80dd31134f1bf06fbd607773d94",
+    "max_core_cycles": 1000000,
+    "artifacts": [
+      {
+        "path": "config.json",
+        "bytes": 12518,
+        "sha256": "d18e7195c0a055b0224a233b7501eca41a34c33573e6853a09fc24e61e3bdd7b"
+      },
+      {
+        "path": "models.json",
+        "bytes": 15517,
+        "sha256": "f8bcd735af7f3bffded8ae1613f182d344b1146821d51068f1f45cdd92d0a1f8"
+      },
+      {
+        "path": "simulator.log",
+        "bytes": 34052,
+        "sha256": "c71af7777be9f1e22fc0869a89ca7c2b5561cc447df315879262fe15316ad679"
+      },
+      {
+        "path": "instructions.jsonl",
+        "bytes": 3028759,
+        "sha256": "3a637b181867481545795a32738659bbd9792ecc35d7cc57def3c67e6605f0f7"
+      },
+      {
+        "path": "trace.csv",
+        "bytes": 2294132,
+        "sha256": "9f6828ccae825a6ffb054d2f4a7a8a0f40944028a524b5e77809bea61a29951b"
+      },
+      {
+        "path": "formula.json",
+        "bytes": 18,
+        "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+      },
+      {
+        "path": "dispatch.jsonl",
+        "bytes": 115776,
+        "sha256": "6e08f5d629f0d1701bf6429dd8dbf2e94cd52fe8f78b60461f646118127cc2dc"
+      },
+      {
+        "path": "rw_events.jsonl",
+        "bytes": 29949840,
+        "sha256": "035efcf8e86ac477a031ccf543916735699f7d7e721cd2e3c6004eefd40de4ee"
+      }
+    ],
+    "program_hash": "0dd5b108ed422ca8352c1274ed8f02a600119e40b6588bef82f7b28f3b8cc0ef"
+  },
+  "task": {
+    "schema": "tiny-nn-task-v1",
+    "kind": "attention",
+    "batch_size": 96,
+    "length": 32,
+    "hidden": 32,
+    "ffn": 64,
+    "profile": "modeled_fp16_fp32_nn_v1",
+    "measurement": "cold_input_weight_dma_to_output_store",
+    "softmax": "stable_rows_f32_ascending_sum",
+    "gelu": "gelu_tanh_f32_v1",
+    "writeback": "FP16_after_every_node",
+    "task_tolerance": 0.01
+  },
+  "task_hash": "1ab69a07a38f1110f6b041617d2b383fa5150b92e1b15ab062d1ef990a4fcb61",
+  "algorithm": {
+    "id": "nn_graph_v1",
+    "kind": "attention",
+    "graph": {
+      "schema": "nn-graph-v1",
+      "inputs": [
+        {
+          "name": "X",
+          "shape": [
+            32,
+            32
+          ],
+          "batched": true
+        },
+        {
+          "name": "Wq",
+          "shape": [
+            32,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "bq",
+          "shape": [
+            1,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "Wk",
+          "shape": [
+            32,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "bk",
+          "shape": [
+            1,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "Wv",
+          "shape": [
+            32,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "bv",
+          "shape": [
+            1,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "Wo",
+          "shape": [
+            32,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "bo",
+          "shape": [
+            1,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "scale",
+          "shape": [
+            32,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "W1",
+          "shape": [
+            32,
+            64
+          ],
+          "batched": false
+        },
+        {
+          "name": "b1",
+          "shape": [
+            1,
+            64
+          ],
+          "batched": false
+        },
+        {
+          "name": "W2",
+          "shape": [
+            64,
+            32
+          ],
+          "batched": false
+        },
+        {
+          "name": "b2",
+          "shape": [
+            1,
+            32
+          ],
+          "batched": false
+        }
+      ],
+      "nodes": [
+        {
+          "id": "mm_Wq",
+          "op": "GEMM",
+          "src": [
+            "X",
+            "Wq"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "add_bq",
+          "op": "ADD",
+          "src": [
+            "mm_Wq",
+            "bq"
+          ],
+          "shape": [
+            32,
+            32
+          ],
+          "broadcast": "row_rhs"
+        },
+        {
+          "id": "mm_Wk",
+          "op": "GEMM",
+          "src": [
+            "X",
+            "Wk"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "add_bk",
+          "op": "ADD",
+          "src": [
+            "mm_Wk",
+            "bk"
+          ],
+          "shape": [
+            32,
+            32
+          ],
+          "broadcast": "row_rhs"
+        },
+        {
+          "id": "mm_Wv",
+          "op": "GEMM",
+          "src": [
+            "X",
+            "Wv"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "add_bv",
+          "op": "ADD",
+          "src": [
+            "mm_Wv",
+            "bv"
+          ],
+          "shape": [
+            32,
+            32
+          ],
+          "broadcast": "row_rhs"
+        },
+        {
+          "id": "scores",
+          "op": "GEMM",
+          "src": [
+            "add_bq",
+            "add_bk"
+          ],
+          "shape": [
+            32,
+            32
+          ],
+          "transpose_rhs": true
+        },
+        {
+          "id": "logits",
+          "op": "MUL",
+          "src": [
+            "scores",
+            "scale"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "P",
+          "op": "SOFTMAX",
+          "src": [
+            "logits"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "context",
+          "op": "GEMM",
+          "src": [
+            "P",
+            "add_bv"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "mm_Wo",
+          "op": "GEMM",
+          "src": [
+            "context",
+            "Wo"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "add_bo",
+          "op": "ADD",
+          "src": [
+            "mm_Wo",
+            "bo"
+          ],
+          "shape": [
+            32,
+            32
+          ],
+          "broadcast": "row_rhs"
+        },
+        {
+          "id": "U",
+          "op": "ADD",
+          "src": [
+            "X",
+            "add_bo"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "mm_W1",
+          "op": "GEMM",
+          "src": [
+            "U",
+            "W1"
+          ],
+          "shape": [
+            32,
+            64
+          ]
+        },
+        {
+          "id": "add_b1",
+          "op": "ADD",
+          "src": [
+            "mm_W1",
+            "b1"
+          ],
+          "shape": [
+            32,
+            64
+          ],
+          "broadcast": "row_rhs"
+        },
+        {
+          "id": "activation",
+          "op": "GELU",
+          "src": [
+            "add_b1"
+          ],
+          "shape": [
+            32,
+            64
+          ]
+        },
+        {
+          "id": "mm_W2",
+          "op": "GEMM",
+          "src": [
+            "activation",
+            "W2"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "add_b2",
+          "op": "ADD",
+          "src": [
+            "mm_W2",
+            "b2"
+          ],
+          "shape": [
+            32,
+            32
+          ],
+          "broadcast": "row_rhs"
+        },
+        {
+          "id": "Y",
+          "op": "ADD",
+          "src": [
+            "U",
+            "add_b2"
+          ],
+          "shape": [
+            32,
+            32
+          ]
+        }
+      ],
+      "output": "Y"
+    }
+  },
+  "seed": 91001,
+  "schedule_status": "MODEL_RW_CHECKED_CONSERVATIVE",
+  "core_tile_counts": {
+    "0": 4,
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 4,
+    "6": 4,
+    "7": 4,
+    "8": 4,
+    "9": 4,
+    "10": 4,
+    "11": 4,
+    "12": 4,
+    "13": 4,
+    "14": 4,
+    "15": 4,
+    "16": 4,
+    "17": 4,
+    "18": 4,
+    "19": 4,
+    "20": 4,
+    "21": 4,
+    "22": 4,
+    "23": 4
+  },
+  "policy": {
+    "baseline_cycles": 4975,
+    "minimum_speedup": 1,
+    "maximum_speedup": 1
+  },
+  "baseline_creation": true,
+  "batches": [
+    {
+      "batch": 0,
+      "status": "STRUCTURE_MATCH",
+      "relative_error": 0.0,
+      "executed": 67,
+      "total": 67,
+      "cost_issues": [],
+      "stage_properties": {
+        "passed": true,
+        "max_row_sum_error": 0.0,
+        "minimum": 0.03125,
+        "maximum": 0.03125
+      },
+      "stage_checks": [
+        {
+          "name": "K",
+          "index": 34,
+          "bit_equal": true,
+          "actual_fp16_sha256": "1c5ff24f4a0b6dd73e0b97e5f7043d6ded838de681ece03450f2d773fe712846",
+          "expected_fp16_sha256": "1c5ff24f4a0b6dd73e0b97e5f7043d6ded838de681ece03450f2d773fe712846"
+        },
+        {
+          "name": "P",
+          "index": 44,
+          "bit_equal": true,
+          "actual_fp16_sha256": "a3d41c0a191d49c4f51723c081d774b5d06e53936d616af652eea023c9c93bb7",
+          "expected_fp16_sha256": "a3d41c0a191d49c4f51723c081d774b5d06e53936d616af652eea023c9c93bb7"
+        },
+        {
+          "name": "Q",
+          "index": 30,
+          "bit_equal": true,
+          "actual_fp16_sha256": "8c8d8bee135e57678a272db4f017c793469c9130031bd0d84dda5e12506ce266",
+          "expected_fp16_sha256": "8c8d8bee135e57678a272db4f017c793469c9130031bd0d84dda5e12506ce266"
+        },
+        {
+          "name": "U",
+          "index": 52,
+          "bit_equal": true,
+          "actual_fp16_sha256": "925484dd97df935370f1fb0073d90e67d5c9342ff3ce6d1b8db9e6ba2fa7eafe",
+          "expected_fp16_sha256": "925484dd97df935370f1fb0073d90e67d5c9342ff3ce6d1b8db9e6ba2fa7eafe"
+        },
+        {
+          "name": "V",
+          "index": 38,
+          "bit_equal": true,
+          "actual_fp16_sha256": "2c2e83fa82a1cc8e47b7ff246d4ba89d214ac5f038b3827ff4b226df0476101c",
+          "expected_fp16_sha256": "2c2e83fa82a1cc8e47b7ff246d4ba89d214ac5f038b3827ff4b226df0476101c"
+        },
+        {
+          "name": "Y",
+          "index": 64,
+          "bit_equal": true,
+          "actual_fp16_sha256": "e3eb873a6a63e74f8fec0c9ce055ac65858e144015fe5c8bc98c7da02d743531",
+          "expected_fp16_sha256": "e3eb873a6a63e74f8fec0c9ce055ac65858e144015fe5c8bc98c7da02d743531"
+        },
+        {
+          "name": "activation",
+          "index": 58,
+          "bit_equal": true,
+          "actual_fp16_sha256": "56e12d5b51031af951532ef6ebef390f07f6afffaa092904d1f5813e5d31516e",
+          "expected_fp16_sha256": "56e12d5b51031af951532ef6ebef390f07f6afffaa092904d1f5813e5d31516e"
+        },
+        {
+          "name": "hidden",
+          "index": 56,
+          "bit_equal": true,
+          "actual_fp16_sha256": "59020c75519f39e92b901a1fa79b24902a02a5bda67550bdf67e371bfff7ecc5",
+          "expected_fp16_sha256": "59020c75519f39e92b901a1fa79b24902a02a5bda67550bdf67e371bfff7ecc5"
+        },
+        {
+          "name": "logits",
+          "index": 42,
+          "bit_equal": true,
+          "actual_fp16_sha256": "36f81ac41ea3dddff2f17927dbb7b63a940ab5745c67610f793418ea16de9b59",
+          "expected_fp16_sha256": "36f81ac41ea3dddff2f17927dbb7b63a940ab5745c67610f793418ea16de9b59"
+        }
+      ],
+      "precision_bit_equal": true,
+      "algorithm_error": 0.0,
+      "task_error": 0.00040396797817919246,
+      "algorithm_task_error": 0.00040396797817919246
+    }
+  ],
+  "failed_batches": [],
+  "structural_reference_passed": true,
+  "task_reference_passed": true,
+  "phase_timings_seconds": {
+    "setup": 0.0021316410275176167,
+    "asim": 3.160315462970175,
+    "artifact_and_schedule_checks": 3.2054263980826363,
+    "independent_references": 0.3251713759964332,
+    "instruction_replay_and_comparison": 2.0517996329581365
+  },
+  "evaluation_wall_seconds_before_archive": 8.744844511034898,
+  "artifacts": [
+    {
+      "path": "asim.json",
+      "bytes": 1849,
+      "sha256": "30fa7b834aae5e5b9869a8291262b6ad381c506d3ba02aa6945a77ed1c5f58cf"
+    },
+    {
+      "path": "config.json",
+      "bytes": 12518,
+      "sha256": "d18e7195c0a055b0224a233b7501eca41a34c33573e6853a09fc24e61e3bdd7b"
+    },
+    {
+      "path": "dispatch.jsonl",
+      "bytes": 115776,
+      "sha256": "6e08f5d629f0d1701bf6429dd8dbf2e94cd52fe8f78b60461f646118127cc2dc"
+    },
+    {
+      "path": "formula.json",
+      "bytes": 18,
+      "sha256": "06a47cf1fb789f4455b297272f9ec7cf2fd1b612e10a35886ecdbce39669b6b4"
+    },
+    {
+      "path": "inputs.npz",
+      "bytes": 218818,
+      "sha256": "db9590c71a16f166dd254d7ce86a21fd5858e957112043ec809357c52a2fc941"
+    },
+    {
+      "path": "instruction_pipeline_detail.csv",
+      "bytes": 372383,
+      "sha256": "432ad4b85d867aa48f8d384ec36e77c71b6fc43cbf42c9e30b8072f4217c8e25"
+    },
+    {
+      "path": "instructions.jsonl",
+      "bytes": 3028759,
+      "sha256": "3a637b181867481545795a32738659bbd9792ecc35d7cc57def3c67e6605f0f7"
+    },
+    {
+      "path": "models.json",
+      "bytes": 15517,
+      "sha256": "f8bcd735af7f3bffded8ae1613f182d344b1146821d51068f1f45cdd92d0a1f8"
+    },
+    {
+      "path": "numerics_started.json",
+      "bytes": 79,
+      "sha256": "28c3aab18378676de426ae1cf8d2a53fe111760d7405fd9805a683450933730b"
+    },
+    {
+      "path": "outputs.npy",
+      "bytes": 786560,
+      "sha256": "64f4cd18cfd97c496b33d3d8dd5f208bb809ffa0d49e83d35554646b8b0df746"
+    },
+    {
+      "path": "pipeline_statistics.json",
+      "bytes": 1726439,
+      "sha256": "975a09bb2bf8d9c83c574d12311811a37e8b565f53da83f42a744677ecb801e5"
+    },
+    {
+      "path": "references.npz",
+      "bytes": 3345254,
+      "sha256": "ba0db850a3bf0b55aa58a4bb029ad277a84d2a2f22145b5bf70dba549a96ce4a"
+    },
+    {
+      "path": "rw_events.jsonl",
+      "bytes": 29949840,
+      "sha256": "035efcf8e86ac477a031ccf543916735699f7d7e721cd2e3c6004eefd40de4ee"
+    },
+    {
+      "path": "schedule.json",
+      "bytes": 17663,
+      "sha256": "9a62f2593b4deb6e6af29f5a4124a6952008acc68eb6d87e12d55a68676615ee"
+    },
+    {
+      "path": "simulator.log",
+      "bytes": 34052,
+      "sha256": "c71af7777be9f1e22fc0869a89ca7c2b5561cc447df315879262fe15316ad679"
+    },
+    {
+      "path": "task_inputs.npz",
+      "bytes": 865282,
+      "sha256": "31e5d6766ec8e11214ec0573f143c7330261800967d4290466b770be18f6b19f"
+    },
+    {
+      "path": "trace.csv",
+      "bytes": 2294132,
+      "sha256": "9f6828ccae825a6ffb054d2f4a7a8a0f40944028a524b5e77809bea61a29951b"
+    }
+  ],
+  "retention_note": "first batch only here; full 96-batch result in hashed raw archive"
+}

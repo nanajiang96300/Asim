@@ -335,3 +335,14 @@ skill解释为受约束的Agent设计/实现/审计流程，不是Python自动�
 ## D040 — 通用小模型首例与可信语义缺口（2026-11-12，设计）
 
 专家目标调整为小型通用模型仿真证明，不以CSI-net训练/恢复质量为前置。拟选tiny_attention_mlp_v1，B96/L32/D32/F64，真实scaled-dot-product attention、GELU、全连接及残差；不声称完整Transformer。复用共用runner和实际指令重放，先补已有SOFTMAX/GELU opcode的绑定、数值与工作量/周期检查，不凭旧language/ONNX代码存在宣称验证完成。首例一个整图Operation兼容当前单记录/完整输出STORE边界，完整多节点/ONNX后置。首轮先建正确性基线，后续优化才性能预筛；模型专用精度门限在独立校准后冻结，不直接沿用MMSE2%。当前仅设计，无算子/仿真器/数值核心修改、无模型运行。详见TINY_ATTENTION_MODEL_PLAN.md。
+
+
+## 2026-11-12 NN原语与受信小图
+
+- 复用SOFTMAX8/GELU22，公共VectorUnits有版本nn-vector-v1；明确稳定行Softmax与tanh近似GELU、FP32临时/FP16逐节点存储。新Softmax按全部行收费并包含DIV，旧分支保留。
+- 受限Graph Model只负责真实DMA/计算/屏障/输出；任务层、独立算法参考和数学参考分离，统一重建器不按模型名选择标准算法。先Asim，后数值；阶段位一致与任务1%门限均为硬门禁，不能仅最终误差通过。
+- 新NN配置字段256KiB、每buffer128KiB；旧quiet历史容量值不重标、不覆盖。默认B96/24核，冷权重DMA计时。旧六类仅作旧合同回归。
+- 修复公共误差度量的混合FP16/FP64缩放伪差，不调门限；根/producer问题只修NN新入口，旧基类风险记录。可选CDL依赖缺失明确skip，不伪称CDL通过。
+- 首版通用性声明限四个受信图族和两个模型拓扑；固定权重一致性不等于训练/CSI/无线/硬件验收。新pin另存，原始失败和旧pin保留。
+
+证据入口：[小模型验收与交付记录](../../experiments/tiny_nn/2026-11-12-v1/README.md)。

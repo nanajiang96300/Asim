@@ -1,0 +1,241 @@
+{
+  "schema": "affine-acceptance-v1",
+  "status": "NINE_CASES_CHECKED",
+  "binary_sha256": "f8578ac30c4278511dcd7efd120429f2e27ab80dd31134f1bf06fbd607773d94",
+  "evaluator_commit": "b6e688ce8c39ce10519b2acbb478cf1e03c8b605",
+  "cases": [
+    {
+      "name": "16x16x16-s42",
+      "shape": [
+        16,
+        16,
+        16
+      ],
+      "seed": 42,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 367,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.0003316979635917787,
+      "phase_timings_seconds": {
+        "setup": 0.009939725045114756,
+        "asim": 0.33180435199756175,
+        "artifact_and_schedule_checks": 0.3305289229610935,
+        "independent_references": 0.011090478976257145,
+        "instruction_replay_and_comparison": 0.10106728004757315
+      },
+      "result_sha256": "4aa2e7a9595f0fe6e1cb9544190d80bd72cfa0111b9375632ce2b4d0052cf969"
+    },
+    {
+      "name": "16x16x16-s123",
+      "shape": [
+        16,
+        16,
+        16
+      ],
+      "seed": 123,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 367,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.00031921300805117165,
+      "phase_timings_seconds": {
+        "setup": 0.001152717974036932,
+        "asim": 0.3317351540317759,
+        "artifact_and_schedule_checks": 0.3191528309835121,
+        "independent_references": 0.010965786059387028,
+        "instruction_replay_and_comparison": 0.10051312192808837
+      },
+      "result_sha256": "f69aaef0ce0d0ab2d2b336c150b0098f554d0ac583505b14921e750cf10c339b"
+    },
+    {
+      "name": "16x16x16-s20261111",
+      "shape": [
+        16,
+        16,
+        16
+      ],
+      "seed": 20261111,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 367,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.00032920786055712484,
+      "phase_timings_seconds": {
+        "setup": 0.0012061470188200474,
+        "asim": 0.33130335295572877,
+        "artifact_and_schedule_checks": 0.3102988509926945,
+        "independent_references": 0.011077090981416404,
+        "instruction_replay_and_comparison": 0.10060833196621388
+      },
+      "result_sha256": "36041514d6065c8a8c27da835c01d0cc6144b074e877e5567b6b16bb28bb5854"
+    },
+    {
+      "name": "32x32x32-s42",
+      "shape": [
+        32,
+        32,
+        32
+      ],
+      "seed": 42,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 685,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.0003488963581067595,
+      "phase_timings_seconds": {
+        "setup": 0.004706338979303837,
+        "asim": 0.7369447350502014,
+        "artifact_and_schedule_checks": 0.9809581839945167,
+        "independent_references": 0.02775075798854232,
+        "instruction_replay_and_comparison": 0.5307119420031086
+      },
+      "result_sha256": "e9e900cdd724b05e3c4814eb8702fb7c9640a511a7b0f77179404578a367dbbf"
+    },
+    {
+      "name": "32x32x32-s123",
+      "shape": [
+        32,
+        32,
+        32
+      ],
+      "seed": 123,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 685,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.00032907360322627393,
+      "phase_timings_seconds": {
+        "setup": 0.003430008073337376,
+        "asim": 0.7369562919484451,
+        "artifact_and_schedule_checks": 0.9547838079743087,
+        "independent_references": 0.027379767037928104,
+        "instruction_replay_and_comparison": 0.5351558820111677
+      },
+      "result_sha256": "f8bf6277d93575ec1cf97893461da0fcdc9e9291d7b19f2048e2254e22d2aa95"
+    },
+    {
+      "name": "32x32x32-s20261111",
+      "shape": [
+        32,
+        32,
+        32
+      ],
+      "seed": 20261111,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 685,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.00033680435970459094,
+      "phase_timings_seconds": {
+        "setup": 0.0034256840590387583,
+        "asim": 0.7374531819950789,
+        "artifact_and_schedule_checks": 0.95125341496896,
+        "independent_references": 0.03207906894385815,
+        "instruction_replay_and_comparison": 0.5465784640982747
+      },
+      "result_sha256": "08c25ae86a05187bedf58d1ac6b4d59cd49351c4b9c8485da3dc89da8760d3d9"
+    },
+    {
+      "name": "32x16x48-s42",
+      "shape": [
+        32,
+        16,
+        48
+      ],
+      "seed": 42,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 681,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.00034408157538436796,
+      "phase_timings_seconds": {
+        "setup": 0.0031844910699874163,
+        "asim": 0.7878256869735196,
+        "artifact_and_schedule_checks": 1.000161270960234,
+        "independent_references": 0.017715569003485143,
+        "instruction_replay_and_comparison": 0.6481323599582538
+      },
+      "result_sha256": "f890d95c1a775fe27adf6c80383e2d6fb71d6345f7c9e6f375bf9e62435d5a78"
+    },
+    {
+      "name": "32x16x48-s123",
+      "shape": [
+        32,
+        16,
+        48
+      ],
+      "seed": 123,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 681,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.00035294626699892897,
+      "phase_timings_seconds": {
+        "setup": 0.0032230049837380648,
+        "asim": 0.7878990259487182,
+        "artifact_and_schedule_checks": 0.9988331920467317,
+        "independent_references": 0.017510426929220557,
+        "instruction_replay_and_comparison": 0.6476308810524642
+      },
+      "result_sha256": "97008a2d39b220de1208a87025d10358189afb80839a29b77be004b59e8f7e39"
+    },
+    {
+      "name": "32x16x48-s20261111",
+      "shape": [
+        32,
+        16,
+        48
+      ],
+      "seed": 20261111,
+      "status": "MODELED_NUMERIC_CHECKED",
+      "reason": null,
+      "schedule": "MODEL_RW_CHECKED_CONSERVATIVE",
+      "cycles": 681,
+      "failed_batches": [],
+      "algorithm_bits_equal": true,
+      "max_task_error": 0.0003363776049835759,
+      "phase_timings_seconds": {
+        "setup": 0.0032268380746245384,
+        "asim": 0.7885688759852201,
+        "artifact_and_schedule_checks": 0.9975370999891311,
+        "independent_references": 0.017695351038128138,
+        "instruction_replay_and_comparison": 0.6484357819426805
+      },
+      "result_sha256": "123610459b787e9facd9c1a425e0aba29d286385669a25b25fdc4552290bf561"
+    }
+  ],
+  "research_score": null,
+  "promotion_allowed": false,
+  "communication_status": "NOT_APPLICABLE_REAL_AFFINE_TASK",
+  "paired_repeat_status": "MODELED_NUMERIC_CHECKED",
+  "demo_score": {
+    "schema": "affine-demo-cycle-score-v1",
+    "status": "DEMO_SCORE_COMPUTED",
+    "score": 1.0,
+    "definition": "accepted baseline cycles / accepted candidate cycles",
+    "research_score": null,
+    "promotion_allowed": false,
+    "optimization_claimed": false,
+    "baseline_cycle": 685,
+    "candidate_cycle": 685,
+    "communication_status": "NOT_APPLICABLE_REAL_AFFINE_TASK"
+  },
+  "wall_seconds": 18.975419564987533
+}

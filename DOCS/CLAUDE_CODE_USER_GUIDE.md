@@ -8,6 +8,8 @@
 
 已有实测：两个新Linux检出冷构建；六类修正入口的Rayleigh Asim/重建/FP16参考；Claude Code＋DeepSeek真实新affine算子的生成、审计、编译反馈修复、九场景864batch位一致及实际错误输入负例拒绝。affine最大FP64任务误差0.0353%，门限2%。这不说明所有历史变体、CDL-B或完整性能晋级都通过。历史证据在Git研究分支，交付包主动不附结果；SOURCE_VERSION.json记录原始版本。
 
+新增NN首例实测：四类任务×三形状×三种子，36配置/3456batch重放，阶段/全输出与独立FP16参考位一致，最大FP64误差0.075541%（冻结门限1%）。真实错K转置候选Asim正常但被阶段重建拒绝。总周期、原件SHA及交付冷构建证据在Git版本的experiments/tiny_nn/2026-11-12-v1/README.md；源码包不附研究结果，包外另提供交付校验报告。
+
 ## 2. 解压、离线构建、第一轮检查
 
 目标环境：Linux x86_64 / CPython3.12，建议Ubuntu24.04、GCC13、CMake3.28，系统需要git、build-essential、cmake、python3、python3-dev。工具由企业软件源/管理员安装；包内缓存不能代替这些系统工具。建议8GiB内存、至少4GiB空闲磁盘，2vCPU默认串行，首次编译约半小时，取决于机器。AI调用另需模型服务网络。

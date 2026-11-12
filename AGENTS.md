@@ -37,3 +37,6 @@ BRI内循环采用同Model/mode+独立candidate分支/worktree/build，只有新
 
 
 2026-11-12双客户端更新：S1两个全新Linux clone的独立冷构建、250原测试（2可选跳过）及六类真实Asim/重建已验收。Claude Code＋DeepSeek已实际生成新affine算子，并依据审计/编译错误修复；九组864batch与独立FP16逐位一致，FP64任务误差最大0.0353%；真实错误输入负例Asim正常而数值拒绝。使用DOCS/research/CLAUDE_NEW_OPERATOR.md与experiments/claude_operator/2026-11-11-v1/README.md。生成器只提议三文件，任务内demo分数不等于M3/无线认证；旧runtime pin仍为其原研究版本。下一平台任务优先正式跨路径/跨candidate基线与新运行时冻结，持久无人值守后置，BRI研究与默认基线不自动变更。
+
+
+2026-11-12 NN扩展：新VectorUnits/NNGraphModel、Softmax/GELU与MLP/Attention使用公共实际指令重建及独立参考，B96三形状三种子验收。当前精确状态/最终冷构建/新源码包查experiments/tiny_nn/2026-11-12-v1/README.md。新配置256KiB与旧quiet回归分开；新NN runtime独立版本，旧MIMO pin不覆盖。仅四类受信图，非任意ONNX或训练/硬件认证，score=null。

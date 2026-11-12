@@ -1,0 +1,14 @@
+{
+  "hostname": "nanajiangserver",
+  "cpus": "2",
+  "gcc": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cmake": "cmake version 3.28.3",
+  "git": "git version 2.43.0",
+  "python_system": "3.12.3",
+  "memory_info": [
+    "MemTotal:        4009844 kB",
+    "MemFree:          898960 kB",
+    "MemAvailable:    3024636 kB"
+  ],
+  "scope": "same Linux x86_64 host, final delivery rechecked in a new path; not a second physical host or WSL2"
+}
