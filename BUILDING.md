@@ -15,7 +15,7 @@ python3 scripts/agent_entry.py doctor
 claude
 ```
 
-Codex环境改用codex/asim-codex-v1，后续构建/测试完全相同。API、模型和账户自行在用户环境配置，不复制别人的settings.local.json或认证。doctor仅查CLI，不发送API请求。当前S1源码/便携部署正在按双新clone验收，状态以DOCS/research索引及验收报告为准，不能把本说明当PASS证据。
+Codex环境改用codex/asim-codex-v1，后续构建/测试完全相同。API、模型和账户自行在用户环境配置，不复制别人的settings.local.json或认证。doctor仅查CLI，不发送API请求。S1已完成两个全新clone的冷构建及六类真实Asim/重建验收，见experiments/deployment/2026-11-11-s1-v1/README.md；WSL2仍待实测。
 
 bootstrap下载dependencies/lock.json中固定commit/大小/SHA的三个制品，解包后逐文件校验，再创建本clone的.venv、编译本clone的build。无Conan、无服务器绝对路径、无CMake FetchContent、无全局pip安装。安装依赖阶段可以联网；configure/build及--offline模式不自动下载。不会改变旧runtime pin。源码依赖目录.deps、build与.venv不提交Git。
 
