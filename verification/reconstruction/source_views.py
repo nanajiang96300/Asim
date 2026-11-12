@@ -82,11 +82,14 @@ def execute_batch(header,instructions,inputs,batch,expected,precision='structure
                 capture(index,mem);executed+=1;continue
             if len(src)!=len(i['src_addrs']) or [v['base'] for v in src]!=i['src_addrs'] or dst['base']!=i['dest_addr']:
                 raise ReplayFault('SEMANTIC_BINDING_MISMATCH','view/actual operand address mismatch')
-            codes={3:'GEMM',4:'GEMM',10:'ADD',17:'ADD',18:'SUB',11:'MUL',19:'MUL',13:'DIV',20:'DIV',16:'SQRT',21:'SQRT'}
+            codes={8:'SOFTMAX',22:'GELU',3:'GEMM',4:'GEMM',10:'ADD',17:'ADD',18:'SUB',11:'MUL',19:'MUL',13:'DIV',20:'DIV',16:'SQRT',21:'SQRT'}
             if code not in codes:raise ReplayFault('UNKNOWN_OPCODE',str(code))
             if code in (3,4):
                 shapes=[mem.read(v).shape for v in src]
                 if [*shapes[0],shapes[1][1]]!=[i['m'],i['k'],i['n']]:raise ReplayFault('SHAPE_MISMATCH','GEMM dimensions')
+            if code in (8,22):
+                from verification.primitives.nn import validate_instruction
+                validate_instruction(i,header['profile'])
             value=execute_views(mem,codes[code],src,dst,s.get('broadcast','none'))
             if 17<=code<=21 and value.size!=1:cost_issues.append({'index':index,'id':i['id'],'reason':'batched SCALAR fixed latency','elements':value.size})
             capture(index,mem);executed+=1

@@ -1,0 +1,26 @@
+{
+  "status": "THREE_PUBLICATION_NEGATIVES_REJECTED",
+  "checks": [
+    {
+      "case": "wrong_pinned_file_sha",
+      "status": "PREFLIGHT_REJECTED",
+      "reason": "pinned runtime file changed/missing: CMakeLists.txt",
+      "asim_started": false,
+      "numerics_started": false
+    },
+    {
+      "case": "duplicate_cartesian",
+      "status": "PUBLICATION_REJECTED",
+      "reason": "ValueError: NN Cartesian acceptance incomplete/duplicate",
+      "asim_started": false,
+      "numerics_started": false
+    },
+    {
+      "case": "source_fingerprint_drift",
+      "status": "PUBLICATION_REJECTED",
+      "reason": "ValueError: accepted source/evaluator/library/config identity changed before freeze",
+      "asim_started": false,
+      "numerics_started": false
+    }
+  ]
+}

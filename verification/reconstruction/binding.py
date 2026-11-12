@@ -38,6 +38,9 @@ def validate_actual(record,dispatch,task,parameters,inputs,config):
         elif code in (3,4):
             left,right=s['src'];lm,lk=(left['cols'],left['rows']) if left['transpose'] else (left['rows'],left['cols']);rk,rn=(right['cols'],right['rows']) if right['transpose'] else (right['rows'],right['cols'])
             if (lm,lk,rn)!=(rows,i['k'],cols) or lk!=rk or (i['m'],i['n'])!=(rows,cols) or i['compute_size']!=cols:raise Invalid('GEMM workload mismatch')
+        elif code in (8,22):
+            from verification.primitives.nn import validate_instruction
+            validate_instruction(i,task.profile)
         elif 17<=code<=21:
             if rows*cols!=1 or i['compute_size']!=1 or any(v['rows']*v['cols']!=1 for v in s['src']):raise Invalid('batched SCALAR is not a scalar instruction')
         elif code in (10,11,13,16):

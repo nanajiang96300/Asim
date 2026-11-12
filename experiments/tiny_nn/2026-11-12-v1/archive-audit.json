@@ -1,0 +1,223 @@
+{
+  "status": "36_ARCHIVES_AND_RESULTS_CHECKED",
+  "scope": "independent read-only publication audit; freeze script still trusts accepted summary writer",
+  "checks": [
+    {
+      "case": "softmax-l16-d32-f64-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 791
+    },
+    {
+      "case": "softmax-l16-d32-f64-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 791
+    },
+    {
+      "case": "softmax-l16-d32-f64-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 791
+    },
+    {
+      "case": "softmax-l32-d32-f64-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1534
+    },
+    {
+      "case": "softmax-l32-d32-f64-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1534
+    },
+    {
+      "case": "softmax-l32-d32-f64-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1534
+    },
+    {
+      "case": "softmax-l32-d64-f128-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1586
+    },
+    {
+      "case": "softmax-l32-d64-f128-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1586
+    },
+    {
+      "case": "softmax-l32-d64-f128-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1586
+    },
+    {
+      "case": "gelu-l16-d32-f64-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 191
+    },
+    {
+      "case": "gelu-l16-d32-f64-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 191
+    },
+    {
+      "case": "gelu-l16-d32-f64-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 191
+    },
+    {
+      "case": "gelu-l32-d32-f64-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 346
+    },
+    {
+      "case": "gelu-l32-d32-f64-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 346
+    },
+    {
+      "case": "gelu-l32-d32-f64-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 346
+    },
+    {
+      "case": "gelu-l32-d64-f128-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 602
+    },
+    {
+      "case": "gelu-l32-d64-f128-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 602
+    },
+    {
+      "case": "gelu-l32-d64-f128-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 602
+    },
+    {
+      "case": "mlp-l16-d32-f64-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1506
+    },
+    {
+      "case": "mlp-l16-d32-f64-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1506
+    },
+    {
+      "case": "mlp-l16-d32-f64-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1506
+    },
+    {
+      "case": "mlp-l32-d32-f64-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1802
+    },
+    {
+      "case": "mlp-l32-d32-f64-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1802
+    },
+    {
+      "case": "mlp-l32-d32-f64-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 1802
+    },
+    {
+      "case": "mlp-l32-d64-f128-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 3806
+    },
+    {
+      "case": "mlp-l32-d64-f128-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 3806
+    },
+    {
+      "case": "mlp-l32-d64-f128-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 3806
+    },
+    {
+      "case": "attention-l16-d32-f64-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 3630
+    },
+    {
+      "case": "attention-l16-d32-f64-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 3630
+    },
+    {
+      "case": "attention-l16-d32-f64-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 3630
+    },
+    {
+      "case": "attention-l32-d32-f64-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 4975
+    },
+    {
+      "case": "attention-l32-d32-f64-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 4975
+    },
+    {
+      "case": "attention-l32-d32-f64-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 4975
+    },
+    {
+      "case": "attention-l32-d64-f128-s91001",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 8298
+    },
+    {
+      "case": "attention-l32-d64-f128-s91002",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 8298
+    },
+    {
+      "case": "attention-l32-d64-f128-s91003",
+      "status": "ARCHIVED_RESULT_CONSISTENT",
+      "batches": 96,
+      "cycles": 8298
+    }
+  ],
+  "changed_cycle_negative": "summary identity drift"
+}

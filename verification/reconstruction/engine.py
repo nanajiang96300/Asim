@@ -41,15 +41,17 @@ def full_view(base,shape):
     return dict(base=base,row=0,col=0,rows=shape[0],cols=shape[1],transpose=False,conjugate=False)
 
 def arithmetic(code,values,broadcast='none',precision=None):
-    arities={'LOAD':1,'STORE':1,'COPY':1,'SQRT':1,'GEMM':2,'ADD':2,'SUB':2,'MUL':2,'DIV':2}
+    arities={'LOAD':1,'STORE':1,'COPY':1,'SQRT':1,'SOFTMAX':1,'GELU':1,'GEMM':2,'ADD':2,'SUB':2,'MUL':2,'DIV':2}
     if code not in arities:raise Unsupported('unknown numeric primitive: '+str(code))
     if len(values)!=arities[code]:raise ReplayFault('SHAPE_MISMATCH','primitive arity')
-    if broadcast not in ('none','scalar_rhs'):raise Unsupported('unknown broadcast semantics')
+    if broadcast not in ('none','scalar_rhs','row_rhs'):raise Unsupported('unknown broadcast semantics')
     if broadcast=='scalar_rhs' and (code not in ('ADD','SUB','MUL','DIV') or values[1].shape!=(1,1)):
         raise ReplayFault('SHAPE_MISMATCH','explicit scalar_rhs requires scalar right operand')
+    if broadcast=='row_rhs' and (code not in ('ADD','MUL') or values[1].shape!=(1,values[0].shape[1])):raise ReplayFault('SHAPE_MISMATCH','row_rhs needs a matching row')
     if code in ('ADD','SUB','MUL','DIV') and broadcast=='none' and values[0].shape!=values[1].shape:
         raise ReplayFault('SHAPE_MISMATCH','implicit broadcasting forbidden')
     if code=='GEMM' and values[0].shape[1]!=values[1].shape[0]:raise ReplayFault('SHAPE_MISMATCH','GEMM inner dimension')
+    if code in ('SOFTMAX','GELU') and (precision is None or not precision.modeled):raise Unsupported('NN explicit modeled precision required')
     if precision is not None and precision.modeled:return precision.calculate(code,values)
     with np.errstate(divide='raise',invalid='raise',over='raise'):
         if code in ('LOAD','STORE','COPY'):result=values[0].copy()

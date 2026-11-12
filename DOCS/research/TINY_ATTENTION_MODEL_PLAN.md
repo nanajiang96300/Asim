@@ -1,6 +1,6 @@
 # 小型通用Attention模型：源码审计与实施计划
 
-2026-11-12，状态DESIGN_ONLY。本轮只读审计和制定计划，不修改算子、Asim或验证器，不宣称模型已运行。专家目标是证明小型多算子模型的真实周期仿真及输出正确性；不以CSI恢复、训练、语言生成或通信质量为前置。
+2026-11-12，初稿为DESIGN_ONLY，以下保留当时的设计依据与T0–T5退出条件。当前已完成的实现与验收以[版本报告](../../experiments/tiny_nn/2026-11-12-v1/README.md)为准。专家目标是证明小型多算子模型的真实周期仿真及输出正确性；不以CSI恢复、训练、语言生成或通信质量为前置。
 
 ## 结论与依据
 
@@ -84,4 +84,4 @@ T0不把完整IR编译器、ONNX全覆盖、模型训练或任务精度作为前
 
 每阶段记录输入/权重/模型/源码/binary/config/evaluator/reference/scorer SHA、参数/形状/batch、所有状态、层/流水/总周期、误差、峰值内存和阶段墙钟；纯Agent思考时间不可获取就记null。目录建议experiments/tiny_attention/<版本>与results/tiny_attention/<版本>，论文固定paper_archive索引。失败与旧包保留，不覆盖刚交付的asim-claude-guide-v1。
 
-推荐下一项具体开发：T0独立Python微型Attention块与冻结合同；随后T1真实Softmax/GELU语义及周期工作量验证。以上尚未开发/运行。
+原建议开发顺序已执行；后续扩展应从当前验收基线派生，另冻结任务、源版本和精度/计时合同。任意ONNX、多Operation、训练任务与硬件认证仍属后续范围。
