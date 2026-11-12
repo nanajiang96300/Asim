@@ -1,0 +1,13 @@
+test_duplicate_path_and_json_key_rejected (test_claude_codegen.CodegenTests.test_duplicate_path_and_json_key_rejected) ... ok
+test_missing_source_or_self_score_is_not_acceptance (test_claude_codegen.CodegenTests.test_missing_source_or_self_score_is_not_acceptance) ... ok
+test_only_allowed_files_imported_protected_bytes_unchanged (test_claude_codegen.CodegenTests.test_only_allowed_files_imported_protected_bytes_unchanged) ... ok
+test_reference_or_traversal_path_rejected (test_claude_codegen.CodegenTests.test_reference_or_traversal_path_rejected) ... ok
+test_archive_traversal_and_symlinks_rejected (test_portable_bootstrap.BootstrapTests.test_archive_traversal_and_symlinks_rejected) ... ok
+test_bad_cached_sha_not_overwritten (test_portable_bootstrap.BootstrapTests.test_bad_cached_sha_not_overwritten) ... ok
+test_missing_offline_and_wrong_lock_rejected (test_portable_bootstrap.BootstrapTests.test_missing_offline_and_wrong_lock_rejected) ... ok
+test_valid_offline_and_tamper_rejection (test_portable_bootstrap.BootstrapTests.test_valid_offline_and_tamper_rejection) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.035s
+
+OK

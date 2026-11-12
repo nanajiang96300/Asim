@@ -1,0 +1,6 @@
+Looking in links: /home/nanajiang/Asim/results/delivery/2026-11-12-guide-v1/unpack with space/asim-claude-guide-v1/offline_cache
+Processing ./offline_cache/pip-26.1.2-py3-none-any.whl
+Processing ./offline_cache/numpy-2.5.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+Installing collected packages: pip, numpy
+
+Successfully installed numpy-2.5.0 pip-26.1.2

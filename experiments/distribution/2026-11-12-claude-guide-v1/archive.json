@@ -1,0 +1,11 @@
+{
+  "archive": "/home/nanajiang/Asim/expert_delivery/asim-claude-guide-v1.tar.gz",
+  "bytes": 43713213,
+  "sha256": "9ff100d0432ec788a2f5bcffc2d025d398fa7989f4dafe0ad46a0e2885d42ed0",
+  "source_commit": "675cd233328a8e2a120e408293f6f3e40bb16794",
+  "source_profile": "claude",
+  "files": 4570,
+  "guide": "DOCS/CLAUDE_CODE_USER_GUIDE.md",
+  "included": "Asim source, six families and variants, affine demo, verifier/reference, skills, configs, tests, three locked offline assets",
+  "excluded": "Git history, datasets, experiment outputs, trace, builds, venv, authentication/settings"
+}
