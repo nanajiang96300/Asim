@@ -24,8 +24,12 @@ def verify(out,spec,identity):
         if str(p) in names:raise ValueError('duplicate dependency file')
         names.add(str(p))
         if f.is_symlink() or not f.is_file() or f.stat().st_size!=e['bytes'] or digest(f)!=e['sha256']:raise ValueError('dependency missing/tampered: '+str(p))
+    expected=names|{'DEPENDENCY_MANIFEST.json','INSTALL_RECEIPT.json'}
+    for p in out.rglob('*'):
+        if p.is_symlink() or (p.is_file() and str(p.relative_to(out)) not in expected):raise ValueError('unexpected dependency file: '+str(p.relative_to(out)))
     return len(entries)
 def artifact(e,cache,offline):
+    if Path(e['file']).name!=e['file'] or e['file'] in ('','.','..'):raise ValueError('unsafe artifact filename')
     cache.mkdir(parents=True,exist_ok=True);p=cache/e['file']
     if p.exists():
         if p.stat().st_size!=e['bytes'] or digest(p)!=e['sha256']:raise ValueError('cached dependency SHA mismatch: '+p.name)

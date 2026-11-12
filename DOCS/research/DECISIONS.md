@@ -321,3 +321,12 @@ skill解释为受约束的Agent设计/实现/审计流程，不是Python自动�
 先推送完整研究分支及五个候选/基础设施分支，建立archive/asim-research-20261111；HTTPS凭据不可用时使用已有GitHub SSH身份，不覆盖main或重写历史。精简只在独立worktree删除无关PPT工具链、未启用的ONNX测试数据和Timeloop旧输出，逐文件记录大小/SHA/恢复commit。原工作区、未跟踪资料与研究证据保留。
 
 选择共享core分支维护Asim/契约/重建/参考/评分，再从同一提交分出Codex和Claude Code入口版本；客户端配置不写密钥，不复制一套验收标准。Claude现有用户配置deepseek-v4-pro的无工具短请求已实测通过；这不是完整代码生成闭环。250测试、共用入口NS batch96/K16/7950周期/逐FP16位一致和未知算子前置拒绝通过；重用原已验收binary，不宣称新clone冷构建完成。下一步S1整合portable构建，再S2两个客户端各完成一次候选闭环，S3统一晋级，持久控制器S4后置。任务上下文约束目前受监督、不是OS强隔离。详见AGENT_WORKFLOW和maintenance验收报告。
+
+
+## D039 — 双客户端便携构建与模型新算子提议边界（2026-11-12）
+
+共享Asim/可信任务与重建核心，两客户端只选入口。S1固定依赖commit/大小/SHA，两个全新Linux clone独立冷构建与六类门禁通过，旧历史/凭据不复制，WSL2另测。证据experiments/deployment/2026-11-11-s1-v1/。
+
+新算子优先小型真实非MMSE任务证明通用性。Claude Code＋DeepSeek以bare无工具JSON提出限定三文件，导入器校验白名单/独立干净工作区/受信文件不变；该边界不是OS沙箱。负责人编写独立参考/任务/注册，模型负责C++和反馈修复，不改Tensor公共API或门限来接纳错误。实际新affine算子九场景864batch位一致，真实ADD误读B的负例Asim685周期与事件检查通过但数值拒绝，公式日志不作验收证据。任务内配对周期分数1.0只演示链路，不签发M3/优化或无线认证，旧runtime pin不改写。证据experiments/claude_operator/2026-11-11-v1/。
+
+模型耗时报告调用墙钟与失败预算，纯思考时间缺接口记null；不根据reported thinking_tokens=0宣称第三方未思考。S2正式跨环境/跨candidate基线与预算协调器后续实现。

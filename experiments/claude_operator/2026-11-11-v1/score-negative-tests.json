@@ -1,0 +1,21 @@
+{
+  "status": "THREE_REJECTIONS_CHECKED",
+  "checks": [
+    {
+      "case": "wrong owner result SHA",
+      "status": "REJECTED",
+      "reason": "owner-frozen result SHA mismatch"
+    },
+    {
+      "case": "missing numerical batches despite new owner SHA",
+      "status": "REJECTED",
+      "reason": "demo score requires complete affine numerical/event acceptance"
+    },
+    {
+      "case": "corrupted numerical output with intact result seal",
+      "status": "REJECTED",
+      "reason": "score artifact changed: outputs.npy"
+    }
+  ],
+  "original_outputs_unchanged": true
+}

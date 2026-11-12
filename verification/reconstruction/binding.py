@@ -19,7 +19,10 @@ def validate_actual(record,dispatch,task,parameters,inputs,config):
         if role not in inputs or list(inputs[role].shape)!=t['shape'] or t['bytes']!=inputs[role].size*p:raise Invalid('external input role/shape/size mismatch')
         bound.append(inputs[role])
     if len(set(t['name'].split('.')[-1] for t in h['inputs']))!=len(inputs):raise Invalid('duplicate input role')
-    if len(h['outputs'])!=1 or h['outputs'][0]['shape']!=[B,2*task.nt,2*task.nrhs] or h['outputs'][0]['bytes']!=B*4*task.nt*task.nrhs*p:raise Invalid('output declaration mismatch')
+    output_shape=task.output_shape if hasattr(task,'output_shape') else [B,2*task.nt,2*task.nrhs]
+    output_elements=1
+    for extent in output_shape:output_elements*=extent
+    if len(h['outputs'])!=1 or h['outputs'][0]['shape']!=output_shape or h['outputs'][0]['bytes']!=output_elements*p:raise Invalid('output declaration mismatch')
     groups=defaultdict(list);seen=set()
     for i in record['instructions']:
         if i['batch'] not in range(B) or not i['id'] or i['id'] in seen:raise Invalid('unexpected/duplicate instruction identity')

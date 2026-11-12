@@ -1,0 +1,37 @@
+{
+  "wall_seconds": 13.073792678012978,
+  "reasoning_time_seconds": null,
+  "before_sha256": "6718bbb19f70ece254a0a80933169f7973649f4c39bc24ecc7aa43c0257edcf5",
+  "after_sha256": "d27c464296739beeb65b8e8d3b82a5af0d337ea6b114231fe6c42531bf4a3a4c",
+  "model_patch": {
+    "edits": [
+      {
+        "path": "src/inverse/affine_gemm_v1/AffineGemmModel.cc",
+        "old": "  const std::vector<std::pair<std::string, std::vector<uint32_t>>> entries = {\n      {\"A\", {B, M, K}},\n      {\"B\", {B, K, N}},\n      {\"C\", {B, M, N}},\n      {\"Z\", {B, M, N}}};\n  for (const auto& entry : entries) {",
+        "new": "  std::vector<std::pair<std::string, std::vector<uint32_t>>> entries = {\n      {\"A\", {B, M, K}},\n      {\"B\", {B, K, N}},\n      {\"C\", {B, M, N}},\n      {\"Z\", {B, M, N}}};\n  for (auto& entry : entries) {"
+      }
+    ]
+  },
+  "usage_reported_by_cli": {
+    "input_tokens": 1849,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1557,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard"
+  },
+  "human_cpp_edits": false
+}

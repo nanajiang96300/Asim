@@ -1,0 +1,105 @@
+{
+  "root": "/home/nanajiang/Asim/results/deployment/2026-11-11-s1-v1",
+  "files": [
+    {
+      "path": "cache_cleanup.json",
+      "bytes": 745,
+      "sha256": "bef1e09f22fd61c429a4b08e68034663b137fde2107b05c275bf3c26f9e13f6b"
+    },
+    {
+      "path": "claude-bootstrap-tests.log",
+      "bytes": 102,
+      "sha256": "4a160235c0add54f7a5997815d0e01a072210439de4899c702c94dd3cd814662"
+    },
+    {
+      "path": "claude-bootstrap.log",
+      "bytes": 118384,
+      "sha256": "e911a125aacb7388882ca63cc1254018929b364ee30d4b71bcebbc8b49fcc259"
+    },
+    {
+      "path": "claude-ldd.txt",
+      "bytes": 501,
+      "sha256": "534bc01332facd38f53e11b35bbaadacc66a41804d774c6a60ba6cb8efe3a81f"
+    },
+    {
+      "path": "claude-readelf.txt",
+      "bytes": 1918,
+      "sha256": "7f89cd6496572a8a990acae4c4a393f4fef461c9b68e40b9d709c916d40d42b6"
+    },
+    {
+      "path": "claude-six.json",
+      "bytes": 23921,
+      "sha256": "1b889ee61ee3bdf91d143c27270d652338b6cb4ff0d74f1fc94c192e5725569a"
+    },
+    {
+      "path": "claude-six.log",
+      "bytes": 4617,
+      "sha256": "4e96ed8b4eefb4fc82f13d896d9f60d4d5199942c21172c2855871e25dc185c4"
+    },
+    {
+      "path": "claude-tests.log",
+      "bytes": 362,
+      "sha256": "fafa86ffc40117ae738a5982f380acd38b0452c00334995d0a6a181f10bfe14d"
+    },
+    {
+      "path": "claude_runtime/bin/Simulator",
+      "bytes": 9100704,
+      "sha256": "641f4f117f825dce255dbe3ef4dd4a48dda4c6a57915f6ede7edfab83419e71c"
+    },
+    {
+      "path": "claude_runtime/lib/libramulator.so",
+      "bytes": 4495472,
+      "sha256": "ae8cd3984288dc8a845df66194f93f03c16a962b20e6320c617cdfcdd3cdb8a8"
+    },
+    {
+      "path": "claude_runtime/manifest.json",
+      "bytes": 391,
+      "sha256": "37d62f6b4021f3710751f3f699cac4e26d5249522c0ff68192b076e38438fbbd"
+    },
+    {
+      "path": "codex-bootstrap-tests.log",
+      "bytes": 102,
+      "sha256": "4a160235c0add54f7a5997815d0e01a072210439de4899c702c94dd3cd814662"
+    },
+    {
+      "path": "codex-bootstrap.log",
+      "bytes": 115668,
+      "sha256": "07044f3a719ca16f83eeec5dfa4a98f5efd11df5f96e2dafe23ca9f743774571"
+    },
+    {
+      "path": "codex-ldd.txt",
+      "bytes": 494,
+      "sha256": "bc788dbc54520e3fa621e1ee3eda969a9b16900b5effc7b0667301f9ff4aeaef"
+    },
+    {
+      "path": "codex-readelf.txt",
+      "bytes": 1918,
+      "sha256": "7dbf4b99b786d3da3208218be464084638bd977ef830777ef31c8fee7c9a537f"
+    },
+    {
+      "path": "codex-six.json",
+      "bytes": 23924,
+      "sha256": "cfe66d064470e5764ba261bde5d8cf62234c2b1af70d24140e85725d3bc432f8"
+    },
+    {
+      "path": "codex-six.log",
+      "bytes": 4619,
+      "sha256": "822e445e03719369ba962caeaabf1a5bccec8e9a344995edcfcfa50694f369a8"
+    },
+    {
+      "path": "codex-tests.log",
+      "bytes": 362,
+      "sha256": "330c6b8c6d9fc8941187b503dd18848d36c191918f8776bf033ba706871b3858"
+    },
+    {
+      "path": "expanded_deps_cleanup.json",
+      "bytes": 676,
+      "sha256": "1316deec4c2c600a735ab790839c4f72acf537ef4021cc783a3b35d7793ca782"
+    },
+    {
+      "path": "progress.json",
+      "bytes": 3318,
+      "sha256": "8d6af9f4c088d6e35e88a865f7b1feda7b27574b0913ee6209362a273655c93e"
+    }
+  ]
+}

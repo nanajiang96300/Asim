@@ -1,0 +1,13 @@
+{
+  "client": "codex",
+  "removed": "/home/nanajiang/asim-worktrees/s1-clean/codex/.deps/asim-deps-v1",
+  "allocated_bytes_freed": 208547840,
+  "receipt_before_cleanup": {
+    "schema": "asim-installed-dependencies-v1",
+    "lock_sha256": "6d39d9b9371c7ac86e7f94eed82039a40b4bcb8c8d3d28d76aa0acb60a95849d",
+    "dependency_commit": "caacd03cbacff547eed8f065d880db2057683bda"
+  },
+  "reason": "own completed S1 clone expanded source/wheel cache only; accepted binary/lib/venv/source/summary retained",
+  "restore_command": "python3 scripts/bootstrap.py --prepare-only --offline",
+  "verified_asset_cache_retained": "/home/nanajiang/asim-worktrees/s1-clean/codex/.deps/cache"
+}

@@ -1,0 +1,47 @@
+{
+  "models": [
+    {
+      "name": "affine_gemm_v1",
+      "matrix_m": 32,
+      "matrix_k": 16,
+      "matrix_n": 48,
+      "batch_size": 96,
+      "task_contract": {
+        "schema": "affine-task-v1",
+        "batch_size": 96,
+        "m": 32,
+        "k": 16,
+        "n": 48,
+        "profile": "modeled_fp16_fp32_v1",
+        "scope": "a_b_c_to_affine_z_v1",
+        "representation": "real_row_major",
+        "measurement": {
+          "includes": [
+            "input DMA",
+            "GEMM",
+            "FP16 temporary writeback",
+            "ADD",
+            "barriers",
+            "output DMA"
+          ],
+          "excludes": [
+            "common input generation"
+          ]
+        }
+      },
+      "precision_policy": {
+        "schema": "numeric-policy-v1",
+        "name": "modeled_fp16_fp32_v1",
+        "storage": "float16",
+        "compute": "float32",
+        "accumulation": "float32",
+        "gemm_order": "k_ascending_multiply_then_add",
+        "rounding": "RNE",
+        "subnormal": "preserve",
+        "fusion": "none",
+        "task_tolerance": 0.02,
+        "quadrant_tolerance": 0.02
+      }
+    }
+  ]
+}

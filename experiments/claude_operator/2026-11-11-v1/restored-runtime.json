@@ -1,0 +1,8 @@
+{
+  "status": "BIT_IDENTICAL_BINARY_RESTORED",
+  "sha256": "205dbd3d5db70b9b68462750eee6afa1d6d84be849becd11847ad7f8ddada055",
+  "negative_commit": "a9d7cee2",
+  "correct_commit": "e8e8bc7b",
+  "negative_binary_retained": false,
+  "negative_reproduction": "rebuild codex/claude-affine-negative-v1 commit a9d7cee2 in isolated workspace"
+}

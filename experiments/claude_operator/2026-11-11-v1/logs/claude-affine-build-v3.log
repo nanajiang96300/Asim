@@ -1,0 +1,73 @@
+[  1%] Built target bundled_fmt
+[  4%] Built target boost_program_options
+[ 31%] Built target libprotobuf
+[ 32%] Built target onnx_proto
+[ 35%] Built target ramulator-controller
+[ 45%] Built target yaml-cpp
+[ 47%] Built target ramulator-base
+[ 48%] Built target ramulator-test
+[ 51%] Built target ramulator-frontend
+[ 51%] Built target ramulator-translation
+[ 51%] Built target ramulator-memorysystem
+[ 51%] Built target ramulator-addrmapper
+[ 54%] Built target ramulator-dram
+[ 55%] Built target ramulator
+[ 58%] Built target ramulator1
+[ 77%] Built target booksim2
+[ 77%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/affine_gemm_v1/AffineGemmModel.cc.o
+[ 78%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/block_richardson/BlockRichardsonBaselineModel.cc.o
+[ 78%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/block_richardson/BlockRichardsonBaselineOp.cc.o
+[ 78%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/bri_explicit/BRIExplicitModel.cc.o
+[ 80%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/bri_implicit/BRIImplicitModel.cc.o
+[ 80%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/bri_stable_hb/BRIStableHBModel.cc.o
+[ 80%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/cholesky_block/CholeskyBlockBaselineModel.cc.o
+[ 80%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc.o
+[ 81%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/cholesky_explicit/CholeskyExplicitModel.cc.o
+[ 81%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.cc.o
+[ 81%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc.o
+[ 82%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.cc.o
+[ 82%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc.o
+[ 82%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/ldl_block/LDLBlockBaselineModel.cc.o
+[ 82%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/ldl_block/LDLBlockBaselineOp.cc.o
+[ 83%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/ldl_explicit/LDLExplicitModel.cc.o
+[ 83%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/ldl_noblock/LDLNoBlockBaselineModel.cc.o
+[ 83%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc.o
+[ 84%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/newton_schulz/NewtonSchulzBaselineModel.cc.o
+[ 84%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc.o
+[ 84%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/newton_schulz/NewtonSchulzOp.cc.o
+[ 84%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/ns_corrected/NSCorrectedModel.cc.o
+[ 85%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/structured_solve/StructuredSolveModel.cc.o
+[ 85%] Building CXX object CMakeFiles/Simulator.dir/src/main.cc.o
+[ 85%] Building CXX object CMakeFiles/Simulator.dir/src/models/LanguageModel.cc.o
+[ 86%] Building CXX object CMakeFiles/Simulator.dir/src/models/MatmulModel.cc.o
+[ 86%] Building CXX object CMakeFiles/Simulator.dir/src/operations/AdaptiveAvgPool.cc.o
+[ 86%] Building CXX object CMakeFiles/Simulator.dir/src/operations/Attention.cc.o
+[ 86%] Building CXX object CMakeFiles/Simulator.dir/src/operations/BiasAct.cc.o
+[ 87%] Building CXX object CMakeFiles/Simulator.dir/src/operations/BiasGelu.cc.o
+[ 87%] Building CXX object CMakeFiles/Simulator.dir/src/operations/Concat.cc.o
+[ 87%] Building CXX object CMakeFiles/Simulator.dir/src/operations/Conv.cc.o
+[ 88%] Building CXX object CMakeFiles/Simulator.dir/src/operations/ConvOS.cc.o
+[ 88%] Building CXX object CMakeFiles/Simulator.dir/src/operations/ConvWS.cc.o
+[ 88%] Building CXX object CMakeFiles/Simulator.dir/src/operations/Dummy.cc.o
+[ 88%] Building CXX object CMakeFiles/Simulator.dir/src/operations/EmbedLayerNorm.cc.o
+[ 90%] Building CXX object CMakeFiles/Simulator.dir/src/operations/Flatten.cc.o
+[ 90%] Building CXX object CMakeFiles/Simulator.dir/src/operations/Gemm.cc.o
+[ 90%] Building CXX object CMakeFiles/Simulator.dir/src/operations/GemmOS.cc.o
+[ 91%] Building CXX object CMakeFiles/Simulator.dir/src/operations/GemmWS.cc.o
+[ 91%] Building CXX object CMakeFiles/Simulator.dir/src/operations/GlobalAvgPool.cc.o
+[ 91%] Building CXX object CMakeFiles/Simulator.dir/src/operations/KVCacheConcat.cc.o
+[ 92%] Building CXX object CMakeFiles/Simulator.dir/src/operations/MaxPool.cc.o
+[ 92%] Building CXX object CMakeFiles/Simulator.dir/src/operations/Operation.cc.o
+[ 92%] Building CXX object CMakeFiles/Simulator.dir/src/operations/OperationFactory.cc.o
+[ 92%] Building CXX object CMakeFiles/Simulator.dir/src/operations/SeriesInverseOp.cc.o
+[ 93%] Building CXX object CMakeFiles/Simulator.dir/src/operations/SkipLayerNorm.cc.o
+[ 93%] Building CXX object CMakeFiles/Simulator.dir/src/operations/Softmax.cc.o
+[ 93%] Building CXX object CMakeFiles/Simulator.dir/src/scheduler/IterLevelScheduler.cc.o
+[ 94%] Building CXX object CMakeFiles/Simulator.dir/src/scheduler/LanguageScheduler.cc.o
+[ 94%] Building CXX object CMakeFiles/Simulator.dir/src/scheduler/Scheduler.cc.o
+[ 94%] Building CXX object CMakeFiles/Simulator.dir/src/semantic/InstructionExport.cc.o
+[ 94%] Building CXX object CMakeFiles/Simulator.dir/src/semantic/ProgramModel.cc.o
+[ 95%] Building CXX object CMakeFiles/Simulator.dir/src/semantic/RwProbeModel.cc.o
+[ 95%] Building CXX object CMakeFiles/Simulator.dir/src/semantic/ScalarCostProbeModel.cc.o
+[ 95%] Linking CXX executable bin/Simulator
+[100%] Built target Simulator

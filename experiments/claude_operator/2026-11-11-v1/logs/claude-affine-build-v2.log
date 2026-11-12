@@ -1,0 +1,54 @@
+[  3%] Built target ramulator-controller
+[ 13%] Built target yaml-cpp
+[ 15%] Built target ramulator-base
+[ 16%] Built target ramulator-test
+[ 18%] Built target ramulator-frontend
+[ 18%] Built target ramulator-translation
+[ 18%] Built target ramulator-memorysystem
+[ 18%] Built target ramulator-addrmapper
+[ 22%] Built target ramulator-dram
+[ 23%] Built target ramulator
+[ 24%] Built target bundled_fmt
+[ 27%] Built target boost_program_options
+[ 54%] Built target libprotobuf
+[ 55%] Built target onnx_proto
+[ 58%] Built target ramulator1
+[ 77%] Built target booksim2
+[ 77%] Building CXX object CMakeFiles/Simulator.dir/cmake_pch.hxx.gch
+[ 77%] Building CXX object CMakeFiles/Simulator.dir/src/Common.cc.o
+[ 77%] Building CXX object CMakeFiles/Simulator.dir/src/Core.cc.o
+[ 78%] Building CXX object CMakeFiles/Simulator.dir/src/Dram.cc.o
+[ 78%] Building CXX object CMakeFiles/Simulator.dir/src/FormulaLogger.cc.o
+[ 78%] Building CXX object CMakeFiles/Simulator.dir/src/Hashing.cc.o
+[ 80%] Building CXX object CMakeFiles/Simulator.dir/src/Interconnect.cc.o
+[ 80%] Building CXX object CMakeFiles/Simulator.dir/src/Mapping.cc.o
+[ 80%] Building CXX object CMakeFiles/Simulator.dir/src/Model.cc.o
+[ 80%] Building CXX object CMakeFiles/Simulator.dir/src/Simulator.cc.o
+[ 81%] Building CXX object CMakeFiles/Simulator.dir/src/Sram.cc.o
+[ 81%] Building CXX object CMakeFiles/Simulator.dir/src/SystolicOS.cc.o
+[ 81%] Building CXX object CMakeFiles/Simulator.dir/src/SystolicWS.cc.o
+[ 82%] Building CXX object CMakeFiles/Simulator.dir/src/Tensor.cc.o
+[ 82%] Building CXX object CMakeFiles/Simulator.dir/src/TraceLogger.cc.o
+[ 82%] Building CXX object CMakeFiles/Simulator.dir/src/helper/CommandLineParser.cc.o
+[ 82%] Building CXX object CMakeFiles/Simulator.dir/src/inverse/affine_gemm_v1/AffineGemmModel.cc.o
+In file included from /usr/include/c++/13/memory:78,
+                 from /home/nanajiang/asim-worktrees/s1-clean/claude clean/.deps/asim-deps-v1/vendor/include/robin_hood.h:46,
+                 from /home/nanajiang/asim-worktrees/s1-clean/claude clean/src/Common.h:3,
+                 from /home/nanajiang/asim-worktrees/s1-clean/claude clean/build/CMakeFiles/Simulator.dir/cmake_pch.hxx:5,
+                 from <command-line>:
+/usr/include/c++/13/bits/unique_ptr.h: In instantiation of ‘std::__detail::__unique_ptr_t<_Tp> std::make_unique(_Args&& ...) [with _Tp = Tensor; _Args = {unsigned int, basic_string<char, char_traits<char>, allocator<char> >, const vector<unsigned int, allocator<unsigned int> >&, unsigned int&, const bool&}; __detail::__unique_ptr_t<_Tp> = __detail::__unique_ptr_t<Tensor>]’:
+/home/nanajiang/asim-worktrees/s1-clean/claude clean/src/inverse/affine_gemm_v1/AffineGemmModel.cc:276:43:   required from here
+/usr/include/c++/13/bits/unique_ptr.h:1070:30: error: binding reference of type ‘std::vector<unsigned int>&’ to ‘const std::vector<unsigned int>’ discards qualifiers
+ 1070 |     { return unique_ptr<_Tp>(new _Tp(std::forward<_Args>(__args)...)); }
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/nanajiang/asim-worktrees/s1-clean/claude clean/src/operations/Operation.h:5,
+                 from /home/nanajiang/asim-worktrees/s1-clean/claude clean/src/Model.h:6,
+                 from /home/nanajiang/asim-worktrees/s1-clean/claude clean/src/inverse/affine_gemm_v1/AffineGemmModel.h:7,
+                 from /home/nanajiang/asim-worktrees/s1-clean/claude clean/src/inverse/affine_gemm_v1/AffineGemmModel.cc:1:
+/home/nanajiang/asim-worktrees/s1-clean/claude clean/src/operations/../Tensor.h:10:70: note:   initializing argument 3 of ‘Tensor::Tensor(uint32_t, std::string, std::vector<unsigned int>&, int, bool)’
+   10 |   Tensor(uint32_t src_node, std::string name, std::vector<uint32_t> &dims,
+      |                                               ~~~~~~~~~~~~~~~~~~~~~~~^~~~
+gmake[3]: *** [CMakeFiles/Simulator.dir/build.make:333: CMakeFiles/Simulator.dir/src/inverse/affine_gemm_v1/AffineGemmModel.cc.o] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:444: CMakeFiles/Simulator.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:451: CMakeFiles/Simulator.dir/rule] Error 2
+gmake: *** [Makefile:209: Simulator] Error 2

@@ -15,6 +15,9 @@ class BootstrapTests(unittest.TestCase):
     def test_valid_offline_and_tamper_rejection(self):
         with tempfile.TemporaryDirectory() as tmp:
             r=Path(tmp);cache,spec,_=self.fixture(r);out=r/'installed';self.assertEqual(b.prepare(out,spec,'lock',cache,True),1);self.assertEqual(b.verify(out,spec,'lock'),1)
+            extra=out/'vendor/injected.cpp';extra.write_text('unlisted source')
+            with self.assertRaises(ValueError):b.verify(out,spec,'lock')
+            extra.unlink()
             (out/'vendor/a.h').write_text('corrupted')
             with self.assertRaises(ValueError):b.prepare(out,spec,'lock',cache,True)
     def test_bad_cached_sha_not_overwritten(self):
@@ -30,7 +33,9 @@ class BootstrapTests(unittest.TestCase):
                 self.assertFalse((r/'installed').exists());self.assertFalse((r/'escape').exists())
     def test_missing_offline_and_wrong_lock_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
-            r=Path(tmp);cache,spec,p=self.fixture(r);b.prepare(r/'installed',spec,'lock',cache,True)
+            r=Path(tmp);cache,spec,p=self.fixture(r)
+            with self.assertRaises(ValueError):b.artifact({'file':'../escape'},cache,False)
+            b.prepare(r/'installed',spec,'lock',cache,True)
             with self.assertRaises(ValueError):b.verify(r/'installed',spec,'other-lock')
             p.unlink()
             with self.assertRaises(ValueError):b.prepare(r/'other',spec,'lock',cache,True)

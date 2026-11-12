@@ -1,0 +1,46 @@
+{
+  "protocol": "claude-json-files-v1",
+  "source_response_sha256": "20bfdd919f635c6928c387efc9dee90fe6de0120aa40fa021397f03243364c5c",
+  "result_status": "success",
+  "configured_model": "deepseek-v4-pro",
+  "usage_reported_by_cli": {
+    "input_tokens": 4579,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 25605,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard"
+  },
+  "files": [
+    {
+      "path": "DOCS/operators/AFFINE_GEMM_DEMO_V1.md",
+      "bytes": 3981,
+      "sha256": "319f587598b872a88b6e40835b87100dca57646bb91af9ac29e4bb10a74a39d2"
+    },
+    {
+      "path": "src/inverse/affine_gemm_v1/AffineGemmModel.h",
+      "bytes": 386,
+      "sha256": "876781386d00b631efe5ceb24fe53f4751a1c89500837b6443b97e4974788a0f"
+    },
+    {
+      "path": "src/inverse/affine_gemm_v1/AffineGemmModel.cc",
+      "bytes": 9584,
+      "sha256": "ed706b89a56622e8a66c4b1a2d089ac2df8195d9fd9ffcb74180350109564c11"
+    }
+  ],
+  "protected_changes": [],
+  "human_cpp_edits": false
+}
