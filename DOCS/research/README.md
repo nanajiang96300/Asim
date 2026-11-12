@@ -1,5 +1,7 @@
 # Asim 研究与 Codex 自动化计划
 
+2026-11-12通用小模型规划：[Attention＋GELU＋全连接实施计划](TINY_ATTENTION_MODEL_PLAN.md)。已有Asim旧实现/周期分支，当前可信重放缺Softmax/GELU；拟以batch96单头小模型补齐原语→整图→三路径验证。本轮仅审计/设计，未声明模型已运行。
+
 2026-11-12新增[Claude Code完整使用手册](../CLAUDE_CODE_USER_GUIDE.md)：部署、新算子、迭代优化及OpenCode/其他平台接入指南；无数据离线源码包及解压/九组affine/六类回归验收见[交付报告](../../experiments/distribution/2026-11-12-claude-guide-v1/README.md)。OpenCode尚未实测，本轮不改算子算法。
 
 2026-11-12：S1两个全新Linux检出冷构建及六类门禁通过；Claude Code＋DeepSeek实际生成新仿射GEMM算子，反馈修复编译错误后，九组864batch真实Asim/重建与独立FP16逐位一致，最大FP64任务误差0.0353%。真实错误输入负例Asim正常但REPLAY_MISMATCH并拒绝评分。原六类新二进制回归状态以[本轮报告](../../experiments/claude_operator/2026-11-11-v1/README.md)为准；[使用与原理](CLAUDE_NEW_OPERATOR.md)、[便携构建验收](../../experiments/deployment/2026-11-11-s1-v1/README.md)。该任务不涉及无线通信，任务内demo分数不代表M3或S2整体完成。
