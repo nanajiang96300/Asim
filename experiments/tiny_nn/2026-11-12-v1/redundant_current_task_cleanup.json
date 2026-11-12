@@ -1,0 +1,98 @@
+{
+  "status": "REMOVED_REDUNDANT_COPIES",
+  "bytes_removed": 61960307,
+  "files": [
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/correct-runtime/bin/Simulator",
+      "bytes": 9319080,
+      "sha256": "a7b39f0eed3211d9fc5a2c0d160123952cf74c709ecc4f52c5b0505bb92ade85",
+      "restore_from": "/home/nanajiang/asim-worktrees/tiny-nn-primitives-v1/results/nn_runtime/v1/bin/Simulator",
+      "reason": "identical bytes already retained by immutable frozen runtime"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/correct-runtime/lib/libramulator.so",
+      "bytes": 4495472,
+      "sha256": "ae8cd3984288dc8a845df66194f93f03c16a962b20e6320c617cdfcdd3cdb8a8",
+      "restore_from": "/home/nanajiang/asim-worktrees/tiny-nn-primitives-v1/results/nn_runtime/v1/lib/libramulator.so",
+      "reason": "identical bytes already retained by immutable frozen runtime"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/correct-runtime-v2/bin/Simulator",
+      "bytes": 9323352,
+      "sha256": "f8578ac30c4278511dcd7efd120429f2e27ab80dd31134f1bf06fbd607773d94",
+      "restore_from": "/home/nanajiang/asim-worktrees/tiny-nn-primitives-v1/results/nn_runtime/v2/bin/Simulator",
+      "reason": "identical bytes already retained by immutable frozen runtime"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/correct-runtime-v2/lib/libramulator.so",
+      "bytes": 4495472,
+      "sha256": "ae8cd3984288dc8a845df66194f93f03c16a962b20e6320c617cdfcdd3cdb8a8",
+      "restore_from": "/home/nanajiang/asim-worktrees/tiny-nn-primitives-v1/results/nn_runtime/v2/lib/libramulator.so",
+      "reason": "identical bytes already retained by immutable frozen runtime"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/quick-v3/softmax-l32-d32-f64-s91001.tar.gz",
+      "bytes": 2670426,
+      "sha256": "dbc8fcb6c83aac34980ef1a488806d152b1d8ae814a68542c700d5a5060cc646",
+      "replacement": "results/tiny_nn/2026-11-12-v1/suite-v3/softmax-l32-d32-f64-s91001.tar.gz",
+      "reason": "same default frozen input/output/cycles in final complete suite, summary retained",
+      "restore": "obsolete compressed bytes retired; rerun historical Git source if exact prior archive needed"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/quick-v3/gelu-l32-d32-f64-s91001.tar.gz",
+      "bytes": 2835431,
+      "sha256": "d8be79bd86759c8cb348c51a87d6f8e1c011899e3608d4e43ac612f29e5a5e25",
+      "replacement": "results/tiny_nn/2026-11-12-v1/suite-v3/gelu-l32-d32-f64-s91001.tar.gz",
+      "reason": "same default frozen input/output/cycles in final complete suite, summary retained",
+      "restore": "obsolete compressed bytes retired; rerun historical Git source if exact prior archive needed"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/quick-v3/mlp-l32-d32-f64-s91001.tar.gz",
+      "bytes": 4537487,
+      "sha256": "bafd82d762d0c5c8d779091ba1c29f34dacd45ae6f485bfb878aa2ec8625992d",
+      "replacement": "results/tiny_nn/2026-11-12-v1/suite-v3/mlp-l32-d32-f64-s91001.tar.gz",
+      "reason": "same default frozen input/output/cycles in final complete suite, summary retained",
+      "restore": "obsolete compressed bytes retired; rerun historical Git source if exact prior archive needed"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/quick-v3/attention-l32-d32-f64-s91001.tar.gz",
+      "bytes": 7120136,
+      "sha256": "54932bfe725ddce9dd33a7197991f8fb50f3a1ff55115ea31855ccde007336b5",
+      "replacement": "results/tiny_nn/2026-11-12-v1/suite-v3/attention-l32-d32-f64-s91001.tar.gz",
+      "reason": "same default frozen input/output/cycles in final complete suite, summary retained",
+      "restore": "obsolete compressed bytes retired; rerun historical Git source if exact prior archive needed"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/quick-v4/softmax-l32-d32-f64-s91001.tar.gz",
+      "bytes": 2670345,
+      "sha256": "f86376e05cb68b6fafc427b9044a56d0dbbcf3203ed336ea3cc391ae77be1a31",
+      "replacement": "results/tiny_nn/2026-11-12-v1/suite-v3/softmax-l32-d32-f64-s91001.tar.gz",
+      "reason": "same default frozen input/output/cycles in final complete suite, summary retained",
+      "restore": "obsolete compressed bytes retired; rerun historical Git source if exact prior archive needed"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/quick-v4/gelu-l32-d32-f64-s91001.tar.gz",
+      "bytes": 2835471,
+      "sha256": "11a3d823b5289d43707ee58c072c447c78568bfe8403739b1eca8d8c513d394a",
+      "replacement": "results/tiny_nn/2026-11-12-v1/suite-v3/gelu-l32-d32-f64-s91001.tar.gz",
+      "reason": "same default frozen input/output/cycles in final complete suite, summary retained",
+      "restore": "obsolete compressed bytes retired; rerun historical Git source if exact prior archive needed"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/quick-v4/mlp-l32-d32-f64-s91001.tar.gz",
+      "bytes": 4537575,
+      "sha256": "ae0210f2de91fadb0b908b59a05131b9ca423992669c3f554bc071a1612b2eea",
+      "replacement": "results/tiny_nn/2026-11-12-v1/suite-v3/mlp-l32-d32-f64-s91001.tar.gz",
+      "reason": "same default frozen input/output/cycles in final complete suite, summary retained",
+      "restore": "obsolete compressed bytes retired; rerun historical Git source if exact prior archive needed"
+    },
+    {
+      "path": "results/tiny_nn/2026-11-12-v1/quick-v4/attention-l32-d32-f64-s91001.tar.gz",
+      "bytes": 7120060,
+      "sha256": "18f555447c9472221d6e250074ba87920b4d2e085397ce1e7f085ecd843c86d8",
+      "replacement": "results/tiny_nn/2026-11-12-v1/suite-v3/attention-l32-d32-f64-s91001.tar.gz",
+      "reason": "same default frozen input/output/cycles in final complete suite, summary retained",
+      "restore": "obsolete compressed bytes retired; rerun historical Git source if exact prior archive needed"
+    }
+  ]
+}

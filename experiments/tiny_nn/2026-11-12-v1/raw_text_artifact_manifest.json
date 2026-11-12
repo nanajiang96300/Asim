@@ -1,0 +1,461 @@
+{
+  "schema": "tiny-nn-raw-text-evidence-v1",
+  "files": [
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/CONTINUE.md",
+      "bytes": 10543,
+      "sha256": "ae65f6ae96ca387f99420e040edf4e63621bcaccc9af9258abf71db2059c02ab"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/affine-regression-v1.log",
+      "bytes": 5746,
+      "sha256": "09e52903482f5b098110253d33e1e040bb4f06881efc1766a2f3505ed2d2a42a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/api-final-build-2.log",
+      "bytes": 4777,
+      "sha256": "00b1b0c583c22ca48e420cfbf4f4eab22f8d99e67cfbcee13f209329d290bef9"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/api-final-build.log",
+      "bytes": 4718,
+      "sha256": "be8f66df4056a110e2a57717814af3f4df6521d42915ebd347d970283a2e9d3c"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/archive-audit.json",
+      "bytes": 5403,
+      "sha256": "ef48e94bc906b94e5312abf1a5f5e9b4cd83277990f8727a5aad7f7bb0e4768a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/archive_paper.py",
+      "bytes": 3881,
+      "sha256": "1952fe8f37a57ec059b5372d4abe3e066abbd51279ca009fdf9e4666650d5a7e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/assemble_report.py",
+      "bytes": 3152,
+      "sha256": "df5efaa7193f3cec1ea735580066a5c1a21f7adfbdd9f65aa1b4173e17bde17b"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/audit_archives.py",
+      "bytes": 2126,
+      "sha256": "67db71aa90a8ca79027d656bde3c9b605bfc0c4913661922616c51cbc495a1d1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/bad-pin-v2.json",
+      "bytes": 40645,
+      "sha256": "6d38fca5de69c77feafef185ed18daf54fef4b0de75d8a0dc5b106bf13d598aa"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/binary_guard_checks.py",
+      "bytes": 2426,
+      "sha256": "e9fd6f2e5ddea9a83c011b13131ae663f86f3ede1c0f5d10dac6f2f7a6abca5b"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/binary_guard_checks_v2.py",
+      "bytes": 2541,
+      "sha256": "b05bda6718f9e0f8a00ecbdf49687270f98e7f3cde91ad57bf528b7aca825927"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/build-final-check.log",
+      "bytes": 597,
+      "sha256": "e7de5b05793df0ded4a9f35419f6f73fa6056d3af3e1db86fa887d28b19bd765"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/build-v1.log",
+      "bytes": 118652,
+      "sha256": "40a7401028c9facc6e3cecab8030bce7ef526c93a1abdc41de84a51b81be36e3"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/build-v2.log",
+      "bytes": 722,
+      "sha256": "64dffea8aeed42cf66478d5e051b2634e9a68c7f38b22a838e15cfb7d811508c"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/calibration.json",
+      "bytes": 564,
+      "sha256": "2854f3e3ee8339115e7bf5e8c3c5eaffbe50e013d3eb1340db0e4da91947cc47"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-acceptance-driver.log",
+      "bytes": 30,
+      "sha256": "5cf8c2b1b36f4617b3a49121f23d1e7c3192aa6fc928f4c2d16152ca93158f3e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-affine.log",
+      "bytes": 5749,
+      "sha256": "9e6a2c4c9b3f0b80384ffef553b171de416c011784e5b15f5948374e9b857536"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-build-receipt.json",
+      "bytes": 475,
+      "sha256": "fe665f438219eeae3e69ccf643f97167b6a021722db502ab5248c4caeee74d38"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-build-v2.log",
+      "bytes": 128352,
+      "sha256": "acc5cccce29c2bc1904cba26675c9dcd1cb65e7b8cdd2e4d38c6564bee1aa06e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-files-check.log",
+      "bytes": 113,
+      "sha256": "78c64e2010dc8d6db046d9bcefa5670723ccde08ddf2df9697ecff55251dc016"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-final-source-check.json",
+      "bytes": 113,
+      "sha256": "78c64e2010dc8d6db046d9bcefa5670723ccde08ddf2df9697ecff55251dc016"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-freeze.log",
+      "bytes": 133,
+      "sha256": "86268af772e5790c78c7e85bf16cac6e236c543f9eafd2bf5f9a3ff5d0597ba7"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-generated-cache-cleanup.json",
+      "bytes": 3401373,
+      "sha256": "6d8f531b145a035385af6f80f1a27df77c74f46a947b0db70e2538193c73bb95"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-import.log",
+      "bytes": 353472,
+      "sha256": "b6aafb020d926562d7fe430eb53342b357cb4206c27b952f9fff1deeb0ef0ef8"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-local-runtime-pin.json",
+      "bytes": 48686,
+      "sha256": "aefb1f8d774e355af9255cc2c7dec90276caa5e5f726528098a64eafaba4626b"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-nn-quick.log",
+      "bytes": 2515,
+      "sha256": "6db00cec169ef982f113a6168dd773b2fe349693cbc05d8bdba3ee09c740d8ef"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-nn-suite.log",
+      "bytes": 22560,
+      "sha256": "912b2f086ea3e68376340c6626f2dbee6f0dde6a4f5970e7edfd29964d4a634f"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-numerical-tests.log",
+      "bytes": 376,
+      "sha256": "1d289f1b249048e9b26edd72df8453f40215b2a337f3256fd5a4ed08f9e9c5f3"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-pinned-quick.log",
+      "bytes": 2514,
+      "sha256": "a23cc5d90472db484df9e8383ff998590e25a135e9db958814da01da50c7df81"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-six.log",
+      "bytes": 4619,
+      "sha256": "d9086629a6667beb341fb9931918f7f6e80b602ee3406f62f889b4015cfc491f"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold-top-tests.log",
+      "bytes": 106,
+      "sha256": "833af8ba6fd734ac45299e0d9055beaf978ada37598f7c54df8d6ea27b95c9f1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/cold_acceptance_driver.py",
+      "bytes": 4918,
+      "sha256": "d5f3fb7898b670ae67a13fe9d8b9dc1a816638100ec5246e24a9f932e144ce44"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/delivery-files-check.json",
+      "bytes": 113,
+      "sha256": "78c64e2010dc8d6db046d9bcefa5670723ccde08ddf2df9697ecff55251dc016"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/delivery-validation.json",
+      "bytes": 10193,
+      "sha256": "0fecffcc9a1cfc870ca69de46f97bd6bdfd8c087e1e40f1523036286532d94dc"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/duplicate_cartesian.json",
+      "bytes": 518209,
+      "sha256": "e1f5e88a024f851ab145720bf77483beed9fe5ff3b5032fc1185b7a28255c4a6"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/duplicate_cartesian.log",
+      "bytes": 600,
+      "sha256": "4721f741f1fd61ccb1b347b931639cfea07c8aff70577526878d48624b04ca53"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/environment.json",
+      "bytes": 443,
+      "sha256": "1ac3ed478edbcf6a0333f176f293ae47ae1d929dffc25c08bf1248fa37b906ce"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/feature_build_cache_retirement.json",
+      "bytes": 225368,
+      "sha256": "812ab5ea6d397158c71a7d77e11cb709cc78eaa99cb03675a61ff9aae58a5dc5"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/final_deps_cleanup.json",
+      "bytes": 3179865,
+      "sha256": "caee94f5d48384da8da5333367e368a32c54fb7eb03ade5d532b48e7328d0baf"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/finalize_report.py",
+      "bytes": 2985,
+      "sha256": "afb41003cedb59569aca7c23736a085a75f9768f10fe285d86219272719c96de"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/freeze-v2.log",
+      "bytes": 133,
+      "sha256": "972db6954f44b03fd728c8417e593f70817f87712fd903cd8a217741d6f039c1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/gdb-first.log",
+      "bytes": 5642,
+      "sha256": "c7629172c002e73e5d167bbc6711d80575d91a5f0a8b9cacdd252697ec111f17"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/git-diff-check.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/guard-summary-v2.json",
+      "bytes": 1278,
+      "sha256": "e3c4bd4fb873934c60bc3498ee7b713966805ec0ccf8c90709a0ce3d9c7de055"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/guard-summary.json",
+      "bytes": 1082,
+      "sha256": "4112508a5bec6b27e42fe9652f94703f834e8e21c190bcf938b9f3b651ebebcd"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/guards-v2.log",
+      "bytes": 996,
+      "sha256": "a3dc905e1f7db6d68d8eee85124649ee34b4fd00ceabedb4fb55332c3719b60b"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/guards.log",
+      "bytes": 836,
+      "sha256": "cd34c16c692d03643d3c74b8a5f52abf301a41d6487f3316eead72dd984ee2df"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/negative-build-v2.log",
+      "bytes": 4718,
+      "sha256": "be8f66df4056a110e2a57717814af3f4df6521d42915ebd347d970283a2e9d3c"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/negative-build.log",
+      "bytes": 722,
+      "sha256": "64dffea8aeed42cf66478d5e051b2634e9a68c7f38b22a838e15cfb7d811508c"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/negative-summary-v2.json",
+      "bytes": 34455,
+      "sha256": "979617b07781341f1d92cab3d68ee2b3da604a169cbd17025b43ad3324821819"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/negative-summary.json",
+      "bytes": 34436,
+      "sha256": "c14d58450f2f154bf72cd44aa77916fd838e55339576d00b98051944a5e60169"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/negative-v2.log",
+      "bytes": 394,
+      "sha256": "0b24d6a9efee2fb02db6e5b23c899d655692c6f16e052153138696a053c03d80"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/negative.log",
+      "bytes": 375,
+      "sha256": "612657bc4e27ef587598a50e13e84d80d205ae6aab91772c5e56f5dccd2b3c9e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/negative_k_check.py",
+      "bytes": 2155,
+      "sha256": "89a734f054221fbc12f38899462c13be50ec6c97fc8cdee245aded0b87ef4f83"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/negative_k_check_v2.py",
+      "bytes": 2177,
+      "sha256": "991343cdd0c7663004874877a520d090dcc456cd9f11d9d7717fe14e9c40405d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/new_build_cache_cleanup.json",
+      "bytes": 3180018,
+      "sha256": "a3e94ab32096e4a835069cdd77034c585a641fac6d0dd38c415f0792d21edd96"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/old_delivery_expansion_cleanup.json",
+      "bytes": 3132451,
+      "sha256": "83cdc3c5751bc1ebf5621629264955cafd7da837b78bf3062345eee1662f3164"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/old_owned_build_cache_cleanup.json",
+      "bytes": 532230,
+      "sha256": "bf46b7d7cc3108f797ac148c494031f403d7bd9cade4757167d1ba0cd8af43e6"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/old_owned_deps_cleanup.json",
+      "bytes": 2890451,
+      "sha256": "7d287cbd8241057a1bab4cb0b5247e56fba59f80e11474f67a84ff53f23e96f8"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/package-stage-cleanup.json",
+      "bytes": 876927,
+      "sha256": "d494fee9d43f929c63d00e7ac8a12280c46f64f60a34ab74b3df60759b769c1a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/package-v2.json",
+      "bytes": 365,
+      "sha256": "4fd52ee1e666ac93202e7a741ea4c21cafbf78fe7dd92ca2894acc1357225212"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/pinned-quick-v2.log",
+      "bytes": 2520,
+      "sha256": "04fcf4f1cfd519e1719e38dbfa33a7d72ebf7f49c2695e776d37e678881614fc"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/pinned-quick.log",
+      "bytes": 2517,
+      "sha256": "48cdaae7c21a61fa1d58adcfca59e2711572cb3484e88443dc5d9a0892f0da3a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/portable-tests-final-v2.log",
+      "bytes": 106,
+      "sha256": "b7daee1dd6b93b470651c1d1c37682587bf0709c0b1d5aeb367d88677fc6475e"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/publication-negatives.json",
+      "bytes": 781,
+      "sha256": "f184d6848463e25e96d09c6dcb6a2b3dae63e3fc9392c2f22c42cfa779ece6c3"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/quick-v1.log",
+      "bytes": 482,
+      "sha256": "add00160a121c11c476156e1d240681857c60a9a3ca48a2ea272b093b457b921"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/quick-v2.log",
+      "bytes": 2498,
+      "sha256": "0592b2de5c22684ad1cb2e38e482e5fb81de1187f655a7327905bbca831fa1ab"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/quick-v3.log",
+      "bytes": 2518,
+      "sha256": "6cee6d8c283485d6479b6b2c150f3243a1fc99bc84df01ced82f37a562a04ca9"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/quick-v4.log",
+      "bytes": 2515,
+      "sha256": "aa35b92d853074b8174a19b53838b1970d989f8d0596173531d51898ba3f8bff"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/redundant_current_task_cleanup.json",
+      "bytes": 5831,
+      "sha256": "653c54f20dc4ee59f94d280f421d456f85d14e11ed19fa959762fe8bc2421e02"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/restore-build-v2.log",
+      "bytes": 74,
+      "sha256": "a891c3bdcbb5d1bb2b0cae5d1abb0f94d2883af25a7147f564c0f63bd6f5e464"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/restore-build.log",
+      "bytes": 722,
+      "sha256": "64dffea8aeed42cf66478d5e051b2634e9a68c7f38b22a838e15cfb7d811508c"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/restore-deps-final.log",
+      "bytes": 27,
+      "sha256": "c17a842fc8cc120deae86c7cc62fdadb8bd9229d644aff7023496b478a44b7e1"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/restore.json",
+      "bytes": 277,
+      "sha256": "e3d3e9ae5c348e7f81221dc36d001dae4994784c323139ebd01cb70f929620a8"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/retire_duplicate_intermediates.py",
+      "bytes": 1786,
+      "sha256": "9f954ef265fe2137bfeba25b5c9973659d98c5238aa2188f04bdd1eac2466ed9"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/retired_duplicate_intermediates.json",
+      "bytes": 39741,
+      "sha256": "d21fcc0a0729255a3f8c23c5a822bba8150b0241ee0a4c0b13fe6dea9efb4ef2"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/six-regression-v2.log",
+      "bytes": 3595,
+      "sha256": "225ad74f5353e006afd2ad9f8da76ff374f39702563a4f1f32de7bf6ea1befe8"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/six-regression-v3.log",
+      "bytes": 4615,
+      "sha256": "c307a6b73c77819f3d84706d0fac1a9aaf754e4ae9a056b447f24fcad055e75d"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/six-regression.log",
+      "bytes": 4618,
+      "sha256": "277c57fc8b13982b6beb075b6a93cdbe0736992d3cff6d03b4fcd56576ea4278"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/source_fingerprint_drift.json",
+      "bytes": 518213,
+      "sha256": "1f919bfed5b04a7253a06b0046f2034818174eca86e64b2a920d7d40a2c76613"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/source_fingerprint_drift.log",
+      "bytes": 803,
+      "sha256": "688e6c35e5519a07e974c1173e424a176b7fec374500fff9efb29d9858b99917"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v1.log",
+      "bytes": 22557,
+      "sha256": "5266f983e3b4c28d1277a085e48e8dc92bcd2cb1d99f15f96313d5ab17f22476"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v2.log",
+      "bytes": 22541,
+      "sha256": "84f7aa0c871112c2c5d38d709bb5020846e167acb0c056e26613b13c3583b39a"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/suite-v3.log",
+      "bytes": 22560,
+      "sha256": "7604f267a36a984fdeaa90638e62c29f641f662e455ba16b6909290c21574bea"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/synthetic-negative-summary.json",
+      "bytes": 1374,
+      "sha256": "07280b7ff8ff26cd612f3ef925cfd740065041129d8489bad23f70684b604bd4"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/synthetic_negative_checks.py",
+      "bytes": 2985,
+      "sha256": "9af88d4e14fbbaefb80c0488a4202a59b6e81a51bb76b183c3dfbb2104d84de8"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/unit-final-v2.log",
+      "bytes": 376,
+      "sha256": "018794dedf03e2d418786a3bb9a5a76800245772d1e7a2e3331f549861ce3bfc"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/unit-final.log",
+      "bytes": 1139,
+      "sha256": "0edd3dcb1fa3da5520f8e95974eb985cd914765efdda2102ddf4365ed4626d99"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/unit-v1.log",
+      "bytes": 373,
+      "sha256": "526e3cc85bca5b5cac01cd30472e26fc8481e6f1adcd9bed10a671af1293ce86"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/unit-v2.log",
+      "bytes": 374,
+      "sha256": "dfb95de66af2e22fbe3a7ac39517d0ffb73840b7636525375eb7587cb83eea55"
+    },
+    {
+      "path": "/home/nanajiang/Asim/results/tiny_nn/2026-11-12-v1/unit-v3.log",
+      "bytes": 376,
+      "sha256": "bc5b508f98a3f26bfbb18d021fce78ea543de171761a9597572b43769775ed50"
+    }
+  ],
+  "notice": "full case archive SHA maps separately in suite summaries; this is a finalization snapshot, subsequent publication metadata may be appended"
+}

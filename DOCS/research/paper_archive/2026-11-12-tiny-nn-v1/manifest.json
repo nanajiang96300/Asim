@@ -1,0 +1,90 @@
+{
+  "schema": "paper-archive-v1",
+  "archive_id": "2026-11-12-tiny-nn-v1",
+  "capture_commit": "7ed442087546dcf20eb9c5dfed5a63cf770048be",
+  "status": "BOUNDED_NN_MODEL_AND_COLD_DELIVERY_CHECKED",
+  "implementation_source_commit": "b6e688ce",
+  "cpp_source_commit": "16c28f7a",
+  "source_package_commit": "c84c3ce0e09aa00846eda0f2a526d52aeeaeae5c",
+  "snapshots": [
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/README.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/README.md",
+      "bytes": 8727,
+      "sha256": "cacaba4342d2d5f8479f79b48c7207a99813c722f2ed8e6fc35d31f602e7c413"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/cases.csv",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/cases.csv",
+      "bytes": 7737,
+      "sha256": "b8cf0f7bfc1aa056ea585f2996837986585111fd7101f5c7e563093231b7179a"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/evidence_manifest.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/evidence_manifest.json",
+      "bytes": 208428,
+      "sha256": "f3cc57bab5c57fe6d663d50dabd5b70ce1d7cf1575733391dccc70664e6e475f"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/delivery-validation.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/delivery-validation.json",
+      "bytes": 10193,
+      "sha256": "0fecffcc9a1cfc870ca69de46f97bd6bdfd8c087e1e40f1523036286532d94dc"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/INDEPENDENT_REVIEW.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/INDEPENDENT_REVIEW.md",
+      "bytes": 1518,
+      "sha256": "4cb88668992ed0a1de141e9c6c94ea4101cf6622b39bffb9095ed3c2a856e974"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/archive-audit.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/archive-audit.json",
+      "bytes": 5403,
+      "sha256": "ef48e94bc906b94e5312abf1a5f5e9b4cd83277990f8727a5aad7f7bb0e4768a"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/real-negative.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/real-negative.json",
+      "bytes": 34455,
+      "sha256": "979617b07781341f1d92cab3d68ee2b3da604a169cbd17025b43ad3324821819"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/synthetic-negative-summary.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/synthetic-negative-summary.json",
+      "bytes": 1374,
+      "sha256": "07280b7ff8ff26cd612f3ef925cfd740065041129d8489bad23f70684b604bd4"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/preflight-negatives.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/preflight-negatives.json",
+      "bytes": 1278,
+      "sha256": "e3c4bd4fb873934c60bc3498ee7b713966805ec0ccf8c90709a0ce3d9c7de055"
+    },
+    {
+      "source": "experiments/tiny_nn/2026-11-12-v1/publication-negatives.json",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/experiments/tiny_nn/2026-11-12-v1/publication-negatives.json",
+      "bytes": 781,
+      "sha256": "f184d6848463e25e96d09c6dcb6a2b3dae63e3fc9392c2f22c42cfa779ece6c3"
+    },
+    {
+      "source": "DOCS/operators/NN_PRIMITIVES_V1.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/DOCS/operators/NN_PRIMITIVES_V1.md",
+      "bytes": 5367,
+      "sha256": "18c7d823979f6c1e3c607967061c4a09250e8035fe8081525dc12045d611c2ee"
+    },
+    {
+      "source": "DOCS/research/TINY_ATTENTION_MODEL_PLAN.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/DOCS/research/TINY_ATTENTION_MODEL_PLAN.md",
+      "bytes": 10923,
+      "sha256": "7df208bc6058abc08ee924e356131144acb2d5f97e41174ec38ac3163c375ca9"
+    },
+    {
+      "source": "DOCS/CLAUDE_CODE_USER_GUIDE.md",
+      "snapshot": "DOCS/research/paper_archive/2026-11-12-tiny-nn-v1/snapshots/DOCS/CLAUDE_CODE_USER_GUIDE.md",
+      "bytes": 21672,
+      "sha256": "2550709f3d74115441a400d46ae69a94fa196410b260834e4d3174a3aaad51c5"
+    }
+  ],
+  "scope": "real Asim + actual replay + independent FP16/FP64; four trusted graph families, 36 fixed cases, new-path cold reproduction on same Linux host; not training/wireless/arbitrary ONNX/hardware/promotion"
+}
