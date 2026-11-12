@@ -84,7 +84,6 @@ class NNGraphOperation:public Operation {
 };
 }
 void NNGraphModel::initialize_model(std::vector<std::unique_ptr<Tensor>>&) {
- _root_node_id=get_id(); // External root is this model, never an indeterminate base field.
  validate_graph(_model_config);
  std::map<std::string,std::string> attrs;auto op=std::make_unique<NNGraphOperation>(_config,this,_model_config,attrs);uint32_t B=_model_config.at("batch_size");auto g=_model_config.at("graph");
  for(auto in:g["inputs"]){std::vector<uint32_t> dims;if(in.value("batched",false))dims.push_back(B);dims.push_back(in["shape"][0]);dims.push_back(in["shape"][1]);auto t=std::make_unique<Tensor>(get_root_node_id(),name_gen(get_name(),in["name"].get<std::string>()),dims,_config.precision,true);t->set_produced();auto id=t->get_id();add_tensor(std::move(t));op->add_input(id);}
