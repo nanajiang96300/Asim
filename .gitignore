@@ -37,3 +37,6 @@ expert_delivery/*
 
 # Versioned dependencies installed locally; no source/build caches in Git
 .deps/
+
+# Offline source-delivery dependency assets
+/offline_cache/

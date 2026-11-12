@@ -11,3 +11,5 @@
 历史Claude iterate、eval-patch/opt-round/verify技能仍保留，仅作旧流程，不自动使用旧分数晋级。精简前原CLAUDE文档可从archive/asim-research-20261111恢复。
 
 新算子受监督示例：先读DOCS/research/CLAUDE_NEW_OPERATOR.md；scripts/claude_codegen.py只收三文件提议，scripts/affine_acceptance.py负责真实Asim/重建/独立参考/任务内评分。生成成功不等于验收，不能改参考或门限。
+
+专家完整使用说明：DOCS/CLAUDE_CODE_USER_GUIDE.md，覆盖源码包初始化、六类运行、新算子、内循环优化及平台扩展。
