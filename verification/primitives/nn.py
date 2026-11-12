@@ -5,13 +5,14 @@ CONTRACT='nn-vector-v1'
 
 def validate_instruction(i,profile):
     s=i['semantic'];code=i['opcode']
+    if code not in (8,22):raise Unsupported('unknown NN unary opcode')
     if profile!='modeled_fp16_fp32_nn_v1':raise Unsupported('NN primitive requires declared nonlinear precision profile')
     if s.get('kernel_contract')!=CONTRACT:raise Unsupported('unknown NN kernel contract')
     if len(s.get('src',[]))!=1:raise Invalid('NN unary arity')
     a=s['src'][0];d=s['dst'];m,n=d['rows'],d['cols']
     if (a['rows'],a['cols'])!=(m,n) or any(v[k] for v in [a,d] for k in ['row','col','transpose','conjugate']):raise Unsupported('NN full matching unary views required')
     if (i['m'],i['k'],i['n'])!=(m,n,n) or i['compute_size']!=(n*4 if code==8 else m*n*4) or i['size']!=(m*n*2+63)//64:raise Invalid('NN workload mismatch')
-    if code==8 and s.get('axis')!=-1:raise Unsupported('softmax axis unsupported')
+    if code==8 and (type(s.get('axis')) is not int or s.get('axis')!=-1):raise Unsupported('softmax axis unsupported')
     if code==22 and s.get('formula')!='gelu_tanh_f32_v1':raise Unsupported('GELU formula unsupported')
 
 def softmax_f32(x):
