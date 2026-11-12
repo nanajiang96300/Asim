@@ -41,10 +41,13 @@ class NNGraphOperation:public Operation {
   if(_config.precision!=2 || _config.num_cores!=24 || _config.dram_req_size!=64 || B!=96 || graph["nodes"].empty() || graph["nodes"].size()>64 || graph["inputs"].size()>32)throw std::runtime_error("NN graph budget/profile");
   for(uint32_t b=0;b<B;++b){
    auto tile=std::make_unique<Tile>(Tile{.status=Tile::Status::INITIALIZED,.optype=_optype,.layer_id=_id,.batch=b,.core_id=static_cast<int>(b%24)});
-   std::map<std::string,json> views;json regions=json::array();addr_type next=SPAD_BASE;
-   auto alloc=[&](std::string name,json shape){uint32_t m=shape[0],n=shape[1];if(!m||!n||m>128||n>128||m*n*2%64)throw std::runtime_error("NN region shape/tail");auto base=next;next+=uint64_t(m)*n*2;regions.push_back(region(base,m,n,name));views[name]=view(base,0,0,m,n);};
-   for(auto in:graph["inputs"])alloc(in.at("name"),in.at("shape"));
-   for(auto node:graph["nodes"]) {std::string id=node.at("id");if(views.count(id))throw std::runtime_error("duplicate NN tensor");alloc(id,node.at("shape"));}
+   std::map<std::string,json> views;json regions=json::array();addr_type next=SPAD_BASE,next_acc=ACCUM_SPAD_BASE;
+   auto alloc=[&](std::string name,json shape,bool acc){uint32_t m=shape[0],n=shape[1];if(!m||!n||m>128||n>128||m*n*2%64)throw std::runtime_error("NN region shape/tail");auto& cursor=acc?next_acc:next;auto base=cursor;cursor+=uint64_t(m)*n*2;regions.push_back(region(base,m,n,name));views[name]=view(base,0,0,m,n);};
+   for(auto in:graph["inputs"])alloc(in.at("name"),in.at("shape"),false);
+   for(auto node:graph["nodes"]) {std::string id=node.at("id");if(views.count(id))throw std::runtime_error("duplicate NN tensor");alloc(id,node.at("shape"),true);}
+   for(uint32_t core=0;core<24;++core)
+    if(uint64_t(next-SPAD_BASE)+32768>uint64_t(_config.core_config[core].spad_size)*1024/2 || uint64_t(next_acc-ACCUM_SPAD_BASE)>uint64_t(_config.core_config[core].accum_spad_size)*1024/2)
+     throw std::runtime_error("NN graph exceeds actual bank capacity");
    addr_type sync=next;regions.push_back(region(sync,1,16384,"sync"));
    record_source_regions(regions,1,1);_numeric_header["schema"]="source-views-program-v1";_numeric_header["profile"]="modeled_fp16_fp32_nn_v1";
    _numeric_header["precision_policy"]=cfg_.at("precision_policy");_numeric_header["task_contract"]=cfg_.at("task_contract");_numeric_header["algorithm"]=cfg_.at("algorithm");

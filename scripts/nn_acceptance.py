@@ -39,7 +39,7 @@ def check_nonlinear_cost(path,config):
 
 def main():
     a=argparse.ArgumentParser(description=__doc__);a.add_argument('--binary',type=Path,default=ROOT/'build/bin/Simulator');a.add_argument('--output',type=Path,required=True);a.add_argument('--runtime',type=Path);a.add_argument('--kind',choices=['all','softmax','gelu','mlp','attention'],default='all');a.add_argument('--quick',action='store_true');a.add_argument('--keep-raw',action='store_true');v=a.parse_args()
-    out=v.output.resolve();out.mkdir(parents=True,exist_ok=False);binary=v.binary.resolve();config=json.loads((ROOT/'configs/ascend_910b_quiet.json').read_text());config['precision']=2
+    out=v.output.resolve();out.mkdir(parents=True,exist_ok=False);binary=v.binary.resolve();config=json.loads((ROOT/'configs/ascend_910b_nn_v1.json').read_text());config['precision']=2
     config['dram_config_path']=str(ROOT/'configs/ramulator2_configs/HBM2.yaml');config['icnt_config_path']=str(ROOT/'configs/booksim2_configs/fly_c1_m2.icnt')
     os.environ['LD_LIBRARY_PATH']=str(binary.parent.parent/'lib');os.environ['OPENBLAS_NUM_THREADS']='1';os.environ['OMP_NUM_THREADS']='1'
     runtime_spec=None
