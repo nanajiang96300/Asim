@@ -1,5 +1,7 @@
 # Asim 研究与 Codex 自动化计划
 
+2026-11-12新增通用小模型计划：专家目标是Attention＋非线性＋全连接推理仿真。源码审计确认Asim有旧Softmax/GELU周期分支，可信重建尚缺对应语义；拟以B96/L32/D32/FF64单头模型分阶段验证。当前仅设计，未改算子或运行新模型。计划在精简共享分支DOCS/research/TINY_ATTENTION_MODEL_PLAN.md（core17232a30），[查看计划](https://github.com/nanajiang96300/Asim/blob/codex/asim-core-v1/DOCS/research/TINY_ATTENTION_MODEL_PLAN.md)。已交付压缩包保持封存版本。
+
 2026-11-12：精简分支完成双全新Linux源码构建及六类门禁；Claude Code＋DeepSeek实际生成新affine算子、编译反馈修复、九组864batch重建/双参考/任务内评分通过，真实语义错误被拒绝，新二进制六类回归通过。源码仍在独立worktree，详见[最新双客户端交接](DUAL_CLIENT_HANDOFF.md)，旧研究与默认BRI基线保留。
 
 2026-11-11：完整研究已推送GitHub并归档；精简共享核心和Codex/Claude Code（DeepSeek）两个开发分支已建立、验收并推送。原工作区保留；后续从独立精简工作区开发。已完成S0监督入口，S1便携Git构建整合与S2真实候选闭环待做。见[版本/目录交接与下一步](DUAL_CLIENT_HANDOFF.md)。
