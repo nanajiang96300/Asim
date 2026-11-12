@@ -1,6 +1,6 @@
 # Asim 精简共享核心：Codex / Claude Code
 
-当前入口：[双客户端架构与分阶段计划](DOCS/research/AGENT_WORKFLOW.md)、[研究索引](DOCS/research/README.md)。本轮S0完成清理/统一受监督入口，不含全新Git clone便携构建整合与无人值守协调器。企业独立部署暂用已验收expert_delivery源码包。
+当前入口：[双客户端架构与分阶段计划](DOCS/research/AGENT_WORKFLOW.md)、[研究索引](DOCS/research/README.md)。S1已完成两个全新Linux检出的便携构建与六类门禁，部署见[BUILDING.md](BUILDING.md)。Claude Code＋DeepSeek新算子示例及Python→指令→数值重建说明见[新算子工作流](DOCS/research/CLAUDE_NEW_OPERATOR.md)。持久无人值守协调器后置。
 
 以下原项目说明保留为历史参考；旧构建路径/旧评分口径以当前研究索引及任务契约为准。
 

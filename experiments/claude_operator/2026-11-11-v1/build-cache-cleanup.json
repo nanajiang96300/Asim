@@ -1,0 +1,357 @@
+{
+  "reason": "new owned S1/S2 build cache only, after all C++ builds and restored correct binary; retain source, dependency cache, executable, libraries and results",
+  "restore": "bootstrap restores dependencies and reconfigures/rebuilds -j1; old research untouched",
+  "logical_bytes_removed": 255260072,
+  "files": [
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/claude clean/build/CMakeFiles/Simulator.dir/cmake_pch.hxx.gch",
+      "bytes": 205219808,
+      "sha256": "1f16ca5f7a6fe7a74c9dd23ca06a8ae777bc235055655c28dd95fdfba0082190"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Model.cc.o",
+      "bytes": 762928,
+      "sha256": "c2e64d0857db624ea2843beea903f8a45b7f0e869174f153c49976fab3203250"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Core.cc.o",
+      "bytes": 918672,
+      "sha256": "8155ff9e9ecac8418e364623582d966761417094627fca1db381f97bd4dadccc"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Simulator.cc.o",
+      "bytes": 759744,
+      "sha256": "2b05057cfecd754ab93c390d9843c6409089eb0a22fd6542cdc84d421a97fc38"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/SystolicOS.cc.o",
+      "bytes": 596024,
+      "sha256": "a874987e36729c81402c851a269f7ac2e7233b9066f3539aee467acfabde15bb"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Common.cc.o",
+      "bytes": 747032,
+      "sha256": "c5fd7e36998c590721834d78b1b828ae7fe253224b574e3a97df815c559196a6"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Mapping.cc.o",
+      "bytes": 698208,
+      "sha256": "66349eacca8a360cdc6e5cdb479680401f5e3b653cf4b6e303e05ed8bf3e5b92"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/main.cc.o",
+      "bytes": 1015304,
+      "sha256": "070b7b04f14c167b5de43272c8e59a57978419e874ed0bb9247a415e2bb69008"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/TraceLogger.cc.o",
+      "bytes": 583960,
+      "sha256": "824ce822329bb4a61098ba299ee61fa814bf4336e32bacfc91d3f9061bce4c8d"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/FormulaLogger.cc.o",
+      "bytes": 769016,
+      "sha256": "9655b62cd80b361bf937ab6eb45f1584611eb4747633f679be5a1f96d15ecaa0"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Interconnect.cc.o",
+      "bytes": 681312,
+      "sha256": "1390c5192e5efbee53fced971699fca492f012800ff292c6f2b6763506fc1f91"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Sram.cc.o",
+      "bytes": 654456,
+      "sha256": "89f44df4a6df248d1db0d36df260375c0d40fe053e1ed90c2a1336629a8d6775"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/SystolicWS.cc.o",
+      "bytes": 806176,
+      "sha256": "1eab0d0224e6bf8502416686782690bc0cc3970defe46b1a11a65d97db87a078"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Hashing.cc.o",
+      "bytes": 578992,
+      "sha256": "4d0b70408dea1dc7ad3fd52e0f1dbd67f15e985347f515532ffe9243dc0b51a0"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Tensor.cc.o",
+      "bytes": 655208,
+      "sha256": "0c58c572ef3f2bc2b1353426428dadf563b42c5fd44965d81925999ebd849033"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/Dram.cc.o",
+      "bytes": 689360,
+      "sha256": "99941342dba3add0b976605342f08ee20caf92ea3787b9977d069c8d40db8aed"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/models/LanguageModel.cc.o",
+      "bytes": 842320,
+      "sha256": "cdaa09120480d36f21fa75bc703d5a415155588987317300cccc2ab4dfa8425c"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/models/MatmulModel.cc.o",
+      "bytes": 694280,
+      "sha256": "8153c71751eb576112171166f3c7cf4f4be7d50dca0e89946c744cc9d8470f65"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/helper/CommandLineParser.cc.o",
+      "bytes": 589464,
+      "sha256": "7c521cbe5ba42254fefe9dc268fa0571318ddac65d33064fc0d7e63c53dfaaf8"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/Dummy.cc.o",
+      "bytes": 681224,
+      "sha256": "fb985d02f34226edcb21c7c9e2a240d9955a96ca8f13137b17692ab60c2d8778"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/OperationFactory.cc.o",
+      "bytes": 706208,
+      "sha256": "be197f05435abd2b9265102f449cab0e533eafc752397f5befdb15fa5fa43b26"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/SkipLayerNorm.cc.o",
+      "bytes": 694680,
+      "sha256": "9e6aa0d11151da31928c547e4f6a6369a40fb7c65e2ae389ffb9f0e107801b66"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/GemmOS.cc.o",
+      "bytes": 604392,
+      "sha256": "07f191d0bcfc64d9d9077efd906c024362bee98be407b45467ffb4b93c0c93cf"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/Flatten.cc.o",
+      "bytes": 686640,
+      "sha256": "ce9597dfc58eef85a075e017c3c0576590044329055550b6295eec78fdf125b8"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/ConvOS.cc.o",
+      "bytes": 678896,
+      "sha256": "2f4a6475f180f67522417851f08f20d1e9534b911eb991ad356f0f9596f18bc5"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/Softmax.cc.o",
+      "bytes": 685064,
+      "sha256": "7049437a0ab15184c7fca598bab1fc35355c3f37cc907084b536a0232ac66d08"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/Attention.cc.o",
+      "bytes": 790888,
+      "sha256": "5f5e4863668e6548de4d26b7a884a3123c1a458f0f44ad051d7dc0bd101c5873"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/Conv.cc.o",
+      "bytes": 723360,
+      "sha256": "a189f9170b82664da6efb3bd3c712e5536d6866f2ce7fe655891c397606c68ef"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/KVCacheConcat.cc.o",
+      "bytes": 723008,
+      "sha256": "1420d1454d3005d9c256f8c1e6061c1ccb087ff531078ded8ff37e430afd3253"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/SeriesInverseOp.cc.o",
+      "bytes": 708224,
+      "sha256": "c5eb85b2ba8a083bb2b907ff578f3e0d9f5107e12118a2dc969b16042bbbafa0"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/EmbedLayerNorm.cc.o",
+      "bytes": 680992,
+      "sha256": "b553b89c67a68626ff747309ee5922f4e1908c81aa827dc9deb4d96ccbd2809b"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/Concat.cc.o",
+      "bytes": 696888,
+      "sha256": "4fe71489330a10e79e9bb97924a2ab9b55d63aefcafa19044e532255c509fefe"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/GlobalAvgPool.cc.o",
+      "bytes": 674056,
+      "sha256": "36e0630ca2f47e6c0b791954b24316ad01951aa965326153d3c8be6dd1d0450c"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/Gemm.cc.o",
+      "bytes": 691232,
+      "sha256": "f68774243c0ba844d636b6d4e0f5727d9b2d4f8957679e146f444091c7517a9d"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/MaxPool.cc.o",
+      "bytes": 692792,
+      "sha256": "180b9136dfc05a0d854a848e86b604eaed923a4b1e1bfd4fd62b070933873404"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/AdaptiveAvgPool.cc.o",
+      "bytes": 691320,
+      "sha256": "2eea95b35bc6e1ea5061ae35631a84b79a949678774e6f619ababf4488f33f86"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/BiasGelu.cc.o",
+      "bytes": 686280,
+      "sha256": "2d166eea3f4e935b53bff5b1fde71085cbe1993f1360a4a6b5950196ee04b47d"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/GemmWS.cc.o",
+      "bytes": 720072,
+      "sha256": "3e1da1889953a099e7a8afa2ec032e8a67351faef283cbaa1d151d78abe08c52"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/ConvWS.cc.o",
+      "bytes": 749312,
+      "sha256": "2892fc0763ab2d107fbbda85dd40b9357c9dbe01b5a8b2389956fc8d925197b7"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/Operation.cc.o",
+      "bytes": 787264,
+      "sha256": "2123906f6e62c1bc2e141253eb8e0aa78de75a63a5acf7bba40708a576ee1494"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/operations/BiasAct.cc.o",
+      "bytes": 704792,
+      "sha256": "24b4462ecd00a19b31f83231aa10579fc1427042642fb9d230466a795c42f550"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/semantic/RwProbeModel.cc.o",
+      "bytes": 721536,
+      "sha256": "ff3e1728d4f2d6af8b4ac0ef226f7732d574b1d160b74cd480deca093ce4c3a4"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/semantic/ProgramModel.cc.o",
+      "bytes": 772976,
+      "sha256": "00b91efb2eece5dbf01eb4a0197ca348b21abd1fd13202468b485126f73eb9e8"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/semantic/InstructionExport.cc.o",
+      "bytes": 703576,
+      "sha256": "462e5d2705f95b044d4e81ec5b9de1e85c1d1a781d3786865fd9c8eba5c2c113"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/semantic/ScalarCostProbeModel.cc.o",
+      "bytes": 717704,
+      "sha256": "a9982abe4af6d23cfe09641ab2276fbde57322165c09b1e386b00c2e566631dc"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/scheduler/Scheduler.cc.o",
+      "bytes": 832168,
+      "sha256": "309502e9cb775927debb735361335bb718423b5f467bf544865fac4571b73ef0"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/scheduler/LanguageScheduler.cc.o",
+      "bytes": 773920,
+      "sha256": "4b0e1bf090bf9a46e6e85d783d6942ad4f7f9ec58fbe0d5484aea9bf47d87c2d"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/scheduler/IterLevelScheduler.cc.o",
+      "bytes": 593744,
+      "sha256": "7a1bb9fcd3dbb3e915077254e0780f865cddd0117621b221d21fbfeea5437fcb"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/bri_stable_hb/BRIStableHBModel.cc.o",
+      "bytes": 894128,
+      "sha256": "16fefd24cf3ada2b1e8ae7f055a3825d369a2bb0edefb444ed25a9da68e6dea5"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/ldl_explicit/LDLExplicitModel.cc.o",
+      "bytes": 814120,
+      "sha256": "7fdc7a9bd7f99c54b599b0dd349e3ae603890cccf3df6a3e1853fa49dd2dab7e"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/cholesky_noblock/CholeskyNoBlockMergeOp.cc.o",
+      "bytes": 760032,
+      "sha256": "a5cbdda7b888728a8fff6dcca390265586b730e0685a1c59f5e44d7969ea0de1"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/cholesky_noblock/CholeskyNoBlockMergeModel.cc.o",
+      "bytes": 638912,
+      "sha256": "eb0728077e6efaafcc9a5b723654d2566addf5b8766a78ea9ef334ee28dff83c"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/cholesky_noblock/CholeskyNoBlockBaselineModel.cc.o",
+      "bytes": 638976,
+      "sha256": "f5583f3f3246b440519fbfd10ca3fdb4cfed22d66c425571bffc701314503bde"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/cholesky_noblock/CholeskyNoBlockBaselineOp.cc.o",
+      "bytes": 772168,
+      "sha256": "2f208bb6378562363befd3a54b15abcf50eb4149f5f7740160df1ce44ad89e9d"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/ldl_block/LDLBlockBaselineModel.cc.o",
+      "bytes": 641336,
+      "sha256": "0ef7bfcf43f47c72d462e9ebbd2fd681d3cfc8b29da15ad509a69c7feb1afd8d"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/ldl_block/LDLBlockBaselineOp.cc.o",
+      "bytes": 781560,
+      "sha256": "860c2d2fa2138023542ddff994e456384dfe85490265dd608b2efe1f79f0ccdb"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/cholesky_explicit/CholeskyExplicitModel.cc.o",
+      "bytes": 822776,
+      "sha256": "f8a2dbb23d59d8ffeee00194a1411f153eff70a824d068f50144ec95b6c8754f"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/ns_corrected/NSCorrectedModel.cc.o",
+      "bytes": 793208,
+      "sha256": "cb4306885ad6ca082160db0eb736b886bd48786fa5b5f167962681079a51c1b2"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/structured_solve/StructuredSolveModel.cc.o",
+      "bytes": 847504,
+      "sha256": "0d72554adc982ad1f42eb08e281504cb8b624d941421427d8f10d35412ea6e50"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/bri_explicit/BRIExplicitModel.cc.o",
+      "bytes": 838448,
+      "sha256": "34869bf2e786458518d5a02fd72b8f924d318951e776d35cf7d2260d6462ed6e"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/bri_implicit/BRIImplicitModel.cc.o",
+      "bytes": 863456,
+      "sha256": "e17bd790d69ebdb10705749aca88ad955696d9f0f9570e2284191e8cbe089597"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/newton_schulz/NewtonSchulzBaselineOp.cc.o",
+      "bytes": 711208,
+      "sha256": "0e430594670879d361d0495366764d465de4c642e675a897efd77352ab60a44e"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/newton_schulz/NewtonSchulzOp.cc.o",
+      "bytes": 708288,
+      "sha256": "d654f4587d92dbda2e847ea7e99105ea93c26386f434b423e064f9839f80b9ae"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/newton_schulz/NewtonSchulzBaselineModel.cc.o",
+      "bytes": 642176,
+      "sha256": "ecfd515c8d342797f413da8c2f11f35c98eaae6bf3eba1c3ee428af4080f8e2d"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/ldl_noblock/LDLNoBlockBaselineOp.cc.o",
+      "bytes": 794120,
+      "sha256": "caf5f528293c743d6dcfc5826052f09d37bd8206a69dd2dcd380b5dc26276b1e"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/ldl_noblock/LDLNoBlockBaselineModel.cc.o",
+      "bytes": 638880,
+      "sha256": "1040536b4b6ef20cb103c8209ef6910f3284144c432e00181f444a350cd07256"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/cholesky_block/CholeskyBlockBaselineModel.cc.o",
+      "bytes": 641472,
+      "sha256": "2fd66135b4dc78a922bdd64d8ad7dc2ceb2d00dd75e21e44c27f7ba31f33300c"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/cholesky_block/CholeskyBlockBaselineOp.cc.o",
+      "bytes": 780024,
+      "sha256": "ffc044c30b113177d8d2f861dbd392d90a04e9eba8667a64d87f0122e78dc555"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/block_richardson/BlockRichardsonBaselineModel.cc.o",
+      "bytes": 638784,
+      "sha256": "3cabd23d7af3c61d8d344e4dd6fe5ea8346874094b53c764a539529157a2159c"
+    },
+    {
+      "path": "/home/nanajiang/asim-worktrees/s1-clean/codex/build/CMakeFiles/Simulator.dir/src/inverse/block_richardson/BlockRichardsonBaselineOp.cc.o",
+      "bytes": 763024,
+      "sha256": "12f3eb97f161f600edeb2720a6ed2218f2d282bdbff96ff2885ae33939d41e5e"
+    }
+  ]
+}

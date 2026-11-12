@@ -1,6 +1,8 @@
 # Asim 研究与 Codex 自动化计划
 
-2026-11-11 精简双客户端基线：完整研究已远程归档，当前分支保留共享Asim/重建/参考，Codex与Claude Code使用相同数值硬门禁。当前受监督，portable Git构建整合和自动候选控制后续实现。见[双客户端计划与命令](AGENT_WORKFLOW.md)。
+2026-11-12：S1两个全新Linux检出冷构建及六类门禁通过；Claude Code＋DeepSeek实际生成新仿射GEMM算子，反馈修复编译错误后，九组864batch真实Asim/重建与独立FP16逐位一致，最大FP64任务误差0.0353%。真实错误输入负例Asim正常但REPLAY_MISMATCH并拒绝评分。原六类新二进制回归状态以[本轮报告](../../experiments/claude_operator/2026-11-11-v1/README.md)为准；[使用与原理](CLAUDE_NEW_OPERATOR.md)、[便携构建验收](../../experiments/deployment/2026-11-11-s1-v1/README.md)。该任务不涉及无线通信，任务内demo分数不代表M3或S2整体完成。
+
+2026-11-11 精简双客户端基线：完整研究已远程归档，当前分支保留共享Asim/重建/参考，Codex与Claude Code使用相同数值硬门禁。当前受监督，portable Git构建S1已完成，持久候选控制后置。见[双客户端计划与命令](AGENT_WORKFLOW.md)。
 
 2026-11-10 专家Linux x86_64／WSL2源码部署包已生成：六类修正入口各96batch真实Asim/重建与独立FP16位一致、2% MMSE门禁通过；250测试中248通过、2可选依赖跳过；含空格目录迁移NS和解压SHA/篡改负例通过。交付不含数据/结果/build/账号；WSL2及跨主机未实测，不升级CDL/通信/硬件/性能状态。见[交付入口](../../expert_delivery/README.md)、[验收报告](../../experiments/distribution/2026-11-10-v1/README.md)。原BRI内循环基线与后续计划不变。
 

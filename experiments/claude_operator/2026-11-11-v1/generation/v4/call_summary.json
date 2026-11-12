@@ -1,0 +1,13 @@
+{
+  "returncode": 0,
+  "wall_seconds": 278.5519175339723,
+  "reasoning_time_seconds": null,
+  "bare": true,
+  "tools": [],
+  "effort": "low",
+  "max_output_tokens": 32768,
+  "max_thinking_tokens": 0,
+  "artifact_protocol": "validated JSON files bundle; no model filesystem permissions",
+  "credentials": "existing user configuration passed in memory only",
+  "stderr_present": true
+}

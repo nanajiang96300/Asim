@@ -11,7 +11,10 @@
 git worktree add -b codex/my-affine-candidate ../my-affine-candidate HEAD
 python3 scripts/claude_codegen.py --task-file agent_profiles/recipes/affine_gemm_v1.txt \
   --apply-root ../my-affine-candidate --replace-candidate-files --output results/my-affine-proposal
-# 检查receipt与git diff，只允许设计文档及该算子.h/.cc；冻结commit后独立审计。
+# 检查receipt与git diff，只允许设计文档及该算子.h/.cc；独立审计后冻结：
+git -C ../my-affine-candidate diff --check
+git -C ../my-affine-candidate add DOCS/operators/AFFINE_GEMM_DEMO_V1.md src/inverse/affine_gemm_v1/AffineGemmModel.h src/inverse/affine_gemm_v1/AffineGemmModel.cc
+git -C ../my-affine-candidate commit -m "Freeze generated affine candidate"
 # 构建/评估在该候选目录中串行执行：
 cd ../my-affine-candidate
 python3 scripts/bootstrap.py --jobs 1
@@ -33,6 +36,21 @@ Asim真实周期仿真先行；真实Core读写/trace与指令绑定通过才执
 三条数值路径独立：实际指令重放；冻结Python同算法FP16参考（逐位一致）；原始double输入的FP64任务参考（2%相对Frobenius误差门限）。测试3种含非方形的16对齐形状、3seed、batch96，每seed含零输入/零偏置/符号零边界。不同形状不合成同一性能排行榜。
 
 评分由可信脚本在完整数值/事件验收后计算；本例同输入同实现重复基线的cycles比值只演示评分串接，research_score=null、promotion=false，不宣称优化收益。Asim过而数值错的真实负例必须拒绝评分。受监督审计、提交和人工反馈尚未被持久自动控制器取代。
+
+```mermaid
+flowchart TD
+    P[冻结 Python 原型与任务] --> A[Claude Code + DeepSeek 提议源码]
+    A --> F[审计、冻结版本、独立构建]
+    F --> S[真实 Asim]
+    S --> G[指令、Core事件、性能预筛]
+    G --> R[实际指令数值重放]
+    P --> N[独立同算法 FP16 参考]
+    P --> H[独立 FP64 任务参考]
+    R --> C[逐位一致与任务精度门禁]
+    N --> C
+    H --> C
+    C --> Q[可信评分与归档]
+```
 
 ## 本机兼容经验
 
