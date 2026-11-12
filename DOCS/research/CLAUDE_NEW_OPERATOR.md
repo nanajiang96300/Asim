@@ -15,9 +15,9 @@ python3 scripts/claude_codegen.py --task-file agent_profiles/recipes/affine_gemm
 # 构建/评估在该候选目录中串行执行：
 cd ../my-affine-candidate
 python3 scripts/bootstrap.py --jobs 1
-# 硬件配置内dram_config_path/icnt_config_path改为本检出的有效路径，另存results/local-config.json。
+# 默认配置的外部文件路径相对build；改用其他cwd时须显式提供有效配置。
 OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/affine_acceptance.py \
-  --binary build/bin/Simulator --config results/local-config.json --cwd build --output results/affine-run
+  --binary build/bin/Simulator --config configs/ascend_910b_quiet.json --cwd build --output results/affine-run
 ```
 
 该任务模板、类/运行mode和可信affine任务集成已由负责人冻结。新算法不能只改名称套此任务：负责人须新增独立Python算法、任务输入输出/精度/计时契约和注册，保留共同Asim/事件/重放核心。候选Agent不允许修改这些可信文件。现helper是本例三文件提议协议，不是任意任务或持久协调器。
