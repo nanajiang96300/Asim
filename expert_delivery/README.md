@@ -1,5 +1,10 @@
 # Asim 专家部署交付
 
+2026-11-12最新交付：`asim-claude-guide-v1.tar.gz`（约42MB），旁附`.sha256`和`asim-claude-guide-v1-使用说明.md`。源码/六类及变体/affine/可信验证/技能和离线依赖，不含研究数据/结果/build/凭据；包内先读使用说明.md。已在新空格路径完成解压SHA、离线依赖与CMake配置、254测试（2可选跳过）＋8框架测试、九场景affine与六类真实Asim/重建回归。此轮复用字节绑定的封存binary，未再次冷编译；OpenCode仅接入指南尚未实测。
+
+固定源码标签`asim-claude-guide-v1-20261112`，SOURCE_VERSION.json对应675cd233；手册在精简分支DOCS/CLAUDE_CODE_USER_GUIDE.md，验收在experiments/distribution/2026-11-12-claude-guide-v1/。下列旧包保留为历史版本，不覆盖。
+
+
 交付包：[asim-expert-v1.tar.gz](asim-expert-v1.tar.gz)（35.67 MiB），[SHA-256](asim-expert-v1.tar.gz.sha256)。
 
 校验值：`1583732bcc831e6bb6d9bcf61403eacb1af8662ac15a486d336550558fab2387`。

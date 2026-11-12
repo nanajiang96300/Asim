@@ -1,5 +1,8 @@
 # 2026-11-12 最新交接：便携构建与真实新算子已验收
 
+2026-11-12补充交付：Claude完整中文使用手册已覆盖部署/新算子/优化迭代/OpenCode等平台接入；本目录expert_delivery/asim-claude-guide-v1.tar.gz为无数据离线源码包，已完成解压校验和重建回归，见expert_delivery/README.md。固定标签asim-claude-guide-v1-20261112，源码675cd233；最新手册及验收报告在精简分支。临时验证数据已清，旧研究不动。OpenCode尚未实测，本轮没有再冷编译，不改算法。
+
+
 以下S0记录保留为历史快照，当前状态以本节及精简分支验收报告为准；原研究源码/BRI默认基线没有切换。
 
 - core `28d3ea7a`；Codex `fae35ed2`；Claude `e62e9b72`，三个分支已推送，客户端相对core仅agent_profiles/active.json不同。
